@@ -29,8 +29,8 @@ echo "data/players.parquet $B/players/players.parquet" >> "$REQ"
 echo "data/contracts.parquet $B/contracts/historical_contracts.parquet" >> "$REQ"
 echo "data/combine.parquet $B/combine/combine.parquet" >> "$REQ"
 # required files: any failure stops the script (as before); optional ones may be missing upstream
-xargs -P 8 -L 1 sh -c 'curl -sfL --retry 3 -o "$0" "$1"' < "$REQ"
-xargs -P 8 -L 1 sh -c 'curl -sfL --retry 3 -o "$0" "$1" || true' < "$OPT"
+xargs -P 8 -L 1 sh -c 'curl -sfL --retry 5 --retry-all-errors --retry-delay 5 -o "$0" "$1"' < "$REQ"
+xargs -P 8 -L 1 sh -c 'curl -sfL --retry 5 --retry-all-errors --retry-delay 5 -o "$0" "$1" || true' < "$OPT"
 rm -f "$REQ" "$OPT"
 cp data/depth/depth_$CUR.parquet data/depth_raw.parquet
 python3 - "$CUR" <<'EOF'
