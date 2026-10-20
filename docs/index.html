@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NFL Player Projections</title>
+<title>Fantasy Oracle</title>
 <link rel="stylesheet" href="theme.css">
 <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
 <script src="dash-shim.js"></script>
@@ -225,6 +225,9 @@
 .nf-flag.good { color: var(--color-ok); } .nf-flag.bad { color: var(--color-bad); }
 .nf-table tr.nf-divider td { padding-top: 14px; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); text-transform: uppercase; letter-spacing: .05em; background: transparent; }
 .nf-table tr.nf-benchrow td { color: var(--color-fg-muted); }
+#team .nf-tablebox { max-height: none; }
+#team .nf-flag { white-space: normal; }
+#team .nf-table td:last-child { min-width: 9rem; }
 .nf-team-meta { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
 </style>
 

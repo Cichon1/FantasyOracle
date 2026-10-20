@@ -1,0 +1,46 @@
+# Diagnostic: checks which free game-day inactives sources answer from GitHub's machines and saves samples.
+name: Probe sources
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch samples
+        run: |
+          mkdir -p automation/probe
+          UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36"
+          get() { code=$(curl -sL -m 30 -A "$UA" -o "automation/probe/$1" -w '%{http_code}' "$2"); echo "$1 $code $(wc -c < automation/probe/$1)" >> automation/probe/summary.txt; }
+          : > automation/probe/summary.txt
+          get fp_inactives.html "https://www.fantasypros.com/nfl/inactives.php"
+          get espn_scoreboard.json "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?week=6&seasontype=2&dates=2026"
+          EV=$(python3 -c "import json;d=json.load(open('automation/probe/espn_scoreboard.json'));print(d['events'][0]['id'])" 2>/dev/null || echo "")
+          echo "event $EV" >> automation/probe/summary.txt
+          [ -n "$EV" ] && get espn_summary.json "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=$EV"
+          get espn_core_inj.json "https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/teams/12/injuries?limit=100"
+          get sleeper_players.json "https://api.sleeper.app/v1/players/nfl"
+          get nfl_injuries.html "https://www.nfl.com/injuries/"
+          # keep samples small
+          for f in automation/probe/*; do [ "$(basename $f)" = summary.txt ] || head -c 400000 "$f" > "$f.tmp" && mv "$f.tmp" "$f"; done
+          python3 - <<'PY'
+          import json
+          try:
+              d=json.load(open('automation/probe/sleeper_players.json'))
+          except Exception as e:
+              print('sleeper parse', e); raise SystemExit
+          PY
+          cat automation/probe/summary.txt
+      - name: Save
+        run: |
+          git config user.name "fantasy-oracle-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add automation/probe
+          git commit -m "Probe samples" || exit 0
+          git pull --rebase -X theirs origin main
+          git push
