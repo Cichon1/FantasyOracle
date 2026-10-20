@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-20T16:07:22+00:00",
+ "updated": "2026-10-20T17:14:02+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 6,
@@ -8,7 +8,7 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 15,
+   "seconds": 43,
    "ok": true
   },
   {
@@ -18,17 +18,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 3,
+   "seconds": 5,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 38,
+   "seconds": 39,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 19,
+   "seconds": 20,
    "ok": true
   }
  ],
@@ -85,7 +85,7 @@
     ],
     [
      "Drake Maye",
-     200.7
+     199.9
     ],
     [
      "Joe Burrow",
