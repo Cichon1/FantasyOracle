@@ -1,14 +1,14 @@
 {
- "updated": "2026-10-20T21:31:04+00:00",
+ "updated": "2026-10-20T22:02:22+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 6,
  "games_started": false,
- "reason": "injury_news",
+ "reason": "schedule_and_lines",
  "steps": [
   {
    "step": "bash",
-   "seconds": 41,
+   "seconds": 45,
    "ok": true
   },
   {
@@ -18,7 +18,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 2,
+   "seconds": 1,
    "ok": true
   },
   {
@@ -28,12 +28,12 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 1,
+   "seconds": 0,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 38,
+   "seconds": 39,
    "ok": true
   },
   {
@@ -51,8 +51,8 @@
    "total": 0
   },
   "inactive_rows": 0,
-  "players": 352,
-  "upcoming": 352,
+  "players": 351,
+  "upcoming": 351,
   "season_scoreboard": {
    "model": 0.3724,
    "experts": 0.3657,
@@ -71,7 +71,7 @@
   "week": 7,
   "last_week": 17,
   "players": 465,
-  "out_this_week": 61,
+  "out_this_week": 62,
   "on_bye": 52,
   "this_week_source": "official",
   "training_snapshots": 47931,
@@ -133,7 +133,7 @@
    "WR": [
     [
      "Puka Nacua",
-     210.3
+     210.2
     ],
     [
      "Amon-Ra St. Brown",
@@ -149,13 +149,13 @@
  "injuries_live": {
   "nfl_week": 6,
   "nfl_rows": 376,
-  "espn_out": 5,
+  "espn_out": 6,
   "espn_unmatched": [
    "C.J. Gardner-Johnson (BUF)",
    "Terry McLaurin (WAS)"
   ],
-  "hash": "a41a665a5f3c",
-  "rows_added": 5,
+  "hash": "cc1e13fdd38a",
+  "rows_added": 6,
   "values_updated": 0
  }
 }
