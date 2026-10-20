@@ -1,19 +1,19 @@
 {
- "updated": "2026-10-20T12:39:43+00:00",
+ "updated": "2026-10-20T13:19:58+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 6,
  "games_started": false,
- "reason": "schedule_and_lines",
+ "reason": "schedule_and_lines,injury_reports,depth_charts,rosters",
  "steps": [
   {
    "step": "bash",
-   "seconds": 20,
+   "seconds": 15,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 3,
+   "seconds": 2,
    "ok": true
   },
   {
@@ -23,12 +23,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 182,
+   "seconds": 32,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 35,
+   "seconds": 15,
    "ok": true
   }
  ],
@@ -41,8 +41,8 @@
    "total": 0
   },
   "inactive_rows": 0,
-  "players": 362,
-  "upcoming": 362,
+  "players": 353,
+  "upcoming": 353,
   "season_scoreboard": {
    "model": 0.3724,
    "experts": 0.3657,
@@ -61,7 +61,7 @@
   "week": 7,
   "last_week": 17,
   "players": 465,
-  "out_this_week": 51,
+  "out_this_week": 60,
   "on_bye": 52,
   "this_week_source": "official",
   "training_snapshots": 47945,
@@ -71,10 +71,10 @@
    "WR/TE": 50
   },
   "experts_ros_date": "2026-10-16 00:00:00",
-  "seconds": 34,
+  "seconds": 14,
   "model_cache": {
-   "hit": 6,
-   "miss": 12,
+   "hit": 18,
+   "miss": 0,
    "on": true
   },
   "top": {
