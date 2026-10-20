@@ -300,15 +300,19 @@
     </div>
     <div class="nf-card" id="team-trades-card">
       <h2>Trade finder</h2>
-      <p class="nf-note">Trades with every other team in this league that make your best weekly lineup better <b>and</b>
-      make theirs better too — the ones they have a reason to accept — ranked by what the trade adds for both sides. Values are rest-of-season points per week in this
+      <p class="nf-note"><b>Win-win</b>: trades that make your best weekly lineup better <b>and</b> theirs too.
+      <b>Fleece</b>: trades that help you and actually hurt them, but look good to them going by market value (the
+      experts' rest-of-season ranks and, where available, what real fantasy trades pay). <b>Long shots</b>: trades that
+      hurt them a lot but look roughly fair on market value — the ones a manager who doesn't dig into the numbers
+      might accept. "Looks like" is their change going by market value; "Them / wk" is what our model says it really does. Values are rest-of-season points per week in this
       league's scoring (missed games count as zero), filled into each team's lineup slots before and after the trade.
       One-for-one, two-for-one and one-for-two; for uneven trades the side getting two players has to drop someone, which
       isn't counted. Open the Trade analyzer to check a trade in full.</p>
+      <div class="nf-controls" id="team-trade-mode" role="group" aria-label="Trade type"></div>
       <div class="nf-controls" id="team-trade-kind" role="group" aria-label="Trade size"></div>
       <div class="nf-tablebox">
         <table class="nf-table" id="team-trade-table">
-          <thead><tr><th class="nf-l">You give</th><th class="nf-l">You get</th><th class="nf-l">With</th><th>You / wk</th><th>Them / wk</th></tr></thead>
+          <thead><tr><th class="nf-l">You give</th><th class="nf-l">You get</th><th class="nf-l">With</th><th>You / wk</th><th>Them / wk</th><th>Looks like to them</th></tr></thead>
           <tbody></tbody>
         </table>
       </div>
@@ -1363,7 +1367,12 @@ dash.onData(() => {
     });
   }
   // ---------------------------------------------------------------- trade finder
-  const tst = { kind: 'All' }, kindBox = document.getElementById('team-trade-kind');
+  const tst = { kind: 'All', mode: 'Win-win' }, kindBox = document.getElementById('team-trade-kind'), modeBox = document.getElementById('team-trade-mode');
+  ['Win-win', 'Fleece', 'Long shots'].forEach((k) => {
+    const b = document.createElement('button'); b.className = 'nf-chip'; b.textContent = k; b.setAttribute('aria-pressed', k === tst.mode);
+    b.addEventListener('click', () => { tst.mode = k; modeBox.querySelectorAll('button').forEach((c) => c.setAttribute('aria-pressed', c.textContent === k)); drawTrades(); });
+    modeBox.append(b, ' ');
+  });
   ['All', '1 for 1', '2 for 1', '1 for 2'].forEach((k) => {
     const b = document.createElement('button'); b.className = 'nf-chip'; b.textContent = k; b.setAttribute('aria-pressed', k === tst.kind);
     b.addEventListener('click', () => { tst.kind = k; kindBox.querySelectorAll('button').forEach((c) => c.setAttribute('aria-pressed', c.textContent === k)); drawTrades(); });
@@ -1373,23 +1382,25 @@ dash.onData(() => {
   function drawTrades() {
     const tb = document.querySelector('#team-trade-table tbody'); tb.replaceChildren();
     const L = dash.data('leagues'), RO = dash.data('league_rosters'), R = dash.data('ros');
-    if ([L, RO, R].some((d) => d.status !== 'ok') || !st.league) { message(tb, 5, '—'); return; }
+    if ([L, RO, R].some((d) => d.status !== 'ok') || !st.league) { message(tb, 6, '—'); return; }
+    const TM = dash.data('trade_market');
     const lg = L.data.find((l) => String(l.league_id) === st.league);
     const key = st.league + '|' + RO.data.length + '|' + R.data.length + '|' + d3.max(RO.data, (p) => p.pulled_at);
-    if (tradeCache.key !== key) tradeCache = { key, rows: findTrades(lg, RO.data, R.data) };
-    const rows = tradeCache.rows.filter((t) => tst.kind === 'All' || t.kind === tst.kind).slice(0, 20);
-    if (!rows.length) { message(tb, 5, 'No trades found that help you without hurting them. Try again after the next roster pull.'); return; }
+    if (tradeCache.key !== key) tradeCache = { key, rows: findTrades(lg, RO.data, R.data, TM.status === 'ok' ? TM.data : []) };
+    const rows = (tradeCache.rows[tst.mode] || []).filter((t) => tst.kind === 'All' || t.kind === tst.kind).slice(0, 20);
+    if (!rows.length) { message(tb, 6, 'None found for this league right now. Try another size or check back after the next roster pull.'); return; }
     rows.forEach((t) => {
       const tr = document.createElement('tr');
       cell(tr, t.give.map((x) => x.name + ' (' + x.pos + ')').join(' + '), 'nf-l');
       cell(tr, t.get.map((x) => x.name + ' (' + x.pos + ')').join(' + '), 'nf-l');
       cell(tr, t.team, 'nf-l nf-muted');
       cell(tr, sg(t.me), 'nf-good');
-      cell(tr, sg(t.them), t.them >= 0.25 ? 'nf-good' : 'nf-muted');
+      cell(tr, sg(t.them), t.them >= 0.25 ? 'nf-good' : t.them < 0 ? 'nf-bad' : 'nf-muted');
+      cell(tr, sg(t.look), t.look >= 0 ? 'nf-good' : 'nf-muted');
       tb.appendChild(tr);
     });
   }
-  function findTrades(lg, rosters, rosRows) {
+  function findTrades(lg, rosters, rosRows, market) {
     const ros = new Map(rosRows.map((r) => [r.key, r]));
     const slots = String(lg.lineup || '').split(' ').filter((x) => elig(x).length);
     const order = slots.slice().sort((a, b) => elig(a).length - elig(b).length);
@@ -1399,41 +1410,64 @@ dash.onData(() => {
       .forEach((p) => {
         const r = ros.get(p.ros_key);
         if (!teams.has(p.team_id)) teams.set(p.team_id, { name: p.team, me: String(p.is_me) === '1', players: [] });
-        teams.get(p.team_id).players.push({ name: p.player, pos: p.pos, v: val(r), key: p.ros_key });
+        teams.get(p.team_id).players.push({ name: p.player, pos: p.pos, v: val(r), key: p.ros_key, r });
       });
-    const lineup = (ps) => {
-      const pool = ps.slice().sort((a, b) => b.v - a.v), used = new Set(); let t = 0;
-      order.forEach((s) => { const x = pool.find((y) => !used.has(y) && elig(s).includes(y.pos)); if (x) { used.add(x); t += x.v; } });
+    // market value on the same scale: the points per week our model gives the player at his market rank (same
+    // position) - from the experts' ROS rank and, where at least 20 real trades price him, the trade market's rank
+    const curve = {};
+    rosRows.filter((r) => SKILL.includes(r.pos)).forEach((r) => (curve[r.pos] = curve[r.pos] || []).push(val(r)));
+    Object.values(curve).forEach((c) => c.sort((a, b) => b - a));
+    const nkey = (x) => String(x).normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[.'’\-]/g, '')
+      .replace(/\b(jr|sr|ii|iii|iv|v)\b/g, '').replace(/\s+/g, ' ').trim();
+    const tmk = new Map(market.filter((t) => num(t.trades_10d) >= 20).map((t) => [nkey(t.player) + '|' + t.pos, num(t.market_rank_pos)]));
+    const atRank = (pos, k) => { const c = curve[pos] || []; return k >= 1 && c.length ? c[Math.min(c.length, Math.round(k)) - 1] : NaN; };
+    teams.forEach((t) => t.players.forEach((x) => {
+      const opts = [atRank(x.pos, num(x.r.expert_rank, NaN)), atRank(x.pos, tmk.get(nkey(x.name) + '|' + x.pos) || NaN)].filter((v) => !isNaN(v));
+      x.m = opts.length ? opts.reduce((a, b) => a + b, 0) / opts.length : x.v;
+    }));
+    const lineup = (ps, f = 'v') => {
+      const pool = ps.slice().sort((a, b) => b[f] - a[f]), used = new Set(); let t = 0;
+      order.forEach((s) => { const x = pool.find((y) => !used.has(y) && elig(s).includes(y.pos)); if (x) { used.add(x); t += x[f]; } });
       return t;
     };
     const me = [...teams.values()].find((t) => t.me);
     if (!me) return [];
-    const base = lineup(me.players), out = [];
+    const base = lineup(me.players), out = { 'Win-win': [], 'Fleece': [], 'Long shots': [] };
     const mine = me.players.slice().sort((a, b) => b.v - a.v);
     const combos = (arr, k) => (k === 1 ? arr.map((x) => [x]) : arr.flatMap((x, i) => arr.slice(i + 1).map((y) => [x, y])));
     for (const t of teams.values()) {
       if (t.me) continue;
-      const tb0 = lineup(t.players), theirs = t.players.slice().sort((a, b) => b.v - a.v);
+      const tb0 = lineup(t.players), tm0 = lineup(t.players, 'm'), theirs = t.players.slice().sort((a, b) => b.v - a.v);
       for (const [ng, nr, kind] of [[1, 1, '1 for 1'], [2, 1, '2 for 1'], [1, 2, '1 for 2']]) {
         const gives = combos(ng === 2 ? mine.slice(0, 10) : mine, ng), gets = combos(nr === 2 ? theirs.slice(0, 10) : theirs, nr);
         for (const g of gives) for (const r of gets) {
           const m2 = me.players.filter((x) => !g.includes(x)).concat(r), t2 = t.players.filter((x) => !r.includes(x)).concat(g);
-          const dm = lineup(m2) - base, dt = lineup(t2) - tb0;
-          if (dm >= 0.5 && dt >= 0.25) out.push({ give: g, get: r, team: t.name, me: dm, them: dt, kind });
+          const dm = lineup(m2) - base;
+          if (dm < 0.5) continue;
+          const dt = lineup(t2) - tb0, look = lineup(t2, 'm') - tm0, row = { give: g, get: r, team: t.name, me: dm, them: dt, look, kind };
+          if (dt >= 0.25) out['Win-win'].push(row);
+          else if (dt < 0 && look >= 0.25) out['Fleece'].push(row);
+          else if (dm >= 1 && dt <= -1 && look >= -0.75) out['Long shots'].push(row);
         }
       }
     }
     // best first by what the trade adds for both sides together (both must gain); at most two per trade partner and
     // per player you'd get, so the list shows different ideas instead of one deal in ten versions
-    out.sort((a, b) => (b.me + b.them) - (a.me + a.them));
-    const perTeam = new Map(), perGet = new Map(), kept = [];
-    for (const t of out) {
-      const gk = t.get.map((x) => x.key).join('+');
-      if ((perTeam.get(t.team + t.kind) || 0) >= 2 || (perGet.get(gk + t.kind) || 0) >= 2) continue;
-      perTeam.set(t.team + t.kind, (perTeam.get(t.team + t.kind) || 0) + 1); perGet.set(gk + t.kind, (perGet.get(gk + t.kind) || 0) + 1);
-      kept.push(t);
+    const rank = { 'Win-win': (t) => t.me + t.them, 'Fleece': (t) => t.me + t.look, 'Long shots': (t) => t.me + t.look };
+    const res = {};
+    for (const [mode, list] of Object.entries(out)) {
+      list.sort((a, b) => rank[mode](b) - rank[mode](a));
+      const perTeam = new Map(), perGet = new Map(), kept = [];
+      for (const t of list) {
+        const gk = t.get.map((x) => x.key).join('+');
+        if ((perTeam.get(t.team + t.kind) || 0) >= 2 || (perGet.get(gk + t.kind) || 0) >= 2) continue;
+        perTeam.set(t.team + t.kind, (perTeam.get(t.team + t.kind) || 0) + 1); perGet.set(gk + t.kind, (perGet.get(gk + t.kind) || 0) + 1);
+        kept.push(t);
+        if (kept.length >= 60) break;
+      }
+      res[mode] = kept;
     }
-    return kept;
+    return res;
   }
   dash.onData(draw);
   dash.onData(drawTrades);

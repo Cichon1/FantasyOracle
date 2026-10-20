@@ -98,6 +98,7 @@ def main():
             cat["datasets"].setdefault(did, {"file": f, "title": did})["updated"] = now
     subprocess.run([sys.executable, os.path.join(ROOT, "automation", "confidence.py"), SITE], check=True)
     subprocess.run([sys.executable, os.path.join(ROOT, "automation", "snapshots.py"), SITE])   # optional: never fails the update
+    subprocess.run([sys.executable, os.path.join(ROOT, "automation", "trade_market_pull.py"), SITE])   # optional, daily
     cat["updated"] = now
     cat["note"] = f"Week {w_proj} projections" if w_proj else "season complete"
     json.dump(cat, open(cat_path, "w"), indent=1)
