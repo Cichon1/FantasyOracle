@@ -120,6 +120,12 @@ def build(raw_path, ros_path, out_dir):
     sk = r["kind"] == "skill"
     m = r[sk].merge(ros[["n", "pos", "key"]].drop_duplicates(["n", "pos"]).rename(columns={"key": "ros_key"}),
                     on=["n", "pos"], how="left")
+    # names Yahoo shortens ("J. Croskey-Merritt"): first initial + last name + position, when that is unique in the ROS list
+    ini = lambda n: (n.split()[0][:1] + " " + n.split()[-1]) if len(n.split()) > 1 else n
+    ros["n2"] = ros["n"].map(ini)
+    u = ros.drop_duplicates(["n2", "pos"], keep=False).set_index(["n2", "pos"])["key"]
+    miss = m["ros_key"].isna()
+    m.loc[miss, "ros_key"] = [u.get((ini(n), p)) for n, p in zip(m.loc[miss, "n"], m.loc[miss, "pos"])]
     r = pd.concat([m, r[~sk]], ignore_index=True)
     r["league"] = r["league_id"].map(SHORT)
     r["is_me"] = [int(MY_TEAM[a] == b) for a, b in zip(r["league_id"], r["team_id"])]

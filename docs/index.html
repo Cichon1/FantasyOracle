@@ -212,16 +212,29 @@
   .nf-table input[type="checkbox"] { width: 20px; height: 20px; }
   .nf-about > summary { padding: 6px 12px; }
 }
+
+/* ---- Oct 20: confidence badges, My team tab, grouped tabs */
+.nf-conf { display: inline-flex; gap: 5px; align-items: baseline; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.nf-conf b { font-weight: var(--cds-font-weight-medium); }
+.nf-conf i { font-style: normal; font-size: var(--cds-font-size-caption); padding: 0 6px; border-radius: 999px; border: 1px solid currentColor; line-height: 1.5; }
+.nf-conf.hi { color: var(--color-ok); } .nf-conf.md { color: var(--color-warn); } .nf-conf.lo { color: var(--color-fg-muted); }
+.nf-tab-sep { align-self: center; color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); padding: 0 2px 0 10px; text-transform: uppercase; letter-spacing: .05em; }
+.nf-tab.nf-tab-minor { background: transparent; font-size: var(--cds-font-size-caption); padding: 5px 11px; }
+.nf-team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 30rem), 1fr)); gap: var(--cds-gap-lg); align-items: start; }
+.nf-flag { font-size: var(--cds-font-size-caption); color: var(--color-warn); white-space: nowrap; }
+.nf-flag.good { color: var(--color-ok); } .nf-flag.bad { color: var(--color-bad); }
+.nf-table tr.nf-divider td { padding-top: 14px; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); text-transform: uppercase; letter-spacing: .05em; background: transparent; }
+.nf-table tr.nf-benchrow td { color: var(--color-fg-muted); }
+.nf-team-meta { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
 </style>
 
 <div class="nf-page">
   <header class="nf-head" id="top">
-    <h1 id="page-title">NFL player projections · 2026</h1>
+    <h1 id="page-title">Fantasy Oracle · 2026</h1>
     <p class="nf-take" id="takeaway">
-      Model v5 projects every player expected to play, keeps finished games on display with actual stats, and blends its
-      ranking with the FantasyPros expert consensus. Tested honestly (2023–2026, each season unseen in training, using only
-      data available at the time and counting players who sat as zeros), the model alone ranks players with a rank
-      correlation of <b data-source="experts" data-field="spearman" data-where="source=Model v5" class="dash-skeleton">—</b> vs
+      Weekly and rest-of-season PPR projections for every QB, RB, WR and TE, your three Yahoo leagues' start / sit,
+      waiver wire and trade analyzer, refreshed automatically as new data posts. Tested on seasons it never saw
+      (2023–2026), the model alone ranks players with a rank correlation of <b data-source="experts" data-field="spearman" data-where="source=Model v5" class="dash-skeleton">—</b> vs
       <b data-source="experts" data-field="spearman" data-where="source=FantasyPros experts" class="dash-skeleton">—</b> for the experts,
       and the official blend reaches
       <b data-source="experts" data-field="spearman" data-where="source=Official (model + experts)" class="dash-skeleton">—</b>.
@@ -229,18 +242,54 @@
   </header>
 
   <nav class="nf-tabs" role="tablist" id="tabs">
-    <button class="nf-tab" role="tab" data-tab="projections" aria-selected="true">Projections</button>
+    <button class="nf-tab" role="tab" data-tab="team" aria-selected="true">My team</button>
+    <button class="nf-tab" role="tab" data-tab="projections" aria-selected="false">Weekly rankings</button>
     <button class="nf-tab" role="tab" data-tab="ros" aria-selected="false">Rest of season</button>
     <button class="nf-tab" role="tab" data-tab="trade" aria-selected="false">Trade analyzer</button>
-    <button class="nf-tab" role="tab" data-tab="matchups" aria-selected="false">Matchups</button>
-    <button class="nf-tab" role="tab" data-tab="style" aria-selected="false">Run game &amp; style</button>
-    <button class="nf-tab" role="tab" data-tab="weather" aria-selected="false">Weather</button>
-    <button class="nf-tab" role="tab" data-tab="experts" aria-selected="false">Vs experts</button>
-    <button class="nf-tab" role="tab" data-tab="model" aria-selected="false">Model</button>
+    <span class="nf-tab-sep" aria-hidden="true">More</span>
+    <button class="nf-tab nf-tab-minor" role="tab" data-tab="matchups" aria-selected="false">Matchups</button>
+    <button class="nf-tab nf-tab-minor" role="tab" data-tab="style" aria-selected="false">Run game &amp; style</button>
+    <button class="nf-tab nf-tab-minor" role="tab" data-tab="weather" aria-selected="false">Weather</button>
+    <button class="nf-tab nf-tab-minor" role="tab" data-tab="experts" aria-selected="false">Vs experts</button>
+    <button class="nf-tab nf-tab-minor" role="tab" data-tab="model" aria-selected="false">Model</button>
   </nav>
 
+  <!-- ============================== MY TEAM (Oct 20) -->
+  <section class="nf-panel" id="team" role="tabpanel">
+    <div class="nf-controls" id="team-leagues" role="group" aria-label="League"></div>
+    <div class="nf-team-grid">
+      <div class="nf-card" id="team-lineup-card">
+        <h2 id="team-lineup-title">Start / sit</h2>
+        <p class="nf-note">Your best lineup this week from the weekly projections in this league's scoring, filled slot by
+        slot (fixed slots first, then flex). <b>Start %</b> is the chance he finishes the week as a fantasy starter (top 12 QB
+        or TE, 24 RB, 36 WR); High is 65%+, Medium 35–65%, Low under 35%. Notes flag a change from the lineup set on Yahoo
+        and bench players within 1.5 points of a starter. Kickers, defenses and IDP are left to you.</p>
+        <p class="nf-team-meta" id="team-lineup-meta"></p>
+        <div class="nf-tablebox">
+          <table class="nf-table" id="team-lineup-table">
+            <thead><tr><th class="nf-l">Slot</th><th class="nf-l">Player</th><th class="nf-l">Opp</th><th>Proj</th><th>Start %</th><th class="nf-l">Note</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="nf-card" id="team-waiver-card">
+        <h2>Waiver wire</h2>
+        <p class="nf-note">Best players nobody in this league has rostered, by rest-of-season points per game in this league's
+        scoring (missed games expected as zero). <b>Upgrade</b> is how much more per game he projects than the weakest
+        player you have at his position.</p>
+        <div class="nf-controls" id="team-waiver-pos" role="group" aria-label="Position"></div>
+        <div class="nf-tablebox">
+          <table class="nf-table" id="team-waiver-table">
+            <thead><tr><th class="nf-l">Player</th><th class="nf-l">Pos</th><th>This wk</th><th>ROS / gm</th><th>ROS start %</th><th class="nf-l">Upgrade</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============================== PROJECTIONS -->
-  <section class="nf-panel" id="projections" role="tabpanel">
+  <section class="nf-panel" id="projections" role="tabpanel" hidden>
     <div class="nf-weekbar" id="week-chips" role="group" aria-label="Week"><span class="nf-label">Week</span></div>
     <div class="nf-tiles">
       <div class="nf-card nf-tile">
@@ -267,7 +316,7 @@
 
     <div class="nf-card" id="proj-card">
       <h2 id="proj-title">Projections</h2>
-      <p class="nf-note" id="proj-note">Projected PPR points (official: the model's rank averaged with the FantasyPros weekly rank, with the model's own point totals handed out in that order) with a 10th–90th percentile range, the model-only projection, the experts' positional rank, and projected stats. Finished games show actual stats next to the projection, which was made without that game's result. From Week 6 (model v5.1), starting QBs are ordered 70% by a market anchor (the team's Vegas implied points times the QB's share of his team's fantasy points in his starts) and 30% by the model, which ranked QBs better than both the model alone and the experts in testing; QBs with fewer than four career starts get a calibrated boost, since models and experts alike under-project them. On Sundays the projections are refreshed again after each kickoff window's inactives are posted (about 90 minutes before kickoff): inactive players are shown as Inactive at 0 and their teammates are re-projected without them. Weeks before the current one were re-created after the fact by models trained only on games before each week; from Week 5 on, projections are made live.</p>
+      <p class="nf-note" id="proj-note"><b>Start %</b>: chance he finishes the week as a fantasy starter (top 12 QB or TE, 24 RB, 36 WR); High 65%+, Medium 35–65%, Low under 35% (checked on the 2026 weeks already played). Projected PPR points (official: the model's rank averaged with the FantasyPros weekly rank, with the model's own point totals handed out in that order) with a 10th–90th percentile range, the model-only projection, the experts' positional rank, and projected stats. Finished games show actual stats next to the projection, which was made without that game's result. From Week 6 (model v5.1), starting QBs are ordered 70% by a market anchor (the team's Vegas implied points times the QB's share of his team's fantasy points in his starts) and 30% by the model, which ranked QBs better than both the model alone and the experts in testing; QBs with fewer than four career starts get a calibrated boost, since models and experts alike under-project them. On Sundays the projections are refreshed again after each kickoff window's inactives are posted (about 90 minutes before kickoff): inactive players are shown as Inactive at 0 and their teammates are re-projected without them. Weeks before the current one were re-created after the fact by models trained only on games before each week; from Week 5 on, projections are made live.</p>
       <div class="nf-controls">
         <div id="pos-chips" role="group" aria-label="Position"></div>
         <div id="status-chips" role="group" aria-label="Status"></div>
@@ -284,6 +333,7 @@
             <th data-field="ppr_low" class="nf-hide-sm"><button data-col="ppr_low">Low</button></th>
             <th data-field="proj_ppr" aria-sort="descending"><button data-col="proj_ppr">Proj PPR</button></th>
             <th data-field="ppr_high" class="nf-hide-sm nf-l"><button data-col="ppr_high">High</button></th>
+            <th data-field="start_pct"><button data-col="start_pct">Start %</button></th>
             <th data-field="act_ppr"><button data-col="act_ppr">Actual</button></th>
             <th data-field="vs_proj" class="nf-hide-sm"><button data-col="vs_proj">+/−</button></th>
             <th data-field="proj_model" class="nf-hide-sm"><button data-col="proj_model">Model</button></th>
@@ -364,7 +414,7 @@
 
     <div class="nf-card" id="ros-card">
       <h2 id="ros-title">Rest-of-season rankings</h2>
-      <p class="nf-note">Official ROS PPR points (the model's rank averaged with the FantasyPros ROS rank within each position, with the model's own point totals handed out in that order) and a 10th–90th percentile range. Points are this week's official projection plus the games left after this week times a per-game rate (80% this week's projection, 20% a rest-of-season model that also weighs the remaining schedule and how often players like him miss games). Players out this week or on bye use the rest-of-season model alone. Rank is within the position; per game is ROS points over the games his team has left. Opp. allowed is the remaining opponents' PPR points allowed to the position relative to average (above 1.00 is an easier schedule).</p>
+      <p class="nf-note"><b>Start %</b>: chance his rest-of-season points finish at or above the 12th QB / 24th RB / 36th WR / 12th TE projection, from his calibrated range. Official ROS PPR points (the model's rank averaged with the FantasyPros ROS rank within each position, with the model's own point totals handed out in that order) and a 10th–90th percentile range. Points are this week's official projection plus the games left after this week times a per-game rate (80% this week's projection, 20% a rest-of-season model that also weighs the remaining schedule and how often players like him miss games). Players out this week or on bye use the rest-of-season model alone. Rank is within the position; per game is ROS points over the games his team has left. Opp. allowed is the remaining opponents' PPR points allowed to the position relative to average (above 1.00 is an easier schedule).</p>
       <div class="nf-controls">
         <div id="ros-pos-chips" role="group" aria-label="Position"></div>
         <div id="ros-status-chips" role="group" aria-label="Availability"></div>
@@ -381,6 +431,7 @@
             <th data-field="ros_low" class="nf-hide-sm"><button data-col="ros_low">Low</button></th>
             <th data-field="ros_ppr" aria-sort="descending"><button data-col="ros_ppr">ROS PPR</button></th>
             <th data-field="ros_high" class="nf-hide-sm nf-l"><button data-col="ros_high">High</button></th>
+            <th data-field="ros_start_pct"><button data-col="ros_start_pct">Start %</button></th>
             <th data-field="ros_ppg"><button data-col="ros_ppg">Per game</button></th>
             <th data-field="games_left"><button data-col="games_left">Games</button></th>
             <th data-field="this_week" class="nf-hide-sm"><button data-col="this_week">This wk proj</button></th>
@@ -921,6 +972,15 @@
 
 <script>
 window.nfNum = (v) => (v === '' || v == null || v === 'NaN') ? NaN : +v;
+window.nfConf = (el, pct, lab) => {
+  el.replaceChildren();
+  const v = nfNum(pct);
+  if (isNaN(v)) { el.textContent = '—'; el.classList.add('nf-muted'); return; }
+  const s = document.createElement('span'); s.className = 'nf-conf ' + (lab === 'High' ? 'hi' : lab === 'Medium' ? 'md' : 'lo');
+  const b = document.createElement('b'); b.textContent = Math.round(v) + '%';
+  const i = document.createElement('i'); i.textContent = lab || '';
+  s.append(b, ' ', i); el.appendChild(s);
+};
 window.nfTip = (box) => {
   let t = box.querySelector(':scope > .nf-tip');
   if (!t) { t = document.createElement('div'); t.className = 'nf-tip'; box.appendChild(t); }
@@ -1121,6 +1181,150 @@ dash.onData(() => {
 </script>
 
 <script>
+// My team: start / sit and waiver wire for each Yahoo league (Oct 20)
+(() => {
+  const st = { league: null, pos: 'All' };
+  const f1 = d3.format('.1f'), sg = d3.format('+.1f');
+  const num = (v, d = 0) => (v === '' || v == null || isNaN(+v) ? d : +v);
+  const SKILL = ['QB', 'RB', 'WR', 'TE'];
+  const FLEX = { 'W/R/T': ['RB', 'WR', 'TE'], 'W/R': ['RB', 'WR'], 'W/T': ['WR', 'TE'], 'R/W/T': ['RB', 'WR', 'TE'],
+    'Q/W/R/T': ['QB', 'RB', 'WR', 'TE'] };
+  const CANT_PLAY = new Set(['O', 'IR', 'IR-R', 'PUP-R', 'PUP-P', 'NA', 'SUSP', 'NFI-R']);
+  const elig = (slot) => (FLEX[slot] || (SKILL.includes(slot) ? [slot] : []));
+  // league scoring vs standard PPR, per game, from the player's rest-of-season rates (same rule as the trade analyzer)
+  const adj = (r, lg) => {
+    if (!r) return 0;
+    let a = (num(lg.fum_lost, -2) + 2) * num(r.fum_pg) + (num(lg.rec_pt, 1) - 1) * num(r.rec_pg)
+      + num(lg.bonus_rush150) * num(r.p_rush150) + num(lg.bonus_rec175) * num(r.p_rec175);
+    if (r.pos === 'QB') a += (num(lg.pass_td, 4) - 4) * num(r.pass_td_pg) + (num(lg.pass_int, -2) + 2) * num(r.int_pg)
+      + (1 / num(lg.pass_yds_per_pt, 25) - 1 / 25) * num(r.pass_yds_pg) + num(lg.bonus_pass400) * num(r.p_pass400);
+    return a;
+  };
+  const leagueBox = document.getElementById('team-leagues'), posBox = document.getElementById('team-waiver-pos');
+  ['All', ...SKILL].forEach((p) => {
+    const b = document.createElement('button'); b.className = 'nf-chip'; b.textContent = p; b.setAttribute('aria-pressed', p === st.pos);
+    b.addEventListener('click', () => { st.pos = p; posBox.querySelectorAll('button').forEach((c) => c.setAttribute('aria-pressed', c.textContent === p)); draw(); });
+    posBox.append(b, ' ');
+  });
+  const cell = (tr, text, cls) => { const td = document.createElement('td'); if (cls) td.className = cls; td.textContent = text; tr.appendChild(td); return td; };
+  const message = (tbody, cols, text) => { const tr = document.createElement('tr'); const td = cell(tr, text, 'nf-l nf-muted'); td.colSpan = cols; tbody.appendChild(tr); };
+
+  function draw() {
+    const L = dash.data('leagues'), RO = dash.data('league_rosters'), P = dash.data('projections'), R = dash.data('ros');
+    const lb = document.querySelector('#team-lineup-table tbody'), wb = document.querySelector('#team-waiver-table tbody');
+    lb.replaceChildren(); wb.replaceChildren();
+    if ([L, RO, P, R].some((d) => d.status !== 'ok')) {
+      const bad = [L, RO, P, R].some((d) => d.status === 'error');
+      message(lb, 6, bad ? 'Failed to load' : '—'); message(wb, 6, bad ? 'Failed to load' : '—'); return;
+    }
+    const leagues = L.data;
+    if (!st.league || !leagues.find((l) => String(l.league_id) === st.league)) st.league = String(leagues[0].league_id);
+    if (leagueBox.childElementCount !== leagues.length) {
+      leagueBox.replaceChildren();
+      leagues.forEach((l) => {
+        const b = document.createElement('button'); b.className = 'nf-chip'; b.dataset.id = String(l.league_id);
+        b.textContent = l.league + ' · ' + l.my_team_name;
+        b.addEventListener('click', () => { st.league = b.dataset.id; draw(); });
+        leagueBox.append(b, ' ');
+      });
+    }
+    leagueBox.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', b.dataset.id === st.league));
+    const lg = leagues.find((l) => String(l.league_id) === st.league);
+    const wk = nfWeek();
+    const proj = new Map(P.data.filter((r) => +r.week === wk).map((r) => [r.key, r]));
+    const ros = new Map(R.data.map((r) => [r.key, r]));
+    const roster = RO.data.filter((p) => String(p.league_id) === st.league);
+    const mine = roster.filter((p) => String(p.is_me) === '1' && p.kind === 'skill');
+    document.getElementById('team-lineup-title').textContent = 'Start / sit · Week ' + wk;
+    const pulled = d3.max(roster, (p) => p.pulled_at);
+    document.getElementById('team-lineup-meta').textContent = lg.my_team_name + ' · roster as of '
+      + (pulled ? new Date(pulled).toLocaleString([], { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }) : '—');
+
+    // ---------------------------------------------------------------- start / sit
+    const players = mine.map((p) => {
+      const w = p.ros_key ? proj.get(p.ros_key) : null, r = p.ros_key ? ros.get(p.ros_key) : null;
+      const out = p.slot === 'IR' || CANT_PLAY.has(p.status) || (w && (w.status === 'Inactive' || w.status === 'Did not play'));
+      const v = !w || out ? 0 : Math.max(0, num(w.proj_ppr) + adj(r, lg));
+      const why = !p.ros_key ? 'No projection' : out ? (w && w.status === 'Inactive' ? 'Inactive' : (p.status || 'Out')) : !w ? (r && r.status === 'Bye this week' ? 'Bye' : 'No game') : '';
+      return { p, w, r, v, why, yahooStart: p.slot !== 'BN' && p.slot !== 'IR' };
+    });
+    const slots = String(lg.lineup || '').split(' ').filter((s) => elig(s).length);
+    const order = slots.map((s, i) => [s, i]).sort((a, b) => elig(a[0]).length - elig(b[0]).length);
+    const pool = players.slice().sort((a, b) => b.v - a.v), used = new Set(), lineup = new Array(slots.length);
+    order.forEach(([s, i]) => {
+      const pick = pool.find((x) => !used.has(x) && elig(s).includes(x.p.pos));
+      if (pick) { used.add(pick); lineup[i] = { slot: s, x: pick }; } else lineup[i] = { slot: s, x: null };
+    });
+    const bench = pool.filter((x) => !used.has(x));
+    const row = (slot, x, isBench) => {
+      const tr = document.createElement('tr'); if (isBench) tr.className = 'nf-benchrow';
+      cell(tr, slot, 'nf-l');
+      if (!x) { cell(tr, 'Empty — nobody eligible', 'nf-l nf-bad'); ['', '', '', ''].forEach((t) => cell(tr, t)); lb.appendChild(tr); return; }
+      tr.dataset.pos = x.p.pos;
+      cell(tr, x.p.player + ' (' + x.p.pos + ')', 'nf-l');
+      cell(tr, x.w ? (x.w.venue === 'Home' ? 'vs ' : '@ ') + x.w.opp : '—', 'nf-l nf-muted');
+      cell(tr, x.why ? '0.0' : f1(x.v), x.why ? 'nf-muted' : '');
+      const sp = cell(tr, ''); nfConf(sp, x.why ? NaN : (x.w && x.w.start_pct), x.w && x.w.confidence);
+      const note = cell(tr, '', 'nf-l');
+      const flag = (t, c) => { const s = document.createElement('span'); s.className = 'nf-flag ' + (c || ''); s.textContent = t; note.appendChild(s); };
+      if (x.why) flag(x.why, 'bad');
+      else if (!isBench && !x.yahooStart) flag('Start — on your bench in Yahoo', 'good');
+      else if (isBench && x.yahooStart) flag('Sit — starting in Yahoo');
+      if (isBench && !x.why) {
+        const rivals = lineup.filter((l) => l.x && elig(l.slot).includes(x.p.pos)).map((l) => l.x);
+        const weakest = rivals.sort((a, b) => a.v - b.v)[0];
+        if (weakest && weakest.v - x.v < 1.5) { if (note.childElementCount) note.append(' · '); flag('Close call vs ' + weakest.p.player + ' (' + sg(x.v - weakest.v) + ')'); }
+      }
+      lb.appendChild(tr);
+    };
+    lineup.forEach((l) => row(l.slot, l.x, false));
+    const total = lineup.reduce((t, l) => t + (l.x ? l.x.v : 0), 0);
+    const tt = document.createElement('tr'); tt.className = 'nf-total-row';
+    cell(tt, '', ''); cell(tt, 'Projected total (QB/RB/WR/TE)', 'nf-l'); cell(tt, ''); cell(tt, f1(total)); cell(tt, ''); cell(tt, '');
+    lb.appendChild(tt);
+    if (bench.length) {
+      const dv = document.createElement('tr'); dv.className = 'nf-divider'; const td = cell(dv, 'Bench', 'nf-l'); td.colSpan = 6; lb.appendChild(dv);
+      bench.forEach((x) => row(x.p.slot === 'IR' ? 'IR' : 'BN', x, true));
+    }
+
+    // ---------------------------------------------------------------- waiver wire
+    const owned = new Set(roster.map((p) => p.ros_key).filter(Boolean));
+    const lgv = (r) => Math.max(0, num(r.ros_ppg) + adj(r, lg) * num(r.play_rate, num(r.avail, 1)));
+    const worst = {};
+    SKILL.forEach((pos) => {
+      const mineAt = players.filter((x) => x.p.pos === pos && x.r && x.p.slot !== 'IR').map((x) => ({ x, v: lgv(x.r) }));
+      worst[pos] = mineAt.sort((a, b) => a.v - b.v)[0];
+    });
+    // All positions: ranked by the upgrade over your weakest player there; one position: by points per game
+    const gain = (o) => o.v - (worst[o.r.pos] ? worst[o.r.pos].v : 0);
+    const fa = R.data.filter((r) => SKILL.includes(r.pos) && !owned.has(r.key) && r.status !== 'IR / reserve'
+      && (st.pos === 'All' || r.pos === st.pos)).map((r) => ({ r, v: lgv(r) }))
+      .sort((a, b) => (st.pos === 'All' ? gain(b) - gain(a) : b.v - a.v)).slice(0, st.pos === 'All' ? 15 : 12);
+    if (!fa.length) { message(wb, 6, 'No unrostered players with a projection at this position.'); return; }
+    fa.forEach(({ r, v }) => {
+      const tr = document.createElement('tr'); tr.dataset.pos = r.pos;
+      cell(tr, r.player + ' (' + r.team + ')', 'nf-l');
+      cell(tr, r.pos, 'nf-l');
+      const w = proj.get(r.key);
+      cell(tr, w && w.status !== 'Inactive' ? f1(num(w.proj_ppr) + adj(r, lg)) : (r.status === 'Bye this week' ? 'Bye' : '—'), w ? '' : 'nf-muted');
+      cell(tr, f1(v));
+      const sp = cell(tr, ''); nfConf(sp, r.ros_start_pct, r.ros_confidence);
+      const wo = worst[r.pos], up = cell(tr, '', 'nf-l');
+      if (!wo) up.textContent = 'You have no ' + r.pos;
+      else {
+        const g = v - wo.v; const s = document.createElement('span');
+        s.className = 'nf-flag ' + (g > 0.5 ? 'good' : '');
+        s.textContent = (g > 0 ? sg(g) + '/gm over ' : 'Not better than ') + wo.x.p.player;
+        up.appendChild(s);
+      }
+      wb.appendChild(tr);
+    });
+  }
+  dash.onData(draw);
+})();
+</script>
+
+<script>
 // Projections table
 (() => {
   const state = { pos: 'All', status: 'All', q: '' };
@@ -1162,7 +1366,7 @@ dash.onData(() => {
     cols: [['key', (v) => v, 'nf-l', true], ['pos', (v) => v, 'nf-l', true], ['opp', (v) => v, 'nf-l', true],
       ['status', (v) => v, 'nf-l nf-status', true], ['injury', (v) => v, 'nf-l nf-hide-sm', true],
       ['ppr_low', f1, 'nf-hide-sm nf-muted nf-lo'], ['proj_ppr', f1, ''], ['ppr_high', f1, 'nf-hide-sm nf-muted nf-l nf-hi'],
-      ['act_ppr', f1, ''], ['vs_proj', sg, 'nf-hide-sm'], ['proj_model', f1, 'nf-hide-sm nf-muted'], ['expert_rank', f0, 'nf-hide-sm nf-muted'],
+      ['start_pct', f0, ''], ['act_ppr', f1, ''], ['vs_proj', sg, 'nf-hide-sm'], ['proj_model', f1, 'nf-hide-sm nf-muted'], ['expert_rank', f0, 'nf-hide-sm nf-muted'],
       ['pass_yds', f0, ''], ['act_pass_yds', f0, 'nf-hide-sm'], ['rush_yds', f0, ''], ['act_rush_yds', f0, 'nf-hide-sm'],
       ['rec_yds', f0, ''], ['act_rec_yds', f0, 'nf-hide-sm'], ['receptions', f1, ''], ['act_receptions', f0, 'nf-hide-sm'],
       ['implied_pts', f1, 'nf-hide-sm'], ['xfp', f1, 'nf-hide-sm']],
@@ -1179,6 +1383,7 @@ dash.onData(() => {
         td.classList.add(inj === '' || inj === 'Not listed' ? 'nf-muted' : (inj.startsWith('DNP') || inj === 'Doubtful' || inj === 'Out' || inj === 'Inactive' ? 'nf-bad' : 'nf-warn'));
         return true;
       }
+      if (f === 'start_pct') { nfConf(td, r.start_pct, r.confidence); return true; }
       if (f === 'vs_proj') {
         const v = nfNum(r.vs_proj);
         td.textContent = isNaN(v) ? '—' : sg(v);
@@ -1589,9 +1794,10 @@ dash.onData(() => {
     cols: [['ros_rank', f0, ''], ['key', (v) => v, 'nf-l', true], ['pos', (v) => v, 'nf-l', true],
       ['status', (v) => v, 'nf-l nf-status nf-hide-sm', true], ['injury', (v) => v, 'nf-l nf-hide-sm', true],
       ['ros_low', f1, 'nf-hide-sm nf-muted nf-lo'], ['ros_ppr', f1, ''], ['ros_high', f1, 'nf-hide-sm nf-muted nf-l nf-hi'],
-      ['ros_ppg', f1, ''], ['games_left', f0, ''], ['this_week', f1, 'nf-hide-sm'], ['model_rank', f0, 'nf-hide-sm nf-muted'],
+      ['ros_start_pct', f0, ''], ['ros_ppg', f1, ''], ['games_left', f0, ''], ['this_week', f1, 'nf-hide-sm'], ['model_rank', f0, 'nf-hide-sm nf-muted'],
       ['expert_rank', f0, 'nf-hide-sm nf-muted'], ['season_ppg', f1, 'nf-hide-sm'], ['opp_allowed', f2, 'nf-hide-sm']],
     cell: (f, r, td, maxV) => {
+      if (f === 'ros_start_pct') { nfConf(td, r.ros_start_pct, r.ros_confidence); return true; }
       if (f === 'status') {
         td.textContent = r.status;
         if (r.status === 'Bye this week' || r.status === 'Played this week') td.classList.add('nf-muted');

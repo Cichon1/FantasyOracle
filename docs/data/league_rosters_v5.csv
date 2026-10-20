@@ -1,658 +1,658 @@
 key,league_id,league,team_id,team,is_me,slot,player,pos,pos_list,kind,nfl,status,yahoo_id,ros_key,pulled_at
-126912|1|30977|joshallen,126912,BDSM League,1,Führer Jackson,1,QB,Josh Allen,QB,QB,skill,BUF,,30977,Josh Allen (BUF),2026-10-20T16:54:41Z
-126912|1|30972|saquonbarkley,126912,BDSM League,1,Führer Jackson,1,RB,Saquon Barkley,RB,RB,skill,PHI,Q,30972,Saquon Barkley (PHI),2026-10-20T16:54:41Z
-126912|1|40196|chasebrown,126912,BDSM League,1,Führer Jackson,1,RB,Chase Brown,RB,RB,skill,CIN,,40196,Chase Brown (CIN),2026-10-20T16:54:41Z
-126912|1|33989|christianwatson,126912,BDSM League,1,Führer Jackson,1,WR,Christian Watson,WR,WR,skill,GB,,33989,Christian Watson (GB),2026-10-20T16:54:41Z
-126912|1|33394|jaylenwaddle,126912,BDSM League,1,Führer Jackson,1,WR,Jaylen Waddle,WR,WR,skill,DEN,,33394,Jaylen Waddle (DEN),2026-10-20T16:54:41Z
-126912|1|40048|daltonkincaid,126912,BDSM League,1,Führer Jackson,1,TE,Dalton Kincaid,TE,TE,skill,BUF,,40048,Dalton Kincaid (BUF),2026-10-20T16:54:41Z
-126912|1|30180|alvinkamara,126912,BDSM League,1,Führer Jackson,1,W/R/T,Alvin Kamara,RB,RB,skill,NO,,30180,Alvin Kamara (NO),2026-10-20T16:54:41Z
-126912|1|27535|mikeevans,126912,BDSM League,1,Führer Jackson,1,BN,Mike Evans,WR,WR,skill,SF,Q,27535,Mike Evans (SF),2026-10-20T16:54:41Z
-126912|1|41807|omarionhampton,126912,BDSM League,1,Führer Jackson,1,BN,Omarion Hampton,RB,RB,skill,LAC,,41807,Omarion Hampton (LAC),2026-10-20T16:54:41Z
-126912|1|33998|wandalerobinson,126912,BDSM League,1,Führer Jackson,1,BN,Wan'Dale Robinson,WR,WR,skill,TEN,,33998,Wan'Dale Robinson (TEN),2026-10-20T16:54:41Z
-126912|1|41010|jaylenwright,126912,BDSM League,1,Führer Jackson,1,BN,Jaylen Wright,RB,RB,skill,MIA,,41010,Jaylen Wright (MIA),2026-10-20T16:54:41Z
-126912|1|31010|courtlandsutton,126912,BDSM League,1,Führer Jackson,1,BN,Courtland Sutton,WR,WR,skill,DEN,,31010,Courtland Sutton (DEN),2026-10-20T16:54:41Z
-126912|1|40097|tankdell,126912,BDSM League,1,Führer Jackson,1,IR,Tank Dell,WR,WR,skill,HOU,IR-R,40097,,2026-10-20T16:54:41Z
-126912|1|33537|evanmcpherson,126912,BDSM League,1,Führer Jackson,1,K,Evan McPherson,K,K,K,CIN,,33537,,2026-10-20T16:54:41Z
-126912|1|0|broncos,126912,BDSM League,1,Führer Jackson,1,DEF,Broncos,DEF,DEF,DEF,DEN,,0,,2026-10-20T16:54:41Z
-126912|1|30346|harrisonbutker,126912,BDSM League,1,Führer Jackson,1,BN,Harrison Butker,K,K,K,KC,,30346,,2026-10-20T16:54:41Z
-126912|2|32696|jordanlove,126912,BDSM League,2,Finding Deebo,0,QB,Jordan Love,QB,QB,skill,GB,,32696,Jordan Love (GB),2026-10-20T16:54:41Z
-126912|2|34447|jaylenwarren,126912,BDSM League,2,Finding Deebo,0,RB,Jaylen Warren,RB,RB,skill,PIT,,34447,Jaylen Warren (PIT),2026-10-20T16:54:41Z
-126912|2|41969|olliegordon,126912,BDSM League,2,Finding Deebo,0,RB,Ollie Gordon II,RB,RB,skill,MIA,,41969,Ollie Gordon II (MIA),2026-10-20T16:54:41Z
-126912|2|33500|amonrastbrown,126912,BDSM League,2,Finding Deebo,0,WR,Amon-Ra St. Brown,WR,WR,skill,DET,,33500,Amon-Ra St. Brown (DET),2026-10-20T16:54:41Z
-126912|2|32703|teehiggins,126912,BDSM League,2,Finding Deebo,0,WR,Tee Higgins,WR,WR,skill,CIN,,32703,Tee Higgins (CIN),2026-10-20T16:54:41Z
-126912|2|41795|colstonloveland,126912,BDSM League,2,Finding Deebo,0,TE,Colston Loveland,TE,TE,skill,CHI,,41795,Colston Loveland (CHI),2026-10-20T16:54:41Z
-126912|2|42669|germiebernard,126912,BDSM League,2,Finding Deebo,0,W/R/T,Germie Bernard,WR,WR,skill,PIT,,42669,Germie Bernard (PIT),2026-10-20T16:54:41Z
-126912|2|41824|lutherburden,126912,BDSM League,2,Finding Deebo,0,BN,Luther Burden III,WR,WR,skill,CHI,,41824,Luther Burden III (CHI),2026-10-20T16:54:41Z
-126912|2|26686|traviskelce,126912,BDSM League,2,Finding Deebo,0,BN,Travis Kelce,TE,TE,skill,KC,,26686,Travis Kelce (KC),2026-10-20T16:54:41Z
-126912|2|40114|tretucker,126912,BDSM League,2,Finding Deebo,0,BN,Tre Tucker,WR,WR,skill,LV,,40114,Tre Tucker (LV),2026-10-20T16:54:41Z
-126912|2|34107|tylerallgeier,126912,BDSM League,2,Finding Deebo,0,BN,Tyler Allgeier,RB,RB,skill,ARI,,34107,Tyler Allgeier (ARI),2026-10-20T16:54:41Z
-126912|2|34320|jordanmason,126912,BDSM League,2,Finding Deebo,0,BN,Jordan Mason,RB,RB,skill,MIN,IR-R,34320,Jordan Mason (MIN),2026-10-20T16:54:41Z
-126912|2|34008|alecpierce,126912,BDSM League,2,Finding Deebo,0,BN,Alec Pierce,WR,WR,skill,IND,IR,34008,Alec Pierce (IND),2026-10-20T16:54:41Z
-126912|2|42625|jeremiyahlove,126912,BDSM League,2,Finding Deebo,0,IR,Jeremiyah Love,RB,RB,skill,ARI,Q,42625,Jeremiyah Love (ARI),2026-10-20T16:54:41Z
-126912|2|31868|deebosamuel,126912,BDSM League,2,Finding Deebo,0,IR,Deebo Samuel Sr.,WR,WR,skill,SF,O,31868,Deebo Samuel Sr. (SF),2026-10-20T16:54:41Z
-126912|2|40819|brandonaubrey,126912,BDSM League,2,Finding Deebo,0,K,Brandon Aubrey,K,K,K,DAL,,40819,,2026-10-20T16:54:41Z
-126912|2|0|panthers,126912,BDSM League,2,Finding Deebo,0,DEF,Panthers,DEF,DEF,DEF,CAR,,0,,2026-10-20T16:54:41Z
-126912|3|40029|bryceyoung,126912,BDSM League,3,BANDS EMEKA DANCE,0,QB,Bryce Young,QB,QB,skill,CAR,,40029,Bryce Young (CAR),2026-10-20T16:54:41Z
-126912|3|34047|rachaadwhite,126912,BDSM League,3,BANDS EMEKA DANCE,0,RB,Rachaad White,RB,RB,skill,WAS,,34047,Rachaad White (WAS),2026-10-20T16:54:41Z
-126912|3|40059|jahmyrgibbs,126912,BDSM League,3,BANDS EMEKA DANCE,0,RB,Jahmyr Gibbs,RB,RB,skill,DET,,40059,Jahmyr Gibbs (DET),2026-10-20T16:54:41Z
-126912|3|33966|chrisolave,126912,BDSM League,3,BANDS EMEKA DANCE,0,WR,Chris Olave,WR,WR,skill,NO,,33966,Chris Olave (NO),2026-10-20T16:54:41Z
-126912|3|33398|devontasmith,126912,BDSM League,3,BANDS EMEKA DANCE,0,WR,DeVonta Smith,WR,WR,skill,PHI,,33398,DeVonta Smith (PHI),2026-10-20T16:54:41Z
-126912|3|40064|samlaporta,126912,BDSM League,3,BANDS EMEKA DANCE,0,TE,Sam LaPorta,TE,TE,skill,DET,,40064,Sam LaPorta (DET),2026-10-20T16:54:41Z
-126912|3|30551|kendrickbourne,126912,BDSM League,3,BANDS EMEKA DANCE,0,W/R/T,Kendrick Bourne,WR,WR,skill,ARI,,30551,Kendrick Bourne (ARI),2026-10-20T16:54:41Z
-126912|3|29344|tylerhigbee,126912,BDSM League,3,BANDS EMEKA DANCE,0,BN,Tyler Higbee,TE,TE,skill,LA,,29344,Tyler Higbee (LA),2026-10-20T16:54:41Z
-126912|3|42661|denzelboston,126912,BDSM League,3,BANDS EMEKA DANCE,0,BN,Denzel Boston,WR,WR,skill,CLE,,42661,Denzel Boston (CLE),2026-10-20T16:54:41Z
-126912|3|41900|bhayshultuten,126912,BDSM League,3,BANDS EMEKA DANCE,0,BN,Bhayshul Tuten,RB,RB,skill,JAX,,41900,Bhayshul Tuten (JAX),2026-10-20T16:54:41Z
-126912|3|31908|terrymclaurin,126912,BDSM League,3,BANDS EMEKA DANCE,0,BN,Terry McLaurin,WR,WR,skill,WAS,D,31908,Terry McLaurin (WAS),2026-10-20T16:54:41Z
-126912|3|31017|christiankirk,126912,BDSM League,3,BANDS EMEKA DANCE,0,BN,Christian Kirk,WR,WR,skill,SF,IR-R,31017,Christian Kirk (SF),2026-10-20T16:54:41Z
-126912|3|42010|jcroskeymerritt,126912,BDSM League,3,BANDS EMEKA DANCE,0,IR,J. Croskey-Merritt,RB,RB,skill,WAS,IR,42010,,2026-10-20T16:54:41Z
-126912|3|30218|jamesconner,126912,BDSM League,3,BANDS EMEKA DANCE,0,IR,James Conner,RB,RB,skill,ARI,IR-R,30218,,2026-10-20T16:54:41Z
-126912|3|41062|camlittle,126912,BDSM League,3,BANDS EMEKA DANCE,0,K,Cam Little,K,K,K,JAX,,41062,,2026-10-20T16:54:41Z
-126912|3|0|lions,126912,BDSM League,3,BANDS EMEKA DANCE,0,DEF,Lions,DEF,DEF,DEF,DET,,0,,2026-10-20T16:54:41Z
-126912|3|0|jaguars,126912,BDSM League,3,BANDS EMEKA DANCE,0,BN,Jaguars,DEF,DEF,DEF,JAX,,0,,2026-10-20T16:54:41Z
-126912|4|32671|joeburrow,126912,BDSM League,4,I’m a coke head,0,QB,Joe Burrow,QB,QB,skill,CIN,,32671,Joe Burrow (CIN),2026-10-20T16:54:41Z
-126912|4|41922|camskattebo,126912,BDSM League,4,I’m a coke head,0,RB,Cam Skattebo,RB,RB,skill,NYG,,41922,Cam Skattebo (NYG),2026-10-20T16:54:41Z
-126912|4|40993|buckyirving,126912,BDSM League,4,I’m a coke head,0,RB,Bucky Irving,RB,RB,skill,TB,,40993,Bucky Irving (TB),2026-10-20T16:54:41Z
-126912|4|40899|maliknabers,126912,BDSM League,4,I’m a coke head,0,WR,Malik Nabers,WR,WR,skill,NYG,,40899,Malik Nabers (NYG),2026-10-20T16:54:41Z
-126912|4|40168|pukanacua,126912,BDSM League,4,I’m a coke head,0,WR,Puka Nacua,WR,WR,skill,LA,,40168,Puka Nacua (LA),2026-10-20T16:54:41Z
-126912|4|40878|brockbowers,126912,BDSM League,4,I’m a coke head,0,TE,Brock Bowers,TE,TE,skill,LV,,40878,Brock Bowers (LV),2026-10-20T16:54:41Z
-126912|4|41293|jalencoker,126912,BDSM League,4,I’m a coke head,0,W/R/T,Jalen Coker,WR,WR,skill,CAR,,41293,Jalen Coker (CAR),2026-10-20T16:54:41Z
-126912|4|28389|jameiswinston,126912,BDSM League,4,I’m a coke head,0,BN,Jameis Winston,QB,QB,skill,NYG,,28389,Jameis Winston (NYG),2026-10-20T16:54:41Z
-126912|4|34104|khalilshakir,126912,BDSM League,4,I’m a coke head,0,BN,Khalil Shakir,WR,WR,skill,BUF,,34104,Khalil Shakir (BUF),2026-10-20T16:54:41Z
-126912|4|28534|stefondiggs,126912,BDSM League,4,I’m a coke head,0,BN,Stefon Diggs,WR,WR,skill,WAS,,28534,Stefon Diggs (WAS),2026-10-20T16:54:41Z
-126912|4|28592|darrenwaller,126912,BDSM League,4,I’m a coke head,0,BN,Darren Waller,TE,TE,skill,CAR,,28592,Darren Waller (CAR),2026-10-20T16:54:41Z
-126912|4|33100|ricodowdle,126912,BDSM League,4,I’m a coke head,0,BN,Rico Dowdle,RB,RB,skill,PIT,,33100,Rico Dowdle (PIT),2026-10-20T16:54:41Z
-126912|4|40078|brentonstrange,126912,BDSM League,4,I’m a coke head,0,BN,Brenton Strange,TE,TE,skill,JAX,,40078,Brenton Strange (JAX),2026-10-20T16:54:41Z
-126912|4|28378|jasonmyers,126912,BDSM League,4,I’m a coke head,0,K,Jason Myers,K,K,K,SEA,,28378,,2026-10-20T16:54:41Z
-126912|4|0|patriots,126912,BDSM League,4,I’m a coke head,0,DEF,Patriots,DEF,DEF,DEF,NE,,0,,2026-10-20T16:54:41Z
-126912|5|29235|jaredgoff,126912,BDSM League,5,brian's toads,0,QB,Jared Goff,QB,QB,skill,DET,,29235,Jared Goff (DET),2026-10-20T16:54:41Z
-126912|5|33996|kennethwalker,126912,BDSM League,5,brian's toads,0,RB,Kenneth Walker III,RB,RB,skill,KC,,33996,Kenneth Walker III (KC),2026-10-20T16:54:41Z
-126912|5|32725|jkdobbins,126912,BDSM League,5,brian's toads,0,RB,J.K. Dobbins,RB,RB,skill,DEN,,32725,J.K. Dobbins (DEN),2026-10-20T16:54:41Z
-126912|5|40039|zayflowers,126912,BDSM League,5,brian's toads,0,WR,Zay Flowers,WR,WR,skill,BAL,,40039,Zay Flowers (BAL),2026-10-20T16:54:41Z
-126912|5|40234|parkerwashington,126912,BDSM League,5,brian's toads,0,WR,Parker Washington,WR,WR,skill,JAX,,40234,Parker Washington (JAX),2026-10-20T16:54:41Z
-126912|5|31056|markandrews,126912,BDSM League,5,brian's toads,0,TE,Mark Andrews,TE,TE,skill,BAL,,31056,Mark Andrews (BAL),2026-10-20T16:54:41Z
-126912|5|42646|kcconcepcion,126912,BDSM League,5,brian's toads,0,W/R/T,KC Concepcion Jr.,WR,WR,skill,CLE,,42646,KC Concepcion (CLE),2026-10-20T16:54:41Z
-126912|5|9265|matthewstafford,126912,BDSM League,5,brian's toads,0,BN,Matthew Stafford,QB,QB,skill,LA,,9265,Matthew Stafford (LA),2026-10-20T16:54:41Z
-126912|5|40201|dontayvionwicks,126912,BDSM League,5,brian's toads,0,BN,Dontayvion Wicks,WR,WR,skill,PHI,,40201,Dontayvion Wicks (PHI),2026-10-20T16:54:41Z
-126912|5|42986|roberthenry,126912,BDSM League,5,brian's toads,0,BN,Robert Henry Jr.,RB,RB,skill,SEA,,42986,,2026-10-20T16:54:41Z
-126912|5|34054|brianrobinson,126912,BDSM League,5,brian's toads,0,BN,Brian Robinson Jr.,RB,RB,skill,ATL,,34054,Brian Robinson (ATL),2026-10-20T16:54:41Z
-126912|5|40908|laddmcconkey,126912,BDSM League,5,brian's toads,0,BN,Ladd McConkey,WR,WR,skill,LAC,Q,40908,Ladd McConkey (LAC),2026-10-20T16:54:41Z
-126912|5|42773|cyrusallen,126912,BDSM League,5,brian's toads,0,BN,Cyrus Allen,WR,WR,skill,KC,,42773,Cyrus Allen (KC),2026-10-20T16:54:41Z
-126912|5|41799|tylerwarren,126912,BDSM League,5,brian's toads,0,IR,Tyler Warren,TE,TE,skill,IND,Q,41799,Tyler Warren (IND),2026-10-20T16:54:41Z
-126912|5|40118|devonachane,126912,BDSM League,5,brian's toads,0,IR,De'Von Achane,RB,RB,skill,MIA,IR,40118,,2026-10-20T16:54:41Z
-126912|5|31977|mattgay,126912,BDSM League,5,brian's toads,0,K,Matt Gay,K,K,K,LV,,31977,,2026-10-20T16:54:41Z
-126912|5|0|49ers,126912,BDSM League,5,brian's toads,0,DEF,49ers,DEF,DEF,DEF,SF,,0,,2026-10-20T16:54:41Z
-126912|6|29369|dakprescott,126912,BDSM League,6,Hit Me With Your Prescott,0,QB,Dak Prescott,QB,QB,skill,DAL,,29369,Dak Prescott (DAL),2026-10-20T16:54:41Z
-126912|6|33514|chubahubbard,126912,BDSM League,6,Hit Me With Your Prescott,0,RB,Chuba Hubbard,RB,RB,skill,CAR,,33514,Chuba Hubbard (CAR),2026-10-20T16:54:41Z
-126912|6|40041|jaxonsmithnjigba,126912,BDSM League,6,Hit Me With Your Prescott,0,WR,Jaxon Smith-Njigba,WR,WR,skill,SEA,,40041,Jaxon Smith-Njigba (SEA),2026-10-20T16:54:41Z
-126912|6|33967|jamesonwilliams,126912,BDSM League,6,Hit Me With Your Prescott,0,WR,Jameson Williams,WR,WR,skill,DET,,33967,Jameson Williams (DET),2026-10-20T16:54:41Z
-126912|6|34010|treymcbride,126912,BDSM League,6,Hit Me With Your Prescott,0,TE,Trey McBride,TE,TE,skill,ARI,,34010,Trey McBride (ARI),2026-10-20T16:54:41Z
-126912|6|40877|xavierworthy,126912,BDSM League,6,Hit Me With Your Prescott,0,BN,Xavier Worthy,WR,WR,skill,KC,,40877,Xavier Worthy (KC),2026-10-20T16:54:41Z
-126912|6|30295|aaronjones,126912,BDSM League,6,Hit Me With Your Prescott,0,BN,Aaron Jones Sr.,RB,RB,skill,MIN,,30295,Aaron Jones (MIN),2026-10-20T16:54:41Z
-126912|6|31960|tonypollard,126912,BDSM League,6,Hit Me With Your Prescott,0,BN,Tony Pollard,RB,RB,skill,TEN,,31960,Tony Pollard (TEN),2026-10-20T16:54:41Z
-126912|6|41823|treveyonhenderson,126912,BDSM League,6,Hit Me With Your Prescott,0,BN,TreVeyon Henderson,RB,RB,skill,NE,,41823,TreVeyon Henderson (NE),2026-10-20T16:54:41Z
-126912|6|30971|bakermayfield,126912,BDSM League,6,Hit Me With Your Prescott,0,BN,Baker Mayfield,QB,QB,skill,TB,Q,30971,Baker Mayfield (TB),2026-10-20T16:54:41Z
-126912|6|27581|davanteadams,126912,BDSM League,6,Hit Me With Your Prescott,0,IR,Davante Adams,WR,WR,skill,LA,O,27581,Davante Adams (LA),2026-10-20T16:54:41Z
-126912|6|41093|willreichard,126912,BDSM League,6,Hit Me With Your Prescott,0,K,Will Reichard,K,K,K,MIN,,41093,,2026-10-20T16:54:41Z
-126912|6|0|seahawks,126912,BDSM League,6,Hit Me With Your Prescott,0,DEF,Seahawks,DEF,DEF,DEF,SEA,,0,,2026-10-20T16:54:41Z
-126912|6|28227|cairosantos,126912,BDSM League,6,Hit Me With Your Prescott,0,BN,Cairo Santos,K,K,K,CHI,,28227,,2026-10-20T16:54:41Z
-126912|6|0|eagles,126912,BDSM League,6,Hit Me With Your Prescott,0,BN,Eagles,DEF,DEF,DEF,PHI,,0,,2026-10-20T16:54:41Z
-126912|7|25812|kirkcousins,126912,BDSM League,7,The PRICE Is Right,0,QB,Kirk Cousins,QB,QB,skill,LV,,25812,Kirk Cousins (LV),2026-10-20T16:54:41Z
-126912|7|33423|javontewilliams,126912,BDSM League,7,The PRICE Is Right,0,RB,Javonte Williams,RB,RB,skill,DAL,,33423,Javonte Williams (DAL),2026-10-20T16:54:41Z
-126912|7|41902|woodymarks,126912,BDSM League,7,The PRICE Is Right,0,RB,Woody Marks,RB,RB,skill,HOU,,41902,Woody Marks (HOU),2026-10-20T16:54:41Z
-126912|7|31883|ajbrown,126912,BDSM League,7,The PRICE Is Right,0,WR,A.J. Brown,WR,WR,skill,NE,Q,31883,A.J. Brown (NE),2026-10-20T16:54:41Z
-126912|7|41804|emekaegbuka,126912,BDSM League,7,The PRICE Is Right,0,WR,Emeka Egbuka,WR,WR,skill,TB,,41804,Emeka Egbuka (TB),2026-10-20T16:54:41Z
-126912|7|30259|georgekittle,126912,BDSM League,7,The PRICE Is Right,0,TE,George Kittle,TE,TE,skill,SF,,30259,George Kittle (SF),2026-10-20T16:54:41Z
-126912|7|42626|carnelltate,126912,BDSM League,7,The PRICE Is Right,0,W/R/T,Carnell Tate,WR,WR,skill,TEN,,42626,Carnell Tate (TEN),2026-10-20T16:54:41Z
-126912|7|34095|isaiahlikely,126912,BDSM League,7,The PRICE Is Right,0,BN,Isaiah Likely,TE,TE,skill,NYG,,34095,Isaiah Likely (NYG),2026-10-20T16:54:41Z
-126912|7|41097|devaughnvele,126912,BDSM League,7,The PRICE Is Right,0,BN,Devaughn Vele,WR,WR,skill,NO,,41097,Devaughn Vele (NO),2026-10-20T16:54:41Z
-126912|7|34019|jamescook,126912,BDSM League,7,The PRICE Is Right,0,BN,James Cook III,RB,RB,skill,BUF,,34019,James Cook (BUF),2026-10-20T16:54:41Z
-126912|7|33389|trevorlawrence,126912,BDSM League,7,The PRICE Is Right,0,BN,Trevor Lawrence,QB,QB,skill,JAX,,33389,Trevor Lawrence (JAX),2026-10-20T16:54:41Z
-126912|7|41825|tylershough,126912,BDSM League,7,The PRICE Is Right,0,BN,Tyler Shough,QB,QB,skill,NO,,41825,Tyler Shough (NO),2026-10-20T16:54:41Z
-126912|7|42654|jadarianprice,126912,BDSM League,7,The PRICE Is Right,0,IR,Jadarian Price,RB,RB,skill,SEA,IR,42654,Jadarian Price (SEA),2026-10-20T16:54:41Z
-126912|7|40952|romanwilson,126912,BDSM League,7,The PRICE Is Right,0,IR,Roman Wilson,WR,WR,skill,PIT,IR,40952,Roman Wilson (PIT),2026-10-20T16:54:41Z
-126912|7|32417|chasemclaughlin,126912,BDSM League,7,The PRICE Is Right,0,K,Chase McLaughlin,K,K,K,TB,,32417,,2026-10-20T16:54:41Z
-126912|7|0|vikings,126912,BDSM League,7,The PRICE Is Right,0,DEF,Vikings,DEF,DEF,DEF,MIN,,0,,2026-10-20T16:54:41Z
-126912|7|0|giants,126912,BDSM League,7,The PRICE Is Right,0,BN,Giants,DEF,DEF,DEF,NYG,,0,,2026-10-20T16:54:41Z
-126912|8|7200|aaronrodgers,126912,BDSM League,8,You're Bent,0,QB,Aaron Rodgers,QB,QB,skill,PIT,,7200,Aaron Rodgers (PIT),2026-10-20T16:54:41Z
-126912|8|40055|bijanrobinson,126912,BDSM League,8,You're Bent,0,RB,Bijan Robinson,RB,RB,skill,ATL,,40055,Bijan Robinson (ATL),2026-10-20T16:54:41Z
-126912|8|34120|kyrenwilliams,126912,BDSM League,8,You're Bent,0,RB,Kyren Williams,RB,RB,skill,LA,,34120,Kyren Williams (LA),2026-10-20T16:54:41Z
-126912|8|34007|georgepickens,126912,BDSM League,8,You're Bent,0,WR,George Pickens,WR,WR,skill,DAL,,34007,George Pickens (DAL),2026-10-20T16:54:41Z
-126912|8|41793|tetairoamcmillan,126912,BDSM League,8,You're Bent,0,WR,Tetairoa McMillan,WR,WR,skill,CAR,,41793,Tetairoa McMillan (CAR),2026-10-20T16:54:41Z
-126912|8|40102|tuckerkraft,126912,BDSM League,8,You're Bent,0,TE,Tucker Kraft,TE,TE,skill,GB,,40102,Tucker Kraft (GB),2026-10-20T16:54:41Z
-126912|8|40707|emanuelwilson,126912,BDSM League,8,You're Bent,0,W/R/T,Emanuel Wilson,RB,RB,skill,SEA,,40707,Emanuel Wilson (SEA),2026-10-20T16:54:41Z
-126912|8|30973|samdarnold,126912,BDSM League,8,You're Bent,0,BN,Sam Darnold,QB,QB,skill,SEA,,30973,Sam Darnold (SEA),2026-10-20T16:54:41Z
-126912|8|33508|rhamondrestevenson,126912,BDSM League,8,You're Bent,0,BN,Rhamondre Stevenson,RB,RB,skill,NE,,33508,Rhamondre Stevenson (NE),2026-10-20T16:54:41Z
-126912|8|41877|haroldfannin,126912,BDSM League,8,You're Bent,0,BN,Harold Fannin Jr.,TE,TE,skill,CLE,,41877,Harold Fannin Jr. (CLE),2026-10-20T16:54:41Z
-126912|8|40042|jordanaddison,126912,BDSM League,8,You're Bent,0,BN,Jordan Addison,WR,WR,skill,MIN,Q,40042,Jordan Addison (MIN),2026-10-20T16:54:41Z
-126912|8|40893|marvinharrison,126912,BDSM League,8,You're Bent,0,BN,Marvin Harrison Jr.,WR,WR,skill,HOU,,40893,Marvin Harrison Jr. (HOU),2026-10-20T16:54:41Z
-126912|8|41058|malikwashington,126912,BDSM League,8,You're Bent,0,BN,Malik Washington,WR,WR,skill,MIA,,41058,Malik Washington (MIA),2026-10-20T16:54:41Z
-126912|8|41988|tylerloop,126912,BDSM League,8,You're Bent,0,K,Tyler Loop,K,K,K,BAL,,41988,,2026-10-20T16:54:41Z
-126912|8|0|ravens,126912,BDSM League,8,You're Bent,0,DEF,Ravens,DEF,DEF,DEF,BAL,,0,,2026-10-20T16:54:41Z
-126912|9|34218|brockpurdy,126912,BDSM League,9,KETAMINE COWBOYS,0,QB,Brock Purdy,QB,QB,skill,SF,,34218,Brock Purdy (SF),2026-10-20T16:54:41Z
-126912|9|32711|jonathantaylor,126912,BDSM League,9,KETAMINE COWBOYS,0,RB,Jonathan Taylor,RB,RB,skill,IND,,32711,Jonathan Taylor (IND),2026-10-20T16:54:41Z
-126912|9|32705|dandreswift,126912,BDSM League,9,KETAMINE COWBOYS,0,RB,D'Andre Swift,RB,RB,skill,CHI,,32705,D'Andre Swift (CHI),2026-10-20T16:54:41Z
-126912|9|33477|nicocollins,126912,BDSM League,9,KETAMINE COWBOYS,0,WR,Nico Collins,WR,WR,skill,HOU,,33477,Nico Collins (HOU),2026-10-20T16:54:41Z
-126912|9|31896|dkmetcalf,126912,BDSM League,9,KETAMINE COWBOYS,0,WR,DK Metcalf,WR,WR,skill,PIT,,31896,DK Metcalf (PIT),2026-10-20T16:54:41Z
-126912|9|33113|juwanjohnson,126912,BDSM League,9,KETAMINE COWBOYS,0,TE,Juwan Johnson,TE,TE,skill,NO,,33113,Juwan Johnson (NO),2026-10-20T16:54:41Z
-126912|9|31856|joshjacobs,126912,BDSM League,9,KETAMINE COWBOYS,0,W/R/T,Josh Jacobs,RB,RB,skill,GB,,31856,,2026-10-20T16:54:41Z
-126912|9|30197|chrisgodwin,126912,BDSM League,9,KETAMINE COWBOYS,0,BN,Chris Godwin Jr.,WR,WR,skill,TB,,30197,Chris Godwin Jr. (TB),2026-10-20T16:54:41Z
-126912|9|30994|djmoore,126912,BDSM League,9,KETAMINE COWBOYS,0,BN,DJ Moore,WR,WR,skill,BUF,Q,30994,DJ Moore (BUF),2026-10-20T16:54:41Z
-126912|9|42638|kenyonsadiq,126912,BDSM League,9,KETAMINE COWBOYS,0,BN,Kenyon Sadiq,TE,TE,skill,NYJ,,42638,Kenyon Sadiq (NYJ),2026-10-20T16:54:41Z
-126912|9|40900|calebwilliams,126912,BDSM League,9,KETAMINE COWBOYS,0,BN,Caleb Williams,QB,QB,skill,CHI,,40900,Caleb Williams (CHI),2026-10-20T16:54:41Z
-126912|9|31107|daltonschultz,126912,BDSM League,9,KETAMINE COWBOYS,0,BN,Dalton Schultz,TE,TE,skill,HOU,,31107,Dalton Schultz (HOU),2026-10-20T16:54:41Z
-126912|9|28188|chrisboswell,126912,BDSM League,9,KETAMINE COWBOYS,0,K,Chris Boswell,K,K,K,PIT,,28188,,2026-10-20T16:54:41Z
-126912|9|0|chiefs,126912,BDSM League,9,KETAMINE COWBOYS,0,DEF,Chiefs,DEF,DEF,DEF,KC,,0,,2026-10-20T16:54:41Z
-126912|9|0|bills,126912,BDSM League,9,KETAMINE COWBOYS,0,BN,Bills,DEF,DEF,DEF,BUF,,0,,2026-10-20T16:54:41Z
-126912|10|31002|lamarjackson,126912,BDSM League,10,The Bengals,0,QB,Lamar Jackson,QB,QB,skill,BAL,Q,31002,Lamar Jackson (BAL),2026-10-20T16:54:41Z
-126912|10|29279|derrickhenry,126912,BDSM League,10,The Bengals,0,RB,Derrick Henry,RB,RB,skill,BAL,,29279,Derrick Henry (BAL),2026-10-20T16:54:41Z
-126912|10|34063|dameonpierce,126912,BDSM League,10,The Bengals,0,RB,Dameon Pierce,RB,RB,skill,PHI,,34063,Dameon Pierce (PHI),2026-10-20T16:54:41Z
-126912|10|33393|jamarrchase,126912,BDSM League,10,The Bengals,0,WR,Ja'Marr Chase,WR,WR,skill,CIN,,33393,Ja'Marr Chase (CIN),2026-10-20T16:54:41Z
-126912|10|32692|justinjefferson,126912,BDSM League,10,The Bengals,0,WR,Justin Jefferson,WR,WR,skill,MIN,,32692,Justin Jefferson (MIN),2026-10-20T16:54:41Z
-126912|10|29269|hunterhenry,126912,BDSM League,10,The Bengals,0,TE,Hunter Henry,TE,TE,skill,NE,,29269,Hunter Henry (NE),2026-10-20T16:54:41Z
-126912|10|40121|michaelwilson,126912,BDSM League,10,The Bengals,0,W/R/T,Michael Wilson,WR,WR,skill,ARI,,40121,Michael Wilson (ARI),2026-10-20T16:54:41Z
-126912|10|29325|jacobybrissett,126912,BDSM League,10,The Bengals,0,BN,Jacoby Brissett,QB,QB,skill,ARI,,29325,Jacoby Brissett (ARI),2026-10-20T16:54:41Z
-126912|10|41052|kimanividal,126912,BDSM League,10,The Bengals,0,BN,Kimani Vidal,RB,RB,skill,LAC,,41052,Kimani Vidal (LAC),2026-10-20T16:54:41Z
-126912|10|26699|keenanallen,126912,BDSM League,10,The Bengals,0,BN,Keenan Allen,WR,WR,skill,IND,,26699,Keenan Allen (IND),2026-10-20T16:54:41Z
-126912|10|31012|mikegesicki,126912,BDSM League,10,The Bengals,0,BN,Mike Gesicki,TE,TE,skill,CIN,,31012,Mike Gesicki (CIN),2026-10-20T16:54:41Z
-126912|10|31905|davidmontgomery,126912,BDSM League,10,The Bengals,0,IR,David Montgomery,RB,RB,skill,HOU,Q,31905,David Montgomery (HOU),2026-10-20T16:54:41Z
-126912|10|42630|jordyntyson,126912,BDSM League,10,The Bengals,0,IR,Jordyn Tyson,WR,WR,skill,NO,IR-R,42630,,2026-10-20T16:54:41Z
-126912|10|29792|kaimifairbairn,126912,BDSM League,10,The Bengals,0,K,Ka'imi Fairbairn,K,K,K,HOU,,29792,,2026-10-20T16:54:41Z
-126912|10|0|bengals,126912,BDSM League,10,The Bengals,0,DEF,Bengals,DEF,DEF,DEF,CIN,,0,,2026-10-20T16:54:41Z
-126912|10|0|buccaneers,126912,BDSM League,10,The Bengals,0,BN,Buccaneers,DEF,DEF,DEF,TB,,0,,2026-10-20T16:54:41Z
-126912|11|40881|drakemaye,126912,BDSM League,11,WaxOnWaxOff,0,QB,Drake Maye,QB,QB,skill,NE,,40881,Drake Maye (NE),2026-10-20T16:54:41Z
-126912|11|30121|christianmccaffrey,126912,BDSM League,11,WaxOnWaxOff,0,RB,Christian McCaffrey,RB,RB,skill,SF,,30121,Christian McCaffrey (SF),2026-10-20T16:54:41Z
-126912|11|40981|braelonallen,126912,BDSM League,11,WaxOnWaxOff,0,RB,Braelon Allen,RB,RB,skill,NYJ,,40981,Braelon Allen (NYJ),2026-10-20T16:54:41Z
-126912|11|33963|drakelondon,126912,BDSM League,11,WaxOnWaxOff,0,WR,Drake London,WR,WR,skill,ATL,,33963,Drake London (ATL),2026-10-20T16:54:41Z
-126912|11|40126|joshdowns,126912,BDSM League,11,WaxOnWaxOff,0,WR,Josh Downs,WR,WR,skill,IND,,40126,Josh Downs (IND),2026-10-20T16:54:41Z
-126912|11|31019|dallasgoedert,126912,BDSM League,11,WaxOnWaxOff,0,TE,Dallas Goedert,TE,TE,skill,PHI,,31019,Dallas Goedert (PHI),2026-10-20T16:54:41Z
-126912|11|40901|romeodunze,126912,BDSM League,11,WaxOnWaxOff,0,W/R/T,Rome Odunze,WR,WR,skill,CHI,,40901,Rome Odunze (CHI),2026-10-20T16:54:41Z
-126912|11|40084|rasheerice,126912,BDSM League,11,WaxOnWaxOff,0,BN,Rashee Rice,WR,WR,skill,KC,Q,40084,Rashee Rice (KC),2026-10-20T16:54:41Z
-126912|11|41821|quinshonjudkins,126912,BDSM League,11,WaxOnWaxOff,0,BN,Quinshon Judkins,RB,RB,skill,CLE,Q,41821,Quinshon Judkins (CLE),2026-10-20T16:54:41Z
-126912|11|31840|tjhockenson,126912,BDSM League,11,WaxOnWaxOff,0,BN,T.J. Hockenson,TE,TE,skill,MIN,Q,31840,T.J. Hockenson (MIN),2026-10-20T16:54:41Z
-126912|11|30123|patrickmahomes,126912,BDSM League,11,WaxOnWaxOff,0,BN,Patrick Mahomes,QB,QB,skill,KC,,30123,Patrick Mahomes (KC),2026-10-20T16:54:41Z
-126912|11|42712|kaelonblack,126912,BDSM League,11,WaxOnWaxOff,0,BN,Kaelon Black,RB,RB,skill,SF,,42712,Kaelon Black (SF),2026-10-20T16:54:41Z
-126912|11|33413|travisetienne,126912,BDSM League,11,WaxOnWaxOff,0,IR,Travis Etienne Jr.,RB,RB,skill,NO,IR,33413,Travis Etienne (NO),2026-10-20T16:54:41Z
-126912|11|40075|zachcharbonnet,126912,BDSM League,11,WaxOnWaxOff,0,IR,Zach Charbonnet,RB,RB,skill,SEA,PUP-R,40075,Zach Charbonnet (SEA),2026-10-20T16:54:41Z
-126912|11|41499|spencershrader,126912,BDSM League,11,WaxOnWaxOff,0,K,Spencer Shrader,K,K,K,IND,,41499,,2026-10-20T16:54:41Z
-126912|11|0|saints,126912,BDSM League,11,WaxOnWaxOff,0,DEF,Saints,DEF,DEF,DEF,NO,,0,,2026-10-20T16:54:41Z
-126912|12|40030|cjstroud,126912,BDSM League,12,Cee deez nutz,0,QB,C.J. Stroud,QB,QB,skill,HOU,,40030,C.J. Stroud (HOU),2026-10-20T16:54:41Z
-126912|12|41791|ashtonjeanty,126912,BDSM League,12,Cee deez nutz,0,RB,Ashton Jeanty,RB,RB,skill,LV,,41791,Ashton Jeanty (LV),2026-10-20T16:54:41Z
-126912|12|41845|rjharvey,126912,BDSM League,12,Cee deez nutz,0,RB,RJ Harvey,RB,RB,skill,DEN,,41845,RJ Harvey (DEN),2026-10-20T16:54:41Z
-126912|12|33965|garrettwilson,126912,BDSM League,12,Cee deez nutz,0,WR,Garrett Wilson,WR,WR,skill,NYJ,,33965,Garrett Wilson (NYJ),2026-10-20T16:54:41Z
-126912|12|32687|ceedeelamb,126912,BDSM League,12,Cee deez nutz,0,WR,CeeDee Lamb,WR,WR,skill,DAL,,32687,CeeDee Lamb (DAL),2026-10-20T16:54:41Z
-126912|12|33443|patfreiermuth,126912,BDSM League,12,Cee deez nutz,0,TE,Pat Freiermuth,TE,TE,skill,PIT,,33443,Pat Freiermuth (PIT),2026-10-20T16:54:41Z
-126912|12|41808|matthewgolden,126912,BDSM League,12,Cee deez nutz,0,W/R/T,Matthew Golden,WR,WR,skill,GB,,41808,Matthew Golden (GB),2026-10-20T16:54:41Z
-126912|12|40971|marshawnlloyd,126912,BDSM League,12,Cee deez nutz,0,BN,MarShawn Lloyd,RB,RB,skill,GB,,40971,MarShawn Lloyd (GB),2026-10-20T16:54:41Z
-126912|12|40896|jaydendaniels,126912,BDSM League,12,Cee deez nutz,0,BN,Jayden Daniels,QB,QB,skill,WAS,,40896,Jayden Daniels (WAS),2026-10-20T16:54:41Z
-126912|12|33392|kylepitts,126912,BDSM League,12,Cee deez nutz,0,BN,Kyle Pitts Sr.,TE,TE,skill,ATL,,33392,Kyle Pitts (ATL),2026-10-20T16:54:41Z
-126912|12|42744|mikewashington,126912,BDSM League,12,Cee deez nutz,0,BN,Mike Washington Jr.,RB,RB,skill,LV,,42744,Mike Washington Jr. (LV),2026-10-20T16:54:41Z
-126912|12|32231|jakobimeyers,126912,BDSM League,12,Cee deez nutz,0,BN,Jakobi Meyers,WR,WR,skill,JAX,,32231,Jakobi Meyers (JAX),2026-10-20T16:54:41Z
-126912|12|40911|keoncoleman,126912,BDSM League,12,Cee deez nutz,0,BN,Keon Coleman,WR,WR,skill,BUF,,40911,Keon Coleman (BUF),2026-10-20T16:54:41Z
-126912|12|42025|kylemonangai,126912,BDSM League,12,Cee deez nutz,0,IR,Kyle Monangai,RB,RB,skill,CHI,Q,42025,Kyle Monangai (CHI),2026-10-20T16:54:41Z
-126912|12|33991|breecehall,126912,BDSM League,12,Cee deez nutz,0,IR,Breece Hall,RB,RB,skill,NYJ,Q,33991,Breece Hall (NYJ),2026-10-20T16:54:41Z
-126912|12|31482|eddypineiro,126912,BDSM League,12,Cee deez nutz,0,K,Eddy Pineiro,K,K,K,SF,,31482,,2026-10-20T16:54:41Z
-126912|12|0|steelers,126912,BDSM League,12,Cee deez nutz,0,DEF,Steelers,DEF,DEF,DEF,PIT,,0,,2026-10-20T16:54:41Z
-200436|1|32696|jordanlove,200436,The League,1,Just Another Team,0,QB,Jordan Love,QB,QB,skill,GB,,32696,Jordan Love (GB),2026-10-20T16:54:41Z
-200436|1|33508|rhamondrestevenson,200436,The League,1,Just Another Team,0,RB,Rhamondre Stevenson,RB,RB,skill,NE,,33508,Rhamondre Stevenson (NE),2026-10-20T16:54:41Z
-200436|1|41902|woodymarks,200436,The League,1,Just Another Team,0,RB,Woody Marks,RB,RB,skill,HOU,,41902,Woody Marks (HOU),2026-10-20T16:54:41Z
-200436|1|34007|georgepickens,200436,The League,1,Just Another Team,0,WR,George Pickens,WR,WR,skill,DAL,,34007,George Pickens (DAL),2026-10-20T16:54:41Z
-200436|1|33965|garrettwilson,200436,The League,1,Just Another Team,0,WR,Garrett Wilson,WR,WR,skill,NYJ,,33965,Garrett Wilson (NYJ),2026-10-20T16:54:41Z
-200436|1|31883|ajbrown,200436,The League,1,Just Another Team,0,WR,A.J. Brown,WR,WR,skill,NE,Q,31883,A.J. Brown (NE),2026-10-20T16:54:41Z
-200436|1|34095|isaiahlikely,200436,The League,1,Just Another Team,0,TE,Isaiah Likely,TE,TE,skill,NYG,,34095,Isaiah Likely (NYG),2026-10-20T16:54:41Z
-200436|1|41877|haroldfannin,200436,The League,1,Just Another Team,0,W/R/T,Harold Fannin Jr.,TE,TE,skill,CLE,,41877,Harold Fannin Jr. (CLE),2026-10-20T16:54:41Z
-200436|1|34063|dameonpierce,200436,The League,1,Just Another Team,0,BN,Dameon Pierce,RB,RB,skill,PHI,,34063,Dameon Pierce (PHI),2026-10-20T16:54:41Z
-200436|1|40707|emanuelwilson,200436,The League,1,Just Another Team,0,BN,Emanuel Wilson,RB,RB,skill,SEA,,40707,Emanuel Wilson (SEA),2026-10-20T16:54:41Z
-200436|1|31908|terrymclaurin,200436,The League,1,Just Another Team,0,BN,Terry McLaurin,WR,WR,skill,WAS,D,31908,Terry McLaurin (WAS),2026-10-20T16:54:41Z
-200436|1|32671|joeburrow,200436,The League,1,Just Another Team,0,BN,Joe Burrow,QB,QB,skill,CIN,,32671,Joe Burrow (CIN),2026-10-20T16:54:41Z
-200436|1|41097|devaughnvele,200436,The League,1,Just Another Team,0,BN,Devaughn Vele,WR,WR,skill,NO,,41097,Devaughn Vele (NO),2026-10-20T16:54:41Z
-200436|1|32725|jkdobbins,200436,The League,1,Just Another Team,0,BN,J.K. Dobbins,RB,RB,skill,DEN,,32725,J.K. Dobbins (DEN),2026-10-20T16:54:41Z
-200436|1|41988|tylerloop,200436,The League,1,Just Another Team,0,K,Tyler Loop,K,K,K,BAL,,41988,,2026-10-20T16:54:41Z
-200436|1|0|steelers,200436,The League,1,Just Another Team,0,DEF,Steelers,DEF,DEF,DEF,PIT,,0,,2026-10-20T16:54:41Z
-200436|2|40030|cjstroud,200436,The League,2,C-Kupps,0,QB,C.J. Stroud,QB,QB,skill,HOU,,40030,C.J. Stroud (HOU),2026-10-20T16:54:41Z
-200436|2|33423|javontewilliams,200436,The League,2,C-Kupps,0,RB,Javonte Williams,RB,RB,skill,DAL,,33423,Javonte Williams (DAL),2026-10-20T16:54:41Z
-200436|2|40981|braelonallen,200436,The League,2,C-Kupps,0,RB,Braelon Allen,RB,RB,skill,NYJ,,40981,Braelon Allen (NYJ),2026-10-20T16:54:41Z
-200436|2|40041|jaxonsmithnjigba,200436,The League,2,C-Kupps,0,WR,Jaxon Smith-Njigba,WR,WR,skill,SEA,,40041,Jaxon Smith-Njigba (SEA),2026-10-20T16:54:41Z
-200436|2|42626|carnelltate,200436,The League,2,C-Kupps,0,WR,Carnell Tate,WR,WR,skill,TEN,,42626,Carnell Tate (TEN),2026-10-20T16:54:41Z
-200436|2|41793|tetairoamcmillan,200436,The League,2,C-Kupps,0,WR,Tetairoa McMillan,WR,WR,skill,CAR,,41793,Tetairoa McMillan (CAR),2026-10-20T16:54:41Z
-200436|2|34010|treymcbride,200436,The League,2,C-Kupps,0,TE,Trey McBride,TE,TE,skill,ARI,,34010,Trey McBride (ARI),2026-10-20T16:54:41Z
-200436|2|41900|bhayshultuten,200436,The League,2,C-Kupps,0,W/R/T,Bhayshul Tuten,RB,RB,skill,JAX,,41900,Bhayshul Tuten (JAX),2026-10-20T16:54:41Z
-200436|2|33393|jamarrchase,200436,The League,2,C-Kupps,0,BN,Ja'Marr Chase,WR,WR,skill,CIN,,33393,Ja'Marr Chase (CIN),2026-10-20T16:54:41Z
-200436|2|29235|jaredgoff,200436,The League,2,C-Kupps,0,BN,Jared Goff,QB,QB,skill,DET,,29235,Jared Goff (DET),2026-10-20T16:54:41Z
-200436|2|33100|ricodowdle,200436,The League,2,C-Kupps,0,BN,Rico Dowdle,RB,RB,skill,PIT,,33100,Rico Dowdle (PIT),2026-10-20T16:54:41Z
-200436|2|42623|fernandomendoza,200436,The League,2,C-Kupps,0,BN,Fernando Mendoza,QB,QB,skill,LV,,42623,Fernando Mendoza (LV),2026-10-20T16:54:41Z
-200436|2|30551|kendrickbourne,200436,The League,2,C-Kupps,0,BN,Kendrick Bourne,WR,WR,skill,ARI,,30551,Kendrick Bourne (ARI),2026-10-20T16:54:41Z
-200436|2|42654|jadarianprice,200436,The League,2,C-Kupps,0,IR,Jadarian Price,RB,RB,skill,SEA,IR,42654,Jadarian Price (SEA),2026-10-20T16:54:41Z
-200436|2|42630|jordyntyson,200436,The League,2,C-Kupps,0,IR,Jordyn Tyson,WR,WR,skill,NO,IR-R,42630,,2026-10-20T16:54:41Z
-200436|2|42838|treysmack,200436,The League,2,C-Kupps,0,K,Trey Smack,K,K,K,GB,,42838,,2026-10-20T16:54:41Z
-200436|2|0|rams,200436,The League,2,C-Kupps,0,DEF,Rams,DEF,DEF,DEF,LA,,0,,2026-10-20T16:54:41Z
-200436|2|33537|evanmcpherson,200436,The League,2,C-Kupps,0,BN,Evan McPherson,K,K,K,CIN,,33537,,2026-10-20T16:54:41Z
-200436|3|40881|drakemaye,200436,The League,3,Meatball Maye,1,QB,Drake Maye,QB,QB,skill,NE,,40881,Drake Maye (NE),2026-10-20T16:54:41Z
-200436|3|34447|jaylenwarren,200436,The League,3,Meatball Maye,1,RB,Jaylen Warren,RB,RB,skill,PIT,,34447,Jaylen Warren (PIT),2026-10-20T16:54:41Z
-200436|3|33514|chubahubbard,200436,The League,3,Meatball Maye,1,RB,Chuba Hubbard,RB,RB,skill,CAR,,33514,Chuba Hubbard (CAR),2026-10-20T16:54:41Z
-200436|3|33963|drakelondon,200436,The League,3,Meatball Maye,1,WR,Drake London,WR,WR,skill,ATL,,33963,Drake London (ATL),2026-10-20T16:54:41Z
-200436|3|32692|justinjefferson,200436,The League,3,Meatball Maye,1,WR,Justin Jefferson,WR,WR,skill,MIN,,32692,Justin Jefferson (MIN),2026-10-20T16:54:41Z
-200436|3|33998|wandalerobinson,200436,The League,3,Meatball Maye,1,WR,Wan'Dale Robinson,WR,WR,skill,TEN,,33998,Wan'Dale Robinson (TEN),2026-10-20T16:54:41Z
-200436|3|41795|colstonloveland,200436,The League,3,Meatball Maye,1,TE,Colston Loveland,TE,TE,skill,CHI,,41795,Colston Loveland (CHI),2026-10-20T16:54:41Z
-200436|3|40196|chasebrown,200436,The League,3,Meatball Maye,1,W/R/T,Chase Brown,RB,RB,skill,CIN,,40196,Chase Brown (CIN),2026-10-20T16:54:41Z
-200436|3|41087|ryanflournoy,200436,The League,3,Meatball Maye,1,BN,Ryan Flournoy,WR,WR,skill,DAL,,41087,Ryan Flournoy (DAL),2026-10-20T16:54:41Z
-200436|3|33113|juwanjohnson,200436,The League,3,Meatball Maye,1,BN,Juwan Johnson,TE,TE,skill,NO,,33113,Juwan Johnson (NO),2026-10-20T16:54:41Z
-200436|3|40201|dontayvionwicks,200436,The League,3,Meatball Maye,1,BN,Dontayvion Wicks,WR,WR,skill,PHI,,40201,Dontayvion Wicks (PHI),2026-10-20T16:54:41Z
-200436|3|33991|breecehall,200436,The League,3,Meatball Maye,1,BN,Breece Hall,RB,RB,skill,NYJ,Q,33991,Breece Hall (NYJ),2026-10-20T16:54:41Z
-200436|3|41825|tylershough,200436,The League,3,Meatball Maye,1,BN,Tyler Shough,QB,QB,skill,NO,,41825,Tyler Shough (NO),2026-10-20T16:54:41Z
-200436|3|40078|brentonstrange,200436,The League,3,Meatball Maye,1,BN,Brenton Strange,TE,TE,skill,JAX,,40078,Brenton Strange (JAX),2026-10-20T16:54:41Z
-200436|3|41831|terranceferguson,200436,The League,3,Meatball Maye,1,IR,Terrance Ferguson,TE,TE,skill,LA,IR,41831,Terrance Ferguson (LA),2026-10-20T16:54:41Z
-200436|3|41062|camlittle,200436,The League,3,Meatball Maye,1,K,Cam Little,K,K,K,JAX,,41062,,2026-10-20T16:54:41Z
-200436|3|0|seahawks,200436,The League,3,Meatball Maye,1,DEF,Seahawks,DEF,DEF,DEF,SEA,,0,,2026-10-20T16:54:41Z
-200436|4|25812|kirkcousins,200436,The League,4,Scoots Boots,0,QB,Kirk Cousins,QB,QB,skill,LV,,25812,Kirk Cousins (LV),2026-10-20T16:54:41Z
-200436|4|32711|jonathantaylor,200436,The League,4,Scoots Boots,0,RB,Jonathan Taylor,RB,RB,skill,IND,,32711,Jonathan Taylor (IND),2026-10-20T16:54:41Z
-200436|4|33538|kennygainwell,200436,The League,4,Scoots Boots,0,RB,Kenny Gainwell,RB,RB,skill,TB,,33538,Kenny Gainwell (TB),2026-10-20T16:54:41Z
-200436|4|33989|christianwatson,200436,The League,4,Scoots Boots,0,WR,Christian Watson,WR,WR,skill,GB,,33989,Christian Watson (GB),2026-10-20T16:54:41Z
-200436|4|40039|zayflowers,200436,The League,4,Scoots Boots,0,WR,Zay Flowers,WR,WR,skill,BAL,,40039,Zay Flowers (BAL),2026-10-20T16:54:41Z
-200436|4|40126|joshdowns,200436,The League,4,Scoots Boots,0,WR,Josh Downs,WR,WR,skill,IND,,40126,Josh Downs (IND),2026-10-20T16:54:41Z
-200436|4|40102|tuckerkraft,200436,The League,4,Scoots Boots,0,TE,Tucker Kraft,TE,TE,skill,GB,,40102,Tucker Kraft (GB),2026-10-20T16:54:41Z
-200436|4|34088|romeodoubs,200436,The League,4,Scoots Boots,0,W/R/T,Romeo Doubs,WR,WR,skill,NE,IR,34088,Romeo Doubs (NE),2026-10-20T16:54:41Z
-200436|4|41799|tylerwarren,200436,The League,4,Scoots Boots,0,BN,Tyler Warren,TE,TE,skill,IND,Q,41799,Tyler Warren (IND),2026-10-20T16:54:41Z
-200436|4|30295|aaronjones,200436,The League,4,Scoots Boots,0,BN,Aaron Jones Sr.,RB,RB,skill,MIN,,30295,Aaron Jones (MIN),2026-10-20T16:54:41Z
-200436|4|32676|justinherbert,200436,The League,4,Scoots Boots,0,BN,Justin Herbert,QB,QB,skill,LAC,,32676,Justin Herbert (LAC),2026-10-20T16:54:41Z
-200436|4|33415|rashodbateman,200436,The League,4,Scoots Boots,0,BN,Rashod Bateman,WR,WR,skill,BAL,Q,33415,Rashod Bateman (BAL),2026-10-20T16:54:41Z
-200436|4|42697|calebdouglas,200436,The League,4,Scoots Boots,0,BN,Caleb Douglas,WR,WR,skill,MIA,Q,42697,Caleb Douglas (MIA),2026-10-20T16:54:41Z
-200436|4|40119|tyjaespears,200436,The League,4,Scoots Boots,0,BN,Tyjae Spears,RB,RB,skill,TEN,,40119,Tyjae Spears (TEN),2026-10-20T16:54:41Z
-200436|4|32704|michaelpittman,200436,The League,4,Scoots Boots,0,IR,Michael Pittman Jr.,WR,WR,skill,PIT,IR,32704,Michael Pittman (PIT),2026-10-20T16:54:41Z
-200436|4|40118|devonachane,200436,The League,4,Scoots Boots,0,IR,De'Von Achane,RB,RB,skill,MIA,IR,40118,,2026-10-20T16:54:41Z
-200436|4|40075|zachcharbonnet,200436,The League,4,Scoots Boots,0,IR,Zach Charbonnet,RB,RB,skill,SEA,PUP-R,40075,Zach Charbonnet (SEA),2026-10-20T16:54:41Z
-200436|4|40296|blakegrupe,200436,The League,4,Scoots Boots,0,K,Blake Grupe,K,K,K,LA,IR,40296,,2026-10-20T16:54:41Z
-200436|4|0|panthers,200436,The League,4,Scoots Boots,0,DEF,Panthers,DEF,DEF,DEF,CAR,,0,,2026-10-20T16:54:41Z
-200436|5|30125|deshaunwatson,200436,The League,5,Givin’ it to you Mike’s Way,0,QB,Deshaun Watson,QB,QB,skill,CLE,,30125,Deshaun Watson (CLE),2026-10-20T16:54:41Z
-200436|5|40993|buckyirving,200436,The League,5,Givin’ it to you Mike’s Way,0,RB,Bucky Irving,RB,RB,skill,TB,,40993,Bucky Irving (TB),2026-10-20T16:54:41Z
-200436|5|33996|kennethwalker,200436,The League,5,Givin’ it to you Mike’s Way,0,RB,Kenneth Walker III,RB,RB,skill,KC,,33996,Kenneth Walker III (KC),2026-10-20T16:54:41Z
-200436|5|41824|lutherburden,200436,The League,5,Givin’ it to you Mike’s Way,0,WR,Luther Burden III,WR,WR,skill,CHI,,41824,Luther Burden III (CHI),2026-10-20T16:54:41Z
-200436|5|40168|pukanacua,200436,The League,5,Givin’ it to you Mike’s Way,0,WR,Puka Nacua,WR,WR,skill,LA,,40168,Puka Nacua (LA),2026-10-20T16:54:41Z
-200436|5|42669|germiebernard,200436,The League,5,Givin’ it to you Mike’s Way,0,WR,Germie Bernard,WR,WR,skill,PIT,,42669,Germie Bernard (PIT),2026-10-20T16:54:41Z
-200436|5|34085|jakeferguson,200436,The League,5,Givin’ it to you Mike’s Way,0,TE,Jake Ferguson,TE,TE,skill,DAL,,34085,Jake Ferguson (DAL),2026-10-20T16:54:41Z
-200436|5|42646|kcconcepcion,200436,The League,5,Givin’ it to you Mike’s Way,0,W/R/T,KC Concepcion Jr.,WR,WR,skill,CLE,,42646,KC Concepcion (CLE),2026-10-20T16:54:41Z
-200436|5|32231|jakobimeyers,200436,The League,5,Givin’ it to you Mike’s Way,0,BN,Jakobi Meyers,WR,WR,skill,JAX,,32231,Jakobi Meyers (JAX),2026-10-20T16:54:41Z
-200436|5|41823|treveyonhenderson,200436,The League,5,Givin’ it to you Mike’s Way,0,BN,TreVeyon Henderson,RB,RB,skill,NE,,41823,TreVeyon Henderson (NE),2026-10-20T16:54:41Z
-200436|5|32723|jalenhurts,200436,The League,5,Givin’ it to you Mike’s Way,0,BN,Jalen Hurts,QB,QB,skill,PHI,IR,32723,Jalen Hurts (PHI),2026-10-20T16:54:41Z
-200436|5|41058|malikwashington,200436,The League,5,Givin’ it to you Mike’s Way,0,BN,Malik Washington,WR,WR,skill,MIA,,41058,Malik Washington (MIA),2026-10-20T16:54:41Z
-200436|5|40224|kayshonboutte,200436,The League,5,Givin’ it to you Mike’s Way,0,BN,Kayshon Boutte,WR,WR,skill,HOU,,40224,Kayshon Boutte (HOU),2026-10-20T16:54:41Z
-200436|5|42796|emmettjohnson,200436,The League,5,Givin’ it to you Mike’s Way,0,BN,Emmett Johnson,RB,RB,skill,KC,,42796,Emmett Johnson (KC),2026-10-20T16:54:41Z
-200436|5|42730|jonahcoleman,200436,The League,5,Givin’ it to you Mike’s Way,0,IR,Jonah Coleman,RB,RB,skill,DEN,IR,42730,Jonah Coleman (DEN),2026-10-20T16:54:41Z
-200436|5|40926|jonathonbrooks,200436,The League,5,Givin’ it to you Mike’s Way,0,IR,Jonathon Brooks,RB,RB,skill,CAR,IR,40926,Jonathon Brooks (CAR),2026-10-20T16:54:41Z
-200436|5|41499|spencershrader,200436,The League,5,Givin’ it to you Mike’s Way,0,K,Spencer Shrader,K,K,K,IND,,41499,,2026-10-20T16:54:41Z
-200436|5|0|cowboys,200436,The League,5,Givin’ it to you Mike’s Way,0,DEF,Cowboys,DEF,DEF,DEF,DAL,,0,,2026-10-20T16:54:41Z
-200436|6|34218|brockpurdy,200436,The League,6,MTV Gibbs,0,QB,Brock Purdy,QB,QB,skill,SF,,34218,Brock Purdy (SF),2026-10-20T16:54:41Z
-200436|6|40962|blakecorum,200436,The League,6,MTV Gibbs,0,RB,Blake Corum,RB,RB,skill,LA,,40962,Blake Corum (LA),2026-10-20T16:54:41Z
-200436|6|40059|jahmyrgibbs,200436,The League,6,MTV Gibbs,0,RB,Jahmyr Gibbs,RB,RB,skill,DET,,40059,Jahmyr Gibbs (DET),2026-10-20T16:54:41Z
-200436|6|40893|marvinharrison,200436,The League,6,MTV Gibbs,0,WR,Marvin Harrison Jr.,WR,WR,skill,HOU,,40893,Marvin Harrison Jr. (HOU),2026-10-20T16:54:41Z
-200436|6|40877|xavierworthy,200436,The League,6,MTV Gibbs,0,WR,Xavier Worthy,WR,WR,skill,KC,,40877,Xavier Worthy (KC),2026-10-20T16:54:41Z
-200436|6|32703|teehiggins,200436,The League,6,MTV Gibbs,0,WR,Tee Higgins,WR,WR,skill,CIN,,32703,Tee Higgins (CIN),2026-10-20T16:54:41Z
-200436|6|31107|daltonschultz,200436,The League,6,MTV Gibbs,0,TE,Dalton Schultz,TE,TE,skill,HOU,,31107,Dalton Schultz (HOU),2026-10-20T16:54:41Z
-200436|6|41969|olliegordon,200436,The League,6,MTV Gibbs,0,W/R/T,Ollie Gordon II,RB,RB,skill,MIA,,41969,Ollie Gordon II (MIA),2026-10-20T16:54:41Z
-200436|6|33392|kylepitts,200436,The League,6,MTV Gibbs,0,BN,Kyle Pitts Sr.,TE,TE,skill,ATL,,33392,Kyle Pitts (ATL),2026-10-20T16:54:41Z
-200436|6|41807|omarionhampton,200436,The League,6,MTV Gibbs,0,BN,Omarion Hampton,RB,RB,skill,LAC,,41807,Omarion Hampton (LAC),2026-10-20T16:54:41Z
-200436|6|27581|davanteadams,200436,The League,6,MTV Gibbs,0,BN,Davante Adams,WR,WR,skill,LA,O,27581,Davante Adams (LA),2026-10-20T16:54:41Z
-200436|6|33389|trevorlawrence,200436,The League,6,MTV Gibbs,0,BN,Trevor Lawrence,QB,QB,skill,JAX,,33389,Trevor Lawrence (JAX),2026-10-20T16:54:41Z
-200436|6|42638|kenyonsadiq,200436,The League,6,MTV Gibbs,0,BN,Kenyon Sadiq,TE,TE,skill,NYJ,,42638,Kenyon Sadiq (NYJ),2026-10-20T16:54:41Z
-200436|6|34207|isiahpacheco,200436,The League,6,MTV Gibbs,0,IR,Isiah Pacheco,RB,RB,skill,DET,IR,34207,,2026-10-20T16:54:41Z
-200436|6|40819|brandonaubrey,200436,The League,6,MTV Gibbs,0,K,Brandon Aubrey,K,K,K,DAL,,40819,,2026-10-20T16:54:41Z
-200436|6|0|ravens,200436,The League,6,MTV Gibbs,0,DEF,Ravens,DEF,DEF,DEF,BAL,,0,,2026-10-20T16:54:41Z
-200436|6|0|packers,200436,The League,6,MTV Gibbs,0,BN,Packers,DEF,DEF,DEF,GB,,0,,2026-10-20T16:54:41Z
-200436|7|9265|matthewstafford,200436,The League,7,NFL Youngboyz,0,QB,Matthew Stafford,QB,QB,skill,LA,,9265,Matthew Stafford (LA),2026-10-20T16:54:41Z
-200436|7|40641|keatonmitchell,200436,The League,7,NFL Youngboyz,0,RB,Keaton Mitchell,RB,RB,skill,LAC,,40641,Keaton Mitchell (LAC),2026-10-20T16:54:41Z
-200436|7|40108|kendremiller,200436,The League,7,NFL Youngboyz,0,RB,Kendre Miller,RB,RB,skill,NO,,40108,Kendre Miller (NO),2026-10-20T16:54:41Z
-200436|7|40899|maliknabers,200436,The League,7,NFL Youngboyz,0,WR,Malik Nabers,WR,WR,skill,NYG,,40899,Malik Nabers (NYG),2026-10-20T16:54:41Z
-200436|7|33477|nicocollins,200436,The League,7,NFL Youngboyz,0,WR,Nico Collins,WR,WR,skill,HOU,,33477,Nico Collins (HOU),2026-10-20T16:54:41Z
-200436|7|40114|tretucker,200436,The League,7,NFL Youngboyz,0,WR,Tre Tucker,WR,WR,skill,LV,,40114,Tre Tucker (LV),2026-10-20T16:54:41Z
-200436|7|30259|georgekittle,200436,The League,7,NFL Youngboyz,0,TE,George Kittle,TE,TE,skill,SF,,30259,George Kittle (SF),2026-10-20T16:54:41Z
-200436|7|41804|emekaegbuka,200436,The League,7,NFL Youngboyz,0,W/R/T,Emeka Egbuka,WR,WR,skill,TB,,41804,Emeka Egbuka (TB),2026-10-20T16:54:41Z
-200436|7|40883|brianthomas,200436,The League,7,NFL Youngboyz,0,BN,Brian Thomas Jr.,WR,WR,skill,JAX,,40883,Brian Thomas Jr. (JAX),2026-10-20T16:54:41Z
-200436|7|33500|amonrastbrown,200436,The League,7,NFL Youngboyz,0,BN,Amon-Ra St. Brown,WR,WR,skill,DET,,33500,Amon-Ra St. Brown (DET),2026-10-20T16:54:41Z
-200436|7|31856|joshjacobs,200436,The League,7,NFL Youngboyz,0,BN,Josh Jacobs,RB,RB,skill,GB,,31856,,2026-10-20T16:54:41Z
-200436|7|7200|aaronrodgers,200436,The League,7,NFL Youngboyz,0,BN,Aaron Rodgers,QB,QB,skill,PIT,,7200,Aaron Rodgers (PIT),2026-10-20T16:54:41Z
-200436|7|33443|patfreiermuth,200436,The League,7,NFL Youngboyz,0,BN,Pat Freiermuth,TE,TE,skill,PIT,,33443,Pat Freiermuth (PIT),2026-10-20T16:54:41Z
-200436|7|31905|davidmontgomery,200436,The League,7,NFL Youngboyz,0,IR,David Montgomery,RB,RB,skill,HOU,Q,31905,David Montgomery (HOU),2026-10-20T16:54:41Z
-200436|7|33413|travisetienne,200436,The League,7,NFL Youngboyz,0,IR,Travis Etienne Jr.,RB,RB,skill,NO,IR,33413,Travis Etienne (NO),2026-10-20T16:54:41Z
-200436|7|28188|chrisboswell,200436,The League,7,NFL Youngboyz,0,K,Chris Boswell,K,K,K,PIT,,28188,,2026-10-20T16:54:41Z
-200436|7|0|chiefs,200436,The League,7,NFL Youngboyz,0,DEF,Chiefs,DEF,DEF,DEF,KC,,0,,2026-10-20T16:54:41Z
-200436|7|0|texans,200436,The League,7,NFL Youngboyz,0,BN,Texans,DEF,DEF,DEF,HOU,,0,,2026-10-20T16:54:41Z
-200436|8|40900|calebwilliams,200436,The League,8,Golftimus Prime,0,QB,Caleb Williams,QB,QB,skill,CHI,,40900,Caleb Williams (CHI),2026-10-20T16:54:41Z
-200436|8|41845|rjharvey,200436,The League,8,Golftimus Prime,0,RB,RJ Harvey,RB,RB,skill,DEN,,41845,RJ Harvey (DEN),2026-10-20T16:54:41Z
-200436|8|34107|tylerallgeier,200436,The League,8,Golftimus Prime,0,RB,Tyler Allgeier,RB,RB,skill,ARI,,34107,Tyler Allgeier (ARI),2026-10-20T16:54:41Z
-200436|8|41808|matthewgolden,200436,The League,8,Golftimus Prime,0,WR,Matthew Golden,WR,WR,skill,GB,,41808,Matthew Golden (GB),2026-10-20T16:54:41Z
-200436|8|33394|jaylenwaddle,200436,The League,8,Golftimus Prime,0,WR,Jaylen Waddle,WR,WR,skill,DEN,,33394,Jaylen Waddle (DEN),2026-10-20T16:54:41Z
-200436|8|40064|samlaporta,200436,The League,8,Golftimus Prime,0,TE,Sam LaPorta,TE,TE,skill,DET,,40064,Sam LaPorta (DET),2026-10-20T16:54:41Z
-200436|8|30180|alvinkamara,200436,The League,8,Golftimus Prime,0,W/R/T,Alvin Kamara,RB,RB,skill,NO,,30180,Alvin Kamara (NO),2026-10-20T16:54:41Z
-200436|8|27535|mikeevans,200436,The League,8,Golftimus Prime,0,BN,Mike Evans,WR,WR,skill,SF,Q,27535,Mike Evans (SF),2026-10-20T16:54:41Z
-200436|8|28592|darrenwaller,200436,The League,8,Golftimus Prime,0,BN,Darren Waller,TE,TE,skill,CAR,,28592,Darren Waller (CAR),2026-10-20T16:54:41Z
-200436|8|40911|keoncoleman,200436,The League,8,Golftimus Prime,0,BN,Keon Coleman,WR,WR,skill,BUF,,40911,Keon Coleman (BUF),2026-10-20T16:54:41Z
-200436|8|40896|jaydendaniels,200436,The League,8,Golftimus Prime,0,BN,Jayden Daniels,QB,QB,skill,WAS,,40896,Jayden Daniels (WAS),2026-10-20T16:54:41Z
-200436|8|31002|lamarjackson,200436,The League,8,Golftimus Prime,0,BN,Lamar Jackson,QB,QB,skill,BAL,Q,31002,Lamar Jackson (BAL),2026-10-20T16:54:41Z
-200436|8|41052|kimanividal,200436,The League,8,Golftimus Prime,0,BN,Kimani Vidal,RB,RB,skill,LAC,,41052,Kimani Vidal (LAC),2026-10-20T16:54:41Z
-200436|8|30972|saquonbarkley,200436,The League,8,Golftimus Prime,0,IR,Saquon Barkley,RB,RB,skill,PHI,Q,30972,Saquon Barkley (PHI),2026-10-20T16:54:41Z
-200436|8|40084|rasheerice,200436,The League,8,Golftimus Prime,0,IR,Rashee Rice,WR,WR,skill,KC,Q,40084,Rashee Rice (KC),2026-10-20T16:54:41Z
-200436|8|34320|jordanmason,200436,The League,8,Golftimus Prime,0,IR,Jordan Mason,RB,RB,skill,MIN,IR-R,34320,Jordan Mason (MIN),2026-10-20T16:54:41Z
-200436|8|0|colts,200436,The League,8,Golftimus Prime,0,DEF,Colts,DEF,DEF,DEF,IND,,0,,2026-10-20T16:54:41Z
-200436|8|32858|tylerbass,200436,The League,8,Golftimus Prime,0,BN,Tyler Bass,K,K,K,BUF,,32858,,2026-10-20T16:54:41Z
-200436|9|30123|patrickmahomes,200436,The League,9,It's About Lamb Time,0,QB,Patrick Mahomes,QB,QB,skill,KC,,30123,Patrick Mahomes (KC),2026-10-20T16:54:41Z
-200436|9|34120|kyrenwilliams,200436,The League,9,It's About Lamb Time,0,RB,Kyren Williams,RB,RB,skill,LA,,34120,Kyren Williams (LA),2026-10-20T16:54:41Z
-200436|9|32705|dandreswift,200436,The League,9,It's About Lamb Time,0,RB,D'Andre Swift,RB,RB,skill,CHI,,32705,D'Andre Swift (CHI),2026-10-20T16:54:41Z
-200436|9|32687|ceedeelamb,200436,The League,9,It's About Lamb Time,0,WR,CeeDee Lamb,WR,WR,skill,DAL,,32687,CeeDee Lamb (DAL),2026-10-20T16:54:41Z
-200436|9|31010|courtlandsutton,200436,The League,9,It's About Lamb Time,0,WR,Courtland Sutton,WR,WR,skill,DEN,,31010,Courtland Sutton (DEN),2026-10-20T16:54:41Z
-200436|9|26699|keenanallen,200436,The League,9,It's About Lamb Time,0,WR,Keenan Allen,WR,WR,skill,IND,,26699,Keenan Allen (IND),2026-10-20T16:54:41Z
-200436|9|31019|dallasgoedert,200436,The League,9,It's About Lamb Time,0,TE,Dallas Goedert,TE,TE,skill,PHI,,31019,Dallas Goedert (PHI),2026-10-20T16:54:41Z
-200436|9|29269|hunterhenry,200436,The League,9,It's About Lamb Time,0,W/R/T,Hunter Henry,TE,TE,skill,NE,,29269,Hunter Henry (NE),2026-10-20T16:54:41Z
-200436|9|34054|brianrobinson,200436,The League,9,It's About Lamb Time,0,BN,Brian Robinson Jr.,RB,RB,skill,ATL,,34054,Brian Robinson (ATL),2026-10-20T16:54:41Z
-200436|9|42010|jcroskeymerritt,200436,The League,9,It's About Lamb Time,0,BN,J. Croskey-Merritt,RB,RB,skill,WAS,IR,42010,,2026-10-20T16:54:41Z
-200436|9|30973|samdarnold,200436,The League,9,It's About Lamb Time,0,BN,Sam Darnold,QB,QB,skill,SEA,,30973,Sam Darnold (SEA),2026-10-20T16:54:41Z
-200436|9|33967|jamesonwilliams,200436,The League,9,It's About Lamb Time,0,BN,Jameson Williams,WR,WR,skill,DET,,33967,Jameson Williams (DET),2026-10-20T16:54:41Z
-200436|9|42642|makailemon,200436,The League,9,It's About Lamb Time,0,BN,Makai Lemon,WR,WR,skill,PHI,,42642,Makai Lemon (PHI),2026-10-20T16:54:41Z
-200436|9|29631|kalifraymond,200436,The League,9,It's About Lamb Time,0,BN,Kalif Raymond,WR,WR,skill,CHI,,29631,Kalif Raymond (CHI),2026-10-20T16:54:41Z
-200436|9|34008|alecpierce,200436,The League,9,It's About Lamb Time,0,IR,Alec Pierce,WR,WR,skill,IND,IR,34008,Alec Pierce (IND),2026-10-20T16:54:41Z
-200436|9|29792|kaimifairbairn,200436,The League,9,It's About Lamb Time,0,K,Ka'imi Fairbairn,K,K,K,HOU,,29792,,2026-10-20T16:54:41Z
-200436|9|0|patriots,200436,The League,9,It's About Lamb Time,0,DEF,Patriots,DEF,DEF,DEF,NE,,0,,2026-10-20T16:54:41Z
-200436|10|29369|dakprescott,200436,The League,10,Henry Given Sunday,0,QB,Dak Prescott,QB,QB,skill,DAL,,29369,Dak Prescott (DAL),2026-10-20T16:54:41Z
-200436|10|30121|christianmccaffrey,200436,The League,10,Henry Given Sunday,0,RB,Christian McCaffrey,RB,RB,skill,SF,,30121,Christian McCaffrey (SF),2026-10-20T16:54:41Z
-200436|10|29279|derrickhenry,200436,The League,10,Henry Given Sunday,0,RB,Derrick Henry,RB,RB,skill,BAL,,29279,Derrick Henry (BAL),2026-10-20T16:54:41Z
-200436|10|33966|chrisolave,200436,The League,10,Henry Given Sunday,0,WR,Chris Olave,WR,WR,skill,NO,,33966,Chris Olave (NO),2026-10-20T16:54:41Z
-200436|10|31896|dkmetcalf,200436,The League,10,Henry Given Sunday,0,WR,DK Metcalf,WR,WR,skill,PIT,,31896,DK Metcalf (PIT),2026-10-20T16:54:41Z
-200436|10|42661|denzelboston,200436,The League,10,Henry Given Sunday,0,WR,Denzel Boston,WR,WR,skill,CLE,,42661,Denzel Boston (CLE),2026-10-20T16:54:41Z
-200436|10|26686|traviskelce,200436,The League,10,Henry Given Sunday,0,TE,Travis Kelce,TE,TE,skill,KC,,26686,Travis Kelce (KC),2026-10-20T16:54:41Z
-200436|10|40971|marshawnlloyd,200436,The League,10,Henry Given Sunday,0,W/R/T,MarShawn Lloyd,RB,RB,skill,GB,,40971,MarShawn Lloyd (GB),2026-10-20T16:54:41Z
-200436|10|41821|quinshonjudkins,200436,The League,10,Henry Given Sunday,0,BN,Quinshon Judkins,RB,RB,skill,CLE,Q,41821,Quinshon Judkins (CLE),2026-10-20T16:54:41Z
-200436|10|34104|khalilshakir,200436,The League,10,Henry Given Sunday,0,BN,Khalil Shakir,WR,WR,skill,BUF,,34104,Khalil Shakir (BUF),2026-10-20T16:54:41Z
-200436|10|40908|laddmcconkey,200436,The League,10,Henry Given Sunday,0,BN,Ladd McConkey,WR,WR,skill,LAC,Q,40908,Ladd McConkey (LAC),2026-10-20T16:54:41Z
-200436|10|40042|jordanaddison,200436,The League,10,Henry Given Sunday,0,BN,Jordan Addison,WR,WR,skill,MIN,Q,40042,Jordan Addison (MIN),2026-10-20T16:54:41Z
-200436|10|42025|kylemonangai,200436,The League,10,Henry Given Sunday,0,BN,Kyle Monangai,RB,RB,skill,CHI,Q,42025,Kyle Monangai (CHI),2026-10-20T16:54:41Z
-200436|10|31482|eddypineiro,200436,The League,10,Henry Given Sunday,0,K,Eddy Pineiro,K,K,K,SF,,31482,,2026-10-20T16:54:41Z
-200436|10|0|49ers,200436,The League,10,Henry Given Sunday,0,DEF,49ers,DEF,DEF,DEF,SF,,0,,2026-10-20T16:54:41Z
-200436|10|0|vikings,200436,The League,10,Henry Given Sunday,0,BN,Vikings,DEF,DEF,DEF,MIN,,0,,2026-10-20T16:54:41Z
-200436|11|40029|bryceyoung,200436,The League,11,skabob,0,QB,Bryce Young,QB,QB,skill,CAR,,40029,Bryce Young (CAR),2026-10-20T16:54:41Z
-200436|11|34019|jamescook,200436,The League,11,skabob,0,RB,James Cook III,RB,RB,skill,BUF,,34019,James Cook (BUF),2026-10-20T16:54:41Z
-200436|11|41791|ashtonjeanty,200436,The League,11,skabob,0,RB,Ashton Jeanty,RB,RB,skill,LV,,41791,Ashton Jeanty (LV),2026-10-20T16:54:41Z
-200436|11|40121|michaelwilson,200436,The League,11,skabob,0,WR,Michael Wilson,WR,WR,skill,ARI,,40121,Michael Wilson (ARI),2026-10-20T16:54:41Z
-200436|11|40901|romeodunze,200436,The League,11,skabob,0,WR,Rome Odunze,WR,WR,skill,CHI,,40901,Rome Odunze (CHI),2026-10-20T16:54:41Z
-200436|11|41293|jalencoker,200436,The League,11,skabob,0,WR,Jalen Coker,WR,WR,skill,CAR,,41293,Jalen Coker (CAR),2026-10-20T16:54:41Z
-200436|11|40878|brockbowers,200436,The League,11,skabob,0,TE,Brock Bowers,TE,TE,skill,LV,,40878,Brock Bowers (LV),2026-10-20T16:54:41Z
-200436|11|30197|chrisgodwin,200436,The League,11,skabob,0,W/R/T,Chris Godwin Jr.,WR,WR,skill,TB,,30197,Chris Godwin Jr. (TB),2026-10-20T16:54:41Z
-200436|11|30977|joshallen,200436,The League,11,skabob,0,BN,Josh Allen,QB,QB,skill,BUF,,30977,Josh Allen (BUF),2026-10-20T16:54:41Z
-200436|11|34047|rachaadwhite,200436,The League,11,skabob,0,BN,Rachaad White,RB,RB,skill,WAS,,34047,Rachaad White (WAS),2026-10-20T16:54:41Z
-200436|11|42625|jeremiyahlove,200436,The League,11,skabob,0,BN,Jeremiyah Love,RB,RB,skill,ARI,Q,42625,Jeremiyah Love (ARI),2026-10-20T16:54:41Z
-200436|11|31868|deebosamuel,200436,The League,11,skabob,0,BN,Deebo Samuel Sr.,WR,WR,skill,SF,O,31868,Deebo Samuel Sr. (SF),2026-10-20T16:54:41Z
-200436|11|42616|dohntemeyers,200436,The League,11,skabob,0,BN,Dohnte Meyers,WR,WR,skill,CIN,,42616,Dohnte Meyers (CIN),2026-10-20T16:54:41Z
-200436|11|42747|skylerbell,200436,The League,11,skabob,0,BN,Skyler Bell,WR,WR,skill,BUF,,42747,Skyler Bell (BUF),2026-10-20T16:54:41Z
-200436|11|40097|tankdell,200436,The League,11,skabob,0,IR,Tank Dell,WR,WR,skill,HOU,IR-R,40097,,2026-10-20T16:54:41Z
-200436|11|28378|jasonmyers,200436,The League,11,skabob,0,K,Jason Myers,K,K,K,SEA,,28378,,2026-10-20T16:54:41Z
-200436|11|0|broncos,200436,The League,11,skabob,0,DEF,Broncos,DEF,DEF,DEF,DEN,,0,,2026-10-20T16:54:41Z
-200436|12|29325|jacobybrissett,200436,The League,12,THE Mafia,0,QB,Jacoby Brissett,QB,QB,skill,ARI,,29325,Jacoby Brissett (ARI),2026-10-20T16:54:41Z
-200436|12|40055|bijanrobinson,200436,The League,12,THE Mafia,0,RB,Bijan Robinson,RB,RB,skill,ATL,,40055,Bijan Robinson (ATL),2026-10-20T16:54:41Z
-200436|12|41922|camskattebo,200436,The League,12,THE Mafia,0,RB,Cam Skattebo,RB,RB,skill,NYG,,41922,Cam Skattebo (NYG),2026-10-20T16:54:41Z
-200436|12|40234|parkerwashington,200436,The League,12,THE Mafia,0,WR,Parker Washington,WR,WR,skill,JAX,,40234,Parker Washington (JAX),2026-10-20T16:54:41Z
-200436|12|33398|devontasmith,200436,The League,12,THE Mafia,0,WR,DeVonta Smith,WR,WR,skill,PHI,,33398,DeVonta Smith (PHI),2026-10-20T16:54:41Z
-200436|12|28534|stefondiggs,200436,The League,12,THE Mafia,0,WR,Stefon Diggs,WR,WR,skill,WAS,,28534,Stefon Diggs (WAS),2026-10-20T16:54:41Z
-200436|12|40048|daltonkincaid,200436,The League,12,THE Mafia,0,TE,Dalton Kincaid,TE,TE,skill,BUF,,40048,Dalton Kincaid (BUF),2026-10-20T16:54:41Z
-200436|12|31960|tonypollard,200436,The League,12,THE Mafia,0,W/R/T,Tony Pollard,RB,RB,skill,TEN,,31960,Tony Pollard (TEN),2026-10-20T16:54:41Z
-200436|12|29344|tylerhigbee,200436,The League,12,THE Mafia,0,BN,Tyler Higbee,TE,TE,skill,LA,,29344,Tyler Higbee (LA),2026-10-20T16:54:41Z
-200436|12|31840|tjhockenson,200436,The League,12,THE Mafia,0,BN,T.J. Hockenson,TE,TE,skill,MIN,Q,31840,T.J. Hockenson (MIN),2026-10-20T16:54:41Z
-200436|12|34659|rashidshaheed,200436,The League,12,THE Mafia,0,BN,Rashid Shaheed,WR,WR,skill,SEA,,34659,Rashid Shaheed (SEA),2026-10-20T16:54:41Z
-200436|12|31833|kylermurray,200436,The League,12,THE Mafia,0,BN,Kyler Murray,QB,QB,skill,MIN,,31833,Kyler Murray (MIN),2026-10-20T16:54:41Z
-200436|12|27548|brandincooks,200436,The League,12,THE Mafia,0,BN,Brandin Cooks,WR,WR,skill,SF,,27548,Brandin Cooks (SF),2026-10-20T16:54:41Z
-200436|12|30994|djmoore,200436,The League,12,THE Mafia,0,IR,DJ Moore,WR,WR,skill,BUF,Q,30994,DJ Moore (BUF),2026-10-20T16:54:41Z
-200436|12|28227|cairosantos,200436,The League,12,THE Mafia,0,K,Cairo Santos,K,K,K,CHI,,28227,,2026-10-20T16:54:41Z
-200436|12|0|jaguars,200436,The League,12,THE Mafia,0,DEF,Jaguars,DEF,DEF,DEF,JAX,,0,,2026-10-20T16:54:41Z
-200436|12|41093|willreichard,200436,The League,12,THE Mafia,0,BN,Will Reichard,K,K,K,MIN,,41093,,2026-10-20T16:54:41Z
-727092|1|29369|dakprescott,727092,Ezekiel 25.17,1,🖕Two Drop Randy II,0,QB,Dak Prescott,QB,QB,skill,DAL,,29369,Dak Prescott (DAL),2026-10-20T16:54:41Z
-727092|1|40055|bijanrobinson,727092,Ezekiel 25.17,1,🖕Two Drop Randy II,0,RB,Bijan Robinson,RB,RB,skill,ATL,,40055,Bijan Robinson (ATL),2026-10-20T16:54:41Z
-727092|1|41845|rjharvey,727092,Ezekiel 25.17,1,🖕Two Drop Randy II,0,RB,RJ Harvey,RB,RB,skill,DEN,,41845,RJ Harvey (DEN),2026-10-20T16:54:41Z
-727092|1|34007|georgepickens,727092,Ezekiel 25.17,1,🖕Two Drop Randy II,0,WR,George Pickens,WR,WR,skill,DAL,,34007,George Pickens (DAL),2026-10-20T16:54:41Z
-727092|1|32703|teehiggins,727092,Ezekiel 25.17,1,🖕Two Drop Randy II,0,WR,Tee Higgins,WR,WR,skill,CIN,,32703,Tee Higgins (CIN),2026-10-20T16:54:41Z
-727092|1|34010|treymcbride,727092,Ezekiel 25.17,1,🖕Two Drop Randy II,0,TE,Trey McBride,TE,TE,skill,ARI,,34010,Trey McBride (ARI),2026-10-20T16:54:41Z
-727092|1|34088|romeodoubs,727092,Ezekiel 25.17,1,🖕Two Drop Randy II,0,BN,Romeo Doubs,WR,WR,skill,NE,IR,34088,Romeo Doubs (NE),2026-10-20T16:54:41Z
-727092|1|40971|marshawnlloyd,727092,Ezekiel 25.17,1,🖕Two Drop Randy II,0,BN,MarShawn Lloyd,RB,RB,skill,GB,,40971,MarShawn Lloyd (GB),2026-10-20T16:54:41Z
-727092|1|40234|parkerwashington,727092,Ezekiel 25.17,1,🖕Two Drop Randy II,0,BN,Parker Washington,WR,WR,skill,JAX,,40234,Parker Washington (JAX),2026-10-20T16:54:41Z
-727092|1|34054|brianrobinson,727092,Ezekiel 25.17,1,🖕Two Drop Randy II,0,BN,Brian Robinson Jr.,RB,RB,skill,ATL,,34054,Brian Robinson (ATL),2026-10-20T16:54:41Z
-727092|1|32696|jordanlove,727092,Ezekiel 25.17,1,🖕Two Drop Randy II,0,BN,Jordan Love,QB,QB,skill,GB,,32696,Jordan Love (GB),2026-10-20T16:54:41Z
-727092|1|40819|brandonaubrey,727092,Ezekiel 25.17,1,🖕Two Drop Randy II,0,K,Brandon Aubrey,K,K,K,DAL,,40819,,2026-10-20T16:54:41Z
-727092|1|40912|colebishop,727092,Ezekiel 25.17,1,🖕Two Drop Randy II,0,DB,Cole Bishop,IDP,S,IDP,BUF,,40912,,2026-10-20T16:54:41Z
-727092|1|41879|jonassanker,727092,Ezekiel 25.17,1,🖕Two Drop Randy II,0,DB,Jonas Sanker,IDP,S,IDP,NO,,41879,,2026-10-20T16:54:41Z
-727092|1|34020|nikbonitto,727092,Ezekiel 25.17,1,🖕Two Drop Randy II,0,DL,Nik Bonitto,IDP,"LB,DE",IDP,DEN,,34020,,2026-10-20T16:54:41Z
-727092|1|31983|andrewvanginkel,727092,Ezekiel 25.17,1,🖕Two Drop Randy II,0,DL,Andrew Van Ginkel,IDP,"LB,DE",IDP,MIN,,31983,,2026-10-20T16:54:41Z
-727092|1|34039|nakobedean,727092,Ezekiel 25.17,1,🖕Two Drop Randy II,0,LB,Nakobe Dean,IDP,LB,IDP,LV,,34039,,2026-10-20T16:54:41Z
-727092|1|41818|carsonschwesinger,727092,Ezekiel 25.17,1,🖕Two Drop Randy II,0,LB,Carson Schwesinger,IDP,LB,IDP,CLE,,41818,,2026-10-20T16:54:41Z
-727092|1|30143|tjwatt,727092,Ezekiel 25.17,1,🖕Two Drop Randy II,0,BN,T.J. Watt,IDP,"LB,DE",IDP,PIT,,30143,,2026-10-20T16:54:41Z
-727092|1|33568|talanoahufanga,727092,Ezekiel 25.17,1,🖕Two Drop Randy II,0,BN,Talanoa Hufanga,IDP,S,IDP,DEN,D,33568,,2026-10-20T16:54:41Z
-727092|2|25812|kirkcousins,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,QB,Kirk Cousins,QB,QB,skill,LV,,25812,Kirk Cousins (LV),2026-10-20T16:54:41Z
-727092|2|32711|jonathantaylor,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,RB,Jonathan Taylor,RB,RB,skill,IND,,32711,Jonathan Taylor (IND),2026-10-20T16:54:41Z
-727092|2|34120|kyrenwilliams,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,RB,Kyren Williams,RB,RB,skill,LA,,34120,Kyren Williams (LA),2026-10-20T16:54:41Z
-727092|2|40121|michaelwilson,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,WR,Michael Wilson,WR,WR,skill,ARI,,40121,Michael Wilson (ARI),2026-10-20T16:54:41Z
-727092|2|40039|zayflowers,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,WR,Zay Flowers,WR,WR,skill,BAL,,40039,Zay Flowers (BAL),2026-10-20T16:54:41Z
-727092|2|30259|georgekittle,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,TE,George Kittle,TE,TE,skill,SF,,30259,George Kittle (SF),2026-10-20T16:54:41Z
-727092|2|41293|jalencoker,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,W/R/T,Jalen Coker,WR,WR,skill,CAR,,41293,Jalen Coker (CAR),2026-10-20T16:54:41Z
-727092|2|30180|alvinkamara,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,BN,Alvin Kamara,RB,RB,skill,NO,,30180,Alvin Kamara (NO),2026-10-20T16:54:41Z
-727092|2|31010|courtlandsutton,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,BN,Courtland Sutton,WR,WR,skill,DEN,,31010,Courtland Sutton (DEN),2026-10-20T16:54:41Z
-727092|2|40896|jaydendaniels,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,BN,Jayden Daniels,QB,QB,skill,WAS,,40896,Jayden Daniels (WAS),2026-10-20T16:54:41Z
-727092|2|31883|ajbrown,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,BN,A.J. Brown,WR,WR,skill,NE,Q,31883,A.J. Brown (NE),2026-10-20T16:54:41Z
-727092|2|31905|davidmontgomery,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,IR,David Montgomery,RB,RB,skill,HOU,Q,31905,David Montgomery (HOU),2026-10-20T16:54:41Z
-727092|2|42025|kylemonangai,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,IR,Kyle Monangai,RB,RB,skill,CHI,Q,42025,Kyle Monangai (CHI),2026-10-20T16:54:41Z
-727092|2|34008|alecpierce,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,IR,Alec Pierce,WR,WR,skill,IND,IR,34008,Alec Pierce (IND),2026-10-20T16:54:41Z
-727092|2|8432|nickfolk,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,K,Nick Folk,K,K,K,ATL,,8432,,2026-10-20T16:54:41Z
-727092|2|41883|xavierwatts,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,DB,Xavier Watts,IDP,S,IDP,ATL,,41883,,2026-10-20T16:54:41Z
-727092|2|34003|jaquanbrisker,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,DB,Jaquan Brisker,IDP,"DB,S",IDP,PIT,,34003,,2026-10-20T16:54:41Z
-727092|2|40077|tulituipulotu,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,DL,Tuli Tuipulotu,IDP,"LB,DE",IDP,LAC,,40077,,2026-10-20T16:54:41Z
-727092|2|27562|demarcuslawrence,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,DL,DeMarcus Lawrence,IDP,"LB,DE",IDP,SEA,,27562,,2026-10-20T16:54:41Z
-727092|2|33982|devinlloyd,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,LB,Devin Lloyd,IDP,LB,IDP,CAR,,33982,,2026-10-20T16:54:41Z
-727092|2|33446|nickbolton,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,LB,Nick Bolton,IDP,LB,IDP,KC,,33446,,2026-10-20T16:54:41Z
-727092|2|41093|willreichard,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,BN,Will Reichard,K,K,K,MIN,,41093,,2026-10-20T16:54:41Z
-727092|2|42629|sonnystyles,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,BN,Sonny Styles,IDP,LB,IDP,WAS,,42629,,2026-10-20T16:54:41Z
-727092|3|30977|joshallen,727092,Ezekiel 25.17,3,Prognosis Negative,0,QB,Josh Allen,QB,QB,skill,BUF,,30977,Josh Allen (BUF),2026-10-20T16:54:41Z
-727092|3|33508|rhamondrestevenson,727092,Ezekiel 25.17,3,Prognosis Negative,0,RB,Rhamondre Stevenson,RB,RB,skill,NE,,33508,Rhamondre Stevenson (NE),2026-10-20T16:54:41Z
-727092|3|41900|bhayshultuten,727092,Ezekiel 25.17,3,Prognosis Negative,0,RB,Bhayshul Tuten,RB,RB,skill,JAX,,41900,Bhayshul Tuten (JAX),2026-10-20T16:54:41Z
-727092|3|40901|romeodunze,727092,Ezekiel 25.17,3,Prognosis Negative,0,WR,Rome Odunze,WR,WR,skill,CHI,,40901,Rome Odunze (CHI),2026-10-20T16:54:41Z
-727092|3|33415|rashodbateman,727092,Ezekiel 25.17,3,Prognosis Negative,0,WR,Rashod Bateman,WR,WR,skill,BAL,Q,33415,Rashod Bateman (BAL),2026-10-20T16:54:41Z
-727092|3|41877|haroldfannin,727092,Ezekiel 25.17,3,Prognosis Negative,0,TE,Harold Fannin Jr.,TE,TE,skill,CLE,,41877,Harold Fannin Jr. (CLE),2026-10-20T16:54:41Z
-727092|3|33113|juwanjohnson,727092,Ezekiel 25.17,3,Prognosis Negative,0,W/R/T,Juwan Johnson,TE,TE,skill,NO,,33113,Juwan Johnson (NO),2026-10-20T16:54:41Z
-727092|3|40084|rasheerice,727092,Ezekiel 25.17,3,Prognosis Negative,0,BN,Rashee Rice,WR,WR,skill,KC,Q,40084,Rashee Rice (KC),2026-10-20T16:54:41Z
-727092|3|41969|olliegordon,727092,Ezekiel 25.17,3,Prognosis Negative,0,BN,Ollie Gordon II,RB,RB,skill,MIA,,41969,Ollie Gordon II (MIA),2026-10-20T16:54:41Z
-727092|3|33500|amonrastbrown,727092,Ezekiel 25.17,3,Prognosis Negative,0,BN,Amon-Ra St. Brown,WR,WR,skill,DET,,33500,Amon-Ra St. Brown (DET),2026-10-20T16:54:41Z
-727092|3|33538|kennygainwell,727092,Ezekiel 25.17,3,Prognosis Negative,0,BN,Kenny Gainwell,RB,RB,skill,TB,,33538,Kenny Gainwell (TB),2026-10-20T16:54:41Z
-727092|3|40108|kendremiller,727092,Ezekiel 25.17,3,Prognosis Negative,0,BN,Kendre Miller,RB,RB,skill,NO,,40108,Kendre Miller (NO),2026-10-20T16:54:41Z
-727092|3|30218|jamesconner,727092,Ezekiel 25.17,3,Prognosis Negative,0,IR,James Conner,RB,RB,skill,ARI,IR-R,30218,,2026-10-20T16:54:41Z
-727092|3|41988|tylerloop,727092,Ezekiel 25.17,3,Prognosis Negative,0,K,Tyler Loop,K,K,K,BAL,,41988,,2026-10-20T16:54:41Z
-727092|3|40953|tykeesmith,727092,Ezekiel 25.17,3,Prognosis Negative,0,DB,Tykee Smith,IDP,"DB,S",IDP,TB,,40953,,2026-10-20T16:54:41Z
-727092|3|31024|jessiebates,727092,Ezekiel 25.17,3,Prognosis Negative,0,DB,Jessie Bates III,IDP,S,IDP,ATL,,31024,,2026-10-20T16:54:41Z
-727092|3|40882|laiatulatu,727092,Ezekiel 25.17,3,Prognosis Negative,0,DL,Laiatu Latu,IDP,DE,IDP,IND,,40882,,2026-10-20T16:54:41Z
-727092|3|42714|jaishawnbarham,727092,Ezekiel 25.17,3,Prognosis Negative,0,DL,Jaishawn Barham,IDP,"LB,DE",IDP,DAL,,42714,,2026-10-20T16:54:41Z
-727092|3|30978|roquansmith,727092,Ezekiel 25.17,3,Prognosis Negative,0,LB,Roquan Smith,IDP,LB,IDP,BAL,,30978,,2026-10-20T16:54:41Z
-727092|3|31962|druetranquill,727092,Ezekiel 25.17,3,Prognosis Negative,0,LB,Drue Tranquill,IDP,LB,IDP,KC,,31962,,2026-10-20T16:54:41Z
-727092|3|31989|blakecashman,727092,Ezekiel 25.17,3,Prognosis Negative,0,BN,Blake Cashman,IDP,LB,IDP,MIN,,31989,,2026-10-20T16:54:41Z
-727092|4|40030|cjstroud,727092,Ezekiel 25.17,4,The Kid,1,QB,C.J. Stroud,QB,QB,skill,HOU,,40030,C.J. Stroud (HOU),2026-10-20T16:54:41Z
-727092|4|40993|buckyirving,727092,Ezekiel 25.17,4,The Kid,1,RB,Bucky Irving,RB,RB,skill,TB,,40993,Bucky Irving (TB),2026-10-20T16:54:41Z
-727092|4|31856|joshjacobs,727092,Ezekiel 25.17,4,The Kid,1,RB,Josh Jacobs,RB,RB,skill,GB,,31856,,2026-10-20T16:54:41Z
-727092|4|33963|drakelondon,727092,Ezekiel 25.17,4,The Kid,1,WR,Drake London,WR,WR,skill,ATL,,33963,Drake London (ATL),2026-10-20T16:54:41Z
-727092|4|33966|chrisolave,727092,Ezekiel 25.17,4,The Kid,1,WR,Chris Olave,WR,WR,skill,NO,,33966,Chris Olave (NO),2026-10-20T16:54:41Z
-727092|4|26686|traviskelce,727092,Ezekiel 25.17,4,The Kid,1,TE,Travis Kelce,TE,TE,skill,KC,,26686,Travis Kelce (KC),2026-10-20T16:54:41Z
-727092|4|33393|jamarrchase,727092,Ezekiel 25.17,4,The Kid,1,W/R/T,Ja'Marr Chase,WR,WR,skill,CIN,,33393,Ja'Marr Chase (CIN),2026-10-20T16:54:41Z
-727092|4|42669|germiebernard,727092,Ezekiel 25.17,4,The Kid,1,BN,Germie Bernard,WR,WR,skill,PIT,,42669,Germie Bernard (PIT),2026-10-20T16:54:41Z
-727092|4|40707|emanuelwilson,727092,Ezekiel 25.17,4,The Kid,1,BN,Emanuel Wilson,RB,RB,skill,SEA,,40707,Emanuel Wilson (SEA),2026-10-20T16:54:41Z
-727092|4|41062|camlittle,727092,Ezekiel 25.17,4,The Kid,1,K,Cam Little,K,K,K,JAX,,41062,,2026-10-20T16:54:41Z
-727092|4|30981|minkahfitzpatrick,727092,Ezekiel 25.17,4,The Kid,1,DB,Minkah Fitzpatrick,IDP,S,IDP,NYJ,,30981,,2026-10-20T16:54:41Z
-727092|4|30149|buddabaker,727092,Ezekiel 25.17,4,The Kid,1,DB,Budda Baker,IDP,S,IDP,ARI,,30149,,2026-10-20T16:54:41Z
-727092|4|40031|willanderson,727092,Ezekiel 25.17,4,The Kid,1,DL,Will Anderson Jr.,IDP,DE,IDP,HOU,,40031,,2026-10-20T16:54:41Z
-727092|4|30216|treyhendrickson,727092,Ezekiel 25.17,4,The Kid,1,DL,Trey Hendrickson,IDP,"LB,DE",IDP,BAL,,30216,,2026-10-20T16:54:41Z
-727092|4|31040|fredwarner,727092,Ezekiel 25.17,4,The Kid,1,LB,Fred Warner,IDP,LB,IDP,SF,,31040,,2026-10-20T16:54:41Z
-727092|4|40036|jackcampbell,727092,Ezekiel 25.17,4,The Kid,1,LB,Jack Campbell,IDP,LB,IDP,DET,,40036,,2026-10-20T16:54:41Z
-727092|4|31205|zairefranklin,727092,Ezekiel 25.17,4,The Kid,1,BN,Zaire Franklin,IDP,LB,IDP,GB,,31205,,2026-10-20T16:54:41Z
-727092|4|34052|nickcross,727092,Ezekiel 25.17,4,The Kid,1,BN,Nick Cross,IDP,S,IDP,WAS,,34052,,2026-10-20T16:54:41Z
-727092|4|33957|aidanhutchinson,727092,Ezekiel 25.17,4,The Kid,1,BN,Aidan Hutchinson,IDP,"DL,DE",IDP,DET,,33957,,2026-10-20T16:54:41Z
-727092|4|32697|jordynbrooks,727092,Ezekiel 25.17,4,The Kid,1,BN,Jordyn Brooks,IDP,LB,IDP,MIA,,32697,,2026-10-20T16:54:41Z
-727092|5|34218|brockpurdy,727092,Ezekiel 25.17,5,Toilet Drones,0,QB,Brock Purdy,QB,QB,skill,SF,,34218,Brock Purdy (SF),2026-10-20T16:54:41Z
-727092|5|33423|javontewilliams,727092,Ezekiel 25.17,5,Toilet Drones,0,RB,Javonte Williams,RB,RB,skill,DAL,,33423,Javonte Williams (DAL),2026-10-20T16:54:41Z
-727092|5|34063|dameonpierce,727092,Ezekiel 25.17,5,Toilet Drones,0,RB,Dameon Pierce,RB,RB,skill,PHI,,34063,Dameon Pierce (PHI),2026-10-20T16:54:41Z
-727092|5|33989|christianwatson,727092,Ezekiel 25.17,5,Toilet Drones,0,WR,Christian Watson,WR,WR,skill,GB,,33989,Christian Watson (GB),2026-10-20T16:54:41Z
-727092|5|41808|matthewgolden,727092,Ezekiel 25.17,5,Toilet Drones,0,WR,Matthew Golden,WR,WR,skill,GB,,41808,Matthew Golden (GB),2026-10-20T16:54:41Z
-727092|5|40078|brentonstrange,727092,Ezekiel 25.17,5,Toilet Drones,0,TE,Brenton Strange,TE,TE,skill,JAX,,40078,Brenton Strange (JAX),2026-10-20T16:54:41Z
-727092|5|40877|xavierworthy,727092,Ezekiel 25.17,5,Toilet Drones,0,W/R/T,Xavier Worthy,WR,WR,skill,KC,,40877,Xavier Worthy (KC),2026-10-20T16:54:41Z
-727092|5|40908|laddmcconkey,727092,Ezekiel 25.17,5,Toilet Drones,0,BN,Ladd McConkey,WR,WR,skill,LAC,Q,40908,Ladd McConkey (LAC),2026-10-20T16:54:41Z
-727092|5|40029|bryceyoung,727092,Ezekiel 25.17,5,Toilet Drones,0,BN,Bryce Young,QB,QB,skill,CAR,,40029,Bryce Young (CAR),2026-10-20T16:54:41Z
-727092|5|30972|saquonbarkley,727092,Ezekiel 25.17,5,Toilet Drones,0,IR,Saquon Barkley,RB,RB,skill,PHI,Q,30972,Saquon Barkley (PHI),2026-10-20T16:54:41Z
-727092|5|31482|eddypineiro,727092,Ezekiel 25.17,5,Toilet Drones,0,K,Eddy Pineiro,K,K,K,SF,,31482,,2026-10-20T16:54:41Z
-727092|5|41812|malakistarks,727092,Ezekiel 25.17,5,Toilet Drones,0,DB,Malaki Starks,IDP,S,IDP,BAL,,41812,,2026-10-20T16:54:41Z
-727092|5|40997|malikmustapha,727092,Ezekiel 25.17,5,Toilet Drones,0,DB,Malik Mustapha,IDP,"DB,S",IDP,SF,,40997,,2026-10-20T16:54:41Z
-727092|5|41042|austinbooker,727092,Ezekiel 25.17,5,Toilet Drones,0,DL,Austin Booker,IDP,"DL,DE",IDP,CHI,,41042,,2026-10-20T16:54:41Z
-727092|5|24818|cameronheyward,727092,Ezekiel 25.17,5,Toilet Drones,0,DL,Cameron Heyward,IDP,"DT,DE",IDP,PIT,,24818,,2026-10-20T16:54:41Z
-727092|5|31930|quincywilliams,727092,Ezekiel 25.17,5,Toilet Drones,0,LB,Quincy Williams,IDP,LB,IDP,CLE,,31930,,2026-10-20T16:54:41Z
-727092|5|34045|terrelbernard,727092,Ezekiel 25.17,5,Toilet Drones,0,LB,Terrel Bernard,IDP,LB,IDP,BUF,,34045,,2026-10-20T16:54:41Z
-727092|5|33537|evanmcpherson,727092,Ezekiel 25.17,5,Toilet Drones,0,BN,Evan McPherson,K,K,K,CIN,,33537,,2026-10-20T16:54:41Z
-727092|5|40904|dallasturner,727092,Ezekiel 25.17,5,Toilet Drones,0,BN,Dallas Turner,IDP,"LB,DE",IDP,MIN,,40904,,2026-10-20T16:54:41Z
-727092|5|41849|andrewmukuba,727092,Ezekiel 25.17,5,Toilet Drones,0,BN,Andrew Mukuba,IDP,S,IDP,PHI,,41849,,2026-10-20T16:54:41Z
-727092|5|32076|kadenelliss,727092,Ezekiel 25.17,5,Toilet Drones,0,IR,Kaden Elliss,IDP,LB,IDP,NO,Q,32076,,2026-10-20T16:54:41Z
-727092|6|33389|trevorlawrence,727092,Ezekiel 25.17,6,KEANU VIII,0,QB,Trevor Lawrence,QB,QB,skill,JAX,,33389,Trevor Lawrence (JAX),2026-10-20T16:54:41Z
-727092|6|34047|rachaadwhite,727092,Ezekiel 25.17,6,KEANU VIII,0,RB,Rachaad White,RB,RB,skill,WAS,,34047,Rachaad White (WAS),2026-10-20T16:54:41Z
-727092|6|40196|chasebrown,727092,Ezekiel 25.17,6,KEANU VIII,0,RB,Chase Brown,RB,RB,skill,CIN,,40196,Chase Brown (CIN),2026-10-20T16:54:41Z
-727092|6|33398|devontasmith,727092,Ezekiel 25.17,6,KEANU VIII,0,WR,DeVonta Smith,WR,WR,skill,PHI,,33398,DeVonta Smith (PHI),2026-10-20T16:54:41Z
-727092|6|33998|wandalerobinson,727092,Ezekiel 25.17,6,KEANU VIII,0,WR,Wan'Dale Robinson,WR,WR,skill,TEN,,33998,Wan'Dale Robinson (TEN),2026-10-20T16:54:41Z
-727092|6|41795|colstonloveland,727092,Ezekiel 25.17,6,KEANU VIII,0,TE,Colston Loveland,TE,TE,skill,CHI,,41795,Colston Loveland (CHI),2026-10-20T16:54:41Z
-727092|6|34104|khalilshakir,727092,Ezekiel 25.17,6,KEANU VIII,0,W/R/T,Khalil Shakir,WR,WR,skill,BUF,,34104,Khalil Shakir (BUF),2026-10-20T16:54:41Z
-727092|6|31908|terrymclaurin,727092,Ezekiel 25.17,6,KEANU VIII,0,BN,Terry McLaurin,WR,WR,skill,WAS,D,31908,Terry McLaurin (WAS),2026-10-20T16:54:41Z
-727092|6|34019|jamescook,727092,Ezekiel 25.17,6,KEANU VIII,0,BN,James Cook III,RB,RB,skill,BUF,,34019,James Cook (BUF),2026-10-20T16:54:41Z
-727092|6|33443|patfreiermuth,727092,Ezekiel 25.17,6,KEANU VIII,0,BN,Pat Freiermuth,TE,TE,skill,PIT,,33443,Pat Freiermuth (PIT),2026-10-20T16:54:41Z
-727092|6|32231|jakobimeyers,727092,Ezekiel 25.17,6,KEANU VIII,0,BN,Jakobi Meyers,WR,WR,skill,JAX,,32231,Jakobi Meyers (JAX),2026-10-20T16:54:41Z
-727092|6|26699|keenanallen,727092,Ezekiel 25.17,6,KEANU VIII,0,BN,Keenan Allen,WR,WR,skill,IND,,26699,Keenan Allen (IND),2026-10-20T16:54:41Z
-727092|6|32723|jalenhurts,727092,Ezekiel 25.17,6,KEANU VIII,0,BN,Jalen Hurts,QB,QB,skill,PHI,IR,32723,Jalen Hurts (PHI),2026-10-20T16:54:41Z
-727092|6|42630|jordyntyson,727092,Ezekiel 25.17,6,KEANU VIII,0,IR,Jordyn Tyson,WR,WR,skill,NO,IR-R,42630,,2026-10-20T16:54:41Z
-727092|6|42730|jonahcoleman,727092,Ezekiel 25.17,6,KEANU VIII,0,IR,Jonah Coleman,RB,RB,skill,DEN,IR,42730,Jonah Coleman (DEN),2026-10-20T16:54:41Z
-727092|6|29792|kaimifairbairn,727092,Ezekiel 25.17,6,KEANU VIII,0,K,Ka'imi Fairbairn,K,K,K,HOU,,29792,,2026-10-20T16:54:41Z
-727092|6|42633|calebdowns,727092,Ezekiel 25.17,6,KEANU VIII,0,DB,Caleb Downs,IDP,S,IDP,DAL,,42633,,2026-10-20T16:54:41Z
-727092|6|32706|xaviermckinney,727092,Ezekiel 25.17,6,KEANU VIII,0,DB,Xavier McKinney,IDP,S,IDP,GB,,32706,,2026-10-20T16:54:41Z
-727092|6|31938|maxxcrosby,727092,Ezekiel 25.17,6,KEANU VIII,0,DL,Maxx Crosby,IDP,DE,IDP,LV,,31938,,2026-10-20T16:54:41Z
-727092|6|28476|daniellehunter,727092,Ezekiel 25.17,6,KEANU VIII,0,DL,Danielle Hunter,IDP,"LB,DE",IDP,HOU,,28476,,2026-10-20T16:54:41Z
-727092|6|34291|natelandman,727092,Ezekiel 25.17,6,KEANU VIII,0,LB,Nate Landman,IDP,LB,IDP,LA,,34291,,2026-10-20T16:54:41Z
-727092|6|32318|azeezalshaair,727092,Ezekiel 25.17,6,KEANU VIII,0,LB,Azeez Al-Shaair,IDP,LB,IDP,HOU,,32318,,2026-10-20T16:54:41Z
-727092|6|30114|mylesgarrett,727092,Ezekiel 25.17,6,KEANU VIII,0,IR,Myles Garrett,IDP,"LB,DE",IDP,LA,IR,30114,,2026-10-20T16:54:41Z
-727092|7|9265|matthewstafford,727092,Ezekiel 25.17,7,Iron Mike,0,QB,Matthew Stafford,QB,QB,skill,LA,,9265,Matthew Stafford (LA),2026-10-20T16:54:41Z
-727092|7|29279|derrickhenry,727092,Ezekiel 25.17,7,Iron Mike,0,RB,Derrick Henry,RB,RB,skill,BAL,,29279,Derrick Henry (BAL),2026-10-20T16:54:41Z
-727092|7|33514|chubahubbard,727092,Ezekiel 25.17,7,Iron Mike,0,RB,Chuba Hubbard,RB,RB,skill,CAR,,33514,Chuba Hubbard (CAR),2026-10-20T16:54:41Z
-727092|7|33394|jaylenwaddle,727092,Ezekiel 25.17,7,Iron Mike,0,WR,Jaylen Waddle,WR,WR,skill,DEN,,33394,Jaylen Waddle (DEN),2026-10-20T16:54:41Z
-727092|7|33965|garrettwilson,727092,Ezekiel 25.17,7,Iron Mike,0,WR,Garrett Wilson,WR,WR,skill,NYJ,,33965,Garrett Wilson (NYJ),2026-10-20T16:54:41Z
-727092|7|41799|tylerwarren,727092,Ezekiel 25.17,7,Iron Mike,0,TE,Tyler Warren,TE,TE,skill,IND,Q,41799,Tyler Warren (IND),2026-10-20T16:54:41Z
-727092|7|42661|denzelboston,727092,Ezekiel 25.17,7,Iron Mike,0,W/R/T,Denzel Boston,WR,WR,skill,CLE,,42661,Denzel Boston (CLE),2026-10-20T16:54:41Z
-727092|7|40893|marvinharrison,727092,Ezekiel 25.17,7,Iron Mike,0,BN,Marvin Harrison Jr.,WR,WR,skill,HOU,,40893,Marvin Harrison Jr. (HOU),2026-10-20T16:54:41Z
-727092|7|40048|daltonkincaid,727092,Ezekiel 25.17,7,Iron Mike,0,BN,Dalton Kincaid,TE,TE,skill,BUF,,40048,Dalton Kincaid (BUF),2026-10-20T16:54:41Z
-727092|7|32692|justinjefferson,727092,Ezekiel 25.17,7,Iron Mike,0,BN,Justin Jefferson,WR,WR,skill,MIN,,32692,Justin Jefferson (MIN),2026-10-20T16:54:41Z
-727092|7|30295|aaronjones,727092,Ezekiel 25.17,7,Iron Mike,0,BN,Aaron Jones Sr.,RB,RB,skill,MIN,,30295,Aaron Jones (MIN),2026-10-20T16:54:41Z
-727092|7|40881|drakemaye,727092,Ezekiel 25.17,7,Iron Mike,0,BN,Drake Maye,QB,QB,skill,NE,,40881,Drake Maye (NE),2026-10-20T16:54:41Z
-727092|7|40962|blakecorum,727092,Ezekiel 25.17,7,Iron Mike,0,BN,Blake Corum,RB,RB,skill,LA,,40962,Blake Corum (LA),2026-10-20T16:54:41Z
-727092|7|29754|willutz,727092,Ezekiel 25.17,7,Iron Mike,0,K,Wil Lutz,K,K,K,DEN,,29754,,2026-10-20T16:54:41Z
-727092|7|40934|cooperdejean,727092,Ezekiel 25.17,7,Iron Mike,0,DB,Cooper DeJean,IDP,"DB,CB",IDP,PHI,,40934,,2026-10-20T16:54:41Z
-727092|7|41820|nickemmanwori,727092,Ezekiel 25.17,7,Iron Mike,0,DB,Nick Emmanwori,IDP,"S,CB",IDP,SEA,,41820,,2026-10-20T16:54:41Z
-727092|7|41788|abdulcarter,727092,Ezekiel 25.17,7,Iron Mike,0,DL,Abdul Carter,IDP,"LB,DE",IDP,NYG,,41788,,2026-10-20T16:54:41Z
-727092|7|31839|joshhinesallen,727092,Ezekiel 25.17,7,Iron Mike,0,DL,Josh Hines-Allen,IDP,"LB,DE",IDP,JAX,,31839,,2026-10-20T16:54:41Z
-727092|7|32698|patrickqueen,727092,Ezekiel 25.17,7,Iron Mike,0,LB,Patrick Queen,IDP,LB,IDP,PIT,,32698,,2026-10-20T16:54:41Z
-727092|7|40155|ventrellmiller,727092,Ezekiel 25.17,7,Iron Mike,0,LB,Ventrell Miller,IDP,LB,IDP,JAX,,40155,,2026-10-20T16:54:41Z
-727092|8|32676|justinherbert,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,QB,Justin Herbert,QB,QB,skill,LAC,,32676,Justin Herbert (LAC),2026-10-20T16:54:41Z
-727092|8|34447|jaylenwarren,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,RB,Jaylen Warren,RB,RB,skill,PIT,,34447,Jaylen Warren (PIT),2026-10-20T16:54:41Z
-727092|8|33996|kennethwalker,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,RB,Kenneth Walker III,RB,RB,skill,KC,,33996,Kenneth Walker III (KC),2026-10-20T16:54:41Z
-727092|8|28534|stefondiggs,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,WR,Stefon Diggs,WR,WR,skill,WAS,,28534,Stefon Diggs (WAS),2026-10-20T16:54:41Z
-727092|8|40201|dontayvionwicks,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,WR,Dontayvion Wicks,WR,WR,skill,PHI,,40201,Dontayvion Wicks (PHI),2026-10-20T16:54:41Z
-727092|8|31019|dallasgoedert,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,TE,Dallas Goedert,TE,TE,skill,PHI,,31019,Dallas Goedert (PHI),2026-10-20T16:54:41Z
-727092|8|41807|omarionhampton,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,W/R/T,Omarion Hampton,RB,RB,skill,LAC,,41807,Omarion Hampton (LAC),2026-10-20T16:54:41Z
-727092|8|41821|quinshonjudkins,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,BN,Quinshon Judkins,RB,RB,skill,CLE,Q,41821,Quinshon Judkins (CLE),2026-10-20T16:54:41Z
-727092|8|34085|jakeferguson,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,BN,Jake Ferguson,TE,TE,skill,DAL,,34085,Jake Ferguson (DAL),2026-10-20T16:54:41Z
-727092|8|32671|joeburrow,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,BN,Joe Burrow,QB,QB,skill,CIN,,32671,Joe Burrow (CIN),2026-10-20T16:54:41Z
-727092|8|41823|treveyonhenderson,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,BN,TreVeyon Henderson,RB,RB,skill,NE,,41823,TreVeyon Henderson (NE),2026-10-20T16:54:41Z
-727092|8|31960|tonypollard,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,BN,Tony Pollard,RB,RB,skill,TEN,,31960,Tony Pollard (TEN),2026-10-20T16:54:41Z
-727092|8|42464|dariuscooper,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,BN,Darius Cooper,WR,WR,skill,PHI,,42464,Darius Cooper (PHI),2026-10-20T16:54:41Z
-727092|8|32704|michaelpittman,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,IR,Michael Pittman Jr.,WR,WR,skill,PIT,IR,32704,Michael Pittman (PIT),2026-10-20T16:54:41Z
-727092|8|41499|spencershrader,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,K,Spencer Shrader,K,K,K,IND,,41499,,2026-10-20T16:54:41Z
-727092|8|34167|quentinlake,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,DB,Quentin Lake,IDP,"DB,S",IDP,LA,,34167,,2026-10-20T16:54:41Z
-727092|8|32740|brandonjones,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,DB,Brandon Jones,IDP,S,IDP,DEN,,32740,,2026-10-20T16:54:41Z
-727092|8|33418|gregrousseau,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,DL,Greg Rousseau,IDP,"LB,DE",IDP,BUF,,33418,,2026-10-20T16:54:41Z
-727092|8|41829|donovanezeiruaku,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,DL,Donovan Ezeiruaku,IDP,"LB,DE",IDP,DAL,,41829,,2026-10-20T16:54:41Z
-727092|8|42627|arvellreese,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,LB,Arvell Reese,IDP,"LB,DE",IDP,NYG,,42627,,2026-10-20T16:54:41Z
-727092|8|25787|demariodavis,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,LB,Demario Davis,IDP,LB,IDP,NYJ,,25787,,2026-10-20T16:54:41Z
-727092|8|33400|micahparsons,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,IR,Micah Parsons,IDP,"LB,DE",IDP,GB,PUP-R,33400,,2026-10-20T16:54:41Z
-727092|9|41825|tylershough,727092,Ezekiel 25.17,9,Jizz Wizard,0,QB,Tyler Shough,QB,QB,skill,NO,,41825,Tyler Shough (NO),2026-10-20T16:54:41Z
-727092|9|41902|woodymarks,727092,Ezekiel 25.17,9,Jizz Wizard,0,RB,Woody Marks,RB,RB,skill,HOU,,41902,Woody Marks (HOU),2026-10-20T16:54:41Z
-727092|9|40059|jahmyrgibbs,727092,Ezekiel 25.17,9,Jizz Wizard,0,RB,Jahmyr Gibbs,RB,RB,skill,DET,,40059,Jahmyr Gibbs (DET),2026-10-20T16:54:41Z
-727092|9|40899|maliknabers,727092,Ezekiel 25.17,9,Jizz Wizard,0,WR,Malik Nabers,WR,WR,skill,NYG,,40899,Malik Nabers (NYG),2026-10-20T16:54:41Z
-727092|9|41793|tetairoamcmillan,727092,Ezekiel 25.17,9,Jizz Wizard,0,WR,Tetairoa McMillan,WR,WR,skill,CAR,,41793,Tetairoa McMillan (CAR),2026-10-20T16:54:41Z
-727092|9|40878|brockbowers,727092,Ezekiel 25.17,9,Jizz Wizard,0,TE,Brock Bowers,TE,TE,skill,LV,,40878,Brock Bowers (LV),2026-10-20T16:54:41Z
-727092|9|31896|dkmetcalf,727092,Ezekiel 25.17,9,Jizz Wizard,0,W/R/T,DK Metcalf,WR,WR,skill,PIT,,31896,DK Metcalf (PIT),2026-10-20T16:54:41Z
-727092|9|27535|mikeevans,727092,Ezekiel 25.17,9,Jizz Wizard,0,BN,Mike Evans,WR,WR,skill,SF,Q,27535,Mike Evans (SF),2026-10-20T16:54:41Z
-727092|9|40981|braelonallen,727092,Ezekiel 25.17,9,Jizz Wizard,0,BN,Braelon Allen,RB,RB,skill,NYJ,,40981,Braelon Allen (NYJ),2026-10-20T16:54:41Z
-727092|9|34107|tylerallgeier,727092,Ezekiel 25.17,9,Jizz Wizard,0,BN,Tyler Allgeier,RB,RB,skill,ARI,,34107,Tyler Allgeier (ARI),2026-10-20T16:54:41Z
-727092|9|31002|lamarjackson,727092,Ezekiel 25.17,9,Jizz Wizard,0,IR,Lamar Jackson,QB,QB,skill,BAL,Q,31002,Lamar Jackson (BAL),2026-10-20T16:54:41Z
-727092|9|40926|jonathonbrooks,727092,Ezekiel 25.17,9,Jizz Wizard,0,IR,Jonathon Brooks,RB,RB,skill,CAR,IR,40926,Jonathon Brooks (CAR),2026-10-20T16:54:41Z
-727092|9|34320|jordanmason,727092,Ezekiel 25.17,9,Jizz Wizard,0,IR,Jordan Mason,RB,RB,skill,MIN,IR-R,34320,Jordan Mason (MIN),2026-10-20T16:54:41Z
-727092|9|42010|jcroskeymerritt,727092,Ezekiel 25.17,9,Jizz Wizard,0,IR,J. Croskey-Merritt,RB,RB,skill,WAS,IR,42010,,2026-10-20T16:54:41Z
-727092|9|43171|dominiczvada,727092,Ezekiel 25.17,9,Jizz Wizard,0,K,Dominic Zvada,K,K,K,NYG,,43171,,2026-10-20T16:54:41Z
-727092|9|41007|evanwilliams,727092,Ezekiel 25.17,9,Jizz Wizard,0,DB,Evan Williams,IDP,"DB,S",IDP,GB,,41007,,2026-10-20T16:54:41Z
-727092|9|34376|reedblankenship,727092,Ezekiel 25.17,9,Jizz Wizard,0,DB,Reed Blankenship,IDP,S,IDP,HOU,Q,34376,,2026-10-20T16:54:41Z
-727092|9|40124|byronyoung,727092,Ezekiel 25.17,9,Jizz Wizard,0,DL,Byron Young,IDP,"LB,DE",IDP,LA,,40124,,2026-10-20T16:54:41Z
-727092|9|31897|zachallen,727092,Ezekiel 25.17,9,Jizz Wizard,0,DL,Zach Allen,IDP,"DT,DE",IDP,DEN,,31897,,2026-10-20T16:54:41Z
-727092|9|28716|alexsingleton,727092,Ezekiel 25.17,9,Jizz Wizard,0,LB,Alex Singleton,IDP,LB,IDP,DEN,,28716,,2026-10-20T16:54:41Z
-727092|9|42665|jacobrodriguez,727092,Ezekiel 25.17,9,Jizz Wizard,0,LB,Jacob Rodriguez,IDP,LB,IDP,MIA,,42665,,2026-10-20T16:54:41Z
-727092|10|40900|calebwilliams,727092,Ezekiel 25.17,10,0for25,0,QB,Caleb Williams,QB,QB,skill,CHI,,40900,Caleb Williams (CHI),2026-10-20T16:54:41Z
-727092|10|30121|christianmccaffrey,727092,Ezekiel 25.17,10,0for25,0,RB,Christian McCaffrey,RB,RB,skill,SF,,30121,Christian McCaffrey (SF),2026-10-20T16:54:41Z
-727092|10|41791|ashtonjeanty,727092,Ezekiel 25.17,10,0for25,0,RB,Ashton Jeanty,RB,RB,skill,LV,,41791,Ashton Jeanty (LV),2026-10-20T16:54:41Z
-727092|10|41824|lutherburden,727092,Ezekiel 25.17,10,0for25,0,WR,Luther Burden III,WR,WR,skill,CHI,,41824,Luther Burden III (CHI),2026-10-20T16:54:41Z
-727092|10|41804|emekaegbuka,727092,Ezekiel 25.17,10,0for25,0,WR,Emeka Egbuka,WR,WR,skill,TB,,41804,Emeka Egbuka (TB),2026-10-20T16:54:41Z
-727092|10|34095|isaiahlikely,727092,Ezekiel 25.17,10,0for25,0,TE,Isaiah Likely,TE,TE,skill,NYG,,34095,Isaiah Likely (NYG),2026-10-20T16:54:41Z
-727092|10|42626|carnelltate,727092,Ezekiel 25.17,10,0for25,0,W/R/T,Carnell Tate,WR,WR,skill,TEN,,42626,Carnell Tate (TEN),2026-10-20T16:54:41Z
-727092|10|40126|joshdowns,727092,Ezekiel 25.17,10,0for25,0,BN,Josh Downs,WR,WR,skill,IND,,40126,Josh Downs (IND),2026-10-20T16:54:41Z
-727092|10|30973|samdarnold,727092,Ezekiel 25.17,10,0for25,0,BN,Sam Darnold,QB,QB,skill,SEA,,30973,Sam Darnold (SEA),2026-10-20T16:54:41Z
-727092|10|33967|jamesonwilliams,727092,Ezekiel 25.17,10,0for25,0,BN,Jameson Williams,WR,WR,skill,DET,,33967,Jameson Williams (DET),2026-10-20T16:54:41Z
-727092|10|40114|tretucker,727092,Ezekiel 25.17,10,0for25,0,BN,Tre Tucker,WR,WR,skill,LV,,40114,Tre Tucker (LV),2026-10-20T16:54:41Z
-727092|10|40231|chrisrodriguez,727092,Ezekiel 25.17,10,0for25,0,BN,Chris Rodriguez Jr.,RB,RB,skill,JAX,,40231,Chris Rodriguez Jr. (JAX),2026-10-20T16:54:41Z
-727092|10|30227|samajeperine,727092,Ezekiel 25.17,10,0for25,0,BN,Samaje Perine,RB,RB,skill,CIN,,30227,Samaje Perine (CIN),2026-10-20T16:54:41Z
-727092|10|33991|breecehall,727092,Ezekiel 25.17,10,0for25,0,IR,Breece Hall,RB,RB,skill,NYJ,Q,33991,Breece Hall (NYJ),2026-10-20T16:54:41Z
-727092|10|40097|tankdell,727092,Ezekiel 25.17,10,0for25,0,IR,Tank Dell,WR,WR,skill,HOU,IR-R,40097,,2026-10-20T16:54:41Z
-727092|10|31977|mattgay,727092,Ezekiel 25.17,10,0for25,0,K,Matt Gay,K,K,K,LV,,31977,,2026-10-20T16:54:41Z
-727092|10|33969|kylehamilton,727092,Ezekiel 25.17,10,0for25,0,DB,Kyle Hamilton,IDP,S,IDP,BAL,,33969,,2026-10-20T16:54:41Z
-727092|10|42647|dillonthieneman,727092,Ezekiel 25.17,10,0for25,0,DB,Dillon Thieneman,IDP,S,IDP,CHI,,42647,,2026-10-20T16:54:41Z
-727092|10|32672|chaseyoung,727092,Ezekiel 25.17,10,0for25,0,DL,Chase Young,IDP,"DL,DE",IDP,NO,,32672,,2026-10-20T16:54:41Z
-727092|10|42624|davidbailey,727092,Ezekiel 25.17,10,0for25,0,DL,David Bailey,IDP,"LB,DE",IDP,NYJ,,42624,,2026-10-20T16:54:41Z
-727092|10|31170|foyesadeoluokun,727092,Ezekiel 25.17,10,0for25,0,LB,Foyesade Oluokun,IDP,LB,IDP,JAX,,31170,,2026-10-20T16:54:41Z
-727092|10|32744|zackbaun,727092,Ezekiel 25.17,10,0for25,0,LB,Zack Baun,IDP,LB,IDP,PHI,,32744,,2026-10-20T16:54:41Z
-727092|11|30123|patrickmahomes,727092,Ezekiel 25.17,11,PINK TACO ™️,0,QB,Patrick Mahomes,QB,QB,skill,KC,,30123,Patrick Mahomes (KC),2026-10-20T16:54:41Z
-727092|11|32705|dandreswift,727092,Ezekiel 25.17,11,PINK TACO ™️,0,RB,D'Andre Swift,RB,RB,skill,CHI,,32705,D'Andre Swift (CHI),2026-10-20T16:54:41Z
-727092|11|32725|jkdobbins,727092,Ezekiel 25.17,11,PINK TACO ™️,0,RB,J.K. Dobbins,RB,RB,skill,DEN,,32725,J.K. Dobbins (DEN),2026-10-20T16:54:41Z
-727092|11|33477|nicocollins,727092,Ezekiel 25.17,11,PINK TACO ™️,0,WR,Nico Collins,WR,WR,skill,HOU,,33477,Nico Collins (HOU),2026-10-20T16:54:41Z
-727092|11|40168|pukanacua,727092,Ezekiel 25.17,11,PINK TACO ™️,0,WR,Puka Nacua,WR,WR,skill,LA,,40168,Puka Nacua (LA),2026-10-20T16:54:41Z
-727092|11|40064|samlaporta,727092,Ezekiel 25.17,11,PINK TACO ™️,0,TE,Sam LaPorta,TE,TE,skill,DET,,40064,Sam LaPorta (DET),2026-10-20T16:54:41Z
-727092|11|41058|malikwashington,727092,Ezekiel 25.17,11,PINK TACO ™️,0,W/R/T,Malik Washington,WR,WR,skill,MIA,,41058,Malik Washington (MIA),2026-10-20T16:54:41Z
-727092|11|41052|kimanividal,727092,Ezekiel 25.17,11,PINK TACO ™️,0,BN,Kimani Vidal,RB,RB,skill,LAC,,41052,Kimani Vidal (LAC),2026-10-20T16:54:41Z
-727092|11|41097|devaughnvele,727092,Ezekiel 25.17,11,PINK TACO ™️,0,BN,Devaughn Vele,WR,WR,skill,NO,,41097,Devaughn Vele (NO),2026-10-20T16:54:41Z
-727092|11|29344|tylerhigbee,727092,Ezekiel 25.17,11,PINK TACO ™️,0,BN,Tyler Higbee,TE,TE,skill,LA,,29344,Tyler Higbee (LA),2026-10-20T16:54:41Z
-727092|11|29325|jacobybrissett,727092,Ezekiel 25.17,11,PINK TACO ™️,0,BN,Jacoby Brissett,QB,QB,skill,ARI,,29325,Jacoby Brissett (ARI),2026-10-20T16:54:41Z
-727092|11|30994|djmoore,727092,Ezekiel 25.17,11,PINK TACO ™️,0,BN,DJ Moore,WR,WR,skill,BUF,Q,30994,DJ Moore (BUF),2026-10-20T16:54:41Z
-727092|11|42625|jeremiyahlove,727092,Ezekiel 25.17,11,PINK TACO ™️,0,IR,Jeremiyah Love,RB,RB,skill,ARI,Q,42625,Jeremiyah Love (ARI),2026-10-20T16:54:41Z
-727092|11|42654|jadarianprice,727092,Ezekiel 25.17,11,PINK TACO ™️,0,IR,Jadarian Price,RB,RB,skill,SEA,IR,42654,Jadarian Price (SEA),2026-10-20T16:54:41Z
-727092|11|40075|zachcharbonnet,727092,Ezekiel 25.17,11,PINK TACO ™️,0,IR,Zach Charbonnet,RB,RB,skill,SEA,PUP-R,40075,Zach Charbonnet (SEA),2026-10-20T16:54:41Z
-727092|11|28378|jasonmyers,727092,Ezekiel 25.17,11,PINK TACO ™️,0,K,Jason Myers,K,K,K,SEA,,28378,,2026-10-20T16:54:41Z
-727092|11|32734|jeremychinn,727092,Ezekiel 25.17,11,PINK TACO ™️,0,DB,Jeremy Chinn,IDP,S,IDP,LV,,32734,,2026-10-20T16:54:41Z
-727092|11|34070|danebelton,727092,Ezekiel 25.17,11,PINK TACO ™️,0,DB,Dane Belton,IDP,S,IDP,NYJ,,34070,,2026-10-20T16:54:41Z
-727092|11|29241|deforestbuckner,727092,Ezekiel 25.17,11,PINK TACO ™️,0,DL,DeForest Buckner,IDP,DT,IDP,IND,,29241,,2026-10-20T16:54:41Z
-727092|11|33520|tommytogiai,727092,Ezekiel 25.17,11,PINK TACO ™️,0,DL,Tommy Togiai,IDP,"DL,DT",IDP,HOU,,33520,,2026-10-20T16:54:41Z
-727092|11|33491|ernestjones,727092,Ezekiel 25.17,11,PINK TACO ™️,0,LB,Ernest Jones IV,IDP,LB,IDP,SEA,,33491,,2026-10-20T16:54:41Z
-727092|11|33534|jamiensherwood,727092,Ezekiel 25.17,11,PINK TACO ™️,0,LB,Jamien Sherwood,IDP,LB,IDP,NYJ,,33534,,2026-10-20T16:54:41Z
-727092|11|40117|jordanbattle,727092,Ezekiel 25.17,11,PINK TACO ™️,0,BN,Jordan Battle,IDP,S,IDP,CIN,,40117,,2026-10-20T16:54:41Z
-727092|12|29235|jaredgoff,727092,Ezekiel 25.17,12,Philly Philly,0,QB,Jared Goff,QB,QB,skill,DET,,29235,Jared Goff (DET),2026-10-20T16:54:41Z
-727092|12|41922|camskattebo,727092,Ezekiel 25.17,12,Philly Philly,0,RB,Cam Skattebo,RB,RB,skill,NYG,,41922,Cam Skattebo (NYG),2026-10-20T16:54:41Z
-727092|12|33100|ricodowdle,727092,Ezekiel 25.17,12,Philly Philly,0,RB,Rico Dowdle,RB,RB,skill,PIT,,33100,Rico Dowdle (PIT),2026-10-20T16:54:41Z
-727092|12|40041|jaxonsmithnjigba,727092,Ezekiel 25.17,12,Philly Philly,0,WR,Jaxon Smith-Njigba,WR,WR,skill,SEA,,40041,Jaxon Smith-Njigba (SEA),2026-10-20T16:54:41Z
-727092|12|32687|ceedeelamb,727092,Ezekiel 25.17,12,Philly Philly,0,WR,CeeDee Lamb,WR,WR,skill,DAL,,32687,CeeDee Lamb (DAL),2026-10-20T16:54:41Z
-727092|12|40102|tuckerkraft,727092,Ezekiel 25.17,12,Philly Philly,0,TE,Tucker Kraft,TE,TE,skill,GB,,40102,Tucker Kraft (GB),2026-10-20T16:54:41Z
-727092|12|29269|hunterhenry,727092,Ezekiel 25.17,12,Philly Philly,0,W/R/T,Hunter Henry,TE,TE,skill,NE,,29269,Hunter Henry (NE),2026-10-20T16:54:41Z
-727092|12|27581|davanteadams,727092,Ezekiel 25.17,12,Philly Philly,0,BN,Davante Adams,WR,WR,skill,LA,O,27581,Davante Adams (LA),2026-10-20T16:54:41Z
-727092|12|40641|keatonmitchell,727092,Ezekiel 25.17,12,Philly Philly,0,BN,Keaton Mitchell,RB,RB,skill,LAC,,40641,Keaton Mitchell (LAC),2026-10-20T16:54:41Z
-727092|12|7200|aaronrodgers,727092,Ezekiel 25.17,12,Philly Philly,0,BN,Aaron Rodgers,QB,QB,skill,PIT,,7200,Aaron Rodgers (PIT),2026-10-20T16:54:41Z
-727092|12|31868|deebosamuel,727092,Ezekiel 25.17,12,Philly Philly,0,BN,Deebo Samuel Sr.,WR,WR,skill,SF,O,31868,Deebo Samuel Sr. (SF),2026-10-20T16:54:41Z
-727092|12|33413|travisetienne,727092,Ezekiel 25.17,12,Philly Philly,0,BN,Travis Etienne Jr.,RB,RB,skill,NO,IR,33413,Travis Etienne (NO),2026-10-20T16:54:41Z
-727092|12|41787|travishunter,727092,Ezekiel 25.17,12,Philly Philly,0,BN,Travis Hunter,WR,"WR,CB",skill,JAX,,41787,,2026-10-20T16:54:41Z
-727092|12|34344|camerondicker,727092,Ezekiel 25.17,12,Philly Philly,0,K,Cameron Dicker,K,K,K,LAC,,34344,,2026-10-20T16:54:41Z
-727092|12|40160|chamarriconner,727092,Ezekiel 25.17,12,Philly Philly,0,DB,Chamarri Conner,IDP,"DB,S",IDP,KC,,40160,,2026-10-20T16:54:41Z
-727092|12|40035|jalencarter,727092,Ezekiel 25.17,12,Philly Philly,0,DL,Jalen Carter,IDP,"DT,DE",IDP,PHI,,40035,,2026-10-20T16:54:41Z
-727092|12|31851|jefferysimmons,727092,Ezekiel 25.17,12,Philly Philly,0,DL,Jeffery Simmons,IDP,"DT,DE",IDP,TEN,,31851,,2026-10-20T16:54:41Z
-727092|12|33468|divinedeablo,727092,Ezekiel 25.17,12,Philly Philly,0,LB,Divine Deablo,IDP,LB,IDP,ATL,Q,33468,,2026-10-20T16:54:41Z
-727092|12|40975|paytonwilson,727092,Ezekiel 25.17,12,Philly Philly,0,LB,Payton Wilson,IDP,LB,IDP,PIT,,40975,,2026-10-20T16:54:41Z
-727092|12|41816|jihaadcampbell,727092,Ezekiel 25.17,12,Philly Philly,0,BN,Jihaad Campbell,IDP,LB,IDP,PHI,,41816,,2026-10-20T16:54:41Z
+126912|1|30977|joshallen,126912,BDSM League,1,Führer Jackson,1,QB,Josh Allen,QB,QB,skill,BUF,,30977,Josh Allen (BUF),2026-10-20T17:12:35Z
+126912|1|30972|saquonbarkley,126912,BDSM League,1,Führer Jackson,1,RB,Saquon Barkley,RB,RB,skill,PHI,Q,30972,Saquon Barkley (PHI),2026-10-20T17:12:35Z
+126912|1|40196|chasebrown,126912,BDSM League,1,Führer Jackson,1,RB,Chase Brown,RB,RB,skill,CIN,,40196,Chase Brown (CIN),2026-10-20T17:12:35Z
+126912|1|33989|christianwatson,126912,BDSM League,1,Führer Jackson,1,WR,Christian Watson,WR,WR,skill,GB,,33989,Christian Watson (GB),2026-10-20T17:12:35Z
+126912|1|33394|jaylenwaddle,126912,BDSM League,1,Führer Jackson,1,WR,Jaylen Waddle,WR,WR,skill,DEN,,33394,Jaylen Waddle (DEN),2026-10-20T17:12:35Z
+126912|1|40048|daltonkincaid,126912,BDSM League,1,Führer Jackson,1,TE,Dalton Kincaid,TE,TE,skill,BUF,,40048,Dalton Kincaid (BUF),2026-10-20T17:12:35Z
+126912|1|30180|alvinkamara,126912,BDSM League,1,Führer Jackson,1,W/R/T,Alvin Kamara,RB,RB,skill,NO,,30180,Alvin Kamara (NO),2026-10-20T17:12:35Z
+126912|1|27535|mikeevans,126912,BDSM League,1,Führer Jackson,1,BN,Mike Evans,WR,WR,skill,SF,Q,27535,Mike Evans (SF),2026-10-20T17:12:35Z
+126912|1|41807|omarionhampton,126912,BDSM League,1,Führer Jackson,1,BN,Omarion Hampton,RB,RB,skill,LAC,,41807,Omarion Hampton (LAC),2026-10-20T17:12:35Z
+126912|1|33998|wandalerobinson,126912,BDSM League,1,Führer Jackson,1,BN,Wan'Dale Robinson,WR,WR,skill,TEN,,33998,Wan'Dale Robinson (TEN),2026-10-20T17:12:35Z
+126912|1|41010|jaylenwright,126912,BDSM League,1,Führer Jackson,1,BN,Jaylen Wright,RB,RB,skill,MIA,,41010,Jaylen Wright (MIA),2026-10-20T17:12:35Z
+126912|1|31010|courtlandsutton,126912,BDSM League,1,Führer Jackson,1,BN,Courtland Sutton,WR,WR,skill,DEN,,31010,Courtland Sutton (DEN),2026-10-20T17:12:35Z
+126912|1|40097|tankdell,126912,BDSM League,1,Führer Jackson,1,IR,Tank Dell,WR,WR,skill,HOU,IR-R,40097,,2026-10-20T17:12:35Z
+126912|1|33537|evanmcpherson,126912,BDSM League,1,Führer Jackson,1,K,Evan McPherson,K,K,K,CIN,,33537,,2026-10-20T17:12:35Z
+126912|1|0|broncos,126912,BDSM League,1,Führer Jackson,1,DEF,Broncos,DEF,DEF,DEF,DEN,,0,,2026-10-20T17:12:35Z
+126912|1|30346|harrisonbutker,126912,BDSM League,1,Führer Jackson,1,BN,Harrison Butker,K,K,K,KC,,30346,,2026-10-20T17:12:35Z
+126912|2|32696|jordanlove,126912,BDSM League,2,Finding Deebo,0,QB,Jordan Love,QB,QB,skill,GB,,32696,Jordan Love (GB),2026-10-20T17:12:35Z
+126912|2|34447|jaylenwarren,126912,BDSM League,2,Finding Deebo,0,RB,Jaylen Warren,RB,RB,skill,PIT,,34447,Jaylen Warren (PIT),2026-10-20T17:12:35Z
+126912|2|41969|olliegordon,126912,BDSM League,2,Finding Deebo,0,RB,Ollie Gordon II,RB,RB,skill,MIA,,41969,Ollie Gordon II (MIA),2026-10-20T17:12:35Z
+126912|2|33500|amonrastbrown,126912,BDSM League,2,Finding Deebo,0,WR,Amon-Ra St. Brown,WR,WR,skill,DET,,33500,Amon-Ra St. Brown (DET),2026-10-20T17:12:35Z
+126912|2|32703|teehiggins,126912,BDSM League,2,Finding Deebo,0,WR,Tee Higgins,WR,WR,skill,CIN,,32703,Tee Higgins (CIN),2026-10-20T17:12:35Z
+126912|2|41795|colstonloveland,126912,BDSM League,2,Finding Deebo,0,TE,Colston Loveland,TE,TE,skill,CHI,,41795,Colston Loveland (CHI),2026-10-20T17:12:35Z
+126912|2|42669|germiebernard,126912,BDSM League,2,Finding Deebo,0,W/R/T,Germie Bernard,WR,WR,skill,PIT,,42669,Germie Bernard (PIT),2026-10-20T17:12:35Z
+126912|2|41824|lutherburden,126912,BDSM League,2,Finding Deebo,0,BN,Luther Burden III,WR,WR,skill,CHI,,41824,Luther Burden III (CHI),2026-10-20T17:12:35Z
+126912|2|26686|traviskelce,126912,BDSM League,2,Finding Deebo,0,BN,Travis Kelce,TE,TE,skill,KC,,26686,Travis Kelce (KC),2026-10-20T17:12:35Z
+126912|2|40114|tretucker,126912,BDSM League,2,Finding Deebo,0,BN,Tre Tucker,WR,WR,skill,LV,,40114,Tre Tucker (LV),2026-10-20T17:12:35Z
+126912|2|34107|tylerallgeier,126912,BDSM League,2,Finding Deebo,0,BN,Tyler Allgeier,RB,RB,skill,ARI,,34107,Tyler Allgeier (ARI),2026-10-20T17:12:35Z
+126912|2|34320|jordanmason,126912,BDSM League,2,Finding Deebo,0,BN,Jordan Mason,RB,RB,skill,MIN,IR-R,34320,Jordan Mason (MIN),2026-10-20T17:12:35Z
+126912|2|34008|alecpierce,126912,BDSM League,2,Finding Deebo,0,BN,Alec Pierce,WR,WR,skill,IND,IR,34008,Alec Pierce (IND),2026-10-20T17:12:35Z
+126912|2|42625|jeremiyahlove,126912,BDSM League,2,Finding Deebo,0,IR,Jeremiyah Love,RB,RB,skill,ARI,Q,42625,Jeremiyah Love (ARI),2026-10-20T17:12:35Z
+126912|2|31868|deebosamuel,126912,BDSM League,2,Finding Deebo,0,IR,Deebo Samuel Sr.,WR,WR,skill,SF,O,31868,Deebo Samuel Sr. (SF),2026-10-20T17:12:35Z
+126912|2|40819|brandonaubrey,126912,BDSM League,2,Finding Deebo,0,K,Brandon Aubrey,K,K,K,DAL,,40819,,2026-10-20T17:12:35Z
+126912|2|0|panthers,126912,BDSM League,2,Finding Deebo,0,DEF,Panthers,DEF,DEF,DEF,CAR,,0,,2026-10-20T17:12:35Z
+126912|3|40029|bryceyoung,126912,BDSM League,3,BANDS EMEKA DANCE,0,QB,Bryce Young,QB,QB,skill,CAR,,40029,Bryce Young (CAR),2026-10-20T17:12:35Z
+126912|3|34047|rachaadwhite,126912,BDSM League,3,BANDS EMEKA DANCE,0,RB,Rachaad White,RB,RB,skill,WAS,,34047,Rachaad White (WAS),2026-10-20T17:12:35Z
+126912|3|40059|jahmyrgibbs,126912,BDSM League,3,BANDS EMEKA DANCE,0,RB,Jahmyr Gibbs,RB,RB,skill,DET,,40059,Jahmyr Gibbs (DET),2026-10-20T17:12:35Z
+126912|3|33966|chrisolave,126912,BDSM League,3,BANDS EMEKA DANCE,0,WR,Chris Olave,WR,WR,skill,NO,,33966,Chris Olave (NO),2026-10-20T17:12:35Z
+126912|3|33398|devontasmith,126912,BDSM League,3,BANDS EMEKA DANCE,0,WR,DeVonta Smith,WR,WR,skill,PHI,,33398,DeVonta Smith (PHI),2026-10-20T17:12:35Z
+126912|3|40064|samlaporta,126912,BDSM League,3,BANDS EMEKA DANCE,0,TE,Sam LaPorta,TE,TE,skill,DET,,40064,Sam LaPorta (DET),2026-10-20T17:12:35Z
+126912|3|30551|kendrickbourne,126912,BDSM League,3,BANDS EMEKA DANCE,0,W/R/T,Kendrick Bourne,WR,WR,skill,ARI,,30551,Kendrick Bourne (ARI),2026-10-20T17:12:35Z
+126912|3|29344|tylerhigbee,126912,BDSM League,3,BANDS EMEKA DANCE,0,BN,Tyler Higbee,TE,TE,skill,LA,,29344,Tyler Higbee (LA),2026-10-20T17:12:35Z
+126912|3|42661|denzelboston,126912,BDSM League,3,BANDS EMEKA DANCE,0,BN,Denzel Boston,WR,WR,skill,CLE,,42661,Denzel Boston (CLE),2026-10-20T17:12:35Z
+126912|3|41900|bhayshultuten,126912,BDSM League,3,BANDS EMEKA DANCE,0,BN,Bhayshul Tuten,RB,RB,skill,JAX,,41900,Bhayshul Tuten (JAX),2026-10-20T17:12:35Z
+126912|3|31908|terrymclaurin,126912,BDSM League,3,BANDS EMEKA DANCE,0,BN,Terry McLaurin,WR,WR,skill,WAS,D,31908,Terry McLaurin (WAS),2026-10-20T17:12:35Z
+126912|3|31017|christiankirk,126912,BDSM League,3,BANDS EMEKA DANCE,0,BN,Christian Kirk,WR,WR,skill,SF,IR-R,31017,Christian Kirk (SF),2026-10-20T17:12:35Z
+126912|3|42010|jcroskeymerritt,126912,BDSM League,3,BANDS EMEKA DANCE,0,IR,J. Croskey-Merritt,RB,RB,skill,WAS,IR,42010,Jacory Croskey-Merritt (WAS),2026-10-20T17:12:35Z
+126912|3|30218|jamesconner,126912,BDSM League,3,BANDS EMEKA DANCE,0,IR,James Conner,RB,RB,skill,ARI,IR-R,30218,,2026-10-20T17:12:35Z
+126912|3|41062|camlittle,126912,BDSM League,3,BANDS EMEKA DANCE,0,K,Cam Little,K,K,K,JAX,,41062,,2026-10-20T17:12:35Z
+126912|3|0|lions,126912,BDSM League,3,BANDS EMEKA DANCE,0,DEF,Lions,DEF,DEF,DEF,DET,,0,,2026-10-20T17:12:35Z
+126912|3|0|jaguars,126912,BDSM League,3,BANDS EMEKA DANCE,0,BN,Jaguars,DEF,DEF,DEF,JAX,,0,,2026-10-20T17:12:35Z
+126912|4|32671|joeburrow,126912,BDSM League,4,I’m a coke head,0,QB,Joe Burrow,QB,QB,skill,CIN,,32671,Joe Burrow (CIN),2026-10-20T17:12:35Z
+126912|4|41922|camskattebo,126912,BDSM League,4,I’m a coke head,0,RB,Cam Skattebo,RB,RB,skill,NYG,,41922,Cam Skattebo (NYG),2026-10-20T17:12:35Z
+126912|4|40993|buckyirving,126912,BDSM League,4,I’m a coke head,0,RB,Bucky Irving,RB,RB,skill,TB,,40993,Bucky Irving (TB),2026-10-20T17:12:35Z
+126912|4|40899|maliknabers,126912,BDSM League,4,I’m a coke head,0,WR,Malik Nabers,WR,WR,skill,NYG,,40899,Malik Nabers (NYG),2026-10-20T17:12:35Z
+126912|4|40168|pukanacua,126912,BDSM League,4,I’m a coke head,0,WR,Puka Nacua,WR,WR,skill,LA,,40168,Puka Nacua (LA),2026-10-20T17:12:35Z
+126912|4|40878|brockbowers,126912,BDSM League,4,I’m a coke head,0,TE,Brock Bowers,TE,TE,skill,LV,,40878,Brock Bowers (LV),2026-10-20T17:12:35Z
+126912|4|41293|jalencoker,126912,BDSM League,4,I’m a coke head,0,W/R/T,Jalen Coker,WR,WR,skill,CAR,,41293,Jalen Coker (CAR),2026-10-20T17:12:35Z
+126912|4|28389|jameiswinston,126912,BDSM League,4,I’m a coke head,0,BN,Jameis Winston,QB,QB,skill,NYG,,28389,Jameis Winston (NYG),2026-10-20T17:12:35Z
+126912|4|34104|khalilshakir,126912,BDSM League,4,I’m a coke head,0,BN,Khalil Shakir,WR,WR,skill,BUF,,34104,Khalil Shakir (BUF),2026-10-20T17:12:35Z
+126912|4|28534|stefondiggs,126912,BDSM League,4,I’m a coke head,0,BN,Stefon Diggs,WR,WR,skill,WAS,,28534,Stefon Diggs (WAS),2026-10-20T17:12:35Z
+126912|4|28592|darrenwaller,126912,BDSM League,4,I’m a coke head,0,BN,Darren Waller,TE,TE,skill,CAR,,28592,Darren Waller (CAR),2026-10-20T17:12:35Z
+126912|4|33100|ricodowdle,126912,BDSM League,4,I’m a coke head,0,BN,Rico Dowdle,RB,RB,skill,PIT,,33100,Rico Dowdle (PIT),2026-10-20T17:12:35Z
+126912|4|40078|brentonstrange,126912,BDSM League,4,I’m a coke head,0,BN,Brenton Strange,TE,TE,skill,JAX,,40078,Brenton Strange (JAX),2026-10-20T17:12:35Z
+126912|4|28378|jasonmyers,126912,BDSM League,4,I’m a coke head,0,K,Jason Myers,K,K,K,SEA,,28378,,2026-10-20T17:12:35Z
+126912|4|0|patriots,126912,BDSM League,4,I’m a coke head,0,DEF,Patriots,DEF,DEF,DEF,NE,,0,,2026-10-20T17:12:35Z
+126912|5|29235|jaredgoff,126912,BDSM League,5,brian's toads,0,QB,Jared Goff,QB,QB,skill,DET,,29235,Jared Goff (DET),2026-10-20T17:12:35Z
+126912|5|33996|kennethwalker,126912,BDSM League,5,brian's toads,0,RB,Kenneth Walker III,RB,RB,skill,KC,,33996,Kenneth Walker III (KC),2026-10-20T17:12:35Z
+126912|5|32725|jkdobbins,126912,BDSM League,5,brian's toads,0,RB,J.K. Dobbins,RB,RB,skill,DEN,,32725,J.K. Dobbins (DEN),2026-10-20T17:12:35Z
+126912|5|40039|zayflowers,126912,BDSM League,5,brian's toads,0,WR,Zay Flowers,WR,WR,skill,BAL,,40039,Zay Flowers (BAL),2026-10-20T17:12:35Z
+126912|5|40234|parkerwashington,126912,BDSM League,5,brian's toads,0,WR,Parker Washington,WR,WR,skill,JAX,,40234,Parker Washington (JAX),2026-10-20T17:12:35Z
+126912|5|31056|markandrews,126912,BDSM League,5,brian's toads,0,TE,Mark Andrews,TE,TE,skill,BAL,,31056,Mark Andrews (BAL),2026-10-20T17:12:35Z
+126912|5|42646|kcconcepcion,126912,BDSM League,5,brian's toads,0,W/R/T,KC Concepcion Jr.,WR,WR,skill,CLE,,42646,KC Concepcion (CLE),2026-10-20T17:12:35Z
+126912|5|9265|matthewstafford,126912,BDSM League,5,brian's toads,0,BN,Matthew Stafford,QB,QB,skill,LA,,9265,Matthew Stafford (LA),2026-10-20T17:12:35Z
+126912|5|40201|dontayvionwicks,126912,BDSM League,5,brian's toads,0,BN,Dontayvion Wicks,WR,WR,skill,PHI,,40201,Dontayvion Wicks (PHI),2026-10-20T17:12:35Z
+126912|5|42986|roberthenry,126912,BDSM League,5,brian's toads,0,BN,Robert Henry Jr.,RB,RB,skill,SEA,,42986,,2026-10-20T17:12:35Z
+126912|5|34054|brianrobinson,126912,BDSM League,5,brian's toads,0,BN,Brian Robinson Jr.,RB,RB,skill,ATL,,34054,Brian Robinson (ATL),2026-10-20T17:12:35Z
+126912|5|40908|laddmcconkey,126912,BDSM League,5,brian's toads,0,BN,Ladd McConkey,WR,WR,skill,LAC,Q,40908,Ladd McConkey (LAC),2026-10-20T17:12:35Z
+126912|5|42773|cyrusallen,126912,BDSM League,5,brian's toads,0,BN,Cyrus Allen,WR,WR,skill,KC,,42773,Cyrus Allen (KC),2026-10-20T17:12:35Z
+126912|5|41799|tylerwarren,126912,BDSM League,5,brian's toads,0,IR,Tyler Warren,TE,TE,skill,IND,Q,41799,Tyler Warren (IND),2026-10-20T17:12:35Z
+126912|5|40118|devonachane,126912,BDSM League,5,brian's toads,0,IR,De'Von Achane,RB,RB,skill,MIA,IR,40118,,2026-10-20T17:12:35Z
+126912|5|31977|mattgay,126912,BDSM League,5,brian's toads,0,K,Matt Gay,K,K,K,LV,,31977,,2026-10-20T17:12:35Z
+126912|5|0|49ers,126912,BDSM League,5,brian's toads,0,DEF,49ers,DEF,DEF,DEF,SF,,0,,2026-10-20T17:12:35Z
+126912|6|29369|dakprescott,126912,BDSM League,6,Hit Me With Your Prescott,0,QB,Dak Prescott,QB,QB,skill,DAL,,29369,Dak Prescott (DAL),2026-10-20T17:12:35Z
+126912|6|33514|chubahubbard,126912,BDSM League,6,Hit Me With Your Prescott,0,RB,Chuba Hubbard,RB,RB,skill,CAR,,33514,Chuba Hubbard (CAR),2026-10-20T17:12:35Z
+126912|6|40041|jaxonsmithnjigba,126912,BDSM League,6,Hit Me With Your Prescott,0,WR,Jaxon Smith-Njigba,WR,WR,skill,SEA,,40041,Jaxon Smith-Njigba (SEA),2026-10-20T17:12:35Z
+126912|6|33967|jamesonwilliams,126912,BDSM League,6,Hit Me With Your Prescott,0,WR,Jameson Williams,WR,WR,skill,DET,,33967,Jameson Williams (DET),2026-10-20T17:12:35Z
+126912|6|34010|treymcbride,126912,BDSM League,6,Hit Me With Your Prescott,0,TE,Trey McBride,TE,TE,skill,ARI,,34010,Trey McBride (ARI),2026-10-20T17:12:35Z
+126912|6|40877|xavierworthy,126912,BDSM League,6,Hit Me With Your Prescott,0,BN,Xavier Worthy,WR,WR,skill,KC,,40877,Xavier Worthy (KC),2026-10-20T17:12:35Z
+126912|6|30295|aaronjones,126912,BDSM League,6,Hit Me With Your Prescott,0,BN,Aaron Jones Sr.,RB,RB,skill,MIN,,30295,Aaron Jones (MIN),2026-10-20T17:12:35Z
+126912|6|31960|tonypollard,126912,BDSM League,6,Hit Me With Your Prescott,0,BN,Tony Pollard,RB,RB,skill,TEN,,31960,Tony Pollard (TEN),2026-10-20T17:12:35Z
+126912|6|41823|treveyonhenderson,126912,BDSM League,6,Hit Me With Your Prescott,0,BN,TreVeyon Henderson,RB,RB,skill,NE,,41823,TreVeyon Henderson (NE),2026-10-20T17:12:35Z
+126912|6|30971|bakermayfield,126912,BDSM League,6,Hit Me With Your Prescott,0,BN,Baker Mayfield,QB,QB,skill,TB,Q,30971,Baker Mayfield (TB),2026-10-20T17:12:35Z
+126912|6|27581|davanteadams,126912,BDSM League,6,Hit Me With Your Prescott,0,IR,Davante Adams,WR,WR,skill,LA,O,27581,Davante Adams (LA),2026-10-20T17:12:35Z
+126912|6|41093|willreichard,126912,BDSM League,6,Hit Me With Your Prescott,0,K,Will Reichard,K,K,K,MIN,,41093,,2026-10-20T17:12:35Z
+126912|6|0|seahawks,126912,BDSM League,6,Hit Me With Your Prescott,0,DEF,Seahawks,DEF,DEF,DEF,SEA,,0,,2026-10-20T17:12:35Z
+126912|6|28227|cairosantos,126912,BDSM League,6,Hit Me With Your Prescott,0,BN,Cairo Santos,K,K,K,CHI,,28227,,2026-10-20T17:12:35Z
+126912|6|0|eagles,126912,BDSM League,6,Hit Me With Your Prescott,0,BN,Eagles,DEF,DEF,DEF,PHI,,0,,2026-10-20T17:12:35Z
+126912|7|25812|kirkcousins,126912,BDSM League,7,The PRICE Is Right,0,QB,Kirk Cousins,QB,QB,skill,LV,,25812,Kirk Cousins (LV),2026-10-20T17:12:35Z
+126912|7|33423|javontewilliams,126912,BDSM League,7,The PRICE Is Right,0,RB,Javonte Williams,RB,RB,skill,DAL,,33423,Javonte Williams (DAL),2026-10-20T17:12:35Z
+126912|7|41902|woodymarks,126912,BDSM League,7,The PRICE Is Right,0,RB,Woody Marks,RB,RB,skill,HOU,,41902,Woody Marks (HOU),2026-10-20T17:12:35Z
+126912|7|31883|ajbrown,126912,BDSM League,7,The PRICE Is Right,0,WR,A.J. Brown,WR,WR,skill,NE,Q,31883,A.J. Brown (NE),2026-10-20T17:12:35Z
+126912|7|41804|emekaegbuka,126912,BDSM League,7,The PRICE Is Right,0,WR,Emeka Egbuka,WR,WR,skill,TB,,41804,Emeka Egbuka (TB),2026-10-20T17:12:35Z
+126912|7|30259|georgekittle,126912,BDSM League,7,The PRICE Is Right,0,TE,George Kittle,TE,TE,skill,SF,,30259,George Kittle (SF),2026-10-20T17:12:35Z
+126912|7|42626|carnelltate,126912,BDSM League,7,The PRICE Is Right,0,W/R/T,Carnell Tate,WR,WR,skill,TEN,,42626,Carnell Tate (TEN),2026-10-20T17:12:35Z
+126912|7|34095|isaiahlikely,126912,BDSM League,7,The PRICE Is Right,0,BN,Isaiah Likely,TE,TE,skill,NYG,,34095,Isaiah Likely (NYG),2026-10-20T17:12:35Z
+126912|7|41097|devaughnvele,126912,BDSM League,7,The PRICE Is Right,0,BN,Devaughn Vele,WR,WR,skill,NO,,41097,Devaughn Vele (NO),2026-10-20T17:12:35Z
+126912|7|34019|jamescook,126912,BDSM League,7,The PRICE Is Right,0,BN,James Cook III,RB,RB,skill,BUF,,34019,James Cook (BUF),2026-10-20T17:12:35Z
+126912|7|33389|trevorlawrence,126912,BDSM League,7,The PRICE Is Right,0,BN,Trevor Lawrence,QB,QB,skill,JAX,,33389,Trevor Lawrence (JAX),2026-10-20T17:12:35Z
+126912|7|41825|tylershough,126912,BDSM League,7,The PRICE Is Right,0,BN,Tyler Shough,QB,QB,skill,NO,,41825,Tyler Shough (NO),2026-10-20T17:12:35Z
+126912|7|42654|jadarianprice,126912,BDSM League,7,The PRICE Is Right,0,IR,Jadarian Price,RB,RB,skill,SEA,IR,42654,Jadarian Price (SEA),2026-10-20T17:12:35Z
+126912|7|40952|romanwilson,126912,BDSM League,7,The PRICE Is Right,0,IR,Roman Wilson,WR,WR,skill,PIT,IR,40952,Roman Wilson (PIT),2026-10-20T17:12:35Z
+126912|7|32417|chasemclaughlin,126912,BDSM League,7,The PRICE Is Right,0,K,Chase McLaughlin,K,K,K,TB,,32417,,2026-10-20T17:12:35Z
+126912|7|0|vikings,126912,BDSM League,7,The PRICE Is Right,0,DEF,Vikings,DEF,DEF,DEF,MIN,,0,,2026-10-20T17:12:35Z
+126912|7|0|giants,126912,BDSM League,7,The PRICE Is Right,0,BN,Giants,DEF,DEF,DEF,NYG,,0,,2026-10-20T17:12:35Z
+126912|8|7200|aaronrodgers,126912,BDSM League,8,You're Bent,0,QB,Aaron Rodgers,QB,QB,skill,PIT,,7200,Aaron Rodgers (PIT),2026-10-20T17:12:35Z
+126912|8|40055|bijanrobinson,126912,BDSM League,8,You're Bent,0,RB,Bijan Robinson,RB,RB,skill,ATL,,40055,Bijan Robinson (ATL),2026-10-20T17:12:35Z
+126912|8|34120|kyrenwilliams,126912,BDSM League,8,You're Bent,0,RB,Kyren Williams,RB,RB,skill,LA,,34120,Kyren Williams (LA),2026-10-20T17:12:35Z
+126912|8|34007|georgepickens,126912,BDSM League,8,You're Bent,0,WR,George Pickens,WR,WR,skill,DAL,,34007,George Pickens (DAL),2026-10-20T17:12:35Z
+126912|8|41793|tetairoamcmillan,126912,BDSM League,8,You're Bent,0,WR,Tetairoa McMillan,WR,WR,skill,CAR,,41793,Tetairoa McMillan (CAR),2026-10-20T17:12:35Z
+126912|8|40102|tuckerkraft,126912,BDSM League,8,You're Bent,0,TE,Tucker Kraft,TE,TE,skill,GB,,40102,Tucker Kraft (GB),2026-10-20T17:12:35Z
+126912|8|40707|emanuelwilson,126912,BDSM League,8,You're Bent,0,W/R/T,Emanuel Wilson,RB,RB,skill,SEA,,40707,Emanuel Wilson (SEA),2026-10-20T17:12:35Z
+126912|8|30973|samdarnold,126912,BDSM League,8,You're Bent,0,BN,Sam Darnold,QB,QB,skill,SEA,,30973,Sam Darnold (SEA),2026-10-20T17:12:35Z
+126912|8|33508|rhamondrestevenson,126912,BDSM League,8,You're Bent,0,BN,Rhamondre Stevenson,RB,RB,skill,NE,,33508,Rhamondre Stevenson (NE),2026-10-20T17:12:35Z
+126912|8|41877|haroldfannin,126912,BDSM League,8,You're Bent,0,BN,Harold Fannin Jr.,TE,TE,skill,CLE,,41877,Harold Fannin Jr. (CLE),2026-10-20T17:12:35Z
+126912|8|40042|jordanaddison,126912,BDSM League,8,You're Bent,0,BN,Jordan Addison,WR,WR,skill,MIN,Q,40042,Jordan Addison (MIN),2026-10-20T17:12:35Z
+126912|8|40893|marvinharrison,126912,BDSM League,8,You're Bent,0,BN,Marvin Harrison Jr.,WR,WR,skill,HOU,,40893,Marvin Harrison Jr. (HOU),2026-10-20T17:12:35Z
+126912|8|41058|malikwashington,126912,BDSM League,8,You're Bent,0,BN,Malik Washington,WR,WR,skill,MIA,,41058,Malik Washington (MIA),2026-10-20T17:12:35Z
+126912|8|41988|tylerloop,126912,BDSM League,8,You're Bent,0,K,Tyler Loop,K,K,K,BAL,,41988,,2026-10-20T17:12:35Z
+126912|8|0|ravens,126912,BDSM League,8,You're Bent,0,DEF,Ravens,DEF,DEF,DEF,BAL,,0,,2026-10-20T17:12:35Z
+126912|9|34218|brockpurdy,126912,BDSM League,9,KETAMINE COWBOYS,0,QB,Brock Purdy,QB,QB,skill,SF,,34218,Brock Purdy (SF),2026-10-20T17:12:35Z
+126912|9|32711|jonathantaylor,126912,BDSM League,9,KETAMINE COWBOYS,0,RB,Jonathan Taylor,RB,RB,skill,IND,,32711,Jonathan Taylor (IND),2026-10-20T17:12:35Z
+126912|9|32705|dandreswift,126912,BDSM League,9,KETAMINE COWBOYS,0,RB,D'Andre Swift,RB,RB,skill,CHI,,32705,D'Andre Swift (CHI),2026-10-20T17:12:35Z
+126912|9|33477|nicocollins,126912,BDSM League,9,KETAMINE COWBOYS,0,WR,Nico Collins,WR,WR,skill,HOU,,33477,Nico Collins (HOU),2026-10-20T17:12:35Z
+126912|9|31896|dkmetcalf,126912,BDSM League,9,KETAMINE COWBOYS,0,WR,DK Metcalf,WR,WR,skill,PIT,,31896,DK Metcalf (PIT),2026-10-20T17:12:35Z
+126912|9|33113|juwanjohnson,126912,BDSM League,9,KETAMINE COWBOYS,0,TE,Juwan Johnson,TE,TE,skill,NO,,33113,Juwan Johnson (NO),2026-10-20T17:12:35Z
+126912|9|31856|joshjacobs,126912,BDSM League,9,KETAMINE COWBOYS,0,W/R/T,Josh Jacobs,RB,RB,skill,GB,,31856,,2026-10-20T17:12:35Z
+126912|9|30197|chrisgodwin,126912,BDSM League,9,KETAMINE COWBOYS,0,BN,Chris Godwin Jr.,WR,WR,skill,TB,,30197,Chris Godwin Jr. (TB),2026-10-20T17:12:35Z
+126912|9|30994|djmoore,126912,BDSM League,9,KETAMINE COWBOYS,0,BN,DJ Moore,WR,WR,skill,BUF,Q,30994,DJ Moore (BUF),2026-10-20T17:12:35Z
+126912|9|42638|kenyonsadiq,126912,BDSM League,9,KETAMINE COWBOYS,0,BN,Kenyon Sadiq,TE,TE,skill,NYJ,,42638,Kenyon Sadiq (NYJ),2026-10-20T17:12:35Z
+126912|9|40900|calebwilliams,126912,BDSM League,9,KETAMINE COWBOYS,0,BN,Caleb Williams,QB,QB,skill,CHI,,40900,Caleb Williams (CHI),2026-10-20T17:12:35Z
+126912|9|31107|daltonschultz,126912,BDSM League,9,KETAMINE COWBOYS,0,BN,Dalton Schultz,TE,TE,skill,HOU,,31107,Dalton Schultz (HOU),2026-10-20T17:12:35Z
+126912|9|28188|chrisboswell,126912,BDSM League,9,KETAMINE COWBOYS,0,K,Chris Boswell,K,K,K,PIT,,28188,,2026-10-20T17:12:35Z
+126912|9|0|chiefs,126912,BDSM League,9,KETAMINE COWBOYS,0,DEF,Chiefs,DEF,DEF,DEF,KC,,0,,2026-10-20T17:12:35Z
+126912|9|0|bills,126912,BDSM League,9,KETAMINE COWBOYS,0,BN,Bills,DEF,DEF,DEF,BUF,,0,,2026-10-20T17:12:35Z
+126912|10|31002|lamarjackson,126912,BDSM League,10,The Bengals,0,QB,Lamar Jackson,QB,QB,skill,BAL,Q,31002,Lamar Jackson (BAL),2026-10-20T17:12:35Z
+126912|10|29279|derrickhenry,126912,BDSM League,10,The Bengals,0,RB,Derrick Henry,RB,RB,skill,BAL,,29279,Derrick Henry (BAL),2026-10-20T17:12:35Z
+126912|10|34063|dameonpierce,126912,BDSM League,10,The Bengals,0,RB,Dameon Pierce,RB,RB,skill,PHI,,34063,Dameon Pierce (PHI),2026-10-20T17:12:35Z
+126912|10|33393|jamarrchase,126912,BDSM League,10,The Bengals,0,WR,Ja'Marr Chase,WR,WR,skill,CIN,,33393,Ja'Marr Chase (CIN),2026-10-20T17:12:35Z
+126912|10|32692|justinjefferson,126912,BDSM League,10,The Bengals,0,WR,Justin Jefferson,WR,WR,skill,MIN,,32692,Justin Jefferson (MIN),2026-10-20T17:12:35Z
+126912|10|29269|hunterhenry,126912,BDSM League,10,The Bengals,0,TE,Hunter Henry,TE,TE,skill,NE,,29269,Hunter Henry (NE),2026-10-20T17:12:35Z
+126912|10|40121|michaelwilson,126912,BDSM League,10,The Bengals,0,W/R/T,Michael Wilson,WR,WR,skill,ARI,,40121,Michael Wilson (ARI),2026-10-20T17:12:35Z
+126912|10|29325|jacobybrissett,126912,BDSM League,10,The Bengals,0,BN,Jacoby Brissett,QB,QB,skill,ARI,,29325,Jacoby Brissett (ARI),2026-10-20T17:12:35Z
+126912|10|41052|kimanividal,126912,BDSM League,10,The Bengals,0,BN,Kimani Vidal,RB,RB,skill,LAC,,41052,Kimani Vidal (LAC),2026-10-20T17:12:35Z
+126912|10|26699|keenanallen,126912,BDSM League,10,The Bengals,0,BN,Keenan Allen,WR,WR,skill,IND,,26699,Keenan Allen (IND),2026-10-20T17:12:35Z
+126912|10|31012|mikegesicki,126912,BDSM League,10,The Bengals,0,BN,Mike Gesicki,TE,TE,skill,CIN,,31012,Mike Gesicki (CIN),2026-10-20T17:12:35Z
+126912|10|31905|davidmontgomery,126912,BDSM League,10,The Bengals,0,IR,David Montgomery,RB,RB,skill,HOU,Q,31905,David Montgomery (HOU),2026-10-20T17:12:35Z
+126912|10|42630|jordyntyson,126912,BDSM League,10,The Bengals,0,IR,Jordyn Tyson,WR,WR,skill,NO,IR-R,42630,,2026-10-20T17:12:35Z
+126912|10|29792|kaimifairbairn,126912,BDSM League,10,The Bengals,0,K,Ka'imi Fairbairn,K,K,K,HOU,,29792,,2026-10-20T17:12:35Z
+126912|10|0|bengals,126912,BDSM League,10,The Bengals,0,DEF,Bengals,DEF,DEF,DEF,CIN,,0,,2026-10-20T17:12:35Z
+126912|10|0|buccaneers,126912,BDSM League,10,The Bengals,0,BN,Buccaneers,DEF,DEF,DEF,TB,,0,,2026-10-20T17:12:35Z
+126912|11|40881|drakemaye,126912,BDSM League,11,WaxOnWaxOff,0,QB,Drake Maye,QB,QB,skill,NE,,40881,Drake Maye (NE),2026-10-20T17:12:35Z
+126912|11|30121|christianmccaffrey,126912,BDSM League,11,WaxOnWaxOff,0,RB,Christian McCaffrey,RB,RB,skill,SF,,30121,Christian McCaffrey (SF),2026-10-20T17:12:35Z
+126912|11|40981|braelonallen,126912,BDSM League,11,WaxOnWaxOff,0,RB,Braelon Allen,RB,RB,skill,NYJ,,40981,Braelon Allen (NYJ),2026-10-20T17:12:35Z
+126912|11|33963|drakelondon,126912,BDSM League,11,WaxOnWaxOff,0,WR,Drake London,WR,WR,skill,ATL,,33963,Drake London (ATL),2026-10-20T17:12:35Z
+126912|11|40126|joshdowns,126912,BDSM League,11,WaxOnWaxOff,0,WR,Josh Downs,WR,WR,skill,IND,,40126,Josh Downs (IND),2026-10-20T17:12:35Z
+126912|11|31019|dallasgoedert,126912,BDSM League,11,WaxOnWaxOff,0,TE,Dallas Goedert,TE,TE,skill,PHI,,31019,Dallas Goedert (PHI),2026-10-20T17:12:35Z
+126912|11|40901|romeodunze,126912,BDSM League,11,WaxOnWaxOff,0,W/R/T,Rome Odunze,WR,WR,skill,CHI,,40901,Rome Odunze (CHI),2026-10-20T17:12:35Z
+126912|11|40084|rasheerice,126912,BDSM League,11,WaxOnWaxOff,0,BN,Rashee Rice,WR,WR,skill,KC,Q,40084,Rashee Rice (KC),2026-10-20T17:12:35Z
+126912|11|41821|quinshonjudkins,126912,BDSM League,11,WaxOnWaxOff,0,BN,Quinshon Judkins,RB,RB,skill,CLE,Q,41821,Quinshon Judkins (CLE),2026-10-20T17:12:35Z
+126912|11|31840|tjhockenson,126912,BDSM League,11,WaxOnWaxOff,0,BN,T.J. Hockenson,TE,TE,skill,MIN,Q,31840,T.J. Hockenson (MIN),2026-10-20T17:12:35Z
+126912|11|30123|patrickmahomes,126912,BDSM League,11,WaxOnWaxOff,0,BN,Patrick Mahomes,QB,QB,skill,KC,,30123,Patrick Mahomes (KC),2026-10-20T17:12:35Z
+126912|11|42712|kaelonblack,126912,BDSM League,11,WaxOnWaxOff,0,BN,Kaelon Black,RB,RB,skill,SF,,42712,Kaelon Black (SF),2026-10-20T17:12:35Z
+126912|11|33413|travisetienne,126912,BDSM League,11,WaxOnWaxOff,0,IR,Travis Etienne Jr.,RB,RB,skill,NO,IR,33413,Travis Etienne (NO),2026-10-20T17:12:35Z
+126912|11|40075|zachcharbonnet,126912,BDSM League,11,WaxOnWaxOff,0,IR,Zach Charbonnet,RB,RB,skill,SEA,PUP-R,40075,Zach Charbonnet (SEA),2026-10-20T17:12:35Z
+126912|11|41499|spencershrader,126912,BDSM League,11,WaxOnWaxOff,0,K,Spencer Shrader,K,K,K,IND,,41499,,2026-10-20T17:12:35Z
+126912|11|0|saints,126912,BDSM League,11,WaxOnWaxOff,0,DEF,Saints,DEF,DEF,DEF,NO,,0,,2026-10-20T17:12:35Z
+126912|12|40030|cjstroud,126912,BDSM League,12,Cee deez nutz,0,QB,C.J. Stroud,QB,QB,skill,HOU,,40030,C.J. Stroud (HOU),2026-10-20T17:12:35Z
+126912|12|41791|ashtonjeanty,126912,BDSM League,12,Cee deez nutz,0,RB,Ashton Jeanty,RB,RB,skill,LV,,41791,Ashton Jeanty (LV),2026-10-20T17:12:35Z
+126912|12|41845|rjharvey,126912,BDSM League,12,Cee deez nutz,0,RB,RJ Harvey,RB,RB,skill,DEN,,41845,RJ Harvey (DEN),2026-10-20T17:12:35Z
+126912|12|33965|garrettwilson,126912,BDSM League,12,Cee deez nutz,0,WR,Garrett Wilson,WR,WR,skill,NYJ,,33965,Garrett Wilson (NYJ),2026-10-20T17:12:35Z
+126912|12|32687|ceedeelamb,126912,BDSM League,12,Cee deez nutz,0,WR,CeeDee Lamb,WR,WR,skill,DAL,,32687,CeeDee Lamb (DAL),2026-10-20T17:12:35Z
+126912|12|33443|patfreiermuth,126912,BDSM League,12,Cee deez nutz,0,TE,Pat Freiermuth,TE,TE,skill,PIT,,33443,Pat Freiermuth (PIT),2026-10-20T17:12:35Z
+126912|12|41808|matthewgolden,126912,BDSM League,12,Cee deez nutz,0,W/R/T,Matthew Golden,WR,WR,skill,GB,,41808,Matthew Golden (GB),2026-10-20T17:12:35Z
+126912|12|40971|marshawnlloyd,126912,BDSM League,12,Cee deez nutz,0,BN,MarShawn Lloyd,RB,RB,skill,GB,,40971,MarShawn Lloyd (GB),2026-10-20T17:12:35Z
+126912|12|40896|jaydendaniels,126912,BDSM League,12,Cee deez nutz,0,BN,Jayden Daniels,QB,QB,skill,WAS,,40896,Jayden Daniels (WAS),2026-10-20T17:12:35Z
+126912|12|33392|kylepitts,126912,BDSM League,12,Cee deez nutz,0,BN,Kyle Pitts Sr.,TE,TE,skill,ATL,,33392,Kyle Pitts (ATL),2026-10-20T17:12:35Z
+126912|12|42744|mikewashington,126912,BDSM League,12,Cee deez nutz,0,BN,Mike Washington Jr.,RB,RB,skill,LV,,42744,Mike Washington Jr. (LV),2026-10-20T17:12:35Z
+126912|12|32231|jakobimeyers,126912,BDSM League,12,Cee deez nutz,0,BN,Jakobi Meyers,WR,WR,skill,JAX,,32231,Jakobi Meyers (JAX),2026-10-20T17:12:35Z
+126912|12|40911|keoncoleman,126912,BDSM League,12,Cee deez nutz,0,BN,Keon Coleman,WR,WR,skill,BUF,,40911,Keon Coleman (BUF),2026-10-20T17:12:35Z
+126912|12|42025|kylemonangai,126912,BDSM League,12,Cee deez nutz,0,IR,Kyle Monangai,RB,RB,skill,CHI,Q,42025,Kyle Monangai (CHI),2026-10-20T17:12:35Z
+126912|12|33991|breecehall,126912,BDSM League,12,Cee deez nutz,0,IR,Breece Hall,RB,RB,skill,NYJ,Q,33991,Breece Hall (NYJ),2026-10-20T17:12:35Z
+126912|12|31482|eddypineiro,126912,BDSM League,12,Cee deez nutz,0,K,Eddy Pineiro,K,K,K,SF,,31482,,2026-10-20T17:12:35Z
+126912|12|0|steelers,126912,BDSM League,12,Cee deez nutz,0,DEF,Steelers,DEF,DEF,DEF,PIT,,0,,2026-10-20T17:12:35Z
+200436|1|32696|jordanlove,200436,The League,1,Just Another Team,0,QB,Jordan Love,QB,QB,skill,GB,,32696,Jordan Love (GB),2026-10-20T17:12:35Z
+200436|1|33508|rhamondrestevenson,200436,The League,1,Just Another Team,0,RB,Rhamondre Stevenson,RB,RB,skill,NE,,33508,Rhamondre Stevenson (NE),2026-10-20T17:12:35Z
+200436|1|41902|woodymarks,200436,The League,1,Just Another Team,0,RB,Woody Marks,RB,RB,skill,HOU,,41902,Woody Marks (HOU),2026-10-20T17:12:35Z
+200436|1|34007|georgepickens,200436,The League,1,Just Another Team,0,WR,George Pickens,WR,WR,skill,DAL,,34007,George Pickens (DAL),2026-10-20T17:12:35Z
+200436|1|33965|garrettwilson,200436,The League,1,Just Another Team,0,WR,Garrett Wilson,WR,WR,skill,NYJ,,33965,Garrett Wilson (NYJ),2026-10-20T17:12:35Z
+200436|1|31883|ajbrown,200436,The League,1,Just Another Team,0,WR,A.J. Brown,WR,WR,skill,NE,Q,31883,A.J. Brown (NE),2026-10-20T17:12:35Z
+200436|1|34095|isaiahlikely,200436,The League,1,Just Another Team,0,TE,Isaiah Likely,TE,TE,skill,NYG,,34095,Isaiah Likely (NYG),2026-10-20T17:12:35Z
+200436|1|41877|haroldfannin,200436,The League,1,Just Another Team,0,W/R/T,Harold Fannin Jr.,TE,TE,skill,CLE,,41877,Harold Fannin Jr. (CLE),2026-10-20T17:12:35Z
+200436|1|34063|dameonpierce,200436,The League,1,Just Another Team,0,BN,Dameon Pierce,RB,RB,skill,PHI,,34063,Dameon Pierce (PHI),2026-10-20T17:12:35Z
+200436|1|40707|emanuelwilson,200436,The League,1,Just Another Team,0,BN,Emanuel Wilson,RB,RB,skill,SEA,,40707,Emanuel Wilson (SEA),2026-10-20T17:12:35Z
+200436|1|31908|terrymclaurin,200436,The League,1,Just Another Team,0,BN,Terry McLaurin,WR,WR,skill,WAS,D,31908,Terry McLaurin (WAS),2026-10-20T17:12:35Z
+200436|1|32671|joeburrow,200436,The League,1,Just Another Team,0,BN,Joe Burrow,QB,QB,skill,CIN,,32671,Joe Burrow (CIN),2026-10-20T17:12:35Z
+200436|1|41097|devaughnvele,200436,The League,1,Just Another Team,0,BN,Devaughn Vele,WR,WR,skill,NO,,41097,Devaughn Vele (NO),2026-10-20T17:12:35Z
+200436|1|32725|jkdobbins,200436,The League,1,Just Another Team,0,BN,J.K. Dobbins,RB,RB,skill,DEN,,32725,J.K. Dobbins (DEN),2026-10-20T17:12:35Z
+200436|1|41988|tylerloop,200436,The League,1,Just Another Team,0,K,Tyler Loop,K,K,K,BAL,,41988,,2026-10-20T17:12:35Z
+200436|1|0|steelers,200436,The League,1,Just Another Team,0,DEF,Steelers,DEF,DEF,DEF,PIT,,0,,2026-10-20T17:12:35Z
+200436|2|40030|cjstroud,200436,The League,2,C-Kupps,0,QB,C.J. Stroud,QB,QB,skill,HOU,,40030,C.J. Stroud (HOU),2026-10-20T17:12:35Z
+200436|2|33423|javontewilliams,200436,The League,2,C-Kupps,0,RB,Javonte Williams,RB,RB,skill,DAL,,33423,Javonte Williams (DAL),2026-10-20T17:12:35Z
+200436|2|40981|braelonallen,200436,The League,2,C-Kupps,0,RB,Braelon Allen,RB,RB,skill,NYJ,,40981,Braelon Allen (NYJ),2026-10-20T17:12:35Z
+200436|2|40041|jaxonsmithnjigba,200436,The League,2,C-Kupps,0,WR,Jaxon Smith-Njigba,WR,WR,skill,SEA,,40041,Jaxon Smith-Njigba (SEA),2026-10-20T17:12:35Z
+200436|2|42626|carnelltate,200436,The League,2,C-Kupps,0,WR,Carnell Tate,WR,WR,skill,TEN,,42626,Carnell Tate (TEN),2026-10-20T17:12:35Z
+200436|2|41793|tetairoamcmillan,200436,The League,2,C-Kupps,0,WR,Tetairoa McMillan,WR,WR,skill,CAR,,41793,Tetairoa McMillan (CAR),2026-10-20T17:12:35Z
+200436|2|34010|treymcbride,200436,The League,2,C-Kupps,0,TE,Trey McBride,TE,TE,skill,ARI,,34010,Trey McBride (ARI),2026-10-20T17:12:35Z
+200436|2|41900|bhayshultuten,200436,The League,2,C-Kupps,0,W/R/T,Bhayshul Tuten,RB,RB,skill,JAX,,41900,Bhayshul Tuten (JAX),2026-10-20T17:12:35Z
+200436|2|33393|jamarrchase,200436,The League,2,C-Kupps,0,BN,Ja'Marr Chase,WR,WR,skill,CIN,,33393,Ja'Marr Chase (CIN),2026-10-20T17:12:35Z
+200436|2|29235|jaredgoff,200436,The League,2,C-Kupps,0,BN,Jared Goff,QB,QB,skill,DET,,29235,Jared Goff (DET),2026-10-20T17:12:35Z
+200436|2|33100|ricodowdle,200436,The League,2,C-Kupps,0,BN,Rico Dowdle,RB,RB,skill,PIT,,33100,Rico Dowdle (PIT),2026-10-20T17:12:35Z
+200436|2|42623|fernandomendoza,200436,The League,2,C-Kupps,0,BN,Fernando Mendoza,QB,QB,skill,LV,,42623,Fernando Mendoza (LV),2026-10-20T17:12:35Z
+200436|2|30551|kendrickbourne,200436,The League,2,C-Kupps,0,BN,Kendrick Bourne,WR,WR,skill,ARI,,30551,Kendrick Bourne (ARI),2026-10-20T17:12:35Z
+200436|2|42654|jadarianprice,200436,The League,2,C-Kupps,0,IR,Jadarian Price,RB,RB,skill,SEA,IR,42654,Jadarian Price (SEA),2026-10-20T17:12:35Z
+200436|2|42630|jordyntyson,200436,The League,2,C-Kupps,0,IR,Jordyn Tyson,WR,WR,skill,NO,IR-R,42630,,2026-10-20T17:12:35Z
+200436|2|42838|treysmack,200436,The League,2,C-Kupps,0,K,Trey Smack,K,K,K,GB,,42838,,2026-10-20T17:12:35Z
+200436|2|0|rams,200436,The League,2,C-Kupps,0,DEF,Rams,DEF,DEF,DEF,LA,,0,,2026-10-20T17:12:35Z
+200436|2|33537|evanmcpherson,200436,The League,2,C-Kupps,0,BN,Evan McPherson,K,K,K,CIN,,33537,,2026-10-20T17:12:35Z
+200436|3|40881|drakemaye,200436,The League,3,Meatball Maye,1,QB,Drake Maye,QB,QB,skill,NE,,40881,Drake Maye (NE),2026-10-20T17:12:35Z
+200436|3|34447|jaylenwarren,200436,The League,3,Meatball Maye,1,RB,Jaylen Warren,RB,RB,skill,PIT,,34447,Jaylen Warren (PIT),2026-10-20T17:12:35Z
+200436|3|33514|chubahubbard,200436,The League,3,Meatball Maye,1,RB,Chuba Hubbard,RB,RB,skill,CAR,,33514,Chuba Hubbard (CAR),2026-10-20T17:12:35Z
+200436|3|33963|drakelondon,200436,The League,3,Meatball Maye,1,WR,Drake London,WR,WR,skill,ATL,,33963,Drake London (ATL),2026-10-20T17:12:35Z
+200436|3|32692|justinjefferson,200436,The League,3,Meatball Maye,1,WR,Justin Jefferson,WR,WR,skill,MIN,,32692,Justin Jefferson (MIN),2026-10-20T17:12:35Z
+200436|3|33998|wandalerobinson,200436,The League,3,Meatball Maye,1,WR,Wan'Dale Robinson,WR,WR,skill,TEN,,33998,Wan'Dale Robinson (TEN),2026-10-20T17:12:35Z
+200436|3|41795|colstonloveland,200436,The League,3,Meatball Maye,1,TE,Colston Loveland,TE,TE,skill,CHI,,41795,Colston Loveland (CHI),2026-10-20T17:12:35Z
+200436|3|40196|chasebrown,200436,The League,3,Meatball Maye,1,W/R/T,Chase Brown,RB,RB,skill,CIN,,40196,Chase Brown (CIN),2026-10-20T17:12:35Z
+200436|3|41087|ryanflournoy,200436,The League,3,Meatball Maye,1,BN,Ryan Flournoy,WR,WR,skill,DAL,,41087,Ryan Flournoy (DAL),2026-10-20T17:12:35Z
+200436|3|33113|juwanjohnson,200436,The League,3,Meatball Maye,1,BN,Juwan Johnson,TE,TE,skill,NO,,33113,Juwan Johnson (NO),2026-10-20T17:12:35Z
+200436|3|40201|dontayvionwicks,200436,The League,3,Meatball Maye,1,BN,Dontayvion Wicks,WR,WR,skill,PHI,,40201,Dontayvion Wicks (PHI),2026-10-20T17:12:35Z
+200436|3|33991|breecehall,200436,The League,3,Meatball Maye,1,BN,Breece Hall,RB,RB,skill,NYJ,Q,33991,Breece Hall (NYJ),2026-10-20T17:12:35Z
+200436|3|41825|tylershough,200436,The League,3,Meatball Maye,1,BN,Tyler Shough,QB,QB,skill,NO,,41825,Tyler Shough (NO),2026-10-20T17:12:35Z
+200436|3|40078|brentonstrange,200436,The League,3,Meatball Maye,1,BN,Brenton Strange,TE,TE,skill,JAX,,40078,Brenton Strange (JAX),2026-10-20T17:12:35Z
+200436|3|41831|terranceferguson,200436,The League,3,Meatball Maye,1,IR,Terrance Ferguson,TE,TE,skill,LA,IR,41831,Terrance Ferguson (LA),2026-10-20T17:12:35Z
+200436|3|41062|camlittle,200436,The League,3,Meatball Maye,1,K,Cam Little,K,K,K,JAX,,41062,,2026-10-20T17:12:35Z
+200436|3|0|seahawks,200436,The League,3,Meatball Maye,1,DEF,Seahawks,DEF,DEF,DEF,SEA,,0,,2026-10-20T17:12:35Z
+200436|4|25812|kirkcousins,200436,The League,4,Scoots Boots,0,QB,Kirk Cousins,QB,QB,skill,LV,,25812,Kirk Cousins (LV),2026-10-20T17:12:35Z
+200436|4|32711|jonathantaylor,200436,The League,4,Scoots Boots,0,RB,Jonathan Taylor,RB,RB,skill,IND,,32711,Jonathan Taylor (IND),2026-10-20T17:12:35Z
+200436|4|33538|kennygainwell,200436,The League,4,Scoots Boots,0,RB,Kenny Gainwell,RB,RB,skill,TB,,33538,Kenny Gainwell (TB),2026-10-20T17:12:35Z
+200436|4|33989|christianwatson,200436,The League,4,Scoots Boots,0,WR,Christian Watson,WR,WR,skill,GB,,33989,Christian Watson (GB),2026-10-20T17:12:35Z
+200436|4|40039|zayflowers,200436,The League,4,Scoots Boots,0,WR,Zay Flowers,WR,WR,skill,BAL,,40039,Zay Flowers (BAL),2026-10-20T17:12:35Z
+200436|4|40126|joshdowns,200436,The League,4,Scoots Boots,0,WR,Josh Downs,WR,WR,skill,IND,,40126,Josh Downs (IND),2026-10-20T17:12:35Z
+200436|4|40102|tuckerkraft,200436,The League,4,Scoots Boots,0,TE,Tucker Kraft,TE,TE,skill,GB,,40102,Tucker Kraft (GB),2026-10-20T17:12:35Z
+200436|4|34088|romeodoubs,200436,The League,4,Scoots Boots,0,W/R/T,Romeo Doubs,WR,WR,skill,NE,IR,34088,Romeo Doubs (NE),2026-10-20T17:12:35Z
+200436|4|41799|tylerwarren,200436,The League,4,Scoots Boots,0,BN,Tyler Warren,TE,TE,skill,IND,Q,41799,Tyler Warren (IND),2026-10-20T17:12:35Z
+200436|4|30295|aaronjones,200436,The League,4,Scoots Boots,0,BN,Aaron Jones Sr.,RB,RB,skill,MIN,,30295,Aaron Jones (MIN),2026-10-20T17:12:35Z
+200436|4|32676|justinherbert,200436,The League,4,Scoots Boots,0,BN,Justin Herbert,QB,QB,skill,LAC,,32676,Justin Herbert (LAC),2026-10-20T17:12:35Z
+200436|4|33415|rashodbateman,200436,The League,4,Scoots Boots,0,BN,Rashod Bateman,WR,WR,skill,BAL,Q,33415,Rashod Bateman (BAL),2026-10-20T17:12:35Z
+200436|4|42697|calebdouglas,200436,The League,4,Scoots Boots,0,BN,Caleb Douglas,WR,WR,skill,MIA,Q,42697,Caleb Douglas (MIA),2026-10-20T17:12:35Z
+200436|4|40119|tyjaespears,200436,The League,4,Scoots Boots,0,BN,Tyjae Spears,RB,RB,skill,TEN,,40119,Tyjae Spears (TEN),2026-10-20T17:12:35Z
+200436|4|32704|michaelpittman,200436,The League,4,Scoots Boots,0,IR,Michael Pittman Jr.,WR,WR,skill,PIT,IR,32704,Michael Pittman (PIT),2026-10-20T17:12:35Z
+200436|4|40118|devonachane,200436,The League,4,Scoots Boots,0,IR,De'Von Achane,RB,RB,skill,MIA,IR,40118,,2026-10-20T17:12:35Z
+200436|4|40075|zachcharbonnet,200436,The League,4,Scoots Boots,0,IR,Zach Charbonnet,RB,RB,skill,SEA,PUP-R,40075,Zach Charbonnet (SEA),2026-10-20T17:12:35Z
+200436|4|40296|blakegrupe,200436,The League,4,Scoots Boots,0,K,Blake Grupe,K,K,K,LA,IR,40296,,2026-10-20T17:12:35Z
+200436|4|0|panthers,200436,The League,4,Scoots Boots,0,DEF,Panthers,DEF,DEF,DEF,CAR,,0,,2026-10-20T17:12:35Z
+200436|5|30125|deshaunwatson,200436,The League,5,Givin’ it to you Mike’s Way,0,QB,Deshaun Watson,QB,QB,skill,CLE,,30125,Deshaun Watson (CLE),2026-10-20T17:12:35Z
+200436|5|40993|buckyirving,200436,The League,5,Givin’ it to you Mike’s Way,0,RB,Bucky Irving,RB,RB,skill,TB,,40993,Bucky Irving (TB),2026-10-20T17:12:35Z
+200436|5|33996|kennethwalker,200436,The League,5,Givin’ it to you Mike’s Way,0,RB,Kenneth Walker III,RB,RB,skill,KC,,33996,Kenneth Walker III (KC),2026-10-20T17:12:35Z
+200436|5|41824|lutherburden,200436,The League,5,Givin’ it to you Mike’s Way,0,WR,Luther Burden III,WR,WR,skill,CHI,,41824,Luther Burden III (CHI),2026-10-20T17:12:35Z
+200436|5|40168|pukanacua,200436,The League,5,Givin’ it to you Mike’s Way,0,WR,Puka Nacua,WR,WR,skill,LA,,40168,Puka Nacua (LA),2026-10-20T17:12:35Z
+200436|5|42669|germiebernard,200436,The League,5,Givin’ it to you Mike’s Way,0,WR,Germie Bernard,WR,WR,skill,PIT,,42669,Germie Bernard (PIT),2026-10-20T17:12:35Z
+200436|5|34085|jakeferguson,200436,The League,5,Givin’ it to you Mike’s Way,0,TE,Jake Ferguson,TE,TE,skill,DAL,,34085,Jake Ferguson (DAL),2026-10-20T17:12:35Z
+200436|5|42646|kcconcepcion,200436,The League,5,Givin’ it to you Mike’s Way,0,W/R/T,KC Concepcion Jr.,WR,WR,skill,CLE,,42646,KC Concepcion (CLE),2026-10-20T17:12:35Z
+200436|5|32231|jakobimeyers,200436,The League,5,Givin’ it to you Mike’s Way,0,BN,Jakobi Meyers,WR,WR,skill,JAX,,32231,Jakobi Meyers (JAX),2026-10-20T17:12:35Z
+200436|5|41823|treveyonhenderson,200436,The League,5,Givin’ it to you Mike’s Way,0,BN,TreVeyon Henderson,RB,RB,skill,NE,,41823,TreVeyon Henderson (NE),2026-10-20T17:12:35Z
+200436|5|32723|jalenhurts,200436,The League,5,Givin’ it to you Mike’s Way,0,BN,Jalen Hurts,QB,QB,skill,PHI,IR,32723,Jalen Hurts (PHI),2026-10-20T17:12:35Z
+200436|5|41058|malikwashington,200436,The League,5,Givin’ it to you Mike’s Way,0,BN,Malik Washington,WR,WR,skill,MIA,,41058,Malik Washington (MIA),2026-10-20T17:12:35Z
+200436|5|40224|kayshonboutte,200436,The League,5,Givin’ it to you Mike’s Way,0,BN,Kayshon Boutte,WR,WR,skill,HOU,,40224,Kayshon Boutte (HOU),2026-10-20T17:12:35Z
+200436|5|42796|emmettjohnson,200436,The League,5,Givin’ it to you Mike’s Way,0,BN,Emmett Johnson,RB,RB,skill,KC,,42796,Emmett Johnson (KC),2026-10-20T17:12:35Z
+200436|5|42730|jonahcoleman,200436,The League,5,Givin’ it to you Mike’s Way,0,IR,Jonah Coleman,RB,RB,skill,DEN,IR,42730,Jonah Coleman (DEN),2026-10-20T17:12:35Z
+200436|5|40926|jonathonbrooks,200436,The League,5,Givin’ it to you Mike’s Way,0,IR,Jonathon Brooks,RB,RB,skill,CAR,IR,40926,Jonathon Brooks (CAR),2026-10-20T17:12:35Z
+200436|5|41499|spencershrader,200436,The League,5,Givin’ it to you Mike’s Way,0,K,Spencer Shrader,K,K,K,IND,,41499,,2026-10-20T17:12:35Z
+200436|5|0|cowboys,200436,The League,5,Givin’ it to you Mike’s Way,0,DEF,Cowboys,DEF,DEF,DEF,DAL,,0,,2026-10-20T17:12:35Z
+200436|6|34218|brockpurdy,200436,The League,6,MTV Gibbs,0,QB,Brock Purdy,QB,QB,skill,SF,,34218,Brock Purdy (SF),2026-10-20T17:12:35Z
+200436|6|40962|blakecorum,200436,The League,6,MTV Gibbs,0,RB,Blake Corum,RB,RB,skill,LA,,40962,Blake Corum (LA),2026-10-20T17:12:35Z
+200436|6|40059|jahmyrgibbs,200436,The League,6,MTV Gibbs,0,RB,Jahmyr Gibbs,RB,RB,skill,DET,,40059,Jahmyr Gibbs (DET),2026-10-20T17:12:35Z
+200436|6|40893|marvinharrison,200436,The League,6,MTV Gibbs,0,WR,Marvin Harrison Jr.,WR,WR,skill,HOU,,40893,Marvin Harrison Jr. (HOU),2026-10-20T17:12:35Z
+200436|6|40877|xavierworthy,200436,The League,6,MTV Gibbs,0,WR,Xavier Worthy,WR,WR,skill,KC,,40877,Xavier Worthy (KC),2026-10-20T17:12:35Z
+200436|6|32703|teehiggins,200436,The League,6,MTV Gibbs,0,WR,Tee Higgins,WR,WR,skill,CIN,,32703,Tee Higgins (CIN),2026-10-20T17:12:35Z
+200436|6|31107|daltonschultz,200436,The League,6,MTV Gibbs,0,TE,Dalton Schultz,TE,TE,skill,HOU,,31107,Dalton Schultz (HOU),2026-10-20T17:12:35Z
+200436|6|41969|olliegordon,200436,The League,6,MTV Gibbs,0,W/R/T,Ollie Gordon II,RB,RB,skill,MIA,,41969,Ollie Gordon II (MIA),2026-10-20T17:12:35Z
+200436|6|33392|kylepitts,200436,The League,6,MTV Gibbs,0,BN,Kyle Pitts Sr.,TE,TE,skill,ATL,,33392,Kyle Pitts (ATL),2026-10-20T17:12:35Z
+200436|6|41807|omarionhampton,200436,The League,6,MTV Gibbs,0,BN,Omarion Hampton,RB,RB,skill,LAC,,41807,Omarion Hampton (LAC),2026-10-20T17:12:35Z
+200436|6|27581|davanteadams,200436,The League,6,MTV Gibbs,0,BN,Davante Adams,WR,WR,skill,LA,O,27581,Davante Adams (LA),2026-10-20T17:12:35Z
+200436|6|33389|trevorlawrence,200436,The League,6,MTV Gibbs,0,BN,Trevor Lawrence,QB,QB,skill,JAX,,33389,Trevor Lawrence (JAX),2026-10-20T17:12:35Z
+200436|6|42638|kenyonsadiq,200436,The League,6,MTV Gibbs,0,BN,Kenyon Sadiq,TE,TE,skill,NYJ,,42638,Kenyon Sadiq (NYJ),2026-10-20T17:12:35Z
+200436|6|34207|isiahpacheco,200436,The League,6,MTV Gibbs,0,IR,Isiah Pacheco,RB,RB,skill,DET,IR,34207,,2026-10-20T17:12:35Z
+200436|6|40819|brandonaubrey,200436,The League,6,MTV Gibbs,0,K,Brandon Aubrey,K,K,K,DAL,,40819,,2026-10-20T17:12:35Z
+200436|6|0|ravens,200436,The League,6,MTV Gibbs,0,DEF,Ravens,DEF,DEF,DEF,BAL,,0,,2026-10-20T17:12:35Z
+200436|6|0|packers,200436,The League,6,MTV Gibbs,0,BN,Packers,DEF,DEF,DEF,GB,,0,,2026-10-20T17:12:35Z
+200436|7|9265|matthewstafford,200436,The League,7,NFL Youngboyz,0,QB,Matthew Stafford,QB,QB,skill,LA,,9265,Matthew Stafford (LA),2026-10-20T17:12:35Z
+200436|7|40641|keatonmitchell,200436,The League,7,NFL Youngboyz,0,RB,Keaton Mitchell,RB,RB,skill,LAC,,40641,Keaton Mitchell (LAC),2026-10-20T17:12:35Z
+200436|7|40108|kendremiller,200436,The League,7,NFL Youngboyz,0,RB,Kendre Miller,RB,RB,skill,NO,,40108,Kendre Miller (NO),2026-10-20T17:12:35Z
+200436|7|40899|maliknabers,200436,The League,7,NFL Youngboyz,0,WR,Malik Nabers,WR,WR,skill,NYG,,40899,Malik Nabers (NYG),2026-10-20T17:12:35Z
+200436|7|33477|nicocollins,200436,The League,7,NFL Youngboyz,0,WR,Nico Collins,WR,WR,skill,HOU,,33477,Nico Collins (HOU),2026-10-20T17:12:35Z
+200436|7|40114|tretucker,200436,The League,7,NFL Youngboyz,0,WR,Tre Tucker,WR,WR,skill,LV,,40114,Tre Tucker (LV),2026-10-20T17:12:35Z
+200436|7|30259|georgekittle,200436,The League,7,NFL Youngboyz,0,TE,George Kittle,TE,TE,skill,SF,,30259,George Kittle (SF),2026-10-20T17:12:35Z
+200436|7|41804|emekaegbuka,200436,The League,7,NFL Youngboyz,0,W/R/T,Emeka Egbuka,WR,WR,skill,TB,,41804,Emeka Egbuka (TB),2026-10-20T17:12:35Z
+200436|7|40883|brianthomas,200436,The League,7,NFL Youngboyz,0,BN,Brian Thomas Jr.,WR,WR,skill,JAX,,40883,Brian Thomas Jr. (JAX),2026-10-20T17:12:35Z
+200436|7|33500|amonrastbrown,200436,The League,7,NFL Youngboyz,0,BN,Amon-Ra St. Brown,WR,WR,skill,DET,,33500,Amon-Ra St. Brown (DET),2026-10-20T17:12:35Z
+200436|7|31856|joshjacobs,200436,The League,7,NFL Youngboyz,0,BN,Josh Jacobs,RB,RB,skill,GB,,31856,,2026-10-20T17:12:35Z
+200436|7|7200|aaronrodgers,200436,The League,7,NFL Youngboyz,0,BN,Aaron Rodgers,QB,QB,skill,PIT,,7200,Aaron Rodgers (PIT),2026-10-20T17:12:35Z
+200436|7|33443|patfreiermuth,200436,The League,7,NFL Youngboyz,0,BN,Pat Freiermuth,TE,TE,skill,PIT,,33443,Pat Freiermuth (PIT),2026-10-20T17:12:35Z
+200436|7|31905|davidmontgomery,200436,The League,7,NFL Youngboyz,0,IR,David Montgomery,RB,RB,skill,HOU,Q,31905,David Montgomery (HOU),2026-10-20T17:12:35Z
+200436|7|33413|travisetienne,200436,The League,7,NFL Youngboyz,0,IR,Travis Etienne Jr.,RB,RB,skill,NO,IR,33413,Travis Etienne (NO),2026-10-20T17:12:35Z
+200436|7|28188|chrisboswell,200436,The League,7,NFL Youngboyz,0,K,Chris Boswell,K,K,K,PIT,,28188,,2026-10-20T17:12:35Z
+200436|7|0|chiefs,200436,The League,7,NFL Youngboyz,0,DEF,Chiefs,DEF,DEF,DEF,KC,,0,,2026-10-20T17:12:35Z
+200436|7|0|texans,200436,The League,7,NFL Youngboyz,0,BN,Texans,DEF,DEF,DEF,HOU,,0,,2026-10-20T17:12:35Z
+200436|8|40900|calebwilliams,200436,The League,8,Golftimus Prime,0,QB,Caleb Williams,QB,QB,skill,CHI,,40900,Caleb Williams (CHI),2026-10-20T17:12:35Z
+200436|8|41845|rjharvey,200436,The League,8,Golftimus Prime,0,RB,RJ Harvey,RB,RB,skill,DEN,,41845,RJ Harvey (DEN),2026-10-20T17:12:35Z
+200436|8|34107|tylerallgeier,200436,The League,8,Golftimus Prime,0,RB,Tyler Allgeier,RB,RB,skill,ARI,,34107,Tyler Allgeier (ARI),2026-10-20T17:12:35Z
+200436|8|41808|matthewgolden,200436,The League,8,Golftimus Prime,0,WR,Matthew Golden,WR,WR,skill,GB,,41808,Matthew Golden (GB),2026-10-20T17:12:35Z
+200436|8|33394|jaylenwaddle,200436,The League,8,Golftimus Prime,0,WR,Jaylen Waddle,WR,WR,skill,DEN,,33394,Jaylen Waddle (DEN),2026-10-20T17:12:35Z
+200436|8|40064|samlaporta,200436,The League,8,Golftimus Prime,0,TE,Sam LaPorta,TE,TE,skill,DET,,40064,Sam LaPorta (DET),2026-10-20T17:12:35Z
+200436|8|30180|alvinkamara,200436,The League,8,Golftimus Prime,0,W/R/T,Alvin Kamara,RB,RB,skill,NO,,30180,Alvin Kamara (NO),2026-10-20T17:12:35Z
+200436|8|27535|mikeevans,200436,The League,8,Golftimus Prime,0,BN,Mike Evans,WR,WR,skill,SF,Q,27535,Mike Evans (SF),2026-10-20T17:12:35Z
+200436|8|28592|darrenwaller,200436,The League,8,Golftimus Prime,0,BN,Darren Waller,TE,TE,skill,CAR,,28592,Darren Waller (CAR),2026-10-20T17:12:35Z
+200436|8|40911|keoncoleman,200436,The League,8,Golftimus Prime,0,BN,Keon Coleman,WR,WR,skill,BUF,,40911,Keon Coleman (BUF),2026-10-20T17:12:35Z
+200436|8|40896|jaydendaniels,200436,The League,8,Golftimus Prime,0,BN,Jayden Daniels,QB,QB,skill,WAS,,40896,Jayden Daniels (WAS),2026-10-20T17:12:35Z
+200436|8|31002|lamarjackson,200436,The League,8,Golftimus Prime,0,BN,Lamar Jackson,QB,QB,skill,BAL,Q,31002,Lamar Jackson (BAL),2026-10-20T17:12:35Z
+200436|8|41052|kimanividal,200436,The League,8,Golftimus Prime,0,BN,Kimani Vidal,RB,RB,skill,LAC,,41052,Kimani Vidal (LAC),2026-10-20T17:12:35Z
+200436|8|30972|saquonbarkley,200436,The League,8,Golftimus Prime,0,IR,Saquon Barkley,RB,RB,skill,PHI,Q,30972,Saquon Barkley (PHI),2026-10-20T17:12:35Z
+200436|8|40084|rasheerice,200436,The League,8,Golftimus Prime,0,IR,Rashee Rice,WR,WR,skill,KC,Q,40084,Rashee Rice (KC),2026-10-20T17:12:35Z
+200436|8|34320|jordanmason,200436,The League,8,Golftimus Prime,0,IR,Jordan Mason,RB,RB,skill,MIN,IR-R,34320,Jordan Mason (MIN),2026-10-20T17:12:35Z
+200436|8|0|colts,200436,The League,8,Golftimus Prime,0,DEF,Colts,DEF,DEF,DEF,IND,,0,,2026-10-20T17:12:35Z
+200436|8|32858|tylerbass,200436,The League,8,Golftimus Prime,0,BN,Tyler Bass,K,K,K,BUF,,32858,,2026-10-20T17:12:35Z
+200436|9|30123|patrickmahomes,200436,The League,9,It's About Lamb Time,0,QB,Patrick Mahomes,QB,QB,skill,KC,,30123,Patrick Mahomes (KC),2026-10-20T17:12:35Z
+200436|9|34120|kyrenwilliams,200436,The League,9,It's About Lamb Time,0,RB,Kyren Williams,RB,RB,skill,LA,,34120,Kyren Williams (LA),2026-10-20T17:12:35Z
+200436|9|32705|dandreswift,200436,The League,9,It's About Lamb Time,0,RB,D'Andre Swift,RB,RB,skill,CHI,,32705,D'Andre Swift (CHI),2026-10-20T17:12:35Z
+200436|9|32687|ceedeelamb,200436,The League,9,It's About Lamb Time,0,WR,CeeDee Lamb,WR,WR,skill,DAL,,32687,CeeDee Lamb (DAL),2026-10-20T17:12:35Z
+200436|9|31010|courtlandsutton,200436,The League,9,It's About Lamb Time,0,WR,Courtland Sutton,WR,WR,skill,DEN,,31010,Courtland Sutton (DEN),2026-10-20T17:12:35Z
+200436|9|26699|keenanallen,200436,The League,9,It's About Lamb Time,0,WR,Keenan Allen,WR,WR,skill,IND,,26699,Keenan Allen (IND),2026-10-20T17:12:35Z
+200436|9|31019|dallasgoedert,200436,The League,9,It's About Lamb Time,0,TE,Dallas Goedert,TE,TE,skill,PHI,,31019,Dallas Goedert (PHI),2026-10-20T17:12:35Z
+200436|9|29269|hunterhenry,200436,The League,9,It's About Lamb Time,0,W/R/T,Hunter Henry,TE,TE,skill,NE,,29269,Hunter Henry (NE),2026-10-20T17:12:35Z
+200436|9|34054|brianrobinson,200436,The League,9,It's About Lamb Time,0,BN,Brian Robinson Jr.,RB,RB,skill,ATL,,34054,Brian Robinson (ATL),2026-10-20T17:12:35Z
+200436|9|42010|jcroskeymerritt,200436,The League,9,It's About Lamb Time,0,BN,J. Croskey-Merritt,RB,RB,skill,WAS,IR,42010,Jacory Croskey-Merritt (WAS),2026-10-20T17:12:35Z
+200436|9|30973|samdarnold,200436,The League,9,It's About Lamb Time,0,BN,Sam Darnold,QB,QB,skill,SEA,,30973,Sam Darnold (SEA),2026-10-20T17:12:35Z
+200436|9|33967|jamesonwilliams,200436,The League,9,It's About Lamb Time,0,BN,Jameson Williams,WR,WR,skill,DET,,33967,Jameson Williams (DET),2026-10-20T17:12:35Z
+200436|9|42642|makailemon,200436,The League,9,It's About Lamb Time,0,BN,Makai Lemon,WR,WR,skill,PHI,,42642,Makai Lemon (PHI),2026-10-20T17:12:35Z
+200436|9|29631|kalifraymond,200436,The League,9,It's About Lamb Time,0,BN,Kalif Raymond,WR,WR,skill,CHI,,29631,Kalif Raymond (CHI),2026-10-20T17:12:35Z
+200436|9|34008|alecpierce,200436,The League,9,It's About Lamb Time,0,IR,Alec Pierce,WR,WR,skill,IND,IR,34008,Alec Pierce (IND),2026-10-20T17:12:35Z
+200436|9|29792|kaimifairbairn,200436,The League,9,It's About Lamb Time,0,K,Ka'imi Fairbairn,K,K,K,HOU,,29792,,2026-10-20T17:12:35Z
+200436|9|0|patriots,200436,The League,9,It's About Lamb Time,0,DEF,Patriots,DEF,DEF,DEF,NE,,0,,2026-10-20T17:12:35Z
+200436|10|29369|dakprescott,200436,The League,10,Henry Given Sunday,0,QB,Dak Prescott,QB,QB,skill,DAL,,29369,Dak Prescott (DAL),2026-10-20T17:12:35Z
+200436|10|30121|christianmccaffrey,200436,The League,10,Henry Given Sunday,0,RB,Christian McCaffrey,RB,RB,skill,SF,,30121,Christian McCaffrey (SF),2026-10-20T17:12:35Z
+200436|10|29279|derrickhenry,200436,The League,10,Henry Given Sunday,0,RB,Derrick Henry,RB,RB,skill,BAL,,29279,Derrick Henry (BAL),2026-10-20T17:12:35Z
+200436|10|33966|chrisolave,200436,The League,10,Henry Given Sunday,0,WR,Chris Olave,WR,WR,skill,NO,,33966,Chris Olave (NO),2026-10-20T17:12:35Z
+200436|10|31896|dkmetcalf,200436,The League,10,Henry Given Sunday,0,WR,DK Metcalf,WR,WR,skill,PIT,,31896,DK Metcalf (PIT),2026-10-20T17:12:35Z
+200436|10|42661|denzelboston,200436,The League,10,Henry Given Sunday,0,WR,Denzel Boston,WR,WR,skill,CLE,,42661,Denzel Boston (CLE),2026-10-20T17:12:35Z
+200436|10|26686|traviskelce,200436,The League,10,Henry Given Sunday,0,TE,Travis Kelce,TE,TE,skill,KC,,26686,Travis Kelce (KC),2026-10-20T17:12:35Z
+200436|10|40971|marshawnlloyd,200436,The League,10,Henry Given Sunday,0,W/R/T,MarShawn Lloyd,RB,RB,skill,GB,,40971,MarShawn Lloyd (GB),2026-10-20T17:12:35Z
+200436|10|41821|quinshonjudkins,200436,The League,10,Henry Given Sunday,0,BN,Quinshon Judkins,RB,RB,skill,CLE,Q,41821,Quinshon Judkins (CLE),2026-10-20T17:12:35Z
+200436|10|34104|khalilshakir,200436,The League,10,Henry Given Sunday,0,BN,Khalil Shakir,WR,WR,skill,BUF,,34104,Khalil Shakir (BUF),2026-10-20T17:12:35Z
+200436|10|40908|laddmcconkey,200436,The League,10,Henry Given Sunday,0,BN,Ladd McConkey,WR,WR,skill,LAC,Q,40908,Ladd McConkey (LAC),2026-10-20T17:12:35Z
+200436|10|40042|jordanaddison,200436,The League,10,Henry Given Sunday,0,BN,Jordan Addison,WR,WR,skill,MIN,Q,40042,Jordan Addison (MIN),2026-10-20T17:12:35Z
+200436|10|42025|kylemonangai,200436,The League,10,Henry Given Sunday,0,BN,Kyle Monangai,RB,RB,skill,CHI,Q,42025,Kyle Monangai (CHI),2026-10-20T17:12:35Z
+200436|10|31482|eddypineiro,200436,The League,10,Henry Given Sunday,0,K,Eddy Pineiro,K,K,K,SF,,31482,,2026-10-20T17:12:35Z
+200436|10|0|49ers,200436,The League,10,Henry Given Sunday,0,DEF,49ers,DEF,DEF,DEF,SF,,0,,2026-10-20T17:12:35Z
+200436|10|0|vikings,200436,The League,10,Henry Given Sunday,0,BN,Vikings,DEF,DEF,DEF,MIN,,0,,2026-10-20T17:12:35Z
+200436|11|40029|bryceyoung,200436,The League,11,skabob,0,QB,Bryce Young,QB,QB,skill,CAR,,40029,Bryce Young (CAR),2026-10-20T17:12:35Z
+200436|11|34019|jamescook,200436,The League,11,skabob,0,RB,James Cook III,RB,RB,skill,BUF,,34019,James Cook (BUF),2026-10-20T17:12:35Z
+200436|11|41791|ashtonjeanty,200436,The League,11,skabob,0,RB,Ashton Jeanty,RB,RB,skill,LV,,41791,Ashton Jeanty (LV),2026-10-20T17:12:35Z
+200436|11|40121|michaelwilson,200436,The League,11,skabob,0,WR,Michael Wilson,WR,WR,skill,ARI,,40121,Michael Wilson (ARI),2026-10-20T17:12:35Z
+200436|11|40901|romeodunze,200436,The League,11,skabob,0,WR,Rome Odunze,WR,WR,skill,CHI,,40901,Rome Odunze (CHI),2026-10-20T17:12:35Z
+200436|11|41293|jalencoker,200436,The League,11,skabob,0,WR,Jalen Coker,WR,WR,skill,CAR,,41293,Jalen Coker (CAR),2026-10-20T17:12:35Z
+200436|11|40878|brockbowers,200436,The League,11,skabob,0,TE,Brock Bowers,TE,TE,skill,LV,,40878,Brock Bowers (LV),2026-10-20T17:12:35Z
+200436|11|30197|chrisgodwin,200436,The League,11,skabob,0,W/R/T,Chris Godwin Jr.,WR,WR,skill,TB,,30197,Chris Godwin Jr. (TB),2026-10-20T17:12:35Z
+200436|11|30977|joshallen,200436,The League,11,skabob,0,BN,Josh Allen,QB,QB,skill,BUF,,30977,Josh Allen (BUF),2026-10-20T17:12:35Z
+200436|11|34047|rachaadwhite,200436,The League,11,skabob,0,BN,Rachaad White,RB,RB,skill,WAS,,34047,Rachaad White (WAS),2026-10-20T17:12:35Z
+200436|11|42625|jeremiyahlove,200436,The League,11,skabob,0,BN,Jeremiyah Love,RB,RB,skill,ARI,Q,42625,Jeremiyah Love (ARI),2026-10-20T17:12:35Z
+200436|11|31868|deebosamuel,200436,The League,11,skabob,0,BN,Deebo Samuel Sr.,WR,WR,skill,SF,O,31868,Deebo Samuel Sr. (SF),2026-10-20T17:12:35Z
+200436|11|42616|dohntemeyers,200436,The League,11,skabob,0,BN,Dohnte Meyers,WR,WR,skill,CIN,,42616,Dohnte Meyers (CIN),2026-10-20T17:12:35Z
+200436|11|42747|skylerbell,200436,The League,11,skabob,0,BN,Skyler Bell,WR,WR,skill,BUF,,42747,Skyler Bell (BUF),2026-10-20T17:12:35Z
+200436|11|40097|tankdell,200436,The League,11,skabob,0,IR,Tank Dell,WR,WR,skill,HOU,IR-R,40097,,2026-10-20T17:12:35Z
+200436|11|28378|jasonmyers,200436,The League,11,skabob,0,K,Jason Myers,K,K,K,SEA,,28378,,2026-10-20T17:12:35Z
+200436|11|0|broncos,200436,The League,11,skabob,0,DEF,Broncos,DEF,DEF,DEF,DEN,,0,,2026-10-20T17:12:35Z
+200436|12|29325|jacobybrissett,200436,The League,12,THE Mafia,0,QB,Jacoby Brissett,QB,QB,skill,ARI,,29325,Jacoby Brissett (ARI),2026-10-20T17:12:35Z
+200436|12|40055|bijanrobinson,200436,The League,12,THE Mafia,0,RB,Bijan Robinson,RB,RB,skill,ATL,,40055,Bijan Robinson (ATL),2026-10-20T17:12:35Z
+200436|12|41922|camskattebo,200436,The League,12,THE Mafia,0,RB,Cam Skattebo,RB,RB,skill,NYG,,41922,Cam Skattebo (NYG),2026-10-20T17:12:35Z
+200436|12|40234|parkerwashington,200436,The League,12,THE Mafia,0,WR,Parker Washington,WR,WR,skill,JAX,,40234,Parker Washington (JAX),2026-10-20T17:12:35Z
+200436|12|33398|devontasmith,200436,The League,12,THE Mafia,0,WR,DeVonta Smith,WR,WR,skill,PHI,,33398,DeVonta Smith (PHI),2026-10-20T17:12:35Z
+200436|12|28534|stefondiggs,200436,The League,12,THE Mafia,0,WR,Stefon Diggs,WR,WR,skill,WAS,,28534,Stefon Diggs (WAS),2026-10-20T17:12:35Z
+200436|12|40048|daltonkincaid,200436,The League,12,THE Mafia,0,TE,Dalton Kincaid,TE,TE,skill,BUF,,40048,Dalton Kincaid (BUF),2026-10-20T17:12:35Z
+200436|12|31960|tonypollard,200436,The League,12,THE Mafia,0,W/R/T,Tony Pollard,RB,RB,skill,TEN,,31960,Tony Pollard (TEN),2026-10-20T17:12:35Z
+200436|12|29344|tylerhigbee,200436,The League,12,THE Mafia,0,BN,Tyler Higbee,TE,TE,skill,LA,,29344,Tyler Higbee (LA),2026-10-20T17:12:35Z
+200436|12|31840|tjhockenson,200436,The League,12,THE Mafia,0,BN,T.J. Hockenson,TE,TE,skill,MIN,Q,31840,T.J. Hockenson (MIN),2026-10-20T17:12:35Z
+200436|12|34659|rashidshaheed,200436,The League,12,THE Mafia,0,BN,Rashid Shaheed,WR,WR,skill,SEA,,34659,Rashid Shaheed (SEA),2026-10-20T17:12:35Z
+200436|12|31833|kylermurray,200436,The League,12,THE Mafia,0,BN,Kyler Murray,QB,QB,skill,MIN,,31833,Kyler Murray (MIN),2026-10-20T17:12:35Z
+200436|12|27548|brandincooks,200436,The League,12,THE Mafia,0,BN,Brandin Cooks,WR,WR,skill,SF,,27548,Brandin Cooks (SF),2026-10-20T17:12:35Z
+200436|12|30994|djmoore,200436,The League,12,THE Mafia,0,IR,DJ Moore,WR,WR,skill,BUF,Q,30994,DJ Moore (BUF),2026-10-20T17:12:35Z
+200436|12|28227|cairosantos,200436,The League,12,THE Mafia,0,K,Cairo Santos,K,K,K,CHI,,28227,,2026-10-20T17:12:35Z
+200436|12|0|jaguars,200436,The League,12,THE Mafia,0,DEF,Jaguars,DEF,DEF,DEF,JAX,,0,,2026-10-20T17:12:35Z
+200436|12|41093|willreichard,200436,The League,12,THE Mafia,0,BN,Will Reichard,K,K,K,MIN,,41093,,2026-10-20T17:12:35Z
+727092|1|29369|dakprescott,727092,Ezekiel 25.17,1,🖕Two Drop Randy II,0,QB,Dak Prescott,QB,QB,skill,DAL,,29369,Dak Prescott (DAL),2026-10-20T17:12:35Z
+727092|1|40055|bijanrobinson,727092,Ezekiel 25.17,1,🖕Two Drop Randy II,0,RB,Bijan Robinson,RB,RB,skill,ATL,,40055,Bijan Robinson (ATL),2026-10-20T17:12:35Z
+727092|1|41845|rjharvey,727092,Ezekiel 25.17,1,🖕Two Drop Randy II,0,RB,RJ Harvey,RB,RB,skill,DEN,,41845,RJ Harvey (DEN),2026-10-20T17:12:35Z
+727092|1|34007|georgepickens,727092,Ezekiel 25.17,1,🖕Two Drop Randy II,0,WR,George Pickens,WR,WR,skill,DAL,,34007,George Pickens (DAL),2026-10-20T17:12:35Z
+727092|1|32703|teehiggins,727092,Ezekiel 25.17,1,🖕Two Drop Randy II,0,WR,Tee Higgins,WR,WR,skill,CIN,,32703,Tee Higgins (CIN),2026-10-20T17:12:35Z
+727092|1|34010|treymcbride,727092,Ezekiel 25.17,1,🖕Two Drop Randy II,0,TE,Trey McBride,TE,TE,skill,ARI,,34010,Trey McBride (ARI),2026-10-20T17:12:35Z
+727092|1|34088|romeodoubs,727092,Ezekiel 25.17,1,🖕Two Drop Randy II,0,BN,Romeo Doubs,WR,WR,skill,NE,IR,34088,Romeo Doubs (NE),2026-10-20T17:12:35Z
+727092|1|40971|marshawnlloyd,727092,Ezekiel 25.17,1,🖕Two Drop Randy II,0,BN,MarShawn Lloyd,RB,RB,skill,GB,,40971,MarShawn Lloyd (GB),2026-10-20T17:12:35Z
+727092|1|40234|parkerwashington,727092,Ezekiel 25.17,1,🖕Two Drop Randy II,0,BN,Parker Washington,WR,WR,skill,JAX,,40234,Parker Washington (JAX),2026-10-20T17:12:35Z
+727092|1|34054|brianrobinson,727092,Ezekiel 25.17,1,🖕Two Drop Randy II,0,BN,Brian Robinson Jr.,RB,RB,skill,ATL,,34054,Brian Robinson (ATL),2026-10-20T17:12:35Z
+727092|1|32696|jordanlove,727092,Ezekiel 25.17,1,🖕Two Drop Randy II,0,BN,Jordan Love,QB,QB,skill,GB,,32696,Jordan Love (GB),2026-10-20T17:12:35Z
+727092|1|40819|brandonaubrey,727092,Ezekiel 25.17,1,🖕Two Drop Randy II,0,K,Brandon Aubrey,K,K,K,DAL,,40819,,2026-10-20T17:12:35Z
+727092|1|40912|colebishop,727092,Ezekiel 25.17,1,🖕Two Drop Randy II,0,DB,Cole Bishop,IDP,S,IDP,BUF,,40912,,2026-10-20T17:12:35Z
+727092|1|41879|jonassanker,727092,Ezekiel 25.17,1,🖕Two Drop Randy II,0,DB,Jonas Sanker,IDP,S,IDP,NO,,41879,,2026-10-20T17:12:35Z
+727092|1|34020|nikbonitto,727092,Ezekiel 25.17,1,🖕Two Drop Randy II,0,DL,Nik Bonitto,IDP,"LB,DE",IDP,DEN,,34020,,2026-10-20T17:12:35Z
+727092|1|31983|andrewvanginkel,727092,Ezekiel 25.17,1,🖕Two Drop Randy II,0,DL,Andrew Van Ginkel,IDP,"LB,DE",IDP,MIN,,31983,,2026-10-20T17:12:35Z
+727092|1|34039|nakobedean,727092,Ezekiel 25.17,1,🖕Two Drop Randy II,0,LB,Nakobe Dean,IDP,LB,IDP,LV,,34039,,2026-10-20T17:12:35Z
+727092|1|41818|carsonschwesinger,727092,Ezekiel 25.17,1,🖕Two Drop Randy II,0,LB,Carson Schwesinger,IDP,LB,IDP,CLE,,41818,,2026-10-20T17:12:35Z
+727092|1|30143|tjwatt,727092,Ezekiel 25.17,1,🖕Two Drop Randy II,0,BN,T.J. Watt,IDP,"LB,DE",IDP,PIT,,30143,,2026-10-20T17:12:35Z
+727092|1|33568|talanoahufanga,727092,Ezekiel 25.17,1,🖕Two Drop Randy II,0,BN,Talanoa Hufanga,IDP,S,IDP,DEN,D,33568,,2026-10-20T17:12:35Z
+727092|2|25812|kirkcousins,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,QB,Kirk Cousins,QB,QB,skill,LV,,25812,Kirk Cousins (LV),2026-10-20T17:12:35Z
+727092|2|32711|jonathantaylor,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,RB,Jonathan Taylor,RB,RB,skill,IND,,32711,Jonathan Taylor (IND),2026-10-20T17:12:35Z
+727092|2|34120|kyrenwilliams,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,RB,Kyren Williams,RB,RB,skill,LA,,34120,Kyren Williams (LA),2026-10-20T17:12:35Z
+727092|2|40121|michaelwilson,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,WR,Michael Wilson,WR,WR,skill,ARI,,40121,Michael Wilson (ARI),2026-10-20T17:12:35Z
+727092|2|40039|zayflowers,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,WR,Zay Flowers,WR,WR,skill,BAL,,40039,Zay Flowers (BAL),2026-10-20T17:12:35Z
+727092|2|30259|georgekittle,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,TE,George Kittle,TE,TE,skill,SF,,30259,George Kittle (SF),2026-10-20T17:12:35Z
+727092|2|41293|jalencoker,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,W/R/T,Jalen Coker,WR,WR,skill,CAR,,41293,Jalen Coker (CAR),2026-10-20T17:12:35Z
+727092|2|30180|alvinkamara,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,BN,Alvin Kamara,RB,RB,skill,NO,,30180,Alvin Kamara (NO),2026-10-20T17:12:35Z
+727092|2|31010|courtlandsutton,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,BN,Courtland Sutton,WR,WR,skill,DEN,,31010,Courtland Sutton (DEN),2026-10-20T17:12:35Z
+727092|2|40896|jaydendaniels,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,BN,Jayden Daniels,QB,QB,skill,WAS,,40896,Jayden Daniels (WAS),2026-10-20T17:12:35Z
+727092|2|31883|ajbrown,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,BN,A.J. Brown,WR,WR,skill,NE,Q,31883,A.J. Brown (NE),2026-10-20T17:12:35Z
+727092|2|31905|davidmontgomery,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,IR,David Montgomery,RB,RB,skill,HOU,Q,31905,David Montgomery (HOU),2026-10-20T17:12:35Z
+727092|2|42025|kylemonangai,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,IR,Kyle Monangai,RB,RB,skill,CHI,Q,42025,Kyle Monangai (CHI),2026-10-20T17:12:35Z
+727092|2|34008|alecpierce,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,IR,Alec Pierce,WR,WR,skill,IND,IR,34008,Alec Pierce (IND),2026-10-20T17:12:35Z
+727092|2|8432|nickfolk,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,K,Nick Folk,K,K,K,ATL,,8432,,2026-10-20T17:12:35Z
+727092|2|41883|xavierwatts,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,DB,Xavier Watts,IDP,S,IDP,ATL,,41883,,2026-10-20T17:12:35Z
+727092|2|34003|jaquanbrisker,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,DB,Jaquan Brisker,IDP,"DB,S",IDP,PIT,,34003,,2026-10-20T17:12:35Z
+727092|2|40077|tulituipulotu,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,DL,Tuli Tuipulotu,IDP,"LB,DE",IDP,LAC,,40077,,2026-10-20T17:12:35Z
+727092|2|27562|demarcuslawrence,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,DL,DeMarcus Lawrence,IDP,"LB,DE",IDP,SEA,,27562,,2026-10-20T17:12:35Z
+727092|2|33982|devinlloyd,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,LB,Devin Lloyd,IDP,LB,IDP,CAR,,33982,,2026-10-20T17:12:35Z
+727092|2|33446|nickbolton,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,LB,Nick Bolton,IDP,LB,IDP,KC,,33446,,2026-10-20T17:12:35Z
+727092|2|41093|willreichard,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,BN,Will Reichard,K,K,K,MIN,,41093,,2026-10-20T17:12:35Z
+727092|2|42629|sonnystyles,727092,Ezekiel 25.17,2,Tiny Fists Of Fury,0,BN,Sonny Styles,IDP,LB,IDP,WAS,,42629,,2026-10-20T17:12:35Z
+727092|3|30977|joshallen,727092,Ezekiel 25.17,3,Prognosis Negative,0,QB,Josh Allen,QB,QB,skill,BUF,,30977,Josh Allen (BUF),2026-10-20T17:12:35Z
+727092|3|33508|rhamondrestevenson,727092,Ezekiel 25.17,3,Prognosis Negative,0,RB,Rhamondre Stevenson,RB,RB,skill,NE,,33508,Rhamondre Stevenson (NE),2026-10-20T17:12:35Z
+727092|3|41900|bhayshultuten,727092,Ezekiel 25.17,3,Prognosis Negative,0,RB,Bhayshul Tuten,RB,RB,skill,JAX,,41900,Bhayshul Tuten (JAX),2026-10-20T17:12:35Z
+727092|3|40901|romeodunze,727092,Ezekiel 25.17,3,Prognosis Negative,0,WR,Rome Odunze,WR,WR,skill,CHI,,40901,Rome Odunze (CHI),2026-10-20T17:12:35Z
+727092|3|33415|rashodbateman,727092,Ezekiel 25.17,3,Prognosis Negative,0,WR,Rashod Bateman,WR,WR,skill,BAL,Q,33415,Rashod Bateman (BAL),2026-10-20T17:12:35Z
+727092|3|41877|haroldfannin,727092,Ezekiel 25.17,3,Prognosis Negative,0,TE,Harold Fannin Jr.,TE,TE,skill,CLE,,41877,Harold Fannin Jr. (CLE),2026-10-20T17:12:35Z
+727092|3|33113|juwanjohnson,727092,Ezekiel 25.17,3,Prognosis Negative,0,W/R/T,Juwan Johnson,TE,TE,skill,NO,,33113,Juwan Johnson (NO),2026-10-20T17:12:35Z
+727092|3|40084|rasheerice,727092,Ezekiel 25.17,3,Prognosis Negative,0,BN,Rashee Rice,WR,WR,skill,KC,Q,40084,Rashee Rice (KC),2026-10-20T17:12:35Z
+727092|3|41969|olliegordon,727092,Ezekiel 25.17,3,Prognosis Negative,0,BN,Ollie Gordon II,RB,RB,skill,MIA,,41969,Ollie Gordon II (MIA),2026-10-20T17:12:35Z
+727092|3|33500|amonrastbrown,727092,Ezekiel 25.17,3,Prognosis Negative,0,BN,Amon-Ra St. Brown,WR,WR,skill,DET,,33500,Amon-Ra St. Brown (DET),2026-10-20T17:12:35Z
+727092|3|33538|kennygainwell,727092,Ezekiel 25.17,3,Prognosis Negative,0,BN,Kenny Gainwell,RB,RB,skill,TB,,33538,Kenny Gainwell (TB),2026-10-20T17:12:35Z
+727092|3|40108|kendremiller,727092,Ezekiel 25.17,3,Prognosis Negative,0,BN,Kendre Miller,RB,RB,skill,NO,,40108,Kendre Miller (NO),2026-10-20T17:12:35Z
+727092|3|30218|jamesconner,727092,Ezekiel 25.17,3,Prognosis Negative,0,IR,James Conner,RB,RB,skill,ARI,IR-R,30218,,2026-10-20T17:12:35Z
+727092|3|41988|tylerloop,727092,Ezekiel 25.17,3,Prognosis Negative,0,K,Tyler Loop,K,K,K,BAL,,41988,,2026-10-20T17:12:35Z
+727092|3|40953|tykeesmith,727092,Ezekiel 25.17,3,Prognosis Negative,0,DB,Tykee Smith,IDP,"DB,S",IDP,TB,,40953,,2026-10-20T17:12:35Z
+727092|3|31024|jessiebates,727092,Ezekiel 25.17,3,Prognosis Negative,0,DB,Jessie Bates III,IDP,S,IDP,ATL,,31024,,2026-10-20T17:12:35Z
+727092|3|40882|laiatulatu,727092,Ezekiel 25.17,3,Prognosis Negative,0,DL,Laiatu Latu,IDP,DE,IDP,IND,,40882,,2026-10-20T17:12:35Z
+727092|3|42714|jaishawnbarham,727092,Ezekiel 25.17,3,Prognosis Negative,0,DL,Jaishawn Barham,IDP,"LB,DE",IDP,DAL,,42714,,2026-10-20T17:12:35Z
+727092|3|30978|roquansmith,727092,Ezekiel 25.17,3,Prognosis Negative,0,LB,Roquan Smith,IDP,LB,IDP,BAL,,30978,,2026-10-20T17:12:35Z
+727092|3|31962|druetranquill,727092,Ezekiel 25.17,3,Prognosis Negative,0,LB,Drue Tranquill,IDP,LB,IDP,KC,,31962,,2026-10-20T17:12:35Z
+727092|3|31989|blakecashman,727092,Ezekiel 25.17,3,Prognosis Negative,0,BN,Blake Cashman,IDP,LB,IDP,MIN,,31989,,2026-10-20T17:12:35Z
+727092|4|40030|cjstroud,727092,Ezekiel 25.17,4,The Kid,1,QB,C.J. Stroud,QB,QB,skill,HOU,,40030,C.J. Stroud (HOU),2026-10-20T17:12:35Z
+727092|4|40993|buckyirving,727092,Ezekiel 25.17,4,The Kid,1,RB,Bucky Irving,RB,RB,skill,TB,,40993,Bucky Irving (TB),2026-10-20T17:12:35Z
+727092|4|31856|joshjacobs,727092,Ezekiel 25.17,4,The Kid,1,RB,Josh Jacobs,RB,RB,skill,GB,,31856,,2026-10-20T17:12:35Z
+727092|4|33963|drakelondon,727092,Ezekiel 25.17,4,The Kid,1,WR,Drake London,WR,WR,skill,ATL,,33963,Drake London (ATL),2026-10-20T17:12:35Z
+727092|4|33966|chrisolave,727092,Ezekiel 25.17,4,The Kid,1,WR,Chris Olave,WR,WR,skill,NO,,33966,Chris Olave (NO),2026-10-20T17:12:35Z
+727092|4|26686|traviskelce,727092,Ezekiel 25.17,4,The Kid,1,TE,Travis Kelce,TE,TE,skill,KC,,26686,Travis Kelce (KC),2026-10-20T17:12:35Z
+727092|4|33393|jamarrchase,727092,Ezekiel 25.17,4,The Kid,1,W/R/T,Ja'Marr Chase,WR,WR,skill,CIN,,33393,Ja'Marr Chase (CIN),2026-10-20T17:12:35Z
+727092|4|42669|germiebernard,727092,Ezekiel 25.17,4,The Kid,1,BN,Germie Bernard,WR,WR,skill,PIT,,42669,Germie Bernard (PIT),2026-10-20T17:12:35Z
+727092|4|40707|emanuelwilson,727092,Ezekiel 25.17,4,The Kid,1,BN,Emanuel Wilson,RB,RB,skill,SEA,,40707,Emanuel Wilson (SEA),2026-10-20T17:12:35Z
+727092|4|41062|camlittle,727092,Ezekiel 25.17,4,The Kid,1,K,Cam Little,K,K,K,JAX,,41062,,2026-10-20T17:12:35Z
+727092|4|30981|minkahfitzpatrick,727092,Ezekiel 25.17,4,The Kid,1,DB,Minkah Fitzpatrick,IDP,S,IDP,NYJ,,30981,,2026-10-20T17:12:35Z
+727092|4|30149|buddabaker,727092,Ezekiel 25.17,4,The Kid,1,DB,Budda Baker,IDP,S,IDP,ARI,,30149,,2026-10-20T17:12:35Z
+727092|4|40031|willanderson,727092,Ezekiel 25.17,4,The Kid,1,DL,Will Anderson Jr.,IDP,DE,IDP,HOU,,40031,,2026-10-20T17:12:35Z
+727092|4|30216|treyhendrickson,727092,Ezekiel 25.17,4,The Kid,1,DL,Trey Hendrickson,IDP,"LB,DE",IDP,BAL,,30216,,2026-10-20T17:12:35Z
+727092|4|31040|fredwarner,727092,Ezekiel 25.17,4,The Kid,1,LB,Fred Warner,IDP,LB,IDP,SF,,31040,,2026-10-20T17:12:35Z
+727092|4|40036|jackcampbell,727092,Ezekiel 25.17,4,The Kid,1,LB,Jack Campbell,IDP,LB,IDP,DET,,40036,,2026-10-20T17:12:35Z
+727092|4|31205|zairefranklin,727092,Ezekiel 25.17,4,The Kid,1,BN,Zaire Franklin,IDP,LB,IDP,GB,,31205,,2026-10-20T17:12:35Z
+727092|4|34052|nickcross,727092,Ezekiel 25.17,4,The Kid,1,BN,Nick Cross,IDP,S,IDP,WAS,,34052,,2026-10-20T17:12:35Z
+727092|4|33957|aidanhutchinson,727092,Ezekiel 25.17,4,The Kid,1,BN,Aidan Hutchinson,IDP,"DL,DE",IDP,DET,,33957,,2026-10-20T17:12:35Z
+727092|4|32697|jordynbrooks,727092,Ezekiel 25.17,4,The Kid,1,BN,Jordyn Brooks,IDP,LB,IDP,MIA,,32697,,2026-10-20T17:12:35Z
+727092|5|34218|brockpurdy,727092,Ezekiel 25.17,5,Toilet Drones,0,QB,Brock Purdy,QB,QB,skill,SF,,34218,Brock Purdy (SF),2026-10-20T17:12:35Z
+727092|5|33423|javontewilliams,727092,Ezekiel 25.17,5,Toilet Drones,0,RB,Javonte Williams,RB,RB,skill,DAL,,33423,Javonte Williams (DAL),2026-10-20T17:12:35Z
+727092|5|34063|dameonpierce,727092,Ezekiel 25.17,5,Toilet Drones,0,RB,Dameon Pierce,RB,RB,skill,PHI,,34063,Dameon Pierce (PHI),2026-10-20T17:12:35Z
+727092|5|33989|christianwatson,727092,Ezekiel 25.17,5,Toilet Drones,0,WR,Christian Watson,WR,WR,skill,GB,,33989,Christian Watson (GB),2026-10-20T17:12:35Z
+727092|5|41808|matthewgolden,727092,Ezekiel 25.17,5,Toilet Drones,0,WR,Matthew Golden,WR,WR,skill,GB,,41808,Matthew Golden (GB),2026-10-20T17:12:35Z
+727092|5|40078|brentonstrange,727092,Ezekiel 25.17,5,Toilet Drones,0,TE,Brenton Strange,TE,TE,skill,JAX,,40078,Brenton Strange (JAX),2026-10-20T17:12:35Z
+727092|5|40877|xavierworthy,727092,Ezekiel 25.17,5,Toilet Drones,0,W/R/T,Xavier Worthy,WR,WR,skill,KC,,40877,Xavier Worthy (KC),2026-10-20T17:12:35Z
+727092|5|40908|laddmcconkey,727092,Ezekiel 25.17,5,Toilet Drones,0,BN,Ladd McConkey,WR,WR,skill,LAC,Q,40908,Ladd McConkey (LAC),2026-10-20T17:12:35Z
+727092|5|40029|bryceyoung,727092,Ezekiel 25.17,5,Toilet Drones,0,BN,Bryce Young,QB,QB,skill,CAR,,40029,Bryce Young (CAR),2026-10-20T17:12:35Z
+727092|5|30972|saquonbarkley,727092,Ezekiel 25.17,5,Toilet Drones,0,IR,Saquon Barkley,RB,RB,skill,PHI,Q,30972,Saquon Barkley (PHI),2026-10-20T17:12:35Z
+727092|5|31482|eddypineiro,727092,Ezekiel 25.17,5,Toilet Drones,0,K,Eddy Pineiro,K,K,K,SF,,31482,,2026-10-20T17:12:35Z
+727092|5|41812|malakistarks,727092,Ezekiel 25.17,5,Toilet Drones,0,DB,Malaki Starks,IDP,S,IDP,BAL,,41812,,2026-10-20T17:12:35Z
+727092|5|40997|malikmustapha,727092,Ezekiel 25.17,5,Toilet Drones,0,DB,Malik Mustapha,IDP,"DB,S",IDP,SF,,40997,,2026-10-20T17:12:35Z
+727092|5|41042|austinbooker,727092,Ezekiel 25.17,5,Toilet Drones,0,DL,Austin Booker,IDP,"DL,DE",IDP,CHI,,41042,,2026-10-20T17:12:35Z
+727092|5|24818|cameronheyward,727092,Ezekiel 25.17,5,Toilet Drones,0,DL,Cameron Heyward,IDP,"DT,DE",IDP,PIT,,24818,,2026-10-20T17:12:35Z
+727092|5|31930|quincywilliams,727092,Ezekiel 25.17,5,Toilet Drones,0,LB,Quincy Williams,IDP,LB,IDP,CLE,,31930,,2026-10-20T17:12:35Z
+727092|5|34045|terrelbernard,727092,Ezekiel 25.17,5,Toilet Drones,0,LB,Terrel Bernard,IDP,LB,IDP,BUF,,34045,,2026-10-20T17:12:35Z
+727092|5|33537|evanmcpherson,727092,Ezekiel 25.17,5,Toilet Drones,0,BN,Evan McPherson,K,K,K,CIN,,33537,,2026-10-20T17:12:35Z
+727092|5|40904|dallasturner,727092,Ezekiel 25.17,5,Toilet Drones,0,BN,Dallas Turner,IDP,"LB,DE",IDP,MIN,,40904,,2026-10-20T17:12:35Z
+727092|5|41849|andrewmukuba,727092,Ezekiel 25.17,5,Toilet Drones,0,BN,Andrew Mukuba,IDP,S,IDP,PHI,,41849,,2026-10-20T17:12:35Z
+727092|5|32076|kadenelliss,727092,Ezekiel 25.17,5,Toilet Drones,0,IR,Kaden Elliss,IDP,LB,IDP,NO,Q,32076,,2026-10-20T17:12:35Z
+727092|6|33389|trevorlawrence,727092,Ezekiel 25.17,6,KEANU VIII,0,QB,Trevor Lawrence,QB,QB,skill,JAX,,33389,Trevor Lawrence (JAX),2026-10-20T17:12:35Z
+727092|6|34047|rachaadwhite,727092,Ezekiel 25.17,6,KEANU VIII,0,RB,Rachaad White,RB,RB,skill,WAS,,34047,Rachaad White (WAS),2026-10-20T17:12:35Z
+727092|6|40196|chasebrown,727092,Ezekiel 25.17,6,KEANU VIII,0,RB,Chase Brown,RB,RB,skill,CIN,,40196,Chase Brown (CIN),2026-10-20T17:12:35Z
+727092|6|33398|devontasmith,727092,Ezekiel 25.17,6,KEANU VIII,0,WR,DeVonta Smith,WR,WR,skill,PHI,,33398,DeVonta Smith (PHI),2026-10-20T17:12:35Z
+727092|6|33998|wandalerobinson,727092,Ezekiel 25.17,6,KEANU VIII,0,WR,Wan'Dale Robinson,WR,WR,skill,TEN,,33998,Wan'Dale Robinson (TEN),2026-10-20T17:12:35Z
+727092|6|41795|colstonloveland,727092,Ezekiel 25.17,6,KEANU VIII,0,TE,Colston Loveland,TE,TE,skill,CHI,,41795,Colston Loveland (CHI),2026-10-20T17:12:35Z
+727092|6|34104|khalilshakir,727092,Ezekiel 25.17,6,KEANU VIII,0,W/R/T,Khalil Shakir,WR,WR,skill,BUF,,34104,Khalil Shakir (BUF),2026-10-20T17:12:35Z
+727092|6|31908|terrymclaurin,727092,Ezekiel 25.17,6,KEANU VIII,0,BN,Terry McLaurin,WR,WR,skill,WAS,D,31908,Terry McLaurin (WAS),2026-10-20T17:12:35Z
+727092|6|34019|jamescook,727092,Ezekiel 25.17,6,KEANU VIII,0,BN,James Cook III,RB,RB,skill,BUF,,34019,James Cook (BUF),2026-10-20T17:12:35Z
+727092|6|33443|patfreiermuth,727092,Ezekiel 25.17,6,KEANU VIII,0,BN,Pat Freiermuth,TE,TE,skill,PIT,,33443,Pat Freiermuth (PIT),2026-10-20T17:12:35Z
+727092|6|32231|jakobimeyers,727092,Ezekiel 25.17,6,KEANU VIII,0,BN,Jakobi Meyers,WR,WR,skill,JAX,,32231,Jakobi Meyers (JAX),2026-10-20T17:12:35Z
+727092|6|26699|keenanallen,727092,Ezekiel 25.17,6,KEANU VIII,0,BN,Keenan Allen,WR,WR,skill,IND,,26699,Keenan Allen (IND),2026-10-20T17:12:35Z
+727092|6|32723|jalenhurts,727092,Ezekiel 25.17,6,KEANU VIII,0,BN,Jalen Hurts,QB,QB,skill,PHI,IR,32723,Jalen Hurts (PHI),2026-10-20T17:12:35Z
+727092|6|42630|jordyntyson,727092,Ezekiel 25.17,6,KEANU VIII,0,IR,Jordyn Tyson,WR,WR,skill,NO,IR-R,42630,,2026-10-20T17:12:35Z
+727092|6|42730|jonahcoleman,727092,Ezekiel 25.17,6,KEANU VIII,0,IR,Jonah Coleman,RB,RB,skill,DEN,IR,42730,Jonah Coleman (DEN),2026-10-20T17:12:35Z
+727092|6|29792|kaimifairbairn,727092,Ezekiel 25.17,6,KEANU VIII,0,K,Ka'imi Fairbairn,K,K,K,HOU,,29792,,2026-10-20T17:12:35Z
+727092|6|42633|calebdowns,727092,Ezekiel 25.17,6,KEANU VIII,0,DB,Caleb Downs,IDP,S,IDP,DAL,,42633,,2026-10-20T17:12:35Z
+727092|6|32706|xaviermckinney,727092,Ezekiel 25.17,6,KEANU VIII,0,DB,Xavier McKinney,IDP,S,IDP,GB,,32706,,2026-10-20T17:12:35Z
+727092|6|31938|maxxcrosby,727092,Ezekiel 25.17,6,KEANU VIII,0,DL,Maxx Crosby,IDP,DE,IDP,LV,,31938,,2026-10-20T17:12:35Z
+727092|6|28476|daniellehunter,727092,Ezekiel 25.17,6,KEANU VIII,0,DL,Danielle Hunter,IDP,"LB,DE",IDP,HOU,,28476,,2026-10-20T17:12:35Z
+727092|6|34291|natelandman,727092,Ezekiel 25.17,6,KEANU VIII,0,LB,Nate Landman,IDP,LB,IDP,LA,,34291,,2026-10-20T17:12:35Z
+727092|6|32318|azeezalshaair,727092,Ezekiel 25.17,6,KEANU VIII,0,LB,Azeez Al-Shaair,IDP,LB,IDP,HOU,,32318,,2026-10-20T17:12:35Z
+727092|6|30114|mylesgarrett,727092,Ezekiel 25.17,6,KEANU VIII,0,IR,Myles Garrett,IDP,"LB,DE",IDP,LA,IR,30114,,2026-10-20T17:12:35Z
+727092|7|9265|matthewstafford,727092,Ezekiel 25.17,7,Iron Mike,0,QB,Matthew Stafford,QB,QB,skill,LA,,9265,Matthew Stafford (LA),2026-10-20T17:12:35Z
+727092|7|29279|derrickhenry,727092,Ezekiel 25.17,7,Iron Mike,0,RB,Derrick Henry,RB,RB,skill,BAL,,29279,Derrick Henry (BAL),2026-10-20T17:12:35Z
+727092|7|33514|chubahubbard,727092,Ezekiel 25.17,7,Iron Mike,0,RB,Chuba Hubbard,RB,RB,skill,CAR,,33514,Chuba Hubbard (CAR),2026-10-20T17:12:35Z
+727092|7|33394|jaylenwaddle,727092,Ezekiel 25.17,7,Iron Mike,0,WR,Jaylen Waddle,WR,WR,skill,DEN,,33394,Jaylen Waddle (DEN),2026-10-20T17:12:35Z
+727092|7|33965|garrettwilson,727092,Ezekiel 25.17,7,Iron Mike,0,WR,Garrett Wilson,WR,WR,skill,NYJ,,33965,Garrett Wilson (NYJ),2026-10-20T17:12:35Z
+727092|7|41799|tylerwarren,727092,Ezekiel 25.17,7,Iron Mike,0,TE,Tyler Warren,TE,TE,skill,IND,Q,41799,Tyler Warren (IND),2026-10-20T17:12:35Z
+727092|7|42661|denzelboston,727092,Ezekiel 25.17,7,Iron Mike,0,W/R/T,Denzel Boston,WR,WR,skill,CLE,,42661,Denzel Boston (CLE),2026-10-20T17:12:35Z
+727092|7|40893|marvinharrison,727092,Ezekiel 25.17,7,Iron Mike,0,BN,Marvin Harrison Jr.,WR,WR,skill,HOU,,40893,Marvin Harrison Jr. (HOU),2026-10-20T17:12:35Z
+727092|7|40048|daltonkincaid,727092,Ezekiel 25.17,7,Iron Mike,0,BN,Dalton Kincaid,TE,TE,skill,BUF,,40048,Dalton Kincaid (BUF),2026-10-20T17:12:35Z
+727092|7|32692|justinjefferson,727092,Ezekiel 25.17,7,Iron Mike,0,BN,Justin Jefferson,WR,WR,skill,MIN,,32692,Justin Jefferson (MIN),2026-10-20T17:12:35Z
+727092|7|30295|aaronjones,727092,Ezekiel 25.17,7,Iron Mike,0,BN,Aaron Jones Sr.,RB,RB,skill,MIN,,30295,Aaron Jones (MIN),2026-10-20T17:12:35Z
+727092|7|40881|drakemaye,727092,Ezekiel 25.17,7,Iron Mike,0,BN,Drake Maye,QB,QB,skill,NE,,40881,Drake Maye (NE),2026-10-20T17:12:35Z
+727092|7|40962|blakecorum,727092,Ezekiel 25.17,7,Iron Mike,0,BN,Blake Corum,RB,RB,skill,LA,,40962,Blake Corum (LA),2026-10-20T17:12:35Z
+727092|7|29754|willutz,727092,Ezekiel 25.17,7,Iron Mike,0,K,Wil Lutz,K,K,K,DEN,,29754,,2026-10-20T17:12:35Z
+727092|7|40934|cooperdejean,727092,Ezekiel 25.17,7,Iron Mike,0,DB,Cooper DeJean,IDP,"DB,CB",IDP,PHI,,40934,,2026-10-20T17:12:35Z
+727092|7|41820|nickemmanwori,727092,Ezekiel 25.17,7,Iron Mike,0,DB,Nick Emmanwori,IDP,"S,CB",IDP,SEA,,41820,,2026-10-20T17:12:35Z
+727092|7|41788|abdulcarter,727092,Ezekiel 25.17,7,Iron Mike,0,DL,Abdul Carter,IDP,"LB,DE",IDP,NYG,,41788,,2026-10-20T17:12:35Z
+727092|7|31839|joshhinesallen,727092,Ezekiel 25.17,7,Iron Mike,0,DL,Josh Hines-Allen,IDP,"LB,DE",IDP,JAX,,31839,,2026-10-20T17:12:35Z
+727092|7|32698|patrickqueen,727092,Ezekiel 25.17,7,Iron Mike,0,LB,Patrick Queen,IDP,LB,IDP,PIT,,32698,,2026-10-20T17:12:35Z
+727092|7|40155|ventrellmiller,727092,Ezekiel 25.17,7,Iron Mike,0,LB,Ventrell Miller,IDP,LB,IDP,JAX,,40155,,2026-10-20T17:12:35Z
+727092|8|32676|justinherbert,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,QB,Justin Herbert,QB,QB,skill,LAC,,32676,Justin Herbert (LAC),2026-10-20T17:12:35Z
+727092|8|34447|jaylenwarren,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,RB,Jaylen Warren,RB,RB,skill,PIT,,34447,Jaylen Warren (PIT),2026-10-20T17:12:35Z
+727092|8|33996|kennethwalker,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,RB,Kenneth Walker III,RB,RB,skill,KC,,33996,Kenneth Walker III (KC),2026-10-20T17:12:35Z
+727092|8|28534|stefondiggs,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,WR,Stefon Diggs,WR,WR,skill,WAS,,28534,Stefon Diggs (WAS),2026-10-20T17:12:35Z
+727092|8|40201|dontayvionwicks,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,WR,Dontayvion Wicks,WR,WR,skill,PHI,,40201,Dontayvion Wicks (PHI),2026-10-20T17:12:35Z
+727092|8|31019|dallasgoedert,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,TE,Dallas Goedert,TE,TE,skill,PHI,,31019,Dallas Goedert (PHI),2026-10-20T17:12:35Z
+727092|8|41807|omarionhampton,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,W/R/T,Omarion Hampton,RB,RB,skill,LAC,,41807,Omarion Hampton (LAC),2026-10-20T17:12:35Z
+727092|8|41821|quinshonjudkins,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,BN,Quinshon Judkins,RB,RB,skill,CLE,Q,41821,Quinshon Judkins (CLE),2026-10-20T17:12:35Z
+727092|8|34085|jakeferguson,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,BN,Jake Ferguson,TE,TE,skill,DAL,,34085,Jake Ferguson (DAL),2026-10-20T17:12:35Z
+727092|8|32671|joeburrow,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,BN,Joe Burrow,QB,QB,skill,CIN,,32671,Joe Burrow (CIN),2026-10-20T17:12:35Z
+727092|8|41823|treveyonhenderson,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,BN,TreVeyon Henderson,RB,RB,skill,NE,,41823,TreVeyon Henderson (NE),2026-10-20T17:12:35Z
+727092|8|31960|tonypollard,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,BN,Tony Pollard,RB,RB,skill,TEN,,31960,Tony Pollard (TEN),2026-10-20T17:12:35Z
+727092|8|42464|dariuscooper,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,BN,Darius Cooper,WR,WR,skill,PHI,,42464,Darius Cooper (PHI),2026-10-20T17:12:35Z
+727092|8|32704|michaelpittman,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,IR,Michael Pittman Jr.,WR,WR,skill,PIT,IR,32704,Michael Pittman (PIT),2026-10-20T17:12:35Z
+727092|8|41499|spencershrader,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,K,Spencer Shrader,K,K,K,IND,,41499,,2026-10-20T17:12:35Z
+727092|8|34167|quentinlake,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,DB,Quentin Lake,IDP,"DB,S",IDP,LA,,34167,,2026-10-20T17:12:35Z
+727092|8|32740|brandonjones,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,DB,Brandon Jones,IDP,S,IDP,DEN,,32740,,2026-10-20T17:12:35Z
+727092|8|33418|gregrousseau,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,DL,Greg Rousseau,IDP,"LB,DE",IDP,BUF,,33418,,2026-10-20T17:12:35Z
+727092|8|41829|donovanezeiruaku,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,DL,Donovan Ezeiruaku,IDP,"LB,DE",IDP,DAL,,41829,,2026-10-20T17:12:35Z
+727092|8|42627|arvellreese,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,LB,Arvell Reese,IDP,"LB,DE",IDP,NYG,,42627,,2026-10-20T17:12:35Z
+727092|8|25787|demariodavis,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,LB,Demario Davis,IDP,LB,IDP,NYJ,,25787,,2026-10-20T17:12:35Z
+727092|8|33400|micahparsons,727092,Ezekiel 25.17,8,Pink Taco is Dead,0,IR,Micah Parsons,IDP,"LB,DE",IDP,GB,PUP-R,33400,,2026-10-20T17:12:35Z
+727092|9|41825|tylershough,727092,Ezekiel 25.17,9,Jizz Wizard,0,QB,Tyler Shough,QB,QB,skill,NO,,41825,Tyler Shough (NO),2026-10-20T17:12:35Z
+727092|9|41902|woodymarks,727092,Ezekiel 25.17,9,Jizz Wizard,0,RB,Woody Marks,RB,RB,skill,HOU,,41902,Woody Marks (HOU),2026-10-20T17:12:35Z
+727092|9|40059|jahmyrgibbs,727092,Ezekiel 25.17,9,Jizz Wizard,0,RB,Jahmyr Gibbs,RB,RB,skill,DET,,40059,Jahmyr Gibbs (DET),2026-10-20T17:12:35Z
+727092|9|40899|maliknabers,727092,Ezekiel 25.17,9,Jizz Wizard,0,WR,Malik Nabers,WR,WR,skill,NYG,,40899,Malik Nabers (NYG),2026-10-20T17:12:35Z
+727092|9|41793|tetairoamcmillan,727092,Ezekiel 25.17,9,Jizz Wizard,0,WR,Tetairoa McMillan,WR,WR,skill,CAR,,41793,Tetairoa McMillan (CAR),2026-10-20T17:12:35Z
+727092|9|40878|brockbowers,727092,Ezekiel 25.17,9,Jizz Wizard,0,TE,Brock Bowers,TE,TE,skill,LV,,40878,Brock Bowers (LV),2026-10-20T17:12:35Z
+727092|9|31896|dkmetcalf,727092,Ezekiel 25.17,9,Jizz Wizard,0,W/R/T,DK Metcalf,WR,WR,skill,PIT,,31896,DK Metcalf (PIT),2026-10-20T17:12:35Z
+727092|9|27535|mikeevans,727092,Ezekiel 25.17,9,Jizz Wizard,0,BN,Mike Evans,WR,WR,skill,SF,Q,27535,Mike Evans (SF),2026-10-20T17:12:35Z
+727092|9|40981|braelonallen,727092,Ezekiel 25.17,9,Jizz Wizard,0,BN,Braelon Allen,RB,RB,skill,NYJ,,40981,Braelon Allen (NYJ),2026-10-20T17:12:35Z
+727092|9|34107|tylerallgeier,727092,Ezekiel 25.17,9,Jizz Wizard,0,BN,Tyler Allgeier,RB,RB,skill,ARI,,34107,Tyler Allgeier (ARI),2026-10-20T17:12:35Z
+727092|9|31002|lamarjackson,727092,Ezekiel 25.17,9,Jizz Wizard,0,IR,Lamar Jackson,QB,QB,skill,BAL,Q,31002,Lamar Jackson (BAL),2026-10-20T17:12:35Z
+727092|9|40926|jonathonbrooks,727092,Ezekiel 25.17,9,Jizz Wizard,0,IR,Jonathon Brooks,RB,RB,skill,CAR,IR,40926,Jonathon Brooks (CAR),2026-10-20T17:12:35Z
+727092|9|34320|jordanmason,727092,Ezekiel 25.17,9,Jizz Wizard,0,IR,Jordan Mason,RB,RB,skill,MIN,IR-R,34320,Jordan Mason (MIN),2026-10-20T17:12:35Z
+727092|9|42010|jcroskeymerritt,727092,Ezekiel 25.17,9,Jizz Wizard,0,IR,J. Croskey-Merritt,RB,RB,skill,WAS,IR,42010,Jacory Croskey-Merritt (WAS),2026-10-20T17:12:35Z
+727092|9|43171|dominiczvada,727092,Ezekiel 25.17,9,Jizz Wizard,0,K,Dominic Zvada,K,K,K,NYG,,43171,,2026-10-20T17:12:35Z
+727092|9|41007|evanwilliams,727092,Ezekiel 25.17,9,Jizz Wizard,0,DB,Evan Williams,IDP,"DB,S",IDP,GB,,41007,,2026-10-20T17:12:35Z
+727092|9|34376|reedblankenship,727092,Ezekiel 25.17,9,Jizz Wizard,0,DB,Reed Blankenship,IDP,S,IDP,HOU,Q,34376,,2026-10-20T17:12:35Z
+727092|9|40124|byronyoung,727092,Ezekiel 25.17,9,Jizz Wizard,0,DL,Byron Young,IDP,"LB,DE",IDP,LA,,40124,,2026-10-20T17:12:35Z
+727092|9|31897|zachallen,727092,Ezekiel 25.17,9,Jizz Wizard,0,DL,Zach Allen,IDP,"DT,DE",IDP,DEN,,31897,,2026-10-20T17:12:35Z
+727092|9|28716|alexsingleton,727092,Ezekiel 25.17,9,Jizz Wizard,0,LB,Alex Singleton,IDP,LB,IDP,DEN,,28716,,2026-10-20T17:12:35Z
+727092|9|42665|jacobrodriguez,727092,Ezekiel 25.17,9,Jizz Wizard,0,LB,Jacob Rodriguez,IDP,LB,IDP,MIA,,42665,,2026-10-20T17:12:35Z
+727092|10|40900|calebwilliams,727092,Ezekiel 25.17,10,0for25,0,QB,Caleb Williams,QB,QB,skill,CHI,,40900,Caleb Williams (CHI),2026-10-20T17:12:35Z
+727092|10|30121|christianmccaffrey,727092,Ezekiel 25.17,10,0for25,0,RB,Christian McCaffrey,RB,RB,skill,SF,,30121,Christian McCaffrey (SF),2026-10-20T17:12:35Z
+727092|10|41791|ashtonjeanty,727092,Ezekiel 25.17,10,0for25,0,RB,Ashton Jeanty,RB,RB,skill,LV,,41791,Ashton Jeanty (LV),2026-10-20T17:12:35Z
+727092|10|41824|lutherburden,727092,Ezekiel 25.17,10,0for25,0,WR,Luther Burden III,WR,WR,skill,CHI,,41824,Luther Burden III (CHI),2026-10-20T17:12:35Z
+727092|10|41804|emekaegbuka,727092,Ezekiel 25.17,10,0for25,0,WR,Emeka Egbuka,WR,WR,skill,TB,,41804,Emeka Egbuka (TB),2026-10-20T17:12:35Z
+727092|10|34095|isaiahlikely,727092,Ezekiel 25.17,10,0for25,0,TE,Isaiah Likely,TE,TE,skill,NYG,,34095,Isaiah Likely (NYG),2026-10-20T17:12:35Z
+727092|10|42626|carnelltate,727092,Ezekiel 25.17,10,0for25,0,W/R/T,Carnell Tate,WR,WR,skill,TEN,,42626,Carnell Tate (TEN),2026-10-20T17:12:35Z
+727092|10|40126|joshdowns,727092,Ezekiel 25.17,10,0for25,0,BN,Josh Downs,WR,WR,skill,IND,,40126,Josh Downs (IND),2026-10-20T17:12:35Z
+727092|10|30973|samdarnold,727092,Ezekiel 25.17,10,0for25,0,BN,Sam Darnold,QB,QB,skill,SEA,,30973,Sam Darnold (SEA),2026-10-20T17:12:35Z
+727092|10|33967|jamesonwilliams,727092,Ezekiel 25.17,10,0for25,0,BN,Jameson Williams,WR,WR,skill,DET,,33967,Jameson Williams (DET),2026-10-20T17:12:35Z
+727092|10|40114|tretucker,727092,Ezekiel 25.17,10,0for25,0,BN,Tre Tucker,WR,WR,skill,LV,,40114,Tre Tucker (LV),2026-10-20T17:12:35Z
+727092|10|40231|chrisrodriguez,727092,Ezekiel 25.17,10,0for25,0,BN,Chris Rodriguez Jr.,RB,RB,skill,JAX,,40231,Chris Rodriguez Jr. (JAX),2026-10-20T17:12:35Z
+727092|10|30227|samajeperine,727092,Ezekiel 25.17,10,0for25,0,BN,Samaje Perine,RB,RB,skill,CIN,,30227,Samaje Perine (CIN),2026-10-20T17:12:35Z
+727092|10|33991|breecehall,727092,Ezekiel 25.17,10,0for25,0,IR,Breece Hall,RB,RB,skill,NYJ,Q,33991,Breece Hall (NYJ),2026-10-20T17:12:35Z
+727092|10|40097|tankdell,727092,Ezekiel 25.17,10,0for25,0,IR,Tank Dell,WR,WR,skill,HOU,IR-R,40097,,2026-10-20T17:12:35Z
+727092|10|31977|mattgay,727092,Ezekiel 25.17,10,0for25,0,K,Matt Gay,K,K,K,LV,,31977,,2026-10-20T17:12:35Z
+727092|10|33969|kylehamilton,727092,Ezekiel 25.17,10,0for25,0,DB,Kyle Hamilton,IDP,S,IDP,BAL,,33969,,2026-10-20T17:12:35Z
+727092|10|42647|dillonthieneman,727092,Ezekiel 25.17,10,0for25,0,DB,Dillon Thieneman,IDP,S,IDP,CHI,,42647,,2026-10-20T17:12:35Z
+727092|10|32672|chaseyoung,727092,Ezekiel 25.17,10,0for25,0,DL,Chase Young,IDP,"DL,DE",IDP,NO,,32672,,2026-10-20T17:12:35Z
+727092|10|42624|davidbailey,727092,Ezekiel 25.17,10,0for25,0,DL,David Bailey,IDP,"LB,DE",IDP,NYJ,,42624,,2026-10-20T17:12:35Z
+727092|10|31170|foyesadeoluokun,727092,Ezekiel 25.17,10,0for25,0,LB,Foyesade Oluokun,IDP,LB,IDP,JAX,,31170,,2026-10-20T17:12:35Z
+727092|10|32744|zackbaun,727092,Ezekiel 25.17,10,0for25,0,LB,Zack Baun,IDP,LB,IDP,PHI,,32744,,2026-10-20T17:12:35Z
+727092|11|30123|patrickmahomes,727092,Ezekiel 25.17,11,PINK TACO ™️,0,QB,Patrick Mahomes,QB,QB,skill,KC,,30123,Patrick Mahomes (KC),2026-10-20T17:12:35Z
+727092|11|32705|dandreswift,727092,Ezekiel 25.17,11,PINK TACO ™️,0,RB,D'Andre Swift,RB,RB,skill,CHI,,32705,D'Andre Swift (CHI),2026-10-20T17:12:35Z
+727092|11|32725|jkdobbins,727092,Ezekiel 25.17,11,PINK TACO ™️,0,RB,J.K. Dobbins,RB,RB,skill,DEN,,32725,J.K. Dobbins (DEN),2026-10-20T17:12:35Z
+727092|11|33477|nicocollins,727092,Ezekiel 25.17,11,PINK TACO ™️,0,WR,Nico Collins,WR,WR,skill,HOU,,33477,Nico Collins (HOU),2026-10-20T17:12:35Z
+727092|11|40168|pukanacua,727092,Ezekiel 25.17,11,PINK TACO ™️,0,WR,Puka Nacua,WR,WR,skill,LA,,40168,Puka Nacua (LA),2026-10-20T17:12:35Z
+727092|11|40064|samlaporta,727092,Ezekiel 25.17,11,PINK TACO ™️,0,TE,Sam LaPorta,TE,TE,skill,DET,,40064,Sam LaPorta (DET),2026-10-20T17:12:35Z
+727092|11|41058|malikwashington,727092,Ezekiel 25.17,11,PINK TACO ™️,0,W/R/T,Malik Washington,WR,WR,skill,MIA,,41058,Malik Washington (MIA),2026-10-20T17:12:35Z
+727092|11|41052|kimanividal,727092,Ezekiel 25.17,11,PINK TACO ™️,0,BN,Kimani Vidal,RB,RB,skill,LAC,,41052,Kimani Vidal (LAC),2026-10-20T17:12:35Z
+727092|11|41097|devaughnvele,727092,Ezekiel 25.17,11,PINK TACO ™️,0,BN,Devaughn Vele,WR,WR,skill,NO,,41097,Devaughn Vele (NO),2026-10-20T17:12:35Z
+727092|11|29344|tylerhigbee,727092,Ezekiel 25.17,11,PINK TACO ™️,0,BN,Tyler Higbee,TE,TE,skill,LA,,29344,Tyler Higbee (LA),2026-10-20T17:12:35Z
+727092|11|29325|jacobybrissett,727092,Ezekiel 25.17,11,PINK TACO ™️,0,BN,Jacoby Brissett,QB,QB,skill,ARI,,29325,Jacoby Brissett (ARI),2026-10-20T17:12:35Z
+727092|11|30994|djmoore,727092,Ezekiel 25.17,11,PINK TACO ™️,0,BN,DJ Moore,WR,WR,skill,BUF,Q,30994,DJ Moore (BUF),2026-10-20T17:12:35Z
+727092|11|42625|jeremiyahlove,727092,Ezekiel 25.17,11,PINK TACO ™️,0,IR,Jeremiyah Love,RB,RB,skill,ARI,Q,42625,Jeremiyah Love (ARI),2026-10-20T17:12:35Z
+727092|11|42654|jadarianprice,727092,Ezekiel 25.17,11,PINK TACO ™️,0,IR,Jadarian Price,RB,RB,skill,SEA,IR,42654,Jadarian Price (SEA),2026-10-20T17:12:35Z
+727092|11|40075|zachcharbonnet,727092,Ezekiel 25.17,11,PINK TACO ™️,0,IR,Zach Charbonnet,RB,RB,skill,SEA,PUP-R,40075,Zach Charbonnet (SEA),2026-10-20T17:12:35Z
+727092|11|28378|jasonmyers,727092,Ezekiel 25.17,11,PINK TACO ™️,0,K,Jason Myers,K,K,K,SEA,,28378,,2026-10-20T17:12:35Z
+727092|11|32734|jeremychinn,727092,Ezekiel 25.17,11,PINK TACO ™️,0,DB,Jeremy Chinn,IDP,S,IDP,LV,,32734,,2026-10-20T17:12:35Z
+727092|11|34070|danebelton,727092,Ezekiel 25.17,11,PINK TACO ™️,0,DB,Dane Belton,IDP,S,IDP,NYJ,,34070,,2026-10-20T17:12:35Z
+727092|11|29241|deforestbuckner,727092,Ezekiel 25.17,11,PINK TACO ™️,0,DL,DeForest Buckner,IDP,DT,IDP,IND,,29241,,2026-10-20T17:12:35Z
+727092|11|33520|tommytogiai,727092,Ezekiel 25.17,11,PINK TACO ™️,0,DL,Tommy Togiai,IDP,"DL,DT",IDP,HOU,,33520,,2026-10-20T17:12:35Z
+727092|11|33491|ernestjones,727092,Ezekiel 25.17,11,PINK TACO ™️,0,LB,Ernest Jones IV,IDP,LB,IDP,SEA,,33491,,2026-10-20T17:12:35Z
+727092|11|33534|jamiensherwood,727092,Ezekiel 25.17,11,PINK TACO ™️,0,LB,Jamien Sherwood,IDP,LB,IDP,NYJ,,33534,,2026-10-20T17:12:35Z
+727092|11|40117|jordanbattle,727092,Ezekiel 25.17,11,PINK TACO ™️,0,BN,Jordan Battle,IDP,S,IDP,CIN,,40117,,2026-10-20T17:12:35Z
+727092|12|29235|jaredgoff,727092,Ezekiel 25.17,12,Philly Philly,0,QB,Jared Goff,QB,QB,skill,DET,,29235,Jared Goff (DET),2026-10-20T17:12:35Z
+727092|12|41922|camskattebo,727092,Ezekiel 25.17,12,Philly Philly,0,RB,Cam Skattebo,RB,RB,skill,NYG,,41922,Cam Skattebo (NYG),2026-10-20T17:12:35Z
+727092|12|33100|ricodowdle,727092,Ezekiel 25.17,12,Philly Philly,0,RB,Rico Dowdle,RB,RB,skill,PIT,,33100,Rico Dowdle (PIT),2026-10-20T17:12:35Z
+727092|12|40041|jaxonsmithnjigba,727092,Ezekiel 25.17,12,Philly Philly,0,WR,Jaxon Smith-Njigba,WR,WR,skill,SEA,,40041,Jaxon Smith-Njigba (SEA),2026-10-20T17:12:35Z
+727092|12|32687|ceedeelamb,727092,Ezekiel 25.17,12,Philly Philly,0,WR,CeeDee Lamb,WR,WR,skill,DAL,,32687,CeeDee Lamb (DAL),2026-10-20T17:12:35Z
+727092|12|40102|tuckerkraft,727092,Ezekiel 25.17,12,Philly Philly,0,TE,Tucker Kraft,TE,TE,skill,GB,,40102,Tucker Kraft (GB),2026-10-20T17:12:35Z
+727092|12|29269|hunterhenry,727092,Ezekiel 25.17,12,Philly Philly,0,W/R/T,Hunter Henry,TE,TE,skill,NE,,29269,Hunter Henry (NE),2026-10-20T17:12:35Z
+727092|12|27581|davanteadams,727092,Ezekiel 25.17,12,Philly Philly,0,BN,Davante Adams,WR,WR,skill,LA,O,27581,Davante Adams (LA),2026-10-20T17:12:35Z
+727092|12|40641|keatonmitchell,727092,Ezekiel 25.17,12,Philly Philly,0,BN,Keaton Mitchell,RB,RB,skill,LAC,,40641,Keaton Mitchell (LAC),2026-10-20T17:12:35Z
+727092|12|7200|aaronrodgers,727092,Ezekiel 25.17,12,Philly Philly,0,BN,Aaron Rodgers,QB,QB,skill,PIT,,7200,Aaron Rodgers (PIT),2026-10-20T17:12:35Z
+727092|12|31868|deebosamuel,727092,Ezekiel 25.17,12,Philly Philly,0,BN,Deebo Samuel Sr.,WR,WR,skill,SF,O,31868,Deebo Samuel Sr. (SF),2026-10-20T17:12:35Z
+727092|12|33413|travisetienne,727092,Ezekiel 25.17,12,Philly Philly,0,BN,Travis Etienne Jr.,RB,RB,skill,NO,IR,33413,Travis Etienne (NO),2026-10-20T17:12:35Z
+727092|12|41787|travishunter,727092,Ezekiel 25.17,12,Philly Philly,0,BN,Travis Hunter,WR,"WR,CB",skill,JAX,,41787,,2026-10-20T17:12:35Z
+727092|12|34344|camerondicker,727092,Ezekiel 25.17,12,Philly Philly,0,K,Cameron Dicker,K,K,K,LAC,,34344,,2026-10-20T17:12:35Z
+727092|12|40160|chamarriconner,727092,Ezekiel 25.17,12,Philly Philly,0,DB,Chamarri Conner,IDP,"DB,S",IDP,KC,,40160,,2026-10-20T17:12:35Z
+727092|12|40035|jalencarter,727092,Ezekiel 25.17,12,Philly Philly,0,DL,Jalen Carter,IDP,"DT,DE",IDP,PHI,,40035,,2026-10-20T17:12:35Z
+727092|12|31851|jefferysimmons,727092,Ezekiel 25.17,12,Philly Philly,0,DL,Jeffery Simmons,IDP,"DT,DE",IDP,TEN,,31851,,2026-10-20T17:12:35Z
+727092|12|33468|divinedeablo,727092,Ezekiel 25.17,12,Philly Philly,0,LB,Divine Deablo,IDP,LB,IDP,ATL,Q,33468,,2026-10-20T17:12:35Z
+727092|12|40975|paytonwilson,727092,Ezekiel 25.17,12,Philly Philly,0,LB,Payton Wilson,IDP,LB,IDP,PIT,,40975,,2026-10-20T17:12:35Z
+727092|12|41816|jihaadcampbell,727092,Ezekiel 25.17,12,Philly Philly,0,BN,Jihaad Campbell,IDP,LB,IDP,PHI,,41816,,2026-10-20T17:12:35Z

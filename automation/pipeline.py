@@ -92,6 +92,7 @@ def main():
         if os.path.exists(src):
             shutil.copy(src, os.path.join(SITE, f))
             cat["datasets"].setdefault(did, {"file": f, "title": did})["updated"] = now
+    subprocess.run([sys.executable, os.path.join(ROOT, "automation", "confidence.py"), SITE], check=True)
     cat["updated"] = now
     cat["note"] = f"Week {w_proj} projections" if w_proj else "season complete"
     json.dump(cat, open(cat_path, "w"), indent=1)
