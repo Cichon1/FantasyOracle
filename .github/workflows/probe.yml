@@ -27,6 +27,13 @@ jobs:
           get espn_core_inj.json "https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/teams/12/injuries?limit=100"
           get sleeper_players.json "https://api.sleeper.app/v1/players/nfl"
           get nfl_injuries.html "https://www.nfl.com/injuries/"
+          get nfl_inactives_w6.html "https://www.nfl.com/news/nfl-week-6-inactives-players-ruled-out-sunday-2026-season"
+          python3 -c "
+          import json
+          d=json.load(open('automation/probe/espn_summary.json'))
+          out={'keys':list(d.keys()),'injuries':d.get('injuries'),'rosters_keys':[list(x.keys()) for x in d.get('rosters',[])][:2]}
+          json.dump(out,open('automation/probe/espn_summary_keys.json','w'),indent=1)
+          " || true
           # keep samples small
           for f in automation/probe/*; do if [ "$(basename $f)" != summary.txt ]; then head -c 400000 "$f" > "$f.tmp"; mv "$f.tmp" "$f"; fi; done
           true
