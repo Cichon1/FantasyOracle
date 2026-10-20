@@ -219,6 +219,9 @@ def sync():
             cat["datasets"][ids[f]]["updated"] = now
         cat["updated"] = now
         json.dump(cat, open(cat_p, "w"), indent=1)
+    ep = os.path.join(STATE, "yahoo_last_error.json")
+    if os.path.exists(ep):
+        os.remove(ep)
     print(json.dumps({"yahoo": "synced", "changed": changed, "roster_rows": len(rosters)}))
     return bool(changed)
 
@@ -239,8 +242,11 @@ def main():
     except Exception as e:      # Yahoo trouble never blocks the projections update
         print(json.dumps({"yahoo": "failed", "error": str(e)[:300]}))
         os.makedirs(STATE, exist_ok=True)
-        json.dump({"at": datetime.now(timezone.utc).isoformat(timespec="seconds"), "error": str(e)[:1000], "diag": DIAG},
-                  open(os.path.join(STATE, "yahoo_last_error.json"), "w"), indent=1)
+        ep = os.path.join(STATE, "yahoo_last_error.json")
+        prev = json.load(open(ep)) if os.path.exists(ep) else {}
+        if prev.get("error") != str(e)[:1000]:   # rewrite only when the error changes (no commit every half hour)
+            json.dump({"at": datetime.now(timezone.utc).isoformat(timespec="seconds"), "error": str(e)[:1000],
+                       "diag": DIAG}, open(ep, "w"), indent=1)
     out = os.environ.get("GITHUB_OUTPUT")
     if out:
         open(out, "a").write(f"changed={'true' if changed else 'false'}\n")
