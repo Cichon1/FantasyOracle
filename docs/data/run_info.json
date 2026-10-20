@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-20T22:29:04+00:00",
+ "updated": "2026-10-20T23:00:48+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 6,
@@ -8,7 +8,7 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 41,
+   "seconds": 45,
    "ok": true
   },
   {
@@ -18,7 +18,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 4,
+   "seconds": 2,
    "ok": true
   },
   {
@@ -33,12 +33,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 25,
+   "seconds": 24,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 12,
+   "seconds": 11,
    "ok": true
   }
  ],
@@ -51,8 +51,8 @@
    "total": 0
   },
   "inactive_rows": 0,
-  "players": 351,
-  "upcoming": 351,
+  "players": 350,
+  "upcoming": 350,
   "season_scoreboard": {
    "model": 0.3724,
    "experts": 0.3657,
@@ -71,7 +71,7 @@
   "week": 7,
   "last_week": 17,
   "players": 465,
-  "out_this_week": 62,
+  "out_this_week": 63,
   "on_bye": 52,
   "this_week_source": "official",
   "training_snapshots": 47945,
@@ -81,7 +81,7 @@
    "WR/TE": 50
   },
   "experts_ros_date": "2026-10-16 00:00:00",
-  "seconds": 11,
+  "seconds": 10,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -95,7 +95,7 @@
     ],
     [
      "Drake Maye",
-     199.9
+     196.3
     ],
     [
      "Josh Allen",
@@ -154,7 +154,7 @@
    "C.J. Gardner-Johnson (BUF)",
    "Terry McLaurin (WAS)"
   ],
-  "hash": "d8d5b398aebe",
+  "hash": "54a6466117c5",
   "rows_added": 7,
   "values_updated": 0
  }
