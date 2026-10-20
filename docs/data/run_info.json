@@ -1,14 +1,14 @@
 {
- "updated": "2026-10-20T09:10:10+00:00",
+ "updated": "2026-10-20T10:31:14+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 6,
  "games_started": false,
- "reason": "player_stats,play_by_play,schedule_and_lines",
+ "reason": "player_stats,play_by_play,schedule_and_lines,expected_points",
  "steps": [
   {
    "step": "bash",
-   "seconds": 19,
+   "seconds": 18,
    "ok": true
   },
   {
@@ -18,17 +18,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 5,
+   "seconds": 4,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 40,
+   "seconds": 35,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 20,
+   "seconds": 16,
    "ok": true
   }
  ],
@@ -64,14 +64,14 @@
   "out_this_week": 51,
   "on_bye": 52,
   "this_week_source": "official",
-  "training_snapshots": 47931,
+  "training_snapshots": 47945,
   "rounds": {
    "QB": 50,
-   "RB": 96,
-   "WR/TE": 56
+   "RB": 100,
+   "WR/TE": 66
   },
   "experts_ros_date": "2026-10-16 00:00:00",
-  "seconds": 19,
+  "seconds": 15,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -81,35 +81,35 @@
    "QB": [
     [
      "Brock Purdy",
-     208.7
+     205.8
     ],
     [
      "Drake Maye",
-     200.0
+     201.8
     ],
     [
      "Joe Burrow",
-     194.7
+     198.3
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     257.0
+     257.5
     ],
     [
      "Bijan Robinson",
-     211.3
+     211.2
     ],
     [
      "Kenneth Walker III",
-     205.6
+     209.0
     ]
    ],
    "TE": [
     [
      "Brock Bowers",
-     155.4
+     158.0
     ],
     [
      "Trey McBride",
@@ -117,13 +117,13 @@
     ],
     [
      "Sam LaPorta",
-     142.3
+     139.7
     ]
    ],
    "WR": [
     [
      "Puka Nacua",
-     209.4
+     213.5
     ],
     [
      "Amon-Ra St. Brown",
@@ -131,7 +131,7 @@
     ],
     [
      "Ja'Marr Chase",
-     196.6
+     197.9
     ]
    ]
   }
