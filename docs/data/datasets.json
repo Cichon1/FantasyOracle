@@ -204,6 +204,12 @@
    "title": "Sleeper trending adds / drops",
    "description": "How many Sleeper leagues added or dropped each QB/RB/WR/TE in the last 24 hours.",
    "updated": null
+  },
+  "props": {
+   "file": "props.csv",
+   "title": "Player prop lines",
+   "description": "Median sportsbook line and no-vig over chance for passing, rushing and receiving yards and anytime TD (The Odds API).",
+   "updated": null
   }
  },
  "note": "Week 7 projections"

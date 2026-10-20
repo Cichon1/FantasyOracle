@@ -266,11 +266,13 @@
         <p class="nf-note">Your best lineup this week from the weekly projections in this league's scoring, filled slot by
         slot (fixed slots first, then flex). <b>Start %</b> is the chance he finishes the week as a fantasy starter (top 12 QB
         or TE, 24 RB, 36 WR); High is 65%+, Medium 35–65%, Low under 35%. Notes flag a change from the lineup set on Yahoo
-        and bench players within 1.5 points of a starter. Kickers, defenses and IDP are left to you.</p>
+        and bench players within 1.5 points of a starter. <b>Vegas line</b>: the sportsbooks' median line for his main
+        stat and their chance he scores a touchdown (pulled Thursday evening and Sunday morning). Kickers, defenses and
+        IDP are left to you.</p>
         <p class="nf-team-meta" id="team-lineup-meta"></p>
         <div class="nf-tablebox">
           <table class="nf-table" id="team-lineup-table">
-            <thead><tr><th class="nf-l">Slot</th><th class="nf-l">Player</th><th class="nf-l">Opp</th><th>Proj</th><th>Start %</th><th class="nf-l">Note</th></tr></thead>
+            <thead><tr><th class="nf-l">Slot</th><th class="nf-l">Player</th><th class="nf-l">Opp</th><th>Proj</th><th>Start %</th><th class="nf-l nf-hide-sm">Vegas line</th><th class="nf-l">Note</th></tr></thead>
             <tbody></tbody>
           </table>
         </div>
@@ -1234,7 +1236,7 @@ dash.onData(() => {
     lb.replaceChildren(); wb.replaceChildren();
     if ([L, RO, P, R].some((d) => d.status !== 'ok')) {
       const bad = [L, RO, P, R].some((d) => d.status === 'error');
-      message(lb, 6, bad ? 'Failed to load' : '—'); message(wb, 7, bad ? 'Failed to load' : '—'); return;
+      message(lb, 7, bad ? 'Failed to load' : '—'); message(wb, 7, bad ? 'Failed to load' : '—'); return;
     }
     const leagues = L.data;
     if (!st.league || !leagues.find((l) => String(l.league_id) === st.league)) st.league = String(leagues[0].league_id);
@@ -1251,6 +1253,18 @@ dash.onData(() => {
     const lg = leagues.find((l) => String(l.league_id) === st.league);
     const wk = nfWeek();
     const proj = new Map(P.data.filter((r) => +r.week === wk).map((r) => [r.key, r]));
+    const PR = dash.data('props'), nk = (x) => String(x).normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+      .replace(/[.'’\-]/g, '').replace(/\b(jr|sr|ii|iii|iv|v)\b/g, '').replace(/\s+/g, ' ').trim();
+    const props = new Map();
+    if (PR.status === 'ok') PR.data.forEach((x) => props.set(nk(x.player) + '|' + x.market, x));
+    const vegas = (name, pos) => {
+      const m = pos === 'QB' ? ['pass_yds', ' pass yds'] : pos === 'RB' ? ['rush_yds', ' rush yds'] : ['rec_yds', ' rec yds'];
+      const a = props.get(nk(name) + '|' + m[0]), t = props.get(nk(name) + '|anytime_td');
+      const parts = [];
+      if (a && a.line !== '' && a.line != null) parts.push(num(a.line) + m[1]);
+      if (t) parts.push(Math.round(100 * num(t.p_over)) + '% TD');
+      return parts.join(' · ');
+    };
     const ros = new Map(R.data.map((r) => [r.key, r]));
     const roster = RO.data.filter((p) => String(p.league_id) === st.league);
     const mine = roster.filter((p) => String(p.is_me) === '1' && p.kind === 'skill');
@@ -1278,12 +1292,13 @@ dash.onData(() => {
     const row = (slot, x, isBench) => {
       const tr = document.createElement('tr'); if (isBench) tr.className = 'nf-benchrow';
       cell(tr, slot, 'nf-l');
-      if (!x) { cell(tr, 'Empty — nobody eligible', 'nf-l nf-bad'); ['', '', '', ''].forEach((t) => cell(tr, t)); lb.appendChild(tr); return; }
+      if (!x) { cell(tr, 'Empty — nobody eligible', 'nf-l nf-bad'); ['', '', '', '', ''].forEach((t) => cell(tr, t)); lb.appendChild(tr); return; }
       tr.dataset.pos = x.p.pos;
       cell(tr, x.p.player + ' (' + x.p.pos + ')', 'nf-l');
       cell(tr, x.w ? (x.w.venue === 'Home' ? 'vs ' : '@ ') + x.w.opp : '—', 'nf-l nf-muted');
       cell(tr, x.why ? '0.0' : f1(x.v), x.why ? 'nf-muted' : '');
       const sp = cell(tr, ''); nfConf(sp, x.why ? NaN : (x.w && x.w.start_pct), x.w && x.w.confidence);
+      const vl = vegas(x.p.player, x.p.pos); cell(tr, vl || '—', 'nf-l nf-hide-sm' + (vl ? '' : ' nf-muted'));
       const note = cell(tr, '', 'nf-l');
       const flag = (t, c) => { const s = document.createElement('span'); s.className = 'nf-flag ' + (c || ''); s.textContent = t; note.appendChild(s); };
       if (x.why) flag(x.why, 'bad');
@@ -1299,10 +1314,10 @@ dash.onData(() => {
     lineup.forEach((l) => row(l.slot, l.x, false));
     const total = lineup.reduce((t, l) => t + (l.x ? l.x.v : 0), 0);
     const tt = document.createElement('tr'); tt.className = 'nf-total-row';
-    cell(tt, '', ''); cell(tt, 'Projected total (QB/RB/WR/TE)', 'nf-l'); cell(tt, ''); cell(tt, f1(total)); cell(tt, ''); cell(tt, '');
+    cell(tt, '', ''); cell(tt, 'Projected total (QB/RB/WR/TE)', 'nf-l'); cell(tt, ''); cell(tt, f1(total)); cell(tt, ''); cell(tt, '', 'nf-hide-sm'); cell(tt, '');
     lb.appendChild(tt);
     if (bench.length) {
-      const dv = document.createElement('tr'); dv.className = 'nf-divider'; const td = cell(dv, 'Bench', 'nf-l'); td.colSpan = 6; lb.appendChild(dv);
+      const dv = document.createElement('tr'); dv.className = 'nf-divider'; const td = cell(dv, 'Bench', 'nf-l'); td.colSpan = 7; lb.appendChild(dv);
       bench.forEach((x) => row(x.p.slot === 'IR' ? 'IR' : 'BN', x, true));
     }
 

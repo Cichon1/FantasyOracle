@@ -1,0 +1,44 @@
+# Player prop betting lines (The Odds API, free plan). Needs the repository secret ODDS_API_KEY.
+# Thursday ~5:45 pm CT: the Thursday game only. Sunday ~10:45 am CT: the rest of the week's games.
+# About 250 of the 500 free monthly credits. "Run workflow" pulls the next 4 days now.
+name: Prop lines
+
+on:
+  schedule:
+    - cron: "45 22 * * 4"
+    - cron: "45 15 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update
+  cancel-in-progress: false
+
+jobs:
+  props:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Pull lines
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: |
+          pip install -q pandas
+          if [ "${{ github.event.schedule }}" = "45 22 * * 4" ]; then H=30; else H=96; fi
+          python automation/odds_props.py --hours $H
+      - name: Save
+        run: |
+          git config user.name "fantasy-oracle-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/data automation/state automation/history
+          git diff --cached --quiet && exit 0
+          git commit -m "Prop lines"
+          git pull --rebase -X theirs origin ${{ github.ref_name }}
+          git push
