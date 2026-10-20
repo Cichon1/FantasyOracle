@@ -18,6 +18,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -37,7 +39,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add automation/state docs/data
           git commit -m "Connect Yahoo leagues" || exit 0
-          git pull --rebase origin ${{ github.ref_name }}
+          git pull --rebase -X theirs origin ${{ github.ref_name }}
           git push
       - uses: actions/upload-pages-artifact@v3
         with:

@@ -32,6 +32,8 @@ jobs:
       changed: ${{ steps.done.outputs.changed }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
 
       - uses: actions/setup-python@v5
         with:
@@ -94,7 +96,7 @@ jobs:
           git add docs/data automation/state
           git diff --cached --quiet && exit 0
           git commit -m "Update: ${{ steps.watch.outputs.what }}${{ steps.yahoo.outputs.changed == 'true' && ' yahoo' || '' }}"
-          git pull --rebase origin ${{ github.ref_name }}
+          git pull --rebase -X theirs origin ${{ github.ref_name }}
           git push
 
       - name: Package website
