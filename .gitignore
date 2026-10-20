@@ -1,0 +1,11 @@
+model/data/
+model/fpdata/
+model/cache/
+model/out_v5/
+model/dash_out/
+model/store.csv
+model/ref/weather_*.csv
+model/ref/inactives_*.csv
+automation/state/sources.new.json
+__pycache__/
+*.pyc

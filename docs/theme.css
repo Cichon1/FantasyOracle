@@ -1,0 +1,55 @@
+/* Design tokens the dashboard page expects (claude.ai's Dashboard type provides these there). */
+:root {
+  color-scheme: light dark;
+  --font-anthropic-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-anthropic-serif: ui-serif, Georgia, "Times New Roman", serif;
+  --color-fg: #1f1e1b;
+  --color-fg-muted: #6b6860;
+  --color-bg: #faf9f6;
+  --color-panel: #ffffff;
+  --color-border-line: #e3e0d8;
+  --color-ok: #2f7d4f;
+  --color-warn: #b7791f;
+  --color-bad: #c0392b;
+  --hub-series-1: #3b6fb6; --hub-series-2: #d9822b; --hub-series-3: #3a9a6b; --hub-series-4: #b04a7a;
+  --hub-series-5: #7a5cc7; --hub-series-6: #8a7a3a; --hub-series-7: #2b9aa8; --hub-series-8: #8c8c8c;
+  --nf-pos-QB: #b04a7a; --nf-pos-RB: #3a9a6b; --nf-pos-WR: #3b6fb6; --nf-pos-TE: #d9822b;
+  --cds-font-weight-medium: 600;
+  --cds-font-size-caption: 0.75rem;
+  --cds-font-size-body: 0.875rem;
+  --cds-font-size-heading: 1rem;
+  --cds-font-size-title: 1.75rem;
+  --cds-gap-xs: 0.25rem; --cds-gap-sm: 0.5rem; --cds-gap-md: 0.75rem; --cds-gap-lg: 1.25rem; --cds-gap-xl: 2rem;
+  --cds-pad-xs: 0.25rem; --cds-pad-sm: 0.5rem; --cds-pad-md: 0.75rem; --cds-pad-lg: 1rem;
+  --cds-radius: 8px;
+  --cds-chart-grid: color-mix(in srgb, var(--color-fg) 10%, transparent);
+  --cds-chart-axis: color-mix(in srgb, var(--color-fg) 45%, transparent);
+  --cds-chart-muted: color-mix(in srgb, var(--color-fg) 25%, transparent);
+  --cds-chart-reference: color-mix(in srgb, var(--color-fg) 55%, transparent);
+  --cds-chart-status-critical: var(--color-bad);
+  --cds-text-secondary: var(--color-fg-muted);
+  --cds-surface-popover: var(--color-panel);
+  --cds-shadow-popover: 0 4px 16px rgba(0, 0, 0, 0.14);
+  --cds-border: var(--color-border-line);
+  --cds-dur-slow: 240ms;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-fg: #ecebe6;
+    --color-fg-muted: #a5a29a;
+    --color-bg: #1c1b19;
+    --color-panel: #252421;
+    --color-border-line: #3a3833;
+    --color-ok: #5cbf86;
+    --color-warn: #e0a548;
+    --color-bad: #e8695a;
+    --hub-series-1: #6f9de0; --hub-series-2: #f0a35a; --hub-series-3: #63c493; --hub-series-4: #dd7aa8;
+    --hub-series-5: #a58cf0; --hub-series-6: #c7b46a; --hub-series-7: #5cc7d4; --hub-series-8: #b0b0b0;
+    --nf-pos-QB: #dd7aa8; --nf-pos-RB: #63c493; --nf-pos-WR: #6f9de0; --nf-pos-TE: #f0a35a;
+    --cds-shadow-popover: 0 4px 16px rgba(0, 0, 0, 0.5);
+  }
+}
+html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); font-family: var(--font-anthropic-sans); }
+.hub-wrap { max-width: 1400px; margin: 0 auto; padding: 16px; }
+.hub-bar { display: flex; justify-content: flex-end; color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); min-height: 1rem; }
+.dash-skeleton { color: var(--color-fg-muted); }

@@ -1,0 +1,61 @@
+key,position,condition_type,condition,player_games,avg_ppr,vs_recent_form,vs_model_no_weather,vs_model_no_weather_se
+QB · Wind: 0–9 mph,QB,Wind,0–9 mph,2285,14.82,-0.14,0.21,0.16
+QB · Wind: 10–14 mph,QB,Wind,10–14 mph,801,13.77,-0.95,-0.57,0.26
+QB · Wind: 15–19 mph,QB,Wind,15–19 mph,305,12.83,-2.08,-1.33,0.44
+QB · Wind: 20+ mph,QB,Wind,20+ mph,81,13.05,-2.03,-0.61,0.79
+RB · Wind: 0–9 mph,RB,Wind,0–9 mph,5372,8.34,-0.12,0.07,0.09
+RB · Wind: 10–14 mph,RB,Wind,10–14 mph,1929,7.99,-0.36,-0.13,0.14
+RB · Wind: 15–19 mph,RB,Wind,15–19 mph,722,7.81,-0.5,-0.24,0.22
+RB · Wind: 20+ mph,RB,Wind,20+ mph,184,9.1,1.01,1.11,0.49
+TE · Wind: 0–9 mph,TE,Wind,0–9 mph,4262,5.89,0.06,0.05,0.08
+TE · Wind: 10–14 mph,TE,Wind,10–14 mph,1515,5.64,-0.19,-0.15,0.13
+TE · Wind: 15–19 mph,TE,Wind,15–19 mph,535,5.58,-0.53,-0.41,0.22
+TE · Wind: 20+ mph,TE,Wind,20+ mph,137,4.73,-1.58,-1.38,0.42
+WR · Wind: 0–9 mph,WR,Wind,0–9 mph,8676,7.7,-0.21,-0.03,0.07
+WR · Wind: 10–14 mph,WR,Wind,10–14 mph,3070,7.22,-0.59,-0.42,0.11
+WR · Wind: 15–19 mph,WR,Wind,15–19 mph,1136,7.07,-0.89,-0.59,0.17
+WR · Wind: 20+ mph,WR,Wind,20+ mph,283,6.72,-1.07,-0.72,0.36
+QB · Temperature: 32°F or colder,QB,Temperature,32°F or colder,230,14.67,-1.18,-0.28,0.5
+QB · Temperature: 33–49°F,QB,Temperature,33–49°F,892,13.56,-1.03,-0.49,0.26
+QB · Temperature: 50–69°F,QB,Temperature,50–69°F,1372,14.4,-0.47,-0.06,0.2
+QB · Temperature: 70°F+,QB,Temperature,70°F+,984,14.99,-0.01,0.17,0.25
+RB · Temperature: 32°F or colder,RB,Temperature,32°F or colder,576,7.74,-0.35,-0.09,0.26
+RB · Temperature: 33–49°F,RB,Temperature,33–49°F,2145,8.04,-0.16,0.02,0.14
+RB · Temperature: 50–69°F,RB,Temperature,50–69°F,3201,8.32,-0.09,0.11,0.11
+RB · Temperature: 70°F+,RB,Temperature,70°F+,2299,8.38,-0.31,-0.1,0.13
+TE · Temperature: 32°F or colder,TE,Temperature,32°F or colder,427,5.77,-0.26,-0.15,0.23
+TE · Temperature: 33–49°F,TE,Temperature,33–49°F,1615,5.71,-0.1,-0.09,0.13
+TE · Temperature: 50–69°F,TE,Temperature,50–69°F,2516,5.94,0.05,0.07,0.1
+TE · Temperature: 70°F+,TE,Temperature,70°F+,1904,5.63,-0.2,-0.2,0.11
+WR · Temperature: 32°F or colder,WR,Temperature,32°F or colder,901,6.99,-0.54,-0.28,0.19
+WR · Temperature: 33–49°F,WR,Temperature,33–49°F,3399,7.08,-0.48,-0.35,0.1
+WR · Temperature: 50–69°F,WR,Temperature,50–69°F,5131,7.59,-0.36,-0.17,0.09
+WR · Temperature: 70°F+,WR,Temperature,70°F+,3756,7.91,-0.24,-0.03,0.11
+QB · Precipitation: Dome / closed roof,QB,Precipitation,Dome / closed roof,1489,15.17,0.43,0.45,0.2
+"QB · Precipitation: Outdoor, no precipitation",QB,Precipitation,"Outdoor, no precipitation",3219,14.48,-0.41,-0.02,0.13
+QB · Precipitation: Rain,QB,Precipitation,Rain,225,12.71,-1.99,-1.27,0.51
+QB · Precipitation: Snow,QB,Precipitation,Snow,44,14.29,-2.01,-1.43,1.0
+RB · Precipitation: Dome / closed roof,RB,Precipitation,Dome / closed roof,3516,8.43,-0.04,0.01,0.11
+"RB · Precipitation: Outdoor, no precipitation",RB,Precipitation,"Outdoor, no precipitation",7588,8.26,-0.15,0.05,0.07
+RB · Precipitation: Rain,RB,Precipitation,Rain,555,7.57,-0.75,-0.4,0.26
+RB · Precipitation: Snow,RB,Precipitation,Snow,104,8.53,0.1,0.01,0.69
+TE · Precipitation: Dome / closed roof,TE,Precipitation,Dome / closed roof,2832,5.91,0.08,0.06,0.1
+"TE · Precipitation: Outdoor, no precipitation",TE,Precipitation,"Outdoor, no precipitation",5993,5.83,-0.02,-0.01,0.07
+TE · Precipitation: Rain,TE,Precipitation,Rain,413,5.04,-0.85,-0.75,0.23
+TE · Precipitation: Snow,TE,Precipitation,Snow,73,6.4,-0.46,0.11,0.61
+WR · Precipitation: Dome / closed roof,WR,Precipitation,Dome / closed roof,5601,8.35,0.24,0.34,0.09
+"WR · Precipitation: Outdoor, no precipitation",WR,Precipitation,"Outdoor, no precipitation",12203,7.6,-0.3,-0.11,0.06
+WR · Precipitation: Rain,WR,Precipitation,Rain,853,6.63,-1.09,-0.89,0.2
+WR · Precipitation: Snow,WR,Precipitation,Snow,168,5.92,-1.74,-1.82,0.38
+All · Wind: 0–9 mph,All,Wind,0–9 mph,20595,8.28,-0.12,0.04,0.04
+All · Wind: 10–14 mph,All,Wind,10–14 mph,7315,7.81,-0.48,-0.3,0.07
+All · Wind: 15–19 mph,All,Wind,15–19 mph,2698,7.62,-0.85,-0.54,0.11
+All · Wind: 20+ mph,All,Wind,20+ mph,685,7.71,-0.73,-0.35,0.24
+All · Temperature: 32°F or colder,All,Temperature,32°F or colder,2134,7.78,-0.5,-0.2,0.13
+All · Temperature: 33–49°F,All,Temperature,33–49°F,8051,7.78,-0.38,-0.21,0.07
+All · Temperature: 50–69°F,All,Temperature,50–69°F,12220,8.21,-0.22,-0.03,0.06
+All · Temperature: 70°F+,All,Temperature,70°F+,8943,8.33,-0.23,-0.06,0.07
+All · Precipitation: Dome / closed roof,All,Precipitation,Dome / closed roof,13438,8.61,0.15,0.21,0.06
+"All · Precipitation: Outdoor, no precipitation",All,Precipitation,"Outdoor, no precipitation",29003,8.17,-0.22,-0.04,0.04
+All · Precipitation: Rain,All,Precipitation,Rain,2046,7.23,-1.05,-0.77,0.13
+All · Precipitation: Snow,All,Precipitation,Snow,389,7.66,-1.04,-0.92,0.3

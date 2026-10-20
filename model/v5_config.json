@@ -1,0 +1,229 @@
+{
+ "notes": "v5: v4 variable set on the honest (as-available, expected-to-play) frame; equal-weight average of extra-trees LightGBM (10 and 25 per leaf), standard LightGBM and CatBoost; official = rank average with the FantasyPros weekly consensus",
+ "drop_groups": [],
+ "extra": [],
+ "members": {
+  "et10": {
+   "kind": "lgb",
+   "params": {
+    "extra_trees": true,
+    "min_data_in_leaf": 10
+   },
+   "seeds": [
+    7,
+    23,
+    41,
+    101,
+    202,
+    303
+   ]
+  },
+  "et25": {
+   "kind": "lgb",
+   "params": {
+    "extra_trees": true,
+    "min_data_in_leaf": 25
+   },
+   "seeds": [
+    7,
+    23,
+    41,
+    101,
+    202,
+    303
+   ]
+  },
+  "std": {
+   "kind": "lgb",
+   "params": {},
+   "seeds": [
+    7,
+    23,
+    41,
+    101,
+    202,
+    303
+   ]
+  },
+  "cat": {
+   "kind": "cat",
+   "seeds": [
+    7,
+    23,
+    41
+   ]
+  }
+ },
+ "round_scale": 1.1,
+ "rounds": {
+  "et10": {
+   "QB": 88,
+   "RB": 105,
+   "WR/TE": 88
+  },
+  "et25": {
+   "QB": 77,
+   "RB": 95,
+   "WR/TE": 136
+  },
+  "std": {
+   "QB": 76,
+   "RB": 78,
+   "WR/TE": 78
+  },
+  "cat": {
+   "QB": 248,
+   "RB": 171,
+   "WR/TE": 107
+  }
+ },
+ "rounds_noweek": {
+  "et10": {
+   "QB": 93,
+   "RB": 115,
+   "WR/TE": 124
+  },
+  "et25": {
+   "QB": 89,
+   "RB": 111,
+   "WR/TE": 111
+  },
+  "std": {
+   "QB": 68,
+   "RB": 83,
+   "WR/TE": 101
+  },
+  "cat": {
+   "QB": 165,
+   "RB": 143,
+   "WR/TE": 151
+  }
+ },
+ "q_rounds": {
+  "QB": {
+   "0.1": 29,
+   "0.9": 94
+  },
+  "RB": {
+   "0.1": 281,
+   "0.9": 134
+  },
+  "WR/TE": {
+   "0.1": 466,
+   "0.9": 310
+  }
+ },
+ "stat_rounds": {
+  "passing_yards": 123,
+  "rushing_yards": 68,
+  "receiving_yards": 96,
+  "receptions": 128
+ },
+ "rounds_from": "early stopping on 2025, trained on 2018-2024",
+ "range_adjust": {
+  "QB": [
+   1.16,
+   0.3
+  ],
+  "RB": [
+   1.16,
+   0.0
+  ],
+  "WR": [
+   1.14,
+   0.0
+  ],
+  "TE": [
+   1.07,
+   0.0
+  ]
+ },
+ "range_adjust_note": "Oct 11, 2026: high end widened by k around the official projection, low end lowered by c points; fit on the 2023-2026 walk-forward (walk-forward check: about 10% of games beyond each end, from about 12%)",
+ "qb_market": {
+  "w_model": 0.3,
+  "cold_offsets": {
+   "0": 3.21,
+   "1": 1.6,
+   "2-3": 2.57
+  },
+  "note": "v5.1 (Oct 12, 2026): projected starting QBs ranked by 30% model + 70% market projection (Vegas implied team points x the QB's recent share of team skill-position fantasy points in his starts) plus a cold-start offset by prior starts (fit on the 2022-2026 walk-forward); the model's own QB points are handed out in that order within the week."
+ },
+ "ros": {
+  "a_weekly": 0.8,
+  "w_model": 0.5,
+  "min_data_in_leaf": 40,
+  "seeds": [
+   7,
+   23,
+   41
+  ],
+  "q_seeds": [
+   7
+  ],
+  "range_k": {
+   "QB": [
+    1.64,
+    0.9
+   ],
+   "RB": [
+    1.46,
+    1.12
+   ],
+   "WR": [
+    1.28,
+    1.1
+   ],
+   "TE": [
+    1.12,
+    0.86
+   ]
+  },
+  "note": "ROS (Oct 12, 2026): points = this week's official projection + games after this week x per-game rate; rate = 0.8 x this week's projection + 0.2 x the ROS rate model (players out or on bye: the ROS rate model alone); official = 50/50 rank average with the FantasyPros ROS rank, model points handed out in that order; ranges from 10th/90th percentile rate models, scaled per position (low, high) on validation seasons. Chosen on 2020-2022 walk-forward, tested on 2023-2025.",
+  "avail": {
+   "note": "Share of his team's remaining games (snapshot week through Week 17) a player actually played, 2020-2025 snapshots weeks 3-14, players the experts ranked (QB32 / RB60 / WR80 / TE32). active = projected this week; out = not projected this week; res = on IR / reserve.",
+   "active": {
+    "QB": 0.83,
+    "RB": 0.87,
+    "WR": 0.89,
+    "TE": 0.88
+   },
+   "out": {
+    "QB": 0.6,
+    "RB": 0.72,
+    "WR": 0.68,
+    "TE": 0.75
+   },
+   "res": {
+    "QB": 0.5,
+    "RB": 0.47,
+    "WR": 0.43,
+    "TE": 0.46
+   }
+  },
+  "big_games": {
+   "note": "Chance of a 400+ passing / 150+ rushing / 175+ receiving yard game given the player's long-run average (logistic on log of the average), fit on 2018-2025 played games; for leagues with yardage bonuses.",
+   "pass400": [
+    -30.0487,
+    4.7941
+   ],
+   "rush150": [
+    -16.7888,
+    3.1512
+   ],
+   "rec175": [
+    -21.1491,
+    3.9508
+   ]
+  },
+  "value": {
+   "threshold_pg": 1.0,
+   "pool": {
+    "QB": 32,
+    "RB": 60,
+    "WR": 80,
+    "TE": 32
+   },
+   "note": "Undervalued / at value / overvalued (trade analyzer): our model's ROS points minus the points our model gives the player at his FantasyPros ROS consensus rank (same position, same week), per game left; >= +1.0 undervalued, <= -1.0 overvalued. Threshold chosen on 2020-2022 walk-forward snapshots (weeks 3-14) from 0.25-2.5; test 2023-2025: undervalued players finished above their market rank 56% of the time (+0.6 PPR per game vs the points at that rank), at value 41% (-0.8), overvalued 30% (-2.4); same order every season and position."
+  }
+ }
+}

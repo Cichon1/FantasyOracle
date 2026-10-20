@@ -1,0 +1,37 @@
+key,stat,condition_type,condition,player_games,vs_recent_avg,se
+QB passing yards · Wind: 0–9 mph,QB passing yards,Wind,0–9 mph,2285,-1.11,1.81
+QB passing yards · Wind: 10–14 mph,QB passing yards,Wind,10–14 mph,801,-9.24,2.94
+QB passing yards · Wind: 15–19 mph,QB passing yards,Wind,15–19 mph,305,-21.33,4.71
+QB passing yards · Wind: 20+ mph,QB passing yards,Wind,20+ mph,81,-40.07,9.36
+QB passing yards · Temperature: 32°F or colder,QB passing yards,Temperature,32°F or colder,230,-15.0,5.27
+QB passing yards · Temperature: 33–49°F,QB passing yards,Temperature,33–49°F,892,-12.0,2.82
+QB passing yards · Temperature: 50–69°F,QB passing yards,Temperature,50–69°F,1372,-4.16,2.33
+QB passing yards · Temperature: 70°F+,QB passing yards,Temperature,70°F+,984,0.5,2.79
+QB passing yards · Precipitation: Dome / closed roof,QB passing yards,Precipitation,Dome / closed roof,1489,2.26,2.29
+"QB passing yards · Precipitation: Outdoor, no precipitation",QB passing yards,Precipitation,"Outdoor, no precipitation",3219,-4.0,1.52
+QB passing yards · Precipitation: Rain,QB passing yards,Precipitation,Rain,225,-21.76,5.45
+QB passing yards · Precipitation: Snow,QB passing yards,Precipitation,Snow,44,-35.28,10.71
+RB rushing yards · Wind: 0–9 mph,RB rushing yards,Wind,0–9 mph,5372,-0.62,0.4
+RB rushing yards · Wind: 10–14 mph,RB rushing yards,Wind,10–14 mph,1929,-1.11,0.66
+RB rushing yards · Wind: 15–19 mph,RB rushing yards,Wind,15–19 mph,722,-1.32,1.03
+RB rushing yards · Wind: 20+ mph,RB rushing yards,Wind,20+ mph,184,4.01,2.12
+RB rushing yards · Temperature: 32°F or colder,RB rushing yards,Temperature,32°F or colder,576,-1.67,1.18
+RB rushing yards · Temperature: 33–49°F,RB rushing yards,Temperature,33–49°F,2145,1.47,0.65
+RB rushing yards · Temperature: 50–69°F,RB rushing yards,Temperature,50–69°F,3201,-1.0,0.5
+RB rushing yards · Temperature: 70°F+,RB rushing yards,Temperature,70°F+,2299,-2.07,0.6
+RB rushing yards · Precipitation: Dome / closed roof,RB rushing yards,Precipitation,Dome / closed roof,3516,-0.21,0.49
+"RB rushing yards · Precipitation: Outdoor, no precipitation",RB rushing yards,Precipitation,"Outdoor, no precipitation",7588,-0.76,0.33
+RB rushing yards · Precipitation: Rain,RB rushing yards,Precipitation,Rain,555,-0.49,1.28
+RB rushing yards · Precipitation: Snow,RB rushing yards,Precipitation,Snow,104,3.12,3.09
+WR/TE receiving yards · Wind: 0–9 mph,WR/TE receiving yards,Wind,0–9 mph,12938,-0.6,0.25
+WR/TE receiving yards · Wind: 10–14 mph,WR/TE receiving yards,Wind,10–14 mph,4585,-1.82,0.4
+WR/TE receiving yards · Wind: 15–19 mph,WR/TE receiving yards,Wind,15–19 mph,1671,-3.49,0.64
+WR/TE receiving yards · Wind: 20+ mph,WR/TE receiving yards,Wind,20+ mph,420,-5.98,1.26
+WR/TE receiving yards · Temperature: 32°F or colder,WR/TE receiving yards,Temperature,32°F or colder,1328,-2.15,0.69
+WR/TE receiving yards · Temperature: 33–49°F,WR/TE receiving yards,Temperature,33–49°F,5014,-1.64,0.38
+WR/TE receiving yards · Temperature: 50–69°F,WR/TE receiving yards,Temperature,50–69°F,7647,-1.08,0.32
+WR/TE receiving yards · Temperature: 70°F+,WR/TE receiving yards,Temperature,70°F+,5660,-0.89,0.38
+WR/TE receiving yards · Precipitation: Dome / closed roof,WR/TE receiving yards,Precipitation,Dome / closed roof,8433,0.88,0.31
+"WR/TE receiving yards · Precipitation: Outdoor, no precipitation",WR/TE receiving yards,Precipitation,"Outdoor, no precipitation",18196,-0.94,0.21
+WR/TE receiving yards · Precipitation: Rain,WR/TE receiving yards,Precipitation,Rain,1266,-4.73,0.73
+WR/TE receiving yards · Precipitation: Snow,WR/TE receiving yards,Precipitation,Snow,241,-5.17,1.53

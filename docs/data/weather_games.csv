@@ -1,0 +1,13 @@
+key,condition_type,condition,games,total_points,vs_vegas_total,vs_vegas_total_se,total_line
+Wind: 0–9 mph,Wind,0–9 mph,1052,46.08,0.9,0.41,45.18
+Wind: 10–14 mph,Wind,10–14 mph,368,43.0,-1.36,0.64,44.36
+Wind: 15–19 mph,Wind,15–19 mph,135,41.69,-2.51,1.09,44.2
+Wind: 20+ mph,Wind,20+ mph,34,43.82,0.43,2.29,43.4
+Temperature: 32°F or colder,Temperature,32°F or colder,101,45.33,0.82,1.25,44.5
+Temperature: 33–49°F,Temperature,33–49°F,394,43.13,-0.97,0.69,44.11
+Temperature: 50–69°F,Temperature,50–69°F,614,45.41,0.41,0.52,44.99
+Temperature: 70°F+,Temperature,70°F+,483,45.78,0.34,0.59,45.43
+Precipitation: Dome / closed roof,Precipitation,Dome / closed roof,678,48.21,1.68,0.51,46.53
+"Precipitation: Outdoor, no precipitation",Precipitation,"Outdoor, no precipitation",1471,45.4,0.38,0.34,45.02
+Precipitation: Rain,Precipitation,Rain,107,38.79,-4.36,1.27,43.15
+Precipitation: Snow,Precipitation,Snow,19,44.68,0.11,2.47,44.58

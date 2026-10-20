@@ -1,0 +1,30 @@
+step,test,what,r2_change,seasons_better,rank_corr_change,model_rank_corr,blend_rank_corr,val_rmse,decision,key,_i
+Honest test,Old test setup (for reference),"v4 model on the old leaky data (1 seed, played-only pool)",,,,0.4027,0.4152,,Replaced,Old test setup (for reference),0
+Honest test,Honest baseline,v4 variables on as-available data with expected-to-play players (3 seeds),0.0,0.0,0.0,0.4249,0.4307,5.6887,Baseline,Honest baseline,1
+Honest test,Noise check,"Same model, different random seeds: how much results move by chance",0.0002,1.0,-0.0003,0.4246,0.4294,5.6888,Reference,Noise check,2
+Test bias,No Vegas lines,Upper bound on how much closing lines could flatter the backtest,-0.0039,0.0,-0.0055,0.4194,0.428,5.7074,Measured (lines kept),No Vegas lines,3
+Thursday run,No weekly expert rank,What the Thursday run gives up before the weekly consensus posts,-0.005,0.0,-0.0075,0.4175,0.4268,5.706,Measured (Sunday run kept),No weekly expert rank,4
+Blend,Expert rank out of the model,"Gemini's suggestion: pure model, blend with experts afterwards",-0.0076,0.0,-0.0062,0.4187,0.4294,5.7206,Dropped,Expert rank out of the model,5
+WR / role,Trend features,Last 3 / recent vs 12-game averages,-0.0007,2.0,-0.0024,0.4225,0.4296,5.6889,Dropped,Trend features,6
+WR / role,2nd-half role,Share of targets / carries after halftime last game,-0.0002,1.0,0.0012,0.4261,0.4301,5.6863,Dropped,2nd-half role,7
+WR / role,Slot proxy,Middle / short / behind-line target shares; defense vs middle and outside,0.0004,3.0,-0.0028,0.4222,0.4278,5.6859,Dropped,Slot proxy,8
+WR / role,Team-first volume,"Expected dropbacks and rushes x shares, vacated volume handed out",0.0005,3.0,-0.0048,0.4202,0.4278,5.6846,Dropped,Team-first volume,9
+WR / role,Backup QB x receiver,QB change x depth of target / short share / target share,0.0002,2.0,-0.001,0.4239,0.4281,5.6868,Dropped,Backup QB x receiver,10
+WR / role,Injury type,"Soft-tissue / lower-body flags, first game back",0.0004,3.0,-0.0017,0.4233,0.4286,5.6867,Dropped,Injury type,11
+Rookies,Rookie profile,"Combine measurables, speed score, draft age",0.0001,2.0,-0.0027,0.4222,0.4288,5.6903,Dropped,Rookie profile,12
+WR / role,"All WR groups, WR/TE model only",Every new group added to the WR/TE model alone,0.0001,2.0,-0.0009,0.424,0.4298,5.6894,Dropped,"All WR groups, WR/TE model only",13
+WR / role,All new groups,Every new group in every model,-0.0003,2.0,-0.0009,0.424,0.4279,5.6916,Dropped,All new groups,14
+Training,Recency weighting 0.9,Older seasons weighted 0.9x per season back,-0.0006,1.0,-0.0045,0.4204,0.4265,5.6917,Dropped,Recency weighting 0.9,15
+Training,Recency weighting 0.8,Older seasons weighted 0.8x per season back,-0.0012,1.0,-0.0044,0.4205,0.4271,5.6954,Dropped,Recency weighting 0.8,16
+Tuning,Smaller trees,"15 leaves, 200 per leaf",-0.0022,0.0,-0.0038,0.4212,0.4278,5.6989,Dropped,Smaller trees,17
+Tuning,Bigger trees,63 leaves,-0.0004,1.0,-0.004,0.4209,0.4274,5.6922,Dropped,Bigger trees,18
+Tuning,Heavier smoothing,"300 per leaf, stronger L2",-0.0036,0.0,-0.0066,0.4183,0.4271,5.7057,Dropped,Heavier smoothing,19
+Tuning,Fewer variables per tree,50% of variables per tree,-0.0004,2.0,-0.0036,0.4213,0.428,5.6846,Dropped,Fewer variables per tree,20
+Tuning,Slower learning rate,0.03 instead of 0.05,0.0,2.0,-0.0031,0.4218,0.4276,5.6895,Dropped,Slower learning rate,21
+Ensemble,6 seeds,Average of 6 random seeds instead of 3,0.0008,4.0,0.001,0.4259,0.4295,5.6848,Kept,6 seeds,22
+Ensemble,Extra-trees,"Randomized split points, 50 per leaf",0.0026,3.0,0.0016,0.4265,0.4299,5.6705,Kept (tuned below),Extra-trees,23
+Ensemble,"Extra-trees, 25 per leaf",6 seeds,0.0055,4.0,0.0032,0.4281,0.4302,5.6581,Kept,"Extra-trees, 25 per leaf",24
+Ensemble,"Extra-trees, 10 per leaf",6 seeds,0.0064,3.0,0.0045,0.4294,0.4314,5.6515,Kept,"Extra-trees, 10 per leaf",25
+Ensemble,"Extra-trees, 5 per leaf",No better than 10 per leaf on validation,0.0052,3.0,0.0042,0.4291,0.4309,5.6572,Dropped,"Extra-trees, 5 per leaf",26
+Ensemble,CatBoost,"Second model family, 3 seeds",0.0017,2.0,-0.0002,0.4247,0.4309,5.6759,Kept (in the average),CatBoost,27
+Ensemble,Final average,Extra-trees (10 and 25 per leaf) + standard + CatBoost,0.0057,4.0,0.0061,0.431,0.4321,5.6553,Locked as v5,Final average,28
