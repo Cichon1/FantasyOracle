@@ -1,14 +1,14 @@
 {
- "updated": "2026-10-20T14:15:42+00:00",
+ "updated": "2026-10-20T15:09:13+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 6,
  "games_started": false,
- "reason": "schedule_and_lines",
+ "reason": "player_stats,play_by_play,schedule_and_lines",
  "steps": [
   {
    "step": "bash",
-   "seconds": 17,
+   "seconds": 20,
    "ok": true
   },
   {
@@ -23,12 +23,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 190,
+   "seconds": 41,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 38,
+   "seconds": 20,
    "ok": true
   }
  ],
@@ -71,10 +71,10 @@
    "WR/TE": 73
   },
   "experts_ros_date": "2026-10-16 00:00:00",
-  "seconds": 37,
+  "seconds": 19,
   "model_cache": {
-   "hit": 6,
-   "miss": 12,
+   "hit": 18,
+   "miss": 0,
    "on": true
   },
   "top": {
@@ -85,11 +85,11 @@
     ],
     [
      "Drake Maye",
-     199.9
+     200.7
     ],
     [
      "Joe Burrow",
-     197.3
+     195.6
     ]
    ],
    "RB": [
@@ -99,11 +99,11 @@
     ],
     [
      "Bijan Robinson",
-     211.1
+     211.9
     ],
     [
      "Kenneth Walker III",
-     209.1
+     207.5
     ]
    ],
    "TE": [
