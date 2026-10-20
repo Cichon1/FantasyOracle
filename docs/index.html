@@ -279,14 +279,30 @@
         <h2>Waiver wire</h2>
         <p class="nf-note">Best players nobody in this league has rostered, by rest-of-season points per game in this league's
         scoring (missed games expected as zero). <b>Upgrade</b> is how much more per game he projects than the weakest
-        player you have at his position.</p>
+        player you have at his position. <b>Adds 24h</b>: how many Sleeper leagues picked him up in the last day (news
+        travels there fast).</p>
         <div class="nf-controls" id="team-waiver-pos" role="group" aria-label="Position"></div>
         <div class="nf-tablebox">
           <table class="nf-table" id="team-waiver-table">
-            <thead><tr><th class="nf-l">Player</th><th class="nf-l">Pos</th><th>This wk</th><th>ROS / gm</th><th>ROS start %</th><th class="nf-l">Upgrade</th></tr></thead>
+            <thead><tr><th class="nf-l">Player</th><th class="nf-l">Pos</th><th>This wk</th><th>ROS / gm</th><th>ROS start %</th><th class="nf-hide-sm">Adds 24h</th><th class="nf-l">Upgrade</th></tr></thead>
             <tbody></tbody>
           </table>
         </div>
+      </div>
+    </div>
+    <div class="nf-card" id="team-trades-card">
+      <h2>Trade finder</h2>
+      <p class="nf-note">Trades with every other team in this league that make your best weekly lineup better <b>and</b>
+      make theirs better too — the ones they have a reason to accept — ranked by what the trade adds for both sides. Values are rest-of-season points per week in this
+      league's scoring (missed games count as zero), filled into each team's lineup slots before and after the trade.
+      One-for-one, two-for-one and one-for-two; for uneven trades the side getting two players has to drop someone, which
+      isn't counted. Open the Trade analyzer to check a trade in full.</p>
+      <div class="nf-controls" id="team-trade-kind" role="group" aria-label="Trade size"></div>
+      <div class="nf-tablebox">
+        <table class="nf-table" id="team-trade-table">
+          <thead><tr><th class="nf-l">You give</th><th class="nf-l">You get</th><th class="nf-l">With</th><th>You / wk</th><th>Them / wk</th></tr></thead>
+          <tbody></tbody>
+        </table>
       </div>
     </div>
   </section>
@@ -1218,7 +1234,7 @@ dash.onData(() => {
     lb.replaceChildren(); wb.replaceChildren();
     if ([L, RO, P, R].some((d) => d.status !== 'ok')) {
       const bad = [L, RO, P, R].some((d) => d.status === 'error');
-      message(lb, 6, bad ? 'Failed to load' : '—'); message(wb, 6, bad ? 'Failed to load' : '—'); return;
+      message(lb, 6, bad ? 'Failed to load' : '—'); message(wb, 7, bad ? 'Failed to load' : '—'); return;
     }
     const leagues = L.data;
     if (!st.league || !leagues.find((l) => String(l.league_id) === st.league)) st.league = String(leagues[0].league_id);
@@ -1292,6 +1308,7 @@ dash.onData(() => {
 
     // ---------------------------------------------------------------- waiver wire
     const owned = new Set(roster.map((p) => p.ros_key).filter(Boolean));
+    const TR = dash.data('trending'), adds = new Map(TR.status === 'ok' ? TR.data.map((t) => [t.key, num(t.adds_24h)]) : []);
     const lgv = (r) => Math.max(0, num(r.ros_ppg) + adj(r, lg) * num(r.play_rate, num(r.avail, 1)));
     const worst = {};
     SKILL.forEach((pos) => {
@@ -1303,7 +1320,7 @@ dash.onData(() => {
     const fa = R.data.filter((r) => SKILL.includes(r.pos) && !owned.has(r.key) && r.status !== 'IR / reserve'
       && (st.pos === 'All' || r.pos === st.pos)).map((r) => ({ r, v: lgv(r) }))
       .sort((a, b) => (st.pos === 'All' ? gain(b) - gain(a) : b.v - a.v)).slice(0, st.pos === 'All' ? 15 : 12);
-    if (!fa.length) { message(wb, 6, 'No unrostered players with a projection at this position.'); return; }
+    if (!fa.length) { message(wb, 7, 'No unrostered players with a projection at this position.'); return; }
     fa.forEach(({ r, v }) => {
       const tr = document.createElement('tr'); tr.dataset.pos = r.pos;
       cell(tr, r.player + ' (' + r.team + ')', 'nf-l');
@@ -1312,6 +1329,7 @@ dash.onData(() => {
       cell(tr, w && w.status !== 'Inactive' ? f1(num(w.proj_ppr) + adj(r, lg)) : (r.status === 'Bye this week' ? 'Bye' : '—'), w ? '' : 'nf-muted');
       cell(tr, f1(v));
       const sp = cell(tr, ''); nfConf(sp, r.ros_start_pct, r.ros_confidence);
+      const ad = adds.get(r.key); cell(tr, ad ? d3.format(',')(ad) : '—', 'nf-hide-sm' + (ad ? '' : ' nf-muted'));
       const wo = worst[r.pos], up = cell(tr, '', 'nf-l');
       if (!wo) up.textContent = 'You have no ' + r.pos;
       else {
@@ -1323,7 +1341,83 @@ dash.onData(() => {
       wb.appendChild(tr);
     });
   }
+  // ---------------------------------------------------------------- trade finder
+  const tst = { kind: 'All' }, kindBox = document.getElementById('team-trade-kind');
+  ['All', '1 for 1', '2 for 1', '1 for 2'].forEach((k) => {
+    const b = document.createElement('button'); b.className = 'nf-chip'; b.textContent = k; b.setAttribute('aria-pressed', k === tst.kind);
+    b.addEventListener('click', () => { tst.kind = k; kindBox.querySelectorAll('button').forEach((c) => c.setAttribute('aria-pressed', c.textContent === k)); drawTrades(); });
+    kindBox.append(b, ' ');
+  });
+  let tradeCache = { key: null, rows: [] };
+  function drawTrades() {
+    const tb = document.querySelector('#team-trade-table tbody'); tb.replaceChildren();
+    const L = dash.data('leagues'), RO = dash.data('league_rosters'), R = dash.data('ros');
+    if ([L, RO, R].some((d) => d.status !== 'ok') || !st.league) { message(tb, 5, '—'); return; }
+    const lg = L.data.find((l) => String(l.league_id) === st.league);
+    const key = st.league + '|' + RO.data.length + '|' + R.data.length + '|' + d3.max(RO.data, (p) => p.pulled_at);
+    if (tradeCache.key !== key) tradeCache = { key, rows: findTrades(lg, RO.data, R.data) };
+    const rows = tradeCache.rows.filter((t) => tst.kind === 'All' || t.kind === tst.kind).slice(0, 20);
+    if (!rows.length) { message(tb, 5, 'No trades found that help you without hurting them. Try again after the next roster pull.'); return; }
+    rows.forEach((t) => {
+      const tr = document.createElement('tr');
+      cell(tr, t.give.map((x) => x.name + ' (' + x.pos + ')').join(' + '), 'nf-l');
+      cell(tr, t.get.map((x) => x.name + ' (' + x.pos + ')').join(' + '), 'nf-l');
+      cell(tr, t.team, 'nf-l nf-muted');
+      cell(tr, sg(t.me), 'nf-good');
+      cell(tr, sg(t.them), t.them >= 0.25 ? 'nf-good' : 'nf-muted');
+      tb.appendChild(tr);
+    });
+  }
+  function findTrades(lg, rosters, rosRows) {
+    const ros = new Map(rosRows.map((r) => [r.key, r]));
+    const slots = String(lg.lineup || '').split(' ').filter((x) => elig(x).length);
+    const order = slots.slice().sort((a, b) => elig(a).length - elig(b).length);
+    const val = (r) => Math.max(0, num(r.ros_ppg) + adj(r, lg) * num(r.play_rate, num(r.avail, 1)));
+    const teams = new Map();
+    rosters.filter((p) => String(p.league_id) === st.league && p.kind === 'skill' && p.slot !== 'IR' && p.ros_key && ros.has(p.ros_key))
+      .forEach((p) => {
+        const r = ros.get(p.ros_key);
+        if (!teams.has(p.team_id)) teams.set(p.team_id, { name: p.team, me: String(p.is_me) === '1', players: [] });
+        teams.get(p.team_id).players.push({ name: p.player, pos: p.pos, v: val(r), key: p.ros_key });
+      });
+    const lineup = (ps) => {
+      const pool = ps.slice().sort((a, b) => b.v - a.v), used = new Set(); let t = 0;
+      order.forEach((s) => { const x = pool.find((y) => !used.has(y) && elig(s).includes(y.pos)); if (x) { used.add(x); t += x.v; } });
+      return t;
+    };
+    const me = [...teams.values()].find((t) => t.me);
+    if (!me) return [];
+    const base = lineup(me.players), out = [];
+    const mine = me.players.slice().sort((a, b) => b.v - a.v);
+    const combos = (arr, k) => (k === 1 ? arr.map((x) => [x]) : arr.flatMap((x, i) => arr.slice(i + 1).map((y) => [x, y])));
+    for (const t of teams.values()) {
+      if (t.me) continue;
+      const tb0 = lineup(t.players), theirs = t.players.slice().sort((a, b) => b.v - a.v);
+      for (const [ng, nr, kind] of [[1, 1, '1 for 1'], [2, 1, '2 for 1'], [1, 2, '1 for 2']]) {
+        const gives = combos(ng === 2 ? mine.slice(0, 10) : mine, ng), gets = combos(nr === 2 ? theirs.slice(0, 10) : theirs, nr);
+        for (const g of gives) for (const r of gets) {
+          const m2 = me.players.filter((x) => !g.includes(x)).concat(r), t2 = t.players.filter((x) => !r.includes(x)).concat(g);
+          const dm = lineup(m2) - base, dt = lineup(t2) - tb0;
+          if (dm >= 0.5 && dt >= 0.25) out.push({ give: g, get: r, team: t.name, me: dm, them: dt, kind });
+        }
+      }
+    }
+    // best first by what the trade adds for both sides together (both must gain); at most two per trade partner and
+    // per player you'd get, so the list shows different ideas instead of one deal in ten versions
+    out.sort((a, b) => (b.me + b.them) - (a.me + a.them));
+    const perTeam = new Map(), perGet = new Map(), kept = [];
+    for (const t of out) {
+      const gk = t.get.map((x) => x.key).join('+');
+      if ((perTeam.get(t.team + t.kind) || 0) >= 2 || (perGet.get(gk + t.kind) || 0) >= 2) continue;
+      perTeam.set(t.team + t.kind, (perTeam.get(t.team + t.kind) || 0) + 1); perGet.set(gk + t.kind, (perGet.get(gk + t.kind) || 0) + 1);
+      kept.push(t);
+    }
+    return kept;
+  }
   dash.onData(draw);
+  dash.onData(drawTrades);
+  const _draw = draw;
+  draw = () => { _draw(); drawTrades(); };
 })();
 </script>
 

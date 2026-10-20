@@ -198,6 +198,12 @@
    "title": "Weather vs yards by stat",
    "description": "2018\u20132026 QB passing, RB rushing and WR/TE receiving yards vs each player's recent weighted average, by weather bucket, with standard errors.",
    "updated": "2026-10-09T01:40:24Z"
+  },
+  "trending": {
+   "file": "trending.csv",
+   "title": "Sleeper trending adds / drops",
+   "description": "How many Sleeper leagues added or dropped each QB/RB/WR/TE in the last 24 hours.",
+   "updated": null
   }
  },
  "note": "Week 7 projections"

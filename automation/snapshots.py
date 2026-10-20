@@ -26,7 +26,18 @@ def get(url, timeout=60):
 
 
 def main(site):
-    players = get("https://api.sleeper.app/v1/players/nfl", timeout=120)
+    # Sleeper asks that the full player list be pulled at most once a day: keep a dated copy in the model cache
+    cache = os.path.join(HERE, "..", "model", "cache")
+    os.makedirs(cache, exist_ok=True)
+    pf = os.path.join(cache, f"sleeper_players_{dt.date.today().isoformat()}.json")
+    if os.path.exists(pf):
+        players = json.load(open(pf))
+    else:
+        players = get("https://api.sleeper.app/v1/players/nfl", timeout=120)
+        for old in os.listdir(cache):
+            if old.startswith("sleeper_players_"):
+                os.remove(os.path.join(cache, old))
+        json.dump(players, open(pf, "w"))
     rows = {}
     for kind in ("add", "drop"):
         for t in get(f"https://api.sleeper.app/v1/players/nfl/trending/{kind}?lookback_hours=24&limit=100"):

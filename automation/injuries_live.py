@@ -7,10 +7,10 @@ a day late. This reads two free sources as soon as they change and writes the cu
       Mon-Wed before a Thursday game) and Friday game statuses, minutes after the league releases them. Used only when
       the page shows the week being projected. Fills practice_status / report_status / injury; never blanks a value the
       daily file already has.
-  Sleeper (https://api.sleeper.app/v1/players/nfl, free, no key): breaking news between official reports. Only strong
-      statuses are used - IR, PUP, suspended or Out - and only when Sleeper's news timestamp falls in the current
-      game week; they become report_status "Out". (Sleeper keeps last week's Questionable until it changes, so weaker
-      statuses aren't trusted.)
+  ESPN injury feed (site.api.espn.com/.../nfl/injuries, free, no key): breaking news between official reports. Only
+      strong statuses are used - injured reserve, PUP, suspension or Out - and only when ESPN dated the entry inside the
+      current game week; they become report_status "Out". (Weaker statuses linger from earlier weeks, so they aren't
+      trusted.)
 
 The model already treats an early-week practice report as provisional (a midweek DNP counts as limited until the
 final report), so earlier data changes nothing about how a status is read - only when it arrives.
@@ -38,7 +38,6 @@ from inactives_nfl import NICK, UA  # noqa: E402
 
 PRACTICE = {"Did Not Participate In Practice", "Limited Participation in Practice", "Full Participation in Practice"}
 STATUS = {"Out", "Doubtful", "Questionable"}
-STRONG = {"IR": "Out", "PUP": "Out", "Sus": "Out", "Out": "Out", "NFI": "Out"}
 TITLE = {k.title() if k != "49ERS" else "49ers": v for k, v in NICK.items()}
 
 
@@ -71,19 +70,33 @@ def nfl_report(page):
     return week, rows
 
 
-def sleeper_news(week_start):
-    d = json.loads(fetch("https://api.sleeper.app/v1/players/nfl", timeout=120))
+ESPN_STRONG = {"Out": "Out", "Injured Reserve": "Out", "Suspension": "Out", "Physically Unable to Perform": "Out",
+               "Non-Football Injury": "Out"}
+FULL = {"Arizona Cardinals": "ARI", "Atlanta Falcons": "ATL", "Baltimore Ravens": "BAL", "Buffalo Bills": "BUF",
+        "Carolina Panthers": "CAR", "Chicago Bears": "CHI", "Cincinnati Bengals": "CIN", "Cleveland Browns": "CLE",
+        "Dallas Cowboys": "DAL", "Denver Broncos": "DEN", "Detroit Lions": "DET", "Green Bay Packers": "GB",
+        "Houston Texans": "HOU", "Indianapolis Colts": "IND", "Jacksonville Jaguars": "JAX", "Kansas City Chiefs": "KC",
+        "Los Angeles Rams": "LA", "Los Angeles Chargers": "LAC", "Las Vegas Raiders": "LV", "Miami Dolphins": "MIA",
+        "Minnesota Vikings": "MIN", "New England Patriots": "NE", "New Orleans Saints": "NO", "New York Giants": "NYG",
+        "New York Jets": "NYJ", "Philadelphia Eagles": "PHI", "Pittsburgh Steelers": "PIT", "Seattle Seahawks": "SEA",
+        "San Francisco 49ers": "SF", "Tampa Bay Buccaneers": "TB", "Tennessee Titans": "TEN", "Washington Commanders": "WAS"}
+
+
+def espn_news(since):
+    """ESPN's league-wide injury feed: players put on IR / PUP / suspended or ruled Out since `since`."""
+    d = json.loads(fetch("https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries", timeout=120))
     out = []
-    cut = week_start.timestamp() * 1000
-    for p in d.values():
-        st = p.get("injury_status")
-        if st not in STRONG or not p.get("team") or not p.get("gsis_id"):
-            continue
-        if (p.get("news_updated") or 0) < cut:
-            continue
-        out.append({"player_id": str(p["gsis_id"]).strip(), "name": p.get("full_name") or "",
-                    "team": I.TEAM_FIX.get(p["team"], p["team"]).replace("LAR", "LA"), "pos": p.get("position") or "",
-                    "injury": p.get("injury_body_part") or "", "status": STRONG[st], "sleeper": st})
+    for tm in d.get("injuries", []):
+        team = FULL.get(tm.get("displayName"))
+        for x in tm.get("injuries", []):
+            st = ESPN_STRONG.get(x.get("status"))
+            when = pd.Timestamp(x.get("date")) if x.get("date") else None
+            if not team or not st or when is None or when < since:
+                continue
+            a = x.get("athlete", {})
+            out.append({"name": a.get("displayName", ""), "team": team,
+                        "pos": (a.get("position") or {}).get("abbreviation", ""), "injury": "",
+                        "status": st, "espn": x.get("status")})
     return out
 
 
@@ -126,10 +139,10 @@ def gather(data_dir, season, week):
     except Exception as e:
         info["nfl_error"] = str(e)[:200]
     try:
-        news = sleeper_news(week_window(data_dir, season, week))
-        info["sleeper_out"] = len(news)
+        news, miss = match(espn_news(week_window(data_dir, season, week)), data_dir, season, week)
+        info["espn_out"], info["espn_unmatched"] = len(news), miss[:20]
     except Exception as e:
-        info["sleeper_error"] = str(e)[:200]
+        info["espn_error"] = str(e)[:200]
     key = sorted((r["player_id"], r.get("practice", ""), r.get("status", "")) for r in official + news)
     info["hash"] = hashlib.sha1(json.dumps(key).encode()).hexdigest()[:12] if key else None
     return official, news, info
@@ -177,11 +190,8 @@ def raw_stamp(week):
     except Exception:
         pass
     try:
-        since = dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=7)
-        d = json.loads(fetch("https://api.sleeper.app/v1/players/nfl", timeout=120))
-        key += sorted((str(p.get("gsis_id")).strip(), p.get("injury_status")) for p in d.values()
-                      if p.get("injury_status") in STRONG and p.get("team")
-                      and (p.get("news_updated") or 0) >= since.timestamp() * 1000)
+        since = pd.Timestamp.now(tz="UTC") - pd.Timedelta(days=7)
+        key += sorted((r["team"], r["name"], r["status"]) for r in espn_news(since))
     except Exception:
         pass
     return hashlib.sha1(json.dumps(key).encode()).hexdigest()[:12] if key else None
@@ -193,10 +203,13 @@ def main():
     ap.add_argument("--season", type=int, required=True)
     ap.add_argument("--week", type=int, required=True)
     ap.add_argument("--dry", action="store_true")
+    ap.add_argument("--info", default=None, help="also write the summary to this JSON file")
     a = ap.parse_args()
     official, news, info = gather(a.data, a.season, a.week)
     if not a.dry and (official or news):
         info.update(apply(official, news, a.data, a.season, a.week))
+    if a.info:
+        json.dump(info, open(a.info, "w"), indent=1)
     print(json.dumps(info))
 
 

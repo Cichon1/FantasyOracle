@@ -94,7 +94,7 @@ jobs:
           fi
           git config user.name "fantasy-oracle-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/data automation/state
+          git add docs/data automation/state automation/history
           git diff --cached --quiet && exit 0
           git commit -m "Update: ${{ steps.watch.outputs.what }}${{ steps.yahoo.outputs.changed == 'true' && ' yahoo' || '' }}"
           git pull --rebase -X theirs origin ${{ github.ref_name }}

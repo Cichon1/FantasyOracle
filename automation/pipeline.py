@@ -79,7 +79,7 @@ def main():
         run([sys.executable, os.path.join(ROOT, "automation", "weather.py"), "--data", "data", "--season", str(season),
              "--week", str(w_proj), "--out", "ref"], log)
         run([sys.executable, os.path.join(ROOT, "automation", "injuries_live.py"), "--data", "data", "--season",
-             str(season), "--week", str(w_proj)], log)
+             str(season), "--week", str(w_proj), "--info", os.path.join("dash_out", "injuries_live.json")], log)
         run([sys.executable, os.path.join(ROOT, "automation", "inactives_nfl.py"), "--season", str(season),
              "--week", str(w_proj), "--out", "ref"], log)
         run([sys.executable, "cloud_run.py", "project", "--store", store, "--season", str(season), "--week", str(w_proj)]
@@ -97,6 +97,7 @@ def main():
             shutil.copy(src, os.path.join(SITE, f))
             cat["datasets"].setdefault(did, {"file": f, "title": did})["updated"] = now
     subprocess.run([sys.executable, os.path.join(ROOT, "automation", "confidence.py"), SITE], check=True)
+    subprocess.run([sys.executable, os.path.join(ROOT, "automation", "snapshots.py"), SITE])   # optional: never fails the update
     cat["updated"] = now
     cat["note"] = f"Week {w_proj} projections" if w_proj else "season complete"
     json.dump(cat, open(cat_path, "w"), indent=1)
@@ -104,7 +105,7 @@ def main():
         json.dump({"week": w_proj}, open(os.path.join(SITE, "params.json"), "w"))
     info = {"updated": now, "season": season, "projection_week": w_proj, "results_week": w_res,
             "games_started": started, "reason": a.reason, "steps": log}
-    for f in ["run_info.json", "ros_info.json"]:
+    for f in ["run_info.json", "ros_info.json", "injuries_live.json"]:
         p = os.path.join(OUT, f)
         if os.path.exists(p):
             info[f[:-5]] = json.load(open(p))
