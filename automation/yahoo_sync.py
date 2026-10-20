@@ -20,6 +20,7 @@ import json
 import os
 import sys
 import urllib.parse
+import urllib.error
 import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
@@ -33,6 +34,7 @@ SITE = os.path.join(ROOT, "docs", "data")
 API = "https://fantasysports.yahooapis.com/fantasy/v2"
 REDIRECT = os.environ.get("YAHOO_REDIRECT", "https://cichon1.github.io/FantasyOracle/yahoo.html")
 LEAGUES = ["126912", "200436", "727092"]
+UA = {"User-Agent": "Mozilla/5.0 (FantasyOracle; +https://github.com/Cichon1/FantasyOracle)"}
 FILES = ["league_rosters_v5.csv", "leagues_v5.csv", "league_standings_v5.csv", "league_schedule_v5.csv"]
 
 
@@ -47,10 +49,13 @@ def _token_call(data):
     auth = base64.b64encode(f"{os.environ['YAHOO_CLIENT_ID']}:{os.environ['YAHOO_CLIENT_SECRET']}".encode()).decode()
     req = urllib.request.Request("https://api.login.yahoo.com/oauth2/get_token",
                                  data=urllib.parse.urlencode(data).encode(),
-                                 headers={"Authorization": "Basic " + auth,
+                                 headers={"Authorization": "Basic " + auth, **UA,
                                           "Content-Type": "application/x-www-form-urlencoded"})
-    with urllib.request.urlopen(req, timeout=30) as r:
-        return json.load(r)
+    try:
+        with urllib.request.urlopen(req, timeout=30) as r:
+            return json.load(r)
+    except urllib.error.HTTPError as e:
+        raise RuntimeError(f"token request: HTTP {e.code} {e.read()[:300]!r}") from None
 
 
 def save_refresh(tok):
@@ -75,9 +80,12 @@ def strip(e):
 
 
 def get(tok, path):
-    req = urllib.request.Request(f"{API}/{path}", headers={"Authorization": "Bearer " + tok})
-    with urllib.request.urlopen(req, timeout=60) as r:
-        return strip(ET.fromstring(r.read()))
+    req = urllib.request.Request(f"{API}/{path}", headers={"Authorization": "Bearer " + tok, **UA})
+    try:
+        with urllib.request.urlopen(req, timeout=60) as r:
+            return strip(ET.fromstring(r.read()))
+    except urllib.error.HTTPError as e:
+        raise RuntimeError(f"GET {path}: HTTP {e.code} {e.read()[:300]!r}") from None
 
 
 def t(e, path, default=""):
