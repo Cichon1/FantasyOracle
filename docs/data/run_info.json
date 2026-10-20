@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-20T19:13:34+00:00",
+ "updated": "2026-10-20T20:02:31+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 6,
@@ -8,7 +8,7 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 46,
+   "seconds": 45,
    "ok": true
   },
   {
@@ -33,12 +33,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 39,
+   "seconds": 40,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 19,
+   "seconds": 20,
    "ok": true
   }
  ],
@@ -81,7 +81,7 @@
    "WR/TE": 73
   },
   "experts_ros_date": "2026-10-16 00:00:00",
-  "seconds": 18,
+  "seconds": 19,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -99,7 +99,7 @@
     ],
     [
      "Joe Burrow",
-     195.6
+     194.6
     ]
    ],
    "RB": [
@@ -109,11 +109,11 @@
     ],
     [
      "Bijan Robinson",
-     213.2
+     212.4
     ],
     [
      "Christian McCaffrey",
-     211.9
+     211.1
     ]
    ],
    "TE": [
@@ -151,7 +151,8 @@
   "nfl_rows": 376,
   "espn_out": 3,
   "espn_unmatched": [
-   "C.J. Gardner-Johnson (BUF)"
+   "C.J. Gardner-Johnson (BUF)",
+   "Terry McLaurin (WAS)"
   ],
   "hash": "0797b9d8cdec",
   "rows_added": 3,
