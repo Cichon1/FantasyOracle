@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-20T06:15:42+00:00",
+ "updated": "2026-10-20T07:40:32+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 6,
@@ -8,12 +8,12 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 14,
+   "seconds": 17,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 3,
+   "seconds": 2,
    "ok": true
   },
   {
@@ -23,12 +23,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 39,
+   "seconds": 32,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 19,
+   "seconds": 15,
    "ok": true
   }
  ],
@@ -64,14 +64,14 @@
   "out_this_week": 51,
   "on_bye": 52,
   "this_week_source": "official",
-  "training_snapshots": 47931,
+  "training_snapshots": 47945,
   "rounds": {
    "QB": 50,
-   "RB": 96,
-   "WR/TE": 56
+   "RB": 100,
+   "WR/TE": 66
   },
   "experts_ros_date": "2026-10-16 00:00:00",
-  "seconds": 18,
+  "seconds": 14,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -81,35 +81,35 @@
    "QB": [
     [
      "Brock Purdy",
-     208.7
+     205.8
     ],
     [
      "Drake Maye",
-     200.0
+     201.8
     ],
     [
      "Joe Burrow",
-     194.7
+     198.3
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     257.0
+     257.5
     ],
     [
      "Bijan Robinson",
-     211.3
+     211.2
     ],
     [
      "Kenneth Walker III",
-     205.6
+     208.2
     ]
    ],
    "TE": [
     [
      "Brock Bowers",
-     155.4
+     158.0
     ],
     [
      "Trey McBride",
@@ -117,13 +117,13 @@
     ],
     [
      "Sam LaPorta",
-     142.3
+     139.7
     ]
    ],
    "WR": [
     [
      "Puka Nacua",
-     209.4
+     213.5
     ],
     [
      "Amon-Ra St. Brown",
@@ -131,7 +131,7 @@
     ],
     [
      "Ja'Marr Chase",
-     196.6
+     197.9
     ]
    ]
   }
