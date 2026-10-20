@@ -35,6 +35,7 @@ API = "https://fantasysports.yahooapis.com/fantasy/v2"
 REDIRECT = os.environ.get("YAHOO_REDIRECT", "https://cichon1.github.io/FantasyOracle/yahoo.html")
 LEAGUES = ["126912", "200436", "727092"]
 UA = {"User-Agent": "Mozilla/5.0 (FantasyOracle; +https://github.com/Cichon1/FantasyOracle)"}
+DIAG = {}
 FILES = ["league_rosters_v5.csv", "leagues_v5.csv", "league_standings_v5.csv", "league_schedule_v5.csv"]
 
 
@@ -66,6 +67,8 @@ def save_refresh(tok):
 def access_token():
     refresh = _fernet().decrypt(open(TOKEN, "rb").read()).decode()
     j = _token_call({"grant_type": "refresh_token", "refresh_token": refresh, "redirect_uri": REDIRECT})
+    DIAG["token_fields"] = sorted(k for k in j if k not in ("access_token", "refresh_token", "id_token"))
+    DIAG["token_info"] = {k: j[k] for k in ("token_type", "expires_in", "scope") if k in j}
     if j.get("refresh_token") and j["refresh_token"] != refresh:
         save_refresh(j["refresh_token"])
     return j["access_token"]
@@ -94,6 +97,12 @@ def t(e, path, default=""):
 
 
 def pull(tok):
+    for probe in ["users;use_login=1/games;game_codes=nfl", "game/nfl"]:
+        try:
+            g = get(tok, probe)
+            DIAG[probe] = "ok"
+        except Exception as e:
+            DIAG[probe] = str(e)[:400]
     game_key = t(get(tok, "game/nfl"), ".//game_key")
     teams_lines, roster_lines, settings_lines, stand_lines = ["TEAMS"], [], [], []
     old = pd.read_csv(os.path.join(SITE, "leagues_v5.csv"), dtype=str).set_index("league_id")
@@ -230,7 +239,7 @@ def main():
     except Exception as e:      # Yahoo trouble never blocks the projections update
         print(json.dumps({"yahoo": "failed", "error": str(e)[:300]}))
         os.makedirs(STATE, exist_ok=True)
-        json.dump({"at": datetime.now(timezone.utc).isoformat(timespec="seconds"), "error": str(e)[:1000]},
+        json.dump({"at": datetime.now(timezone.utc).isoformat(timespec="seconds"), "error": str(e)[:1000], "diag": DIAG},
                   open(os.path.join(STATE, "yahoo_last_error.json"), "w"), indent=1)
     out = os.environ.get("GITHUB_OUTPUT")
     if out:
