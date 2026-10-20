@@ -31,7 +31,7 @@ STATE = os.path.join(ROOT, "automation", "state")
 TOKEN = os.path.join(STATE, "yahoo_token.enc")
 SITE = os.path.join(ROOT, "docs", "data")
 API = "https://fantasysports.yahooapis.com/fantasy/v2"
-REDIRECT = "https://localhost:8080"
+REDIRECT = os.environ.get("YAHOO_REDIRECT", "https://cichon1.github.io/FantasyOracle/yahoo.html")
 LEAGUES = ["126912", "200436", "727092"]
 FILES = ["league_rosters_v5.csv", "leagues_v5.csv", "league_standings_v5.csv", "league_schedule_v5.csv"]
 
