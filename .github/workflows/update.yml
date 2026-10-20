@@ -1,7 +1,8 @@
-# Keeps the projections up to date on its own.
+# Keeps the projections and your Yahoo leagues up to date on their own.
 # Every 30 minutes: ask each free data source whether it changed (a few seconds). Only when something new posted
-# (stats, injury reports, depth charts, rosters, lines...) does it rerun the model and republish the website.
-# "Run workflow" on the Actions tab forces an update.
+# (stats, injury reports, depth charts, rosters, lines...) does it rerun the model. Yahoo rosters, standings and
+# settings are re-read each time (once connected); the website is republished only when something changed.
+# "Run workflow" on the Actions tab forces a model update.
 name: Update projections
 
 on:
@@ -28,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     outputs:
-      changed: ${{ steps.watch.outputs.changed }}
+      changed: ${{ steps.done.outputs.changed }}
     steps:
       - uses: actions/checkout@v4
 
@@ -59,7 +60,9 @@ jobs:
 
       - name: Run the model
         if: steps.watch.outputs.changed == 'true'
-        run: python automation/pipeline.py --season ${{ steps.watch.outputs.season }} --reason "${{ steps.watch.outputs.what }}"
+        run: |
+          python automation/pipeline.py --season ${{ steps.watch.outputs.season }} --reason "${{ steps.watch.outputs.what }}"
+          mv automation/state/sources.new.json automation/state/sources.json
 
       - name: Save trained models (cache)
         if: steps.watch.outputs.changed == 'true'
@@ -68,23 +71,37 @@ jobs:
           path: model/cache
           key: models-${{ github.run_id }}
 
-      - name: Commit new projections
-        if: steps.watch.outputs.changed == 'true'
+      - name: Yahoo leagues
+        id: yahoo
+        if: hashFiles('automation/state/yahoo_token.enc') != ''
+        env:
+          YAHOO_CLIENT_ID: ${{ secrets.YAHOO_CLIENT_ID }}
+          YAHOO_CLIENT_SECRET: ${{ secrets.YAHOO_CLIENT_SECRET }}
         run: |
-          mv automation/state/sources.new.json automation/state/sources.json
+          pip install -q pandas cryptography
+          python automation/yahoo_sync.py sync
+
+      - name: Commit changes
+        id: done
+        run: |
+          if [ "${{ steps.watch.outputs.changed }}" = "true" ] || [ "${{ steps.yahoo.outputs.changed }}" = "true" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
           git config user.name "fantasy-oracle-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/data automation/state/sources.json
-          git commit -m "Update: ${{ steps.watch.outputs.what }}" || echo "nothing new"
+          git add docs/data automation/state
+          git diff --cached --quiet && exit 0
+          git commit -m "Update: ${{ steps.watch.outputs.what }}${{ steps.yahoo.outputs.changed == 'true' && ' yahoo' || '' }}"
           git pull --rebase origin ${{ github.ref_name }}
           git push
 
       - name: Package website
-        if: steps.watch.outputs.changed == 'true'
+        if: steps.done.outputs.changed == 'true'
         uses: actions/upload-pages-artifact@v3
         with:
           path: docs
-
 
   publish:
     needs: update

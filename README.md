@@ -16,3 +16,16 @@ Jackson's Yahoo leagues.
 
 No Claude usage is involved in the automatic updates. Changes to the model itself are proposed as pull requests with
 their test results.
+
+## Yahoo leagues (one-time setup)
+
+1. Create a Yahoo app at https://developer.yahoo.com/apps/create/ — Application type **Web Application**, Redirect URI
+   `https://localhost:8080`, API permissions **Fantasy Sports → Read**. Copy its **Client ID** and **Client Secret**.
+2. In this repo: Settings → Secrets and variables → Actions → New repository secret: `YAHOO_CLIENT_ID` and
+   `YAHOO_CLIENT_SECRET`.
+3. Open `https://api.login.yahoo.com/oauth2/request_auth?client_id=<CLIENT ID>&redirect_uri=https://localhost:8080&response_type=code`,
+   sign in, allow. The browser lands on a page that doesn't load — copy the code after `code=` in the address bar.
+4. Actions → **Connect Yahoo** → Run workflow → paste the code.
+
+After that, every 30-minute check also re-reads rosters, standings, matchups and scoring for the three leagues.
+The League's next-season draft pick ownership isn't in Yahoo's API and stays a manual pull.

@@ -1,0 +1,54 @@
+# One-time: connect your Yahoo leagues. Paste the code from Yahoo's sign-in page (see README), run, done.
+name: Connect Yahoo
+
+on:
+  workflow_dispatch:
+    inputs:
+      code:
+        description: "The code Yahoo showed after you allowed access (the part after code= in the address bar)"
+        required: true
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  connect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exchange the code for a lasting sign-in and test it
+        env:
+          YAHOO_CLIENT_ID: ${{ secrets.YAHOO_CLIENT_ID }}
+          YAHOO_CLIENT_SECRET: ${{ secrets.YAHOO_CLIENT_SECRET }}
+          CODE: ${{ inputs.code }}
+        run: |
+          echo "::add-mask::$CODE"
+          pip install -q pandas cryptography
+          python automation/yahoo_sync.py connect --code "$CODE"
+          python automation/yahoo_sync.py sync
+      - name: Save
+        run: |
+          git config user.name "fantasy-oracle-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add automation/state docs/data
+          git commit -m "Connect Yahoo leagues" || exit 0
+          git pull --rebase origin ${{ github.ref_name }}
+          git push
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+  publish:
+    needs: connect
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4
