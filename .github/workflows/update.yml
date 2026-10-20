@@ -46,6 +46,7 @@ jobs:
         run: |
           SEASON=$(python -c "import datetime as d; t=d.date.today(); print(t.year if t.month>=3 else t.year-1)")
           echo "season=$SEASON" >> "$GITHUB_OUTPUT"
+          pip install -q pandas pyarrow
           python automation/watch.py --season "$SEASON" ${{ (github.event_name == 'workflow_dispatch' && inputs.force) && '--force' || '' }}
 
       - name: Install model packages
