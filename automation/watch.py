@@ -86,6 +86,16 @@ def main():
             continue
         if new[name] != old.get(name):
             changed.append(name)
+    # faster injury news (NFL.com official report, Sleeper IR / Out moves): every check
+    try:
+        import injuries_live as IL
+        wk_i = current_week(a.season)
+        stamp_l = IL.raw_stamp(wk_i)
+        new["injury_news"] = stamp_l or old.get("injury_news")
+        if stamp_l and stamp_l != old.get("injury_news"):
+            changed.append("injury_news")
+    except Exception as e:
+        print(f"injury news: no answer ({e})")
     # game days (Thursday, Sunday, Monday, US Eastern): NFL.com's inactives articles, as a hash of the list
     now = datetime.datetime.now(ZoneInfo("America/New_York"))
     if now.weekday() in (3, 6, 0):

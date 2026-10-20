@@ -78,6 +78,8 @@ def main():
     if w_proj is not None:
         run([sys.executable, os.path.join(ROOT, "automation", "weather.py"), "--data", "data", "--season", str(season),
              "--week", str(w_proj), "--out", "ref"], log)
+        run([sys.executable, os.path.join(ROOT, "automation", "injuries_live.py"), "--data", "data", "--season",
+             str(season), "--week", str(w_proj)], log)
         run([sys.executable, os.path.join(ROOT, "automation", "inactives_nfl.py"), "--season", str(season),
              "--week", str(w_proj), "--out", "ref"], log)
         run([sys.executable, "cloud_run.py", "project", "--store", store, "--season", str(season), "--week", str(w_proj)]

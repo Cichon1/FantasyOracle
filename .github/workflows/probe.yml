@@ -1,0 +1,31 @@
+name: Probe sources
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch samples
+        run: |
+          set +e
+          mkdir -p automation/probe
+          UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36"
+          get() { code=$(curl -sL -m 30 -A "$UA" -o "automation/probe/$1" -w '%{http_code}' "$2"); echo "$1 $code $(wc -c < automation/probe/$1)" >> automation/probe/summary.txt; }
+          : > automation/probe/summary.txt
+          get espn_injuries.json "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries"
+          get sleeper_trending.json "https://api.sleeper.app/v1/players/nfl/trending/add?lookback_hours=24&limit=25"
+          get espn_news.json "https://site.api.espn.com/apis/site/v2/sports/football/nfl/news?limit=50"
+          for f in automation/probe/*.json; do head -c 300000 "$f" > "$f.tmp"; mv "$f.tmp" "$f"; done
+          cat automation/probe/summary.txt
+          true
+      - name: Save
+        run: |
+          git config user.name "fantasy-oracle-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add automation/probe
+          git commit -m "Probe samples" || exit 0
+          git pull --rebase -X theirs origin main
+          git push
