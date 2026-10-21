@@ -1,14 +1,14 @@
 {
- "updated": "2026-10-21T09:14:18+00:00",
+ "updated": "2026-10-21T10:07:47+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 6,
  "games_started": false,
- "reason": "player_stats,play_by_play,schedule_and_lines",
+ "reason": "schedule_and_lines",
  "steps": [
   {
    "step": "bash",
-   "seconds": 43,
+   "seconds": 42,
    "ok": true
   },
   {
@@ -18,7 +18,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 6,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -33,7 +33,7 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 234,
+   "seconds": 40,
    "ok": true
   },
   {
