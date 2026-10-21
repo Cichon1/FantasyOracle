@@ -1,24 +1,24 @@
 {
- "updated": "2026-10-21T10:39:43+00:00",
+ "updated": "2026-10-21T11:08:43+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 6,
  "games_started": false,
- "reason": "schedule_and_lines",
+ "reason": "schedule_and_lines,ftn_charting",
  "steps": [
   {
    "step": "bash",
-   "seconds": 41,
+   "seconds": 40,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 2,
+   "seconds": 3,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 5,
+   "seconds": 1,
    "ok": true
   },
   {
@@ -33,12 +33,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 188,
+   "seconds": 42,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 15,
+   "seconds": 21,
    "ok": true
   }
  ],
@@ -74,14 +74,14 @@
   "out_this_week": 61,
   "on_bye": 52,
   "this_week_source": "official",
-  "training_snapshots": 47945,
+  "training_snapshots": 47931,
   "rounds": {
    "QB": 50,
-   "RB": 100,
-   "WR/TE": 66
+   "RB": 96,
+   "WR/TE": 56
   },
   "experts_ros_date": "2026-10-16 00:00:00",
-  "seconds": 14,
+  "seconds": 20,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -91,7 +91,7 @@
    "QB": [
     [
      "Brock Purdy",
-     206.7
+     207.8
     ],
     [
      "Drake Maye",
@@ -99,49 +99,49 @@
     ],
     [
      "Joe Burrow",
-     198.2
+     196.6
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     253.9
+     252.5
     ],
     [
      "Bijan Robinson",
-     213.9
+     214.0
     ],
     [
      "Christian McCaffrey",
-     210.8
+     211.9
     ]
    ],
    "TE": [
     [
      "Brock Bowers",
-     158.8
+     157.9
     ],
     [
      "Trey McBride",
-     151.9
+     152.3
     ],
     [
      "Sam LaPorta",
-     141.5
+     140.5
     ]
    ],
    "WR": [
     [
      "Puka Nacua",
-     215.1
+     209.6
     ],
     [
      "Amon-Ra St. Brown",
-     211.2
+     207.6
     ],
     [
      "Ja'Marr Chase",
-     196.1
+     193.0
     ]
    ]
   }
