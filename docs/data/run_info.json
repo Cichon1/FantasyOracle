@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-21T17:34:19+00:00",
+ "updated": "2026-10-21T18:03:05+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 6,
@@ -18,7 +18,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 3,
+   "seconds": 39,
    "ok": true
   },
   {
@@ -141,7 +141,7 @@
     ],
     [
      "Amon-Ra St. Brown",
-     194.9
+     193.2
     ]
    ]
   }
@@ -151,14 +151,14 @@
   "nfl_rows": 23,
   "nfl_matched": 23,
   "nfl_unmatched": [],
-  "espn_out": 13,
+  "espn_out": 12,
   "espn_unmatched": [
    "C.J. Gardner-Johnson (BUF)",
    "Sam Franklin Jr. (BUF)",
    "Terry McLaurin (WAS)"
   ],
-  "hash": "acfc7d4185c1",
-  "rows_added": 12,
+  "hash": "c3177c7bf5ab",
+  "rows_added": 11,
   "values_updated": 0
  }
 }
