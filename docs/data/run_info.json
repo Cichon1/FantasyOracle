@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-21T01:16:54+00:00",
+ "updated": "2026-10-21T02:07:45+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 6,
@@ -8,7 +8,7 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 41,
+   "seconds": 40,
    "ok": true
   },
   {
@@ -18,17 +18,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 4,
-   "ok": true
-  },
-  {
-   "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/injuries_live.py --data",
    "seconds": 2,
    "ok": true
   },
   {
+   "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/injuries_live.py --data",
+   "seconds": 1,
+   "ok": true
+  },
+  {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 0,
+   "seconds": 1,
    "ok": true
   },
   {
@@ -38,7 +38,7 @@
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 11,
+   "seconds": 12,
    "ok": true
   }
  ],
@@ -81,7 +81,7 @@
    "WR/TE": 50
   },
   "experts_ros_date": "2026-10-16 00:00:00",
-  "seconds": 10,
+  "seconds": 11,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -109,7 +109,7 @@
     ],
     [
      "Bijan Robinson",
-     214.7
+     215.5
     ],
     [
      "Christian McCaffrey",
