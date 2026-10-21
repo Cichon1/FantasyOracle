@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-21T23:26:52+00:00",
+ "updated": "2026-10-21T23:58:24+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 6,
@@ -8,7 +8,7 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 39,
+   "seconds": 46,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 1,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 0,
+   "seconds": 1,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 40,
+   "seconds": 39,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 20,
+   "seconds": 19,
    "ok": true
   }
  ],
@@ -153,17 +153,17 @@
  },
  "injuries_live": {
   "nfl_week": 7,
-  "nfl_rows": 267,
-  "nfl_matched": 267,
+  "nfl_rows": 271,
+  "nfl_matched": 271,
   "nfl_unmatched": [],
-  "espn_out": 24,
+  "espn_out": 26,
   "espn_unmatched": [
    "C.J. Gardner-Johnson (BUF)",
    "Sam Franklin Jr. (BUF)",
    "Terry McLaurin (WAS)"
   ],
-  "hash": "a247cc5da310",
-  "rows_added": 252,
+  "hash": "3a5670d18436",
+  "rows_added": 256,
   "values_updated": 17
  }
 }
