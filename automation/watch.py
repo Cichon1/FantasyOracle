@@ -86,6 +86,14 @@ def main():
             continue
         if new[name] != old.get(name):
             changed.append(name)
+    # FantasyPros rankings pulled by fp_rankings.py (stamp of the default consensus; committed by that workflow)
+    try:
+        st = json.load(open(os.path.join(STATE, "fp_status.json")))
+        new["fp_rankings"] = st.get("stamp")
+        if st.get("stamp") and st.get("stamp") != old.get("fp_rankings"):
+            changed.append("fp_rankings")
+    except FileNotFoundError:
+        pass
     # faster injury news (NFL.com official report, Sleeper IR / Out moves): every check
     try:
         import injuries_live as IL

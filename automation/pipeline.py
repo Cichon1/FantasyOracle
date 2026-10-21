@@ -64,6 +64,8 @@ def main():
     log = []
     if not a.skip_download:
         run(["bash", "download_data.sh", str(season)], log)
+    # FantasyPros pulls from the last 14 days (fp_rankings.py), on top of DynastyProcess's Friday copy
+    run([sys.executable, os.path.join(ROOT, "automation", "fp_inject.py"), "fpdata"], log)
     w_proj, w_res, started = weeks(season)
     os.makedirs(OUT, exist_ok=True)
     store = os.path.join(MODEL, "store.csv")

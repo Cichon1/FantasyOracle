@@ -51,7 +51,7 @@ jobs:
 
       - name: Install model packages
         if: steps.watch.outputs.changed == 'true'
-        run: pip install -q pandas pyarrow lightgbm catboost scipy
+        run: pip install -q pandas pyarrow lightgbm catboost scipy cryptography
 
       - name: Restore trained models (cache)
         if: steps.watch.outputs.changed == 'true'
@@ -63,6 +63,8 @@ jobs:
 
       - name: Run the model
         if: steps.watch.outputs.changed == 'true'
+        env:
+          FANTASYPROS_API_KEY: ${{ secrets.FANTASYPROS_API_KEY }}
         run: |
           python automation/pipeline.py --season ${{ steps.watch.outputs.season }} --reason "${{ steps.watch.outputs.what }}"
           mv automation/state/sources.new.json automation/state/sources.json
