@@ -1,14 +1,14 @@
 {
- "updated": "2026-10-21T05:34:07+00:00",
+ "updated": "2026-10-21T06:39:05+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 6,
  "games_started": false,
- "reason": "schedule_and_lines",
+ "reason": "schedule_and_lines,injury_reports,rosters",
  "steps": [
   {
    "step": "bash",
-   "seconds": 38,
+   "seconds": 39,
    "ok": true
   },
   {
@@ -18,7 +18,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 1,
+   "seconds": 3,
    "ok": true
   },
   {
@@ -33,7 +33,7 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 38,
+   "seconds": 157,
    "ok": true
   },
   {
@@ -51,8 +51,8 @@
    "total": 0
   },
   "inactive_rows": 0,
-  "players": 351,
-  "upcoming": 351,
+  "players": 349,
+  "upcoming": 349,
   "season_scoreboard": {
    "model": 0.3724,
    "experts": 0.3657,
@@ -70,15 +70,15 @@
   "season": 2026,
   "week": 7,
   "last_week": 17,
-  "players": 465,
-  "out_this_week": 62,
+  "players": 462,
+  "out_this_week": 61,
   "on_bye": 52,
   "this_week_source": "official",
   "training_snapshots": 47931,
   "rounds": {
    "QB": 50,
    "RB": 96,
-   "WR/TE": 73
+   "WR/TE": 56
   },
   "experts_ros_date": "2026-10-16 00:00:00",
   "seconds": 18,
@@ -91,15 +91,15 @@
    "QB": [
     [
      "Brock Purdy",
-     203.4
+     208.7
     ],
     [
      "Drake Maye",
-     199.9
+     198.2
     ],
     [
      "Joe Burrow",
-     195.4
+     196.6
     ]
    ],
    "RB": [
@@ -119,29 +119,29 @@
    "TE": [
     [
      "Brock Bowers",
-     155.9
+     157.9
     ],
     [
      "Trey McBride",
-     151.9
+     152.3
     ],
     [
      "Sam LaPorta",
-     140.1
+     139.6
     ]
    ],
    "WR": [
     [
+     "Puka Nacua",
+     209.6
+    ],
+    [
      "Amon-Ra St. Brown",
-     209.7
+     207.6
     ],
     [
      "Ja'Marr Chase",
-     209.4
-    ],
-    [
-     "Jaxon Smith-Njigba",
-     196.9
+     193.0
     ]
    ]
   }
@@ -157,7 +157,7 @@
    "Terry McLaurin (WAS)"
   ],
   "hash": "d380ac24e110",
-  "rows_added": 32,
+  "rows_added": 9,
   "values_updated": 0
  }
 }
