@@ -1,10 +1,10 @@
 {
- "updated": "2026-10-21T18:33:18+00:00",
+ "updated": "2026-10-21T19:13:47+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 6,
  "games_started": false,
- "reason": "schedule_and_lines",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
@@ -18,7 +18,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 5,
+   "seconds": 2,
    "ok": true
   },
   {
@@ -38,7 +38,7 @@
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 19,
+   "seconds": 18,
    "ok": true
   }
  ],
@@ -81,7 +81,7 @@
    "WR/TE": 53
   },
   "experts_ros_date": "2026-10-16 00:00:00",
-  "seconds": 18,
+  "seconds": 16,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -95,11 +95,11 @@
     ],
     [
      "Drake Maye",
-     196.3
+     198.0
     ],
     [
      "Josh Allen",
-     192.6
+     196.3
     ]
    ],
    "RB": [
@@ -113,7 +113,7 @@
     ],
     [
      "Christian McCaffrey",
-     209.4
+     208.6
     ]
    ],
    "TE": [
@@ -151,14 +151,14 @@
   "nfl_rows": 23,
   "nfl_matched": 23,
   "nfl_unmatched": [],
-  "espn_out": 13,
+  "espn_out": 19,
   "espn_unmatched": [
    "C.J. Gardner-Johnson (BUF)",
    "Sam Franklin Jr. (BUF)",
    "Terry McLaurin (WAS)"
   ],
-  "hash": "200d17425a33",
-  "rows_added": 12,
+  "hash": "25f5bf4d638e",
+  "rows_added": 13,
   "values_updated": 0
  }
 }
