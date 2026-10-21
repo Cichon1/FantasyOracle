@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-21T00:37:29+00:00",
+ "updated": "2026-10-21T01:16:54+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 6,
@@ -8,12 +8,12 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 44,
+   "seconds": 41,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 3,
+   "seconds": 2,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/injuries_live.py --data",
-   "seconds": 1,
+   "seconds": 2,
    "ok": true
   },
   {
@@ -33,12 +33,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 39,
+   "seconds": 24,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 18,
+   "seconds": 11,
    "ok": true
   }
  ],
@@ -81,7 +81,7 @@
    "WR/TE": 50
   },
   "experts_ros_date": "2026-10-16 00:00:00",
-  "seconds": 17,
+  "seconds": 10,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -149,13 +149,13 @@
  "injuries_live": {
   "nfl_week": 6,
   "nfl_rows": 376,
-  "espn_out": 8,
+  "espn_out": 10,
   "espn_unmatched": [
    "C.J. Gardner-Johnson (BUF)",
    "Terry McLaurin (WAS)"
   ],
-  "hash": "bf5d3623319a",
-  "rows_added": 8,
+  "hash": "797bea4dd2ff",
+  "rows_added": 10,
   "values_updated": 0
  }
 }
