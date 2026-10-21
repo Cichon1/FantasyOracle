@@ -225,6 +225,18 @@ def build(experts, cache, kind, pos, cutoff, top=None):
     return out, [x["id"] for x in elig]
 
 
+def _agree(default, rows, n=40):
+    d = {r[0]: k for k, r in enumerate(sorted([p for p in default if p[4] is not None], key=lambda p: p[4])[:n])}
+    pairs = [(d[r[0]], k) for k, r in enumerate(rows) if r[0] in d]
+    if len(pairs) < 5:
+        return None
+    m = len(pairs)
+    ra = {v: i for i, v in enumerate(sorted(p[0] for p in pairs))}
+    rb = {v: i for i, v in enumerate(sorted(p[1] for p in pairs))}
+    dd = sum((ra[a] - rb[b]) ** 2 for a, b in pairs)
+    return round(1 - 6 * dd / (m * (m * m - 1)), 3)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--force", action="store_true")
@@ -299,7 +311,10 @@ def main():
         latest["recent_acc"][key] = rows_a
         panels[key] = {"default": pg["total_experts"], "recent": len(ids), "recent_acc": len(ids_a),
                        "listed": len(pg["experts"]), "public_pages": sum(1 for x in pg["experts"] if x["link"]),
-                       "recent_rule": note}
+                       "recent_rule": note,
+                       "players": {"default": len(pg["players"]), "recent": len(rows), "recent_acc": len(rows_a)},
+                       # how far the filtered order is from FantasyPros' (rank correlation, top 40) - a sanity check
+                       "agree_recent": _agree(pg["players"], rows), "agree_recent_acc": _agree(pg["players"], rows_a)}
     status["panels"] = panels
 
     # 4) save: latest, last pull of each day (what the model reads), history
