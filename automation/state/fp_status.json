@@ -1,0 +1,76 @@
+{
+ "pulled_at": "2026-10-21T18:34-04:00",
+ "pages": 8,
+ "expert_pages": 45,
+ "errors": [],
+ "expert_pages_waiting": 18,
+ "cutoff_ros": "2026-10-19T23:35-04:00",
+ "cutoff_weekly": "2026-10-19T23:35-04:00",
+ "panels": {
+  "weekly|QB": {
+   "default": 15,
+   "recent": 37,
+   "recent_acc": 20,
+   "listed": 70,
+   "public_pages": 45,
+   "recent_rule": "since cutoff"
+  },
+  "weekly|RB": {
+   "default": 14,
+   "recent": 38,
+   "recent_acc": 20,
+   "listed": 69,
+   "public_pages": 44,
+   "recent_rule": "since cutoff"
+  },
+  "weekly|WR": {
+   "default": 14,
+   "recent": 38,
+   "recent_acc": 20,
+   "listed": 69,
+   "public_pages": 44,
+   "recent_rule": "since cutoff"
+  },
+  "weekly|TE": {
+   "default": 14,
+   "recent": 38,
+   "recent_acc": 20,
+   "listed": 69,
+   "public_pages": 44,
+   "recent_rule": "since cutoff"
+  },
+  "ros|QB": {
+   "default": 7,
+   "recent": 0,
+   "recent_acc": 0,
+   "listed": 32,
+   "public_pages": 17,
+   "recent_rule": "fallback: last 7 days"
+  },
+  "ros|RB": {
+   "default": 6,
+   "recent": 0,
+   "recent_acc": 0,
+   "listed": 29,
+   "public_pages": 17,
+   "recent_rule": "fallback: last 7 days"
+  },
+  "ros|WR": {
+   "default": 6,
+   "recent": 0,
+   "recent_acc": 0,
+   "listed": 29,
+   "public_pages": 17,
+   "recent_rule": "fallback: last 7 days"
+  },
+  "ros|TE": {
+   "default": 6,
+   "recent": 0,
+   "recent_acc": 0,
+   "listed": 28,
+   "public_pages": 17,
+   "recent_rule": "fallback: last 7 days"
+  }
+ },
+ "stamp": "66259a112820"
+}
