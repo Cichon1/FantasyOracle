@@ -1,14 +1,14 @@
 {
- "updated": "2026-10-21T15:08:09+00:00",
+ "updated": "2026-10-21T17:07:55+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 6,
  "games_started": false,
- "reason": "player_stats,play_by_play",
+ "reason": "schedule_and_lines,ftn_charting",
  "steps": [
   {
    "step": "bash",
-   "seconds": 42,
+   "seconds": 43,
    "ok": true
   },
   {
@@ -18,7 +18,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 1,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -33,12 +33,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 39,
+   "seconds": 40,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 19,
+   "seconds": 20,
    "ok": true
   }
  ],
@@ -81,7 +81,7 @@
    "WR/TE": 53
   },
   "experts_ros_date": "2026-10-16 00:00:00",
-  "seconds": 18,
+  "seconds": 19,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -99,7 +99,7 @@
     ],
     [
      "Josh Allen",
-     192.1
+     196.3
     ]
    ],
    "RB": [
@@ -151,14 +151,14 @@
   "nfl_rows": 23,
   "nfl_matched": 23,
   "nfl_unmatched": [],
-  "espn_out": 11,
+  "espn_out": 12,
   "espn_unmatched": [
-   "Sam Franklin Jr. (BUF)",
    "C.J. Gardner-Johnson (BUF)",
+   "Sam Franklin Jr. (BUF)",
    "Terry McLaurin (WAS)"
   ],
-  "hash": "21ce97191b50",
-  "rows_added": 10,
+  "hash": "c3177c7bf5ab",
+  "rows_added": 11,
   "values_updated": 0
  }
 }
