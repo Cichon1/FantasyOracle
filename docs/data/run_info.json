@@ -1,14 +1,14 @@
 {
- "updated": "2026-10-21T08:13:08+00:00",
+ "updated": "2026-10-21T09:14:18+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 6,
  "games_started": false,
- "reason": "schedule_and_lines",
+ "reason": "player_stats,play_by_play,schedule_and_lines",
  "steps": [
   {
    "step": "bash",
-   "seconds": 40,
+   "seconds": 43,
    "ok": true
   },
   {
@@ -18,7 +18,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 4,
+   "seconds": 6,
    "ok": true
   },
   {
@@ -28,17 +28,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 0,
+   "seconds": 1,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 40,
+   "seconds": 234,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 20,
+   "seconds": 19,
    "ok": true
   }
  ],
@@ -91,11 +91,11 @@
    "QB": [
     [
      "Brock Purdy",
-     208.7
+     207.8
     ],
     [
      "Drake Maye",
-     198.2
+     200.0
     ],
     [
      "Joe Burrow",
@@ -105,11 +105,11 @@
    "RB": [
     [
      "Jahmyr Gibbs",
-     250.7
+     251.6
     ],
     [
      "Bijan Robinson",
-     213.2
+     214.0
     ],
     [
      "Christian McCaffrey",
@@ -127,7 +127,7 @@
     ],
     [
      "Sam LaPorta",
-     139.6
+     140.5
     ]
    ],
    "WR": [
