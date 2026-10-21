@@ -42,6 +42,7 @@ def call(path, **q):
         if pl:
             rec["player_fields"] = sorted(pl[0].keys())
             rec["first_player"] = [pl[0].get("player_name"), pl[0].get("rank_ecr"), pl[0].get("pos_rank")]
+            rec["rank_range"] = [pl[0].get("rank_ecr"), pl[-1].get("rank_ecr")]
             rec["last_player"] = [pl[-1].get("player_name"), pl[-1].get("rank_ecr"), pl[-1].get("pos_rank")]
             ex = pl[0].get("experts")
             rec["player_experts_field"] = (f"{type(ex).__name__} with {len(ex)} entries" if ex is not None else None)
@@ -51,6 +52,8 @@ def call(path, **q):
         rec["experts_returned"] = len(exs)
         if exs:
             rec["expert_fields"] = sorted(exs[0].keys()) if isinstance(exs[0], dict) else type(exs[0]).__name__
+            e0 = exs[0] if isinstance(exs[0], dict) else {}
+            rec["expert_sample_shape"] = {k: (type(v).__name__ + (f" {len(v)}" if hasattr(v, "__len__") else "")) for k, v in e0.items()}
     for k in ("expert_pub", "expert_names", "experts_available"):
         v = body.get(k) if isinstance(body, dict) else None
         if v is not None:
@@ -66,28 +69,12 @@ def main():
     if not KEY:
         report["note"] = "no FANTASYPROS_API_KEY secret"
     else:
-        r, ros = call("consensus-rankings", position="ALL", type="ROS", scoring="PPR", experts="show")
-        report["ros_all_show"] = r
-        report["ros_all_available"], _ = call("consensus-rankings", position="ALL", type="ROS", scoring="PPR",
-                                              experts="available")
-        report["weekly_rb"], _ = call("consensus-rankings", position="RB", type="WEEKLY", scoring="PPR", week=7,
-                                      experts="show")
-        report["weekly_all"], _ = call("consensus-rankings", position="ALL", type="WEEKLY", scoring="PPR", week=7)
-        report["weekly_qb_std"], _ = call("consensus-rankings", position="QB", type="WEEKLY", scoring="STD", week=7)
-        report["experts_ros"], _ = call("rankings/experts", type="ROS", scoring="PPR", include_overall="true")
-        # does an expert filter work? use the first three experts named in the ROS consensus
-        ids = []
-        if ros:
-            for k in ("expert_pub", "expert_names"):
-                if isinstance(ros.get(k), dict):
-                    ids = list(ros[k].keys())[:3]
-                    break
-            if not ids and isinstance(ros.get("experts_available"), dict):
-                ids = [str(x) for x in ros["experts_available"].get("included", [])[:3]]
-        report["filter_ids_tried"] = len(ids)
-        if ids:
-            report["ros_filtered_3"], _ = call("consensus-rankings", position="ALL", type="ROS", scoring="PPR",
-                                               filters=":".join(ids), experts="show")
+        # round 2: can the 10-player cap be lifted or paged, and does the experts list come back without a type?
+        report["round"] = 2
+        report["rb_limit200"], _ = call("consensus-rankings", position="RB", scoring="PPR", week=7, limit=200)
+        report["rb_offset10"], _ = call("consensus-rankings", position="RB", scoring="PPR", week=7, offset=10)
+        report["rb_page2"], _ = call("consensus-rankings", position="RB", scoring="PPR", week=7, page=2)
+        report["experts_rb"], _ = call("rankings/experts", position="RB", include_overall="true")
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     json.dump(report, open(OUT, "w"), indent=1, default=str)
     print(json.dumps({k: (v.get("status") if isinstance(v, dict) else v) for k, v in report.items()}))
