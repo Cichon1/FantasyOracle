@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-21T02:34:48+00:00",
+ "updated": "2026-10-21T03:33:27+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 6,
@@ -18,7 +18,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 2,
+   "seconds": 6,
    "ok": true
   },
   {
@@ -33,12 +33,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 36,
+   "seconds": 40,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 17,
+   "seconds": 20,
    "ok": true
   }
  ],
@@ -74,14 +74,14 @@
   "out_this_week": 62,
   "on_bye": 52,
   "this_week_source": "official",
-  "training_snapshots": 47945,
+  "training_snapshots": 47931,
   "rounds": {
    "QB": 50,
-   "RB": 100,
-   "WR/TE": 50
+   "RB": 96,
+   "WR/TE": 73
   },
   "experts_ros_date": "2026-10-16 00:00:00",
-  "seconds": 16,
+  "seconds": 19,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -91,57 +91,57 @@
    "QB": [
     [
      "Brock Purdy",
-     205.5
+     203.4
     ],
     [
      "Drake Maye",
-     196.3
+     199.9
     ],
     [
-     "Josh Allen",
-     196.0
+     "Joe Burrow",
+     195.6
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     253.0
+     250.7
     ],
     [
      "Bijan Robinson",
-     215.5
+     213.2
     ],
     [
      "Christian McCaffrey",
-     210.8
+     211.9
     ]
    ],
    "TE": [
     [
      "Brock Bowers",
-     158.8
+     155.9
     ],
     [
      "Trey McBride",
-     149.4
+     151.9
     ],
     [
      "Sam LaPorta",
-     141.1
+     140.1
     ]
    ],
    "WR": [
     [
-     "Puka Nacua",
-     213.3
-    ],
-    [
      "Amon-Ra St. Brown",
-     210.5
+     209.7
     ],
     [
      "Ja'Marr Chase",
-     195.3
+     209.4
+    ],
+    [
+     "Jaxon Smith-Njigba",
+     196.9
     ]
    ]
   }
