@@ -129,11 +129,13 @@ def expert_page(link, kind):
     if kind == "weekly" and not any(r[1] == "QB" for r in rows):   # some weekly 'ALL' lists are flex only
         time.sleep(PAUSE)
         q = re.sub(r"position=ALL", "position=QB", p).replace("scoring=PPR", "scoring=STD")
-        rows += [[i, "QB", 1000 + r] for i, _, r in _table(fetch(q)) if True]
+        rows += [[i, "QB", 1000 + r] for i, _, r in _table(fetch(q), default_pos="QB")]
     return rows
 
 
-def _table(page):
+def _table(page, default_pos=None):
+    """Rows of an expert's ranking table. Pages for one position have no Pos column (default_pos); rest-of-season
+    pages show it as a position rank (RB1)."""
     out = []
     for tr in re.findall(r"<tr>(.*?)</tr>", page, re.S):
         m = re.search(r"fp-id-(\d+)", tr)
@@ -142,7 +144,8 @@ def _table(page):
         cells = [re.sub(r"<[^>]+>", "", c).strip() for c in re.findall(r"<td[^>]*>(.*?)</td>", tr, re.S)]
         if len(cells) < 3 or not cells[0].isdigit():
             continue
-        pos = next((H.unescape(c) for c in cells[2:5] if re.fullmatch(r"QB|RB|WR|TE|K|DST|DEF", c)), None)
+        pos = next((re.match(r"[A-Z]+", c).group(0) for c in cells[2:5] if re.fullmatch(r"(QB|RB|WR|TE|K|DST|DEF)\d*", c)),
+                   default_pos)
         if pos in POS:
             out.append([m.group(1), pos, int(cells[0])])
     return out
@@ -269,7 +272,7 @@ def main():
             if not x["link"]:
                 continue
             c = cache[kind].get(str(x["id"]))
-            if c is None or c.get("updated", 0) < x["updated"]:
+            if c is None or c.get("updated", 0) < x["updated"] or not any(r[1] == pos for r in c.get("rows", [])):
                 w = want.setdefault((kind, x["id"]), dict(x, kind=kind))
                 w["updated"] = max(w["updated"], x["updated"])
     todo = sorted(want.values(), key=lambda x: -x["updated"])[:MAX_EXPERT_PAGES]
