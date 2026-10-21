@@ -1,14 +1,14 @@
 {
- "updated": "2026-10-21T04:06:11+00:00",
+ "updated": "2026-10-21T04:36:08+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 6,
  "games_started": false,
- "reason": "schedule_and_lines",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 40,
+   "seconds": 101,
    "ok": true
   },
   {
@@ -18,7 +18,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 2,
+   "seconds": 4,
    "ok": true
   },
   {
@@ -33,12 +33,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 23,
+   "seconds": 31,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 10,
+   "seconds": 14,
    "ok": true
   }
  ],
@@ -81,7 +81,7 @@
    "WR/TE": 50
   },
   "experts_ros_date": "2026-10-16 00:00:00",
-  "seconds": 10,
+  "seconds": 13,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -147,15 +147,17 @@
   }
  },
  "injuries_live": {
-  "nfl_week": 6,
-  "nfl_rows": 376,
+  "nfl_week": 7,
+  "nfl_rows": 23,
+  "nfl_matched": 23,
+  "nfl_unmatched": [],
   "espn_out": 10,
   "espn_unmatched": [
    "C.J. Gardner-Johnson (BUF)",
    "Terry McLaurin (WAS)"
   ],
-  "hash": "797bea4dd2ff",
-  "rows_added": 10,
+  "hash": "d380ac24e110",
+  "rows_added": 32,
   "values_updated": 0
  }
 }
