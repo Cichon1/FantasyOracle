@@ -1,14 +1,14 @@
 {
- "updated": "2026-10-22T16:11:56+00:00",
+ "updated": "2026-10-22T16:39:08+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 6,
  "games_started": false,
- "reason": "player_stats,schedule_and_lines",
+ "reason": "schedule_and_lines,fp_rankings,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 47,
+   "seconds": 38,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 8,
+   "seconds": 4,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 227,
+   "seconds": 37,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 46,
+   "seconds": 18,
    "ok": true
   }
  ],
@@ -75,8 +75,8 @@
   "season": 2026,
   "week": 7,
   "last_week": 17,
-  "players": 463,
-  "out_this_week": 68,
+  "players": 464,
+  "out_this_week": 69,
   "on_bye": 52,
   "this_week_source": "official",
   "training_snapshots": 47940,
@@ -85,25 +85,25 @@
    "RB": 118,
    "WR/TE": 59
   },
-  "experts_ros_date": "2026-10-21 00:00:00",
-  "seconds": 45,
+  "experts_ros_date": "2026-10-22 00:00:00",
+  "seconds": 17,
   "model_cache": {
-   "hit": 0,
-   "miss": 18,
+   "hit": 18,
+   "miss": 0,
    "on": true
   },
   "top": {
    "QB": [
     [
      "Brock Purdy",
-     207.1
+     206.2
     ],
     [
      "Jared Goff",
      201.7
     ],
     [
-     "Josh Allen",
+     "Joe Burrow",
      200.6
     ]
    ],
@@ -118,7 +118,7 @@
     ],
     [
      "Christian McCaffrey",
-     207.9
+     208.7
     ]
    ],
    "TE": [
@@ -141,12 +141,12 @@
      210.9
     ],
     [
-     "Jaxon Smith-Njigba",
-     207.5
+     "Amon-Ra St. Brown",
+     206.6
     ],
     [
-     "Amon-Ra St. Brown",
-     196.8
+     "Ja'Marr Chase",
+     200.4
     ]
    ]
   }
@@ -156,14 +156,14 @@
   "nfl_rows": 273,
   "nfl_matched": 273,
   "nfl_unmatched": [],
-  "espn_out": 33,
+  "espn_out": 34,
   "espn_unmatched": [
    "C.J. Gardner-Johnson (BUF)",
    "Sam Franklin Jr. (BUF)",
    "Jaylin Lane (WAS)",
    "Terry McLaurin (WAS)"
   ],
-  "hash": "a45639f10f46",
+  "hash": "44b75d9a08cf",
   "rows_added": 8,
   "values_updated": 0
  }
