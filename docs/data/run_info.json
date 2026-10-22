@@ -1,14 +1,14 @@
 {
- "updated": "2026-10-22T18:01:48+00:00",
+ "updated": "2026-10-22T18:32:16+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 6,
  "games_started": false,
- "reason": "schedule_and_lines",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 45,
+   "seconds": 44,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 6,
+   "seconds": 4,
    "ok": true
   },
   {
@@ -38,7 +38,7 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 29,
+   "seconds": 30,
    "ok": true
   },
   {
@@ -56,8 +56,8 @@
    "total": 0
   },
   "inactive_rows": 0,
-  "players": 343,
-  "upcoming": 343,
+  "players": 342,
+  "upcoming": 342,
   "season_scoreboard": {
    "model": 0.3724,
    "experts": 0.3657,
@@ -76,7 +76,7 @@
   "week": 7,
   "last_week": 17,
   "players": 464,
-  "out_this_week": 69,
+  "out_this_week": 70,
   "on_bye": 52,
   "this_week_source": "official",
   "training_snapshots": 47932,
@@ -163,8 +163,8 @@
    "Jaylin Lane (WAS)",
    "Terry McLaurin (WAS)"
   ],
-  "hash": "eae29d4afd6d",
-  "rows_added": 8,
+  "hash": "099bbb7df2b7",
+  "rows_added": 9,
   "values_updated": 0
  }
 }
