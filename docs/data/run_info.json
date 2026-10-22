@@ -1,14 +1,14 @@
 {
- "updated": "2026-10-22T22:29:03+00:00",
+ "updated": "2026-10-22T23:01:58+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 6,
  "games_started": false,
- "reason": "schedule_and_lines,fp_rankings",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 43,
+   "seconds": 41,
    "ok": true
   },
   {
@@ -33,12 +33,12 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 1,
+   "seconds": 0,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 29,
+   "seconds": 30,
    "ok": true
   },
   {
@@ -56,8 +56,8 @@
    "total": 0
   },
   "inactive_rows": 0,
-  "players": 342,
-  "upcoming": 342,
+  "players": 341,
+  "upcoming": 341,
   "season_scoreboard": {
    "model": 0.3724,
    "experts": 0.3657,
@@ -76,7 +76,7 @@
   "week": 7,
   "last_week": 17,
   "players": 464,
-  "out_this_week": 70,
+  "out_this_week": 71,
   "on_bye": 52,
   "this_week_source": "official",
   "training_snapshots": 47932,
@@ -156,15 +156,15 @@
   "nfl_rows": 274,
   "nfl_matched": 274,
   "nfl_unmatched": [],
-  "espn_out": 41,
+  "espn_out": 48,
   "espn_unmatched": [
    "C.J. Gardner-Johnson (BUF)",
    "Sam Franklin Jr. (BUF)",
    "Jaylin Lane (WAS)",
    "Terry McLaurin (WAS)"
   ],
-  "hash": "df983b8d2402",
-  "rows_added": 11,
+  "hash": "7efcca4c3685",
+  "rows_added": 16,
   "values_updated": 10
  }
 }
