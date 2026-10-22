@@ -1,14 +1,14 @@
 {
- "updated": "2026-10-22T17:11:44+00:00",
+ "updated": "2026-10-22T18:01:48+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 6,
  "games_started": false,
- "reason": "schedule_and_lines,injury_news",
+ "reason": "schedule_and_lines",
  "steps": [
   {
    "step": "bash",
-   "seconds": 42,
+   "seconds": 45,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 5,
+   "seconds": 6,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 1,
+   "seconds": 0,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 114,
+   "seconds": 29,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 14,
+   "seconds": 13,
    "ok": true
   }
  ],
@@ -86,7 +86,7 @@
    "WR/TE": 61
   },
   "experts_ros_date": "2026-10-22 00:00:00",
-  "seconds": 13,
+  "seconds": 12,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -100,11 +100,11 @@
     ],
     [
      "Brock Purdy",
-     201.5
+     198.3
     ],
     [
      "Jared Goff",
-     198.3
+     197.5
     ]
    ],
    "RB": [
@@ -142,7 +142,7 @@
     ],
     [
      "Amon-Ra St. Brown",
-     206.8
+     207.7
     ],
     [
      "Ja'Marr Chase",
