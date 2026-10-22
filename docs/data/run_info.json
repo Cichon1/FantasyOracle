@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-22T02:35:24+00:00",
+ "updated": "2026-10-22T03:07:04+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 6,
@@ -8,22 +8,22 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 41,
+   "seconds": 38,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 3,
+   "seconds": 5,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 2,
+   "seconds": 3,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 4,
+   "seconds": 1,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 1,
+   "seconds": 0,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 31,
+   "seconds": 45,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 14,
+   "seconds": 22,
    "ok": true
   }
  ],
@@ -79,14 +79,14 @@
   "out_this_week": 67,
   "on_bye": 52,
   "this_week_source": "official",
-  "training_snapshots": 47931,
+  "training_snapshots": 47940,
   "rounds": {
    "QB": 50,
-   "RB": 89,
-   "WR/TE": 50
+   "RB": 108,
+   "WR/TE": 53
   },
   "experts_ros_date": "2026-10-21 00:00:00",
-  "seconds": 13,
+  "seconds": 21,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -96,57 +96,57 @@
    "QB": [
     [
      "Brock Purdy",
-     204.9
+     207.4
     ],
     [
      "Jared Goff",
-     201.8
+     200.7
     ],
     [
      "Drake Maye",
-     199.3
+     199.6
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     254.7
+     251.7
     ],
     [
      "Bijan Robinson",
-     212.9
+     209.4
     ],
     [
      "Christian McCaffrey",
-     209.5
+     206.6
     ]
    ],
    "TE": [
     [
      "Trey McBride",
-     149.2
+     147.4
     ],
     [
      "Brock Bowers",
-     138.6
+     135.9
     ],
     [
      "George Kittle",
-     134.3
+     135.3
     ]
    ],
    "WR": [
     [
      "Puka Nacua",
-     208.1
+     210.0
     ],
     [
      "Jaxon Smith-Njigba",
-     206.8
+     205.6
     ],
     [
      "Amon-Ra St. Brown",
-     193.8
+     194.0
     ]
    ]
   }
