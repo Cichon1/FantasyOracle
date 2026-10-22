@@ -1,24 +1,24 @@
 {
- "updated": "2026-10-22T12:44:39+00:00",
+ "updated": "2026-10-22T13:43:45+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 6,
  "games_started": false,
- "reason": "schedule_and_lines,injury_news",
+ "reason": "schedule_and_lines,injury_reports,depth_charts,rosters",
  "steps": [
   {
    "step": "bash",
-   "seconds": 43,
+   "seconds": 40,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 5,
+   "seconds": 3,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 3,
+   "seconds": 2,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 38,
+   "seconds": 23,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 40,
+   "seconds": 11,
    "ok": true
   }
  ],
@@ -86,10 +86,10 @@
    "WR/TE": 61
   },
   "experts_ros_date": "2026-10-21 00:00:00",
-  "seconds": 39,
+  "seconds": 10,
   "model_cache": {
-   "hit": 0,
-   "miss": 18,
+   "hit": 18,
+   "miss": 0,
    "on": true
   },
   "top": {
@@ -164,7 +164,7 @@
    "Terry McLaurin (WAS)"
   ],
   "hash": "a45639f10f46",
-  "rows_added": 10,
+  "rows_added": 8,
   "values_updated": 0
  }
 }
