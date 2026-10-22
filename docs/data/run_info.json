@@ -1,14 +1,14 @@
 {
- "updated": "2026-10-22T05:10:08+00:00",
+ "updated": "2026-10-22T06:09:22+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 6,
  "games_started": false,
- "reason": "schedule_and_lines",
+ "reason": "depth_charts",
  "steps": [
   {
    "step": "bash",
-   "seconds": 39,
+   "seconds": 43,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 2,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 0,
+   "seconds": 1,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 40,
+   "seconds": 248,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 20,
+   "seconds": 40,
    "ok": true
   }
  ],
@@ -79,74 +79,74 @@
   "out_this_week": 67,
   "on_bye": 52,
   "this_week_source": "official",
-  "training_snapshots": 47940,
+  "training_snapshots": 47932,
   "rounds": {
    "QB": 50,
-   "RB": 108,
-   "WR/TE": 53
+   "RB": 60,
+   "WR/TE": 61
   },
   "experts_ros_date": "2026-10-21 00:00:00",
-  "seconds": 19,
+  "seconds": 38,
   "model_cache": {
-   "hit": 18,
-   "miss": 0,
+   "hit": 0,
+   "miss": 18,
    "on": true
   },
   "top": {
    "QB": [
     [
-     "Brock Purdy",
+     "Jared Goff",
      207.4
     ],
     [
-     "Jared Goff",
-     200.7
+     "Drake Maye",
+     201.5
     ],
     [
-     "Drake Maye",
-     199.6
+     "Brock Purdy",
+     198.3
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     251.7
+     252.8
     ],
     [
      "Bijan Robinson",
-     209.4
+     211.8
     ],
     [
      "Christian McCaffrey",
-     206.6
+     209.1
     ]
    ],
    "TE": [
     [
      "Trey McBride",
-     147.4
+     149.4
     ],
     [
      "Brock Bowers",
-     135.9
+     140.2
     ],
     [
      "George Kittle",
-     135.3
+     134.3
     ]
    ],
    "WR": [
     [
      "Puka Nacua",
-     210.0
+     208.4
     ],
     [
      "Jaxon Smith-Njigba",
-     205.6
+     206.8
     ],
     [
      "Amon-Ra St. Brown",
-     194.0
+     193.9
     ]
    ]
   }
@@ -164,7 +164,7 @@
    "Terry McLaurin (WAS)"
   ],
   "hash": "87d534ab3bbd",
-  "rows_added": 256,
-  "values_updated": 17
+  "rows_added": 8,
+  "values_updated": 0
  }
 }
