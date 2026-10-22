@@ -1,10 +1,10 @@
 {
- "updated": "2026-10-22T13:43:45+00:00",
+ "updated": "2026-10-22T15:13:04+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 6,
  "games_started": false,
- "reason": "schedule_and_lines,injury_reports,depth_charts,rosters",
+ "reason": "play_by_play,schedule_and_lines",
  "steps": [
   {
    "step": "bash",
@@ -13,7 +13,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 3,
+   "seconds": 4,
    "ok": true
   },
   {
@@ -23,12 +23,12 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 4,
+   "seconds": 1,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/injuries_live.py --data",
-   "seconds": 1,
+   "seconds": 2,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 23,
+   "seconds": 170,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 11,
+   "seconds": 13,
    "ok": true
   }
  ],
@@ -86,7 +86,7 @@
    "WR/TE": 61
   },
   "experts_ros_date": "2026-10-21 00:00:00",
-  "seconds": 10,
+  "seconds": 12,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -124,7 +124,7 @@
    "TE": [
     [
      "Trey McBride",
-     149.4
+     150.2
     ],
     [
      "Brock Bowers",
@@ -132,17 +132,17 @@
     ],
     [
      "George Kittle",
-     134.3
+     135.1
     ]
    ],
    "WR": [
     [
      "Puka Nacua",
-     208.4
+     210.0
     ],
     [
      "Jaxon Smith-Njigba",
-     204.1
+     205.9
     ],
     [
      "Amon-Ra St. Brown",
