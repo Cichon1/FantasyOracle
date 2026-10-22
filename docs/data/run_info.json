@@ -1,10 +1,10 @@
 {
- "updated": "2026-10-22T03:07:04+00:00",
+ "updated": "2026-10-22T03:34:48+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 6,
  "games_started": false,
- "reason": "schedule_and_lines",
+ "reason": "ftn_charting",
  "steps": [
   {
    "step": "bash",
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 1,
+   "seconds": 4,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 45,
+   "seconds": 42,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 22,
+   "seconds": 21,
    "ok": true
   }
  ],
@@ -86,7 +86,7 @@
    "WR/TE": 53
   },
   "experts_ros_date": "2026-10-21 00:00:00",
-  "seconds": 21,
+  "seconds": 20,
   "model_cache": {
    "hit": 18,
    "miss": 0,
