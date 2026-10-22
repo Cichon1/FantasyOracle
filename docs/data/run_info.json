@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-22T00:38:47+00:00",
+ "updated": "2026-10-22T01:16:09+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 6,
@@ -8,7 +8,7 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 39,
+   "seconds": 42,
    "ok": true
   },
   {
@@ -23,12 +23,12 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 39,
+   "seconds": 6,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/injuries_live.py --data",
-   "seconds": 1,
+   "seconds": 3,
    "ok": true
   },
   {
@@ -43,7 +43,7 @@
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 20,
+   "seconds": 19,
    "ok": true
   }
  ],
@@ -86,7 +86,7 @@
    "WR/TE": 53
   },
   "experts_ros_date": "2026-10-21 00:00:00",
-  "seconds": 19,
+  "seconds": 18,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -142,7 +142,7 @@
     ],
     [
      "Jaxon Smith-Njigba",
-     206.5
+     205.6
     ],
     [
      "Amon-Ra St. Brown",
@@ -156,13 +156,14 @@
   "nfl_rows": 271,
   "nfl_matched": 271,
   "nfl_unmatched": [],
-  "espn_out": 27,
+  "espn_out": 28,
   "espn_unmatched": [
    "C.J. Gardner-Johnson (BUF)",
    "Sam Franklin Jr. (BUF)",
+   "Jaylin Lane (WAS)",
    "Terry McLaurin (WAS)"
   ],
-  "hash": "2497eb461f8c",
+  "hash": "2e0f786edd15",
   "rows_added": 256,
   "values_updated": 17
  }
