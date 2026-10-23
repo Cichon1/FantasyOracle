@@ -1,19 +1,19 @@
 {
- "updated": "2026-10-23T05:10:21+00:00",
+ "updated": "2026-10-23T06:06:13+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 7,
  "games_started": true,
- "reason": "player_stats,play_by_play,schedule_and_lines,expert_rankings",
+ "reason": "injury_reports,rosters",
  "steps": [
   {
    "step": "bash",
-   "seconds": 41,
+   "seconds": 40,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 5,
+   "seconds": 3,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 1,
+   "seconds": 0,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 196,
+   "seconds": 117,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 39,
+   "seconds": 24,
    "ok": true
   }
  ],
@@ -52,8 +52,8 @@
   "season": 2026,
   "week": 7,
   "inactives": {
-   "nflverse_roster": 0,
-   "total": 0
+   "nflverse_roster": 3,
+   "total": 3
   },
   "inactive_rows": 0,
   "players": 340,
@@ -86,10 +86,10 @@
    "WR/TE": 70
   },
   "experts_ros_date": "2026-10-23 00:00:00",
-  "seconds": 38,
+  "seconds": 23,
   "model_cache": {
-   "hit": 0,
-   "miss": 18,
+   "hit": 6,
+   "miss": 12,
    "on": true
   },
   "top": {
@@ -110,7 +110,7 @@
    "RB": [
     [
      "Jahmyr Gibbs",
-     251.3
+     252.2
     ],
     [
      "Bijan Robinson",
@@ -124,29 +124,29 @@
    "TE": [
     [
      "Brock Bowers",
-     155.7
+     154.2
     ],
     [
      "Trey McBride",
-     151.6
+     149.9
     ],
     [
      "George Kittle",
-     140.9
+     140.3
     ]
    ],
    "WR": [
     [
      "Puka Nacua",
-     206.3
+     204.4
     ],
     [
      "Amon-Ra St. Brown",
-     199.3
+     202.7
     ],
     [
      "Ja'Marr Chase",
-     197.2
+     199.6
     ]
    ]
   }
@@ -164,7 +164,7 @@
    "Terry McLaurin (WAS)"
   ],
   "hash": "b71ba2ec5469",
-  "rows_added": 77,
-  "values_updated": 82
+  "rows_added": 15,
+  "values_updated": 0
  }
 }
