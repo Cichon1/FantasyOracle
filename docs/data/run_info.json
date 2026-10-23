@@ -1,19 +1,19 @@
 {
- "updated": "2026-10-23T11:06:43+00:00",
+ "updated": "2026-10-23T12:03:16+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 7,
  "games_started": true,
- "reason": "player_stats,play_by_play,schedule_and_lines",
+ "reason": "snap_counts",
  "steps": [
   {
    "step": "bash",
-   "seconds": 40,
+   "seconds": 39,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 4,
+   "seconds": 3,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 3,
+   "seconds": 6,
    "ok": true
   },
   {
@@ -33,12 +33,12 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 1,
+   "seconds": 0,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 143,
+   "seconds": 23,
    "ok": true
   },
   {
@@ -76,7 +76,7 @@
   "week": 7,
   "last_week": 17,
   "players": 464,
-  "out_this_week": 75,
+  "out_this_week": 74,
   "on_bye": 52,
   "this_week_source": "official",
   "training_snapshots": 47932,
@@ -138,7 +138,7 @@
    "WR": [
     [
      "Puka Nacua",
-     204.4
+     205.3
     ],
     [
      "Amon-Ra St. Brown",
