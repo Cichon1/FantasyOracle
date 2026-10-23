@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-23T21:29:53+00:00",
+ "updated": "2026-10-23T22:02:44+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 7,
@@ -8,12 +8,12 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 39,
+   "seconds": 38,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 5,
+   "seconds": 6,
    "ok": true
   },
   {
@@ -28,7 +28,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/injuries_live.py --data",
-   "seconds": 1,
+   "seconds": 2,
    "ok": true
   },
   {
@@ -156,14 +156,14 @@
   "nfl_rows": 335,
   "nfl_matched": 335,
   "nfl_unmatched": [],
-  "espn_out": 97,
+  "espn_out": 98,
   "espn_unmatched": [
    "C.J. Gardner-Johnson (BUF)",
    "Kiko Mauigoa (NYJ)",
    "Jaylin Lane (WAS)",
    "Terry McLaurin (WAS)"
   ],
-  "hash": "d1f287da9285",
+  "hash": "7d32bfb18f3b",
   "rows_added": 17,
   "values_updated": 0
  }
