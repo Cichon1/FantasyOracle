@@ -1,10 +1,10 @@
 {
- "updated": "2026-10-23T22:28:59+00:00",
+ "updated": "2026-10-23T23:00:38+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 7,
  "games_started": true,
- "reason": "schedule_and_lines,fp_rankings",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
@@ -13,7 +13,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 4,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 3,
+   "seconds": 4,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 30,
+   "seconds": 36,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 14,
+   "seconds": 18,
    "ok": true
   }
  ],
@@ -56,8 +56,8 @@
    "total": 3
   },
   "inactive_rows": 0,
-  "players": 339,
-  "upcoming": 322,
+  "players": 328,
+  "upcoming": 311,
   "season_scoreboard": {
    "model": 0.3724,
    "experts": 0.3657,
@@ -76,17 +76,17 @@
   "week": 7,
   "last_week": 17,
   "players": 463,
-  "out_this_week": 74,
+  "out_this_week": 85,
   "on_bye": 52,
   "this_week_source": "official",
-  "training_snapshots": 47932,
+  "training_snapshots": 47940,
   "rounds": {
    "QB": 50,
-   "RB": 75,
-   "WR/TE": 70
+   "RB": 113,
+   "WR/TE": 52
   },
   "experts_ros_date": "2026-10-23 00:00:00",
-  "seconds": 13,
+  "seconds": 17,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -96,65 +96,65 @@
    "QB": [
     [
      "Brock Purdy",
-     206.1
+     207.9
     ],
     [
      "Jared Goff",
-     200.2
+     200.9
     ],
     [
      "Joe Burrow",
-     195.7
+     196.4
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     252.2
+     252.4
     ],
     [
      "Bijan Robinson",
-     212.8
+     214.1
     ],
     [
      "Christian McCaffrey",
-     211.4
+     213.3
     ]
    ],
    "TE": [
     [
      "Brock Bowers",
-     155.0
+     152.7
     ],
     [
      "Trey McBride",
-     149.9
+     150.4
     ],
     [
      "George Kittle",
-     140.3
+     140.8
     ]
    ],
    "WR": [
     [
-     "Puka Nacua",
-     204.4
-    ],
-    [
      "Amon-Ra St. Brown",
-     202.7
+     202.9
     ],
     [
      "Ja'Marr Chase",
-     199.6
+     201.1
+    ],
+    [
+     "Jaxon Smith-Njigba",
+     188.8
     ]
    ]
   }
  },
  "injuries_live": {
   "nfl_week": 7,
-  "nfl_rows": 335,
-  "nfl_matched": 335,
+  "nfl_rows": 349,
+  "nfl_matched": 349,
   "nfl_unmatched": [],
   "espn_out": 98,
   "espn_unmatched": [
@@ -163,8 +163,8 @@
    "Jaylin Lane (WAS)",
    "Terry McLaurin (WAS)"
   ],
-  "hash": "7d32bfb18f3b",
-  "rows_added": 17,
-  "values_updated": 0
+  "hash": "98c765d312a9",
+  "rows_added": 31,
+  "values_updated": 204
  }
 }
