@@ -1,10 +1,10 @@
 {
- "updated": "2026-10-23T06:38:26+00:00",
+ "updated": "2026-10-23T07:27:41+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 7,
  "games_started": true,
- "reason": "depth_charts",
+ "reason": "schedule_and_lines",
  "steps": [
   {
    "step": "bash",
@@ -13,7 +13,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 4,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 1,
+   "seconds": 0,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 30,
+   "seconds": 222,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 14,
+   "seconds": 45,
    "ok": true
   }
  ],
@@ -79,56 +79,56 @@
   "out_this_week": 75,
   "on_bye": 52,
   "this_week_source": "official",
-  "training_snapshots": 47932,
+  "training_snapshots": 47940,
   "rounds": {
    "QB": 50,
-   "RB": 75,
-   "WR/TE": 70
+   "RB": 113,
+   "WR/TE": 52
   },
   "experts_ros_date": "2026-10-23 00:00:00",
-  "seconds": 13,
+  "seconds": 44,
   "model_cache": {
-   "hit": 18,
-   "miss": 0,
+   "hit": 0,
+   "miss": 18,
    "on": true
   },
   "top": {
    "QB": [
     [
      "Brock Purdy",
-     206.1
+     207.9
     ],
     [
      "Jared Goff",
-     197.5
+     197.3
     ],
     [
      "Joe Burrow",
-     195.7
+     195.6
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     252.2
+     252.4
     ],
     [
      "Bijan Robinson",
-     212.8
+     211.7
     ],
     [
      "Christian McCaffrey",
-     211.4
+     209.2
     ]
    ],
    "TE": [
     [
      "Brock Bowers",
-     154.2
+     151.9
     ],
     [
      "Trey McBride",
-     149.9
+     150.5
     ],
     [
      "George Kittle",
@@ -138,15 +138,15 @@
    "WR": [
     [
      "Puka Nacua",
-     204.4
+     204.7
     ],
     [
      "Amon-Ra St. Brown",
-     202.7
+     201.5
     ],
     [
      "Ja'Marr Chase",
-     199.6
+     201.1
     ]
    ]
   }
