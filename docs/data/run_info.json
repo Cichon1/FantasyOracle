@@ -1,14 +1,14 @@
 {
- "updated": "2026-10-23T03:07:29+00:00",
+ "updated": "2026-10-23T03:35:41+00:00",
  "season": 2026,
  "projection_week": 7,
- "results_week": 6,
+ "results_week": 7,
  "games_started": true,
  "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 37,
+   "seconds": 42,
    "ok": true
   },
   {
@@ -18,12 +18,12 @@
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 3,
+   "seconds": 2,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 26,
+   "seconds": 4,
    "ok": true
   },
   {
@@ -38,7 +38,7 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 37,
+   "seconds": 38,
    "ok": true
   },
   {
@@ -76,7 +76,7 @@
   "week": 7,
   "last_week": 17,
   "players": 464,
-  "out_this_week": 72,
+  "out_this_week": 73,
   "on_bye": 52,
   "this_week_source": "official",
   "training_snapshots": 47940,
@@ -99,12 +99,12 @@
      210.7
     ],
     [
-     "Drake Maye",
-     201.4
+     "Josh Allen",
+     198.9
     ],
     [
      "Jared Goff",
-     197.9
+     197.1
     ]
    ],
    "RB": [
@@ -156,15 +156,15 @@
   "nfl_rows": 335,
   "nfl_matched": 335,
   "nfl_unmatched": [],
-  "espn_out": 52,
+  "espn_out": 53,
   "espn_unmatched": [
    "C.J. Gardner-Johnson (BUF)",
    "Sam Franklin Jr. (BUF)",
    "Jaylin Lane (WAS)",
    "Terry McLaurin (WAS)"
   ],
-  "hash": "b71ba2ec5469",
-  "rows_added": 77,
+  "hash": "1303b03a63b8",
+  "rows_added": 78,
   "values_updated": 82
  }
 }
