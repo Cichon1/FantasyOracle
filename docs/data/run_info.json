@@ -1,14 +1,14 @@
 {
- "updated": "2026-10-23T09:09:48+00:00",
+ "updated": "2026-10-23T10:07:17+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 7,
  "games_started": true,
- "reason": "player_stats,play_by_play,schedule_and_lines",
+ "reason": "schedule_and_lines",
  "steps": [
   {
    "step": "bash",
-   "seconds": 43,
+   "seconds": 39,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 39,
+   "seconds": 37,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 19,
+   "seconds": 18,
    "ok": true
   }
  ],
@@ -86,7 +86,7 @@
    "WR/TE": 52
   },
   "experts_ros_date": "2026-10-23 00:00:00",
-  "seconds": 18,
+  "seconds": 17,
   "model_cache": {
    "hit": 18,
    "miss": 0,
