@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-23T03:35:41+00:00",
+ "updated": "2026-10-23T04:08:25+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 7,
@@ -8,17 +8,17 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 42,
+   "seconds": 40,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 5,
+   "seconds": 3,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 2,
+   "seconds": 1,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 38,
+   "seconds": 21,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 19,
+   "seconds": 10,
    "ok": true
   }
  ],
@@ -76,17 +76,17 @@
   "week": 7,
   "last_week": 17,
   "players": 464,
-  "out_this_week": 73,
+  "out_this_week": 72,
   "on_bye": 52,
   "this_week_source": "official",
-  "training_snapshots": 47940,
+  "training_snapshots": 47932,
   "rounds": {
    "QB": 50,
-   "RB": 118,
-   "WR/TE": 59
+   "RB": 60,
+   "WR/TE": 61
   },
   "experts_ros_date": "2026-10-22 00:00:00",
-  "seconds": 18,
+  "seconds": 9,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -96,57 +96,57 @@
    "QB": [
     [
      "Brock Purdy",
-     210.7
+     207.4
     ],
     [
      "Josh Allen",
-     198.9
+     194.8
     ],
     [
      "Jared Goff",
-     197.1
+     194.1
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     252.9
+     252.8
     ],
     [
      "Bijan Robinson",
-     210.0
+     214.3
     ],
     [
      "Christian McCaffrey",
-     208.7
+     211.6
     ]
    ],
    "TE": [
     [
      "Brock Bowers",
-     152.4
+     154.7
     ],
     [
      "Trey McBride",
-     151.6
+     153.5
     ],
     [
      "George Kittle",
-     139.4
+     139.3
     ]
    ],
    "WR": [
     [
+     "Puka Nacua",
+     207.7
+    ],
+    [
      "Amon-Ra St. Brown",
-     207.5
+     200.9
     ],
     [
      "Ja'Marr Chase",
-     196.8
-    ],
-    [
-     "Jaxon Smith-Njigba",
-     189.8
+     200.2
     ]
    ]
   }
@@ -156,15 +156,15 @@
   "nfl_rows": 335,
   "nfl_matched": 335,
   "nfl_unmatched": [],
-  "espn_out": 53,
+  "espn_out": 52,
   "espn_unmatched": [
    "C.J. Gardner-Johnson (BUF)",
    "Sam Franklin Jr. (BUF)",
    "Jaylin Lane (WAS)",
    "Terry McLaurin (WAS)"
   ],
-  "hash": "1303b03a63b8",
-  "rows_added": 78,
+  "hash": "b71ba2ec5469",
+  "rows_added": 77,
   "values_updated": 82
  }
 }
