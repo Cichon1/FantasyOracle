@@ -1,10 +1,10 @@
 {
- "updated": "2026-10-23T10:38:04+00:00",
+ "updated": "2026-10-23T11:06:43+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 7,
  "games_started": true,
- "reason": "expected_points",
+ "reason": "player_stats,play_by_play,schedule_and_lines",
  "steps": [
   {
    "step": "bash",
@@ -13,17 +13,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 5,
+   "seconds": 4,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 2,
+   "seconds": 1,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 4,
+   "seconds": 3,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 221,
+   "seconds": 143,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 18,
+   "seconds": 11,
    "ok": true
   }
  ],
@@ -79,14 +79,14 @@
   "out_this_week": 75,
   "on_bye": 52,
   "this_week_source": "official",
-  "training_snapshots": 47940,
+  "training_snapshots": 47932,
   "rounds": {
    "QB": 50,
-   "RB": 113,
-   "WR/TE": 52
+   "RB": 75,
+   "WR/TE": 70
   },
   "experts_ros_date": "2026-10-23 00:00:00",
-  "seconds": 17,
+  "seconds": 10,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -96,39 +96,39 @@
    "QB": [
     [
      "Brock Purdy",
-     207.9
+     206.1
     ],
     [
      "Jared Goff",
-     197.3
+     197.5
     ],
     [
      "Joe Burrow",
-     195.6
+     195.7
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     252.4
+     252.2
     ],
     [
      "Bijan Robinson",
-     211.7
+     212.8
     ],
     [
      "Christian McCaffrey",
-     209.2
+     211.4
     ]
    ],
    "TE": [
     [
      "Brock Bowers",
-     151.9
+     154.2
     ],
     [
      "Trey McBride",
-     150.5
+     149.9
     ],
     [
      "George Kittle",
@@ -138,15 +138,15 @@
    "WR": [
     [
      "Puka Nacua",
-     204.7
+     204.4
     ],
     [
      "Amon-Ra St. Brown",
-     201.5
+     202.7
     ],
     [
      "Ja'Marr Chase",
-     201.1
+     199.6
     ]
    ]
   }
