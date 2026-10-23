@@ -1,19 +1,19 @@
 {
- "updated": "2026-10-23T06:06:13+00:00",
+ "updated": "2026-10-23T06:38:26+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 7,
  "games_started": true,
- "reason": "injury_reports,rosters",
+ "reason": "depth_charts",
  "steps": [
   {
    "step": "bash",
-   "seconds": 40,
+   "seconds": 41,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 3,
+   "seconds": 4,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 0,
+   "seconds": 1,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 117,
+   "seconds": 30,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 24,
+   "seconds": 14,
    "ok": true
   }
  ],
@@ -56,8 +56,8 @@
    "total": 3
   },
   "inactive_rows": 0,
-  "players": 340,
-  "upcoming": 323,
+  "players": 339,
+  "upcoming": 322,
   "season_scoreboard": {
    "model": 0.3724,
    "experts": 0.3657,
@@ -76,7 +76,7 @@
   "week": 7,
   "last_week": 17,
   "players": 464,
-  "out_this_week": 74,
+  "out_this_week": 75,
   "on_bye": 52,
   "this_week_source": "official",
   "training_snapshots": 47932,
@@ -86,10 +86,10 @@
    "WR/TE": 70
   },
   "experts_ros_date": "2026-10-23 00:00:00",
-  "seconds": 23,
+  "seconds": 13,
   "model_cache": {
-   "hit": 6,
-   "miss": 12,
+   "hit": 18,
+   "miss": 0,
    "on": true
   },
   "top": {
