@@ -1,14 +1,14 @@
 {
- "updated": "2026-10-23T00:40:22+00:00",
+ "updated": "2026-10-23T01:39:15+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 6,
  "games_started": true,
- "reason": "schedule_and_lines",
+ "reason": "schedule_and_lines,fp_rankings,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 42,
+   "seconds": 44,
    "ok": true
   },
   {
@@ -18,12 +18,12 @@
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 2,
+   "seconds": 3,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 4,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 36,
+   "seconds": 38,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 17,
+   "seconds": 19,
    "ok": true
   }
  ],
@@ -79,14 +79,14 @@
   "out_this_week": 72,
   "on_bye": 52,
   "this_week_source": "official",
-  "training_snapshots": 47932,
+  "training_snapshots": 47940,
   "rounds": {
    "QB": 50,
-   "RB": 60,
-   "WR/TE": 61
+   "RB": 118,
+   "WR/TE": 59
   },
   "experts_ros_date": "2026-10-22 00:00:00",
-  "seconds": 16,
+  "seconds": 18,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -95,58 +95,58 @@
   "top": {
    "QB": [
     [
-     "Drake Maye",
-     207.4
+     "Brock Purdy",
+     210.7
     ],
     [
-     "Brock Purdy",
-     197.5
+     "Drake Maye",
+     200.6
     ],
     [
      "Jared Goff",
-     195.7
+     197.9
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     252.8
+     252.9
     ],
     [
      "Bijan Robinson",
-     211.8
+     210.0
     ],
     [
      "Christian McCaffrey",
-     208.3
+     208.7
     ]
    ],
    "TE": [
     [
      "Brock Bowers",
-     154.7
+     152.4
     ],
     [
      "Trey McBride",
-     152.6
+     151.6
     ],
     [
      "George Kittle",
-     139.3
+     139.4
     ]
    ],
    "WR": [
     [
      "Amon-Ra St. Brown",
-     207.7
+     207.5
     ],
     [
      "Ja'Marr Chase",
-     200.2
+     196.8
     ],
     [
      "Jaxon Smith-Njigba",
-     189.3
+     189.8
     ]
    ]
   }
@@ -156,14 +156,14 @@
   "nfl_rows": 335,
   "nfl_matched": 335,
   "nfl_unmatched": [],
-  "espn_out": 48,
+  "espn_out": 51,
   "espn_unmatched": [
    "C.J. Gardner-Johnson (BUF)",
    "Sam Franklin Jr. (BUF)",
    "Jaylin Lane (WAS)",
    "Terry McLaurin (WAS)"
   ],
-  "hash": "5a40986def4e",
+  "hash": "5bf889062c63",
   "rows_added": 77,
   "values_updated": 82
  }
