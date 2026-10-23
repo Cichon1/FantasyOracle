@@ -1,14 +1,14 @@
 {
- "updated": "2026-10-22T23:57:59+00:00",
+ "updated": "2026-10-23T00:40:22+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 6,
- "games_started": false,
+ "games_started": true,
  "reason": "schedule_and_lines",
  "steps": [
   {
    "step": "bash",
-   "seconds": 45,
+   "seconds": 42,
    "ok": true
   },
   {
@@ -18,32 +18,32 @@
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 3,
-   "ok": true
-  },
-  {
-   "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 5,
-   "ok": true
-  },
-  {
-   "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/injuries_live.py --data",
    "seconds": 2,
    "ok": true
   },
   {
-   "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
+   "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
+   "seconds": 4,
+   "ok": true
+  },
+  {
+   "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/injuries_live.py --data",
    "seconds": 1,
    "ok": true
   },
   {
+   "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
+   "seconds": 0,
+   "ok": true
+  },
+  {
    "step": "cloud_run.py project",
-   "seconds": 39,
+   "seconds": 36,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 18,
+   "seconds": 17,
    "ok": true
   }
  ],
@@ -86,7 +86,7 @@
    "WR/TE": 61
   },
   "experts_ros_date": "2026-10-22 00:00:00",
-  "seconds": 17,
+  "seconds": 16,
   "model_cache": {
    "hit": 18,
    "miss": 0,
