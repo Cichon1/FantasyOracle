@@ -1,14 +1,14 @@
 {
- "updated": "2026-10-23T01:39:15+00:00",
+ "updated": "2026-10-23T02:11:48+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 6,
  "games_started": true,
- "reason": "schedule_and_lines,fp_rankings,injury_news",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 44,
+   "seconds": 45,
    "ok": true
   },
   {
@@ -86,7 +86,7 @@
    "WR/TE": 59
   },
   "experts_ros_date": "2026-10-22 00:00:00",
-  "seconds": 18,
+  "seconds": 17,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -100,7 +100,7 @@
     ],
     [
      "Drake Maye",
-     200.6
+     201.4
     ],
     [
      "Jared Goff",
@@ -156,14 +156,14 @@
   "nfl_rows": 335,
   "nfl_matched": 335,
   "nfl_unmatched": [],
-  "espn_out": 51,
+  "espn_out": 52,
   "espn_unmatched": [
    "C.J. Gardner-Johnson (BUF)",
    "Sam Franklin Jr. (BUF)",
    "Jaylin Lane (WAS)",
    "Terry McLaurin (WAS)"
   ],
-  "hash": "5bf889062c63",
+  "hash": "b71ba2ec5469",
   "rows_added": 77,
   "values_updated": 82
  }
