@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-24T17:25:01+00:00",
+ "updated": "2026-10-24T17:57:00+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 7,
@@ -8,12 +8,12 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 39,
+   "seconds": 38,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 5,
+   "seconds": 6,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 37,
+   "seconds": 42,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 19,
+   "seconds": 20,
    "ok": true
   }
  ],
@@ -86,7 +86,7 @@
    "WR/TE": 52
   },
   "experts_ros_date": "2026-10-24 00:00:00",
-  "seconds": 17,
+  "seconds": 19,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -100,7 +100,7 @@
     ],
     [
      "Jared Goff",
-     201.8
+     200.0
     ],
     [
      "Joe Burrow",
@@ -110,7 +110,7 @@
    "RB": [
     [
      "Jahmyr Gibbs",
-     253.3
+     252.4
     ],
     [
      "Bijan Robinson",
@@ -124,7 +124,7 @@
    "TE": [
     [
      "Brock Bowers",
-     151.9
+     152.7
     ],
     [
      "Trey McBride",
@@ -156,7 +156,7 @@
   "nfl_rows": 349,
   "nfl_matched": 349,
   "nfl_unmatched": [],
-  "espn_out": 104,
+  "espn_out": 103,
   "espn_unmatched": [
    "C.J. Gardner-Johnson (BUF)",
    "Anton Harrison (JAX)",
@@ -164,7 +164,7 @@
    "Jaylin Lane (WAS)",
    "Terry McLaurin (WAS)"
   ],
-  "hash": "d068a5956973",
+  "hash": "d91f4c603d5f",
   "rows_added": 17,
   "values_updated": 0
  }
