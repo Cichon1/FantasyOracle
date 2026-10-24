@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-24T21:25:10+00:00",
+ "updated": "2026-10-24T21:58:50+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 7,
@@ -8,17 +8,17 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 39,
+   "seconds": 41,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 3,
+   "seconds": 4,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 1,
+   "seconds": 2,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 1,
+   "seconds": 0,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 22,
+   "seconds": 32,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 10,
+   "seconds": 15,
    "ok": true
   }
  ],
@@ -86,7 +86,7 @@
    "WR/TE": 70
   },
   "experts_ros_date": "2026-10-24 00:00:00",
-  "seconds": 9,
+  "seconds": 14,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -153,8 +153,8 @@
  },
  "injuries_live": {
   "nfl_week": 7,
-  "nfl_rows": 349,
-  "nfl_matched": 349,
+  "nfl_rows": 350,
+  "nfl_matched": 350,
   "nfl_unmatched": [],
   "espn_out": 102,
   "espn_unmatched": [
@@ -164,8 +164,8 @@
    "Jaylin Lane (WAS)",
    "Terry McLaurin (WAS)"
   ],
-  "hash": "e41fb1fe0342",
-  "rows_added": 17,
-  "values_updated": 25
+  "hash": "bb8105cac659",
+  "rows_added": 18,
+  "values_updated": 31
  }
 }
