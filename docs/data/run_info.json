@@ -1,29 +1,29 @@
 {
- "updated": "2026-10-24T15:26:14+00:00",
+ "updated": "2026-10-24T16:26:30+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 7,
  "games_started": true,
- "reason": "ftn_charting",
+ "reason": "schedule_and_lines,fp_rankings,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 40,
+   "seconds": 38,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 3,
+   "seconds": 4,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 1,
+   "seconds": 2,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 3,
+   "seconds": 2,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 1,
+   "seconds": 0,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 23,
+   "seconds": 29,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 11,
+   "seconds": 13,
    "ok": true
   }
  ],
@@ -85,8 +85,8 @@
    "RB": 75,
    "WR/TE": 70
   },
-  "experts_ros_date": "2026-10-23 00:00:00",
-  "seconds": 10,
+  "experts_ros_date": "2026-10-24 00:00:00",
+  "seconds": 12,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -132,21 +132,21 @@
     ],
     [
      "George Kittle",
-     140.4
+     141.2
     ]
    ],
    "WR": [
     [
      "Amon-Ra St. Brown",
-     205.3
+     208.0
     ],
     [
      "Ja'Marr Chase",
-     199.6
+     194.2
     ],
     [
      "Jaxon Smith-Njigba",
-     189.4
+     187.0
     ]
    ]
   }
@@ -156,7 +156,7 @@
   "nfl_rows": 349,
   "nfl_matched": 349,
   "nfl_unmatched": [],
-  "espn_out": 103,
+  "espn_out": 104,
   "espn_unmatched": [
    "C.J. Gardner-Johnson (BUF)",
    "Anton Harrison (JAX)",
@@ -164,7 +164,7 @@
    "Jaylin Lane (WAS)",
    "Terry McLaurin (WAS)"
   ],
-  "hash": "959b276a33db",
+  "hash": "05e692c5ed12",
   "rows_added": 17,
   "values_updated": 0
  }
