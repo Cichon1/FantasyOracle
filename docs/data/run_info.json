@@ -1,19 +1,19 @@
 {
- "updated": "2026-10-24T19:25:08+00:00",
+ "updated": "2026-10-24T19:54:49+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 7,
  "games_started": true,
- "reason": "schedule_and_lines,fp_rankings",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 41,
+   "seconds": 42,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 5,
+   "seconds": 4,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 0,
+   "seconds": 1,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 31,
+   "seconds": 30,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 15,
+   "seconds": 14,
    "ok": true
   }
  ],
@@ -56,8 +56,8 @@
    "total": 3
   },
   "inactive_rows": 0,
-  "players": 328,
-  "upcoming": 311,
+  "players": 325,
+  "upcoming": 308,
   "season_scoreboard": {
    "model": 0.3724,
    "experts": 0.3657,
@@ -76,7 +76,7 @@
   "week": 7,
   "last_week": 17,
   "players": 463,
-  "out_this_week": 85,
+  "out_this_week": 88,
   "on_bye": 52,
   "this_week_source": "official",
   "training_snapshots": 47932,
@@ -86,7 +86,7 @@
    "WR/TE": 70
   },
   "experts_ros_date": "2026-10-24 00:00:00",
-  "seconds": 14,
+  "seconds": 13,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -96,7 +96,7 @@
    "QB": [
     [
      "Brock Purdy",
-     205.2
+     206.1
     ],
     [
      "Jared Goff",
@@ -142,7 +142,7 @@
     ],
     [
      "Ja'Marr Chase",
-     194.2
+     195.1
     ],
     [
      "Jaxon Smith-Njigba",
@@ -156,7 +156,7 @@
   "nfl_rows": 349,
   "nfl_matched": 349,
   "nfl_unmatched": [],
-  "espn_out": 103,
+  "espn_out": 104,
   "espn_unmatched": [
    "C.J. Gardner-Johnson (BUF)",
    "Anton Harrison (JAX)",
@@ -164,8 +164,8 @@
    "Jaylin Lane (WAS)",
    "Terry McLaurin (WAS)"
   ],
-  "hash": "0737b1f875c9",
+  "hash": "4b6a9afa7cf4",
   "rows_added": 17,
-  "values_updated": 0
+  "values_updated": 25
  }
 }
