@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-23T23:57:33+00:00",
+ "updated": "2026-10-24T00:42:33+00:00",
  "datasets": {
   "accuracy": {
    "file": "accuracy_v5.csv",
@@ -119,25 +119,25 @@
    "file": "projections_v5.csv",
    "title": "Weekly projections, 2026",
    "description": "Model v5 projections for every QB, RB, WR and TE expected to play, 2026 Weeks 1\u20135: official PPR projection (model rank averaged with the FantasyPros weekly rank, model points handed out in that order), model-only projection, 10th\u201390th percentile range, projected yards and receptions, injury status, and actual stats for finished games. Weeks 1\u20134 re-created after the fact by models trained only on games before each week. Players ruled inactive on game day are marked Inactive (Weeks 1\u20134 from nflverse's weekly rosters). From Week 6 (model v5.1): starting QBs are ordered 70% by a market anchor (Vegas implied team points x the QB's share of team fantasy points in his starts) and 30% by the model, with a calibrated boost for QBs with fewer than 4 career starts; Sunday refreshes after each kickoff window's inactives post show inactive players at 0 and re-project their teammates. Week 5 was last re-projected Sunday Oct 11 at 11:30 AM CT with the noon-game inactives.",
-   "updated": "2026-10-23T23:57:33+00:00"
+   "updated": "2026-10-24T00:42:33+00:00"
   },
   "rb_profiles": {
    "file": "rb_profiles_v5.csv",
    "title": "RB rushing profiles, this week",
    "description": "Recent-weighted rushing profile for Week 5 backs averaging 5+ carries, with the opponent's two-high rate and 10+ yard runs allowed, and projected rushing yards (model v5).",
-   "updated": "2026-10-23T23:57:33+00:00"
+   "updated": "2026-10-24T00:42:33+00:00"
   },
   "receivers": {
    "file": "receivers_v5.csv",
    "title": "Receiver usage, this week",
    "description": "Recent-weighted usage for Week 5 pass catchers: route participation, targets and yards per route run, aDOT, first-read share, expected fantasy points, TD luck, projected receiving yards (model v5) and actual yards for finished games. Route-based numbers hold last season's values (2026 participation data isn't published yet).",
-   "updated": "2026-10-23T23:57:33+00:00"
+   "updated": "2026-10-24T00:42:33+00:00"
   },
   "ros": {
    "file": "ros_v5.csv",
    "title": "Rest-of-season rankings",
    "description": "Rest-of-season PPR projections, from the current week through Week 17, for every QB, RB, WR and TE expected to play this week, plus players out short-term (still on the roster, or in the experts' ROS top pool): official ROS points (the model's rank averaged 50/50 with the FantasyPros ROS rank within the position, model points handed out in that order), 10th-90th percentile range, model-only points and rank, the experts' (market) ROS rank, games left, points per game, this week's projection, season-to-date PPR per game, the remaining opponents' PPR allowed to the position relative to average. Value (trade analyzer): Undervalued / At value / Overvalued = our model's ROS points vs the model points of the player at his market rank, per game left (value_gap_pg), at least +/-1.0 apart, for the market's top QB32 / RB60 / WR80 / TE32 (tested 2023-2025: undervalued beat their market rank 56% of the time, at value 41%, overvalued 30%). Per-game rates and play chances (play_rate, pts_when_playing, passing TDs / INTs / yards, catches, fumbles lost, big-yardage-game chances) convert points to each league's scoring. ROS points = this week's official projection + games after this week x (0.8 x this week's projection + 0.2 x a rest-of-season model); players out or on bye use the rest-of-season model alone.",
-   "updated": "2026-10-23T23:57:33+00:00"
+   "updated": "2026-10-24T00:42:33+00:00"
   },
   "ros_accuracy": {
    "file": "ros_accuracy_v5.csv",
@@ -161,7 +161,7 @@
    "file": "scoreboard_v5.csv",
    "title": "2026 weekly scoreboard",
    "description": "2026 week by week: rank correlation between projections and actual PPR points on the experts' pool (top 24 QB, 48 RB, 60 WR, 24 TE) for the model, the FantasyPros weekly consensus and the official blend, by position and all positions, plus season to date. Players ruled inactive on game day are left out (the experts' mid-week ranking can't know them; the Sunday refreshes do). Weeks 1\u20134 re-created by models trained only on earlier games; live from Week 5.",
-   "updated": "2026-10-23T23:57:33+00:00"
+   "updated": "2026-10-24T00:42:33+00:00"
   },
   "short_yardage": {
    "file": "short_yardage.csv",
@@ -179,7 +179,7 @@
    "file": "trade_values_v5.csv",
    "title": "PPR trade values",
    "description": "PPR trade values for 10, 12 and 14-team leagues, 1QB and superflex (val_<teams>_<1qb|sf>): the average of two expected values over each player's ROS range (two-piece normal through ros_low, ros_ppr, ros_high), each counted only when positive: points above a waiver-wire pickup (wav_*: per-game ROS rate of the best player beyond typical rostered depth, per team QB 2, RB 5, WR 5, TE 1.5; superflex QB 3, RB 4.5, WR 4.5, TE 1.5) and points above the league's last starter (rep_*: best player left out once every starting lineup - QB, 2 RB, 2 WR, TE, FLEX, plus a superflex - is filled), both over his remaining games.",
-   "updated": "2026-10-23T23:57:33+00:00"
+   "updated": "2026-10-24T00:42:33+00:00"
   },
   "weather_games": {
    "file": "weather_games.csv",
