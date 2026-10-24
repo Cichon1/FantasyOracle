@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-24T19:54:49+00:00",
+ "updated": "2026-10-24T20:24:39+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 7,
@@ -8,12 +8,12 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 42,
+   "seconds": 41,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 4,
+   "seconds": 6,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 30,
+   "seconds": 41,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 14,
+   "seconds": 19,
    "ok": true
   }
  ],
@@ -86,7 +86,7 @@
    "WR/TE": 70
   },
   "experts_ros_date": "2026-10-24 00:00:00",
-  "seconds": 13,
+  "seconds": 18,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -96,7 +96,7 @@
    "QB": [
     [
      "Brock Purdy",
-     206.1
+     205.2
     ],
     [
      "Jared Goff",
@@ -142,7 +142,7 @@
     ],
     [
      "Ja'Marr Chase",
-     195.1
+     194.2
     ],
     [
      "Jaxon Smith-Njigba",
@@ -156,7 +156,7 @@
   "nfl_rows": 349,
   "nfl_matched": 349,
   "nfl_unmatched": [],
-  "espn_out": 104,
+  "espn_out": 102,
   "espn_unmatched": [
    "C.J. Gardner-Johnson (BUF)",
    "Anton Harrison (JAX)",
@@ -164,7 +164,7 @@
    "Jaylin Lane (WAS)",
    "Terry McLaurin (WAS)"
   ],
-  "hash": "4b6a9afa7cf4",
+  "hash": "6e207d07ad12",
   "rows_added": 17,
   "values_updated": 25
  }
