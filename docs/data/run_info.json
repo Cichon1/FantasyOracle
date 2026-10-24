@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-24T02:29:22+00:00",
+ "updated": "2026-10-24T03:03:39+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 7,
@@ -8,7 +8,7 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 38,
+   "seconds": 37,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 4,
+   "seconds": 2,
    "ok": true
   },
   {
@@ -86,7 +86,7 @@
    "WR/TE": 52
   },
   "experts_ros_date": "2026-10-23 00:00:00",
-  "seconds": 17,
+  "seconds": 16,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -138,7 +138,7 @@
    "WR": [
     [
      "Amon-Ra St. Brown",
-     204.7
+     203.8
     ],
     [
      "Ja'Marr Chase",
@@ -156,7 +156,7 @@
   "nfl_rows": 349,
   "nfl_matched": 349,
   "nfl_unmatched": [],
-  "espn_out": 103,
+  "espn_out": 104,
   "espn_unmatched": [
    "C.J. Gardner-Johnson (BUF)",
    "Anton Harrison (JAX)",
@@ -164,7 +164,7 @@
    "Jaylin Lane (WAS)",
    "Terry McLaurin (WAS)"
   ],
-  "hash": "df2c2f84316f",
+  "hash": "9c2f25c78cb7",
   "rows_added": 31,
   "values_updated": 204
  }
