@@ -1,5 +1,5 @@
 {
- "pulled_at": "2026-10-23T18:22-04:00",
+ "pulled_at": "2026-10-23T21:34-04:00",
  "pages": 8,
  "expert_pages": 11,
  "errors": [],
@@ -8,7 +8,7 @@
  "cutoff_weekly": "2026-10-19T23:35-04:00",
  "panels": {
   "weekly|QB": {
-   "default": 45,
+   "default": 44,
    "recent": 77,
    "recent_acc": 20,
    "listed": 153,
@@ -19,8 +19,8 @@
     "recent": 35,
     "recent_acc": 31
    },
-   "agree_recent": 0.997,
-   "agree_recent_acc": 0.995
+   "agree_recent": 0.998,
+   "agree_recent_acc": 0.994
   },
   "weekly|RB": {
    "default": 42,
@@ -34,8 +34,8 @@
     "recent": 96,
     "recent_acc": 95
    },
-   "agree_recent": 0.987,
-   "agree_recent_acc": 0.985
+   "agree_recent": 0.986,
+   "agree_recent_acc": 0.987
   },
   "weekly|WR": {
    "default": 42,
@@ -45,15 +45,15 @@
    "public_pages": 75,
    "recent_rule": "since cutoff",
    "players": {
-    "default": 159,
-    "recent": 110,
+    "default": 160,
+    "recent": 111,
     "recent_acc": 111
    },
    "agree_recent": 0.992,
    "agree_recent_acc": 0.993
   },
   "weekly|TE": {
-   "default": 42,
+   "default": 41,
    "recent": 75,
    "recent_acc": 20,
    "listed": 146,
@@ -94,7 +94,7 @@
     "recent": 106,
     "recent_acc": 106
    },
-   "agree_recent": 0.982,
+   "agree_recent": 0.981,
    "agree_recent_acc": 0.981
   },
   "ros|WR": {
@@ -106,11 +106,11 @@
    "recent_rule": "since cutoff",
    "players": {
     "default": 149,
-    "recent": 131,
-    "recent_acc": 131
+    "recent": 130,
+    "recent_acc": 130
    },
-   "agree_recent": 0.969,
-   "agree_recent_acc": 0.968
+   "agree_recent": 0.964,
+   "agree_recent_acc": 0.964
   },
   "ros|TE": {
    "default": 7,
@@ -121,12 +121,12 @@
    "recent_rule": "fallback: last 7 days",
    "players": {
     "default": 69,
-    "recent": 60,
-    "recent_acc": 60
+    "recent": 61,
+    "recent_acc": 61
    },
-   "agree_recent": 0.99,
-   "agree_recent_acc": 0.99
+   "agree_recent": 0.987,
+   "agree_recent_acc": 0.987
   }
  },
- "stamp": "9012589a88c1"
+ "stamp": "9775e0025858"
 }
