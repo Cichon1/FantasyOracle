@@ -1,14 +1,14 @@
 {
- "updated": "2026-10-24T05:27:39+00:00",
+ "updated": "2026-10-24T06:32:26+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 7,
  "games_started": true,
- "reason": "schedule_and_lines",
+ "reason": "injury_reports,depth_charts,rosters",
  "steps": [
   {
    "step": "bash",
-   "seconds": 37,
+   "seconds": 44,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 2,
+   "seconds": 4,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 38,
+   "seconds": 39,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 18,
+   "seconds": 19,
    "ok": true
   }
  ],
@@ -75,8 +75,8 @@
   "season": 2026,
   "week": 7,
   "last_week": 17,
-  "players": 463,
-  "out_this_week": 85,
+  "players": 464,
+  "out_this_week": 86,
   "on_bye": 52,
   "this_week_source": "official",
   "training_snapshots": 47940,
@@ -86,7 +86,7 @@
    "WR/TE": 52
   },
   "experts_ros_date": "2026-10-23 00:00:00",
-  "seconds": 17,
+  "seconds": 18,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -165,7 +165,7 @@
    "Terry McLaurin (WAS)"
   ],
   "hash": "9c2f25c78cb7",
-  "rows_added": 31,
-  "values_updated": 204
+  "rows_added": 17,
+  "values_updated": 0
  }
 }
