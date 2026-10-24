@@ -1,45 +1,45 @@
 {
- "pulled_at": "2026-10-24T15:19-04:00",
+ "pulled_at": "2026-10-24T18:17-04:00",
  "pages": 8,
- "expert_pages": 10,
+ "expert_pages": 17,
  "errors": [],
  "expert_pages_waiting": 0,
  "cutoff_ros": "2026-10-19T23:35-04:00",
  "cutoff_weekly": "2026-10-23T16:00-04:00",
  "panels": {
   "weekly|QB": {
-   "default": 41,
-   "recent": 21,
+   "default": 39,
+   "recent": 30,
    "recent_acc": 20,
    "listed": 155,
    "public_pages": 79,
    "recent_rule": "since cutoff",
    "players": {
-    "default": 65,
+    "default": 64,
     "recent": 31,
     "recent_acc": 31
    },
-   "agree_recent": 0.996,
-   "agree_recent_acc": 0.996
+   "agree_recent": 0.995,
+   "agree_recent_acc": 0.994
   },
   "weekly|RB": {
-   "default": 39,
-   "recent": 36,
+   "default": 38,
+   "recent": 39,
    "recent_acc": 20,
    "listed": 148,
    "public_pages": 76,
    "recent_rule": "since cutoff",
    "players": {
-    "default": 108,
-    "recent": 85,
-    "recent_acc": 87
+    "default": 109,
+    "recent": 86,
+    "recent_acc": 89
    },
-   "agree_recent": 0.98,
+   "agree_recent": 0.979,
    "agree_recent_acc": 0.983
   },
   "weekly|WR": {
-   "default": 40,
-   "recent": 34,
+   "default": 39,
+   "recent": 37,
    "recent_acc": 20,
    "listed": 148,
    "public_pages": 76,
@@ -47,14 +47,14 @@
    "players": {
     "default": 161,
     "recent": 109,
-    "recent_acc": 109
+    "recent_acc": 108
    },
-   "agree_recent": 0.99,
-   "agree_recent_acc": 0.988
+   "agree_recent": 0.986,
+   "agree_recent_acc": 0.989
   },
   "weekly|TE": {
-   "default": 38,
-   "recent": 27,
+   "default": 39,
+   "recent": 32,
    "recent_acc": 20,
    "listed": 148,
    "public_pages": 76,
@@ -62,10 +62,10 @@
    "players": {
     "default": 107,
     "recent": 40,
-    "recent_acc": 40
+    "recent_acc": 42
    },
-   "agree_recent": 0.992,
-   "agree_recent_acc": 0.987
+   "agree_recent": 0.994,
+   "agree_recent_acc": 0.991
   },
   "ros|QB": {
    "default": 8,
@@ -128,5 +128,5 @@
    "agree_recent_acc": 0.987
   }
  },
- "stamp": "8ee9955b459e"
+ "stamp": "c142bb0c0754"
 }
