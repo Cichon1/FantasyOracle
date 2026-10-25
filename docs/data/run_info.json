@@ -1,19 +1,19 @@
 {
- "updated": "2026-10-25T01:12:45+00:00",
+ "updated": "2026-10-25T02:03:39+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 7,
  "games_started": true,
- "reason": "schedule_and_lines",
+ "reason": "schedule_and_lines,fp_rankings",
  "steps": [
   {
    "step": "bash",
-   "seconds": 40,
+   "seconds": 43,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 6,
+   "seconds": 3,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 4,
+   "seconds": 2,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 37,
+   "seconds": 22,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 18,
+   "seconds": 10,
    "ok": true
   }
  ],
@@ -79,14 +79,14 @@
   "out_this_week": 88,
   "on_bye": 52,
   "this_week_source": "official",
-  "training_snapshots": 47940,
+  "training_snapshots": 47932,
   "rounds": {
    "QB": 50,
-   "RB": 113,
-   "WR/TE": 52
+   "RB": 75,
+   "WR/TE": 70
   },
   "experts_ros_date": "2026-10-24 00:00:00",
-  "seconds": 17,
+  "seconds": 9,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -96,57 +96,57 @@
    "QB": [
     [
      "Brock Purdy",
-     208.8
-    ],
-    [
-     "Josh Allen",
-     200.0
+     206.1
     ],
     [
      "Jared Goff",
-     198.1
+     201.1
+    ],
+    [
+     "Joe Burrow",
+     197.3
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     253.3
+     254.0
     ],
     [
      "Bijan Robinson",
-     214.1
+     220.2
     ],
     [
      "Christian McCaffrey",
-     213.3
+     214.7
     ]
    ],
    "TE": [
     [
      "Brock Bowers",
-     152.7
+     155.0
     ],
     [
      "Trey McBride",
-     150.4
+     149.8
     ],
     [
      "George Kittle",
-     141.6
+     141.2
     ]
    ],
    "WR": [
     [
      "Amon-Ra St. Brown",
-     204.7
+     205.3
     ],
     [
      "Ja'Marr Chase",
-     199.3
+     194.2
     ],
     [
      "Jaxon Smith-Njigba",
-     188.8
+     189.4
     ]
    ]
   }
