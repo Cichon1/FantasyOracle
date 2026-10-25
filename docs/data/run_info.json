@@ -1,19 +1,19 @@
 {
- "updated": "2026-10-25T20:58:32+00:00",
+ "updated": "2026-10-25T21:28:50+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 7,
  "games_started": true,
- "reason": "schedule_and_lines",
+ "reason": "player_stats,play_by_play,schedule_and_lines",
  "steps": [
   {
    "step": "bash",
-   "seconds": 38,
+   "seconds": 37,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 4,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 25,
+   "seconds": 220,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 12,
+   "seconds": 42,
    "ok": true
   }
  ],
@@ -60,17 +60,17 @@
   },
   "inactive_rows": 0,
   "players": 326,
-  "upcoming": 296,
+  "upcoming": 115,
   "season_scoreboard": {
-   "model": 0.3724,
-   "experts": 0.3657,
-   "official": 0.377
+   "model": 0.403,
+   "experts": 0.3969,
+   "official": 0.4076
   },
   "latest_week_scoreboard": {
-   "week": 6,
-   "model": 0.4101,
-   "experts": 0.3491,
-   "official": 0.396
+   "week": 7,
+   "model": 0.5861,
+   "experts": 0.584,
+   "official": 0.5912
   }
  },
  "ros_info": {
@@ -79,49 +79,49 @@
   "week": 7,
   "last_week": 17,
   "players": 464,
-  "out_this_week": 101,
+  "out_this_week": 121,
   "on_bye": 52,
   "this_week_source": "official",
-  "training_snapshots": 47928,
+  "training_snapshots": 47931,
   "rounds": {
    "QB": 50,
-   "RB": 82,
-   "WR/TE": 59
+   "RB": 62,
+   "WR/TE": 58
   },
   "experts_ros_date": "2026-10-24 00:00:00",
-  "seconds": 11,
+  "seconds": 40,
   "model_cache": {
-   "hit": 18,
-   "miss": 0,
+   "hit": 0,
+   "miss": 18,
    "on": true
   },
   "top": {
    "QB": [
     [
      "Josh Allen",
-     208.1
+     208.0
     ],
     [
      "Jared Goff",
-     187.2
+     189.2
     ],
     [
-     "Drake Maye",
-     176.6
+     "Brock Purdy",
+     186.8
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     254.6
-    ],
-    [
-     "Kenneth Walker III",
-     186.5
+     254.1
     ],
     [
      "Bijan Robinson",
-     180.3
+     197.3
+    ],
+    [
+     "Christian McCaffrey",
+     194.3
     ]
    ],
    "TE": [
@@ -131,11 +131,11 @@
     ],
     [
      "Trey McBride",
-     151.4
+     150.8
     ],
     [
-     "Sam LaPorta",
-     140.6
+     "George Kittle",
+     141.5
     ]
    ],
    "WR": [
@@ -145,11 +145,11 @@
     ],
     [
      "Amon-Ra St. Brown",
-     191.9
+     187.8
     ],
     [
      "Ja'Marr Chase",
-     173.8
+     177.7
     ]
    ]
   }
