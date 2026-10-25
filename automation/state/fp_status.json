@@ -1,71 +1,71 @@
 {
- "pulled_at": "2026-10-24T21:26-04:00",
+ "pulled_at": "2026-10-25T12:20-04:00",
  "pages": 8,
- "expert_pages": 13,
+ "expert_pages": 45,
  "errors": [],
- "expert_pages_waiting": 0,
+ "expert_pages_waiting": 29,
  "cutoff_ros": "2026-10-19T23:35-04:00",
  "cutoff_weekly": "2026-10-23T16:00-04:00",
  "panels": {
   "weekly|QB": {
-   "default": 19,
-   "recent": 35,
+   "default": 44,
+   "recent": 49,
    "recent_acc": 20,
-   "listed": 155,
-   "public_pages": 79,
+   "listed": 166,
+   "public_pages": 83,
    "recent_rule": "since cutoff",
    "players": {
-    "default": 44,
-    "recent": 32,
-    "recent_acc": 32
+    "default": 60,
+    "recent": 33,
+    "recent_acc": 30
    },
-   "agree_recent": 0.995,
-   "agree_recent_acc": 0.994
+   "agree_recent": 0.997,
+   "agree_recent_acc": 0.997
   },
   "weekly|RB": {
-   "default": 21,
-   "recent": 42,
+   "default": 41,
+   "recent": 49,
    "recent_acc": 20,
-   "listed": 148,
-   "public_pages": 76,
+   "listed": 162,
+   "public_pages": 81,
    "recent_rule": "since cutoff",
    "players": {
-    "default": 104,
-    "recent": 88,
-    "recent_acc": 90
+    "default": 103,
+    "recent": 82,
+    "recent_acc": 85
    },
-   "agree_recent": 0.983,
-   "agree_recent_acc": 0.981
+   "agree_recent": 0.988,
+   "agree_recent_acc": 0.992
   },
   "weekly|WR": {
-   "default": 21,
-   "recent": 41,
+   "default": 41,
+   "recent": 49,
    "recent_acc": 20,
-   "listed": 148,
-   "public_pages": 76,
+   "listed": 162,
+   "public_pages": 81,
    "recent_rule": "since cutoff",
    "players": {
-    "default": 148,
-    "recent": 109,
+    "default": 149,
+    "recent": 105,
     "recent_acc": 109
    },
-   "agree_recent": 0.983,
-   "agree_recent_acc": 0.985
+   "agree_recent": 0.985,
+   "agree_recent_acc": 0.989
   },
   "weekly|TE": {
-   "default": 21,
-   "recent": 36,
+   "default": 41,
+   "recent": 45,
    "recent_acc": 20,
-   "listed": 148,
-   "public_pages": 76,
+   "listed": 161,
+   "public_pages": 80,
    "recent_rule": "since cutoff",
    "players": {
-    "default": 97,
+    "default": 101,
     "recent": 40,
-    "recent_acc": 45
+    "recent_acc": 44
    },
-   "agree_recent": 0.993,
-   "agree_recent_acc": 0.994
+   "agree_recent": 0.994,
+   "agree_recent_acc": 0.993
   },
   "ros|QB": {
    "default": 8,
@@ -114,19 +114,19 @@
   },
   "ros|TE": {
    "default": 7,
-   "recent": 10,
-   "recent_acc": 10,
+   "recent": 9,
+   "recent_acc": 9,
    "listed": 27,
    "public_pages": 16,
    "recent_rule": "fallback: last 7 days",
    "players": {
     "default": 69,
-    "recent": 61,
-    "recent_acc": 61
+    "recent": 63,
+    "recent_acc": 63
    },
-   "agree_recent": 0.987,
-   "agree_recent_acc": 0.987
+   "agree_recent": 0.988,
+   "agree_recent_acc": 0.988
   }
  },
- "stamp": "e0f08b047557"
+ "stamp": "42c67b7de815"
 }
