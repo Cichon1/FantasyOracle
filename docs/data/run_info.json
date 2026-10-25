@@ -1,19 +1,19 @@
 {
- "updated": "2026-10-25T08:31:32+00:00",
+ "updated": "2026-10-25T09:27:53+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 7,
  "games_started": true,
- "reason": "schedule_and_lines",
+ "reason": "player_stats,play_by_play",
  "steps": [
   {
    "step": "bash",
-   "seconds": 38,
+   "seconds": 47,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 5,
+   "seconds": 6,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 2,
+   "seconds": 3,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 220,
+   "seconds": 37,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 40,
+   "seconds": 18,
    "ok": true
   }
  ],
@@ -86,10 +86,10 @@
    "WR/TE": 50
   },
   "experts_ros_date": "2026-10-24 00:00:00",
-  "seconds": 39,
+  "seconds": 17,
   "model_cache": {
-   "hit": 0,
-   "miss": 18,
+   "hit": 18,
+   "miss": 0,
    "on": true
   },
   "top": {
@@ -138,7 +138,7 @@
    "WR": [
     [
      "Amon-Ra St. Brown",
-     209.0
+     208.1
     ],
     [
      "Ja'Marr Chase",

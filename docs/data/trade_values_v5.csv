@@ -2,7 +2,7 @@ key,player,pos,team,status,ros_ppr,games_left,val_10_1qb,rep_10_1qb,wav_10_1qb,v
 Jahmyr Gibbs (DET),Jahmyr Gibbs,RB,DET,Plays this week,254.3,11,122.6,10.84,6.05,131.8,9.93,5.07,144.5,8.7,3.73,123.0,10.84,5.96,125.2,9.93,6.38,140.6,8.7,4.49
 Bijan Robinson (ATL),Bijan Robinson,RB,ATL,Plays this week,219.6,10,102.0,10.84,6.05,110.2,9.93,5.07,121.5,8.7,3.73,102.4,10.84,5.96,104.2,9.93,6.38,118.0,8.7,4.49
 Christian McCaffrey (SF),Christian McCaffrey,RB,SF,Plays this week,213.8,10,94.8,10.84,6.05,102.6,9.93,5.07,113.5,8.7,3.73,95.2,10.84,5.96,96.9,9.93,6.38,110.1,8.7,4.49
-Amon-Ra St. Brown (DET),Amon-Ra St. Brown,WR,DET,Plays this week,209.0,11,78.6,11.89,8.05,97.0,9.15,6.7,98.6,8.79,6.71,71.6,11.89,9.56,88.4,9.15,8.52,96.8,8.79,7.09
+Amon-Ra St. Brown (DET),Amon-Ra St. Brown,WR,DET,Plays this week,208.1,11,77.9,11.89,8.05,96.3,9.15,6.7,97.9,8.79,6.71,70.9,11.89,9.56,87.6,9.15,8.52,96.0,8.79,7.09
 Jaxon Smith-Njigba (SEA),Jaxon Smith-Njigba,WR,SEA,Plays this week,191.7,10,74.7,11.89,8.05,91.6,9.15,6.7,93.0,8.79,6.71,68.4,11.89,9.56,83.7,9.15,8.52,91.4,8.79,7.09
 Ja'Marr Chase (CIN),Ja'Marr Chase,WR,CIN,Plays this week,192.9,11,72.8,11.89,8.05,90.4,9.15,6.7,91.9,8.79,6.71,66.2,11.89,9.56,82.1,9.15,8.52,90.1,8.79,7.09
 Kenneth Walker III (KC),Kenneth Walker III,RB,KC,Plays this week,182.2,11,69.6,10.84,6.05,78.2,9.93,5.07,90.3,8.7,3.73,70.1,10.84,5.96,71.8,9.93,6.38,86.4,8.7,4.49
@@ -49,8 +49,8 @@ Aaron Jones (MIN),Aaron Jones,RB,MIN,Plays this week,126.1,11,35.1,10.84,6.05,42
 Michael Wilson (ARI),Michael Wilson,WR,ARI,Plays this week,120.5,10,27.9,11.89,8.05,41.8,9.15,6.7,43.0,8.79,6.71,22.3,11.89,9.56,34.5,9.15,8.52,41.5,8.79,7.09
 Joe Burrow (CIN),Joe Burrow,QB,CIN,Plays this week,187.2,11,29.7,16.56,13.19,41.8,14.78,11.43,40.6,15.58,11.09,50.4,13.19,10.62,80.5,11.43,5.37,90.0,11.09,3.73
 Rhamondre Stevenson (NE),Rhamondre Stevenson,RB,NE,Played this week,108.7,9,34.2,10.84,6.05,40.7,9.93,5.07,50.1,8.7,3.73,34.5,10.84,5.96,35.5,9.93,6.38,46.9,8.7,4.49
+DK Metcalf (PIT),DK Metcalf,WR,PIT,Plays this week,116.1,10,27.0,11.89,8.05,40.4,9.15,6.7,41.6,8.79,6.71,21.7,11.89,9.56,33.3,9.15,8.52,40.0,8.79,7.09
 Saquon Barkley (PHI),Saquon Barkley,RB,PHI,Plays this week,112.0,10,33.3,10.84,6.05,39.9,9.93,5.07,49.6,8.7,3.73,33.7,10.84,5.96,34.5,9.93,6.38,46.3,8.7,4.49
-DK Metcalf (PIT),DK Metcalf,WR,PIT,Plays this week,115.2,10,26.5,11.89,8.05,39.7,9.15,6.7,40.9,8.79,6.71,21.2,11.89,9.56,32.7,9.15,8.52,39.4,8.79,7.09
 Ollie Gordon II (MIA),Ollie Gordon II,RB,MIA,Plays this week,122.2,11,31.6,10.84,6.05,38.9,9.93,5.07,49.7,8.7,3.73,32.0,10.84,5.96,32.9,9.93,6.38,45.9,8.7,4.49
 Luther Burden III (CHI),Luther Burden III,WR,CHI,Played this week,107.0,9,26.8,11.89,8.05,38.8,9.15,6.7,39.9,8.79,6.71,22.0,11.89,9.56,32.6,9.15,8.52,38.6,8.79,7.09
 Dak Prescott (DAL),Dak Prescott,QB,DAL,Plays this week,176.5,10,26.7,16.56,13.19,37.8,14.78,11.43,36.6,15.58,11.09,45.6,13.19,10.62,72.6,11.43,5.37,80.9,11.09,3.73
