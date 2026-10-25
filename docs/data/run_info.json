@@ -1,10 +1,10 @@
 {
- "updated": "2026-10-25T22:58:08+00:00",
+ "updated": "2026-10-25T23:22:56+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 7,
  "games_started": true,
- "reason": "schedule_and_lines",
+ "reason": "schedule_and_lines,injury_news,inactives",
  "steps": [
   {
    "step": "bash",
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 147,
+   "seconds": 30,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 26,
+   "seconds": 14,
    "ok": true
   }
  ],
@@ -54,9 +54,9 @@
   "inactives": {
    "nflverse_roster": 9,
    "file": "ref/inactives_2026_wk7.csv",
-   "matched": 46,
+   "matched": 52,
    "unmatched": [],
-   "total": 49
+   "total": 55
   },
   "inactive_rows": 0,
   "players": 326,
@@ -89,10 +89,10 @@
    "WR/TE": 50
   },
   "experts_ros_date": "2026-10-24 00:00:00",
-  "seconds": 25,
+  "seconds": 13,
   "model_cache": {
-   "hit": 0,
-   "miss": 18,
+   "hit": 18,
+   "miss": 0,
    "on": true
   },
   "top": {
@@ -159,7 +159,7 @@
   "nfl_rows": 350,
   "nfl_matched": 350,
   "nfl_unmatched": [],
-  "espn_out": 205,
+  "espn_out": 213,
   "espn_unmatched": [
    "C.J. Gardner-Johnson (BUF)",
    "Anton Harrison (JAX)",
@@ -167,8 +167,8 @@
    "Jaylin Lane (WAS)",
    "Terry McLaurin (WAS)"
   ],
-  "hash": "0b9c7997b5e9",
-  "rows_added": 97,
+  "hash": "7004410357b9",
+  "rows_added": 102,
   "values_updated": 0
  }
 }
