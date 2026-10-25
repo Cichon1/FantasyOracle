@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-25T10:26:20+00:00",
+ "updated": "2026-10-25T11:58:39+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 7,
@@ -8,7 +8,7 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 41,
+   "seconds": 42,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 4,
+   "seconds": 3,
    "ok": true
   },
   {
@@ -86,7 +86,7 @@
    "WR/TE": 50
   },
   "experts_ros_date": "2026-10-24 00:00:00",
-  "seconds": 18,
+  "seconds": 17,
   "model_cache": {
    "hit": 18,
    "miss": 0,
