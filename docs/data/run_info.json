@@ -1,19 +1,19 @@
 {
- "updated": "2026-10-25T18:28:13+00:00",
+ "updated": "2026-10-25T19:04:58+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 7,
  "games_started": true,
- "reason": "schedule_and_lines",
+ "reason": "schedule_and_lines,injury_news,inactives",
  "steps": [
   {
    "step": "bash",
-   "seconds": 40,
+   "seconds": 38,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 4,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 29,
+   "seconds": 37,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 14,
+   "seconds": 17,
    "ok": true
   }
  ],
@@ -54,9 +54,9 @@
   "inactives": {
    "nflverse_roster": 9,
    "file": "ref/inactives_2026_wk7.csv",
-   "matched": 37,
+   "matched": 41,
    "unmatched": [],
-   "total": 40
+   "total": 44
   },
   "inactive_rows": 0,
   "players": 326,
@@ -89,7 +89,7 @@
    "WR/TE": 59
   },
   "experts_ros_date": "2026-10-24 00:00:00",
-  "seconds": 13,
+  "seconds": 16,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -141,7 +141,7 @@
    "WR": [
     [
      "Amon-Ra St. Brown",
-     208.7
+     209.6
     ],
     [
      "Ja'Marr Chase",
@@ -159,7 +159,7 @@
   "nfl_rows": 350,
   "nfl_matched": 350,
   "nfl_unmatched": [],
-  "espn_out": 174,
+  "espn_out": 188,
   "espn_unmatched": [
    "C.J. Gardner-Johnson (BUF)",
    "Anton Harrison (JAX)",
@@ -167,8 +167,8 @@
    "Jaylin Lane (WAS)",
    "Terry McLaurin (WAS)"
   ],
-  "hash": "ae946c89ec9b",
-  "rows_added": 71,
+  "hash": "bc58f9035579",
+  "rows_added": 82,
   "values_updated": 0
  }
 }
