@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-26T18:10:59+00:00",
+ "updated": "2026-10-26T19:18:09+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 7,
@@ -79,7 +79,7 @@
   "week": 7,
   "last_week": 17,
   "players": 464,
-  "out_this_week": 108,
+  "out_this_week": 109,
   "on_bye": 52,
   "this_week_source": "official",
   "training_snapshots": 47931,
@@ -159,7 +159,7 @@
   "nfl_rows": 350,
   "nfl_matched": 350,
   "nfl_unmatched": [],
-  "espn_out": 183,
+  "espn_out": 129,
   "espn_unmatched": [
    "C.J. Gardner-Johnson (BUF)",
    "Anton Harrison (JAX)",
@@ -167,8 +167,8 @@
    "Jaylin Lane (WAS)",
    "Terry McLaurin (WAS)"
   ],
-  "hash": "c511e2da38e2",
-  "rows_added": 76,
+  "hash": "1dac0d78353f",
+  "rows_added": 24,
   "values_updated": 0
  }
 }

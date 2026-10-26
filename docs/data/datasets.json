@@ -1,35 +1,35 @@
 {
- "updated": "2026-10-26T18:27:51+00:00",
+ "updated": "2026-10-26T19:18:13+00:00",
  "datasets": {
   "accuracy": {
    "file": "accuracy_v5.csv",
    "title": "Honest accuracy by season",
    "description": "Model v5 walk-forward accuracy, 2023\u20132026 (each season predicted by models trained only on earlier seasons, using only data available at the time): R\u00b2 over players the expected-to-play rule picks (zeros for those who sat) and over played games, typical miss in PPR points for the official and model-only projections, and the share of games below / above the 10th\u201390th range.",
-   "updated": "2026-10-09T13:15:00Z"
+   "updated": "2026-10-26T19:18:13+00:00"
   },
   "calibration": {
    "file": "calibration_v5.csv",
    "title": "PPR calibration bins",
    "description": "Walk-forward 2023\u20132026 games (expected-to-play pool) grouped by official v5 projection, with the average projection and average actual points in each group.",
-   "updated": "2026-10-09T13:15:00Z"
+   "updated": "2026-10-26T19:18:13+00:00"
   },
   "coaches": {
-   "file": "coach_tendencies_wk5.csv",
-   "title": "Week 5 coach tendencies",
-   "description": "Each Week 5 offense's head coach: neutral-situation pass rate over expected overall and by defensive look, a matchup-weighted version, and team pace, as of Week 4.",
-   "updated": "2026-10-09T02:45:31Z"
+   "file": "coach_tendencies.csv",
+   "title": "Week 7 coach tendencies",
+   "description": "Each Week 7 offense's head coach: neutral-situation pass rate over expected overall and by defensive look, a matchup-weighted version, and team pace, as of Week 6.",
+   "updated": "2026-10-26T19:18:13+00:00"
   },
   "coverage": {
    "file": "coverage_v5.csv",
    "title": "PPR range coverage",
    "description": "Share of walk-forward 2023\u20132026 games whose actual PPR points fell below, inside, or above the v5 10th\u201390th percentile range.",
-   "updated": "2026-10-09T13:15:00Z"
+   "updated": "2026-10-26T19:18:13+00:00"
   },
   "defense": {
-   "file": "defense_profiles_wk5.csv",
-   "title": "Week 5 defense schemes",
-   "description": "Each Week 5 defense's recent-weighted blitz, man, coverage shell, personnel (overall and vs heavy sets), box and pressure rates, EPA allowed by look, 10+ yard runs allowed and stuff rate, as of Week 4. Coverage and personnel reflect games through 2025 (2026 charting not yet published).",
-   "updated": "2026-10-09T02:45:31Z"
+   "file": "defense_profiles.csv",
+   "title": "Week 7 defense schemes",
+   "description": "Each Week 7 defense's recent-weighted blitz, man, coverage shell, personnel (overall and vs heavy sets), box and pressure rates, EPA allowed by look, 10+ yard runs allowed and stuff rate, as of Week 6. Coverage and personnel reflect games through 2025 (2026 charting not yet published).",
+   "updated": "2026-10-26T19:18:13+00:00"
   },
   "experiments": {
    "file": "experiments_v5.csv",
@@ -41,19 +41,19 @@
    "file": "experts_v5.csv",
    "title": "Vs expert consensus, overall",
    "description": "Weekly PPR positional rankings 2023\u20132026 on the experts' pool (consensus top QB24 / RB48 / WR60 / TE24 among expected players, zeros included): rank correlation with actual points, start/sit pairs right, top-12/24 hit rate, average difference vs the experts with its standard error, and share of position-weeks ahead, for model v5, the FantasyPros consensus and the official blend.",
-   "updated": "2026-10-09T22:05:00Z"
+   "updated": "2026-10-26T19:18:13+00:00"
   },
   "experts_position": {
    "file": "experts_position_v5.csv",
    "title": "Vs experts by position",
    "description": "The expert head-to-head (model v5, FantasyPros consensus, official blend) by position, 2023\u20132026 combined.",
-   "updated": "2026-10-09T22:05:00Z"
+   "updated": "2026-10-26T19:18:13+00:00"
   },
   "experts_season": {
    "file": "experts_season_v5.csv",
    "title": "Vs experts by season",
    "description": "The expert head-to-head (model v5, FantasyPros consensus, official blend) by season, 2023\u20132026.",
-   "updated": "2026-10-09T22:05:00Z"
+   "updated": "2026-10-26T19:18:13+00:00"
   },
   "honesty": {
    "file": "honesty_v5.csv",
@@ -89,7 +89,7 @@
    "file": "league_trends.csv",
    "title": "League style by season",
    "description": "League-wide under-center, heavy-personnel, fullback, play-action and two-high rates, EPA per run and per dropback, and explosive run rate, by regular season 2018\u20132026.",
-   "updated": "2026-10-09T02:45:31Z"
+   "updated": "2026-10-26T19:18:13+00:00"
   },
   "leagues": {
    "file": "leagues_v5.csv",
@@ -98,10 +98,10 @@
    "updated": "2026-10-26T18:27:51+00:00"
   },
   "offense_style": {
-   "file": "offense_style_wk5.csv",
-   "title": "Week 5 offensive style",
-   "description": "Each Week 5 offense's recent-weighted under-center, play-action, motion, two-back, heavy-personnel and fullback rates, run and play-action EPA, explosive and stuffed run rates, and short-yardage success, as of Week 4. Heavy and fullback rates are through 2025.",
-   "updated": "2026-10-09T02:45:31Z"
+   "file": "offense_style.csv",
+   "title": "Week 7 offensive style",
+   "description": "Each Week 7 offense's recent-weighted under-center, play-action, motion, two-back, heavy-personnel and fullback rates, run and play-action EPA, explosive and stuffed run rates, and short-yardage success, as of Week 6. Heavy and fullback rates are through 2025.",
+   "updated": "2026-10-26T19:18:13+00:00"
   },
   "pick_values": {
    "file": "pick_values_v5.csv",
@@ -119,25 +119,25 @@
    "file": "projections_v5.csv",
    "title": "Weekly projections, 2026",
    "description": "Model v5 projections for every QB, RB, WR and TE expected to play, 2026 Weeks 1\u20135: official PPR projection (model rank averaged with the FantasyPros weekly rank, model points handed out in that order), model-only projection, 10th\u201390th percentile range, projected yards and receptions, injury status, and actual stats for finished games. Weeks 1\u20134 re-created after the fact by models trained only on games before each week. Players ruled inactive on game day are marked Inactive (Weeks 1\u20134 from nflverse's weekly rosters). From Week 6 (model v5.1): starting QBs are ordered 70% by a market anchor (Vegas implied team points x the QB's share of team fantasy points in his starts) and 30% by the model, with a calibrated boost for QBs with fewer than 4 career starts; Sunday refreshes after each kickoff window's inactives post show inactive players at 0 and re-project their teammates. Week 5 was last re-projected Sunday Oct 11 at 11:30 AM CT with the noon-game inactives.",
-   "updated": "2026-10-26T18:10:59+00:00"
+   "updated": "2026-10-26T19:18:09+00:00"
   },
   "rb_profiles": {
    "file": "rb_profiles_v5.csv",
    "title": "RB rushing profiles, this week",
    "description": "Recent-weighted rushing profile for Week 5 backs averaging 5+ carries, with the opponent's two-high rate and 10+ yard runs allowed, and projected rushing yards (model v5).",
-   "updated": "2026-10-26T18:10:59+00:00"
+   "updated": "2026-10-26T19:18:09+00:00"
   },
   "receivers": {
    "file": "receivers_v5.csv",
    "title": "Receiver usage, this week",
    "description": "Recent-weighted usage for Week 5 pass catchers: route participation, targets and yards per route run, aDOT, first-read share, expected fantasy points, TD luck, projected receiving yards (model v5) and actual yards for finished games. Route-based numbers hold last season's values (2026 participation data isn't published yet).",
-   "updated": "2026-10-26T18:10:59+00:00"
+   "updated": "2026-10-26T19:18:09+00:00"
   },
   "ros": {
    "file": "ros_v5.csv",
    "title": "Rest-of-season rankings",
    "description": "Rest-of-season PPR projections, from the current week through Week 17, for every QB, RB, WR and TE expected to play this week, plus players out short-term (still on the roster, or in the experts' ROS top pool): official ROS points (the model's rank averaged 50/50 with the FantasyPros ROS rank within the position, model points handed out in that order), 10th-90th percentile range, model-only points and rank, the experts' (market) ROS rank, games left, points per game, this week's projection, season-to-date PPR per game, the remaining opponents' PPR allowed to the position relative to average. Value (trade analyzer): Undervalued / At value / Overvalued = our model's ROS points vs the model points of the player at his market rank, per game left (value_gap_pg), at least +/-1.0 apart, for the market's top QB32 / RB60 / WR80 / TE32 (tested 2023-2025: undervalued beat their market rank 56% of the time, at value 41%, overvalued 30%). Per-game rates and play chances (play_rate, pts_when_playing, passing TDs / INTs / yards, catches, fumbles lost, big-yardage-game chances) convert points to each league's scoring. ROS points = this week's official projection + games after this week x (0.8 x this week's projection + 0.2 x a rest-of-season model); players out or on bye use the rest-of-season model alone.",
-   "updated": "2026-10-26T18:10:59+00:00"
+   "updated": "2026-10-26T19:18:09+00:00"
   },
   "ros_accuracy": {
    "file": "ros_accuracy_v5.csv",
@@ -155,19 +155,19 @@
    "file": "runs_by_box.csv",
    "title": "Runs by box count",
    "description": "Designed runs by defenders in the box: EPA per run, yards per carry, explosive (10+) and stuff rates, 2018\u20132026 regular seasons.",
-   "updated": "2026-10-09T02:45:31Z"
+   "updated": "2026-10-26T19:18:13+00:00"
   },
   "scoreboard": {
    "file": "scoreboard_v5.csv",
    "title": "2026 weekly scoreboard",
    "description": "2026 week by week: rank correlation between projections and actual PPR points on the experts' pool (top 24 QB, 48 RB, 60 WR, 24 TE) for the model, the FantasyPros weekly consensus and the official blend, by position and all positions, plus season to date. Players ruled inactive on game day are left out (the experts' mid-week ranking can't know them; the Sunday refreshes do). Weeks 1\u20134 re-created by models trained only on earlier games; live from Week 5.",
-   "updated": "2026-10-26T18:10:59+00:00"
+   "updated": "2026-10-26T19:18:09+00:00"
   },
   "short_yardage": {
    "file": "short_yardage.csv",
    "title": "3rd/4th-and-1 conversion",
    "description": "Conversion rate (first down or TD) and EPA per play on 3rd and 4th down with 1 yard to go, by play type, 2018\u20132026 regular seasons.",
-   "updated": "2026-10-09T02:45:31Z"
+   "updated": "2026-10-26T19:18:13+00:00"
   },
   "trade_market": {
    "file": "trade_market_v5.csv",
@@ -179,7 +179,7 @@
    "file": "trade_values_v5.csv",
    "title": "PPR trade values",
    "description": "PPR trade values for 10, 12 and 14-team leagues, 1QB and superflex (val_<teams>_<1qb|sf>): the average of two expected values over each player's ROS range (two-piece normal through ros_low, ros_ppr, ros_high), each counted only when positive: points above a waiver-wire pickup (wav_*: per-game ROS rate of the best player beyond typical rostered depth, per team QB 2, RB 5, WR 5, TE 1.5; superflex QB 3, RB 4.5, WR 4.5, TE 1.5) and points above the league's last starter (rep_*: best player left out once every starting lineup - QB, 2 RB, 2 WR, TE, FLEX, plus a superflex - is filled), both over his remaining games.",
-   "updated": "2026-10-26T18:10:59+00:00"
+   "updated": "2026-10-26T19:18:09+00:00"
   },
   "weather_games": {
    "file": "weather_games.csv",
