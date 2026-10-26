@@ -106,6 +106,10 @@ def main():
     json.dump(cat, open(cat_path, "w"), indent=1)
     if w_proj is not None:
         json.dump({"week": w_proj}, open(os.path.join(SITE, "params.json"), "w"))
+        # the "More" tabs: matchups, run game & style, vs experts, model accuracy (optional: never fails the update)
+        subprocess.run([sys.executable, os.path.join(ROOT, "automation", "more_tabs.py"), "--season", str(season),
+                        "--week", str(w_proj), "--frame", os.path.join(MODEL, "out_v5", "frame.parquet"),
+                        "--data", os.path.join(MODEL, "data")])
     info = {"updated": now, "season": season, "projection_week": w_proj, "results_week": w_res,
             "games_started": started, "reason": a.reason, "steps": log}
     for f in ["run_info.json", "ros_info.json", "injuries_live.json"]:

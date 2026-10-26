@@ -689,7 +689,7 @@
   <!-- ============================== MATCHUPS -->
   <section class="nf-panel" id="matchups" role="tabpanel" hidden>
     <div class="nf-card" id="def-card">
-      <h2>Defensive scheme profiles · Week 5 defenses</h2>
+      <h2>Defensive scheme profiles · Week <span class="nf-mwk">5</span> defenses</h2>
       <p class="nf-note">How often each defense blitzes (5+ rushers), plays man vs zone, shows a two-high shell or Cover 2, stays in base personnel (an extra linebacker instead of a nickel/dime DB) overall and against heavy offensive sets, how often it gives up 10+ yard runs or stuffs runs at the line, and how well it holds up in each look (EPA allowed; lower is better for the defense). Weighted toward recent games. <b>Coverage and personnel charting for 2026 has not been published yet</b>, so those columns reflect each defense through 2025; blitz, box and pace numbers include 2026.</p>
       <div class="nf-tablebox">
         <table class="nf-table" id="def-table" data-source="defense" data-row-key="defense">
@@ -718,7 +718,7 @@
       </div>
     </div>
     <div class="nf-card" id="coach-card">
-      <h2>Coaching tendencies · Week 5 offenses</h2>
+      <h2>Coaching tendencies · Week <span class="nf-mwk">5</span> offenses</h2>
       <p class="nf-note">Head coach's pass rate over expected (PROE, percentage points) in neutral game situations, overall and split by the defensive look: light box (6 or fewer in the box) vs heavy box (8+), and base vs nickel/dime personnel. "Matchup" weights the personnel split by this week's opponent's base rate. Follows the coach across teams; offensive coordinators who call plays aren't in the data, so the head coach stands in for the play-caller.</p>
       <div class="nf-tablebox">
         <table class="nf-table" id="coach-table" data-source="coaches" data-row-key="team">
@@ -798,7 +798,7 @@
       </div>
     </div>
     <div class="nf-card" id="off-card">
-      <h2>Offensive style · Week 5 offenses</h2>
+      <h2>Offensive style · Week <span class="nf-mwk">5</span> offenses</h2>
       <p class="nf-note">Recent-weighted rates. Heavy personnel and fullback rates are through 2025; under center, play-action, motion and two-back sets include 2026.</p>
       <div class="nf-tablebox">
         <table class="nf-table" id="off-table" data-source="offense_style" data-row-key="team">
@@ -3128,5 +3128,12 @@ dash.calc('league_players', {
 
 </div>
 </div>
+<script>
+// Matchups headings follow the week the tables were built for (more_tabs.py sets it in the dataset titles)
+fetch('data/datasets.json', {cache: 'no-store'}).then((r) => r.json()).then((c) => {
+  const m = /Week (\d+)/.exec(((c.datasets || {}).defense || {}).title || '');
+  if (m) document.querySelectorAll('.nf-mwk').forEach((e) => { e.textContent = m[1]; });
+}).catch(() => {});
+</script>
 </body>
 </html>
