@@ -1,14 +1,14 @@
 {
- "updated": "2026-10-26T21:07:58+00:00",
+ "updated": "2026-10-26T21:36:58+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 7,
  "games_started": true,
- "reason": "schedule_and_lines,injury_news",
+ "reason": "schedule_and_lines",
  "steps": [
   {
    "step": "bash",
-   "seconds": 44,
+   "seconds": 45,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 1,
+   "seconds": 0,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 41,
+   "seconds": 38,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 19,
+   "seconds": 18,
    "ok": true
   }
  ],
@@ -82,14 +82,14 @@
   "out_this_week": 109,
   "on_bye": 52,
   "this_week_source": "official",
-  "training_snapshots": 47928,
+  "training_snapshots": 47931,
   "rounds": {
    "QB": 50,
-   "RB": 97,
-   "WR/TE": 61
+   "RB": 102,
+   "WR/TE": 62
   },
   "experts_ros_date": "2026-10-24 00:00:00",
-  "seconds": 18,
+  "seconds": 17,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -99,57 +99,57 @@
    "QB": [
     [
      "Josh Allen",
-     189.3
+     189.8
     ],
     [
      "Brock Purdy",
-     184.0
+     183.5
     ],
     [
      "Jared Goff",
-     181.2
+     180.3
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     229.9
+     230.3
     ],
     [
      "Bijan Robinson",
-     195.9
+     197.5
     ],
     [
      "Christian McCaffrey",
-     195.2
+     194.8
     ]
    ],
    "TE": [
     [
      "Brock Bowers",
-     140.3
+     140.7
     ],
     [
      "Trey McBride",
-     134.1
+     135.3
     ],
     [
      "George Kittle",
-     128.1
+     128.4
     ]
    ],
    "WR": [
     [
      "Amon-Ra St. Brown",
-     189.4
+     189.2
     ],
     [
      "Ja'Marr Chase",
-     179.0
+     180.1
     ],
     [
      "Jaxon Smith-Njigba",
-     177.0
+     178.4
     ]
    ]
   }
