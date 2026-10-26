@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-26T03:08:45+00:00",
+ "updated": "2026-10-26T03:38:56+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 7,
@@ -8,17 +8,17 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 38,
+   "seconds": 40,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 4,
+   "seconds": 6,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 2,
+   "seconds": 3,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 1,
+   "seconds": 0,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 26,
+   "seconds": 37,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 11,
+   "seconds": 19,
    "ok": true
   }
  ],
@@ -79,17 +79,17 @@
   "week": 7,
   "last_week": 17,
   "players": 464,
-  "out_this_week": 135,
+  "out_this_week": 134,
   "on_bye": 52,
   "this_week_source": "official",
-  "training_snapshots": 47928,
+  "training_snapshots": 47931,
   "rounds": {
    "QB": 50,
-   "RB": 104,
-   "WR/TE": 50
+   "RB": 62,
+   "WR/TE": 58
   },
   "experts_ros_date": "2026-10-24 00:00:00",
-  "seconds": 10,
+  "seconds": 17,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -98,58 +98,58 @@
   "top": {
    "QB": [
     [
-     "Brock Purdy",
+     "Josh Allen",
      188.0
     ],
     [
-     "Josh Allen",
-     184.4
+     "Brock Purdy",
+     183.6
     ],
     [
      "Jared Goff",
-     178.7
+     179.3
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     229.9
+     230.4
     ],
     [
      "Bijan Robinson",
-     197.3
+     196.0
     ],
     [
      "Christian McCaffrey",
-     196.4
+     194.3
     ]
    ],
    "TE": [
     [
      "Brock Bowers",
-     139.1
+     139.6
     ],
     [
      "Trey McBride",
-     134.2
+     135.3
     ],
     [
      "George Kittle",
-     127.7
+     128.5
     ]
    ],
    "WR": [
     [
-     "Jaxon Smith-Njigba",
-     188.8
-    ],
-    [
      "Amon-Ra St. Brown",
-     187.8
+     189.6
     ],
     [
      "Ja'Marr Chase",
-     176.6
+     177.9
+    ],
+    [
+     "CeeDee Lamb",
+     175.6
     ]
    ]
   }
@@ -159,7 +159,7 @@
   "nfl_rows": 350,
   "nfl_matched": 350,
   "nfl_unmatched": [],
-  "espn_out": 215,
+  "espn_out": 214,
   "espn_unmatched": [
    "C.J. Gardner-Johnson (BUF)",
    "Anton Harrison (JAX)",
@@ -167,8 +167,8 @@
    "Jaylin Lane (WAS)",
    "Terry McLaurin (WAS)"
   ],
-  "hash": "7cb854d8a10a",
-  "rows_added": 103,
+  "hash": "8881347abb06",
+  "rows_added": 102,
   "values_updated": 0
  }
 }
