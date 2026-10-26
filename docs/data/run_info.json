@@ -1,24 +1,24 @@
 {
- "updated": "2026-10-26T15:36:26+00:00",
+ "updated": "2026-10-26T16:28:37+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 7,
  "games_started": true,
- "reason": "schedule_and_lines,injury_reports,depth_charts,rosters,injury_news",
+ "reason": "schedule_and_lines",
  "steps": [
   {
    "step": "bash",
-   "seconds": 42,
+   "seconds": 43,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 4,
+   "seconds": 6,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 2,
+   "seconds": 3,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 23,
+   "seconds": 40,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 11,
+   "seconds": 19,
    "ok": true
   }
  ],
@@ -89,7 +89,7 @@
    "WR/TE": 61
   },
   "experts_ros_date": "2026-10-24 00:00:00",
-  "seconds": 10,
+  "seconds": 18,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -149,7 +149,7 @@
     ],
     [
      "Jaxon Smith-Njigba",
-     176.2
+     177.0
     ]
    ]
   }
