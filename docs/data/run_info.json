@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-26T07:50:16+00:00",
+ "updated": "2026-10-26T08:44:11+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 7,
@@ -8,12 +8,12 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 38,
+   "seconds": 40,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 3,
+   "seconds": 4,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 0,
+   "seconds": 1,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 23,
+   "seconds": 29,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 11,
+   "seconds": 13,
    "ok": true
   }
  ],
@@ -89,7 +89,7 @@
    "WR/TE": 61
   },
   "experts_ros_date": "2026-10-24 00:00:00",
-  "seconds": 10,
+  "seconds": 13,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -149,7 +149,7 @@
     ],
     [
      "Jaxon Smith-Njigba",
-     175.4
+     174.6
     ]
    ]
   }
