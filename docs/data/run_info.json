@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-26T20:36:01+00:00",
+ "updated": "2026-10-26T21:07:58+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 7,
@@ -8,7 +8,7 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 39,
+   "seconds": 44,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 0,
+   "seconds": 1,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 38,
+   "seconds": 41,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 18,
+   "seconds": 19,
    "ok": true
   }
  ],
@@ -82,14 +82,14 @@
   "out_this_week": 109,
   "on_bye": 52,
   "this_week_source": "official",
-  "training_snapshots": 47931,
+  "training_snapshots": 47928,
   "rounds": {
    "QB": 50,
-   "RB": 102,
-   "WR/TE": 62
+   "RB": 97,
+   "WR/TE": 61
   },
   "experts_ros_date": "2026-10-24 00:00:00",
-  "seconds": 17,
+  "seconds": 18,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -99,57 +99,57 @@
    "QB": [
     [
      "Josh Allen",
-     189.8
+     189.3
     ],
     [
      "Brock Purdy",
-     183.5
+     184.0
     ],
     [
      "Jared Goff",
-     180.3
+     181.2
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     230.3
+     229.9
     ],
     [
      "Bijan Robinson",
-     197.5
+     195.9
     ],
     [
      "Christian McCaffrey",
-     194.8
+     195.2
     ]
    ],
    "TE": [
     [
      "Brock Bowers",
-     140.7
+     140.3
     ],
     [
      "Trey McBride",
-     135.3
+     134.1
     ],
     [
      "George Kittle",
-     128.4
+     128.1
     ]
    ],
    "WR": [
     [
      "Amon-Ra St. Brown",
-     189.2
+     189.4
     ],
     [
      "Ja'Marr Chase",
-     180.1
+     179.0
     ],
     [
      "Jaxon Smith-Njigba",
-     178.4
+     177.0
     ]
    ]
   }
@@ -159,7 +159,7 @@
   "nfl_rows": 350,
   "nfl_matched": 350,
   "nfl_unmatched": [],
-  "espn_out": 118,
+  "espn_out": 120,
   "espn_unmatched": [
    "C.J. Gardner-Johnson (BUF)",
    "Anton Harrison (JAX)",
@@ -167,7 +167,7 @@
    "Jaylin Lane (WAS)",
    "Terry McLaurin (WAS)"
   ],
-  "hash": "e9305f0208de",
+  "hash": "d1815244c674",
   "rows_added": 17,
   "values_updated": 0
  }
