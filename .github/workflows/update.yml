@@ -8,6 +8,8 @@ name: Update projections
 on:
   schedule:
     - cron: "7,37 * * * *"
+  push:
+    paths: ["automation/force_update.txt"]   # Claude can force an update by changing this file
   workflow_dispatch:
     inputs:
       force:
@@ -47,7 +49,7 @@ jobs:
           SEASON=$(python -c "import datetime as d; t=d.date.today(); print(t.year if t.month>=3 else t.year-1)")
           echo "season=$SEASON" >> "$GITHUB_OUTPUT"
           pip install -q pandas pyarrow
-          python automation/watch.py --season "$SEASON" ${{ (github.event_name == 'workflow_dispatch' && inputs.force) && '--force' || '' }}
+          python automation/watch.py --season "$SEASON" ${{ ((github.event_name == 'workflow_dispatch' && inputs.force) || github.event_name == 'push') && '--force' || '' }}
 
       - name: Install model packages
         if: steps.watch.outputs.changed == 'true'
