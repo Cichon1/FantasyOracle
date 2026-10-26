@@ -1,19 +1,19 @@
 {
- "updated": "2026-10-26T13:57:15+00:00",
+ "updated": "2026-10-26T15:36:26+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 7,
  "games_started": true,
- "reason": "player_stats,play_by_play,schedule_and_lines,expected_points",
+ "reason": "schedule_and_lines,injury_reports,depth_charts,rosters,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 43,
+   "seconds": 42,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 5,
+   "seconds": 4,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 35,
+   "seconds": 23,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 16,
+   "seconds": 11,
    "ok": true
   }
  ],
@@ -89,7 +89,7 @@
    "WR/TE": 61
   },
   "experts_ros_date": "2026-10-24 00:00:00",
-  "seconds": 15,
+  "seconds": 10,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -159,7 +159,7 @@
   "nfl_rows": 350,
   "nfl_matched": 350,
   "nfl_unmatched": [],
-  "espn_out": 213,
+  "espn_out": 212,
   "espn_unmatched": [
    "C.J. Gardner-Johnson (BUF)",
    "Anton Harrison (JAX)",
@@ -167,7 +167,7 @@
    "Jaylin Lane (WAS)",
    "Terry McLaurin (WAS)"
   ],
-  "hash": "7004410357b9",
+  "hash": "fd3c083f112a",
   "rows_added": 102,
   "values_updated": 0
  }
