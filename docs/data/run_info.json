@@ -1,29 +1,29 @@
 {
- "updated": "2026-10-26T16:28:37+00:00",
+ "updated": "2026-10-26T17:18:27+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 7,
  "games_started": true,
- "reason": "schedule_and_lines",
+ "reason": "player_stats,play_by_play,schedule_and_lines,fp_rankings,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 43,
+   "seconds": 64,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 6,
+   "seconds": 4,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 3,
+   "seconds": 2,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 1,
+   "seconds": 0,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 1,
+   "seconds": 0,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 40,
+   "seconds": 30,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 19,
+   "seconds": 14,
    "ok": true
   }
  ],
@@ -89,7 +89,7 @@
    "WR/TE": 61
   },
   "experts_ros_date": "2026-10-24 00:00:00",
-  "seconds": 18,
+  "seconds": 13,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -159,7 +159,7 @@
   "nfl_rows": 350,
   "nfl_matched": 350,
   "nfl_unmatched": [],
-  "espn_out": 212,
+  "espn_out": 213,
   "espn_unmatched": [
    "C.J. Gardner-Johnson (BUF)",
    "Anton Harrison (JAX)",
@@ -167,8 +167,8 @@
    "Jaylin Lane (WAS)",
    "Terry McLaurin (WAS)"
   ],
-  "hash": "fd3c083f112a",
-  "rows_added": 102,
+  "hash": "b2a61d5dfca7",
+  "rows_added": 103,
   "values_updated": 0
  }
 }
