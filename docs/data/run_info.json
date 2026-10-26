@@ -1,14 +1,14 @@
 {
- "updated": "2026-10-25T23:54:53+00:00",
+ "updated": "2026-10-26T00:50:01+00:00",
  "season": 2026,
  "projection_week": 7,
  "results_week": 7,
  "games_started": true,
- "reason": "schedule_and_lines",
+ "reason": "player_stats,play_by_play,schedule_and_lines,expected_points",
  "steps": [
   {
    "step": "bash",
-   "seconds": 40,
+   "seconds": 44,
    "ok": true
   },
   {
@@ -18,7 +18,7 @@
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 2,
+   "seconds": 3,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 1,
+   "seconds": 0,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 36,
+   "seconds": 230,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 17,
+   "seconds": 42,
    "ok": true
   }
  ],
@@ -60,17 +60,17 @@
   },
   "inactive_rows": 0,
   "players": 326,
-  "upcoming": 115,
+  "upcoming": 41,
   "season_scoreboard": {
-   "model": 0.403,
-   "experts": 0.3969,
-   "official": 0.4076
+   "model": 0.3918,
+   "experts": 0.3847,
+   "official": 0.3952
   },
   "latest_week_scoreboard": {
    "week": 7,
-   "model": 0.5861,
-   "experts": 0.584,
-   "official": 0.5912
+   "model": 0.5083,
+   "experts": 0.4987,
+   "official": 0.5039
   }
  },
  "ros_info": {
@@ -79,7 +79,7 @@
   "week": 7,
   "last_week": 17,
   "players": 464,
-  "out_this_week": 121,
+  "out_this_week": 134,
   "on_bye": 52,
   "this_week_source": "official",
   "training_snapshots": 47931,
@@ -89,67 +89,67 @@
    "WR/TE": 58
   },
   "experts_ros_date": "2026-10-24 00:00:00",
-  "seconds": 16,
+  "seconds": 41,
   "model_cache": {
-   "hit": 18,
-   "miss": 0,
+   "hit": 0,
+   "miss": 18,
    "on": true
   },
   "top": {
    "QB": [
     [
      "Josh Allen",
-     189.2
+     188.0
     ],
     [
      "Brock Purdy",
-     184.3
+     183.6
     ],
     [
-     "Joe Burrow",
-     178.9
+     "Jared Goff",
+     179.3
     ]
    ],
    "RB": [
     [
-     "Bijan Robinson",
-     197.3
+     "Jahmyr Gibbs",
+     230.4
     ],
     [
-     "Jahmyr Gibbs",
-     194.3
+     "Bijan Robinson",
+     196.0
     ],
     [
      "Christian McCaffrey",
-     190.3
+     194.3
     ]
    ],
    "TE": [
     [
-     "George Kittle",
-     128.1
+     "Brock Bowers",
+     139.6
     ],
     [
      "Trey McBride",
-     114.3
+     135.3
     ],
     [
-     "Brock Bowers",
-     108.0
+     "George Kittle",
+     128.5
     ]
    ],
    "WR": [
     [
      "Jaxon Smith-Njigba",
-     188.6
+     191.6
+    ],
+    [
+     "Amon-Ra St. Brown",
+     189.6
     ],
     [
      "Ja'Marr Chase",
-     177.7
-    ],
-    [
-     "Puka Nacua",
-     176.0
+     177.9
     ]
    ]
   }
