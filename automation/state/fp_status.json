@@ -1,5 +1,5 @@
 {
- "pulled_at": "2026-10-26T15:35-04:00",
+ "pulled_at": "2026-10-26T18:26-04:00",
  "pages": 8,
  "expert_pages": 3,
  "errors": [],
@@ -79,23 +79,23 @@
     "recent": 43,
     "recent_acc": 43
    },
-   "agree_recent": 0.993,
-   "agree_recent_acc": 0.993
+   "agree_recent": 0.994,
+   "agree_recent_acc": 0.994
   },
   "ros|RB": {
-   "default": 7,
+   "default": 3,
    "recent": 10,
    "recent_acc": 10,
    "listed": 27,
    "public_pages": 15,
    "recent_rule": "fallback: last 7 days",
    "players": {
-    "default": 116,
-    "recent": 102,
-    "recent_acc": 102
+    "default": 109,
+    "recent": 103,
+    "recent_acc": 103
    },
-   "agree_recent": 0.978,
-   "agree_recent_acc": 0.978
+   "agree_recent": 0.977,
+   "agree_recent_acc": 0.977
   },
   "ros|WR": {
    "default": 7,
@@ -109,8 +109,8 @@
     "recent": 127,
     "recent_acc": 127
    },
-   "agree_recent": 0.967,
-   "agree_recent_acc": 0.967
+   "agree_recent": 0.971,
+   "agree_recent_acc": 0.971
   },
   "ros|TE": {
    "default": 7,
@@ -121,12 +121,12 @@
    "recent_rule": "fallback: last 7 days",
    "players": {
     "default": 70,
-    "recent": 63,
-    "recent_acc": 63
+    "recent": 64,
+    "recent_acc": 64
    },
-   "agree_recent": 0.988,
-   "agree_recent_acc": 0.988
+   "agree_recent": 0.99,
+   "agree_recent_acc": 0.99
   }
  },
- "stamp": "3d9076d2ccc1"
+ "stamp": "28cf8477d3bf"
 }
