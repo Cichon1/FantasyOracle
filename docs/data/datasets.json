@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-26T18:10:59+00:00",
+ "updated": "2026-10-26T18:27:51+00:00",
  "datasets": {
   "accuracy": {
    "file": "accuracy_v5.csv",
@@ -71,7 +71,7 @@
    "file": "league_rosters_v5.csv",
    "title": "Yahoo league rosters",
    "description": "Every rostered player on every team in Jackson's Yahoo leagues (BDSM League, The League, Ezekiel 25.17), all positions incl. K, DEF, IDP and IR slots: lineup slot, Yahoo positions, NFL team, Yahoo status (O, IR, PUP, NA...) and, for QB / RB / WR / TE, the matching rest-of-season ranking key. Read from each league's Rosters page in Jackson's signed-in Chrome when he asks Claude to update his teams (not on a schedule).",
-   "updated": "2026-10-21T18:00:11Z"
+   "updated": "2026-10-26T18:27:51+00:00"
   },
   "league_schedule": {
    "file": "league_schedule_v5.csv",
@@ -95,7 +95,7 @@
    "file": "leagues_v5.csv",
    "title": "Yahoo league settings",
    "description": "Jackson's three Yahoo leagues, from each league's Settings page: his team, starting lineup slots, bench and IR spots, active roster size, scoring that changes player values (points per passing TD and interception, passing yards per point, fumbles lost, points per catch, rushing / receiving yardage and TD values, 400 / 150 / 175-yard bonuses), settings the projections can't reflect (e.g. return yards), trade deadline and playoffs; plus when the rosters were pulled.",
-   "updated": "2026-10-21T18:00:11Z"
+   "updated": "2026-10-26T18:27:51+00:00"
   },
   "offense_style": {
    "file": "offense_style_wk5.csv",
