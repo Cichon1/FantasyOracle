@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-27T18:14:15+00:00",
+ "updated": "2026-10-27T19:21:33+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 7,
@@ -8,17 +8,17 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 58,
+   "seconds": 44,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 6,
+   "seconds": 3,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 3,
+   "seconds": 2,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 1,
+   "seconds": 0,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 38,
+   "seconds": 25,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 17,
+   "seconds": 11,
    "ok": true
   }
  ],
@@ -56,8 +56,8 @@
    "total": 0
   },
   "inactive_rows": 0,
-  "players": 361,
-  "upcoming": 361,
+  "players": 360,
+  "upcoming": 360,
   "season_scoreboard": {
    "model": 0.3739,
    "experts": 0.3698,
@@ -76,7 +76,7 @@
   "week": 8,
   "last_week": 17,
   "players": 460,
-  "out_this_week": 52,
+  "out_this_week": 53,
   "on_bye": 47,
   "this_week_source": "official",
   "training_snapshots": 47931,
@@ -86,7 +86,7 @@
    "WR/TE": 57
   },
   "experts_ros_date": "2026-10-27 00:00:00",
-  "seconds": 16,
+  "seconds": 10,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -104,7 +104,7 @@
     ],
     [
      "Trevor Lawrence",
-     184.9
+     186.5
     ]
    ],
    "RB": [
@@ -128,7 +128,7 @@
     ],
     [
      "Brock Bowers",
-     138.0
+     137.3
     ],
     [
      "Sam LaPorta",
@@ -154,12 +154,12 @@
  "injuries_live": {
   "nfl_week": 7,
   "nfl_rows": 350,
-  "espn_out": 2,
+  "espn_out": 4,
   "espn_unmatched": [
    "Tyrone Tracy Jr. (NYG)"
   ],
-  "hash": "684bcc3e3ee8",
-  "rows_added": 2,
+  "hash": "d2d7c8dcf909",
+  "rows_added": 4,
   "values_updated": 0
  }
 }
