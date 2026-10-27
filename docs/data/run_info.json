@@ -1,19 +1,19 @@
 {
- "updated": "2026-10-27T22:40:06+00:00",
+ "updated": "2026-10-27T23:31:34+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 7,
  "games_started": false,
- "reason": "schedule_and_lines,fp_rankings,injury_news",
+ "reason": "schedule_and_lines",
  "steps": [
   {
    "step": "bash",
-   "seconds": 39,
+   "seconds": 37,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 6,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 3,
+   "seconds": 6,
    "ok": true
   },
   {
@@ -99,18 +99,18 @@
      219.8
     ],
     [
-     "Trevor Lawrence",
-     196.5
+     "Drake Maye",
+     198.7
     ],
     [
-     "Drake Maye",
-     196.2
+     "Joe Burrow",
+     189.2
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     195.7
+     197.4
     ],
     [
      "James Cook",
