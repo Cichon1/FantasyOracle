@@ -1,19 +1,19 @@
 {
- "updated": "2026-10-27T06:13:43+00:00",
+ "updated": "2026-10-27T09:16:19+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 7,
  "games_started": false,
- "reason": "injury_reports,depth_charts,rosters",
+ "reason": "player_stats,play_by_play,schedule_and_lines",
  "steps": [
   {
    "step": "bash",
-   "seconds": 37,
+   "seconds": 41,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 6,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 6,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 227,
+   "seconds": 38,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 41,
+   "seconds": 18,
    "ok": true
   }
  ],
@@ -86,25 +86,25 @@
    "WR/TE": 67
   },
   "experts_ros_date": "2026-10-26 00:00:00",
-  "seconds": 40,
+  "seconds": 17,
   "model_cache": {
-   "hit": 6,
-   "miss": 12,
+   "hit": 18,
+   "miss": 0,
    "on": true
   },
   "top": {
    "QB": [
     [
      "Josh Allen",
-     209.3
+     218.1
+    ],
+    [
+     "Drake Maye",
+     196.2
     ],
     [
      "Joe Burrow",
-     196.8
-    ],
-    [
-     "Trevor Lawrence",
-     177.5
+     189.2
     ]
    ],
    "RB": [
@@ -123,12 +123,12 @@
    ],
    "TE": [
     [
-     "Brock Bowers",
-     134.8
+     "Trey McBride",
+     146.0
     ],
     [
-     "Trey McBride",
-     130.5
+     "Brock Bowers",
+     134.8
     ],
     [
      "Sam LaPorta",
