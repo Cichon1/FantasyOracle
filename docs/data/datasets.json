@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-27T15:21:03+00:00",
+ "updated": "2026-10-27T16:14:20+00:00",
  "datasets": {
   "accuracy": {
    "file": "accuracy_v5.csv",
@@ -77,13 +77,13 @@
    "file": "league_schedule_v5.csv",
    "title": "League schedules",
    "description": "Each of Jackson's three Yahoo leagues: regular-season matchups, weeks 1-14, both teams, points and Yahoo's projection for each, and whether the week is final, under way or upcoming. Read from Yahoo on request.",
-   "updated": "2026-10-20T16:54:46+00:00"
+   "updated": "2026-10-27T16:14:20+00:00"
   },
   "league_standings": {
    "file": "league_standings_v5.csv",
    "title": "League standings",
    "description": "Each of Jackson's three Yahoo leagues (BDSM League, The League, Ezekiel 25.17): every team's record and points for and against so far, read from each league's home page in Jackson's signed-in Chrome when he asks Claude to update his teams. Starting point for the season simulation behind the power rankings' playoff predictor, each team's weeks that count in the trade analyzer, and The League's draft-pick values.",
-   "updated": "2026-10-20T16:54:46+00:00"
+   "updated": "2026-10-27T16:14:20+00:00"
   },
   "league_trends": {
    "file": "league_trends.csv",
