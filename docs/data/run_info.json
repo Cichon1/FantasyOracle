@@ -1,29 +1,29 @@
 {
- "updated": "2026-10-27T03:44:13+00:00",
+ "updated": "2026-10-27T04:17:29+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 7,
  "games_started": false,
- "reason": "schedule_and_lines,injury_news",
+ "reason": "schedule_and_lines",
  "steps": [
   {
    "step": "bash",
-   "seconds": 37,
+   "seconds": 41,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 6,
+   "seconds": 5,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 3,
+   "seconds": 2,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 33,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 376,
+   "seconds": 326,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 18,
+   "seconds": 17,
    "ok": true
   }
  ],
@@ -79,14 +79,14 @@
   "out_this_week": 44,
   "on_bye": 47,
   "this_week_source": "official",
-  "training_snapshots": 47931,
+  "training_snapshots": 47928,
   "rounds": {
    "QB": 50,
-   "RB": 102,
-   "WR/TE": 62
+   "RB": 97,
+   "WR/TE": 61
   },
   "experts_ros_date": "2026-10-26 00:00:00",
-  "seconds": 17,
+  "seconds": 16,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -96,57 +96,57 @@
    "QB": [
     [
      "Josh Allen",
-     208.5
-    ],
-    [
-     "Drake Maye",
-     191.6
+     208.9
     ],
     [
      "Joe Burrow",
-     176.0
+     205.3
+    ],
+    [
+     "Trevor Lawrence",
+     175.3
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     197.4
+     199.5
+    ],
+    [
+     "Bijan Robinson",
+     182.1
     ],
     [
      "James Cook",
-     179.5
-    ],
-    [
-     "Christian McCaffrey",
-     174.1
+     167.7
     ]
    ],
    "TE": [
     [
      "Brock Bowers",
-     133.6
+     133.3
     ],
     [
      "Trey McBride",
-     130.6
+     129.5
     ],
     [
      "Sam LaPorta",
-     117.1
+     116.1
     ]
    ],
    "WR": [
     [
      "Puka Nacua",
-     191.1
-    ],
-    [
-     "Jaxon Smith-Njigba",
-     184.6
+     190.2
     ],
     [
      "Ja'Marr Chase",
-     184.4
+     186.3
+    ],
+    [
+     "Jaxon Smith-Njigba",
+     183.3
     ]
    ]
   }
@@ -154,8 +154,12 @@
  "injuries_live": {
   "nfl_week": 7,
   "nfl_rows": 350,
-  "espn_out": 0,
-  "espn_unmatched": [],
-  "hash": null
+  "espn_out": 1,
+  "espn_unmatched": [
+   "C.J. Gardner-Johnson (BUF)"
+  ],
+  "hash": "a962032f8e1a",
+  "rows_added": 1,
+  "values_updated": 0
  }
 }
