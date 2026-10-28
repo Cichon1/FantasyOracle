@@ -1,34 +1,34 @@
 {
- "updated": "2026-10-28T03:42:11+00:00",
+ "updated": "2026-10-28T04:42:27+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 7,
  "games_started": false,
- "reason": "schedule_and_lines",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 39,
+   "seconds": 42,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 6,
+   "seconds": 5,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 3,
+   "seconds": 2,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 3,
+   "seconds": 5,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/injuries_live.py --data",
-   "seconds": 2,
+   "seconds": 1,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 40,
+   "seconds": 35,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 19,
+   "seconds": 16,
    "ok": true
   }
  ],
@@ -86,7 +86,7 @@
    "WR/TE": 57
   },
   "experts_ros_date": "2026-10-27 00:00:00",
-  "seconds": 17,
+  "seconds": 15,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -104,7 +104,7 @@
     ],
     [
      "Drake Maye",
-     185.7
+     193.1
     ]
    ],
    "RB": [
@@ -114,7 +114,7 @@
     ],
     [
      "James Cook",
-     182.6
+     183.4
     ],
     [
      "Bijan Robinson",
@@ -152,14 +152,16 @@
   }
  },
  "injuries_live": {
-  "nfl_week": 7,
-  "nfl_rows": 350,
+  "nfl_week": 8,
+  "nfl_rows": 16,
+  "nfl_matched": 16,
+  "nfl_unmatched": [],
   "espn_out": 7,
   "espn_unmatched": [
    "Tyrone Tracy Jr. (NYG)"
   ],
-  "hash": "91a5f9df9610",
-  "rows_added": 7,
+  "hash": "8b12a31994ff",
+  "rows_added": 22,
   "values_updated": 0
  }
 }
