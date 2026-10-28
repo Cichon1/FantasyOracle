@@ -1,19 +1,19 @@
 {
- "updated": "2026-10-28T18:49:25+00:00",
+ "updated": "2026-10-28T19:45:55+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 7,
  "games_started": false,
- "reason": "schedule_and_lines,injury_news",
+ "reason": "schedule_and_lines,fp_rankings,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 40,
+   "seconds": 48,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 6,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 4,
+   "seconds": 3,
    "ok": true
   },
   {
@@ -38,7 +38,7 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 354,
+   "seconds": 38,
    "ok": true
   },
   {
@@ -100,7 +100,7 @@
     ],
     [
      "Joe Burrow",
-     204.6
+     205.5
     ],
     [
      "Drake Maye",
@@ -114,7 +114,7 @@
     ],
     [
      "James Cook",
-     174.2
+     175.0
     ],
     [
      "Kenneth Walker III",
@@ -156,11 +156,11 @@
   "nfl_rows": 16,
   "nfl_matched": 16,
   "nfl_unmatched": [],
-  "espn_out": 13,
+  "espn_out": 15,
   "espn_unmatched": [
    "Tyrone Tracy Jr. (NYG)"
   ],
-  "hash": "80947d6ae7ac",
+  "hash": "d6592c8caab6",
   "rows_added": 8,
   "values_updated": 0
  }
