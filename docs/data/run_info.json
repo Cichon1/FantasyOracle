@@ -1,19 +1,19 @@
 {
- "updated": "2026-10-28T16:48:19+00:00",
+ "updated": "2026-10-28T17:47:09+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 7,
  "games_started": false,
- "reason": "player_stats,play_by_play,schedule_and_lines,fp_rankings,injury_news",
+ "reason": "schedule_and_lines,ftn_charting,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 108,
+   "seconds": 56,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 4,
+   "seconds": 3,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 0,
+   "seconds": 1,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 26,
+   "seconds": 227,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 12,
+   "seconds": 11,
    "ok": true
   }
  ],
@@ -86,7 +86,7 @@
    "WR/TE": 96
   },
   "experts_ros_date": "2026-10-28 00:00:00",
-  "seconds": 11,
+  "seconds": 10,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -96,29 +96,29 @@
    "QB": [
     [
      "Josh Allen",
-     220.8
+     220.0
     ],
     [
      "Joe Burrow",
-     204.4
+     203.5
     ],
     [
      "Drake Maye",
-     187.9
+     188.8
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     197.6
+     196.8
+    ],
+    [
+     "Bijan Robinson",
+     178.6
     ],
     [
      "James Cook",
-     177.7
-    ],
-    [
-     "Kenneth Walker III",
-     168.1
+     167.2
     ]
    ],
    "TE": [
@@ -128,25 +128,25 @@
     ],
     [
      "Brock Bowers",
-     137.0
+     137.7
     ],
     [
      "Sam LaPorta",
-     115.3
+     116.1
     ]
    ],
    "WR": [
     [
      "Puka Nacua",
-     193.9
+     192.4
     ],
     [
      "Jaxon Smith-Njigba",
-     186.6
+     187.4
     ],
     [
      "Ja'Marr Chase",
-     183.9
+     184.6
     ]
    ]
   }
@@ -156,12 +156,12 @@
   "nfl_rows": 16,
   "nfl_matched": 16,
   "nfl_unmatched": [],
-  "espn_out": 8,
+  "espn_out": 9,
   "espn_unmatched": [
    "Tyrone Tracy Jr. (NYG)"
   ],
-  "hash": "ba7ac0cc180b",
-  "rows_added": 7,
+  "hash": "7adb6b5089a7",
+  "rows_added": 8,
   "values_updated": 0
  }
 }
