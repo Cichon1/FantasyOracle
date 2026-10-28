@@ -1,19 +1,19 @@
 {
- "updated": "2026-10-28T19:45:55+00:00",
+ "updated": "2026-10-28T20:39:40+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 7,
  "games_started": false,
- "reason": "schedule_and_lines,fp_rankings,injury_news",
+ "reason": "schedule_and_lines",
  "steps": [
   {
    "step": "bash",
-   "seconds": 48,
+   "seconds": 43,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 5,
+   "seconds": 6,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 3,
+   "seconds": 6,
    "ok": true
   },
   {
