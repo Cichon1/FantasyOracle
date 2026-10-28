@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-28T00:01:34+00:00",
+ "updated": "2026-10-28T00:46:57+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 7,
@@ -8,12 +8,12 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 54,
+   "seconds": 39,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 5,
+   "seconds": 6,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 9,
+   "seconds": 4,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 1,
+   "seconds": 0,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 35,
+   "seconds": 38,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 15,
+   "seconds": 17,
    "ok": true
   }
  ],
@@ -86,7 +86,7 @@
    "WR/TE": 57
   },
   "experts_ros_date": "2026-10-27 00:00:00",
-  "seconds": 14,
+  "seconds": 16,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -96,7 +96,7 @@
    "QB": [
     [
      "Josh Allen",
-     221.8
+     222.6
     ],
     [
      "Drake Maye",
@@ -104,7 +104,7 @@
     ],
     [
      "Joe Burrow",
-     194.7
+     186.5
     ]
    ],
    "RB": [
@@ -128,7 +128,7 @@
     ],
     [
      "Brock Bowers",
-     137.3
+     135.8
     ],
     [
      "Sam LaPorta",
@@ -138,7 +138,7 @@
    "WR": [
     [
      "Puka Nacua",
-     191.8
+     191.1
     ],
     [
      "Jaxon Smith-Njigba",
@@ -154,12 +154,12 @@
  "injuries_live": {
   "nfl_week": 7,
   "nfl_rows": 350,
-  "espn_out": 6,
+  "espn_out": 7,
   "espn_unmatched": [
    "Tyrone Tracy Jr. (NYG)"
   ],
-  "hash": "1b1217f3c6ee",
-  "rows_added": 6,
+  "hash": "91a5f9df9610",
+  "rows_added": 7,
   "values_updated": 0
  }
 }
