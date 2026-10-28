@@ -1,14 +1,14 @@
 {
- "updated": "2026-10-28T14:52:18+00:00",
+ "updated": "2026-10-28T15:49:33+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 7,
  "games_started": false,
- "reason": "schedule_and_lines,injury_reports,depth_charts,rosters",
+ "reason": "schedule_and_lines",
  "steps": [
   {
    "step": "bash",
-   "seconds": 37,
+   "seconds": 48,
    "ok": true
   },
   {
@@ -23,12 +23,12 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 9,
+   "seconds": 4,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/injuries_live.py --data",
-   "seconds": 2,
+   "seconds": 1,
    "ok": true
   },
   {
@@ -43,7 +43,7 @@
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 18,
+   "seconds": 17,
    "ok": true
   }
  ],
@@ -86,7 +86,7 @@
    "WR/TE": 57
   },
   "experts_ros_date": "2026-10-27 00:00:00",
-  "seconds": 17,
+  "seconds": 16,
   "model_cache": {
    "hit": 18,
    "miss": 0,
