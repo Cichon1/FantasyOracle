@@ -1,18 +1,18 @@
 {
- "pulled_at": "2026-10-28T21:50-04:00",
+ "pulled_at": "2026-10-29T12:43-04:00",
  "pages": 8,
- "expert_pages": 13,
+ "expert_pages": 21,
  "errors": [],
  "expert_pages_waiting": 0,
  "cutoff_ros": "2026-10-26T23:35-04:00",
  "cutoff_weekly": "2026-10-26T23:35-04:00",
  "panels": {
   "weekly|QB": {
-   "default": 18,
-   "recent": 41,
+   "default": 20,
+   "recent": 48,
    "recent_acc": 20,
-   "listed": 70,
-   "public_pages": 44,
+   "listed": 81,
+   "public_pages": 50,
    "recent_rule": "since cutoff",
    "players": {
     "default": 57,
@@ -20,67 +20,67 @@
     "recent_acc": 29
    },
    "agree_recent": 0.998,
-   "agree_recent_acc": 0.998
+   "agree_recent_acc": 0.996
   },
   "weekly|RB": {
-   "default": 18,
-   "recent": 42,
+   "default": 19,
+   "recent": 48,
    "recent_acc": 20,
-   "listed": 68,
-   "public_pages": 43,
+   "listed": 78,
+   "public_pages": 48,
    "recent_rule": "since cutoff",
    "players": {
     "default": 93,
-    "recent": 79,
-    "recent_acc": 82
+    "recent": 89,
+    "recent_acc": 88
    },
-   "agree_recent": 0.993,
-   "agree_recent_acc": 0.995
+   "agree_recent": 0.985,
+   "agree_recent_acc": 0.99
   },
   "weekly|WR": {
-   "default": 18,
-   "recent": 42,
+   "default": 19,
+   "recent": 48,
    "recent_acc": 20,
-   "listed": 68,
-   "public_pages": 43,
+   "listed": 78,
+   "public_pages": 48,
    "recent_rule": "since cutoff",
    "players": {
-    "default": 118,
-    "recent": 100,
-    "recent_acc": 104
+    "default": 137,
+    "recent": 104,
+    "recent_acc": 108
    },
-   "agree_recent": 0.984,
+   "agree_recent": 0.988,
    "agree_recent_acc": 0.984
   },
   "weekly|TE": {
-   "default": 18,
-   "recent": 41,
+   "default": 19,
+   "recent": 47,
    "recent_acc": 20,
-   "listed": 68,
-   "public_pages": 43,
+   "listed": 78,
+   "public_pages": 48,
    "recent_rule": "since cutoff",
    "players": {
-    "default": 53,
+    "default": 67,
     "recent": 36,
-    "recent_acc": 39
+    "recent_acc": 45
    },
-   "agree_recent": 0.997,
-   "agree_recent_acc": 0.996
+   "agree_recent": 0.995,
+   "agree_recent_acc": 0.992
   },
   "ros|QB": {
    "default": 6,
-   "recent": 10,
-   "recent_acc": 10,
+   "recent": 8,
+   "recent_acc": 8,
    "listed": 32,
    "public_pages": 17,
-   "recent_rule": "fallback: last 7 days",
+   "recent_rule": "since cutoff",
    "players": {
     "default": 62,
-    "recent": 42,
-    "recent_acc": 42
+    "recent": 44,
+    "recent_acc": 44
    },
-   "agree_recent": 0.989,
-   "agree_recent_acc": 0.989
+   "agree_recent": 0.987,
+   "agree_recent_acc": 0.987
   },
   "ros|RB": {
    "default": 5,
@@ -91,11 +91,11 @@
    "recent_rule": "fallback: last 7 days",
    "players": {
     "default": 111,
-    "recent": 104,
-    "recent_acc": 104
+    "recent": 109,
+    "recent_acc": 109
    },
-   "agree_recent": 0.98,
-   "agree_recent_acc": 0.98
+   "agree_recent": 0.984,
+   "agree_recent_acc": 0.984
   },
   "ros|WR": {
    "default": 5,
@@ -105,9 +105,9 @@
    "public_pages": 16,
    "recent_rule": "fallback: last 7 days",
    "players": {
-    "default": 140,
-    "recent": 129,
-    "recent_acc": 129
+    "default": 139,
+    "recent": 133,
+    "recent_acc": 133
    },
    "agree_recent": 0.966,
    "agree_recent_acc": 0.966
@@ -124,9 +124,9 @@
     "recent": 61,
     "recent_acc": 61
    },
-   "agree_recent": 0.977,
-   "agree_recent_acc": 0.977
+   "agree_recent": 0.973,
+   "agree_recent_acc": 0.973
   }
  },
- "stamp": "ecef8819b1a7"
+ "stamp": "381f6eec69f1"
 }
