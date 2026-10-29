@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-29T21:39:10+00:00",
+ "updated": "2026-10-29T22:17:56+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 7,
@@ -8,27 +8,27 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 41,
+   "seconds": 42,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 6,
-   "ok": true
-  },
-  {
-   "step": "cloud_run.py results",
-   "seconds": 3,
-   "ok": true
-  },
-  {
-   "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
    "seconds": 4,
    "ok": true
   },
   {
-   "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/injuries_live.py --data",
+   "step": "cloud_run.py results",
    "seconds": 2,
+   "ok": true
+  },
+  {
+   "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
+   "seconds": 5,
+   "ok": true
+  },
+  {
+   "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/injuries_live.py --data",
+   "seconds": 1,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 38,
+   "seconds": 30,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 19,
+   "seconds": 13,
    "ok": true
   }
  ],
@@ -79,14 +79,14 @@
   "out_this_week": 55,
   "on_bye": 47,
   "this_week_source": "official",
-  "training_snapshots": 47940,
+  "training_snapshots": 47931,
   "rounds": {
    "QB": 50,
-   "RB": 93,
-   "WR/TE": 63
+   "RB": 110,
+   "WR/TE": 53
   },
   "experts_ros_date": "2026-10-29 00:00:00",
-  "seconds": 17,
+  "seconds": 13,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -96,73 +96,73 @@
    "QB": [
     [
      "Josh Allen",
-     219.3
+     222.5
     ],
     [
      "Joe Burrow",
-     203.9
+     204.4
     ],
     [
      "Drake Maye",
-     189.7
+     189.0
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     181.1
+     195.2
     ],
     [
      "James Cook",
-     174.3
+     178.3
     ],
     [
-     "Kenneth Walker III",
-     172.6
+     "Bijan Robinson",
+     175.5
     ]
    ],
    "TE": [
     [
      "Trey McBride",
-     146.7
+     147.7
     ],
     [
      "Brock Bowers",
-     116.2
+     134.3
     ],
     [
      "Sam LaPorta",
-     114.5
+     115.0
     ]
    ],
    "WR": [
     [
      "Puka Nacua",
-     190.7
+     187.7
     ],
     [
      "Jaxon Smith-Njigba",
-     182.0
+     182.6
     ],
     [
      "Ja'Marr Chase",
-     179.7
+     181.3
     ]
    ]
   }
  },
  "injuries_live": {
   "nfl_week": 8,
-  "nfl_rows": 249,
-  "nfl_matched": 249,
+  "nfl_rows": 277,
+  "nfl_matched": 277,
   "nfl_unmatched": [],
   "espn_out": 29,
   "espn_unmatched": [
    "Jaylin Noel (HOU)",
    "Tyrone Tracy Jr. (NYG)"
   ],
-  "hash": "82012622f461",
-  "rows_added": 17,
-  "values_updated": 4
+  "hash": "3c7b326dcc90",
+  "rows_added": 45,
+  "values_updated": 60
  }
 }
