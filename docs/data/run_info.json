@@ -1,14 +1,14 @@
 {
- "updated": "2026-10-29T13:58:38+00:00",
+ "updated": "2026-10-29T14:55:11+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 7,
  "games_started": false,
- "reason": "schedule_and_lines,injury_news",
+ "reason": "schedule_and_lines,injury_reports,depth_charts,rosters",
  "steps": [
   {
    "step": "bash",
-   "seconds": 40,
+   "seconds": 43,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 3,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -38,7 +38,7 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 24,
+   "seconds": 135,
    "ok": true
   },
   {
@@ -96,7 +96,7 @@
    "QB": [
     [
      "Josh Allen",
-     222.5
+     226.6
     ],
     [
      "Joe Burrow",
@@ -128,11 +128,11 @@
     ],
     [
      "Brock Bowers",
-     115.8
+     115.0
     ],
     [
      "Sam LaPorta",
-     112.1
+     113.6
     ]
    ],
    "WR": [
@@ -145,8 +145,8 @@
      181.3
     ],
     [
-     "CeeDee Lamb",
-     163.0
+     "Ja'Marr Chase",
+     166.3
     ]
    ]
   }
@@ -162,7 +162,7 @@
    "Tyrone Tracy Jr. (NYG)"
   ],
   "hash": "1a9e63591f7f",
-  "rows_added": 45,
+  "rows_added": 16,
   "values_updated": 0
  }
 }
