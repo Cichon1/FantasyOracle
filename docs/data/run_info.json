@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-29T00:05:50+00:00",
+ "updated": "2026-10-29T00:51:35+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 7,
@@ -8,17 +8,17 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 43,
+   "seconds": 40,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 4,
+   "seconds": 5,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 2,
+   "seconds": 3,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 1,
+   "seconds": 0,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 30,
+   "seconds": 38,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 14,
+   "seconds": 18,
    "ok": true
   }
  ],
@@ -79,14 +79,14 @@
   "out_this_week": 55,
   "on_bye": 47,
   "this_week_source": "official",
-  "training_snapshots": 47931,
+  "training_snapshots": 47940,
   "rounds": {
    "QB": 50,
-   "RB": 113,
-   "WR/TE": 96
+   "RB": 89,
+   "WR/TE": 57
   },
   "experts_ros_date": "2026-10-28 00:00:00",
-  "seconds": 13,
+  "seconds": 17,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -96,73 +96,73 @@
    "QB": [
     [
      "Josh Allen",
-     217.5
+     218.3
     ],
     [
      "Joe Burrow",
-     201.9
+     204.6
     ],
     [
      "Drake Maye",
-     188.8
+     190.2
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     179.3
+     178.5
     ],
     [
      "Bijan Robinson",
-     178.6
+     175.0
     ],
     [
      "James Cook",
-     167.2
+     165.0
     ]
    ],
    "TE": [
     [
      "Trey McBride",
-     148.1
+     146.6
     ],
     [
      "Brock Bowers",
-     116.1
+     116.7
     ],
     [
      "Sam LaPorta",
-     113.0
+     112.4
     ]
    ],
    "WR": [
     [
      "Puka Nacua",
-     192.4
+     190.3
     ],
     [
      "Jaxon Smith-Njigba",
-     184.6
+     182.9
     ],
     [
      "CeeDee Lamb",
-     164.9
+     165.3
     ]
    ]
   }
  },
  "injuries_live": {
   "nfl_week": 8,
-  "nfl_rows": 205,
-  "nfl_matched": 205,
+  "nfl_rows": 220,
+  "nfl_matched": 220,
   "nfl_unmatched": [],
   "espn_out": 22,
   "espn_unmatched": [
    "Jaylin Noel (HOU)",
    "Tyrone Tracy Jr. (NYG)"
   ],
-  "hash": "be9ddb810aee",
-  "rows_added": 202,
+  "hash": "0e1ce9e85e21",
+  "rows_added": 217,
   "values_updated": 14
  }
 }
