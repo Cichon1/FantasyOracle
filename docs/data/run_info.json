@@ -1,14 +1,14 @@
 {
- "updated": "2026-10-29T16:51:21+00:00",
+ "updated": "2026-10-29T17:46:36+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 7,
  "games_started": false,
- "reason": "player_stats,play_by_play,schedule_and_lines,fp_rankings",
+ "reason": "schedule_and_lines",
  "steps": [
   {
    "step": "bash",
-   "seconds": 44,
+   "seconds": 39,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 6,
+   "seconds": 3,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 37,
+   "seconds": 38,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 17,
+   "seconds": 18,
    "ok": true
   }
  ],
@@ -86,7 +86,7 @@
    "WR/TE": 63
   },
   "experts_ros_date": "2026-10-29 00:00:00",
-  "seconds": 16,
+  "seconds": 17,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -96,11 +96,11 @@
    "QB": [
     [
      "Josh Allen",
-     222.6
+     223.4
     ],
     [
      "Joe Burrow",
-     204.7
+     203.9
     ],
     [
      "Drake Maye",
