@@ -1,24 +1,24 @@
 {
- "updated": "2026-10-29T23:12:51+00:00",
+ "updated": "2026-10-30T00:06:10+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 7,
  "games_started": false,
- "reason": "schedule_and_lines,fp_rankings,injury_news",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 39,
+   "seconds": 38,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 4,
+   "seconds": 5,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 2,
+   "seconds": 3,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 30,
+   "seconds": 38,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 14,
+   "seconds": 18,
    "ok": true
   }
  ],
@@ -79,14 +79,14 @@
   "out_this_week": 57,
   "on_bye": 47,
   "this_week_source": "official",
-  "training_snapshots": 47931,
+  "training_snapshots": 47940,
   "rounds": {
    "QB": 50,
-   "RB": 110,
-   "WR/TE": 53
+   "RB": 93,
+   "WR/TE": 63
   },
   "experts_ros_date": "2026-10-29 00:00:00",
-  "seconds": 13,
+  "seconds": 17,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -96,57 +96,57 @@
    "QB": [
     [
      "Josh Allen",
-     222.5
+     219.3
     ],
     [
      "Joe Burrow",
-     204.4
+     203.1
     ],
     [
      "Drake Maye",
-     189.0
+     189.7
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     195.2
+     197.0
     ],
     [
      "James Cook",
-     178.3
+     176.8
     ],
     [
-     "Bijan Robinson",
-     175.5
+     "Kenneth Walker III",
+     172.6
     ]
    ],
    "TE": [
     [
      "Trey McBride",
-     147.7
+     146.7
     ],
     [
      "Brock Bowers",
-     134.3
+     134.5
     ],
     [
      "Sam LaPorta",
-     115.0
+     116.2
     ]
    ],
    "WR": [
     [
      "Puka Nacua",
-     187.7
+     190.7
     ],
     [
      "Jaxon Smith-Njigba",
-     182.6
+     182.1
     ],
     [
      "Ja'Marr Chase",
-     181.3
+     179.7
     ]
    ]
   }
