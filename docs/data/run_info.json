@@ -1,19 +1,19 @@
 {
- "updated": "2026-10-30T14:30:42+00:00",
+ "updated": "2026-10-30T15:24:32+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 8,
  "games_started": true,
- "reason": "schedule_and_lines,injury_reports,depth_charts,rosters",
+ "reason": "injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 42,
+   "seconds": 43,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 5,
+   "seconds": 6,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 3,
+   "seconds": 6,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 37,
+   "seconds": 38,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 18,
+   "seconds": 19,
    "ok": true
   }
  ],
@@ -96,7 +96,7 @@
    "QB": [
     [
      "Josh Allen",
-     219.6
+     223.7
     ],
     [
      "Joe Burrow",
@@ -141,28 +141,28 @@
      190.4
     ],
     [
-     "Jaxon Smith-Njigba",
-     183.2
-    ],
-    [
      "Ja'Marr Chase",
      181.8
+    ],
+    [
+     "Amon-Ra St. Brown",
+     171.6
     ]
    ]
   }
  },
  "injuries_live": {
   "nfl_week": 8,
-  "nfl_rows": 278,
-  "nfl_matched": 278,
+  "nfl_rows": 296,
+  "nfl_matched": 296,
   "nfl_unmatched": [],
   "espn_out": 40,
   "espn_unmatched": [
    "Jaylin Noel (HOU)",
    "Tyrone Tracy Jr. (NYG)"
   ],
-  "hash": "0487483cb74a",
-  "rows_added": 24,
+  "hash": "46f884f3a104",
+  "rows_added": 41,
   "values_updated": 0
  }
 }
