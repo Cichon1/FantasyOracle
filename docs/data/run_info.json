@@ -1,14 +1,14 @@
 {
- "updated": "2026-10-30T16:21:16+00:00",
+ "updated": "2026-10-30T17:16:59+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 8,
  "games_started": true,
- "reason": "player_stats,play_by_play,schedule_and_lines,injury_news",
+ "reason": "schedule_and_lines,fp_rankings,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 41,
+   "seconds": 52,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 4,
+   "seconds": 3,
    "ok": true
   },
   {
@@ -43,7 +43,7 @@
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 16,
+   "seconds": 18,
    "ok": true
   }
  ],
@@ -86,7 +86,7 @@
    "WR/TE": 78
   },
   "experts_ros_date": "2026-10-30 00:00:00",
-  "seconds": 15,
+  "seconds": 17,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -156,13 +156,13 @@
   "nfl_rows": 296,
   "nfl_matched": 296,
   "nfl_unmatched": [],
-  "espn_out": 39,
+  "espn_out": 42,
   "espn_unmatched": [
    "Jaylin Noel (HOU)",
    "Tyrone Tracy Jr. (NYG)"
   ],
-  "hash": "9a747d4fff8b",
-  "rows_added": 40,
+  "hash": "eaae51c1620a",
+  "rows_added": 41,
   "values_updated": 0
  }
 }
