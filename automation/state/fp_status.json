@@ -1,17 +1,17 @@
 {
- "pulled_at": "2026-10-30T12:39-04:00",
+ "pulled_at": "2026-10-30T15:39-04:00",
  "pages": 8,
- "expert_pages": 15,
+ "expert_pages": 11,
  "errors": [],
  "expert_pages_waiting": 0,
  "cutoff_ros": "2026-10-26T23:35-04:00",
  "cutoff_weekly": "2026-10-26T23:35-04:00",
  "panels": {
   "weekly|QB": {
-   "default": 43,
+   "default": 42,
    "recent": 80,
    "recent_acc": 20,
-   "listed": 156,
+   "listed": 158,
    "public_pages": 80,
    "recent_rule": "since cutoff",
    "players": {
@@ -20,43 +20,43 @@
     "recent_acc": 29
    },
    "agree_recent": 0.998,
-   "agree_recent_acc": 0.994
+   "agree_recent_acc": 0.995
   },
   "weekly|RB": {
    "default": 40,
    "recent": 76,
    "recent_acc": 20,
-   "listed": 149,
+   "listed": 151,
    "public_pages": 76,
    "recent_rule": "since cutoff",
    "players": {
-    "default": 105,
+    "default": 104,
     "recent": 87,
     "recent_acc": 89
    },
-   "agree_recent": 0.992,
-   "agree_recent_acc": 0.993
+   "agree_recent": 0.989,
+   "agree_recent_acc": 0.989
   },
   "weekly|WR": {
    "default": 39,
    "recent": 76,
    "recent_acc": 20,
-   "listed": 149,
+   "listed": 151,
    "public_pages": 76,
    "recent_rule": "since cutoff",
    "players": {
-    "default": 164,
+    "default": 162,
     "recent": 110,
     "recent_acc": 117
    },
-   "agree_recent": 0.989,
-   "agree_recent_acc": 0.988
+   "agree_recent": 0.99,
+   "agree_recent_acc": 0.989
   },
   "weekly|TE": {
    "default": 39,
    "recent": 76,
    "recent_acc": 20,
-   "listed": 149,
+   "listed": 151,
    "public_pages": 76,
    "recent_rule": "since cutoff",
    "players": {
@@ -64,7 +64,7 @@
     "recent": 37,
     "recent_acc": 47
    },
-   "agree_recent": 0.996,
+   "agree_recent": 0.994,
    "agree_recent_acc": 0.995
   },
   "ros|QB": {
@@ -128,5 +128,5 @@
    "agree_recent_acc": 0.974
   }
  },
- "stamp": "7e9e9732115f"
+ "stamp": "1d8e25ff8d05"
 }
