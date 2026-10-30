@@ -1,19 +1,19 @@
 {
- "updated": "2026-10-30T00:06:10+00:00",
+ "updated": "2026-10-30T00:53:45+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 7,
- "games_started": false,
+ "games_started": true,
  "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 38,
+   "seconds": 42,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 5,
+   "seconds": 6,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 3,
+   "seconds": 6,
    "ok": true
   },
   {
@@ -43,7 +43,7 @@
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 18,
+   "seconds": 19,
    "ok": true
   }
  ],
@@ -114,7 +114,7 @@
     ],
     [
      "James Cook",
-     176.8
+     175.1
     ],
     [
      "Kenneth Walker III",
@@ -156,12 +156,12 @@
   "nfl_rows": 278,
   "nfl_matched": 278,
   "nfl_unmatched": [],
-  "espn_out": 37,
+  "espn_out": 38,
   "espn_unmatched": [
    "Jaylin Noel (HOU)",
    "Tyrone Tracy Jr. (NYG)"
   ],
-  "hash": "752005b8caa0",
+  "hash": "bce18e79abff",
   "rows_added": 52,
   "values_updated": 69
  }
