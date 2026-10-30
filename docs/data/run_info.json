@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-30T21:14:32+00:00",
+ "updated": "2026-10-30T22:10:27+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 8,
@@ -8,7 +8,7 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 44,
+   "seconds": 42,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 6,
+   "seconds": 3,
    "ok": true
   },
   {
@@ -33,12 +33,12 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 1,
+   "seconds": 0,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 40,
+   "seconds": 39,
    "ok": true
   },
   {
@@ -79,14 +79,14 @@
   "out_this_week": 59,
   "on_bye": 47,
   "this_week_source": "official",
-  "training_snapshots": 47931,
+  "training_snapshots": 47940,
   "rounds": {
    "QB": 50,
-   "RB": 79,
-   "WR/TE": 72
+   "RB": 92,
+   "WR/TE": 78
   },
   "experts_ros_date": "2026-10-30 00:00:00",
-  "seconds": 17,
+  "seconds": 18,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -96,57 +96,57 @@
    "QB": [
     [
      "Josh Allen",
-     225.4
+     223.7
     ],
     [
      "Joe Burrow",
-     201.2
+     200.6
     ],
     [
      "Drake Maye",
-     187.9
+     188.6
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     198.5
+     201.5
     ],
     [
      "James Cook",
-     177.3
+     176.2
     ],
     [
      "Kenneth Walker III",
-     175.1
+     172.0
     ]
    ],
    "TE": [
     [
      "Trey McBride",
-     145.6
+     145.8
     ],
     [
      "Brock Bowers",
-     136.0
+     135.2
     ],
     [
-     "Sam LaPorta",
-     108.6
+     "Colston Loveland",
+     107.3
     ]
    ],
    "WR": [
     [
      "Puka Nacua",
-     189.6
+     190.4
     ],
     [
      "Ja'Marr Chase",
-     186.3
+     181.0
     ],
     [
-     "Amon-Ra St. Brown",
-     169.8
+     "Jaxon Smith-Njigba",
+     171.3
     ]
    ]
   }
@@ -156,12 +156,12 @@
   "nfl_rows": 296,
   "nfl_matched": 296,
   "nfl_unmatched": [],
-  "espn_out": 73,
+  "espn_out": 75,
   "espn_unmatched": [
    "Jaylin Noel (HOU)",
    "Tyrone Tracy Jr. (NYG)"
   ],
-  "hash": "ff435ec1c831",
+  "hash": "b4c2f114cf12",
   "rows_added": 42,
   "values_updated": 6
  }
