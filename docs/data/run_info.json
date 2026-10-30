@@ -1,14 +1,14 @@
 {
- "updated": "2026-10-30T19:23:36+00:00",
+ "updated": "2026-10-30T20:12:58+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 8,
  "games_started": true,
- "reason": "schedule_and_lines,injury_news",
+ "reason": "schedule_and_lines,fp_rankings,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 44,
+   "seconds": 41,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 6,
+   "seconds": 4,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 38,
+   "seconds": 37,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 18,
+   "seconds": 17,
    "ok": true
   }
  ],
@@ -86,7 +86,7 @@
    "WR/TE": 78
   },
   "experts_ros_date": "2026-10-30 00:00:00",
-  "seconds": 17,
+  "seconds": 16,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -100,11 +100,11 @@
     ],
     [
      "Joe Burrow",
-     201.4
+     200.6
     ],
     [
      "Drake Maye",
-     187.8
+     188.6
     ]
    ],
    "RB": [
@@ -131,8 +131,8 @@
      135.2
     ],
     [
-     "Sam LaPorta",
-     108.8
+     "Colston Loveland",
+     107.3
     ]
    ],
    "WR": [
@@ -142,7 +142,7 @@
     ],
     [
      "Ja'Marr Chase",
-     180.2
+     181.0
     ],
     [
      "Jaxon Smith-Njigba",
@@ -156,12 +156,12 @@
   "nfl_rows": 296,
   "nfl_matched": 296,
   "nfl_unmatched": [],
-  "espn_out": 49,
+  "espn_out": 65,
   "espn_unmatched": [
    "Jaylin Noel (HOU)",
    "Tyrone Tracy Jr. (NYG)"
   ],
-  "hash": "f82e62bb1b91",
+  "hash": "02eddd542681",
   "rows_added": 42,
   "values_updated": 6
  }
