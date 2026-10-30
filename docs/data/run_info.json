@@ -1,29 +1,29 @@
 {
- "updated": "2026-10-30T03:45:07+00:00",
+ "updated": "2026-10-30T04:46:34+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 8,
  "games_started": true,
- "reason": "schedule_and_lines",
+ "reason": "player_stats,play_by_play,schedule_and_lines",
  "steps": [
   {
    "step": "bash",
-   "seconds": 41,
+   "seconds": 42,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 4,
+   "seconds": 3,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 2,
+   "seconds": 1,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 4,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 27,
+   "seconds": 133,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 13,
+   "seconds": 26,
    "ok": true
   }
  ],
@@ -57,17 +57,17 @@
   },
   "inactive_rows": 0,
   "players": 356,
-  "upcoming": 356,
+  "upcoming": 329,
   "season_scoreboard": {
-   "model": 0.3739,
-   "experts": 0.3698,
-   "official": 0.3758
+   "model": 0.3899,
+   "experts": 0.3891,
+   "official": 0.3918
   },
   "latest_week_scoreboard": {
-   "week": 7,
-   "model": 0.3826,
-   "experts": 0.3941,
-   "official": 0.3683
+   "week": 8,
+   "model": 0.8389,
+   "experts": 0.9301,
+   "official": 0.8389
   }
  },
  "ros_info": {
@@ -76,77 +76,77 @@
   "week": 8,
   "last_week": 17,
   "players": 460,
-  "out_this_week": 57,
+  "out_this_week": 61,
   "on_bye": 47,
   "this_week_source": "official",
   "training_snapshots": 47931,
   "rounds": {
    "QB": 50,
-   "RB": 110,
-   "WR/TE": 53
+   "RB": 79,
+   "WR/TE": 72
   },
   "experts_ros_date": "2026-10-29 00:00:00",
-  "seconds": 12,
+  "seconds": 25,
   "model_cache": {
-   "hit": 18,
-   "miss": 0,
+   "hit": 0,
+   "miss": 18,
    "on": true
   },
   "top": {
    "QB": [
     [
      "Josh Allen",
-     226.6
+     226.2
     ],
     [
      "Joe Burrow",
-     204.4
+     202.0
     ],
     [
      "Drake Maye",
-     189.0
+     187.9
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     195.2
+     192.7
     ],
     [
      "James Cook",
-     178.3
+     178.1
     ],
     [
      "Kenneth Walker III",
-     175.5
+     175.1
     ]
    ],
    "TE": [
     [
      "Trey McBride",
-     147.7
+     145.6
     ],
     [
      "Brock Bowers",
-     134.3
+     136.0
     ],
     [
      "Colston Loveland",
-     104.7
+     106.6
     ]
    ],
    "WR": [
     [
      "Puka Nacua",
-     187.7
+     189.6
     ],
     [
      "Jaxon Smith-Njigba",
-     182.6
+     181.8
     ],
     [
      "Ja'Marr Chase",
-     180.5
+     179.7
     ]
    ]
   }
