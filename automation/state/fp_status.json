@@ -1,7 +1,7 @@
 {
- "pulled_at": "2026-10-30T15:39-04:00",
+ "pulled_at": "2026-10-30T18:29-04:00",
  "pages": 8,
- "expert_pages": 11,
+ "expert_pages": 16,
  "errors": [],
  "expert_pages_waiting": 0,
  "cutoff_ros": "2026-10-26T23:35-04:00",
@@ -30,26 +30,26 @@
    "public_pages": 76,
    "recent_rule": "since cutoff",
    "players": {
-    "default": 104,
+    "default": 102,
     "recent": 87,
     "recent_acc": 89
    },
-   "agree_recent": 0.989,
-   "agree_recent_acc": 0.989
+   "agree_recent": 0.981,
+   "agree_recent_acc": 0.982
   },
   "weekly|WR": {
-   "default": 39,
+   "default": 40,
    "recent": 76,
    "recent_acc": 20,
    "listed": 151,
    "public_pages": 76,
    "recent_rule": "since cutoff",
    "players": {
-    "default": 162,
+    "default": 161,
     "recent": 110,
-    "recent_acc": 117
+    "recent_acc": 116
    },
-   "agree_recent": 0.99,
+   "agree_recent": 0.991,
    "agree_recent_acc": 0.989
   },
   "weekly|TE": {
@@ -65,12 +65,12 @@
     "recent_acc": 47
    },
    "agree_recent": 0.994,
-   "agree_recent_acc": 0.995
+   "agree_recent_acc": 0.996
   },
   "ros|QB": {
    "default": 6,
-   "recent": 8,
-   "recent_acc": 8,
+   "recent": 9,
+   "recent_acc": 9,
    "listed": 32,
    "public_pages": 17,
    "recent_rule": "since cutoff",
@@ -79,8 +79,8 @@
     "recent": 44,
     "recent_acc": 44
    },
-   "agree_recent": 0.987,
-   "agree_recent_acc": 0.987
+   "agree_recent": 0.984,
+   "agree_recent_acc": 0.984
   },
   "ros|RB": {
    "default": 5,
@@ -94,8 +94,8 @@
     "recent": 106,
     "recent_acc": 106
    },
-   "agree_recent": 0.987,
-   "agree_recent_acc": 0.987
+   "agree_recent": 0.986,
+   "agree_recent_acc": 0.986
   },
   "ros|WR": {
    "default": 5,
@@ -109,8 +109,8 @@
     "recent": 133,
     "recent_acc": 133
    },
-   "agree_recent": 0.969,
-   "agree_recent_acc": 0.969
+   "agree_recent": 0.965,
+   "agree_recent_acc": 0.965
   },
   "ros|TE": {
    "default": 5,
@@ -128,5 +128,5 @@
    "agree_recent_acc": 0.974
   }
  },
- "stamp": "1d8e25ff8d05"
+ "stamp": "8598b0f43c1d"
 }
