@@ -1,71 +1,71 @@
 {
- "pulled_at": "2026-10-30T21:49-04:00",
+ "pulled_at": "2026-10-31T12:27-04:00",
  "pages": 8,
- "expert_pages": 11,
+ "expert_pages": 14,
  "errors": [],
  "expert_pages_waiting": 0,
  "cutoff_ros": "2026-10-26T23:35-04:00",
- "cutoff_weekly": "2026-10-26T23:35-04:00",
+ "cutoff_weekly": "2026-10-30T16:00-04:00",
  "panels": {
   "weekly|QB": {
    "default": 42,
-   "recent": 80,
-   "recent_acc": 20,
-   "listed": 158,
+   "recent": 13,
+   "recent_acc": 13,
+   "listed": 159,
    "public_pages": 80,
    "recent_rule": "since cutoff",
    "players": {
     "default": 59,
-    "recent": 35,
-    "recent_acc": 29
+    "recent": 28,
+    "recent_acc": 28
    },
-   "agree_recent": 0.998,
-   "agree_recent_acc": 0.995
+   "agree_recent": 0.996,
+   "agree_recent_acc": 0.996
   },
   "weekly|RB": {
-   "default": 40,
-   "recent": 76,
+   "default": 39,
+   "recent": 27,
    "recent_acc": 20,
-   "listed": 151,
+   "listed": 152,
    "public_pages": 76,
    "recent_rule": "since cutoff",
    "players": {
-    "default": 101,
-    "recent": 87,
-    "recent_acc": 89
+    "default": 100,
+    "recent": 75,
+    "recent_acc": 77
    },
-   "agree_recent": 0.982,
-   "agree_recent_acc": 0.982
+   "agree_recent": 0.98,
+   "agree_recent_acc": 0.987
   },
   "weekly|WR": {
    "default": 40,
-   "recent": 76,
+   "recent": 26,
    "recent_acc": 20,
-   "listed": 151,
+   "listed": 152,
    "public_pages": 76,
    "recent_rule": "since cutoff",
    "players": {
     "default": 158,
-    "recent": 110,
-    "recent_acc": 116
+    "recent": 97,
+    "recent_acc": 96
    },
-   "agree_recent": 0.992,
-   "agree_recent_acc": 0.99
+   "agree_recent": 0.98,
+   "agree_recent_acc": 0.979
   },
   "weekly|TE": {
    "default": 39,
-   "recent": 76,
-   "recent_acc": 20,
-   "listed": 151,
+   "recent": 17,
+   "recent_acc": 17,
+   "listed": 152,
    "public_pages": 76,
    "recent_rule": "since cutoff",
    "players": {
     "default": 101,
-    "recent": 37,
-    "recent_acc": 47
+    "recent": 49,
+    "recent_acc": 49
    },
-   "agree_recent": 0.994,
-   "agree_recent_acc": 0.996
+   "agree_recent": 0.995,
+   "agree_recent_acc": 0.995
   },
   "ros|QB": {
    "default": 6,
@@ -128,5 +128,5 @@
    "agree_recent_acc": 0.974
   }
  },
- "stamp": "1c2d3be63be5"
+ "stamp": "1e7298842cec"
 }
