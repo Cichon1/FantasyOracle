@@ -1,14 +1,14 @@
 {
- "updated": "2026-10-31T13:44:34+00:00",
+ "updated": "2026-10-31T14:33:16+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 8,
  "games_started": true,
- "reason": "schedule_and_lines,injury_reports,depth_charts,rosters",
+ "reason": "schedule_and_lines",
  "steps": [
   {
    "step": "bash",
-   "seconds": 43,
+   "seconds": 41,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 5,
+   "seconds": 6,
    "ok": true
   },
   {
@@ -86,7 +86,7 @@
    "WR/TE": 78
   },
   "experts_ros_date": "2026-10-30 00:00:00",
-  "seconds": 17,
+  "seconds": 16,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -138,7 +138,7 @@
    "WR": [
     [
      "Jaxon Smith-Njigba",
-     182.7
+     181.8
     ],
     [
      "Ja'Marr Chase",
