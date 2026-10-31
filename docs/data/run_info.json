@@ -1,19 +1,19 @@
 {
- "updated": "2026-10-31T20:07:36+00:00",
+ "updated": "2026-10-31T20:37:46+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 8,
  "games_started": true,
- "reason": "injury_news",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 38,
+   "seconds": 40,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 4,
+   "seconds": 6,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 30,
+   "seconds": 38,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 13,
+   "seconds": 18,
    "ok": true
   }
  ],
@@ -79,14 +79,14 @@
   "out_this_week": 68,
   "on_bye": 47,
   "this_week_source": "official",
-  "training_snapshots": 47931,
+  "training_snapshots": 47940,
   "rounds": {
    "QB": 50,
-   "RB": 79,
-   "WR/TE": 72
+   "RB": 92,
+   "WR/TE": 78
   },
   "experts_ros_date": "2026-10-31 00:00:00",
-  "seconds": 12,
+  "seconds": 17,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -96,57 +96,57 @@
    "QB": [
     [
      "Josh Allen",
-     219.7
+     219.6
     ],
     [
      "Joe Burrow",
-     204.5
+     203.9
     ],
     [
      "Drake Maye",
-     189.5
+     187.8
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     198.5
+     201.5
     ],
     [
      "James Cook",
-     177.3
+     177.8
     ],
     [
-     "Kenneth Walker III",
-     175.1
+     "Bijan Robinson",
+     172.0
     ]
    ],
    "TE": [
     [
      "Trey McBride",
-     146.4
+     145.8
     ],
     [
      "Brock Bowers",
-     133.8
+     132.9
     ],
     [
-     "Sam LaPorta",
-     107.8
+     "Colston Loveland",
+     107.3
     ]
    ],
    "WR": [
     [
      "Jaxon Smith-Njigba",
-     181.4
+     181.8
     ],
     [
      "Ja'Marr Chase",
-     177.4
+     181.2
     ],
     [
      "Amon-Ra St. Brown",
-     167.3
+     165.5
     ]
    ]
   }
@@ -161,7 +161,7 @@
    "Jaylin Noel (HOU)",
    "Tyrone Tracy Jr. (NYG)"
   ],
-  "hash": "0fa9f7f202e8",
+  "hash": "221783446eaa",
   "rows_added": 25,
   "values_updated": 0
  }
