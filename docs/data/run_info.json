@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-31T20:37:46+00:00",
+ "updated": "2026-10-31T21:10:12+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 8,
@@ -8,12 +8,12 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 40,
+   "seconds": 42,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 6,
+   "seconds": 3,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 3,
+   "seconds": 4,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 0,
+   "seconds": 1,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 38,
+   "seconds": 25,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 18,
+   "seconds": 11,
    "ok": true
   }
  ],
@@ -79,14 +79,14 @@
   "out_this_week": 68,
   "on_bye": 47,
   "this_week_source": "official",
-  "training_snapshots": 47940,
+  "training_snapshots": 47931,
   "rounds": {
    "QB": 50,
-   "RB": 92,
-   "WR/TE": 78
+   "RB": 79,
+   "WR/TE": 72
   },
   "experts_ros_date": "2026-10-31 00:00:00",
-  "seconds": 17,
+  "seconds": 11,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -96,57 +96,57 @@
    "QB": [
     [
      "Josh Allen",
-     219.6
+     219.7
     ],
     [
      "Joe Burrow",
-     203.9
+     204.5
     ],
     [
      "Drake Maye",
-     187.8
+     189.5
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     201.5
+     198.5
     ],
     [
      "James Cook",
-     177.8
+     176.5
     ],
     [
-     "Bijan Robinson",
-     172.0
+     "Kenneth Walker III",
+     175.1
     ]
    ],
    "TE": [
     [
      "Trey McBride",
-     145.8
+     146.4
     ],
     [
      "Brock Bowers",
-     132.9
+     136.8
     ],
     [
-     "Colston Loveland",
-     107.3
+     "Sam LaPorta",
+     107.8
     ]
    ],
    "WR": [
     [
      "Jaxon Smith-Njigba",
-     181.8
+     181.4
     ],
     [
      "Ja'Marr Chase",
-     181.2
+     177.4
     ],
     [
      "Amon-Ra St. Brown",
-     165.5
+     167.3
     ]
    ]
   }
@@ -156,12 +156,12 @@
   "nfl_rows": 320,
   "nfl_matched": 320,
   "nfl_unmatched": [],
-  "espn_out": 83,
+  "espn_out": 85,
   "espn_unmatched": [
    "Jaylin Noel (HOU)",
    "Tyrone Tracy Jr. (NYG)"
   ],
-  "hash": "221783446eaa",
+  "hash": "360c8011172a",
   "rows_added": 25,
   "values_updated": 0
  }
