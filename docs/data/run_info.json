@@ -1,14 +1,14 @@
 {
- "updated": "2026-10-31T22:06:40+00:00",
+ "updated": "2026-10-31T22:36:47+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 8,
  "games_started": true,
- "reason": "schedule_and_lines,injury_news",
+ "reason": "schedule_and_lines,fp_rankings,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 43,
+   "seconds": 39,
    "ok": true
   },
   {
@@ -23,22 +23,22 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 4,
+   "seconds": 3,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/injuries_live.py --data",
-   "seconds": 2,
-   "ok": true
-  },
-  {
-   "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
    "seconds": 1,
    "ok": true
   },
   {
+   "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
+   "seconds": 0,
+   "ok": true
+  },
+  {
    "step": "cloud_run.py project",
-   "seconds": 37,
+   "seconds": 38,
    "ok": true
   },
   {
@@ -56,8 +56,8 @@
    "total": 5
   },
   "inactive_rows": 0,
-  "players": 347,
-  "upcoming": 320,
+  "players": 345,
+  "upcoming": 318,
   "season_scoreboard": {
    "model": 0.3899,
    "experts": 0.3891,
@@ -76,7 +76,7 @@
   "week": 8,
   "last_week": 17,
   "players": 460,
-  "out_this_week": 68,
+  "out_this_week": 70,
   "on_bye": 47,
   "this_week_source": "official",
   "training_snapshots": 47940,
@@ -142,7 +142,7 @@
     ],
     [
      "Ja'Marr Chase",
-     181.2
+     180.3
     ],
     [
      "Amon-Ra St. Brown",
@@ -156,13 +156,13 @@
   "nfl_rows": 320,
   "nfl_matched": 320,
   "nfl_unmatched": [],
-  "espn_out": 85,
+  "espn_out": 86,
   "espn_unmatched": [
    "Jaylin Noel (HOU)",
    "Tyrone Tracy Jr. (NYG)"
   ],
-  "hash": "46114defd3bc",
-  "rows_added": 24,
-  "values_updated": 0
+  "hash": "47bff1c55412",
+  "rows_added": 25,
+  "values_updated": 17
  }
 }
