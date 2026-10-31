@@ -1,14 +1,14 @@
 {
- "updated": "2026-10-31T04:18:18+00:00",
+ "updated": "2026-10-31T06:12:14+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 8,
  "games_started": true,
- "reason": "schedule_and_lines",
+ "reason": "injury_reports,depth_charts,rosters",
  "steps": [
   {
    "step": "bash",
-   "seconds": 43,
+   "seconds": 41,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 5,
+   "seconds": 7,
    "ok": true
   },
   {
@@ -33,7 +33,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 0,
+   "seconds": 1,
    "ok": true
   },
   {
@@ -43,7 +43,7 @@
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 13,
+   "seconds": 14,
    "ok": true
   }
  ],
@@ -86,7 +86,7 @@
    "WR/TE": 72
   },
   "experts_ros_date": "2026-10-30 00:00:00",
-  "seconds": 12,
+  "seconds": 13,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -96,7 +96,7 @@
    "QB": [
     [
      "Josh Allen",
-     222.9
+     219.7
     ],
     [
      "Joe Burrow",
@@ -138,11 +138,11 @@
    "WR": [
     [
      "Jaxon Smith-Njigba",
-     184.6
+     182.2
     ],
     [
      "Ja'Marr Chase",
-     175.2
+     174.4
     ],
     [
      "Amon-Ra St. Brown",
@@ -162,7 +162,7 @@
    "Tyrone Tracy Jr. (NYG)"
   ],
   "hash": "25f130ab7718",
-  "rows_added": 67,
-  "values_updated": 177
+  "rows_added": 25,
+  "values_updated": 0
  }
 }
