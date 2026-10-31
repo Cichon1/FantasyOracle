@@ -1,14 +1,14 @@
 {
- "updated": "2026-10-31T06:12:14+00:00",
+ "updated": "2026-10-31T09:15:50+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 8,
  "games_started": true,
- "reason": "injury_reports,depth_charts,rosters",
+ "reason": "player_stats,play_by_play",
  "steps": [
   {
    "step": "bash",
-   "seconds": 41,
+   "seconds": 43,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 7,
+   "seconds": 4,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 1,
+   "seconds": 0,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 29,
+   "seconds": 30,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 14,
+   "seconds": 13,
    "ok": true
   }
  ],
@@ -114,7 +114,7 @@
     ],
     [
      "James Cook",
-     177.3
+     176.5
     ],
     [
      "Kenneth Walker III",
@@ -128,11 +128,11 @@
     ],
     [
      "Brock Bowers",
-     136.8
+     133.8
     ],
     [
      "Sam LaPorta",
-     108.6
+     109.4
     ]
    ],
    "WR": [
