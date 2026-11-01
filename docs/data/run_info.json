@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01T11:16:46+00:00",
+ "updated": "2026-11-01T12:04:00+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 8,
@@ -8,7 +8,7 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 39,
+   "seconds": 38,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 224,
+   "seconds": 37,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 46,
+   "seconds": 18,
    "ok": true
   }
  ],
@@ -86,10 +86,10 @@
    "WR/TE": 67
   },
   "experts_ros_date": "2026-10-31 00:00:00",
-  "seconds": 45,
+  "seconds": 17,
   "model_cache": {
-   "hit": 0,
-   "miss": 18,
+   "hit": 18,
+   "miss": 0,
    "on": true
   },
   "top": {
@@ -114,7 +114,7 @@
     ],
     [
      "Bijan Robinson",
-     179.6
+     178.0
     ],
     [
      "James Cook",
@@ -132,21 +132,21 @@
     ],
     [
      "Sam LaPorta",
-     102.7
+     109.3
     ]
    ],
    "WR": [
     [
+     "Jaxon Smith-Njigba",
+     181.7
+    ],
+    [
      "Ja'Marr Chase",
-     180.0
+     174.5
     ],
     [
      "Puka Nacua",
      169.2
-    ],
-    [
-     "Amon-Ra St. Brown",
-     166.5
     ]
    ]
   }
