@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-01T22:43:09+00:00",
+ "updated": "2026-11-01T23:11:46+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 8,
  "games_started": true,
- "reason": "injury_news",
+ "reason": "schedule_and_lines",
  "steps": [
   {
    "step": "bash",
@@ -13,7 +13,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 5,
+   "seconds": 4,
    "ok": true
   },
   {
@@ -23,12 +23,12 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 3,
+   "seconds": 2,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/injuries_live.py --data",
-   "seconds": 2,
+   "seconds": 1,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 233,
+   "seconds": 25,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 42,
+   "seconds": 12,
    "ok": true
   }
  ],
@@ -79,77 +79,77 @@
   "week": 8,
   "last_week": 17,
   "players": 463,
-  "out_this_week": 86,
+  "out_this_week": 87,
   "on_bye": 47,
   "this_week_source": "official",
-  "training_snapshots": 47950,
+  "training_snapshots": 47931,
   "rounds": {
    "QB": 50,
-   "RB": 77,
-   "WR/TE": 62
+   "RB": 115,
+   "WR/TE": 63
   },
   "experts_ros_date": "2026-10-31 00:00:00",
-  "seconds": 41,
+  "seconds": 11,
   "model_cache": {
-   "hit": 0,
-   "miss": 18,
+   "hit": 18,
+   "miss": 0,
    "on": true
   },
   "top": {
    "QB": [
     [
      "Drake Maye",
-     181.7
+     184.1
     ],
     [
      "Josh Allen",
-     172.7
+     171.8
     ],
     [
-     "Joe Burrow",
-     161.1
+     "Jared Goff",
+     167.7
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     172.9
+     175.9
     ],
     [
      "Kenneth Walker III",
-     171.5
+     172.1
     ],
     [
      "Christian McCaffrey",
-     171.2
+     168.6
     ]
    ],
    "TE": [
     [
      "Trey McBride",
-     105.4
+     106.9
     ],
     [
      "Brock Bowers",
-     103.8
+     106.7
     ],
     [
      "Colston Loveland",
-     99.9
+     101.8
     ]
    ],
    "WR": [
     [
      "Jaxon Smith-Njigba",
-     175.5
+     173.9
     ],
     [
      "Puka Nacua",
-     168.0
+     167.7
     ],
     [
      "Ja'Marr Chase",
-     146.9
+     148.0
     ]
    ]
   }
