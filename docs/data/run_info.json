@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01T05:43:14+00:00",
+ "updated": "2026-11-01T06:52:15+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 8,
@@ -8,22 +8,22 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 41,
+   "seconds": 42,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 4,
+   "seconds": 6,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 1,
+   "seconds": 2,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 4,
+   "seconds": 6,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 24,
+   "seconds": 37,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 11,
+   "seconds": 18,
    "ok": true
   }
  ],
@@ -79,14 +79,14 @@
   "out_this_week": 70,
   "on_bye": 47,
   "this_week_source": "official",
-  "training_snapshots": 47931,
+  "training_snapshots": 47940,
   "rounds": {
    "QB": 50,
-   "RB": 79,
-   "WR/TE": 72
+   "RB": 92,
+   "WR/TE": 78
   },
   "experts_ros_date": "2026-10-31 00:00:00",
-  "seconds": 10,
+  "seconds": 17,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -96,57 +96,57 @@
    "QB": [
     [
      "Josh Allen",
-     219.7
+     220.4
     ],
     [
      "Joe Burrow",
-     204.5
+     203.9
     ],
     [
      "Drake Maye",
-     191.2
+     191.9
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     198.5
+     201.5
     ],
     [
      "James Cook",
-     178.1
+     178.6
     ],
     [
-     "Kenneth Walker III",
-     175.1
+     "Bijan Robinson",
+     172.0
     ]
    ],
    "TE": [
     [
      "Trey McBride",
-     146.4
+     145.8
     ],
     [
      "Brock Bowers",
-     136.8
+     135.1
     ],
     [
      "Sam LaPorta",
-     110.3
+     109.7
     ]
    ],
    "WR": [
     [
      "Jaxon Smith-Njigba",
-     181.4
+     181.8
     ],
     [
      "Ja'Marr Chase",
-     176.6
+     180.3
     ],
     [
-     "Puka Nacua",
-     167.4
+     "Amon-Ra St. Brown",
+     165.5
     ]
    ]
   }
