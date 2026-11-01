@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01T08:46:28+00:00",
+ "updated": "2026-11-01T09:42:04+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 8,
@@ -8,22 +8,22 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 41,
+   "seconds": 42,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 3,
+   "seconds": 5,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 1,
+   "seconds": 2,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 4,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 0,
+   "seconds": 1,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 23,
+   "seconds": 37,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 11,
+   "seconds": 17,
    "ok": true
   }
  ],
@@ -86,7 +86,7 @@
    "WR/TE": 112
   },
   "experts_ros_date": "2026-10-31 00:00:00",
-  "seconds": 10,
+  "seconds": 16,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -96,7 +96,7 @@
    "QB": [
     [
      "Josh Allen",
-     223.6
+     221.1
     ],
     [
      "Joe Burrow",
@@ -104,7 +104,7 @@
     ],
     [
      "Drake Maye",
-     196.2
+     195.3
     ]
    ],
    "RB": [
@@ -132,7 +132,7 @@
     ],
     [
      "Sam LaPorta",
-     111.2
+     110.4
     ]
    ],
    "WR": [
@@ -146,7 +146,7 @@
     ],
     [
      "Puka Nacua",
-     171.2
+     169.7
     ]
    ]
   }
