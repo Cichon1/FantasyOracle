@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-01T16:40:37+00:00",
+ "updated": "2026-11-01T17:31:49+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 8,
  "games_started": true,
- "reason": "schedule_and_lines,injury_news",
+ "reason": "schedule_and_lines,fp_rankings,injury_news,inactives",
  "steps": [
   {
    "step": "bash",
-   "seconds": 43,
+   "seconds": 42,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 4,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -33,7 +33,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 1,
+   "seconds": 0,
    "ok": true
   },
   {
@@ -54,9 +54,9 @@
   "inactives": {
    "nflverse_roster": 5,
    "file": "ref/inactives_2026_wk8.csv",
-   "matched": 30,
+   "matched": 34,
    "unmatched": [],
-   "total": 35
+   "total": 39
   },
   "inactive_rows": 9,
   "players": 345,
@@ -107,7 +107,7 @@
     ],
     [
      "Drake Maye",
-     192.1
+     189.6
     ]
    ],
    "RB": [
@@ -159,13 +159,14 @@
   "nfl_rows": 320,
   "nfl_matched": 320,
   "nfl_unmatched": [],
-  "espn_out": 109,
+  "espn_out": 170,
   "espn_unmatched": [
    "Jaylin Noel (HOU)",
+   "Jordyn Tyson (NO)",
    "Tyrone Tracy Jr. (NYG)"
   ],
-  "hash": "0ccc9c1a2b85",
-  "rows_added": 39,
+  "hash": "4edfca9ddf84",
+  "rows_added": 92,
   "values_updated": 0
  }
 }
