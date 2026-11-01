@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-01T19:20:32+00:00",
+ "updated": "2026-11-01T20:06:30+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 8,
  "games_started": true,
- "reason": "schedule_and_lines,injury_news",
+ "reason": "schedule_and_lines,injury_news,inactives",
  "steps": [
   {
    "step": "bash",
-   "seconds": 42,
+   "seconds": 43,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 4,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 1,
+   "seconds": 0,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 36,
+   "seconds": 37,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 17,
+   "seconds": 18,
    "ok": true
   }
  ],
@@ -54,13 +54,13 @@
   "inactives": {
    "nflverse_roster": 5,
    "file": "ref/inactives_2026_wk8.csv",
-   "matched": 34,
+   "matched": 38,
    "unmatched": [],
-   "total": 39
+   "total": 43
   },
-  "inactive_rows": 0,
+  "inactive_rows": 2,
   "players": 345,
-  "upcoming": 309,
+  "upcoming": 307,
   "season_scoreboard": {
    "model": 0.3899,
    "experts": 0.3891,
@@ -79,14 +79,14 @@
   "week": 8,
   "last_week": 17,
   "players": 463,
-  "out_this_week": 83,
+  "out_this_week": 86,
   "on_bye": 47,
   "this_week_source": "official",
-  "training_snapshots": 47931,
+  "training_snapshots": 47950,
   "rounds": {
    "QB": 50,
-   "RB": 66,
-   "WR/TE": 112
+   "RB": 101,
+   "WR/TE": 67
   },
   "experts_ros_date": "2026-10-31 00:00:00",
   "seconds": 16,
@@ -99,57 +99,57 @@
    "QB": [
     [
      "Josh Allen",
-     221.1
+     219.9
     ],
     [
      "Joe Burrow",
-     202.1
+     203.0
     ],
     [
      "Drake Maye",
-     189.6
+     188.5
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     198.9
+     199.8
     ],
     [
      "James Cook",
-     177.8
+     180.5
     ],
     [
      "Kenneth Walker III",
-     171.6
+     170.0
     ]
    ],
    "TE": [
     [
      "Trey McBride",
-     147.9
+     147.0
     ],
     [
      "Brock Bowers",
      137.5
     ],
     [
-     "George Kittle",
-     107.4
+     "Sam LaPorta",
+     106.8
     ]
    ],
    "WR": [
     [
      "Jaxon Smith-Njigba",
-     183.5
+     180.8
     ],
     [
      "Ja'Marr Chase",
-     173.3
+     172.3
     ],
     [
      "Puka Nacua",
-     169.7
+     167.6
     ]
    ]
   }
@@ -159,14 +159,14 @@
   "nfl_rows": 320,
   "nfl_matched": 320,
   "nfl_unmatched": [],
-  "espn_out": 172,
+  "espn_out": 187,
   "espn_unmatched": [
    "Jaylin Noel (HOU)",
    "Jordyn Tyson (NO)",
    "Tyrone Tracy Jr. (NYG)"
   ],
-  "hash": "89f35c43c89d",
-  "rows_added": 93,
+  "hash": "ef07a4a2cf4c",
+  "rows_added": 101,
   "values_updated": 0
  }
 }
