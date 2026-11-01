@@ -1,19 +1,19 @@
 {
- "updated": "2026-11-01T20:36:11+00:00",
+ "updated": "2026-11-01T21:10:19+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 8,
  "games_started": true,
- "reason": "schedule_and_lines,fp_rankings,injury_news,inactives",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 43,
+   "seconds": 42,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 5,
+   "seconds": 4,
    "ok": true
   },
   {
@@ -28,22 +28,22 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/injuries_live.py --data",
-   "seconds": 1,
+   "seconds": 3,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 1,
+   "seconds": 0,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 31,
+   "seconds": 29,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 14,
+   "seconds": 13,
    "ok": true
   }
  ],
@@ -58,7 +58,7 @@
    "unmatched": [],
    "total": 52
   },
-  "inactive_rows": 5,
+  "inactive_rows": 3,
   "players": 345,
   "upcoming": 304,
   "season_scoreboard": {
@@ -79,7 +79,7 @@
   "week": 8,
   "last_week": 17,
   "players": 463,
-  "out_this_week": 93,
+  "out_this_week": 92,
   "on_bye": 47,
   "this_week_source": "official",
   "training_snapshots": 47931,
@@ -89,7 +89,7 @@
    "WR/TE": 112
   },
   "experts_ros_date": "2026-10-31 00:00:00",
-  "seconds": 13,
+  "seconds": 12,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -159,14 +159,14 @@
   "nfl_rows": 320,
   "nfl_matched": 320,
   "nfl_unmatched": [],
-  "espn_out": 206,
+  "espn_out": 205,
   "espn_unmatched": [
    "Jaylin Noel (HOU)",
    "Jordyn Tyson (NO)",
    "Tyrone Tracy Jr. (NYG)"
   ],
-  "hash": "a7c966b90c5b",
-  "rows_added": 119,
+  "hash": "dcce1a8f28b6",
+  "rows_added": 118,
   "values_updated": 0
  }
 }
