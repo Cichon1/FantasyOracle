@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-01T17:31:49+00:00",
+ "updated": "2026-11-01T18:02:30+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 8,
  "games_started": true,
- "reason": "schedule_and_lines,fp_rankings,injury_news,inactives",
+ "reason": "schedule_and_lines",
  "steps": [
   {
    "step": "bash",
@@ -13,7 +13,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 4,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 5,
+   "seconds": 3,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 30,
+   "seconds": 35,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 14,
+   "seconds": 16,
    "ok": true
   }
  ],
@@ -58,7 +58,7 @@
    "unmatched": [],
    "total": 39
   },
-  "inactive_rows": 9,
+  "inactive_rows": 0,
   "players": 345,
   "upcoming": 309,
   "season_scoreboard": {
@@ -89,7 +89,7 @@
    "WR/TE": 112
   },
   "experts_ros_date": "2026-10-31 00:00:00",
-  "seconds": 13,
+  "seconds": 15,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -121,7 +121,7 @@
     ],
     [
      "Kenneth Walker III",
-     171.6
+     170.8
     ]
    ],
    "TE": [
