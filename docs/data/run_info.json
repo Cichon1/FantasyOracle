@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-01T00:04:32+00:00",
+ "updated": "2026-11-01T00:55:42+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 8,
  "games_started": true,
- "reason": "schedule_and_lines,injury_news",
+ "reason": "schedule_and_lines",
  "steps": [
   {
    "step": "bash",
-   "seconds": 41,
+   "seconds": 47,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 6,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -96,7 +96,7 @@
    "QB": [
     [
      "Josh Allen",
-     219.6
+     218.8
     ],
     [
      "Joe Burrow",
@@ -104,7 +104,7 @@
     ],
     [
      "Drake Maye",
-     187.8
+     188.6
     ]
    ],
    "RB": [
@@ -117,7 +117,7 @@
      177.8
     ],
     [
-     "Bijan Robinson",
+     "Kenneth Walker III",
      172.0
     ]
    ],
