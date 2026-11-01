@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01T18:39:28+00:00",
+ "updated": "2026-11-01T19:20:32+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 8,
@@ -8,17 +8,17 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 44,
+   "seconds": 42,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 6,
+   "seconds": 5,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 3,
+   "seconds": 2,
    "ok": true
   },
   {
@@ -28,7 +28,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/injuries_live.py --data",
-   "seconds": 2,
+   "seconds": 1,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 42,
+   "seconds": 36,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 20,
+   "seconds": 17,
    "ok": true
   }
  ],
@@ -79,7 +79,7 @@
   "week": 8,
   "last_week": 17,
   "players": 463,
-  "out_this_week": 82,
+  "out_this_week": 83,
   "on_bye": 47,
   "this_week_source": "official",
   "training_snapshots": 47931,
@@ -89,7 +89,7 @@
    "WR/TE": 112
   },
   "experts_ros_date": "2026-10-31 00:00:00",
-  "seconds": 19,
+  "seconds": 16,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -121,7 +121,7 @@
     ],
     [
      "Kenneth Walker III",
-     170.8
+     171.6
     ]
    ],
    "TE": [
@@ -159,14 +159,14 @@
   "nfl_rows": 320,
   "nfl_matched": 320,
   "nfl_unmatched": [],
-  "espn_out": 170,
+  "espn_out": 172,
   "espn_unmatched": [
    "Jaylin Noel (HOU)",
    "Jordyn Tyson (NO)",
    "Tyrone Tracy Jr. (NYG)"
   ],
-  "hash": "4edfca9ddf84",
-  "rows_added": 92,
+  "hash": "89f35c43c89d",
+  "rows_added": 93,
   "values_updated": 0
  }
 }
