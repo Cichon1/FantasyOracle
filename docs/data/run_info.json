@@ -1,24 +1,24 @@
 {
- "updated": "2026-11-02T07:20:58+00:00",
+ "updated": "2026-11-02T08:42:00+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 8,
  "games_started": true,
- "reason": "schedule_and_lines,injury_reports,depth_charts,rosters,ftn_charting,expected_points",
+ "reason": "schedule_and_lines",
  "steps": [
   {
    "step": "bash",
-   "seconds": 42,
+   "seconds": 44,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 6,
+   "seconds": 4,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 3,
+   "seconds": 2,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 225,
+   "seconds": 26,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 46,
+   "seconds": 12,
    "ok": true
   }
  ],
@@ -79,77 +79,77 @@
   "week": 8,
   "last_week": 17,
   "players": 463,
-  "out_this_week": 126,
+  "out_this_week": 127,
   "on_bye": 47,
   "this_week_source": "official",
-  "training_snapshots": 47950,
+  "training_snapshots": 47931,
   "rounds": {
    "QB": 50,
-   "RB": 126,
+   "RB": 72,
    "WR/TE": 59
   },
   "experts_ros_date": "2026-10-31 00:00:00",
-  "seconds": 45,
+  "seconds": 11,
   "model_cache": {
-   "hit": 0,
-   "miss": 18,
+   "hit": 18,
+   "miss": 0,
    "on": true
   },
   "top": {
    "QB": [
     [
      "Josh Allen",
-     196.8
+     198.1
     ],
     [
      "Joe Burrow",
-     181.2
+     180.7
     ],
     [
      "Drake Maye",
-     168.6
+     170.0
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     181.0
+     179.9
     ],
     [
      "Christian McCaffrey",
-     172.3
+     176.0
     ],
     [
      "James Cook",
-     161.3
+     160.4
     ]
    ],
    "TE": [
     [
      "Trey McBride",
-     129.9
+     129.7
     ],
     [
      "Brock Bowers",
-     121.1
+     120.7
     ],
     [
      "George Kittle",
-     97.3
+     100.4
     ]
    ],
    "WR": [
     [
      "Jaxon Smith-Njigba",
-     173.4
+     174.8
     ],
     [
      "Ja'Marr Chase",
-     162.4
+     162.6
     ],
     [
      "Puka Nacua",
-     148.8
+     149.6
     ]
    ]
   }
