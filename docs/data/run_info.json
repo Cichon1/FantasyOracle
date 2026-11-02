@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-02T00:04:06+00:00",
+ "updated": "2026-11-02T00:56:33+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 8,
  "games_started": true,
- "reason": "schedule_and_lines,fp_rankings,injury_news,inactives",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
@@ -23,12 +23,12 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 2,
+   "seconds": 1,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/injuries_live.py --data",
-   "seconds": 2,
+   "seconds": 1,
    "ok": true
   },
   {
@@ -79,7 +79,7 @@
   "week": 8,
   "last_week": 17,
   "players": 463,
-  "out_this_week": 86,
+  "out_this_week": 87,
   "on_bye": 47,
   "this_week_source": "official",
   "training_snapshots": 47950,
@@ -98,16 +98,16 @@
   "top": {
    "QB": [
     [
-     "Drake Maye",
-     181.9
-    ],
-    [
      "Josh Allen",
-     172.7
+     181.9
     ],
     [
      "Joe Burrow",
      161.1
+    ],
+    [
+     "Brock Purdy",
+     142.8
     ]
    ],
    "RB": [
@@ -116,12 +116,12 @@
      172.9
     ],
     [
-     "Kenneth Walker III",
-     171.5
+     "Bijan Robinson",
+     171.2
     ],
     [
      "Christian McCaffrey",
-     171.2
+     156.4
     ]
    ],
    "TE": [
@@ -159,14 +159,14 @@
   "nfl_rows": 320,
   "nfl_matched": 320,
   "nfl_unmatched": [],
-  "espn_out": 206,
+  "espn_out": 207,
   "espn_unmatched": [
    "Jaylin Noel (HOU)",
    "Jordyn Tyson (NO)",
    "Tyrone Tracy Jr. (NYG)"
   ],
-  "hash": "251d7827aa54",
-  "rows_added": 118,
+  "hash": "73d1bc178639",
+  "rows_added": 119,
   "values_updated": 0
  }
 }
