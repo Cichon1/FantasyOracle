@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-02T18:24:23+00:00",
+ "updated": "2026-11-02T19:28:57+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 8,
  "games_started": true,
- "reason": "schedule_and_lines,ftn_charting,fp_rankings,injury_news",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 52,
+   "seconds": 43,
    "ok": true
   },
   {
@@ -43,7 +43,7 @@
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 19,
+   "seconds": 18,
    "ok": true
   }
  ],
@@ -79,7 +79,7 @@
   "week": 8,
   "last_week": 17,
   "players": 463,
-  "out_this_week": 94,
+  "out_this_week": 95,
   "on_bye": 47,
   "this_week_source": "official",
   "training_snapshots": 47950,
@@ -89,7 +89,7 @@
    "WR/TE": 59
   },
   "experts_ros_date": "2026-10-31 00:00:00",
-  "seconds": 18,
+  "seconds": 17,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -159,15 +159,15 @@
   "nfl_rows": 320,
   "nfl_matched": 320,
   "nfl_unmatched": [],
-  "espn_out": 207,
+  "espn_out": 116,
   "espn_unmatched": [
    "Jaylin Noel (HOU)",
    "Travis Etienne Jr. (NO)",
    "Jordyn Tyson (NO)",
    "Tyrone Tracy Jr. (NYG)"
   ],
-  "hash": "761cb9072657",
-  "rows_added": 118,
+  "hash": "1a870d5aa266",
+  "rows_added": 33,
   "values_updated": 0
  }
 }
