@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-02T15:26:49+00:00",
+ "updated": "2026-11-02T16:32:30+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 8,
@@ -8,12 +8,12 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 46,
+   "seconds": 48,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 4,
+   "seconds": 3,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 0,
+   "seconds": 1,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 30,
+   "seconds": 22,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 14,
+   "seconds": 10,
    "ok": true
   }
  ],
@@ -89,7 +89,7 @@
    "WR/TE": 59
   },
   "experts_ros_date": "2026-10-31 00:00:00",
-  "seconds": 13,
+  "seconds": 9,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -159,14 +159,14 @@
   "nfl_rows": 320,
   "nfl_matched": 320,
   "nfl_unmatched": [],
-  "espn_out": 204,
+  "espn_out": 205,
   "espn_unmatched": [
    "Jaylin Noel (HOU)",
    "Jordyn Tyson (NO)",
    "Tyrone Tracy Jr. (NYG)"
   ],
-  "hash": "382fb167eefa",
-  "rows_added": 116,
+  "hash": "07eb6f61f642",
+  "rows_added": 117,
   "values_updated": 0
  }
 }
