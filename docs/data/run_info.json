@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-02T12:58:59+00:00",
+ "updated": "2026-11-02T14:12:23+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 8,
  "games_started": true,
- "reason": "schedule_and_lines,snap_counts,injury_news",
+ "reason": "player_stats,play_by_play,schedule_and_lines,expected_points,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 39,
+   "seconds": 56,
    "ok": true
   },
   {
@@ -38,7 +38,7 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 38,
+   "seconds": 37,
    "ok": true
   },
   {
@@ -165,7 +165,7 @@
    "Jordyn Tyson (NO)",
    "Tyrone Tracy Jr. (NYG)"
   ],
-  "hash": "1822a701d923",
+  "hash": "72324b007329",
   "rows_added": 115,
   "values_updated": 0
  }
