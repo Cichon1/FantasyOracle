@@ -1,7 +1,7 @@
 {
- "pulled_at": "2026-11-01T18:27-05:00",
+ "pulled_at": "2026-11-01T21:44-05:00",
  "pages": 8,
- "expert_pages": 9,
+ "expert_pages": 1,
  "errors": [],
  "expert_pages_waiting": 0,
  "cutoff_ros": "2026-10-26T23:35-04:00",
@@ -15,7 +15,7 @@
    "public_pages": 84,
    "recent_rule": "since cutoff",
    "players": {
-    "default": 53,
+    "default": 52,
     "recent": 28,
     "recent_acc": 28
    },
@@ -60,7 +60,7 @@
    "public_pages": 79,
    "recent_rule": "since cutoff",
    "players": {
-    "default": 98,
+    "default": 97,
     "recent": 43,
     "recent_acc": 50
    },
@@ -128,5 +128,5 @@
    "agree_recent_acc": 0.974
   }
  },
- "stamp": "d8790bb6bb89"
+ "stamp": "65b6a511843c"
 }
