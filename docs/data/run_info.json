@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-02T08:42:00+00:00",
+ "updated": "2026-11-02T10:00:10+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 8,
@@ -8,17 +8,17 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 44,
+   "seconds": 40,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 4,
+   "seconds": 5,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 2,
+   "seconds": 3,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 26,
+   "seconds": 37,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 12,
+   "seconds": 18,
    "ok": true
   }
  ],
@@ -79,17 +79,17 @@
   "week": 8,
   "last_week": 17,
   "players": 463,
-  "out_this_week": 127,
+  "out_this_week": 126,
   "on_bye": 47,
   "this_week_source": "official",
-  "training_snapshots": 47931,
+  "training_snapshots": 47950,
   "rounds": {
    "QB": 50,
-   "RB": 72,
+   "RB": 126,
    "WR/TE": 59
   },
   "experts_ros_date": "2026-10-31 00:00:00",
-  "seconds": 11,
+  "seconds": 17,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -99,57 +99,57 @@
    "QB": [
     [
      "Josh Allen",
-     198.1
+     196.8
     ],
     [
      "Joe Burrow",
-     180.7
+     181.2
     ],
     [
      "Drake Maye",
-     170.0
+     168.6
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     179.9
+     181.0
     ],
     [
      "Christian McCaffrey",
-     176.0
+     172.3
     ],
     [
      "James Cook",
-     160.4
+     161.3
     ]
    ],
    "TE": [
     [
      "Trey McBride",
-     129.7
+     129.9
     ],
     [
      "Brock Bowers",
-     120.7
+     121.1
     ],
     [
      "George Kittle",
-     100.4
+     97.3
     ]
    ],
    "WR": [
     [
      "Jaxon Smith-Njigba",
-     174.8
+     173.4
     ],
     [
      "Ja'Marr Chase",
-     162.6
+     162.4
     ],
     [
      "Puka Nacua",
-     149.6
+     148.8
     ]
    ]
   }
