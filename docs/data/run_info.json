@@ -1,19 +1,19 @@
 {
- "updated": "2026-11-02T11:51:16+00:00",
+ "updated": "2026-11-02T12:58:59+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 8,
  "games_started": true,
- "reason": "schedule_and_lines",
+ "reason": "schedule_and_lines,snap_counts,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 46,
+   "seconds": 39,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 5,
+   "seconds": 6,
    "ok": true
   },
   {
@@ -38,7 +38,7 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 37,
+   "seconds": 38,
    "ok": true
   },
   {
@@ -79,7 +79,7 @@
   "week": 8,
   "last_week": 17,
   "players": 463,
-  "out_this_week": 126,
+  "out_this_week": 94,
   "on_bye": 47,
   "this_week_source": "official",
   "training_snapshots": 47950,
@@ -159,14 +159,14 @@
   "nfl_rows": 320,
   "nfl_matched": 320,
   "nfl_unmatched": [],
-  "espn_out": 204,
+  "espn_out": 203,
   "espn_unmatched": [
    "Jaylin Noel (HOU)",
    "Jordyn Tyson (NO)",
    "Tyrone Tracy Jr. (NYG)"
   ],
-  "hash": "7a8bf31f28bb",
-  "rows_added": 116,
+  "hash": "1822a701d923",
+  "rows_added": 115,
   "values_updated": 0
  }
 }
