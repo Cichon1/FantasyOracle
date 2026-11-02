@@ -1,19 +1,19 @@
 {
- "updated": "2026-11-02T21:18:12+00:00",
+ "updated": "2026-11-02T22:17:49+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 8,
  "games_started": true,
- "reason": "schedule_and_lines,fp_rankings,injury_news",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 43,
+   "seconds": 42,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 6,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 3,
+   "seconds": 1,
    "ok": true
   },
   {
@@ -33,12 +33,12 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 1,
+   "seconds": 0,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 38,
+   "seconds": 37,
    "ok": true
   },
   {
@@ -165,10 +165,11 @@
    "Travis Etienne Jr. (NO)",
    "Jordyn Tyson (NO)",
    "Tyrone Tracy Jr. (NYG)",
+   "De'Zhaun Stribling (SF)",
    "Brandon Aiyuk (SF)"
   ],
-  "hash": "acf8e200b36f",
-  "rows_added": 29,
+  "hash": "a5cbaa5eec98",
+  "rows_added": 30,
   "values_updated": 0
  }
 }
