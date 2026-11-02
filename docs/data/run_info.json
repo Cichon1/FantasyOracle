@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-02T03:56:44+00:00",
+ "updated": "2026-11-02T04:57:15+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 8,
@@ -8,17 +8,17 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 41,
+   "seconds": 44,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 5,
+   "seconds": 4,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 3,
+   "seconds": 2,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 215,
+   "seconds": 29,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 42,
+   "seconds": 13,
    "ok": true
   }
  ],
@@ -89,10 +89,10 @@
    "WR/TE": 53
   },
   "experts_ros_date": "2026-10-31 00:00:00",
-  "seconds": 41,
+  "seconds": 12,
   "model_cache": {
-   "hit": 0,
-   "miss": 18,
+   "hit": 18,
+   "miss": 0,
    "on": true
   },
   "top": {
@@ -107,7 +107,7 @@
     ],
     [
      "Drake Maye",
-     180.9
+     169.6
     ]
    ],
    "RB": [
