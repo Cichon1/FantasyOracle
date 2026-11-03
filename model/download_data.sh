@@ -29,7 +29,8 @@ echo "data/players.parquet $B/players/players.parquet" >> "$REQ"
 echo "data/contracts.parquet $B/contracts/historical_contracts.parquet" >> "$REQ"
 echo "data/combine.parquet $B/combine/combine.parquet" >> "$REQ"
 # required files: any failure stops the script (as before); optional ones may be missing upstream
-xargs -P 8 -L 1 sh -c 'curl -sfL --retry 5 --retry-all-errors --retry-delay 5 -o "$0" "$1"' < "$REQ"
+# a file nflverse is re-uploading can be missing for a minute: retry for up to ~3 minutes before giving up
+xargs -P 8 -L 1 sh -c 'curl -sSfL --retry 12 --retry-all-errors --retry-delay 15 -o "$0" "$1" || { echo "download failed: $1" >&2; exit 255; }' < "$REQ"
 xargs -P 8 -L 1 sh -c 'curl -sfL --retry 5 --retry-all-errors --retry-delay 5 -o "$0" "$1" || true' < "$OPT"
 rm -f "$REQ" "$OPT"
 cp data/depth/depth_$CUR.parquet data/depth_raw.parquet
@@ -42,7 +43,7 @@ d = d[d.pos_abb == "QB"][["team", "player_name", "gsis_id", "pos_rank"]]
 d.rename(columns={"gsis_id": "player_id", "pos_rank": "depth"}).to_parquet(f"data/depth_{cur}.parquet")
 EOF
 # FantasyPros expert consensus history (DynastyProcess, updated weekly)
-rm -rf /tmp/dp_data && GIT_LFS_SKIP_SMUDGE=1 git clone -q --depth 1 https://github.com/dynastyprocess/data /tmp/dp_data
+for i in 1 2 3; do rm -rf /tmp/dp_data; GIT_LFS_SKIP_SMUDGE=1 git clone -q --depth 1 https://github.com/dynastyprocess/data /tmp/dp_data && break; echo "DynastyProcess clone failed (try $i)" >&2; sleep 20; done
 cp /tmp/dp_data/files/db_fpecr.parquet /tmp/dp_data/files/db_playerids.csv fpdata/
 rm -f data/plays.parquet   # force the play table to rebuild with the new week
 echo "done. Before running: put this week's forecast in ref/weather_<season>_wk<week>.csv and update"
