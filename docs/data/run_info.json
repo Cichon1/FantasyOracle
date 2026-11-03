@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-03T18:49:04+00:00",
+ "updated": "2026-11-03T20:11:48+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 8,
  "games_started": false,
- "reason": "schedule_and_lines,ftn_charting",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 100,
+   "seconds": 96,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 7,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 0,
+   "seconds": 1,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 38,
+   "seconds": 39,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 18,
+   "seconds": 19,
    "ok": true
   }
  ],
@@ -56,8 +56,8 @@
    "total": 0
   },
   "inactive_rows": 0,
-  "players": 399,
-  "upcoming": 399,
+  "players": 398,
+  "upcoming": 398,
   "season_scoreboard": {
    "model": 0.3785,
    "experts": 0.3821,
@@ -76,7 +76,7 @@
   "week": 9,
   "last_week": 17,
   "players": 466,
-  "out_this_week": 45,
+  "out_this_week": 46,
   "on_bye": 22,
   "this_week_source": "official",
   "training_snapshots": 47931,
@@ -132,7 +132,7 @@
     ],
     [
      "Trey McBride",
-     112.0
+     111.2
     ]
    ],
    "WR": [
@@ -154,10 +154,10 @@
  "injuries_live": {
   "nfl_week": 8,
   "nfl_rows": 320,
-  "espn_out": 8,
+  "espn_out": 10,
   "espn_unmatched": [],
-  "hash": "815958f3fb3a",
-  "rows_added": 8,
+  "hash": "3d6319b501ce",
+  "rows_added": 10,
   "values_updated": 0
  }
 }
