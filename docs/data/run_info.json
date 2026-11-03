@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-03T22:43:03+00:00",
+ "updated": "2026-11-03T23:38:42+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 8,
  "games_started": false,
- "reason": "schedule_and_lines,injury_news",
+ "reason": "schedule_and_lines,fp_rankings,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 47,
+   "seconds": 44,
    "ok": true
   },
   {
@@ -23,12 +23,12 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 6,
+   "seconds": 5,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/injuries_live.py --data",
-   "seconds": 3,
+   "seconds": 1,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 175,
+   "seconds": 26,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 30,
+   "seconds": 12,
    "ok": true
   }
  ],
@@ -75,8 +75,8 @@
   "season": 2026,
   "week": 9,
   "last_week": 17,
-  "players": 466,
-  "out_this_week": 48,
+  "players": 464,
+  "out_this_week": 46,
   "on_bye": 22,
   "this_week_source": "official",
   "training_snapshots": 47931,
@@ -86,10 +86,10 @@
    "WR/TE": 53
   },
   "experts_ros_date": "2026-11-03 00:00:00",
-  "seconds": 29,
+  "seconds": 11,
   "model_cache": {
-   "hit": 6,
-   "miss": 12,
+   "hit": 18,
+   "miss": 0,
    "on": true
   },
   "top": {
