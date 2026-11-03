@@ -1,19 +1,19 @@
 {
- "updated": "2026-11-03T20:11:48+00:00",
+ "updated": "2026-11-03T20:46:09+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 8,
  "games_started": false,
- "reason": "schedule_and_lines,injury_news",
+ "reason": "schedule_and_lines,fp_rankings",
  "steps": [
   {
    "step": "bash",
-   "seconds": 96,
+   "seconds": 88,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 6,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 39,
+   "seconds": 38,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 19,
+   "seconds": 17,
    "ok": true
   }
  ],
@@ -86,7 +86,7 @@
    "WR/TE": 64
   },
   "experts_ros_date": "2026-11-03 00:00:00",
-  "seconds": 17,
+  "seconds": 16,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -104,7 +104,7 @@
     ],
     [
      "Brock Purdy",
-     174.2
+     173.5
     ]
    ],
    "RB": [
