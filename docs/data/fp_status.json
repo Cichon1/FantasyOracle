@@ -1,23 +1,23 @@
 {
- "pulled_at": "2026-11-02T21:42-05:00",
- "cutoff_ros": "2026-11-01T23:40-05:00",
- "cutoff_weekly": "2026-11-01T23:40-05:00",
+ "pulled_at": "2026-11-03T12:42-05:00",
+ "cutoff_ros": "2026-11-02T23:35-05:00",
+ "cutoff_weekly": "2026-11-02T23:35-05:00",
  "experts": {
   "weekly|QB": {
-   "default": 43,
-   "recent": 67
+   "default": 18,
+   "recent": 8
   },
   "weekly|RB": {
-   "default": 40,
-   "recent": 75
+   "default": 18,
+   "recent": 9
   },
   "weekly|WR": {
-   "default": 40,
-   "recent": 75
+   "default": 18,
+   "recent": 9
   },
   "weekly|TE": {
-   "default": 38,
-   "recent": 67
+   "default": 18,
+   "recent": 10
   },
   "ros|QB": {
    "default": 3,
@@ -28,7 +28,7 @@
    "recent": 9
   },
   "ros|WR": {
-   "default": 2,
+   "default": 3,
    "recent": 9
   },
   "ros|TE": {
