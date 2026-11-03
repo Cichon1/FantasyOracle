@@ -1,19 +1,19 @@
 {
- "updated": "2026-11-03T02:48:59+00:00",
+ "updated": "2026-11-03T03:49:25+00:00",
  "season": 2026,
  "projection_week": 8,
  "results_week": 8,
  "games_started": true,
- "reason": "schedule_and_lines,fp_rankings",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 40,
+   "seconds": 43,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 6,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -38,7 +38,7 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 38,
+   "seconds": 37,
    "ok": true
   },
   {
@@ -159,7 +159,7 @@
   "nfl_rows": 320,
   "nfl_matched": 320,
   "nfl_unmatched": [],
-  "espn_out": 121,
+  "espn_out": 119,
   "espn_unmatched": [
    "Jaylin Noel (HOU)",
    "Travis Etienne Jr. (NO)",
@@ -168,7 +168,7 @@
    "De'Zhaun Stribling (SF)",
    "Brandon Aiyuk (SF)"
   ],
-  "hash": "a7da0dca82a9",
+  "hash": "08164ebec454",
   "rows_added": 36,
   "values_updated": 0
  }
