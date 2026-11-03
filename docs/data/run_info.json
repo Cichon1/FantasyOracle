@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-03T16:55:13+00:00",
+ "updated": "2026-11-03T17:49:49+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 8,
  "games_started": false,
- "reason": "schedule_and_lines",
+ "reason": "player_stats,play_by_play,schedule_and_lines,fp_rankings",
  "steps": [
   {
    "step": "bash",
-   "seconds": 140,
+   "seconds": 147,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 3,
+   "seconds": 7,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 1,
+   "seconds": 0,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 40,
+   "seconds": 39,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 19,
+   "seconds": 18,
    "ok": true
   }
  ],
@@ -75,8 +75,8 @@
   "season": 2026,
   "week": 9,
   "last_week": 17,
-  "players": 464,
-  "out_this_week": 43,
+  "players": 466,
+  "out_this_week": 45,
   "on_bye": 22,
   "this_week_source": "official",
   "training_snapshots": 47931,
@@ -85,8 +85,8 @@
    "RB": 102,
    "WR/TE": 64
   },
-  "experts_ros_date": "2026-11-02 00:00:00",
-  "seconds": 18,
+  "experts_ros_date": "2026-11-03 00:00:00",
+  "seconds": 17,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -141,11 +141,11 @@
      175.0
     ],
     [
-     "Ja'Marr Chase",
+     "Jaxon Smith-Njigba",
      174.9
     ],
     [
-     "Jaxon Smith-Njigba",
+     "Amon-Ra St. Brown",
      174.7
     ]
    ]
