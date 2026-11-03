@@ -1,29 +1,29 @@
 {
- "updated": "2026-11-03T12:26:13+00:00",
+ "updated": "2026-11-03T13:42:23+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 8,
  "games_started": false,
- "reason": "schedule_and_lines,snap_counts,ftn_charting",
+ "reason": "player_stats,play_by_play,schedule_and_lines,expected_points,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 44,
+   "seconds": 45,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 6,
+   "seconds": 5,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 3,
+   "seconds": 2,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 5,
+   "seconds": 6,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 0,
+   "seconds": 1,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 331,
+   "seconds": 32,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 18,
+   "seconds": 14,
    "ok": true
   }
  ],
@@ -86,7 +86,7 @@
    "WR/TE": 53
   },
   "experts_ros_date": "2026-11-02 00:00:00",
-  "seconds": 17,
+  "seconds": 13,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -154,8 +154,10 @@
  "injuries_live": {
   "nfl_week": 8,
   "nfl_rows": 320,
-  "espn_out": 0,
+  "espn_out": 7,
   "espn_unmatched": [],
-  "hash": null
+  "hash": "ab7cf8f639b0",
+  "rows_added": 7,
+  "values_updated": 0
  }
 }
