@@ -1,19 +1,19 @@
 {
- "updated": "2026-11-03T20:46:09+00:00",
+ "updated": "2026-11-03T21:42:36+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 8,
  "games_started": false,
- "reason": "schedule_and_lines,fp_rankings",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 88,
+   "seconds": 51,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 5,
+   "seconds": 6,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 5,
+   "seconds": 6,
    "ok": true
   },
   {
@@ -43,7 +43,7 @@
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 17,
+   "seconds": 18,
    "ok": true
   }
  ],
@@ -56,8 +56,8 @@
    "total": 0
   },
   "inactive_rows": 0,
-  "players": 398,
-  "upcoming": 398,
+  "players": 396,
+  "upcoming": 396,
   "season_scoreboard": {
    "model": 0.3785,
    "experts": 0.3821,
@@ -76,7 +76,7 @@
   "week": 9,
   "last_week": 17,
   "players": 466,
-  "out_this_week": 46,
+  "out_this_week": 48,
   "on_bye": 22,
   "this_week_source": "official",
   "training_snapshots": 47931,
@@ -86,7 +86,7 @@
    "WR/TE": 64
   },
   "experts_ros_date": "2026-11-03 00:00:00",
-  "seconds": 16,
+  "seconds": 17,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -104,7 +104,7 @@
     ],
     [
      "Brock Purdy",
-     173.5
+     174.2
     ]
    ],
    "RB": [
@@ -124,7 +124,7 @@
    "TE": [
     [
      "Brock Bowers",
-     128.0
+     129.3
     ],
     [
      "George Kittle",
@@ -154,10 +154,10 @@
  "injuries_live": {
   "nfl_week": 8,
   "nfl_rows": 320,
-  "espn_out": 10,
+  "espn_out": 16,
   "espn_unmatched": [],
-  "hash": "3d6319b501ce",
-  "rows_added": 10,
+  "hash": "ae386f60a5cb",
+  "rows_added": 16,
   "values_updated": 0
  }
 }
