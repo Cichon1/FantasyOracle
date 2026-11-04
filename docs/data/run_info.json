@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-04T17:27:17+00:00",
+ "updated": "2026-11-04T18:26:12+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 8,
  "games_started": false,
- "reason": "player_stats,play_by_play,schedule_and_lines",
+ "reason": "schedule_and_lines,fp_rankings,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 67,
+   "seconds": 43,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 38,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 30,
+   "seconds": 233,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 14,
+   "seconds": 12,
    "ok": true
   }
  ],
@@ -85,8 +85,8 @@
    "RB": 85,
    "WR/TE": 73
   },
-  "experts_ros_date": "2026-11-03 00:00:00",
-  "seconds": 13,
+  "experts_ros_date": "2026-11-04 00:00:00",
+  "seconds": 11,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -96,57 +96,57 @@
    "QB": [
     [
      "Joe Burrow",
-     191.6
+     193.1
     ],
     [
      "Josh Allen",
-     179.8
+     180.9
     ],
     [
      "Brock Purdy",
-     175.0
+     179.0
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     217.3
+     214.3
     ],
     [
      "Kenneth Walker III",
-     196.9
+     192.1
     ],
     [
-     "Christian McCaffrey",
-     178.0
+     "Bijan Robinson",
+     185.0
     ]
    ],
    "TE": [
     [
      "Brock Bowers",
-     128.7
+     130.7
     ],
     [
      "George Kittle",
-     127.2
+     125.7
     ],
     [
      "Trey McBride",
-     111.1
+     113.7
     ]
    ],
    "WR": [
     [
      "Ja'Marr Chase",
-     176.7
+     178.2
     ],
     [
      "Puka Nacua",
-     176.4
+     172.5
     ],
     [
      "Jaxon Smith-Njigba",
-     174.5
+     169.7
     ]
    ]
   }
@@ -156,13 +156,13 @@
   "nfl_rows": 28,
   "nfl_matched": 28,
   "nfl_unmatched": [],
-  "espn_out": 27,
+  "espn_out": 29,
   "espn_unmatched": [
    "Jordyn Tyson (NO)",
    "Brandon Aiyuk (SF)"
   ],
-  "hash": "1b556b5aad39",
-  "rows_added": 23,
+  "hash": "b7fa18844ebb",
+  "rows_added": 25,
   "values_updated": 0
  }
 }
