@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-04T09:29:32+00:00",
+ "updated": "2026-11-04T10:44:25+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 8,
  "games_started": false,
- "reason": "schedule_and_lines",
+ "reason": "player_stats,play_by_play,schedule_and_lines",
  "steps": [
   {
    "step": "bash",
@@ -13,7 +13,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 6,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 0,
+   "seconds": 1,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 39,
+   "seconds": 312,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 18,
+   "seconds": 17,
    "ok": true
   }
  ],
@@ -86,7 +86,7 @@
    "WR/TE": 50
   },
   "experts_ros_date": "2026-11-03 00:00:00",
-  "seconds": 17,
+  "seconds": 16,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -110,15 +110,15 @@
    "RB": [
     [
      "Jahmyr Gibbs",
-     215.8
+     217.3
     ],
     [
      "Kenneth Walker III",
-     196.5
+     195.1
     ],
     [
      "Christian McCaffrey",
-     177.0
+     176.3
     ]
    ],
    "TE": [
@@ -137,15 +137,15 @@
    ],
    "WR": [
     [
-     "Ja'Marr Chase",
+     "Amon-Ra St. Brown",
      174.1
+    ],
+    [
+     "Ja'Marr Chase",
+     173.4
     ],
     [
      "Puka Nacua",
-     174.1
-    ],
-    [
-     "Jaxon Smith-Njigba",
      171.8
     ]
    ]
