@@ -1,29 +1,29 @@
 {
- "updated": "2026-11-04T14:11:58+00:00",
+ "updated": "2026-11-04T15:26:54+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 8,
  "games_started": false,
- "reason": "schedule_and_lines,injury_news",
+ "reason": "schedule_and_lines,depth_charts",
  "steps": [
   {
    "step": "bash",
-   "seconds": 45,
+   "seconds": 41,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 4,
+   "seconds": 6,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 2,
+   "seconds": 3,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 6,
+   "seconds": 3,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 32,
+   "seconds": 226,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 15,
+   "seconds": 41,
    "ok": true
   }
  ],
@@ -82,71 +82,71 @@
   "training_snapshots": 47931,
   "rounds": {
    "QB": 50,
-   "RB": 132,
+   "RB": 84,
    "WR/TE": 70
   },
   "experts_ros_date": "2026-11-03 00:00:00",
-  "seconds": 13,
+  "seconds": 40,
   "model_cache": {
-   "hit": 18,
-   "miss": 0,
+   "hit": 6,
+   "miss": 12,
    "on": true
   },
   "top": {
    "QB": [
     [
      "Joe Burrow",
-     188.2
+     188.7
     ],
     [
      "Josh Allen",
-     179.0
+     177.1
     ],
     [
      "Brock Purdy",
-     173.0
+     176.1
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     216.6
+     218.3
     ],
     [
      "Kenneth Walker III",
-     196.5
+     197.6
     ],
     [
      "Bijan Robinson",
-     176.7
+     177.3
     ]
    ],
    "TE": [
     [
      "Brock Bowers",
-     129.8
+     130.4
     ],
     [
      "George Kittle",
-     127.5
+     125.1
     ],
     [
      "Trey McBride",
-     111.5
+     112.1
     ]
    ],
    "WR": [
     [
      "Ja'Marr Chase",
-     173.9
+     175.2
     ],
     [
      "Puka Nacua",
-     173.8
+     174.2
     ],
     [
      "Jaxon Smith-Njigba",
-     173.5
+     171.8
     ]
    ]
   }
@@ -156,10 +156,12 @@
   "nfl_rows": 28,
   "nfl_matched": 28,
   "nfl_unmatched": [],
-  "espn_out": 26,
-  "espn_unmatched": [],
-  "hash": "1edda8978dd7",
-  "rows_added": 22,
+  "espn_out": 27,
+  "espn_unmatched": [
+   "Brandon Aiyuk (SF)"
+  ],
+  "hash": "1b556b5aad39",
+  "rows_added": 23,
   "values_updated": 0
  }
 }
