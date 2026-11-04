@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-04T16:30:20+00:00",
+ "updated": "2026-11-04T17:27:17+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 8,
  "games_started": false,
- "reason": "schedule_and_lines,injury_reports,rosters",
+ "reason": "player_stats,play_by_play,schedule_and_lines",
  "steps": [
   {
    "step": "bash",
-   "seconds": 45,
+   "seconds": 67,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 4,
+   "seconds": 38,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 2,
+   "seconds": 0,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 219,
+   "seconds": 30,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 34,
+   "seconds": 14,
    "ok": true
   }
  ],
@@ -86,17 +86,17 @@
    "WR/TE": 73
   },
   "experts_ros_date": "2026-11-03 00:00:00",
-  "seconds": 33,
+  "seconds": 13,
   "model_cache": {
-   "hit": 0,
-   "miss": 18,
+   "hit": 18,
+   "miss": 0,
    "on": true
   },
   "top": {
    "QB": [
     [
      "Joe Burrow",
-     190.9
+     191.6
     ],
     [
      "Josh Allen",
@@ -110,14 +110,14 @@
    "RB": [
     [
      "Jahmyr Gibbs",
-     216.5
+     217.3
     ],
     [
      "Kenneth Walker III",
      196.9
     ],
     [
-     "Bijan Robinson",
+     "Christian McCaffrey",
      178.0
     ]
    ],
@@ -132,21 +132,21 @@
     ],
     [
      "Trey McBride",
-     111.7
+     111.1
     ]
    ],
    "WR": [
     [
      "Ja'Marr Chase",
-     176.0
+     176.7
     ],
     [
      "Puka Nacua",
-     174.5
+     176.4
     ],
     [
      "Jaxon Smith-Njigba",
-     173.4
+     174.5
     ]
    ]
   }
@@ -158,6 +158,7 @@
   "nfl_unmatched": [],
   "espn_out": 27,
   "espn_unmatched": [
+   "Jordyn Tyson (NO)",
    "Brandon Aiyuk (SF)"
   ],
   "hash": "1b556b5aad39",
