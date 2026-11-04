@@ -1,19 +1,19 @@
 {
- "updated": "2026-11-04T01:40:24+00:00",
+ "updated": "2026-11-04T02:47:27+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 8,
  "games_started": false,
- "reason": "schedule_and_lines,injury_news",
+ "reason": "schedule_and_lines,fp_rankings,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 39,
+   "seconds": 43,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 5,
+   "seconds": 6,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 3,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 1,
+   "seconds": 0,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 37,
+   "seconds": 40,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 17,
+   "seconds": 19,
    "ok": true
   }
  ],
@@ -86,7 +86,7 @@
    "WR/TE": 64
   },
   "experts_ros_date": "2026-11-03 00:00:00",
-  "seconds": 16,
+  "seconds": 18,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -154,10 +154,10 @@
  "injuries_live": {
   "nfl_week": 8,
   "nfl_rows": 320,
-  "espn_out": 23,
+  "espn_out": 25,
   "espn_unmatched": [],
-  "hash": "2eb8f8f22757",
-  "rows_added": 23,
+  "hash": "a693a5d0caae",
+  "rows_added": 25,
   "values_updated": 0
  }
 }
