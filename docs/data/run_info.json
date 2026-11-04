@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-04T07:12:17+00:00",
+ "updated": "2026-11-04T08:21:36+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 8,
  "games_started": false,
- "reason": "injury_reports,depth_charts,rosters,ftn_charting",
+ "reason": "schedule_and_lines",
  "steps": [
   {
    "step": "bash",
-   "seconds": 43,
+   "seconds": 46,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 364,
+   "seconds": 39,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 44,
+   "seconds": 19,
    "ok": true
   }
  ],
@@ -86,10 +86,10 @@
    "WR/TE": 50
   },
   "experts_ros_date": "2026-11-03 00:00:00",
-  "seconds": 43,
+  "seconds": 17,
   "model_cache": {
-   "hit": 0,
-   "miss": 18,
+   "hit": 18,
+   "miss": 0,
    "on": true
   },
   "top": {
