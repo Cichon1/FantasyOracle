@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-04T02:47:27+00:00",
+ "updated": "2026-11-04T03:50:59+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 8,
  "games_started": false,
- "reason": "schedule_and_lines,fp_rankings,injury_news",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 43,
+   "seconds": 39,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 5,
+   "seconds": 3,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 40,
+   "seconds": 38,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 19,
+   "seconds": 18,
    "ok": true
   }
  ],
@@ -86,7 +86,7 @@
    "WR/TE": 64
   },
   "experts_ros_date": "2026-11-03 00:00:00",
-  "seconds": 18,
+  "seconds": 17,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -100,7 +100,7 @@
     ],
     [
      "Josh Allen",
-     179.1
+     179.8
     ],
     [
      "Brock Purdy",
@@ -118,7 +118,7 @@
     ],
     [
      "Bijan Robinson",
-     178.1
+     179.5
     ]
    ],
    "TE": [
@@ -138,7 +138,7 @@
    "WR": [
     [
      "Ja'Marr Chase",
-     174.7
+     173.9
     ],
     [
      "Puka Nacua",
