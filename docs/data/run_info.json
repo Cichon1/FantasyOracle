@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-04T04:55:51+00:00",
+ "updated": "2026-11-04T05:56:45+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 8,
@@ -8,12 +8,12 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 43,
+   "seconds": 45,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 5,
+   "seconds": 6,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 37,
+   "seconds": 6,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 38,
+   "seconds": 39,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 18,
+   "seconds": 19,
    "ok": true
   }
  ],
@@ -110,7 +110,7 @@
    "RB": [
     [
      "Jahmyr Gibbs",
-     218.8
+     219.5
     ],
     [
      "Kenneth Walker III",
@@ -132,32 +132,34 @@
     ],
     [
      "Trey McBride",
-     111.2
+     110.6
     ]
    ],
    "WR": [
+    [
+     "Amon-Ra St. Brown",
+     174.1
+    ],
     [
      "Ja'Marr Chase",
      173.9
     ],
     [
      "Puka Nacua",
-     173.7
-    ],
-    [
-     "Jaxon Smith-Njigba",
-     173.4
+     173.0
     ]
    ]
   }
  },
  "injuries_live": {
-  "nfl_week": 8,
-  "nfl_rows": 320,
+  "nfl_week": 9,
+  "nfl_rows": 28,
+  "nfl_matched": 28,
+  "nfl_unmatched": [],
   "espn_out": 25,
   "espn_unmatched": [],
-  "hash": "a693a5d0caae",
-  "rows_added": 25,
+  "hash": "a4c08112d0ed",
+  "rows_added": 50,
   "values_updated": 0
  }
 }
