@@ -1,24 +1,24 @@
 {
- "updated": "2026-11-04T18:26:12+00:00",
+ "updated": "2026-11-04T19:32:43+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 8,
  "games_started": false,
- "reason": "schedule_and_lines,fp_rankings,injury_news",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 43,
+   "seconds": 47,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 4,
+   "seconds": 6,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 2,
+   "seconds": 3,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 233,
+   "seconds": 42,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 12,
+   "seconds": 19,
    "ok": true
   }
  ],
@@ -56,8 +56,8 @@
    "total": 0
   },
   "inactive_rows": 0,
-  "players": 394,
-  "upcoming": 394,
+  "players": 393,
+  "upcoming": 393,
   "season_scoreboard": {
    "model": 0.3785,
    "experts": 0.3821,
@@ -76,7 +76,7 @@
   "week": 9,
   "last_week": 17,
   "players": 463,
-  "out_this_week": 47,
+  "out_this_week": 48,
   "on_bye": 22,
   "this_week_source": "official",
   "training_snapshots": 47931,
@@ -86,7 +86,7 @@
    "WR/TE": 73
   },
   "experts_ros_date": "2026-11-04 00:00:00",
-  "seconds": 11,
+  "seconds": 18,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -132,7 +132,7 @@
     ],
     [
      "Trey McBride",
-     113.7
+     114.4
     ]
    ],
    "WR": [
@@ -146,7 +146,7 @@
     ],
     [
      "Jaxon Smith-Njigba",
-     169.7
+     169.0
     ]
    ]
   }
@@ -156,13 +156,13 @@
   "nfl_rows": 28,
   "nfl_matched": 28,
   "nfl_unmatched": [],
-  "espn_out": 29,
+  "espn_out": 30,
   "espn_unmatched": [
    "Jordyn Tyson (NO)",
    "Brandon Aiyuk (SF)"
   ],
-  "hash": "b7fa18844ebb",
-  "rows_added": 25,
+  "hash": "fca154f63184",
+  "rows_added": 26,
   "values_updated": 0
  }
 }
