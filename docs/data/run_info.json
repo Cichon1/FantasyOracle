@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-04T13:02:16+00:00",
+ "updated": "2026-11-04T14:11:58+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 8,
  "games_started": false,
- "reason": "schedule_and_lines",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 44,
+   "seconds": 45,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 298,
+   "seconds": 32,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 38,
+   "seconds": 15,
    "ok": true
   }
  ],
@@ -86,10 +86,10 @@
    "WR/TE": 70
   },
   "experts_ros_date": "2026-11-03 00:00:00",
-  "seconds": 37,
+  "seconds": 13,
   "model_cache": {
-   "hit": 0,
-   "miss": 18,
+   "hit": 18,
+   "miss": 0,
    "on": true
   },
   "top": {
@@ -156,9 +156,9 @@
   "nfl_rows": 28,
   "nfl_matched": 28,
   "nfl_unmatched": [],
-  "espn_out": 25,
+  "espn_out": 26,
   "espn_unmatched": [],
-  "hash": "a4c08112d0ed",
+  "hash": "1edda8978dd7",
   "rows_added": 22,
   "values_updated": 0
  }
