@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-05T12:27:46+00:00",
+ "updated": "2026-11-05T13:49:00+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 8,
@@ -8,22 +8,22 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 66,
+   "seconds": 41,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 3,
+   "seconds": 6,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 2,
+   "seconds": 3,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 5,
+   "seconds": 3,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 25,
+   "seconds": 38,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 11,
+   "seconds": 18,
    "ok": true
   }
  ],
@@ -82,11 +82,11 @@
   "training_snapshots": 47931,
   "rounds": {
    "QB": 50,
-   "RB": 77,
-   "WR/TE": 50
+   "RB": 90,
+   "WR/TE": 52
   },
   "experts_ros_date": "2026-11-04 00:00:00",
-  "seconds": 10,
+  "seconds": 17,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -96,57 +96,57 @@
    "QB": [
     [
      "Joe Burrow",
-     195.7
+     191.1
     ],
     [
      "Josh Allen",
-     180.8
+     180.4
     ],
     [
      "Brock Purdy",
-     179.9
+     180.0
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     216.5
+     212.1
     ],
     [
      "Kenneth Walker III",
-     177.5
+     176.4
     ],
     [
-     "Bijan Robinson",
-     170.8
+     "Christian McCaffrey",
+     176.2
     ]
    ],
    "TE": [
     [
      "Brock Bowers",
-     129.5
+     130.8
     ],
     [
      "George Kittle",
-     124.0
+     124.6
     ],
     [
      "Trey McBride",
-     114.7
+     114.8
     ]
    ],
    "WR": [
     [
      "Ja'Marr Chase",
-     173.1
+     173.6
     ],
     [
      "Puka Nacua",
-     172.2
+     170.6
     ],
     [
      "Jaxon Smith-Njigba",
-     157.5
+     156.4
     ]
    ]
   }
