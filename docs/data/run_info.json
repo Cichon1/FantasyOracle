@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-05T21:45:20+00:00",
+ "updated": "2026-11-05T22:46:59+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 8,
@@ -8,17 +8,17 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 45,
+   "seconds": 46,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 6,
+   "seconds": 4,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 3,
+   "seconds": 2,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 40,
+   "seconds": 29,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 18,
+   "seconds": 13,
    "ok": true
   }
  ],
@@ -86,7 +86,7 @@
    "WR/TE": 50
   },
   "experts_ros_date": "2026-11-05 00:00:00",
-  "seconds": 17,
+  "seconds": 12,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -96,7 +96,7 @@
    "QB": [
     [
      "Joe Burrow",
-     196.5
+     195.7
     ],
     [
      "Josh Allen",
@@ -146,15 +146,15 @@
     ],
     [
      "Ja'Marr Chase",
-     152.2
+     151.6
     ]
    ]
   }
  },
  "injuries_live": {
   "nfl_week": 9,
-  "nfl_rows": 288,
-  "nfl_matched": 288,
+  "nfl_rows": 295,
+  "nfl_matched": 295,
   "nfl_unmatched": [],
   "espn_out": 52,
   "espn_unmatched": [
@@ -167,8 +167,8 @@
    "Carnell Tate (TEN)",
    "Jaylon Jones (TEN)"
   ],
-  "hash": "6d329bc5930f",
-  "rows_added": 42,
+  "hash": "e908fee2d45b",
+  "rows_added": 49,
   "values_updated": 4
  }
 }
