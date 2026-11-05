@@ -1,29 +1,29 @@
 {
- "updated": "2026-11-05T05:59:05+00:00",
+ "updated": "2026-11-05T07:12:16+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 8,
  "games_started": false,
- "reason": "schedule_and_lines,injury_news",
+ "reason": "injury_reports,depth_charts,rosters",
  "steps": [
   {
    "step": "bash",
-   "seconds": 44,
+   "seconds": 41,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 5,
-   "ok": true
-  },
-  {
-   "step": "cloud_run.py results",
    "seconds": 3,
    "ok": true
   },
   {
+   "step": "cloud_run.py results",
+   "seconds": 2,
+   "ok": true
+  },
+  {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 6,
+   "seconds": 4,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 38,
+   "seconds": 165,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 18,
+   "seconds": 26,
    "ok": true
   }
  ],
@@ -56,8 +56,8 @@
    "total": 0
   },
   "inactive_rows": 0,
-  "players": 391,
-  "upcoming": 391,
+  "players": 381,
+  "upcoming": 381,
   "season_scoreboard": {
    "model": 0.3785,
    "experts": 0.3821,
@@ -76,77 +76,77 @@
   "week": 9,
   "last_week": 17,
   "players": 462,
-  "out_this_week": 49,
+  "out_this_week": 59,
   "on_bye": 22,
   "this_week_source": "official",
   "training_snapshots": 47931,
   "rounds": {
    "QB": 50,
-   "RB": 84,
-   "WR/TE": 70
+   "RB": 77,
+   "WR/TE": 50
   },
   "experts_ros_date": "2026-11-04 00:00:00",
-  "seconds": 17,
+  "seconds": 25,
   "model_cache": {
-   "hit": 18,
-   "miss": 0,
+   "hit": 0,
+   "miss": 18,
    "on": true
   },
   "top": {
    "QB": [
     [
      "Joe Burrow",
-     193.9
+     195.7
     ],
     [
      "Josh Allen",
-     179.8
+     179.4
     ],
     [
      "Brock Purdy",
-     176.4
+     177.7
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     212.4
+     217.2
     ],
     [
      "Kenneth Walker III",
-     192.8
+     176.7
     ],
     [
      "Bijan Robinson",
-     182.0
+     170.8
     ]
    ],
    "TE": [
     [
      "Brock Bowers",
-     127.1
+     128.8
     ],
     [
      "George Kittle",
-     125.8
+     124.0
     ],
     [
      "Trey McBride",
-     112.8
+     113.4
     ]
    ],
    "WR": [
     [
      "Ja'Marr Chase",
-     174.5
+     173.1
     ],
     [
      "Puka Nacua",
-     170.9
+     171.5
     ],
     [
      "Jaxon Smith-Njigba",
-     155.1
+     154.8
     ]
    ]
   }
@@ -154,41 +154,21 @@
  "injuries_live": {
   "nfl_week": 9,
   "nfl_rows": 266,
-  "nfl_matched": 226,
-  "nfl_unmatched": [
-   "Kelvin Banks Jr. (NO)",
-   "CJ Donaldson (NO)",
-   "Martin Emerson (NO)",
-   "Alvin Kamara (NO)",
-   "Justin Reid (NO)",
-   "Asim Richards (NO)",
-   "Cesar Ruiz (NO)",
-   "Nathan Shepherd (NO)",
-   "Jordyn Tyson (NO)",
-   "Abdul Carter (NYG)",
-   "Jermaine Eluemunor (NYG)",
-   "Malik Harrison (NYG)",
-   "Colton Hood (NYG)",
-   "Theo Johnson (NYG)",
-   "Charlie Jones (NYG)",
-   "Marcus Mbow (NYG)",
-   "DJ Reader (NYG)",
-   "Cam Skattebo (NYG)",
-   "Andrew Thomas (NYG)",
-   "Azeez Al-Shaair (HOU)"
-  ],
-  "espn_out": 49,
+  "nfl_matched": 266,
+  "nfl_unmatched": [],
+  "espn_out": 48,
   "espn_unmatched": [
-   "David Montgomery (HOU)",
-   "Kelvin Banks Jr. (NO)",
-   "Jordyn Tyson (NO)",
-   "Travis Etienne Jr. (NO)",
-   "Nate Hobbs (SF)",
-   "Demarcus Robinson (SF)",
-   "Brandon Aiyuk (SF)"
+   "Doneiko Slaughter (PIT)",
+   "Ben Skowronek (PIT)",
+   "Brandin Echols (PIT)",
+   "Brandon Aiyuk (SF)",
+   "Tommy Townsend (TEN)",
+   "Tyjae Spears (TEN)",
+   "Carnell Tate (TEN)",
+   "Jaylon Jones (TEN)"
   ],
-  "hash": "276356503ed7",
-  "rows_added": 224,
-  "values_updated": 12
+  "hash": "227954e39b90",
+  "rows_added": 20,
+  "values_updated": 0
  }
 }
