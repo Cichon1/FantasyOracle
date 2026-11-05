@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-05T03:53:52+00:00",
+ "updated": "2026-11-05T04:56:57+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 8,
  "games_started": false,
- "reason": "schedule_and_lines,injury_news",
+ "reason": "injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 43,
+   "seconds": 41,
    "ok": true
   },
   {
@@ -23,12 +23,12 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 4,
+   "seconds": 6,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/injuries_live.py --data",
-   "seconds": 3,
+   "seconds": 1,
    "ok": true
   },
   {
@@ -96,7 +96,7 @@
    "QB": [
     [
      "Joe Burrow",
-     191.6
+     193.1
     ],
     [
      "Josh Allen",
@@ -138,7 +138,7 @@
    "WR": [
     [
      "Ja'Marr Chase",
-     176.7
+     177.4
     ],
     [
      "Puka Nacua",
@@ -177,7 +177,7 @@
    "Andrew Thomas (NYG)",
    "Azeez Al-Shaair (HOU)"
   ],
-  "espn_out": 44,
+  "espn_out": 49,
   "espn_unmatched": [
    "David Montgomery (HOU)",
    "Jordyn Tyson (NO)",
@@ -186,8 +186,8 @@
    "Demarcus Robinson (SF)",
    "Brandon Aiyuk (SF)"
   ],
-  "hash": "73945a2c10c3",
-  "rows_added": 222,
+  "hash": "276356503ed7",
+  "rows_added": 224,
   "values_updated": 12
  }
 }
