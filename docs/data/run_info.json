@@ -1,24 +1,24 @@
 {
- "updated": "2026-11-05T04:56:57+00:00",
+ "updated": "2026-11-05T05:59:05+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 8,
  "games_started": false,
- "reason": "injury_news",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 41,
+   "seconds": 44,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 4,
+   "seconds": 5,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 2,
+   "seconds": 3,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 29,
+   "seconds": 38,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 13,
+   "seconds": 18,
    "ok": true
   }
  ],
@@ -82,11 +82,11 @@
   "training_snapshots": 47931,
   "rounds": {
    "QB": 50,
-   "RB": 85,
-   "WR/TE": 73
+   "RB": 84,
+   "WR/TE": 70
   },
   "experts_ros_date": "2026-11-04 00:00:00",
-  "seconds": 12,
+  "seconds": 17,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -96,57 +96,57 @@
    "QB": [
     [
      "Joe Burrow",
-     193.1
+     193.9
     ],
     [
      "Josh Allen",
-     180.1
+     179.8
     ],
     [
      "Brock Purdy",
-     176.1
+     176.4
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     215.1
+     212.4
     ],
     [
      "Kenneth Walker III",
-     192.1
+     192.8
     ],
     [
      "Bijan Robinson",
-     183.6
+     182.0
     ]
    ],
    "TE": [
     [
      "Brock Bowers",
-     130.0
+     127.1
     ],
     [
      "George Kittle",
-     125.7
+     125.8
     ],
     [
      "Trey McBride",
-     113.7
+     112.8
     ]
    ],
    "WR": [
     [
      "Ja'Marr Chase",
-     177.4
+     174.5
     ],
     [
      "Puka Nacua",
-     173.8
+     170.9
     ],
     [
      "Jaxon Smith-Njigba",
-     159.9
+     155.1
     ]
    ]
   }
@@ -180,6 +180,7 @@
   "espn_out": 49,
   "espn_unmatched": [
    "David Montgomery (HOU)",
+   "Kelvin Banks Jr. (NO)",
    "Jordyn Tyson (NO)",
    "Travis Etienne Jr. (NO)",
    "Nate Hobbs (SF)",
