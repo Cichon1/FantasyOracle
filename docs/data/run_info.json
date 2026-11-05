@@ -1,19 +1,19 @@
 {
- "updated": "2026-11-05T17:57:11+00:00",
+ "updated": "2026-11-05T18:51:56+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 8,
  "games_started": false,
- "reason": "player_stats,play_by_play,schedule_and_lines,fp_rankings",
+ "reason": "schedule_and_lines",
  "steps": [
   {
    "step": "bash",
-   "seconds": 42,
+   "seconds": 43,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 5,
+   "seconds": 6,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 5,
+   "seconds": 4,
    "ok": true
   },
   {
@@ -38,7 +38,7 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 37,
+   "seconds": 38,
    "ok": true
   },
   {
@@ -86,7 +86,7 @@
    "WR/TE": 52
   },
   "experts_ros_date": "2026-11-05 00:00:00",
-  "seconds": 16,
+  "seconds": 17,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -100,11 +100,11 @@
     ],
     [
      "Josh Allen",
-     180.4
+     178.9
     ],
     [
      "Brock Purdy",
-     177.8
+     177.1
     ]
    ],
    "RB": [
@@ -114,7 +114,7 @@
     ],
     [
      "Kenneth Walker III",
-     176.4
+     175.7
     ],
     [
      "Christian McCaffrey",
@@ -124,11 +124,11 @@
    "TE": [
     [
      "Brock Bowers",
-     130.1
+     129.5
     ],
     [
      "George Kittle",
-     123.9
+     124.6
     ],
     [
      "Trey McBride",
