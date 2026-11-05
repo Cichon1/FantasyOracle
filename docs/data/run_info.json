@@ -1,19 +1,19 @@
 {
- "updated": "2026-11-05T07:12:16+00:00",
+ "updated": "2026-11-05T09:33:58+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 8,
  "games_started": false,
- "reason": "injury_reports,depth_charts,rosters",
+ "reason": "schedule_and_lines",
  "steps": [
   {
    "step": "bash",
-   "seconds": 41,
+   "seconds": 43,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 3,
+   "seconds": 4,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 4,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 1,
+   "seconds": 0,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 165,
+   "seconds": 25,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 26,
+   "seconds": 12,
    "ok": true
   }
  ],
@@ -86,10 +86,10 @@
    "WR/TE": 50
   },
   "experts_ros_date": "2026-11-04 00:00:00",
-  "seconds": 25,
+  "seconds": 11,
   "model_cache": {
-   "hit": 0,
-   "miss": 18,
+   "hit": 18,
+   "miss": 0,
    "on": true
   },
   "top": {
@@ -100,11 +100,11 @@
     ],
     [
      "Josh Allen",
-     179.4
+     179.9
     ],
     [
      "Brock Purdy",
-     177.7
+     179.4
     ]
    ],
    "RB": [
@@ -114,7 +114,7 @@
     ],
     [
      "Kenneth Walker III",
-     176.7
+     177.5
     ],
     [
      "Bijan Robinson",
