@@ -1,19 +1,19 @@
 {
- "updated": "2026-11-05T10:37:18+00:00",
+ "updated": "2026-11-05T11:28:57+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 8,
  "games_started": false,
- "reason": "player_stats,play_by_play",
+ "reason": "schedule_and_lines",
  "steps": [
   {
    "step": "bash",
-   "seconds": 43,
+   "seconds": 44,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 5,
+   "seconds": 6,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 4,
+   "seconds": 6,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 0,
+   "seconds": 1,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 278,
+   "seconds": 39,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 42,
+   "seconds": 19,
    "ok": true
   }
  ],
@@ -86,10 +86,10 @@
    "WR/TE": 52
   },
   "experts_ros_date": "2026-11-04 00:00:00",
-  "seconds": 41,
+  "seconds": 17,
   "model_cache": {
-   "hit": 0,
-   "miss": 18,
+   "hit": 18,
+   "miss": 0,
    "on": true
   },
   "top": {
@@ -104,7 +104,7 @@
     ],
     [
      "Brock Purdy",
-     178.9
+     180.4
     ]
    ],
    "RB": [
@@ -114,17 +114,17 @@
     ],
     [
      "Kenneth Walker III",
-     176.2
+     176.4
     ],
     [
-     "Bijan Robinson",
-     175.7
+     "Christian McCaffrey",
+     176.2
     ]
    ],
    "TE": [
     [
      "Brock Bowers",
-     130.1
+     130.8
     ],
     [
      "George Kittle",
@@ -132,7 +132,7 @@
     ],
     [
      "Trey McBride",
-     114.1
+     114.8
     ]
    ],
    "WR": [
@@ -146,7 +146,7 @@
     ],
     [
      "Jaxon Smith-Njigba",
-     154.4
+     156.4
     ]
    ]
   }
