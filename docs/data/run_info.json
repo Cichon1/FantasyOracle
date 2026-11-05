@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-05T00:13:22+00:00",
+ "updated": "2026-11-05T01:46:19+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 8,
  "games_started": false,
- "reason": "schedule_and_lines,fp_rankings,injury_news",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 46,
+   "seconds": 43,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 3,
+   "seconds": 4,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 0,
+   "seconds": 1,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 30,
+   "seconds": 24,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 13,
+   "seconds": 11,
    "ok": true
   }
  ],
@@ -86,7 +86,7 @@
    "WR/TE": 73
   },
   "experts_ros_date": "2026-11-04 00:00:00",
-  "seconds": 12,
+  "seconds": 10,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -110,7 +110,7 @@
    "RB": [
     [
      "Jahmyr Gibbs",
-     214.3
+     215.1
     ],
     [
      "Kenneth Walker III",
@@ -153,8 +153,8 @@
  },
  "injuries_live": {
   "nfl_week": 9,
-  "nfl_rows": 234,
-  "nfl_matched": 194,
+  "nfl_rows": 258,
+  "nfl_matched": 218,
   "nfl_unmatched": [
    "Kelvin Banks Jr. (NO)",
    "CJ Donaldson (NO)",
@@ -177,15 +177,16 @@
    "Andrew Thomas (NYG)",
    "Azeez Al-Shaair (HOU)"
   ],
-  "espn_out": 37,
+  "espn_out": 40,
   "espn_unmatched": [
    "David Montgomery (HOU)",
    "Jordyn Tyson (NO)",
    "Travis Etienne Jr. (NO)",
+   "Demarcus Robinson (SF)",
    "Brandon Aiyuk (SF)"
   ],
-  "hash": "a5c65924aba0",
-  "rows_added": 191,
+  "hash": "47fbeed5f5b6",
+  "rows_added": 213,
   "values_updated": 12
  }
 }
