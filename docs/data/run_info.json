@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-04T23:17:32+00:00",
+ "updated": "2026-11-05T00:13:22+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 8,
  "games_started": false,
- "reason": "schedule_and_lines,ftn_charting,injury_news",
+ "reason": "schedule_and_lines,fp_rankings,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 44,
+   "seconds": 46,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 6,
+   "seconds": 3,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 32,
+   "seconds": 30,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 14,
+   "seconds": 13,
    "ok": true
   }
  ],
@@ -56,8 +56,8 @@
    "total": 0
   },
   "inactive_rows": 0,
-  "players": 393,
-  "upcoming": 393,
+  "players": 391,
+  "upcoming": 391,
   "season_scoreboard": {
    "model": 0.3785,
    "experts": 0.3821,
@@ -75,8 +75,8 @@
   "season": 2026,
   "week": 9,
   "last_week": 17,
-  "players": 463,
-  "out_this_week": 48,
+  "players": 462,
+  "out_this_week": 49,
   "on_bye": 22,
   "this_week_source": "official",
   "training_snapshots": 47931,
@@ -86,7 +86,7 @@
    "WR/TE": 73
   },
   "experts_ros_date": "2026-11-04 00:00:00",
-  "seconds": 13,
+  "seconds": 12,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -100,7 +100,7 @@
     ],
     [
      "Josh Allen",
-     180.9
+     180.1
     ],
     [
      "Brock Purdy",
@@ -124,7 +124,7 @@
    "TE": [
     [
      "Brock Bowers",
-     130.7
+     130.0
     ],
     [
      "George Kittle",
@@ -132,7 +132,7 @@
     ],
     [
      "Trey McBride",
-     113.0
+     113.7
     ]
    ],
    "WR": [
@@ -146,16 +146,37 @@
     ],
     [
      "Jaxon Smith-Njigba",
-     169.0
+     159.9
     ]
    ]
   }
  },
  "injuries_live": {
   "nfl_week": 9,
-  "nfl_rows": 28,
-  "nfl_matched": 28,
-  "nfl_unmatched": [],
+  "nfl_rows": 234,
+  "nfl_matched": 194,
+  "nfl_unmatched": [
+   "Kelvin Banks Jr. (NO)",
+   "CJ Donaldson (NO)",
+   "Martin Emerson (NO)",
+   "Alvin Kamara (NO)",
+   "Justin Reid (NO)",
+   "Asim Richards (NO)",
+   "Cesar Ruiz (NO)",
+   "Nathan Shepherd (NO)",
+   "Jordyn Tyson (NO)",
+   "Abdul Carter (NYG)",
+   "Jermaine Eluemunor (NYG)",
+   "Malik Harrison (NYG)",
+   "Colton Hood (NYG)",
+   "Theo Johnson (NYG)",
+   "Charlie Jones (NYG)",
+   "Marcus Mbow (NYG)",
+   "DJ Reader (NYG)",
+   "Cam Skattebo (NYG)",
+   "Andrew Thomas (NYG)",
+   "Azeez Al-Shaair (HOU)"
+  ],
   "espn_out": 37,
   "espn_unmatched": [
    "David Montgomery (HOU)",
@@ -163,8 +184,8 @@
    "Travis Etienne Jr. (NO)",
    "Brandon Aiyuk (SF)"
   ],
-  "hash": "f8bc28b1ee35",
-  "rows_added": 32,
-  "values_updated": 0
+  "hash": "a5c65924aba0",
+  "rows_added": 191,
+  "values_updated": 12
  }
 }
