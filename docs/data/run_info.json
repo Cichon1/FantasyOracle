@@ -1,19 +1,19 @@
 {
- "updated": "2026-11-06T17:49:47+00:00",
+ "updated": "2026-11-06T18:50:25+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 9,
  "games_started": true,
- "reason": "player_stats,schedule_and_lines,fp_rankings,injury_news",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 45,
+   "seconds": 43,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 6,
+   "seconds": 4,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 167,
+   "seconds": 129,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 18,
+   "seconds": 13,
    "ok": true
   }
  ],
@@ -82,11 +82,11 @@
   "training_snapshots": 47931,
   "rounds": {
    "QB": 50,
-   "RB": 85,
-   "WR/TE": 66
+   "RB": 83,
+   "WR/TE": 80
   },
   "experts_ros_date": "2026-11-06 00:00:00",
-  "seconds": 17,
+  "seconds": 12,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -96,57 +96,57 @@
    "QB": [
     [
      "Joe Burrow",
-     193.4
+     192.4
     ],
     [
      "Josh Allen",
-     179.6
+     180.3
     ],
     [
      "Brock Purdy",
-     178.4
+     176.7
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     215.4
+     212.8
     ],
     [
      "Kenneth Walker III",
-     194.6
+     198.1
     ],
     [
      "Bijan Robinson",
-     176.5
+     180.1
     ]
    ],
    "TE": [
     [
      "Brock Bowers",
-     132.3
+     131.3
     ],
     [
      "George Kittle",
-     130.8
+     129.7
     ],
     [
      "Trey McBride",
-     113.9
+     113.4
     ]
    ],
    "WR": [
     [
      "Puka Nacua",
-     173.5
+     172.5
     ],
     [
      "Ja'Marr Chase",
-     170.5
+     172.1
     ],
     [
      "Jaxon Smith-Njigba",
-     158.9
+     158.2
     ]
    ]
   }
@@ -156,7 +156,7 @@
   "nfl_rows": 342,
   "nfl_matched": 342,
   "nfl_unmatched": [],
-  "espn_out": 64,
+  "espn_out": 71,
   "espn_unmatched": [
    "Doneiko Slaughter (PIT)",
    "Ben Skowronek (PIT)",
@@ -167,7 +167,7 @@
    "Carnell Tate (TEN)",
    "Jaylon Jones (TEN)"
   ],
-  "hash": "d5935fe2f90b",
+  "hash": "c76f8749efdb",
   "rows_added": 29,
   "values_updated": 10
  }
