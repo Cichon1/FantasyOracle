@@ -1,19 +1,19 @@
 {
- "updated": "2026-11-06T03:51:18+00:00",
+ "updated": "2026-11-06T04:55:39+00:00",
  "season": 2026,
  "projection_week": 9,
- "results_week": 8,
+ "results_week": 9,
  "games_started": true,
- "reason": "schedule_and_lines,injury_news",
+ "reason": "schedule_and_lines",
  "steps": [
   {
    "step": "bash",
-   "seconds": 44,
+   "seconds": 39,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 4,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 7,
+   "seconds": 4,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 29,
+   "seconds": 36,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 13,
+   "seconds": 18,
    "ok": true
   }
  ],
@@ -82,11 +82,11 @@
   "training_snapshots": 47931,
   "rounds": {
    "QB": 50,
-   "RB": 77,
-   "WR/TE": 50
+   "RB": 90,
+   "WR/TE": 52
   },
   "experts_ros_date": "2026-11-05 00:00:00",
-  "seconds": 12,
+  "seconds": 16,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -96,57 +96,57 @@
    "QB": [
     [
      "Joe Burrow",
-     195.7
+     191.9
     ],
     [
      "Josh Allen",
-     180.6
+     179.3
     ],
     [
      "Brock Purdy",
-     179.4
+     178.9
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     216.5
+     212.1
     ],
     [
      "Kenneth Walker III",
-     178.2
+     176.4
     ],
     [
-     "Bijan Robinson",
-     170.8
+     "Christian McCaffrey",
+     176.2
     ]
    ],
    "TE": [
     [
      "Brock Bowers",
-     128.2
+     129.5
     ],
     [
      "George Kittle",
-     124.0
+     124.6
     ],
     [
      "Trey McBride",
-     112.7
+     113.4
     ]
    ],
    "WR": [
     [
      "Puka Nacua",
-     172.2
+     170.6
     ],
     [
      "Jaxon Smith-Njigba",
-     163.5
+     162.5
     ],
     [
      "Ja'Marr Chase",
-     151.6
+     152.4
     ]
    ]
   }
