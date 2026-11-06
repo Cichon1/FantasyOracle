@@ -645,10 +645,13 @@
       const c = colors[i % colors.length];
       svg.append('path').attr('d', d3.line().x((d) => x(d.w)).y((d) => y(d.rank))(s.p)).attr('fill', 'none').attr('stroke', c).attr('stroke-width', 3.5);
       s.p.forEach((d) => svg.append('circle').attr('cx', x(d.w)).attr('cy', y(d.rank)).attr('r', 5).attr('fill', c).append('title').text(s.k + ' · Week ' + d.w + ': ' + hst.pos + d.rank));
-      const last = s.p[s.p.length - 1];
-      svg.append('text').attr('x', x(last.w) + 10).attr('y', y(last.rank) + 5).style('fill', c).text(s.k.replace(/ \(.*\)/, ''));
+      s.c = c;
       lgd.append(h('span', null, h('span', { class: 'nf-sw', style: 'background:' + c }), s.k));
     });
+    // end labels, nudged apart so they never overlap
+    const labs = series.map((s) => { const l = s.p[s.p.length - 1]; return { s, x: x(l.w) + 10, y: y(l.rank) + 5 }; }).sort((a, b) => a.y - b.y);
+    labs.forEach((l, i) => { if (i && l.y - labs[i - 1].y < 20) l.y = labs[i - 1].y + 20; });
+    labs.forEach((l) => svg.append('text').attr('x', l.x).attr('y', l.y).style('fill', l.s.c).text(l.s.k.replace(/ \(.*\)/, '')));
     if (weeks.length < 2) svg.append('text').attr('x', W / 2).attr('y', Hh / 2).attr('text-anchor', 'middle').text('History starts this week — Weeks 1 to ' + (curW - 1) + ' are being re-created.');
     // every week table
     const thr = $('#rh-all thead tr'); thr.replaceChildren(h('th', { class: 'nf-l' }, 'Player'), ...weeks.map((w) => h('th', null, 'Wk ' + w + (re.has(w) ? '*' : ''))), h('th', null, 'Change'));
