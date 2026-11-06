@@ -120,8 +120,57 @@
   // ================================================================ the eye blinks like a lizard when clicked
   const eye = $('#eye');
   const blink = () => { eye.classList.remove('blink'); void eye.offsetWidth; eye.classList.add('blink'); };
-  eye.addEventListener('click', (e) => { e.stopPropagation(); blink(); });
+  eye.addEventListener('click', (e) => { e.stopPropagation(); closeMenus(null); blink(); });
   eye.addEventListener('animationend', (e) => { if (e.animationName === 'fo-nict') eye.classList.remove('blink'); });
+
+  // ================================================================ long explanations fold away behind a "+"
+  const KEEP = new Set(['ta-value-sum', 'ta-headline-sub', 'team-lineup-meta', 'ta-draft-rule', 'ta-draft-sum']);
+  function plusBtn(label, targets, cls) {
+    const b = h('button', { class: 'plus' + (cls ? ' ' + cls : ''), 'aria-expanded': 'false', title: 'Show the explanation' },
+      h('span', { class: 'pm' }, '+'), label ? h('span', { class: 'pl' }, label) : null);
+    targets.forEach((t) => t.classList.add('fold-hide'));
+    b.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const open = b.getAttribute('aria-expanded') !== 'true';
+      b.setAttribute('aria-expanded', String(open)); b.querySelector('.pm').textContent = open ? '–' : '+';
+      targets.forEach((t) => t.classList.toggle('fold-hide', !open));
+      BARS.forEach((u) => u());
+    });
+    return b;
+  }
+  function foldAll() {
+    // notes that explain a card: the "+" sits at the end of the card's heading
+    $$('.page.more .mp p.nf-note, .page.more .mp p.nf-take, .page.more .mp p.mp-intro').forEach((p) => {
+      if (KEEP.has(p.id) || p.closest('.fold-done')) return;
+      let prev = p.previousElementSibling;
+      while (prev && prev.classList.contains('fold-hide')) prev = prev.previousElementSibling;
+      const head = prev && (/^H[23]$/.test(prev.tagName) ? prev : prev.classList.contains('nf-ta-head') ? prev.querySelector('h2') : null);
+      if (head) {
+        // one button opens every note under the same heading
+        const b = head.querySelector(':scope > .plus');
+        if (b) { b._t.push(p); p.classList.add('fold-hide'); return; }
+        const t = [p], nb = plusBtn('', t); nb._t = t; head.append(nb);
+      } else {
+        const label = p.classList.contains('mp-intro') ? 'About this page' : p.classList.contains('nf-take') ? 'Overview' : 'How to read this';
+        p.before(plusBtn(label, [p], 'solo'));
+      }
+    });
+    // "how it works" cards: everything after the heading
+    $$('.page.more .mp .nf-method').forEach((c) => {
+      const h2 = c.querySelector('h2'); if (!h2 || h2.querySelector('.plus')) return;
+      h2.append(plusBtn('', [...c.children].filter((x) => x !== h2)));
+    });
+    // the explanation lines under the main tables
+    [['wr-note', 'Key'], ['rr-note', 'Key'], ['tm-note', 'Key']].forEach(([id, label]) => {
+      const n = document.getElementById(id); if (!n || n.dataset.folded) return;
+      n.dataset.folded = '1';
+      const b = plusBtn(label, [n], 'line');
+      b.style.left = n.style.left; b.style.top = n.style.top;
+      n.style.left = (parseFloat(n.style.left) + 96) + 'px'; n.style.width = (parseFloat(n.style.width || 1740) - 96) + 'px';
+      n.before(b);
+    });
+  }
+  foldAll();
 
   // ================================================================ arrow scrollbars
   const BARS = [];
@@ -314,6 +363,43 @@
   window.foOnTeam = () => { if (cur === 'team') RENDER.team(); else dirty.add('team'); };
   const cell = (x, text, cls, w) => h('div', { class: 'c ' + (cls || ''), style: `left:${x}px` + (w ? `;width:${w}px` : '') }, text);
   const opp = (w) => (w ? (w.venue === 'Home' ? 'vs ' : '@') + w.opp : '—');
+  const tmMoves = new Map();   // league + week -> starting keys you set (null = the best lineup)
+  let tmSel = null;
+  // click a player, then the one to swap with; or drag him onto that player (mouse or finger)
+  function tmDragStart(e, row, key, swap, canSwap) {
+    if (e.button > 0) return;
+    const s0 = window.foScale || 1, x0 = e.clientX, y0 = e.clientY;
+    let ghost = null, over = null;
+    const move = (ev) => {
+      const dx = (ev.clientX - x0) / s0, dy = (ev.clientY - y0) / s0;
+      if (!ghost && Math.hypot(dx, dy) < 8) return;
+      if (!ghost) {
+        tmSel = key;
+        ghost = row.cloneNode(true); ghost.classList.add('ghost');
+        const r = row.getBoundingClientRect(), sr = stage.getBoundingClientRect();
+        ghost.style.cssText += `;position:absolute;left:${(r.left - sr.left) / s0}px;top:${(r.top - sr.top) / s0}px;width:${r.width / s0}px;z-index:60`;
+        stage.appendChild(ghost); row.classList.add('dragging');
+      }
+      ghost.style.transform = `translate(${dx}px, ${dy}px)`;
+      ghost.style.display = 'none';
+      const t = document.elementFromPoint(ev.clientX, ev.clientY); ghost.style.display = '';
+      const tr = t && t.closest('.mv');
+      if (over && over !== tr) over.classList.remove('over');
+      if (over) over.classList.remove('over', 'nope');
+      over = tr && tr.dataset.key !== key ? tr : null; if (over) over.classList.add(canSwap(key, over.dataset.key) ? 'over' : 'nope');
+    };
+    const up = () => {
+      window.removeEventListener('pointermove', move); window.removeEventListener('pointerup', up); window.removeEventListener('pointercancel', up);
+      if (!ghost) {   // a click
+        if (!tmSel) { tmSel = key; RENDER.team(); } else swap(tmSel, key);
+        return;
+      }
+      ghost.remove(); row.classList.remove('dragging');
+      if (over && canSwap(key, over.dataset.key)) swap(key, over.dataset.key); else { tmSel = null; RENDER.team(); }
+    };
+    window.addEventListener('pointermove', move); window.addEventListener('pointerup', up); window.addEventListener('pointercancel', up);
+  }
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && tmSel) { tmSel = null; RENDER.team(); } });
   RENDER.team = () => {
     const T = window.foTeamData, lg = league();
     const start = $('#tm-start'), bench = $('#tm-bench'), benchH = $('#tm-bench-h'), wv = $('#wv'), wvH = $('#wv-h');
@@ -329,9 +415,55 @@
       if (m) oppName = teamName(lg.league_id, String(m.team1) === String(lg.my_team) ? m.team2 : m.team1);
     }
     window.foSides('team', oppName ? 'Opp: ' + oppName : '', 'Week ' + T.wk);
-    // ---- starting roster
+    // ---- starting roster and bench: the best lineup, or the one you set by moving players around
     const SO = (sl) => { const k = POS.indexOf(sl); return k >= 0 ? k : 4 + (sl === 'SF' ? 1 : 0); };
-    const lineup = T.lineup.map((l, i) => ({ l, i })).sort((a, b) => SO(SLOTNAME(a.l.slot)) - SO(SLOTNAME(b.l.slot)) || a.i - b.i).map((o) => o.l);
+    const best = T.lineup.map((l, i) => ({ l, i })).sort((a, b) => SO(SLOTNAME(a.l.slot)) - SO(SLOTNAME(b.l.slot)) || a.i - b.i).map((o) => o.l);
+    const slots = best.map((l) => l.slot);
+    const everyone = best.map((l) => l.x).filter(Boolean).concat(T.bench);
+    const byKey = new Map(everyone.map((x) => [x.p.key, x]));
+    const bestTotal = best.reduce((t, l) => t + (l.x ? l.x.v : 0), 0);
+    const mkey = 'fo.lineup.' + lg.league_id + '.' + T.wk;
+    let mine = tmMoves.get(mkey);
+    if (mine === undefined) { try { mine = JSON.parse(LS.get(mkey) || 'null'); } catch (e) { mine = null; } }
+    // a saved lineup still has to fit this roster: same slots, players still here, eligible for their slot, not on IR
+    const valid = (arr) => Array.isArray(arr) && arr.length === slots.length && new Set(arr.filter(Boolean)).size === arr.filter(Boolean).length
+      && arr.every((k, i) => !k || (byKey.has(k) && byKey.get(k).p.slot !== 'IR' && T.elig(slots[i]).includes(byKey.get(k).p.pos)));
+    if (mine && !valid(mine)) mine = null;
+    const keys = mine || best.map((l) => (l.x ? l.x.p.key : null));
+    tmMoves.set(mkey, mine);
+    const lineup = slots.map((slot, i) => ({ slot, x: keys[i] ? byKey.get(keys[i]) : null }));
+    const used = new Set(keys.filter(Boolean));
+    const benchList = everyone.filter((x) => !used.has(x.p.key)).sort((a, b) => (a.p.slot === 'IR') - (b.p.slot === 'IR') || b.v - a.v);
+    const total = lineup.reduce((t, l) => t + (l.x ? l.x.v : 0), 0);
+    const save = (arr) => { const same = arr.every((k, i) => k === (best[i].x ? best[i].x.p.key : null)); const v = same ? null : arr; tmMoves.set(mkey, v); if (v) LS.set(mkey, JSON.stringify(v)); else { try { localStorage.removeItem(mkey); } catch (e) { /* ignore */ } } tmSel = null; RENDER.team(); };
+    // can player x go into starting slot i (and, for a starter swap, the other one into his slot)?
+    const fits = (x, i) => !!x && x.p.slot !== 'IR' && T.elig(slots[i]).includes(x.p.pos);
+    const where = (key) => { const i = keys.indexOf(key); return i >= 0 ? { start: true, i } : { start: false }; };
+    function swap(aKey, bKey) {
+      if (!aKey || !bKey || aKey === bKey) { tmSel = null; RENDER.team(); return; }
+      const A = where(aKey), B = where(bKey), arr = keys.slice();
+      if (A.start && B.start) { if (!fits(byKey.get(aKey), B.i) || !fits(byKey.get(bKey), A.i)) return flash(); arr[A.i] = bKey; arr[B.i] = aKey; }
+      else if (A.start || B.start) { const S = A.start ? A : B, inK = A.start ? bKey : aKey; if (!fits(byKey.get(inK), S.i)) return flash(); arr[S.i] = inK; }
+      else { tmSel = null; RENDER.team(); return; }   // two bench players: nothing to change
+      save(arr);
+    }
+    const canSwap = (aKey, bKey) => {
+      if (!aKey || !bKey || aKey === bKey) return false;
+      const A = where(aKey), B = where(bKey);
+      if (A.start && B.start) return fits(byKey.get(aKey), B.i) && fits(byKey.get(bKey), A.i);
+      if (A.start) return fits(byKey.get(bKey), A.i);
+      if (B.start) return fits(byKey.get(aKey), B.i);
+      return false;
+    };
+    const flash = () => { const el = $('#tm-start').closest('.pn'); el.animate([{ transform: 'translateX(0)' }, { transform: 'translateX(-8px)' }, { transform: 'translateX(8px)' }, { transform: 'translateX(0)' }], { duration: 260 }); tmSel = null; RENDER.team(); };
+    const mover = (row, key) => {
+      if (!key) return;
+      row.dataset.key = key; row.classList.add('mv');
+      if (tmSel === key) row.classList.add('sel');
+      else if (tmSel && canSwap(tmSel, key)) row.classList.add('ok');
+      else if (tmSel) row.classList.add('no');
+      row.addEventListener('pointerdown', (e) => tmDragStart(e, row, key, swap, canSwap));
+    };
     const n = lineup.length, pitch = Math.min(48.5, 336 / Math.max(1, n));
     const rows = [h('div', { class: 'r h', style: 'top:6px;height:34px' }, cell(15, 'Slot'), cell(118, 'Player'), cell(351, 'Opp'), cell(466, 'Proj'), cell(560, 'Start%'), cell(665, 'ROS'))];
     lineup.forEach((l, i) => {
@@ -340,30 +472,38 @@
       r.append(h('div', { class: 'c', style: 'left:15px' }, chip(sl === 'SF' ? 'SF' : sl, POS.includes(sl) ? sl : (sl === 'SF' ? 'SF' : 'FLEX'))));
       if (!x) { r.append(cell(118, 'Empty — nobody eligible', 'bad')); rows.push(r); return; }
       const nm = h('div', { class: 'c nm', style: 'left:118px;max-width:228px' }, x.p.player);
-      if (!x.why && !x.yahooStart) nm.append(h('span', { class: 'flag start', title: 'Start him: he is on your bench in Yahoo' }));
+      if (!x.why && !x.yahooStart) nm.append(h('span', { class: 'flag start', title: 'On your bench in Yahoo' }));
       if (x.why) nm.append(h('span', { class: 'flag out', title: x.why }));
       r.append(nm, cell(351, x.why === 'Bye' ? 'Bye' : opp(x.w), x.why ? 'muted' : ''), cell(466, x.why ? '0.0' : f1(x.v), x.why ? 'muted' : ''));
       const sp = x.why || !x.w || !has(x.w.start_pct) ? null : num(x.w.start_pct);
       r.append(cell(560, sp == null ? 'N/a' : Math.round(sp) + '%', sp == null ? 'muted' : confCls(x.w.confidence)));
       r.append(cell(665, x.p.ros_key ? rk(x.p.ros_key) : '—'));
-      const vl = T.vegas(x.p.player, x.p.pos); if (vl) r.title = 'Vegas: ' + vl;
+      const vl = T.vegas(x.p.player, x.p.pos); r.title = [x.why, vl ? 'Vegas: ' + vl : ''].filter(Boolean).join(' · ');
+      mover(r, x.p.key);
       rows.push(r);
     });
     const ty = 54 + n * pitch + 4;
-    rows.push(h('div', { class: 'r b', style: `top:${Math.max(ty, 390)}px;height:40px` }, cell(15, 'Projected total'), cell(466, f1(T.total), '', null)));
+    const d = total - bestTotal;
+    const totRow = h('div', { class: 'r b', style: `top:${Math.max(ty, 390)}px;height:40px` }, cell(15, 'Projected total'), cell(466, f1(total), '', null),
+      mine ? cell(560, (Math.abs(d) < 0.05 ? 'same as best' : sg1(d) + ' vs best'), Math.abs(d) < 0.05 ? 'muted' : d < 0 ? 'bad' : 'good') : cell(560, 'best lineup', 'muted'));
+    rows.push(totRow);
     start.replaceChildren(...rows);
-    const tot = rows[rows.length - 1];
-    tot.lastChild.style.color = 'var(--navy)';
-    tot.append(h('div', { style: 'position:absolute;left:15px;top:34px;width:199px;height:8px' }, svgUnder()));
+    totRow.children[1].style.color = 'var(--navy)';
+    totRow.children[2].style.fontSize = '22px';
+    totRow.append(h('div', { style: 'position:absolute;left:15px;top:34px;width:199px;height:8px' }, svgUnder()));
+    const ctl = $('#tm-ctl');
+    ctl.replaceChildren(...[
+      mine ? h('button', { class: 'tg', onclick: () => save(best.map((l) => (l.x ? l.x.p.key : null))) }, 'Reset to best (' + f1(bestTotal) + ')') : null,
+      h('span', { class: 'hint' }, tmSel ? 'Now click who to swap him with' : 'Click or drag players to swap them')].filter(Boolean));
     // ---- bench
     benchH.replaceChildren(h('div', { class: 'r h', style: 'top:6px;height:34px' }, cell(12, 'Slot'), cell(90, 'Pos'), cell(179, 'Player'), cell(440, 'Opp'), cell(556, 'Proj'), cell(633, 'Start%'), cell(729, 'ROS')));
-    const br = T.bench.map((x, i) => {
+    const br = benchList.map((x, i) => {
       const isIR = x.p.slot === 'IR';
       const r = h('div', { class: 'r b', style: `top:${2 + i * 48.5}px;height:39px` });
       r.append(isIR ? h('div', { class: 'c ir', style: 'left:12px' }, 'IR', h('img', { src: 'assets/caduceus.png', alt: '' })) : cell(17, 'BN'));
       r.append(h('div', { class: 'c', style: 'left:90px' }, chip(x.p.pos, x.p.pos)));
       const nm = h('div', { class: 'c nm', style: 'left:179px;max-width:240px' }, x.p.player);
-      if (!x.why && x.yahooStart) nm.append(h('span', { class: 'flag sit', title: 'Starting in Yahoo — our lineup benches him' }));
+      if (!x.why && x.yahooStart) nm.append(h('span', { class: 'flag sit', title: 'Starting in Yahoo' }));
       r.append(nm, cell(430, isIR ? opp(x.w) : (x.why === 'Bye' ? 'Bye' : opp(x.w)), x.why ? 'muted' : ''));
       r.append(cell(559, x.why ? 'N/a' : f1(x.v), x.why ? 'muted' : ''));
       const sp = x.why || !x.w || !has(x.w.start_pct) ? null : num(x.w.start_pct);
@@ -371,9 +511,10 @@
       r.append(cell(729, x.p.ros_key ? rk(x.p.ros_key) : '—'));
       const vl = T.vegas(x.p.player, x.p.pos);
       r.title = [x.why, vl ? 'Vegas: ' + vl : ''].filter(Boolean).join(' · ');
+      if (!isIR) mover(r, x.p.key);
       return r;
     });
-    bench.style.height = (T.bench.length * 48.5 + 6) + 'px';
+    bench.style.height = (benchList.length * 48.5 + 6) + 'px';
     bench.replaceChildren(...br);
     // ---- waiver wire (best unrostered players in this league's scoring)
     const owned = rosteredKeys(lg), lgv = (r) => Math.max(0, num(r.ros_ppg) + adj(r, lg) * num(r.play_rate, num(r.avail, 1)));
@@ -673,6 +814,7 @@
   // ================================================================ TRADE ANALYZER
   window.foOnTrade = () => { if (cur === 'trade') RENDER.trade(); else dirty.add('trade'); };
   const teamDD = {};
+  let lastX = null;   // the box just checked: only that X is drawn in
   function tradeSide(side, T) {
     const box = $('#ta-side-' + side), tid = side === 'mine' ? T.st.mine : T.st.theirs;
     const picked = side === 'mine' ? T.st.give : T.st.get;
@@ -686,7 +828,7 @@
           h('div', { class: 'sc', style: 'left:0;right:0;top:42px;bottom:0' }, h('div', { class: 'gt tv', style: 'left:0;right:0;top:0' }))),
         h('div', { class: 'arrowbar', style: 'left:570px;top:113px;height:457px' }));
       const dd = box.querySelector('.ta-dd');
-      teamDD[side] = dropdown(dd, { rowH: 38, top: 47, bottom: 12, label: side === 'mine' ? 'Your team' : 'Trade partner', onPick: (id) => window.foTradeData.setTeam(side, id) });
+      teamDD[side] = dropdown(dd, { rowH: 38, top: 2, bottom: 12, label: side === 'mine' ? 'Your team' : 'Trade partner', onPick: (id) => window.foTradeData.setTeam(side, id) });
       dd.addEventListener('fo-close', () => { dd.classList.remove('open'); });
       dd.querySelector('.box').style.height = 'var(--hc)';
       arrowbar(box.querySelector('.arrowbar'), box.querySelector('.sc'));
@@ -715,7 +857,9 @@
     tv.replaceChildren(...ps.map((p, i) => {
       const on = picked.has(p.key), lab = p.value || p.valueT;
       const r = h('div', { class: 'r' + (on ? ' sel' : ''), style: `top:${i * 29.6 + 2}px;height:29.6px;font-size:16px;${i % 2 ? 'background:var(--zebra)' : ''}` });
-      r.append(h('button', { class: 'cb' + (on ? ' on' : ''), style: 'left:9px;top:4px', 'aria-label': (on ? 'Remove ' : 'Add ') + p.name, 'aria-pressed': String(on), onclick: () => window.foTradeData.toggle(side, p.key) }));
+      const cbx = h('button', { class: 'cb' + (on ? ' on' : '') + (on && lastX === p.key ? ' draw' : ''), style: 'left:9px;top:4px', 'aria-label': (on ? 'Remove ' : 'Add ') + p.name, 'aria-pressed': String(on), onclick: () => { lastX = on ? null : p.key; window.foTradeData.toggle(side, p.key); } });
+      if (on) cbx.innerHTML = '<svg viewBox="0 0 30 30" aria-hidden="true"><path class="s1" pathLength="1" d="M5.5 6.5 C 10 11, 15 16.5, 24.5 24"/><path class="s2" pathLength="1" d="M23.5 5.5 C 18 10, 12.5 16, 6 24.5"/></svg>';
+      r.append(cbx);
       r.append(h('div', { class: 'c', style: 'left:50px;max-width:118px;overflow:hidden;text-overflow:ellipsis' }, p.name));
       const ir = p.slot === 'IR' || /^IR|PUP|NFI/.test(p.status);
       if (ir) r.append(h('img', { src: 'assets/caduceus.png', alt: 'IR', title: p.status || 'IR', style: 'position:absolute;left:161px;top:6px;width:18px' }));
