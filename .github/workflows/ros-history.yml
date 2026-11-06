@@ -1,0 +1,50 @@
+# One-off / on request: re-create the rest-of-season rankings for earlier weeks of the season (ROS ranking history).
+# Triggered by a change to automation/ros_backfill.txt (first and last week on one line, e.g. "1 8") or Run workflow.
+name: ROS history backfill
+
+on:
+  push:
+    paths: ["automation/ros_backfill.txt"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update          # never runs at the same time as a model update
+  cancel-in-progress: false
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q pandas pyarrow lightgbm catboost scipy cryptography
+      - uses: actions/cache/restore@v4
+        with:
+          path: model/cache
+          key: models-${{ github.run_id }}
+          restore-keys: models-
+      - name: Data
+        env:
+          FANTASYPROS_API_KEY: ${{ secrets.FANTASYPROS_API_KEY }}
+        run: |
+          cd model && bash download_data.sh 2026 && cd ..
+          python automation/fp_inject.py model/fpdata
+      - name: Re-create earlier weeks
+        run: |
+          read FIRST LAST < automation/ros_backfill.txt
+          python automation/ros_history.py backfill "$FIRST" "$LAST" --season 2026
+      - name: Commit
+        run: |
+          git config user.name "fantasy-oracle-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/data/ros_history_v5.csv docs/data/datasets.json
+          git diff --cached --quiet && exit 0
+          git commit -m "ROS history: re-created weeks $(cat automation/ros_backfill.txt)"
+          git pull --rebase -X theirs origin ${{ github.ref_name }}
+          git push

@@ -210,6 +210,12 @@
    "title": "Player prop lines",
    "description": "Median sportsbook line and no-vig over chance for passing, rushing and receiving yards and anytime TD (The Odds API).",
    "updated": null
+  },
+  "ros_history": {
+   "file": "ros_history_v5.csv",
+   "title": "ROS rankings by week",
+   "description": "Rest-of-season rankings as they stood each week of the season: rank within the position, ROS PPR points and range, model and expert ranks. Weeks from 9 on are the live ranking (the last run of that week); earlier weeks were re-created after the fact by the same ROS model as of that week (models trained on earlier seasons, that date's expert ROS ranking and that week's pre-kickoff projection).",
+   "updated": "2026-11-06T07:23:51+00:00"
   }
  },
  "note": "Week 9 projections"

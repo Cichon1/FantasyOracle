@@ -109,6 +109,7 @@ def main():
     cat["updated"] = now
     cat["note"] = f"Week {w_proj} projections" if w_proj else "season complete"
     json.dump(cat, open(cat_path, "w"), indent=1)
+    subprocess.run([sys.executable, os.path.join(ROOT, "automation", "ros_history.py"), "append", SITE])   # optional: ROS ranking history
     if w_proj is not None:
         json.dump({"week": w_proj}, open(os.path.join(SITE, "params.json"), "w"))
         # the "More" tabs: matchups, run game & style, vs experts, model accuracy (optional: never fails the update)
