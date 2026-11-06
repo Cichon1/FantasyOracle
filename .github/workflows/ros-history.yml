@@ -37,7 +37,7 @@ jobs:
           python automation/fp_inject.py model/fpdata
       - name: Re-create earlier weeks
         run: |
-          read FIRST LAST < automation/ros_backfill.txt
+          read FIRST LAST REST < automation/ros_backfill.txt
           python automation/ros_history.py backfill "$FIRST" "$LAST" --season 2026
       - name: Commit
         run: |
