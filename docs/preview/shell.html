@@ -66,7 +66,23 @@
         <div class="mm" style="left:424px">MM</div>
         <div class="mm" style="left:1266px">XXVI</div>
       </div>
-      <img class="ball" src="assets/ball.png" alt="">
+      <button class="eye" id="eye" aria-label="Blink">
+        <img class="ball" src="assets/ball.png" alt="">
+        <svg class="lids" viewBox="0 0 100 100" aria-hidden="true">
+          <defs>
+            <clipPath id="eye-clip"><circle cx="50" cy="50" r="47.6"/></clipPath>
+            <linearGradient id="lid-up" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a0300"/><stop offset=".75" stop-color="#5a0a02"/><stop offset="1" stop-color="#7a1606"/></linearGradient>
+            <linearGradient id="lid-dn" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#2a0300"/><stop offset=".75" stop-color="#5a0a02"/><stop offset="1" stop-color="#7a1606"/></linearGradient>
+            <linearGradient id="nict" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#e9e4c4" stop-opacity=".25"/><stop offset=".8" stop-color="#e9e4c4" stop-opacity=".62"/><stop offset="1" stop-color="#fff8d8" stop-opacity=".85"/></linearGradient>
+            <pattern id="scales" width="7" height="5" patternUnits="userSpaceOnUse"><path d="M0 5 Q3.5 0 7 5" fill="none" stroke="#000" stroke-opacity=".28" stroke-width=".7"/></pattern>
+          </defs>
+          <g clip-path="url(#eye-clip)">
+            <g class="nict"><path d="M-60 -2 H8 Q22 50 8 102 H-60 Z" fill="url(#nict)"/><path d="M8 -2 Q22 50 8 102" fill="none" stroke="#fff8d8" stroke-opacity=".9" stroke-width="1.2"/></g>
+            <g class="lid up"><path d="M-4 -70 H104 V40 Q50 58 -4 40 Z" fill="url(#lid-up)"/><path d="M-4 -70 H104 V40 Q50 58 -4 40 Z" fill="url(#scales)"/><path d="M-4 40 Q50 58 104 40" fill="none" stroke="#ab9d1d" stroke-width="2"/></g>
+            <g class="lid dn"><path d="M-4 170 H104 V60 Q50 42 -4 60 Z" fill="url(#lid-dn)"/><path d="M-4 170 H104 V60 Q50 42 -4 60 Z" fill="url(#scales)"/><path d="M-4 60 Q50 42 104 60" fill="none" stroke="#ab9d1d" stroke-width="2"/></g>
+          </g>
+        </svg>
+      </button>
     </div>
   </div>
   <div id="credit">Page design by Jackson Cichon</div>

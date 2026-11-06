@@ -58,7 +58,24 @@ body.loading #more, body.loading #updated { opacity: 0; }
 #emblem { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; pointer-events: none; z-index: 20; }
 #emblem .grp { position: absolute; inset: 0; transform-origin: 949.5px 253.5px; transition: transform 1.05s cubic-bezier(.65, 0, .25, 1), opacity .5s ease; }
 #emblem svg.parts { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; }
-#emblem .ball { position: absolute; left: 748px; top: 52px; width: 403px; height: 403px; filter: drop-shadow(3px 4px 18px rgba(0, 0, 0, .8)); }
+#emblem .eye { all: unset; position: absolute; left: 748px; top: 52px; width: 403px; height: 403px; border-radius: 50%; cursor: pointer; pointer-events: auto; filter: drop-shadow(3px 4px 18px rgba(0, 0, 0, .8)); -webkit-tap-highlight-color: transparent; }
+#emblem .eye:focus-visible { outline: 4px solid var(--gold); outline-offset: 6px; }
+body.loading #emblem .eye { pointer-events: none; }
+#emblem .ball { position: absolute; inset: 0; width: 100%; height: 100%; }
+/* lizard blink: the third eyelid (nictitating membrane) sweeps across from the inner corner, then the scaled lids close,
+   the lower one rising farther than the upper drops, and everything opens again */
+#emblem .lids { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+#emblem .lids .nict { transform: translateX(-75px); opacity: 0; }
+#emblem .lids .lid.up { transform: translateY(-53px); }
+#emblem .lids .lid.dn { transform: translateY(58px); }
+#emblem .eye.blink .nict { animation: fo-nict .9s cubic-bezier(.45, 0, .3, 1) both; }
+#emblem .eye.blink .lid.up { animation: fo-lid-up .9s cubic-bezier(.5, 0, .3, 1) both; }
+#emblem .eye.blink .lid.dn { animation: fo-lid-dn .9s cubic-bezier(.5, 0, .3, 1) both; }
+#emblem .eye.blink .ball { animation: fo-squint .9s ease both; }
+@keyframes fo-nict { 0% { transform: translateX(-75px); opacity: 0; } 8% { opacity: 1; } 30% { transform: translateX(96px); opacity: 1; } 62% { transform: translateX(96px); opacity: 1; } 90% { transform: translateX(-75px); opacity: 1; } 100% { transform: translateX(-75px); opacity: 0; } }
+@keyframes fo-lid-up { 0%, 22% { transform: translateY(-53px); } 42%, 56% { transform: translateY(0); } 80%, 100% { transform: translateY(-53px); } }
+@keyframes fo-lid-dn { 0%, 18% { transform: translateY(58px); } 40%, 58% { transform: translateY(-12px); } 84%, 100% { transform: translateY(58px); } }
+@keyframes fo-squint { 0%, 20% { transform: none; } 45% { transform: scaleX(1.025) scaleY(.975); } 75%, 100% { transform: none; } }
 #emblem .wings { transition: opacity .45s ease, transform .6s cubic-bezier(.5, 0, .3, 1); transform-origin: 949.5px 253.5px; }
 #emblem .mm { position: absolute; top: 224px; font-size: 120.4px; color: var(--gold); line-height: 1; -webkit-text-stroke: 5.5px var(--navy); paint-order: stroke fill; }
 #emblem .arc { position: absolute; left: 659px; top: 261px; width: 565px; }

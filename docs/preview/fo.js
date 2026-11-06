@@ -117,6 +117,12 @@
   moreBtn.addEventListener('click', (e) => { e.stopPropagation(); const o = !moreNav.classList.contains('open'); closeMenus(moreNav); setMore(o); });
   document.addEventListener('click', (e) => { const a = e.target.closest('[data-go]'); if (a) { e.preventDefault(); setMore(false); go(a.dataset.go); } });
 
+  // ================================================================ the eye blinks like a lizard when clicked
+  const eye = $('#eye');
+  const blink = () => { eye.classList.remove('blink'); void eye.offsetWidth; eye.classList.add('blink'); };
+  eye.addEventListener('click', (e) => { e.stopPropagation(); blink(); });
+  eye.addEventListener('animationend', (e) => { if (e.animationName === 'fo-nict') eye.classList.remove('blink'); });
+
   // ================================================================ arrow scrollbars
   const BARS = [];
   function arrowbar(bar, sc) {
