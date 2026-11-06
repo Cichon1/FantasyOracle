@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-06T18:50:25+00:00",
+ "updated": "2026-11-06T19:51:21+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 9,
@@ -8,12 +8,12 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 43,
+   "seconds": 40,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 4,
+   "seconds": 6,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 129,
+   "seconds": 39,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 13,
+   "seconds": 19,
    "ok": true
   }
  ],
@@ -82,11 +82,11 @@
   "training_snapshots": 47931,
   "rounds": {
    "QB": 50,
-   "RB": 83,
-   "WR/TE": 80
+   "RB": 85,
+   "WR/TE": 66
   },
   "experts_ros_date": "2026-11-06 00:00:00",
-  "seconds": 12,
+  "seconds": 18,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -96,57 +96,57 @@
    "QB": [
     [
      "Joe Burrow",
-     192.4
+     193.4
     ],
     [
      "Josh Allen",
-     180.3
+     179.6
     ],
     [
      "Brock Purdy",
-     176.7
+     178.4
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     212.8
+     215.4
     ],
     [
      "Kenneth Walker III",
-     198.1
+     194.6
     ],
     [
      "Bijan Robinson",
-     180.1
+     176.5
     ]
    ],
    "TE": [
     [
      "Brock Bowers",
-     131.3
+     132.3
     ],
     [
      "George Kittle",
-     129.7
+     130.8
     ],
     [
      "Trey McBride",
-     113.4
+     113.9
     ]
    ],
    "WR": [
     [
      "Puka Nacua",
-     172.5
+     172.8
     ],
     [
      "Ja'Marr Chase",
-     172.1
+     170.5
     ],
     [
      "Jaxon Smith-Njigba",
-     158.2
+     158.9
     ]
    ]
   }
@@ -156,7 +156,7 @@
   "nfl_rows": 342,
   "nfl_matched": 342,
   "nfl_unmatched": [],
-  "espn_out": 71,
+  "espn_out": 75,
   "espn_unmatched": [
    "Doneiko Slaughter (PIT)",
    "Ben Skowronek (PIT)",
@@ -167,7 +167,7 @@
    "Carnell Tate (TEN)",
    "Jaylon Jones (TEN)"
   ],
-  "hash": "c76f8749efdb",
+  "hash": "b0c5c64bf454",
   "rows_added": 29,
   "values_updated": 10
  }
