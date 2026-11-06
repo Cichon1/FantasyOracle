@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-05T23:43:52+00:00",
+ "updated": "2026-11-06T00:59:20+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 8,
  "games_started": false,
- "reason": "schedule_and_lines,fp_rankings,injury_news",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 45,
+   "seconds": 42,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 3,
+   "seconds": 7,
    "ok": true
   },
   {
@@ -38,7 +38,7 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 38,
+   "seconds": 37,
    "ok": true
   },
   {
@@ -86,7 +86,7 @@
    "WR/TE": 52
   },
   "experts_ros_date": "2026-11-05 00:00:00",
-  "seconds": 17,
+  "seconds": 16,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -132,7 +132,7 @@
     ],
     [
      "Trey McBride",
-     114.8
+     113.4
     ]
    ],
    "WR": [
@@ -156,7 +156,7 @@
   "nfl_rows": 340,
   "nfl_matched": 340,
   "nfl_unmatched": [],
-  "espn_out": 52,
+  "espn_out": 61,
   "espn_unmatched": [
    "Doneiko Slaughter (PIT)",
    "Ben Skowronek (PIT)",
@@ -167,8 +167,8 @@
    "Carnell Tate (TEN)",
    "Jaylon Jones (TEN)"
   ],
-  "hash": "8d2e9de455fd",
-  "rows_added": 93,
+  "hash": "96206cac4cfc",
+  "rows_added": 101,
   "values_updated": 57
  }
 }
