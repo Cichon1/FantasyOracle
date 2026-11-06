@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-06T02:07:05+00:00",
+ "updated": "2026-11-06T02:53:53+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 8,
  "games_started": true,
- "reason": "schedule_and_lines,injury_news",
+ "reason": "fp_rankings",
  "steps": [
   {
    "step": "bash",
-   "seconds": 44,
+   "seconds": 43,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 6,
+   "seconds": 7,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 29,
+   "seconds": 23,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 13,
+   "seconds": 11,
    "ok": true
   }
  ],
@@ -75,8 +75,8 @@
   "season": 2026,
   "week": 9,
   "last_week": 17,
-  "players": 463,
-  "out_this_week": 59,
+  "players": 464,
+  "out_this_week": 60,
   "on_bye": 22,
   "this_week_source": "official",
   "training_snapshots": 47931,
@@ -86,7 +86,7 @@
    "WR/TE": 50
   },
   "experts_ros_date": "2026-11-05 00:00:00",
-  "seconds": 12,
+  "seconds": 10,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -100,7 +100,7 @@
     ],
     [
      "Josh Allen",
-     179.9
+     180.6
     ],
     [
      "Brock Purdy",
