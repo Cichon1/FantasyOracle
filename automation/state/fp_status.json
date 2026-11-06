@@ -1,7 +1,7 @@
 {
- "pulled_at": "2026-11-06T15:39-05:00",
+ "pulled_at": "2026-11-06T18:29-05:00",
  "pages": 8,
- "expert_pages": 13,
+ "expert_pages": 16,
  "errors": [],
  "expert_pages_waiting": 0,
  "cutoff_ros": "2026-11-02T23:35-05:00",
@@ -9,60 +9,60 @@
  "panels": {
   "weekly|QB": {
    "default": 44,
-   "recent": 80,
+   "recent": 81,
    "recent_acc": 20,
-   "listed": 158,
-   "public_pages": 80,
+   "listed": 160,
+   "public_pages": 81,
    "recent_rule": "since cutoff",
    "players": {
     "default": 79,
     "recent": 33,
     "recent_acc": 32
    },
-   "agree_recent": 0.994,
-   "agree_recent_acc": 0.976
+   "agree_recent": 0.996,
+   "agree_recent_acc": 0.97
   },
   "weekly|RB": {
    "default": 39,
-   "recent": 76,
+   "recent": 77,
    "recent_acc": 20,
-   "listed": 150,
-   "public_pages": 76,
+   "listed": 152,
+   "public_pages": 77,
    "recent_rule": "since cutoff",
    "players": {
-    "default": 108,
-    "recent": 97,
+    "default": 106,
+    "recent": 96,
     "recent_acc": 95
    },
-   "agree_recent": 0.988,
+   "agree_recent": 0.989,
    "agree_recent_acc": 0.99
   },
   "weekly|WR": {
    "default": 39,
-   "recent": 76,
+   "recent": 77,
    "recent_acc": 20,
-   "listed": 150,
-   "public_pages": 76,
+   "listed": 152,
+   "public_pages": 77,
    "recent_rule": "since cutoff",
    "players": {
-    "default": 167,
-    "recent": 112,
+    "default": 158,
+    "recent": 111,
     "recent_acc": 128
    },
    "agree_recent": 0.992,
-   "agree_recent_acc": 0.993
+   "agree_recent_acc": 0.994
   },
   "weekly|TE": {
    "default": 38,
-   "recent": 76,
+   "recent": 77,
    "recent_acc": 20,
-   "listed": 150,
-   "public_pages": 76,
+   "listed": 152,
+   "public_pages": 77,
    "recent_rule": "since cutoff",
    "players": {
-    "default": 109,
+    "default": 107,
     "recent": 40,
-    "recent_acc": 43
+    "recent_acc": 42
    },
    "agree_recent": 0.995,
    "agree_recent_acc": 0.996
@@ -128,5 +128,5 @@
    "agree_recent_acc": 0.989
   }
  },
- "stamp": "456c5cc5a5e7"
+ "stamp": "7d0aae2bb981"
 }
