@@ -13,6 +13,8 @@
 <link rel="preload" href="assets/goudy.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/ball.png" as="image">
 <link rel="stylesheet" href="fo.css?v=1">
+<link rel="stylesheet" href="fo2.css?v=1">
+<link rel="preload" href="assets/tinos-400.woff2" as="font" type="font/woff2" crossorigin>
 <script>window.FO_DATA = '../data/';</script>
 <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
 <script src="dash-shim.js?v=1"></script>
@@ -20,6 +22,9 @@
 <body class="loading on-home">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
+    <filter id="fo-rough" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency=".55" numOctaves="3" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="5.5" xChannelSelector="R" yChannelSelector="G"/></filter>
+    <filter id="fo-rough-sm" x="-5%" y="-20%" width="110%" height="140%"><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="2" seed="9" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3" xChannelSelector="R" yChannelSelector="G"/></filter>
+    <pattern id="fo-scales" width="62.5" height="116.5" patternUnits="userSpaceOnUse"><rect width="62.5" height="116.5" fill="#154f02"/><image href="assets/scales.png" width="62.5" height="116.5"/></pattern>
     <path id="rib" d="M0.0 138.7C0.0 138.7 32.5 73.8 32.5 73.8C33.9 71.0 33.9 67.7 32.5 64.9C32.5 64.9 0.0 0.0 0.0 0.0L522.9 0.0L490.5 64.9C489.1 67.7 489.1 71.0 490.5 73.8L522.9 138.7Z"/>
   </defs>
 </svg>
@@ -28,23 +33,30 @@
   <div id="updated" aria-live="polite"></div>
   <img class="knight" src="assets/knight.webp" alt="">
 
+  <button id="homebtn" data-go="home" aria-label="Home">
+    <svg viewBox="254 21 81 90" aria-hidden="true">
+      <path fill="#574b46" d="M294.6 22.0C269.0 22.0 257.6 34.0 255.6 36.3C255.6 36.3 255.6 66.3 255.6 66.3C255.6 67.5 255.5 96.5 294.6 109.6C333.8 96.5 333.6 66.6 333.6 66.3C333.6 66.3 333.6 36.3 333.6 36.3C331.6 34.1 320.1 22.0 294.6 22.0C294.6 22.0 294.6 22.0 294.6 22.0ZM295.1 104.5C295.0 104.5 294.8 104.6 294.6 104.6C294.4 104.6 294.2 104.5 294.1 104.5C260.6 92.3 260.3 67.4 260.3 66.4C260.3 66.4 260.3 38.8 260.3 38.8C260.3 38.4 260.5 38.0 260.8 37.7C264.3 34.4 274.7 26.7 294.6 26.7C314.4 26.7 324.8 34.4 328.4 37.7C328.7 38.0 328.9 38.4 328.9 38.9C328.9 38.9 328.9 66.5 328.9 66.5C328.9 67.5 328.6 92.3 295.1 104.5C295.1 104.5 295.1 104.5 295.1 104.5Z"/>
+      <path fill="#574b46" d="M294.6 29.9C276.7 29.9 267.1 36.3 263.4 39.5C263.4 39.5 263.4 66.4 263.4 66.4C263.4 67.3 263.7 89.8 294.6 101.3C325.5 89.8 325.8 67.4 325.8 66.5C325.8 66.5 325.8 39.5 325.8 39.5C322.1 36.3 312.4 29.9 294.6 29.9C294.6 29.9 294.6 29.9 294.6 29.9Z"/>
+      <path fill="none" stroke="#ab9d1d" stroke-width="4.2" stroke-linejoin="round" stroke-linecap="round" d="M272 63 L294.6 42 L317 63 M277 59 V82 H289 V70 H300 V82 H312 V59"/>
+    </svg>
+  </button>
   <nav id="more" aria-label="More pages">
     <div class="rib">
       <ul id="more-list">
+        <li><a data-go="league">League View</a></li>
         <li><a data-go="matchups">Matchups</a></li>
         <li><a data-go="style">Run game &amp; Style</a></li>
         <li><a data-go="weather">Weather</a></li>
         <li><a data-go="experts">vs Experts</a></li>
         <li><a data-go="model">Model</a></li>
         <li class="sep"></li>
-        <li><a data-go="finder">Trade Finder</a></li>
+        <li><a data-go="trade" data-anchor="finder">Trade Finder</a></li>
         <li><a data-go="lineup">Lineup Details</a></li>
         <li><a data-go="tradedetails">Trade Details</a></li>
         <li><a data-go="weekly">Weekly Details</a></li>
         <li><a data-go="rosdetails">ROS Details</a></li>
         <li><a data-go="history">Rank History</a></li>
-        <li class="sep"></li>
-        <li><a data-go="home">Home</a></li>
+
       </ul>
       <button class="lab" id="more-btn" aria-expanded="false" aria-controls="more-list">More</button>
     </div>
@@ -57,9 +69,10 @@
         <svg class="parts" viewBox="0 0 1920 1080">
           <path fill="#4a0600" d="M877.5 218.4L846.6 280.1C845.3 282.7 845.3 285.8 846.6 288.5L877.5 350.2L380.7 350.2L411.6 288.5C412.9 285.8 412.9 282.7 411.6 280.1L380.7 218.4Z"/>
           <path fill="#4a0600" d="M1538.0 218.4L1507.1 280.1C1505.8 282.7 1505.8 285.8 1507.1 288.5L1538.0 350.2L1041.3 350.2L1072.1 288.5C1073.4 285.8 1073.4 282.7 1072.1 280.1L1041.3 218.4Z"/>
+        </svg>
+        <img class="hood" src="assets/hood.png" alt="">
+        <svg class="parts" viewBox="0 0 1920 1080">
           <path fill="#4a0600" d="M1255.3 248.3C1255.3 417.0 1118.6 553.7 950.0 553.7C781.3 553.7 644.6 417.0 644.6 248.3Z"/>
-          <path fill="#171b33" d="M1136.8 247.9L1255.3 247.9L1218.0 148.7L1099.5 148.7Z"/>
-          <path fill="#171b33" d="M755.9 248.3L644.6 248.3L671.2 177.6L782.5 177.6Z"/>
           <path fill="#ffe600" stroke="#000" stroke-width="2" d="M972.3 515.2L978.0 533.1L980.5 514.5L992.6 521.3L983.9 510.6L1005.5 504.5L983.2 502.2L989.9 490.2L979.2 498.9L973.4 481.1L970.9 499.7L958.8 492.9L967.5 503.5L945.9 509.7L968.2 512.0L961.5 524.0Z"/>
         </svg>
         <img class="arc" src="assets/arc.png" alt="">
@@ -68,23 +81,17 @@
       </div>
       <button class="eye" id="eye" aria-label="Blink">
         <img class="ball" src="assets/ball.png" alt="">
-        <svg class="lids" viewBox="0 0 100 100" aria-hidden="true">
+        <svg class="blink" viewBox="0 0 100 100" aria-hidden="true">
           <defs>
-            <clipPath id="eye-clip"><circle cx="50" cy="50" r="47.6"/></clipPath>
-            <linearGradient id="lid-up" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d2608"/><stop offset=".7" stop-color="#1f4a12"/><stop offset="1" stop-color="#3a6b1c"/></linearGradient>
-            <linearGradient id="lid-dn" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#0d2608"/><stop offset=".7" stop-color="#1f4a12"/><stop offset="1" stop-color="#3a6b1c"/></linearGradient>
-            <linearGradient id="nict" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#e9e4c4" stop-opacity=".25"/><stop offset=".8" stop-color="#e9e4c4" stop-opacity=".62"/><stop offset="1" stop-color="#fff8d8" stop-opacity=".85"/></linearGradient>
-            <radialGradient id="scale-fill" cx=".5" cy=".25" r=".8"><stop offset="0" stop-color="#7fae3e" stop-opacity=".55"/><stop offset=".6" stop-color="#3f7322" stop-opacity=".35"/><stop offset="1" stop-color="#0d2608" stop-opacity=".2"/></radialGradient>
-            <pattern id="scales" width="8" height="7" patternUnits="userSpaceOnUse">
-              <g id="scl"><path d="M0 0 Q0 5.2 4 7 Q8 5.2 8 0 Z" fill="url(#scale-fill)"/><path d="M0 0 Q0 5.2 4 7 Q8 5.2 8 0" fill="none" stroke="#a9d36a" stroke-opacity=".55" stroke-width=".45"/><path d="M.9 .4 Q1.2 4.4 4 5.9" fill="none" stroke="#06150a" stroke-opacity=".45" stroke-width=".5"/></g>
-              <use href="#scl" x="-4" y="-3.5"/><use href="#scl" x="4" y="-3.5"/><use href="#scl" x="-4" y="3.5"/><use href="#scl" x="4" y="3.5"/>
-            </pattern>
+            <clipPath id="eye-clip"><circle cx="50" cy="50" r="48.6"/></clipPath>
+            <mask id="eye-open" maskUnits="userSpaceOnUse" x="-10" y="-10" width="120" height="120"><rect x="-10" y="-10" width="120" height="120" fill="#fff"/><path id="eye-hole" fill="#000" d="M-20 50 Q50 -60 120 50 Q50 160 -20 50Z"/></mask>
+            <pattern id="eye-scales" width="11" height="20.5" patternUnits="userSpaceOnUse"><rect width="11" height="20.5" fill="#154f02"/><image href="assets/scales.png" width="11" height="20.5"/></pattern>
           </defs>
           <g clip-path="url(#eye-clip)">
-            <g class="nict"><path d="M-60 -2 H8 Q22 50 8 102 H-60 Z" fill="url(#nict)"/><path d="M8 -2 Q22 50 8 102" fill="none" stroke="#fff8d8" stroke-opacity=".9" stroke-width="1.2"/></g>
-            <g class="lid up"><path d="M-4 -70 H104 V40 Q50 58 -4 40 Z" fill="url(#lid-up)"/><path d="M-4 -70 H104 V40 Q50 58 -4 40 Z" fill="url(#scales)"/><path d="M-4 40 Q50 58 104 40" fill="none" stroke="#ab9d1d" stroke-width="2"/></g>
-            <g class="lid dn"><path d="M-4 170 H104 V60 Q50 42 -4 60 Z" fill="url(#lid-dn)"/><path d="M-4 170 H104 V60 Q50 42 -4 60 Z" fill="url(#scales)"/><path d="M-4 60 Q50 42 104 60" fill="none" stroke="#ab9d1d" stroke-width="2"/></g>
+            <g mask="url(#eye-open)"><rect x="-2" y="-2" width="104" height="104" fill="url(#eye-scales)"/></g>
+            <path id="eye-rim" fill="none" stroke="#000" stroke-width="2.4" d="M-20 50 Q50 -60 120 50 Q50 160 -20 50Z"/>
           </g>
+          <circle cx="50" cy="50" r="48.6" fill="none" stroke="#000" stroke-width="2.2" id="eye-ring" opacity="0"/>
         </svg>
       </button>
     </div>
@@ -93,15 +100,18 @@
   <div id="loadbar"><i></i></div>
 
   <div id="titlebar">
-    <svg class="rib" viewBox="0 0 523 139"><use href="#rib" fill="#4a0600"/></svg>
+    <img class="fball" src="assets/football.webp" alt="">
+    <svg class="rib" id="tb-rib" viewBox="0 0 523 139" preserveAspectRatio="none"><path fill="#4a0600" stroke="#000" stroke-width="3" d="M0 0H523L490.5 64.9C489.1 67.7 489.1 71 490.5 73.8L523 139H0Z"/></svg>
     <div class="side l" id="tb-left"></div>
     <div class="side r" id="tb-right"></div>
     <div class="t" id="tb-title"></div>
+    <div class="subline" id="tb-sub"></div>
   </div>
 
   <div class="dd" id="league-dd">
     <div class="box">
       <div class="list" role="listbox" aria-label="League" id="league-list"></div>
+      <span class="capbox"></span>
       <img class="caret" src="assets/caret.svg" alt="">
     </div>
   </div>
@@ -109,10 +119,11 @@
   <main id="pages">
     <!-- HOME -->
     <section class="page" data-page="home" aria-label="Home">
-      <button class="hbtn left" style="left:-33px;top:633px" data-go="team"><svg viewBox="0 0 523 139"><use href="#rib" fill="#4a0600"/></svg><span>My Team</span></button>
-      <button class="hbtn" style="left:699px;top:633px" data-go="projections"><svg viewBox="0 0 523 139"><use href="#rib" fill="#4a0600"/></svg><span>Weekly Rankings</span></button>
-      <button class="hbtn left" style="left:-33px;top:847px" data-go="trade"><svg viewBox="0 0 523 139"><use href="#rib" fill="#4a0600"/></svg><span>Trade Analyzer</span></button>
-      <button class="hbtn" style="left:699px;top:847px" data-go="ros"><svg viewBox="0 0 523 139"><use href="#rib" fill="#4a0600"/></svg><span>Rest of Season Rankings</span></button>
+      <button class="hbtn left" style="left:-40px;top:633px" data-go="team"><svg viewBox="0 0 523 139"><use href="#rib" fill="#4a0600"/></svg><span>My Team</span></button>
+      <button class="hbtn" style="left:560px;top:633px" data-go="projections"><svg viewBox="0 0 523 139"><use href="#rib" fill="#4a0600"/></svg><span>Weekly Rankings</span></button>
+      <button class="hbtn left" style="left:-40px;top:847px" data-go="trade"><svg viewBox="0 0 523 139"><use href="#rib" fill="#4a0600"/></svg><span>Trade Analyzer</span></button>
+      <button class="hbtn" style="left:560px;top:847px" data-go="ros"><svg viewBox="0 0 523 139"><use href="#rib" fill="#4a0600"/></svg><span>Rest of Season Rankings</span></button>
+      <button class="hbtn blue" style="left:1152px;top:729px" data-go="league"><svg viewBox="0 0 523 139"><use href="#rib" fill="#445ec2"/></svg><span>League View</span></button>
     </section>
 
     <!-- MY TEAM -->
@@ -175,13 +186,58 @@
       <div class="note-line" id="rr-note" style="left:100px;top:1034px"></div>
     </section>
 
+    <!-- LEAGUE VIEW -->
+    <section class="page" data-page="league" aria-label="League View">
+      <div class="pn" style="--i:0;left:60px;top:285px;width:1130px;height:770px">
+        <h2 style="left:26px;top:4px">Standings</h2>
+        <div class="sub" id="lv-sub" style="left:290px;top:30px;font-size:22px;color:#e8e2dc"></div>
+        <div class="paper" style="left:18px;top:84px;width:1094px;height:666px">
+          <div class="sc hx" id="lv-sc" style="inset:0"><table class="lv-table" id="lv-table"><thead></thead><tbody></tbody></table></div>
+        </div>
+      </div>
+      <div class="pn" style="--i:1;left:1220px;top:285px;width:640px;height:770px">
+        <h2 style="left:26px;top:4px">Matchups</h2>
+        <div id="lv-weeks" style="position:absolute;left:24px;top:88px;right:24px;display:flex;flex-wrap:wrap;gap:8px 0"></div>
+        <div class="paper" style="left:18px;top:190px;width:572px;height:560px">
+          <div class="sc" id="lv-msc" style="inset:0"><div id="lv-m"></div></div>
+        </div>
+        <div class="arrowbar slim" data-for="lv-msc" style="left:596px;top:190px;height:560px"></div>
+      </div>
+    </section>
+
     <!-- TRADE ANALYZER -->
     <section class="page" data-page="trade" aria-label="Trade Analyzer">
-      <div class="pn" style="--i:0;left:49px;top:169px;width:612px;height:581px" id="ta-side-mine"></div>
-      <div class="pn" style="--i:0;left:1261px;top:166px;width:612px;height:581px" id="ta-side-theirs"></div>
-      <div class="paper" style="left:680px;top:438px;width:562px;height:542px" id="ta-center"></div>
-      <div class="pn" style="--i:2;left:49px;top:765px;width:612px;height:286px;background:#4a0600" id="ta-lu-mine"></div>
-      <div class="pn" style="--i:2;left:1261px;top:765px;width:612px;height:286px;background:#4a0600" id="ta-lu-theirs"></div>
+      <div class="tp-scroll" id="tp-scroll">
+        <div class="tp-inner">
+          <div class="pn" style="--i:0;left:95px;top:23px;width:812px;height:771px" id="ta-side-mine"></div>
+          <div class="pn" style="--i:0;left:1022px;top:23px;width:812px;height:771px" id="ta-side-theirs"></div>
+          <div class="tp-rib" style="left:698px;top:836px"><svg viewBox="0 0 523 139"><use href="#rib" fill="#4a0600"/></svg><span>Trade Analysis</span></div>
+          <div class="paper" style="left:95px;top:1010px;width:1739px;height:560px" id="ta-center"></div>
+          <div class="pn" style="--i:2;left:95px;top:1600px;width:812px;height:330px;--pn-bg:#4a0600" id="ta-lu-mine"></div>
+          <div class="pn" style="--i:2;left:1022px;top:1600px;width:812px;height:330px;--pn-bg:#4a0600" id="ta-lu-theirs"></div>
+          <div class="tp-rib" id="finder" style="left:698px;top:1972px"><svg viewBox="0 0 523 139"><use href="#rib" fill="#4a0600"/></svg><span>Trade Finder</span></div>
+          <div class="mp-frame pn tp-finder" style="left:95px;top:2146px;width:1739px;height:auto;min-height:300px;position:absolute"><div class="mp" style="padding:20px"><div class="nf-panel" id="mp-finder"><div class="nf-card" id="team-trades-card">
+      <h2>Trade finder</h2>
+      <p class="nf-note"><b>Win-win</b>: trades that make your best weekly lineup better <b>and</b> theirs too.
+      <b>Fleece</b>: trades that help you and actually hurt them, but look good to them going by market value (the
+      experts' rest-of-season ranks and, where available, what real fantasy trades pay). <b>Long shots</b>: trades that
+      hurt them a lot but look roughly fair on market value — the ones a manager who doesn't dig into the numbers
+      might accept. "Looks like" is their change going by market value; "Them / wk" is what our model says it really does. Values are rest-of-season points per week in this
+      league's scoring (missed games count as zero), filled into each team's lineup slots before and after the trade.
+      One-for-one, two-for-one and one-for-two; for uneven trades the side getting two players has to drop someone, which
+      isn't counted. Open the Trade analyzer to check a trade in full.</p>
+      <div class="nf-controls" id="team-trade-mode" role="group" aria-label="Trade type"></div>
+      <div class="nf-controls" id="team-trade-kind" role="group" aria-label="Trade size"></div>
+      <div class="nf-tablebox">
+        <table class="nf-table" id="team-trade-table">
+          <thead><tr><th class="nf-l">You give</th><th class="nf-l">You get</th><th class="nf-l">With</th><th>You / wk</th><th>Them / wk</th><th>Looks like to them</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div></div></div></div>
+        </div>
+      </div>
+      <div class="arrowbar" data-for="tp-scroll" style="left:1866px;top:280px;height:780px"></div>
     </section>
 
     <!-- MORE pages: the full dashboard sections in the same dress -->
@@ -487,25 +543,6 @@
       <p class="nf-muted">Known limits: coverage and personnel charting for the current season isn't published until after it (those inputs hold last season's values, in the backtest too); historical Vegas lines and weather are closing / actual values (removing Vegas lines entirely costs only 0.004 R², so the effect is small); historical injury reports are final Friday reports, so a Thursday run treats a midweek DNP or limited practice as Questionable until the final report posts. Tested and left out (no gain beyond noise): trend features, second-half role, slot proxies, team-first volume, backup-QB interactions, injury type, a rookie combine profile, recency weighting, and removing the expert rank from the model.</p>
     </div>
   </div></div></div><div class="arrowbar"></div></div></section>
-    <section class="page more league" data-page="finder" data-title="Trade Finder"><div class="mp-frame pn"><div class="sc mp-scroll"><div class="mp"><div class="nf-panel" id="mp-finder"><div class="nf-card" id="team-trades-card">
-      <h2>Trade finder</h2>
-      <p class="nf-note"><b>Win-win</b>: trades that make your best weekly lineup better <b>and</b> theirs too.
-      <b>Fleece</b>: trades that help you and actually hurt them, but look good to them going by market value (the
-      experts' rest-of-season ranks and, where available, what real fantasy trades pay). <b>Long shots</b>: trades that
-      hurt them a lot but look roughly fair on market value — the ones a manager who doesn't dig into the numbers
-      might accept. "Looks like" is their change going by market value; "Them / wk" is what our model says it really does. Values are rest-of-season points per week in this
-      league's scoring (missed games count as zero), filled into each team's lineup slots before and after the trade.
-      One-for-one, two-for-one and one-for-two; for uneven trades the side getting two players has to drop someone, which
-      isn't counted. Open the Trade analyzer to check a trade in full.</p>
-      <div class="nf-controls" id="team-trade-mode" role="group" aria-label="Trade type"></div>
-      <div class="nf-controls" id="team-trade-kind" role="group" aria-label="Trade size"></div>
-      <div class="nf-tablebox">
-        <table class="nf-table" id="team-trade-table">
-          <thead><tr><th class="nf-l">You give</th><th class="nf-l">You get</th><th class="nf-l">With</th><th>You / wk</th><th>Them / wk</th><th>Looks like to them</th></tr></thead>
-          <tbody></tbody>
-        </table>
-      </div>
-    </div></div></div></div><div class="arrowbar"></div></div></section>
     <section class="page more league" data-page="lineup" data-title="Lineup Details"><div class="mp-frame pn"><div class="sc mp-scroll"><div class="mp"><div class="nf-panel" id="mp-lineup"><div class="nf-controls hide-here" id="team-leagues" role="group" aria-label="League"></div><p class="mp-intro">The full start / sit and waiver tables behind the My Team page: the Vegas line, notes where your Yahoo lineup differs from the best one, close calls, and each free agent's upgrade over your weakest player.</p><div class="nf-card" id="team-lineup-card">
         <h2 id="team-lineup-title">Start / sit</h2>
         <p class="nf-note">Your best lineup this week from the weekly projections in this league's scoring, filled slot by
@@ -1292,7 +1329,7 @@ dash.onData(() => {
     });
   }
   // ---------------------------------------------------------------- trade finder
-  const tst = { kind: 'All', mode: 'Win-win' }, kindBox = document.getElementById('team-trade-kind'), modeBox = document.getElementById('team-trade-mode');
+  const tst = { kind: 'All', mode: 'Fleece' }, kindBox = document.getElementById('team-trade-kind'), modeBox = document.getElementById('team-trade-mode');
   ['Win-win', 'Fleece', 'Long shots'].forEach((k) => {
     const b = document.createElement('button'); b.className = 'nf-chip'; b.textContent = k; b.setAttribute('aria-pressed', k === tst.mode);
     b.addEventListener('click', () => { tst.mode = k; modeBox.querySelectorAll('button').forEach((c) => c.setAttribute('aria-pressed', c.textContent === k)); drawTrades(); });

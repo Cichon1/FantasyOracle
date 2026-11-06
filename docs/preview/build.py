@@ -82,6 +82,8 @@ patch("""  function render() {
       """  function render() { renderCore(); if (window.foOnTrade) window.foOnTrade(); }
   function renderCore() {
     const R = dash.data('league_rosters'), L = dash.data('leagues'), P = dash.data('ros'), LP = dash.data('league_players'), TM = dash.data('trade_market');""")
+# 3b. the trade finder (now on the Trade Analyzer page) opens on Fleece
+patch("""  const tst = { kind: 'All', mode: 'Win-win' }""", """  const tst = { kind: 'All', mode: 'Fleece' }""")
 # 4. chart tooltips: the stage is zoomed, so pointer offsets are divided by the zoom
 patch("""      const r = box.getBoundingClientRect();
       let x = ev.clientX - r.left + 12, y = ev.clientY - r.top + 12;""", """      const z = window.foScale || 1, r0 = box.getBoundingClientRect(), r = { left: r0.left, top: r0.top, width: r0.width / z, height: r0.height / z };

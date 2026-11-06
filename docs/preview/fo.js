@@ -115,13 +115,42 @@
     moreNav.style.setProperty('--hopen', ($('#more-list').offsetHeight + 150) + 'px');
   }
   moreBtn.addEventListener('click', (e) => { e.stopPropagation(); const o = !moreNav.classList.contains('open'); closeMenus(moreNav); setMore(o); });
-  document.addEventListener('click', (e) => { const a = e.target.closest('[data-go]'); if (a) { e.preventDefault(); setMore(false); go(a.dataset.go); } });
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('[data-go]'); if (!a) return;
+    e.preventDefault(); setMore(false); go(a.dataset.go);
+    if (a.dataset.anchor) setTimeout(() => { const t = document.getElementById(a.dataset.anchor), sc = t && t.closest('.tp-scroll'); if (sc) sc.scrollTo({ top: t.offsetTop - 20, behavior: 'smooth' }); }, 450);
+  });
 
   // ================================================================ the eye blinks like a lizard when clicked
   const eye = $('#eye');
-  const blink = () => { eye.classList.remove('blink'); void eye.offsetWidth; eye.classList.add('blink'); };
+  const hole = $('#eye-hole'), rim = $('#eye-rim'), ring = $('#eye-ring');
+  const almond = (cy, hw, hh) => `M${50 - hw} ${cy} Q50 ${cy - 2 * hh} ${50 + hw} ${cy} Q50 ${cy + 2 * hh} ${50 - hw} ${cy}Z`;
+  const OPEN = [50, 72, 78];                  // centre y, half width, half height: lids pulled back past the edge
+  const setEye = (cy, hw, hh) => { const d = almond(cy, hw, hh); hole.setAttribute('d', d); rim.setAttribute('d', d); };
+  setEye(...OPEN);
+  const ease = (t) => (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2), easeIn = (t) => t * t * t, easeOut = (t) => 1 - Math.pow(1 - t, 3);
+  const lerp = (a, b, t) => a.map((x, i) => x + (b[i] - x) * t);
+  let blinking = false;
+  function blink() {
+    if (blinking) return; blinking = true; ring.setAttribute('opacity', '1');
+    const SHUT = [57, 40, 0], SLIT = [60, 36, 1.5];
+    const steps = [                            // [from, to, ms, easing]
+      [OPEN, SHUT, 210, easeIn],               // lids snap shut
+      [SHUT, SHUT, 170, (t) => t],             // closed
+      [SHUT, SLIT, 120, ease],                 // a seam opens low on the eye
+      [SLIT, [48, 50, 20], 230, ease],         // the almond widens
+      [[48, 50, 20], OPEN, 330, easeOut]       // and the lids roll back
+    ];
+    let i = 0, t0 = performance.now();
+    const tick = (now) => {
+      const [a, b, ms, f] = steps[i], t = Math.min(1, (now - t0) / ms);
+      setEye(...lerp(a, b, f(t)));
+      if (t >= 1) { i++; t0 = now; if (i >= steps.length) { setEye(...OPEN); ring.setAttribute('opacity', '0'); blinking = false; return; } }
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
   eye.addEventListener('click', (e) => { e.stopPropagation(); closeMenus(null); blink(); });
-  eye.addEventListener('animationend', (e) => { if (e.animationName === 'fo-nict') eye.classList.remove('blink'); });
 
   // ================================================================ long explanations fold away behind a "+"
   const KEEP = new Set(['ta-value-sum', 'ta-headline-sub', 'team-lineup-meta', 'ta-draft-rule', 'ta-draft-sum']);
@@ -140,7 +169,7 @@
   }
   function foldAll() {
     // notes that explain a card: the "+" sits at the end of the card's heading
-    $$('.page.more .mp p.nf-note, .page.more .mp p.nf-take, .page.more .mp p.mp-intro').forEach((p) => {
+    $$('.page .mp p.nf-note, .page .mp p.nf-take, .page .mp p.mp-intro').forEach((p) => {
       if (KEEP.has(p.id) || p.closest('.fold-done')) return;
       let prev = p.previousElementSibling;
       while (prev && prev.classList.contains('fold-hide')) prev = prev.previousElementSibling;
@@ -156,7 +185,7 @@
       }
     });
     // "how it works" cards: everything after the heading
-    $$('.page.more .mp .nf-method').forEach((c) => {
+    $$('.page .mp .nf-method').forEach((c) => {
       const h2 = c.querySelector('h2'); if (!h2 || h2.querySelector('.plus')) return;
       h2.append(plusBtn('', [...c.children].filter((x) => x !== h2)));
     });
@@ -171,28 +200,30 @@
     });
   }
   foldAll();
+  // card titles stay on one line: long ones get smaller (never under 24px)
+  function fitTitles(root) {
+    $$('.mp .nf-card > h2', root).forEach((t) => {
+      t.style.fontSize = '';
+      let fs = parseFloat(getComputedStyle(t).fontSize);
+      while (t.scrollWidth > t.clientWidth + 1 && fs > 24) { fs -= 1; t.style.fontSize = fs + 'px'; }
+    });
+  }
 
   // ================================================================ arrow scrollbars
   const BARS = [];
   function arrowbar(bar, sc) {
     const thumb = h('div', { class: 'thumb' });
-    const svgNS = 'http://www.w3.org/2000/svg';
-    const svg = document.createElementNS(svgNS, 'svg');
-    bar.append(svg, thumb);
-    const draw = () => {
-      const H = bar.clientHeight || 300;
-      svg.setAttribute('viewBox', `0 0 44 ${H}`);
-      svg.innerHTML = `<line x1="22" y1="18" x2="22" y2="${H - 18}" stroke="#262525" stroke-width="3.5"/>`
-        + `<path d="M22 0 L33 22 L22 16 L11 22 Z" fill="#262525"/>`
-        + `<path d="M22 ${H} L33 ${H - 22} L22 ${H - 16} L11 ${H - 22} Z" fill="#262525"/>`
-        + [0.62, 0.72, 0.82].map((f) => `<path d="M22 ${H * f} L36 ${H * f + 16} L36 ${H * f + 25} L22 ${H * f + 9} L8 ${H * f + 25} L8 ${H * f + 16} Z" fill="#262525" opacity=".9"/>`).join('');
-    };
+    const slim = bar.classList.contains('slim'), E = slim ? 30 : 36;   // room taken by each end button
+    bar.append(h('div', { class: 'track' }), thumb,
+      h('div', { class: 'end up', title: 'Scroll up' }, h('img', { src: 'assets/needle-black.png', alt: '' })),
+      h('div', { class: 'end dn', title: 'Scroll down' }, h('img', { src: 'assets/needle-brown.png', alt: '' })));
+    const draw = () => {};
     const upd = () => {
       const H = bar.clientHeight, sh = sc.scrollHeight, ch = sc.clientHeight;
       if (!H) return;
       if (sh <= ch + 2) { bar.classList.add('off'); return; }
       bar.classList.remove('off');
-      const track = H - 52, th = Math.max(42, track * ch / sh), y = 26 + (track - th) * (sc.scrollTop / (sh - ch));
+      const track = H - 2 * E - 4, th = Math.max(40, track * ch / sh), y = E + 2 + (track - th) * (sc.scrollTop / (sh - ch));
       thumb.style.height = th + 'px'; thumb.style.top = y + 'px';
     };
     sc.addEventListener('scroll', upd, { passive: true });
@@ -200,7 +231,7 @@
     thumb.addEventListener('pointerdown', (e) => { e.preventDefault(); e.stopPropagation(); thumb.setPointerCapture(e.pointerId); drag = { y: e.clientY, st: sc.scrollTop }; });
     thumb.addEventListener('pointermove', (e) => {
       if (!drag) return; const s = window.foScale || 1, H = bar.clientHeight, th = thumb.offsetHeight;
-      const ratio = (sc.scrollHeight - sc.clientHeight) / Math.max(1, H - 52 - th);
+      const ratio = (sc.scrollHeight - sc.clientHeight) / Math.max(1, H - 2 * E - 4 - th);
       sc.scrollTop = drag.st + (e.clientY - drag.y) / s * ratio;
     });
     thumb.addEventListener('pointerup', () => { drag = null; });
@@ -208,8 +239,8 @@
       if (e.target === thumb) return;
       const s = window.foScale || 1, r = bar.getBoundingClientRect(), y = (e.clientY - r.top) / s;
       const H = bar.clientHeight;
-      if (y < 30) sc.scrollBy({ top: -sc.clientHeight * 0.4, behavior: 'smooth' });
-      else if (y > H - 30) sc.scrollBy({ top: sc.clientHeight * 0.4, behavior: 'smooth' });
+      if (y < E) sc.scrollBy({ top: -sc.clientHeight * 0.4, behavior: 'smooth' });
+      else if (y > H - E) sc.scrollBy({ top: sc.clientHeight * 0.4, behavior: 'smooth' });
       else sc.scrollBy({ top: (y < thumb.offsetTop ? -1 : 1) * sc.clientHeight * 0.85, behavior: 'smooth' });
     });
     const ro = new ResizeObserver(() => { draw(); upd(); });
@@ -219,16 +250,46 @@
     BARS.push(upd);
     return upd;
   }
+  function hbar(sc) {
+    const paper = sc.closest('.paper'); if (!paper) return;
+    const bar = h('div', { class: 'hbar' }), thumb = h('div', { class: 'thumb' });
+    bar.append(h('div', { class: 'track' }), thumb, h('div', { class: 'end l', title: 'Scroll left' }, h('img', { src: 'assets/needle-black.png', alt: '' })), h('div', { class: 'end r', title: 'Scroll right' }, h('img', { src: 'assets/needle-brown.png', alt: '' })));
+    paper.after(bar);
+    const place = () => { bar.style.left = paper.offsetLeft + 'px'; bar.style.width = paper.offsetWidth + 'px'; bar.style.top = (paper.offsetTop + paper.offsetHeight + 6) + 'px'; };
+    const upd = () => {
+      place();
+      const W = bar.clientWidth, sw = sc.scrollWidth, cw = sc.clientWidth;
+      if (!W || sw <= cw + 2) { bar.classList.add('off'); return; }
+      bar.classList.remove('off');
+      const track = W - 76, tw = Math.max(60, track * cw / sw), x = 38 + (track - tw) * (sc.scrollLeft / (sw - cw));
+      thumb.style.width = tw + 'px'; thumb.style.left = x + 'px';
+    };
+    sc.addEventListener('scroll', upd, { passive: true });
+    let drag = null;
+    thumb.addEventListener('pointerdown', (e) => { e.preventDefault(); e.stopPropagation(); thumb.setPointerCapture(e.pointerId); drag = { x: e.clientX, sl: sc.scrollLeft }; });
+    thumb.addEventListener('pointermove', (e) => { if (!drag) return; const s = window.foScale || 1; const ratio = (sc.scrollWidth - sc.clientWidth) / Math.max(1, bar.clientWidth - 76 - thumb.offsetWidth); sc.scrollLeft = drag.sl + (e.clientX - drag.x) / s * ratio; });
+    thumb.addEventListener('pointerup', () => { drag = null; });
+    bar.addEventListener('pointerdown', (e) => {
+      if (e.target === thumb) return;
+      const s = window.foScale || 1, r = bar.getBoundingClientRect(), x = (e.clientX - r.left) / s;
+      sc.scrollBy({ left: (x < thumb.offsetLeft ? -1 : 1) * sc.clientWidth * 0.6, behavior: 'smooth' });
+    });
+    const ro = new ResizeObserver(upd); ro.observe(sc); if (sc.firstElementChild) ro.observe(sc.firstElementChild);
+    new MutationObserver(() => requestAnimationFrame(upd)).observe(sc, { childList: true, subtree: true });
+    upd(); BARS.push(upd);
+  }
+  $$('.sc.hx').forEach(hbar);
   $$('.arrowbar').forEach((bar) => {
     const sc = bar.dataset.for ? document.getElementById(bar.dataset.for) : bar.parentElement.querySelector('.sc');
     if (sc) arrowbar(bar, sc);
   });
 
   // ================================================================ pages and transitions
-  const ORDER = ['home', 'team', 'projections', 'ros', 'trade', 'matchups', 'style', 'weather', 'experts', 'model', 'finder', 'lineup', 'tradedetails', 'weekly', 'rosdetails', 'history'];
+  const ORDER = ['home', 'team', 'projections', 'ros', 'trade', 'league', 'matchups', 'style', 'weather', 'experts', 'model', 'lineup', 'tradedetails', 'weekly', 'rosdetails', 'history'];
   const PAGES = {
     home: { title: '' }, team: { title: 'My Team', league: true }, projections: { title: 'Weekly Rankings', league: true },
-    ros: { title: 'Rest of Season Rankings', league: true, long: true }, trade: { title: 'Trade Analyzer', league: true }
+    ros: { title: 'Rest of Season Rankings', league: true, long: true }, trade: { title: 'Trade Analyzer', league: true },
+    league: { title: 'League View', league: true }
   };
   $$('.page.more').forEach((p) => { PAGES[p.dataset.page] = { title: p.dataset.title, league: p.classList.contains('league'), long: p.dataset.title.length > 15 }; });
   const RENDER = {};
@@ -238,8 +299,15 @@
   const sides = {};
   function setTitle(id) {
     const P = PAGES[id] || {};
-    const t = $('#tb-title'); t.textContent = P.title || ''; t.classList.toggle('long', !!P.long || (P.title || '').length > 16);
-    $('#tb-left').textContent = (sides[id] && sides[id][0]) || ''; $('#tb-left').classList.toggle('long', $('#tb-left').textContent.length > 18); $('#tb-right').textContent = (sides[id] && sides[id][1]) || '';
+    const t = $('#tb-title'); t.textContent = P.title || ''; t.classList.remove('long');
+    const sub = sides[id] ? sides[id].slice().reverse().filter(Boolean).join('  ·  ') : '';
+    $('#tb-sub').textContent = sub; t.classList.toggle('two', !!sub);
+    // the ribbon grows with the title; it never gets narrower than the design's 523px
+    const w = Math.max(523, Math.ceil(t.scrollWidth) + 70 + 70);
+    $('#titlebar').style.setProperty('--tw', w + 'px');
+    const W = w;
+    $('#tb-rib').setAttribute('viewBox', `0 0 ${W} 139`);
+    $('#tb-rib path').setAttribute('d', `M0 0H${W}L${W - 32.5} 64.9C${W - 33.9} 67.7 ${W - 33.9} 71 ${W - 32.5} 73.8L${W} 139H0Z`);
   }
   window.foSides = (id, l, r) => { sides[id] = [l, r]; if (cur === id && !$('#titlebar').classList.contains('swap')) setTitle(id); };
   function go(id, opts = {}) {
@@ -267,6 +335,7 @@
     n.classList.remove('leave'); n.classList.add('on');
     if (opts.anim !== false) { n.classList.remove('enter', 'back'); void n.offsetWidth; n.classList.add('enter'); if (back) n.classList.add('back'); setTimeout(() => n.classList.remove('enter', 'back'), 1100); }
     renderPage(id);
+    setTimeout(() => fitTitles(n), 30);
     const hook = { weather: 'weather', model: 'model', style: 'style', experts: 'experts', rosdetails: 'ros' }[id];
     if (hook) setTimeout(() => { const b = document.querySelector('#tabhooks [data-tab="' + hook + '"]'); if (b) b.click(); }, 80);
     setTimeout(() => { window.dispatchEvent(new Event('resize')); BARS.forEach((u) => u()); }, 60);
@@ -599,8 +668,8 @@
     if (!sorted.length) frag.append(h('tr', null, h('td', { class: 'empty', colspan: cols.length }, st.empty || 'No players match.')));
     tbody.replaceChildren(frag);
   }
-  const bar = (lo, mid, hi, act, max) => {
-    const b = h('span', { class: 'bar' }), x = (v) => Math.max(0, Math.min(100, 100 * v / max));
+  const bar = (lo, mid, hi, act, max, pos) => {
+    const b = h('span', { class: 'bar ' + (pos || '') + (has(act) && has(mid) ? (num(act) >= num(mid) ? ' up' : ' dn') : '') }), x = (v) => Math.max(0, Math.min(100, 100 * v / max));
     if (has(lo) && has(hi)) b.append(h('i', { style: `left:${x(lo)}%;width:${Math.max(1.5, x(hi) - x(lo))}%` }));
     if (has(mid)) b.append(h('b', { style: `left:${x(mid)}%` }));
     if (has(act)) b.append(h('u', { style: `left:${x(act)}%`, title: 'Actual' }));
@@ -647,7 +716,7 @@
       { k: 'opp', label: 'Opp', asc: true, v: (o) => o.r.opp, f: (o) => (o.r.venue === 'Home' ? '' : '@') + o.r.opp },
       { k: 'injury', label: 'Injury', asc: true, v: (o) => o.r.injury || '', f: (o, td) => injCell(o.r.injury, td), w: 140 },
       { k: 'lo', label: 'Low', g: 'g1', v: (o) => o.lo, f: (o) => (isNaN(o.lo) ? '—' : f1(o.lo)) },
-      { k: 'pts', label: 'Proj PPR', g: 'g1', v: (o) => o.pts, f: (o) => h('span', null, bar(o.lo, o.pts, o.hi, o.r.act_ppr, max), h('span', { class: 'pv' }, f1(o.pts))), w: 230 },
+      { k: 'pts', label: 'Proj PPR', g: 'g1', v: (o) => o.pts, f: (o) => h('span', null, bar(o.lo, o.pts, o.hi, o.r.act_ppr, max, o.r.pos), h('span', { class: 'pv' }, f1(o.pts))), w: 230 },
       { k: 'hi', label: 'High', g: 'g1', v: (o) => o.hi, f: (o) => (isNaN(o.hi) ? '—' : f1(o.hi)) },
       { k: 'act', label: 'Actual', g: 'g2', v: nv('act_ppr'), f: n('act_ppr', f1) },
       { k: 'vs', label: '+/-', g: 'g2', v: nv('vs_proj'), f: (o, td) => { const v = num(o.r.vs_proj, NaN); if (isNaN(v)) return '—'; td.classList.add(v >= 0 ? 'good' : 'bad'); return sg1(v); } },
@@ -721,7 +790,7 @@
       { k: 'pos', label: 'Pos', asc: true, v: (o) => o.r.pos, f: (o) => chip(o.r.pos, o.r.pos, 'sm') },
       { k: 'injury', label: 'Injury', asc: true, v: (o) => o.r.injury || '', f: (o, td) => injCell(o.r.injury || (/IR|reserve/i.test(o.r.status) ? o.r.status : ''), td), w: 140 },
       { k: 'lo', label: 'Low', g: 'g1', v: (o) => o.lo, f: (o) => f0(o.lo) },
-      { k: 'pts', label: 'ROS PPR', g: 'g1', v: (o) => o.pts, f: (o) => h('span', null, bar(o.lo, o.pts, o.hi, null, max), h('span', { class: 'pv' }, f1(o.pts))), w: 230 },
+      { k: 'pts', label: 'ROS PPR', g: 'g1', v: (o) => o.pts, f: (o) => h('span', null, bar(o.lo, o.pts, o.hi, null, max, o.r.pos), h('span', { class: 'pv' }, f1(o.pts))), w: 230 },
       { k: 'hi', label: 'High', g: 'g1', v: (o) => o.hi, f: (o) => f0(o.hi) },
       { k: 'cr', label: 'Current rk', g: 'g2', v: (o) => (o.cr == null ? NaN : -o.cr), f: (o) => (o.cr == null ? '—' : o.r.pos + o.cr) },
       { k: 'pm', label: '+/-', g: 'g2', v: (o) => (o.cr == null ? NaN : o.cr - o.rank), f: (o, td) => (o.cr == null ? '—' : updn(o.cr - o.rank, td)) },
@@ -812,7 +881,7 @@
   };
 
   // ================================================================ TRADE ANALYZER
-  window.foOnTrade = () => { if (cur === 'trade') RENDER.trade(); else dirty.add('trade'); };
+  window.foOnTrade = () => { if (cur === 'trade') RENDER.trade(); else if (cur === 'league') RENDER.league(); else dirty.add('trade'); };
   const teamDD = {};
   let lastX = null;   // the box just checked: only that X is drawn in
   function tradeSide(side, T) {
@@ -821,53 +890,55 @@
     if (!box.dataset.built) {
       box.dataset.built = '1';
       box.append(
-        h('div', { class: 'ta-head' }, h('div', { class: 'nm' }), h('div', { class: 'rec' }), h('div', { class: 'pw', style: 'left:391px' })),
-        h('div', { class: 'dd ta-dd', style: 'left:17px;top:10px;width:577px;--hc:41px' }, h('div', { class: 'box', style: 'background:transparent;box-shadow:none' }, h('div', { class: 'list' }), h('img', { class: 'caret', src: 'assets/caret.svg', alt: '' }))),
-        h('div', { class: 'paper', style: 'left:17px;top:71px;width:577px;height:499px' },
-          h('div', { class: 'gt th', style: 'left:0;right:0;top:0;height:42px' }),
-          h('div', { class: 'sc', style: 'left:0;right:0;top:42px;bottom:0' }, h('div', { class: 'gt tv', style: 'left:0;right:0;top:0' }))),
-        h('div', { class: 'arrowbar', style: 'left:570px;top:113px;height:457px' }));
+        h('div', { class: 'paper ta-head', style: 'position:absolute' }, h('div', { class: 'nm' }), h('div', { class: 'rec' }), h('div', { class: 'pw', style: 'left:600px' })),
+        h('div', { class: 'dd ta-dd', style: 'left:23px;top:13px;width:765px;--hc:54px' }, h('div', { class: 'box', style: 'background:transparent;box-shadow:none' }, h('div', { class: 'list' }), h('span', { class: 'capbox', style: 'right:6px;top:4px' }), h('img', { class: 'caret', src: 'assets/caret.svg', alt: '', style: 'width:32px;height:37px' }))),
+        h('div', { class: 'paper', style: 'left:23px;top:93px;width:765px;height:662px' },
+          h('div', { class: 'gt th', style: 'left:0;right:0;top:0;height:64px' }),
+          h('div', { class: 'sc', style: 'left:0;right:0;top:64px;bottom:0' }, h('div', { class: 'gt tv', style: 'left:0;right:0;top:0' }))),
+        h('div', { class: 'arrowbar slim', style: 'left:790px;top:157px;height:598px' }));
       const dd = box.querySelector('.ta-dd');
-      teamDD[side] = dropdown(dd, { rowH: 38, top: 2, bottom: 12, label: side === 'mine' ? 'Your team' : 'Trade partner', onPick: (id) => window.foTradeData.setTeam(side, id) });
+      teamDD[side] = dropdown(dd, { rowH: 44, top: 4, bottom: 14, label: side === 'mine' ? 'Your team' : 'Trade partner', onPick: (id) => window.foTradeData.setTeam(side, id) });
       dd.addEventListener('fo-close', () => { dd.classList.remove('open'); });
       dd.querySelector('.box').style.height = 'var(--hc)';
       arrowbar(box.querySelector('.arrowbar'), box.querySelector('.sc'));
-      const sh = h('style', null, `#ta-side-${side} .ta-dd.open .box{height:var(--ho)!important;background:var(--paper)!important;box-shadow:var(--boxshadow)!important}#ta-side-${side} .ta-dd .list{opacity:0;transition:opacity .2s}#ta-side-${side} .ta-dd.open .list{opacity:1}`);
-      box.append(sh);
+      box.append(h('style', null, `#ta-side-${side} .ta-dd.open .box{height:var(--ho)!important;background:#cfcfcf!important;box-shadow:var(--boxshadow)!important}#ta-side-${side} .ta-dd .list{opacity:0;transition:opacity .2s;font-size:32px;padding:4px 70px 10px 16px}#ta-side-${side} .ta-dd .opt{height:44px;line-height:44px}#ta-side-${side} .ta-dd.open .list{opacity:1}#ta-side-${side} .ta-dd .caret{right:10px;top:8px}#ta-side-${side} .ta-dd.open .caret{top:calc(var(--ho) - 46px)}#ta-side-${side} .ta-dd .capbox{width:44px;height:46px}#ta-side-${side} .ta-dd.open .capbox{top:calc(var(--ho) - 50px)!important}`));
     }
     const teams = T.teams.filter((t) => side === 'mine' || t.id !== T.st.mine);
     teamDD[side].setItems(teams.map((t) => ({ id: t.id, text: t.name + (t.me ? ' (you)' : '') })), tid);
     const S = D('league_standings'), rec = S.status === 'ok' ? S.data.find((r) => String(r.league_id) === T.st.lid && String(r.team_id) === tid) : null;
-    box.querySelector('.nm').textContent = T.name(tid);
-    box.querySelector('.rec').textContent = rec ? 'Current Record: ' + num(rec.wins) + ' - ' + num(rec.losses) + (num(rec.ties) ? ' - ' + num(rec.ties) : '') : '';
+    const nm = box.querySelector('.nm'); nm.textContent = T.name(tid);
+    const recEl = box.querySelector('.rec');
+    recEl.textContent = rec ? 'Current Record: ' + num(rec.wins) + ' - ' + num(rec.losses) + (num(rec.ties) ? ' - ' + num(rec.ties) : '') : '';
+    requestAnimationFrame(() => { recEl.style.left = Math.min(470, nm.offsetLeft + nm.offsetWidth + 14) + 'px'; });
     const sc = T.scB.get(tid), pw = box.querySelector('.pw');
-    pw.textContent = sc == null ? '' : String(sc); pw.style.color = sc >= 50 ? 'var(--gold)' : 'var(--red)'; pw.title = 'Power ranking score: strongest lineup in the league = 100, weakest = 0';
-    // roster table
+    pw.textContent = sc == null ? '' : String(sc); pw.style.color = sc >= 50 ? '#8a7c10' : 'var(--red)'; pw.title = 'Power ranking score: strongest lineup in the league = 100, weakest = 0';
+    // roster table (Site 8 adjustment: bigger rows, numbers in Times)
+    const X = { name: 65, flag: 225, pos: 246, ros: 318, exp: 374, trd: 446, div: 517, tv: 540, act: 610, vm: 652 };
     box.querySelector('.th').replaceChildren(
-      h('div', { class: 'r', style: 'top:1px;height:40px;font-size:30.7px' }, cell(50, 'Player'), cell(178, 'Pos')),
-      h('div', { style: 'position:absolute;left:232px;width:156px;top:0;text-align:center;font-size:16px;color:var(--red)' }, 'Position Rankings'),
-      h('div', { style: 'position:absolute;left:391px;width:186px;top:0;text-align:center;font-size:16px;color:var(--red)' }, 'Trade Value'),
-      ...[[243, 'ROS'], [283, 'Experts'], [341, 'Trades'], [399, 'Trade'], [447, 'Actual'], [499, 'vs Market']].map(([x, t]) => h('div', { style: `position:absolute;left:${x}px;top:18px;font-size:16px` }, t)),
-      h('div', { style: 'position:absolute;left:389px;top:0;width:1px;height:499px;background:var(--panel)' }));
+      h('div', { style: 'position:absolute;left:65px;top:6px;font-size:40px' }, 'Player'), h('div', { style: 'position:absolute;left:235px;top:6px;font-size:40px' }, 'Pos'),
+      h('div', { style: 'position:absolute;left:310px;width:200px;top:2px;text-align:center;font-size:21px;color:var(--red)' }, 'Position Rankings'),
+      h('div', { style: 'position:absolute;left:530px;width:230px;top:2px;text-align:center;font-size:21px;color:var(--red)' }, 'Trade Value'),
+      ...[[X.ros, 'ROS'], [X.exp - 4, 'Experts'], [X.trd - 4, 'Trades'], [531, 'Trade'], [594, 'Actual'], [663, 'vs Market']].map(([x, t]) => h('div', { style: `position:absolute;left:${x}px;top:30px;font-size:21px` }, t)),
+      h('div', { style: `position:absolute;left:${X.div}px;top:0;width:2px;height:662px;background:var(--divider)` }));
     const order = { QB: 0, RB: 1, WR: 2, TE: 3 };
     const ps = T.ctx.players.filter((p) => p.team_id === tid && p.kind === 'skill').sort((a, b) => order[a.pos] - order[b.pos] || b.exp - a.exp || a.name.localeCompare(b.name));
-    const tv = box.querySelector('.tv');
-    tv.style.height = (ps.length * 29.6 + 8) + 'px';
+    const tv = box.querySelector('.tv'), P = 39;
+    tv.style.height = (ps.length * P + 8) + 'px';
     const vcls = { Undervalued: 'good', Overvalued: 'bad' };
     tv.replaceChildren(...ps.map((p, i) => {
       const on = picked.has(p.key), lab = p.value || p.valueT;
-      const r = h('div', { class: 'r' + (on ? ' sel' : ''), style: `top:${i * 29.6 + 2}px;height:29.6px;font-size:16px;${i % 2 ? 'background:var(--zebra)' : ''}` });
-      const cbx = h('button', { class: 'cb' + (on ? ' on' : '') + (on && lastX === p.key ? ' draw' : ''), style: 'left:9px;top:4px', 'aria-label': (on ? 'Remove ' : 'Add ') + p.name, 'aria-pressed': String(on), onclick: () => { lastX = on ? null : p.key; window.foTradeData.toggle(side, p.key); } });
+      const r = h('div', { class: 'r' + (on ? ' sel' : ''), style: `top:${i * P + 2}px;height:${P}px;font-size:21px;${i % 2 ? 'background:rgba(0,0,0,.05)' : ''}` });
+      const cbx = h('button', { class: 'cb' + (on ? ' on' : '') + (on && lastX === p.key ? ' draw' : ''), style: 'left:10px;top:4.5px', 'aria-label': (on ? 'Remove ' : 'Add ') + p.name, 'aria-pressed': String(on), onclick: () => { lastX = on ? null : p.key; window.foTradeData.toggle(side, p.key); } });
       if (on) cbx.innerHTML = '<svg viewBox="0 0 30 30" aria-hidden="true"><path class="s1" pathLength="1" d="M5.5 6.5 C 10 11, 15 16.5, 24.5 24"/><path class="s2" pathLength="1" d="M23.5 5.5 C 18 10, 12.5 16, 6 24.5"/></svg>';
       r.append(cbx);
-      r.append(h('div', { class: 'c', style: 'left:50px;max-width:118px;overflow:hidden;text-overflow:ellipsis' }, p.name));
+      r.append(h('div', { class: 'c nm', style: `left:${X.name}px;max-width:158px;line-height:${P}px` }, p.name));
       const ir = p.slot === 'IR' || /^IR|PUP|NFI/.test(p.status);
-      if (ir) r.append(h('img', { src: 'assets/caduceus.png', alt: 'IR', title: p.status || 'IR', style: 'position:absolute;left:161px;top:6px;width:18px' }));
-      else if (p.status) r.append(h('div', { class: 'c', style: 'left:170px;color:var(--red)', title: p.status }, p.status === 'O' ? 'O' : p.status === 'D' ? 'D' : 'Q'));
-      r.append(h('div', { class: 'c', style: 'left:186px' }, chip(p.pos, p.pos, 'xs')));
-      r.append(cell(243, p.rosKey ? p.rank : '—'), cell(286, p.market || '—', p.market ? '' : 'muted'), cell(343, p.tradeRank || '—', p.tradeRank ? '' : 'muted'));
-      r.append(cell(399, p.rosKey ? f0(p.trade) : '—', p.tsrc !== 'trade market' ? 'muted' : ''), cell(450, p.rosKey ? f0(p.actual) : '—'));
-      r.append(cell(499, lab || '—', vcls[lab] || (lab ? '' : 'muted')));
+      if (ir) r.append(h('img', { src: 'assets/caduceus.png', alt: 'IR', title: p.status || 'IR', style: `position:absolute;left:${X.flag - 4}px;top:9px;width:22px` }));
+      else if (p.status) r.append(h('div', { class: 'c', style: `left:${X.flag}px;color:var(--red)`, title: p.status }, p.status === 'O' ? 'O' : p.status === 'D' ? 'D' : 'Q'));
+      r.append(h('div', { class: 'c', style: `left:${X.pos}px` }, chip(p.pos, p.pos, 'xs')));
+      r.append(cell(X.ros, p.rosKey ? p.rank : '—'), cell(X.exp, p.market || '—', p.market ? '' : 'muted'), cell(X.trd, p.tradeRank || '—', p.tradeRank ? '' : 'muted'));
+      r.append(cell(X.tv, p.rosKey ? f0(p.trade) : '—', p.tsrc !== 'trade market' ? 'muted' : ''), cell(X.act, p.rosKey ? f0(p.actual) : '—'));
+      r.append(cell(X.vm, lab || '—', vcls[lab] || (lab ? '' : 'muted')));
       r.title = p.name + (p.rosKey ? ' · ' + f1(p.exp) + ' pts/wk · trade value ' + f0(p.trade) + ' (' + p.tsrc + ') · actual ' + f0(p.actual) : '');
       return r;
     }));
@@ -896,74 +967,149 @@
     }
     return s + ' Our model: their lineup ' + sg1(H.d) + ' pts a week.';
   }
+  const pct = (p) => (p == null ? '—' : p >= 0.995 ? '>99%' : p > 0 && p < 0.005 ? '<1%' : Math.round(p * 100) + '%');
   function tradeCenter(T) {
     const c = $('#ta-center');
-    const block = (tid, y, me) => {
+    // one block per team, side by side under its roster
+    const block = (tid, x0) => {
       const H = T.help[tid], sb = H.sb, sa = H.sa, act = T.res.active;
       const state = !act ? '' : H.d > 0.05 ? 'Winning' : H.d < -0.05 ? 'Losing' : 'Even';
       const rb = T.rankOf(T.res.before, tid), ra = T.rankOf(T.res.after, tid);
-      const pct = (p) => (p == null ? '—' : p >= 0.995 ? '>99%' : p > 0 && p < 0.005 ? '<1%' : Math.round(p * 100) + '%');
       const recOf = (s) => (s ? Math.round(s.wins) + ' - ' + (Math.round(s.games) - Math.round(s.wins)) : '—');
-      const vb = (x, y2, w, hgt, title, b, a, aCls) => h('div', { class: 'vbox', style: `left:${x}px;top:${y2}px;width:${w}px;height:${hgt}px` },
-        h('div', { class: 't' }, title), h('div', { class: 'ba' }, h('div', null, h('span', null, 'Before'), h('span', { class: 'v' }, b)), h('div', null, h('span', null, 'After'), h('span', { class: 'v ' + (aCls || '') }, a))));
       const tone = (d) => (d > 0.0001 ? 'good' : d < -0.0001 ? 'bad' : '');
+      const vb = (x, y2, title, b, a, aCls) => h('div', { class: 'vbox', style: `left:${x}px;top:${y2}px;width:190px;height:118px` },
+        h('div', { class: 't' }, title), h('div', { class: 'ba', style: 'top:40px' }, h('div', null, h('span', null, 'Before'), h('span', { class: 'v' }, b)), h('div', null, h('span', null, 'After'), h('span', { class: 'v ' + (aCls || '') }, a))));
       const meter = (x, v, lab) => {
         const col = `color-mix(in srgb, var(--gold) ${Math.max(0, Math.min(100, (v - 15) * 2))}%, var(--red))`;
-        return h('div', { class: 'meter', style: `left:${x}px;top:24px;height:172px` }, h('s', null, lab), h('i', { style: `height:${Math.max(4, v) / 100 * 172}px;background:${col}` }), h('b', null, String(v)));
+        return h('div', { class: 'meter', style: `left:${x}px;top:52px;height:330px;width:48px` }, h('s', null, lab), h('i', { style: `height:${Math.max(3, v) / 100 * 330}px;background:${col}` }), h('b', null, String(v)));
       };
-      const sA = T.scA.get(tid), sB = T.scB.get(tid);
-      const recA = recOf(sa), recB = recOf(sb);
+      const sA = T.scA.get(tid), sB = T.scB.get(tid), recA = recOf(sa), recB = recOf(sb);
       return [
-        h('div', { style: `position:absolute;left:29px;top:${y}px;font-size:30.7px;white-space:nowrap;max-width:260px;overflow:hidden;text-overflow:ellipsis` }, T.name(tid)),
-        h('div', { class: 'state ' + (state === 'Winning' ? 'good' : state === 'Losing' ? 'bad' : 'muted'), style: `left:290px;top:${y - 6}px` }, state),
-        h('div', { class: 'paper', style: `left:19px;top:${y + 51}px;width:526px;height:205px` },
-          vb(16, 6, 116, 88, 'Pts/week', f1(H.b), f1(H.a), tone(H.d)),
-          vb(143, 6, 116, 88, 'Playoff Predictor', sb ? pct(sb.playoff) : '—', sa ? pct(sa.playoff) : '—', sb && sa ? tone(sa.playoff - sb.playoff) : ''),
-          vb(16, 103, 133, 88, 'Team Power Ranking', ord(rb), ord(ra), tone(rb - ra)),
-          h('div', { class: 'vbox', style: 'left:156px;top:103px;width:104px;height:88px' }, h('div', { class: 't' }, 'Proj. Record'),
-            h('div', { style: 'position:absolute;left:0;right:0;top:34px;font-size:22px' }, recB), recA !== recB ? h('div', { class: tone(sa.wins - sb.wins), style: 'position:absolute;left:0;right:0;top:60px;font-size:16px' }, '→ ' + recA) : null),
-          h('div', { class: 'verdict', style: 'left:267px;top:8px;width:112px;height:190px', html: null }, h('div', { style: 'font-size:16px;margin-bottom:3px' }, 'Verdict')),
-          meter(386, sB, 'Before'), meter(469, sA, 'After'))
+        h('div', { style: `position:absolute;left:${x0 + 28}px;top:16px;font-size:40px;white-space:nowrap;max-width:520px;overflow:hidden;text-overflow:ellipsis` }, T.name(tid)),
+        h('div', { class: 'state ' + (state === 'Winning' ? 'good' : state === 'Losing' ? 'bad' : 'muted'), style: `left:${x0 + 600}px;top:14px` }, state),
+        h('div', { class: 'paper', style: `left:${x0 + 20}px;top:82px;width:820px;height:428px;--p:1` },
+          vb(18, 18, 'Pts / week', f1(H.b), f1(H.a), tone(H.d)),
+          vb(222, 18, 'Playoff Predictor', sb ? pct(sb.playoff) : '—', sa ? pct(sa.playoff) : '—', sb && sa ? tone(sa.playoff - sb.playoff) : ''),
+          vb(18, 154, 'Team Power Ranking', ord(rb), ord(ra), tone(rb - ra)),
+          vb(222, 154, 'Proj. Record', recB, recA, sa && sb ? tone(sa.wins - sb.wins) : ''),
+          vb(18, 290, 'Title Odds', sb ? pct(sb.title) : '—', sa ? pct(sa.title) : '—', sb && sa ? tone(sa.title - sb.title) : ''),
+          vb(222, 290, 'First-round Bye', sb ? pct(sb.bye) : '—', sa ? pct(sa.bye) : '—', sb && sa ? tone(sa.bye - sb.bye) : ''),
+          h('div', { class: 'verdict', style: 'left:430px;top:16px;width:220px;height:396px' }, h('div', { style: 'font-size:22px;margin-bottom:6px' }, 'Verdict')),
+          meter(672, sB, 'Before'), meter(750, sA, 'After'))
       ];
     };
-    const kids = [...block(T.st.mine, 15, true), ...block(T.st.theirs, 265, false)];
-    c.replaceChildren(...kids);
+    c.replaceChildren(...block(T.st.mine, 0), ...block(T.st.theirs, 878),
+      h('div', { style: 'position:absolute;left:868px;top:20px;width:3px;height:500px;background:var(--divider)' }));
     const vs = $$('.verdict', c);
     const fillV = (el, html) => { const d = h('div'); d.innerHTML = html; el.append(d); shrink(el); };
     fillV(vs[0], verdictMine(T)); fillV(vs[1], verdictTheirs(T));
-    c.append(h('div', { style: 'position:absolute;left:19px;right:19px;top:520px;display:flex;justify-content:space-between;font-size:17px' },
+    c.append(h('div', { style: 'position:absolute;left:40px;right:40px;top:522px;display:flex;justify-content:space-between;font-size:21px' },
       h('a', { style: 'cursor:pointer;color:var(--red)', onclick: () => window.foTradeData.clear() }, T.res.active ? 'Clear trade' : ''),
       h('a', { 'data-go': 'tradedetails', style: 'cursor:pointer;color:var(--red)' }, 'Full analysis: Trade Details ›')));
   }
-  function shrink(el) { let fs = 15; el.style.fontSize = fs + 'px'; while (el.scrollHeight > el.clientHeight + 1 && fs > 10) { fs -= 0.5; el.style.fontSize = fs + 'px'; } }
+  // verdict text: starts at 19px and gives way to 16px (12 pt) at the least, never smaller
+  function shrink(el) { let fs = 19; el.style.fontSize = fs + 'px'; while (el.scrollHeight > el.clientHeight + 1 && fs > 16) { fs -= 0.5; el.style.fontSize = fs + 'px'; } if (el.scrollHeight > el.clientHeight + 1) el.style.overflowY = 'auto'; }
   function tradeLineup(side, T) {
     const box = $('#ta-lu-' + side), tid = side === 'mine' ? T.st.mine : T.st.theirs;
     const B = T.res.before.get(tid).slots, A = T.res.after.get(tid).slots;
-    const n = B.length, pitch = Math.min(23, 165 / Math.max(1, n));
-    const rows = [h('div', { class: 'r', style: 'top:2px;height:24px;font-size:21.5px' }, cell(12, 'Slot', '', null), cell(60, 'Player'), cell(154, 'Points'), cell(210, 'Rank'), cell(291, 'Player'), cell(395, 'Points'), cell(451, 'Rank'))];
+    const n = B.length, pitch = Math.min(28, 186 / Math.max(1, n));
+    const rows = [h('div', { class: 'r', style: 'top:4px;height:30px;font-size:24px' }, cell(14, 'Slot'), cell(70, 'Player'), cell(240, 'Points'), cell(318, 'Rank'), cell(405, 'Player'), cell(590, 'Points'), cell(670, 'Rank'))];
     const SO = (l) => { const b = l.replace(/\d+$/, ''); const k = POS.indexOf(b); return k >= 0 ? k : b === 'FLEX' ? 4 : 5; };
     B.map((s, i) => ({ s, i })).sort((a, b) => SO(a.s.label) - SO(b.s.label) || a.i - b.i).forEach(({ s, i }, j) => {
       const pb = s.p, pa = A[i].p, changed = (pb?.key || '') !== (pa?.key || '');
       const r0 = T.slotRank(T.res.before, tid, i), r1 = T.slotRank(T.res.after, tid, i);
       const lab = s.label.replace(/\d+$/, ''), cls = POS.includes(lab) ? lab : 'FLEX';
-      rows.push(h('div', { class: 'r', style: `top:${38 + j * pitch}px;height:${pitch}px;font-size:16px;${j % 2 ? 'background:var(--zebra)' : ''}` },
-        h('div', { class: 'c', style: 'left:15px' }, chip(lab === 'SUPERFLEX' ? 'SF' : cls === 'FLEX' ? 'FLEX' : lab, cls === 'FLEX' && lab === 'SUPERFLEX' ? 'SF' : cls, 'xs')),
-        h('div', { class: 'c', style: 'left:48px;max-width:112px;overflow:hidden;text-overflow:ellipsis' }, pb ? pb.name : '—'), cell(166, pb ? f1(pb.exp) : '—'), cell(221, ord(r0)),
-        h('div', { class: 'c' + (changed ? ' gold' : ''), style: 'left:289px;max-width:112px;overflow:hidden;text-overflow:ellipsis' }, pa ? pa.name : '—'),
-        cell(407, pa ? f1(pa.exp) : '—', changed ? 'gold' : ''), cell(462, ord(r1), r1 < r0 ? 'good' : r1 > r0 ? 'bad' : '')));
+      rows.push(h('div', { class: 'r', style: `top:${40 + j * pitch}px;height:${pitch}px;font-size:19px;${j % 2 ? 'background:rgba(0,0,0,.05)' : ''}` },
+        h('div', { class: 'c', style: 'left:12px' }, chip(lab === 'SUPERFLEX' ? 'SF' : cls === 'FLEX' ? 'FLEX' : lab, lab === 'SUPERFLEX' ? 'SF' : cls, 'xs')),
+        h('div', { class: 'c nm', style: `left:70px;max-width:165px;line-height:${pitch}px` }, pb ? pb.name : '—'), cell(250, pb ? f1(pb.exp) : '—'), cell(322, ord(r0)),
+        h('div', { class: 'c nm' + (changed ? ' gold' : ''), style: `left:405px;max-width:180px;line-height:${pitch}px` }, pa ? pa.name : '—'),
+        cell(600, pa ? f1(pa.exp) : '—', changed ? 'gold' : ''), cell(674, ord(r1), r1 < r0 ? 'good' : r1 > r0 ? 'bad' : '')));
     });
     box.replaceChildren(
-      h('div', { class: 'paper', style: 'left:19px;top:7px;width:577px;height:43px' }, h('div', { style: 'position:absolute;left:7px;top:-2px;font-size:40px' }, 'Lineup'),
-        h('div', { style: 'position:absolute;right:12px;top:12px;font-size:19px;color:#3b3430' }, T.name(tid) + ' · before → after')),
-      h('div', { class: 'paper', style: 'left:17px;top:67px;width:577px;height:207px' }, h('div', { class: 'gt', style: 'inset:0' }, rows),
-        h('div', { style: 'position:absolute;left:266px;top:0;width:2px;height:207px;background:var(--red)' })));
+      h('div', { class: 'paper', style: 'left:23px;top:13px;width:765px;height:54px' }, h('div', { style: 'position:absolute;left:12px;top:0;font-size:46px' }, 'Lineup'),
+        h('div', { style: 'position:absolute;right:16px;top:16px;font-size:22px;color:#3b3430;max-width:520px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis' }, T.name(tid) + ' · before → after')),
+      h('div', { class: 'paper', style: 'left:23px;top:85px;width:765px;height:228px' }, h('div', { class: 'gt', style: 'inset:0' }, rows),
+        h('div', { style: 'position:absolute;left:388px;top:0;width:3px;height:228px;background:var(--red)' })));
   }
   RENDER.trade = () => {
     const T = window.foTradeData, lg = league();
     if (!T || !lg || T.st.lid !== String(lg.league_id)) { $('#ta-center').replaceChildren(h('div', { class: 'empty' }, 'Loading the league…')); return; }
     tradeSide('mine', T); tradeSide('theirs', T); tradeCenter(T); tradeLineup('mine', T); tradeLineup('theirs', T);
+    // the page is as long as the trade finder needs
+    const f = $('.tp-finder'); if (f) $('.tp-inner').style.height = (f.offsetTop + f.offsetHeight + 60) + 'px';
   };
 
+  // ================================================================ LEAGUE VIEW: standings, playoff and title odds, weekly matchups
+  const lst = { week: null, sort: 'seed', dir: 1 };
+  RENDER.league = () => {
+    const T = window.foTradeData, lg = league();
+    const SC = D('league_schedule'), S = D('league_standings');
+    if (!T || !lg || T.st.lid !== String(lg.league_id) || SC.status !== 'ok' || S.status !== 'ok') { $('#lv-table').tBodies[0].replaceChildren(h('tr', null, h('td', { class: 'empty' }, 'Loading the league…'))); return; }
+    const lid = String(lg.league_id), ss = T.ss, sim = ss ? ss.simB : null;
+    const st = S.data.filter((r) => String(r.league_id) === lid);
+    const sched = SC.data.filter((r) => String(r.league_id) === lid);
+    const rank = new Map(st.slice().sort((a, b) => num(b.wins) + num(b.ties) / 2 - num(a.wins) - num(a.ties) / 2 || num(b.points_for) - num(a.points_for)).map((r, i) => [String(r.team_id), i + 1]));
+    const strength = new Map([...T.res.before].map(([t, x]) => [t, x.v]));
+    $('#lv-sub').textContent = st.length + ' teams · ' + String(lg.playoffs || '').replace(/\s*\(.*\)/, '');
+    $('#lv-sub').title = (lg.playoffs || '') + ' · playoff and title odds from the season simulation (our lineup projections, the real schedule and results so far)';
+    // ---- standings
+    const rows = st.map((r) => {
+      const t = String(r.team_id), s = sim ? sim.get(t) : null;
+      return { t, name: r.team || T.name(t), w: num(r.wins), l: num(r.losses), ti: num(r.ties), pf: num(r.points_for), pa: num(r.points_against), seed: rank.get(t),
+        pw: T.scB.get(t), prk: T.rankOf(T.res.before, t), wk: strength.get(t), po: s ? s.playoff : null, ch: s ? s.title : null, bye: s ? s.bye : null,
+        pw2: s ? s.wins : null, g: s ? s.games : null, me: t === String(lg.my_team) };
+    });
+    const sorters = { seed: (r) => r.seed, name: (r) => r.name, rec: (r) => -(r.w + r.ti / 2), pf: (r) => -r.pf, pa: (r) => -r.pa, pw: (r) => -(r.pw ?? 0), wk: (r) => -(r.wk ?? 0), proj: (r) => -(r.pw2 ?? 0), po: (r) => -(r.po ?? 0), bye: (r) => -(r.bye ?? 0), ch: (r) => -(r.ch ?? 0) };
+    const vf = sorters[lst.sort] || sorters.seed;
+    rows.sort((a, b) => { const x = vf(a), y = vf(b); return (typeof x === 'string' ? x.localeCompare(y) : x - y) * lst.dir || a.seed - b.seed; });
+    const byes = rows.some((r) => (r.bye || 0) > 0.001);
+    const cols = [['seed', '#', ''], ['name', 'Team', 'l'], ['rec', 'Record', 'div'], ['pf', 'PF', ''], ['pa', 'PA', ''], ['pw', 'Power', 'div'], ['wk', 'Proj / wk', ''], ['proj', 'Proj. Record', ''], ['po', 'Playoffs', 'div g2'], ...(byes ? [['bye', 'Bye', 'g2']] : []), ['ch', 'Champion', 'g2']];
+    const thead = $('#lv-table').tHead;
+    thead.replaceChildren(h('tr', null, cols.map(([k, t, c]) => h('th', { class: c, 'aria-sort': lst.sort === k ? (lst.dir === 1 ? 'ascending' : 'descending') : null },
+      h('button', { style: 'all:unset;cursor:pointer', onclick: () => { if (lst.sort === k) lst.dir *= -1; else { lst.sort = k; lst.dir = 1; } RENDER.league(); } }, t)))));
+    const oddsCell = (p, col) => h('span', { class: 'odds' }, h('span', { class: 'bar' }, h('i', { style: `width:${Math.max(1.5, (p || 0) * 100)}%;--oc:${col}` })), h('span', { style: 'min-width:52px;text-align:right' }, pct(p)));
+    const recStr = (w, l, t) => w + ' - ' + l + (t ? ' - ' + t : '');
+    $('#lv-table').tBodies[0].replaceChildren(...rows.map((r) => h('tr', { class: r.me ? 'mine' : null },
+      h('td', null, String(r.seed)), h('td', { class: 'l nmc', title: r.name }, r.name + (r.me ? '  (you)' : '')), h('td', { class: 'div' }, recStr(r.w, r.l, r.ti)),
+      h('td', null, f1(r.pf)), h('td', null, f1(r.pa)),
+      h('td', { class: 'div', style: `color:${(r.pw ?? 0) >= 50 ? '#6b5f0b' : '#4a0600'}` }, r.pw == null ? '—' : h('span', null, String(r.pw), h('small', { style: 'font-size:17px;color:#444;margin-left:6px' }, ord(r.prk)))),
+      h('td', null, r.wk == null ? '—' : f1(r.wk)),
+      h('td', null, r.pw2 == null ? '—' : recStr(Math.round(r.pw2), Math.round(r.g) - Math.round(r.pw2), 0)),
+      h('td', { class: 'div g2' }, oddsCell(r.po, '#154f02')), byes ? h('td', { class: 'g2' }, oddsCell(r.bye, '#445ec2')) : null, h('td', { class: 'g2' }, oddsCell(r.ch, '#ab9d1d')))));
+    // ---- weekly matchups
+    const weeks = [...new Set(sched.map((m) => num(m.week)))].sort((a, b) => a - b);
+    const live = sched.find((m) => m.status === 'in progress'), next = sched.filter((m) => m.status !== 'final').map((m) => num(m.week)).sort((a, b) => a - b)[0];
+    const curW = live ? num(live.week) : next || weeks[weeks.length - 1];
+    if (lst.week == null || !weeks.includes(lst.week)) lst.week = curW;
+    const wb = $('#lv-weeks');
+    wb.replaceChildren(...weeks.map((w) => h('button', { class: 'wk', 'aria-pressed': String(w === lst.week), style: 'min-width:66px;margin-right:8px', onclick: () => { lst.week = w; RENDER.league(); } }, (w === curW ? '• ' : '') + 'Wk ' + w)));
+    const spB = ss ? ss.spB : null;
+    const winP = (a, b) => {   // chance team a outscores team b in one week: our lineup strength and weekly spread
+      const ma = strength.get(a), mb = strength.get(b); if (ma == null || mb == null) return null;
+      const sa = spB && spB.get(a) ? spB.get(a).sd : 25, sb = spB && spB.get(b) ? spB.get(b).sd : 25;
+      const z = (ma - mb) / Math.sqrt(sa * sa + sb * sb); return 0.5 * (1 + erf(z / Math.SQRT2));
+    };
+    const ms = sched.filter((m) => num(m.week) === lst.week);
+    const mine = String(lg.my_team);
+    $('#lv-m').replaceChildren(...ms.sort((a, b) => ((String(b.team1) === mine || String(b.team2) === mine) - (String(a.team1) === mine || String(a.team2) === mine))).map((m) => {
+      const a = String(m.team1), b = String(m.team2), fin = m.status === 'final', inp = m.status === 'in progress';
+      const pa = num(m.points1), pb = num(m.points2), ja = num(m.proj1), jb = num(m.proj2);
+      let p = winP(a, b);
+      if (inp && has(m.proj1) && has(m.proj2)) { const z = (ja - jb) / 18; p = 0.5 * (1 + erf(z / Math.SQRT2)); }
+      const side = (t, pts, proj, r, won) => h('div', { class: 'tm' + (r ? ' r' : '') },
+        h('b', { class: fin ? (won ? 'win' : 'lose') : '' }, T.name(t)),
+        h('span', { class: 'sc2' }, fin || inp ? f1(pts) : f1(strength.get(t) ?? proj)),
+        h('small', null, fin ? (won ? 'Won' : 'Lost') : inp ? 'Yahoo proj ' + f1(proj) : 'our proj · Yahoo ' + f1(proj)));
+      const el = h('div', { class: 'lv-m' + (a === mine || b === mine ? ' mine' : '') },
+        side(a, pa, ja, false, pa > pb), h('div', { class: 'vs' }, fin ? 'Final' : inp ? 'Live' : 'vs'), side(b, pb, jb, true, pb > pa));
+      if (!fin && p != null) el.append(h('div', { class: 'wp', title: 'Win chance' }, h('i', { style: `width:${p * 100}%` })), h('div', { class: 'wpl' }, h('span', null, pct(p) + ' win'), h('span', null, pct(1 - p) + ' win')));
+      return el;
+    }));
+  };
+  // error function for win chances
+  function erf(x) { const t = 1 / (1 + 0.3275911 * Math.abs(x)); const y = 1 - (((((1.061405429 * t - 1.453152027) * t) + 1.421413741) * t - 0.284496736) * t + 0.254829592) * t * Math.exp(-x * x); return x >= 0 ? y : -y; }
+  window.foOnTradeLeague = () => { if (cur === 'league') RENDER.league(); };
+
   // ================================================================ More pages: redraw charts when shown
-  ['matchups', 'style', 'weather', 'experts', 'model', 'finder', 'lineup', 'tradedetails', 'weekly', 'rosdetails'].forEach((k) => { RENDER[k] = () => {}; });
+  ['matchups', 'style', 'weather', 'experts', 'model', 'lineup', 'tradedetails', 'weekly', 'rosdetails'].forEach((k) => { RENDER[k] = () => {}; });
 })();
