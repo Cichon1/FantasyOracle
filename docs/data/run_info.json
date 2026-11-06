@@ -1,19 +1,19 @@
 {
- "updated": "2026-11-06T15:47:33+00:00",
+ "updated": "2026-11-06T16:49:34+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 9,
  "games_started": true,
- "reason": "schedule_and_lines,injury_reports,depth_charts,rosters",
+ "reason": "play_by_play,schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 44,
+   "seconds": 43,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 5,
+   "seconds": 4,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 4,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -33,7 +33,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 0,
+   "seconds": 1,
    "ok": true
   },
   {
@@ -86,7 +86,7 @@
    "WR/TE": 80
   },
   "experts_ros_date": "2026-11-06 00:00:00",
-  "seconds": 14,
+  "seconds": 13,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -96,7 +96,7 @@
    "QB": [
     [
      "Joe Burrow",
-     193.1
+     192.4
     ],
     [
      "Josh Allen",
@@ -118,7 +118,7 @@
     ],
     [
      "Bijan Robinson",
-     179.4
+     180.1
     ]
    ],
    "TE": [
@@ -142,7 +142,7 @@
     ],
     [
      "Ja'Marr Chase",
-     171.3
+     172.1
     ],
     [
      "Jaxon Smith-Njigba",
@@ -153,10 +153,10 @@
  },
  "injuries_live": {
   "nfl_week": 9,
-  "nfl_rows": 340,
-  "nfl_matched": 340,
+  "nfl_rows": 342,
+  "nfl_matched": 342,
   "nfl_unmatched": [],
-  "espn_out": 61,
+  "espn_out": 63,
   "espn_unmatched": [
    "Doneiko Slaughter (PIT)",
    "Ben Skowronek (PIT)",
@@ -167,8 +167,8 @@
    "Carnell Tate (TEN)",
    "Jaylon Jones (TEN)"
   ],
-  "hash": "fbb15d9bd830",
-  "rows_added": 27,
-  "values_updated": 0
+  "hash": "9dbbc2c5edbb",
+  "rows_added": 29,
+  "values_updated": 10
  }
 }
