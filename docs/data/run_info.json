@@ -1,19 +1,19 @@
 {
- "updated": "2026-11-06T19:51:21+00:00",
+ "updated": "2026-11-06T20:44:54+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 9,
  "games_started": true,
- "reason": "schedule_and_lines,injury_news",
+ "reason": "schedule_and_lines,fp_rankings,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 40,
+   "seconds": 38,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 6,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 4,
+   "seconds": 3,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 39,
+   "seconds": 37,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 19,
+   "seconds": 18,
    "ok": true
   }
  ],
@@ -86,7 +86,7 @@
    "WR/TE": 66
   },
   "experts_ros_date": "2026-11-06 00:00:00",
-  "seconds": 18,
+  "seconds": 17,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -100,7 +100,7 @@
     ],
     [
      "Josh Allen",
-     179.6
+     179.7
     ],
     [
      "Brock Purdy",
@@ -156,7 +156,7 @@
   "nfl_rows": 342,
   "nfl_matched": 342,
   "nfl_unmatched": [],
-  "espn_out": 75,
+  "espn_out": 77,
   "espn_unmatched": [
    "Doneiko Slaughter (PIT)",
    "Ben Skowronek (PIT)",
@@ -167,7 +167,7 @@
    "Carnell Tate (TEN)",
    "Jaylon Jones (TEN)"
   ],
-  "hash": "b0c5c64bf454",
+  "hash": "af4879e7ed36",
   "rows_added": 29,
   "values_updated": 10
  }
