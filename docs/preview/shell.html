@@ -71,10 +71,14 @@
         <svg class="lids" viewBox="0 0 100 100" aria-hidden="true">
           <defs>
             <clipPath id="eye-clip"><circle cx="50" cy="50" r="47.6"/></clipPath>
-            <linearGradient id="lid-up" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a0300"/><stop offset=".75" stop-color="#5a0a02"/><stop offset="1" stop-color="#7a1606"/></linearGradient>
-            <linearGradient id="lid-dn" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#2a0300"/><stop offset=".75" stop-color="#5a0a02"/><stop offset="1" stop-color="#7a1606"/></linearGradient>
+            <linearGradient id="lid-up" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d2608"/><stop offset=".7" stop-color="#1f4a12"/><stop offset="1" stop-color="#3a6b1c"/></linearGradient>
+            <linearGradient id="lid-dn" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#0d2608"/><stop offset=".7" stop-color="#1f4a12"/><stop offset="1" stop-color="#3a6b1c"/></linearGradient>
             <linearGradient id="nict" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#e9e4c4" stop-opacity=".25"/><stop offset=".8" stop-color="#e9e4c4" stop-opacity=".62"/><stop offset="1" stop-color="#fff8d8" stop-opacity=".85"/></linearGradient>
-            <pattern id="scales" width="7" height="5" patternUnits="userSpaceOnUse"><path d="M0 5 Q3.5 0 7 5" fill="none" stroke="#000" stroke-opacity=".28" stroke-width=".7"/></pattern>
+            <radialGradient id="scale-fill" cx=".5" cy=".25" r=".8"><stop offset="0" stop-color="#7fae3e" stop-opacity=".55"/><stop offset=".6" stop-color="#3f7322" stop-opacity=".35"/><stop offset="1" stop-color="#0d2608" stop-opacity=".2"/></radialGradient>
+            <pattern id="scales" width="8" height="7" patternUnits="userSpaceOnUse">
+              <g id="scl"><path d="M0 0 Q0 5.2 4 7 Q8 5.2 8 0 Z" fill="url(#scale-fill)"/><path d="M0 0 Q0 5.2 4 7 Q8 5.2 8 0" fill="none" stroke="#a9d36a" stroke-opacity=".55" stroke-width=".45"/><path d="M.9 .4 Q1.2 4.4 4 5.9" fill="none" stroke="#06150a" stroke-opacity=".45" stroke-width=".5"/></g>
+              <use href="#scl" x="-4" y="-3.5"/><use href="#scl" x="4" y="-3.5"/><use href="#scl" x="-4" y="3.5"/><use href="#scl" x="4" y="3.5"/>
+            </pattern>
           </defs>
           <g clip-path="url(#eye-clip)">
             <g class="nict"><path d="M-60 -2 H8 Q22 50 8 102 H-60 Z" fill="url(#nict)"/><path d="M8 -2 Q22 50 8 102" fill="none" stroke="#fff8d8" stroke-opacity=".9" stroke-width="1.2"/></g>
