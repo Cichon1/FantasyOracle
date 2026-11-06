@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fantasy Oracle</title>
+<link rel="icon" href="../favicon.ico?v=2" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../icons/icon-32.png?v=2">
+<link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png?v=2">
+<link rel="apple-touch-icon" href="../icons/icon-180-solid.png?v=2">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#171b33">
+<link rel="preload" href="assets/goudy.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/ball.png" as="image">
+<link rel="stylesheet" href="fo.css?v=1">
+<script>window.FO_DATA = '../data/';</script>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script src="dash-shim.js?v=1"></script>
+</head>
+<body class="loading on-home">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <path id="rib" d="M0.0 138.7C0.0 138.7 32.5 73.8 32.5 73.8C33.9 71.0 33.9 67.7 32.5 64.9C32.5 64.9 0.0 0.0 0.0 0.0L522.9 0.0L490.5 64.9C489.1 67.7 489.1 71.0 490.5 73.8L522.9 138.7Z"/>
+  </defs>
+</svg>
+<div id="viewport">
+<div id="stage">
+  <div id="updated" aria-live="polite"></div>
+  <img class="knight" src="assets/knight.webp" alt="">
+
+  <nav id="more" aria-label="More pages">
+    <div class="rib">
+      <ul id="more-list">
+        <li><a data-go="matchups">Matchups</a></li>
+        <li><a data-go="style">Run game &amp; Style</a></li>
+        <li><a data-go="weather">Weather</a></li>
+        <li><a data-go="experts">vs Experts</a></li>
+        <li><a data-go="model">Model</a></li>
+        <li class="sep"></li>
+        <li><a data-go="finder">Trade Finder</a></li>
+        <li><a data-go="lineup">Lineup Details</a></li>
+        <li><a data-go="tradedetails">Trade Details</a></li>
+        <li><a data-go="weekly">Weekly Details</a></li>
+        <li><a data-go="rosdetails">ROS Details</a></li>
+        <li><a data-go="history">Rank History</a></li>
+        <li class="sep"></li>
+        <li><a data-go="home">Home</a></li>
+      </ul>
+      <button class="lab" id="more-btn" aria-expanded="false" aria-controls="more-list">More</button>
+    </div>
+  </nav>
+
+  <!-- the emblem: big on the loading screen, at home on the home page, just the ball on every other page -->
+  <div id="emblem" aria-hidden="true">
+    <div class="grp">
+      <div class="wings">
+        <svg class="parts" viewBox="0 0 1920 1080">
+          <path fill="#4a0600" d="M877.5 218.4L846.6 280.1C845.3 282.7 845.3 285.8 846.6 288.5L877.5 350.2L380.7 350.2L411.6 288.5C412.9 285.8 412.9 282.7 411.6 280.1L380.7 218.4Z"/>
+          <path fill="#4a0600" d="M1538.0 218.4L1507.1 280.1C1505.8 282.7 1505.8 285.8 1507.1 288.5L1538.0 350.2L1041.3 350.2L1072.1 288.5C1073.4 285.8 1073.4 282.7 1072.1 280.1L1041.3 218.4Z"/>
+          <path fill="#4a0600" d="M1255.3 248.3C1255.3 417.0 1118.6 553.7 950.0 553.7C781.3 553.7 644.6 417.0 644.6 248.3Z"/>
+          <path fill="#171b33" d="M1136.8 247.9L1255.3 247.9L1218.0 148.7L1099.5 148.7Z"/>
+          <path fill="#171b33" d="M755.9 248.3L644.6 248.3L671.2 177.6L782.5 177.6Z"/>
+          <path fill="#ffe600" stroke="#000" stroke-width="2" d="M972.3 515.2L978.0 533.1L980.5 514.5L992.6 521.3L983.9 510.6L1005.5 504.5L983.2 502.2L989.9 490.2L979.2 498.9L973.4 481.1L970.9 499.7L958.8 492.9L967.5 503.5L945.9 509.7L968.2 512.0L961.5 524.0Z"/>
+        </svg>
+        <img class="arc" src="assets/arc.png" alt="">
+        <div class="mm" style="left:424px">MM</div>
+        <div class="mm" style="left:1266px">XXVI</div>
+      </div>
+      <img class="ball" src="assets/ball.png" alt="">
+    </div>
+  </div>
+  <div id="credit">Page design by Jackson Cichon</div>
+  <div id="loadbar"><i></i></div>
+
+  <div id="titlebar">
+    <svg class="rib" viewBox="0 0 523 139"><use href="#rib" fill="#4a0600"/></svg>
+    <div class="side l" id="tb-left"></div>
+    <div class="side r" id="tb-right"></div>
+    <div class="t" id="tb-title"></div>
+  </div>
+
+  <div class="dd" id="league-dd">
+    <div class="box">
+      <div class="list" role="listbox" aria-label="League" id="league-list"></div>
+      <img class="caret" src="assets/caret.svg" alt="">
+    </div>
+  </div>
+
+  <main id="pages">
+    <!-- HOME -->
+    <section class="page" data-page="home" aria-label="Home">
+      <button class="hbtn left" style="left:-33px;top:633px" data-go="team"><svg viewBox="0 0 523 139"><use href="#rib" fill="#4a0600"/></svg><span>My Team</span></button>
+      <button class="hbtn" style="left:699px;top:633px" data-go="projections"><svg viewBox="0 0 523 139"><use href="#rib" fill="#4a0600"/></svg><span>Weekly Rankings</span></button>
+      <button class="hbtn left" style="left:-33px;top:847px" data-go="trade"><svg viewBox="0 0 523 139"><use href="#rib" fill="#4a0600"/></svg><span>Trade Analyzer</span></button>
+      <button class="hbtn" style="left:699px;top:847px" data-go="ros"><svg viewBox="0 0 523 139"><use href="#rib" fill="#4a0600"/></svg><span>Rest of Season Rankings</span></button>
+    </section>
+
+    <!-- MY TEAM -->
+    <section class="page" data-page="team" aria-label="My Team">
+      <div class="pn" style="--i:1;left:95px;top:393px;width:813px;height:586px">
+        <h2 style="left:20px;top:2px">Starting Roster</h2>
+        <div class="sub" id="tm-name" style="left:20px;top:78px"></div>
+        <div class="paper" style="left:18px;top:125px;width:769px;height:447px">
+          <div class="gt" id="tm-start" style="inset:0"></div>
+        </div>
+      </div>
+      <div class="pn" style="--i:2;left:960px;top:491px;width:859px;height:488px">
+        <h2 style="left:18px;top:-6px">Bench</h2>
+        <div class="paper" style="left:18px;top:76px;width:824px;height:397px">
+          <div class="gt" style="left:0;right:0;top:0;height:46px" id="tm-bench-h"></div>
+          <div class="sc" id="tm-bench-sc" style="left:0;right:0;top:46px;bottom:0"><div class="gt" id="tm-bench" style="left:0;right:0;top:0"></div></div>
+        </div>
+        <div class="arrowbar slim" data-for="tm-bench-sc" style="left:814px;top:126px;height:342px"></div>
+      </div>
+      <div class="pn" style="--i:0;left:1315px;top:126px;width:504px;height:325px">
+        <h2 style="left:28px;top:-4px">Waiver Wire</h2>
+        <div id="wv-chips" style="position:absolute;left:28px;top:71px;display:flex;gap:16px"></div>
+        <div class="paper" style="left:14px;top:116px;width:472px;height:199px">
+          <div class="gt" style="left:0;right:0;top:0;height:46px" id="wv-h"></div>
+          <div class="sc" id="wv-sc" style="left:0;right:0;top:46px;bottom:0"><div class="gt" id="wv" style="left:0;right:0;top:0"></div></div>
+        </div>
+        <div class="arrowbar slim" data-for="wv-sc" style="left:464px;top:164px;height:148px;width:22px"></div>
+      </div>
+      <div class="note-line" id="tm-note" style="left:96px;top:992px;width:1724px"></div>
+    </section>
+
+    <!-- WEEKLY RANKINGS -->
+    <section class="page" data-page="projections" aria-label="Weekly Rankings">
+      <div class="pn" style="--i:0;left:100px;top:403px;width:1740px;height:622px">
+        <div id="wr-weeks" style="position:absolute;left:20px;top:14px;display:flex"></div>
+        <div id="wr-pos" style="position:absolute;left:85px;top:59px;display:flex;gap:15px"></div>
+        <div class="toggles" id="wr-status" style="left:1080px;top:62px"></div>
+        <input class="search" id="wr-q" type="search" placeholder="Search player or team" style="left:1440px;top:62px;width:255px" aria-label="Search player or team">
+        <div class="paper" style="left:20px;top:115px;width:1675px;height:486px">
+          <div class="sc hx" id="wr-sc" style="inset:0"><table class="rk" id="wr-table"><thead></thead><tbody></tbody></table></div>
+        </div>
+        <div class="arrowbar" data-for="wr-sc" style="left:1697px;top:115px;height:486px"></div>
+      </div>
+      <div class="note-line" id="wr-note" style="left:100px;top:1034px"></div>
+    </section>
+
+    <!-- REST OF SEASON -->
+    <section class="page" data-page="ros" aria-label="Rest of Season Rankings">
+      <div class="pn" style="--i:0;left:100px;top:403px;width:1740px;height:622px">
+        <div id="rr-weeks" style="position:absolute;left:20px;top:14px;display:flex"></div>
+        <div id="rr-pos" style="position:absolute;left:85px;top:59px;display:flex;gap:15px"></div>
+        <div class="toggles" id="rr-status" style="left:985px;top:62px"></div>
+        <input class="search" id="rr-q" type="search" placeholder="Search player or team" style="left:1440px;top:62px;width:255px" aria-label="Search player or team">
+        <div class="paper" style="left:20px;top:115px;width:1675px;height:486px">
+          <div class="sc hx" id="rr-sc" style="inset:0"><table class="rk" id="rr-table"><thead></thead><tbody></tbody></table></div>
+        </div>
+        <div class="arrowbar" data-for="rr-sc" style="left:1697px;top:115px;height:486px"></div>
+      </div>
+      <div class="note-line" id="rr-note" style="left:100px;top:1034px"></div>
+    </section>
+
+    <!-- TRADE ANALYZER -->
+    <section class="page" data-page="trade" aria-label="Trade Analyzer">
+      <div class="pn" style="--i:0;left:49px;top:169px;width:612px;height:581px" id="ta-side-mine"></div>
+      <div class="pn" style="--i:0;left:1261px;top:166px;width:612px;height:581px" id="ta-side-theirs"></div>
+      <div class="paper" style="left:680px;top:438px;width:562px;height:542px" id="ta-center"></div>
+      <div class="pn" style="--i:2;left:49px;top:765px;width:612px;height:286px;background:#4a0600" id="ta-lu-mine"></div>
+      <div class="pn" style="--i:2;left:1261px;top:765px;width:612px;height:286px;background:#4a0600" id="ta-lu-theirs"></div>
+    </section>
+
+    <!-- MORE pages: the full dashboard sections in the same dress -->
+    <section class="page more" data-page="matchups" data-title="Matchups"><div class="mp-frame tall pn"><div class="sc mp-scroll"><div class="mp"><!--MORE:matchups--></div></div><div class="arrowbar"></div></div></section>
+    <section class="page more" data-page="style" data-title="Run Game &amp; Style"><div class="mp-frame tall pn"><div class="sc mp-scroll"><div class="mp"><!--MORE:style--></div></div><div class="arrowbar"></div></div></section>
+    <section class="page more" data-page="weather" data-title="Weather"><div class="mp-frame tall pn"><div class="sc mp-scroll"><div class="mp"><!--MORE:weather--></div></div><div class="arrowbar"></div></div></section>
+    <section class="page more" data-page="experts" data-title="vs Experts"><div class="mp-frame tall pn"><div class="sc mp-scroll"><div class="mp"><!--MORE:experts--></div></div><div class="arrowbar"></div></div></section>
+    <section class="page more" data-page="model" data-title="The Model"><div class="mp-frame tall pn"><div class="sc mp-scroll"><div class="mp"><!--MORE:model--></div></div><div class="arrowbar"></div></div></section>
+    <section class="page more league" data-page="finder" data-title="Trade Finder"><div class="mp-frame pn"><div class="sc mp-scroll"><div class="mp"><!--MORE:finder--></div></div><div class="arrowbar"></div></div></section>
+    <section class="page more league" data-page="lineup" data-title="Lineup Details"><div class="mp-frame pn"><div class="sc mp-scroll"><div class="mp"><!--MORE:lineup--></div></div><div class="arrowbar"></div></div></section>
+    <section class="page more league" data-page="tradedetails" data-title="Trade Details"><div class="mp-frame pn"><div class="sc mp-scroll"><div class="mp"><!--MORE:tradedetails--></div></div><div class="arrowbar"></div></div></section>
+    <section class="page more" data-page="weekly" data-title="Weekly Details"><div class="mp-frame tall pn"><div class="sc mp-scroll"><div class="mp"><!--MORE:weekly--></div></div><div class="arrowbar"></div></div></section>
+    <section class="page more" data-page="rosdetails" data-title="ROS Details"><div class="mp-frame tall pn"><div class="sc mp-scroll"><div class="mp"><!--MORE:rosdetails--></div></div><div class="arrowbar"></div></div></section>
+    <section class="page more league" data-page="history" data-title="Rank History"><div class="mp-frame pn"><div class="sc mp-scroll"><div class="mp"><!--MORE:history--></div></div><div class="arrowbar"></div></div></section>
+  </main>
+</div>
+</div>
+<div hidden id="tabhooks"><button data-tab="weather"></button><button data-tab="model"></button><button data-tab="style"></button><button data-tab="experts"></button><button data-tab="ros"></button><button data-tab="matchups"></button></div>
+<div id="rotate"><img src="assets/ball.png" alt=""><div class="ph"></div><div>Turn your phone sideways to use Fantasy Oracle.</div></div>
+<!--SCRIPTS-->
+<script src="fo.js?v=1"></script>
+</body>
+</html>
