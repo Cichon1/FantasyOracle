@@ -23,7 +23,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install -q pandas pyarrow lightgbm catboost scipy cryptography
+      - run: pip install -q "pandas<3" pyarrow lightgbm catboost scipy cryptography
       - uses: actions/cache/restore@v4
         with:
           path: model/cache
