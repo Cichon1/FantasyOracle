@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-07T18:08:11+00:00",
+ "updated": "2026-11-07T18:42:38+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 9,
  "games_started": true,
- "reason": "schedule_and_lines,fp_rankings,injury_news",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 41,
+   "seconds": 40,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 5,
+   "seconds": 4,
    "ok": true
   },
   {
@@ -33,12 +33,12 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 0,
+   "seconds": 1,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 163,
+   "seconds": 29,
    "ok": true
   },
   {
@@ -156,7 +156,7 @@
   "nfl_rows": 360,
   "nfl_matched": 360,
   "nfl_unmatched": [],
-  "espn_out": 110,
+  "espn_out": 111,
   "espn_unmatched": [
    "Doneiko Slaughter (PIT)",
    "Ben Skowronek (PIT)",
@@ -167,7 +167,7 @@
    "Carnell Tate (TEN)",
    "Jaylon Jones (TEN)"
   ],
-  "hash": "188c9fa2be5e",
+  "hash": "a778d3c8aa35",
   "rows_added": 27,
   "values_updated": 0
  }
