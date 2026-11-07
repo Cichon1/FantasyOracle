@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-07T08:50:45+00:00",
+ "updated": "2026-11-07T10:40:43+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 9,
  "games_started": true,
- "reason": "schedule_and_lines",
+ "reason": "player_stats,play_by_play",
  "steps": [
   {
    "step": "bash",
-   "seconds": 38,
+   "seconds": 42,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 2,
+   "seconds": 4,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 0,
+   "seconds": 1,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 144,
+   "seconds": 37,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 36,
+   "seconds": 17,
    "ok": true
   }
  ],
@@ -81,72 +81,72 @@
   "this_week_source": "official",
   "training_snapshots": 47931,
   "rounds": {
-   "QB": 51,
-   "RB": 100,
-   "WR/TE": 81
+   "QB": 50,
+   "RB": 86,
+   "WR/TE": 50
   },
   "experts_ros_date": "2026-11-06 00:00:00",
-  "seconds": 35,
+  "seconds": 16,
   "model_cache": {
-   "hit": 0,
-   "miss": 18,
+   "hit": 18,
+   "miss": 0,
    "on": true
   },
   "top": {
    "QB": [
     [
      "Joe Burrow",
-     196.3
+     193.7
     ],
     [
      "Josh Allen",
-     179.0
+     180.6
     ],
     [
      "Brock Purdy",
-     177.0
+     178.3
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     212.2
+     214.1
     ],
     [
      "Kenneth Walker III",
-     208.6
+     205.4
     ],
     [
      "Christian McCaffrey",
-     181.4
+     178.0
     ]
    ],
    "TE": [
     [
      "Brock Bowers",
-     130.6
+     130.1
     ],
     [
      "George Kittle",
-     130.4
+     128.7
     ],
     [
      "Trey McBride",
-     111.4
+     112.2
     ]
    ],
    "WR": [
     [
      "Jaxon Smith-Njigba",
-     173.5
+     173.0
     ],
     [
      "Ja'Marr Chase",
-     154.3
+     153.3
     ],
     [
      "Puka Nacua",
-     146.6
+     146.7
     ]
    ]
   }
