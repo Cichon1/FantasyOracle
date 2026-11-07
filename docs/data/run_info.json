@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-07T00:59:45+00:00",
+ "updated": "2026-11-07T01:56:17+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 9,
@@ -8,12 +8,12 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 42,
+   "seconds": 44,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 6,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -86,7 +86,7 @@
    "WR/TE": 66
   },
   "experts_ros_date": "2026-11-06 00:00:00",
-  "seconds": 16,
+  "seconds": 17,
   "model_cache": {
    "hit": 18,
    "miss": 0,
