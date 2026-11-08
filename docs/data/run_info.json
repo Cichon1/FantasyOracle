@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-08T19:42:08+00:00",
+ "updated": "2026-11-08T20:33:53+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 9,
  "games_started": true,
- "reason": "schedule_and_lines",
+ "reason": "schedule_and_lines,fp_rankings,injury_news,inactives",
  "steps": [
   {
    "step": "bash",
-   "seconds": 38,
+   "seconds": 39,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 3,
+   "seconds": 4,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 30,
+   "seconds": 23,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 13,
+   "seconds": 11,
    "ok": true
   }
  ],
@@ -54,13 +54,13 @@
   "inactives": {
    "nflverse_roster": 6,
    "file": "ref/inactives_2026_wk9.csv",
-   "matched": 39,
+   "matched": 53,
    "unmatched": [],
-   "total": 43
+   "total": 57
   },
-  "inactive_rows": 2,
+  "inactive_rows": 4,
   "players": 365,
-  "upcoming": 324,
+  "upcoming": 322,
   "season_scoreboard": {
    "model": 0.3785,
    "experts": 0.3821,
@@ -79,7 +79,7 @@
   "week": 9,
   "last_week": 17,
   "players": 463,
-  "out_this_week": 91,
+  "out_this_week": 93,
   "on_bye": 22,
   "this_week_source": "official",
   "training_snapshots": 47931,
@@ -89,7 +89,7 @@
    "WR/TE": 50
   },
   "experts_ros_date": "2026-11-07 00:00:00",
-  "seconds": 12,
+  "seconds": 10,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -159,7 +159,7 @@
   "nfl_rows": 362,
   "nfl_matched": 362,
   "nfl_unmatched": [],
-  "espn_out": 184,
+  "espn_out": 209,
   "espn_unmatched": [
    "CJ Okoye (NYG)",
    "Doneiko Slaughter (PIT)",
@@ -171,8 +171,8 @@
    "Carnell Tate (TEN)",
    "Jaylon Jones (TEN)"
   ],
-  "hash": "c6be069edc57",
-  "rows_added": 82,
+  "hash": "daa84c2107cb",
+  "rows_added": 101,
   "values_updated": 0
  }
 }
