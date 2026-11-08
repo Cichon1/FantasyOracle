@@ -1,19 +1,19 @@
 {
- "updated": "2026-11-08T15:13:38+00:00",
+ "updated": "2026-11-08T16:09:11+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 9,
  "games_started": true,
- "reason": "schedule_and_lines,rosters",
+ "reason": "player_stats,play_by_play,schedule_and_lines",
  "steps": [
   {
    "step": "bash",
-   "seconds": 41,
+   "seconds": 40,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 5,
+   "seconds": 4,
    "ok": true
   },
   {
@@ -28,7 +28,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/injuries_live.py --data",
-   "seconds": 2,
+   "seconds": 1,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 37,
+   "seconds": 29,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 17,
+   "seconds": 14,
    "ok": true
   }
  ],
@@ -82,14 +82,14 @@
   "out_this_week": 77,
   "on_bye": 22,
   "this_week_source": "official",
-  "training_snapshots": 47940,
+  "training_snapshots": 47931,
   "rounds": {
    "QB": 50,
-   "RB": 81,
-   "WR/TE": 51
+   "RB": 97,
+   "WR/TE": 50
   },
   "experts_ros_date": "2026-11-07 00:00:00",
-  "seconds": 15,
+  "seconds": 13,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -99,57 +99,57 @@
    "QB": [
     [
      "Joe Burrow",
-     196.5
+     195.7
     ],
     [
      "Josh Allen",
-     181.7
+     179.3
     ],
     [
      "Brock Purdy",
-     180.8
+     178.5
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     215.9
+     213.6
     ],
     [
      "Kenneth Walker III",
-     204.1
+     205.3
     ],
     [
-     "Christian McCaffrey",
-     177.7
+     "Bijan Robinson",
+     178.2
     ]
    ],
    "TE": [
     [
      "Brock Bowers",
-     131.1
+     131.8
     ],
     [
      "George Kittle",
-     130.2
+     130.1
     ],
     [
      "Trey McBride",
-     113.0
+     114.5
     ]
    ],
    "WR": [
     [
      "Jaxon Smith-Njigba",
-     170.6
+     170.7
     ],
     [
      "Ja'Marr Chase",
-     154.9
+     151.2
     ],
     [
      "Puka Nacua",
-     147.6
+     147.5
     ]
    ]
   }
