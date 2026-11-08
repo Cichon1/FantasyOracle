@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-08T11:48:22+00:00",
+ "updated": "2026-11-08T13:27:54+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 9,
  "games_started": true,
- "reason": "schedule_and_lines",
+ "reason": "schedule_and_lines,injury_news,inactives",
  "steps": [
   {
    "step": "bash",
-   "seconds": 671,
+   "seconds": 40,
    "ok": true
   },
   {
@@ -18,7 +18,7 @@
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 2,
+   "seconds": 1,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 29,
+   "seconds": 24,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 13,
+   "seconds": 11,
    "ok": true
   }
  ],
@@ -53,7 +53,10 @@
   "week": 9,
   "inactives": {
    "nflverse_roster": 3,
-   "total": 3
+   "file": "ref/inactives_2026_wk9.csv",
+   "matched": 3,
+   "unmatched": [],
+   "total": 6
   },
   "inactive_rows": 0,
   "players": 365,
@@ -86,7 +89,7 @@
    "WR/TE": 50
   },
   "experts_ros_date": "2026-11-07 00:00:00",
-  "seconds": 12,
+  "seconds": 10,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -100,11 +103,11 @@
     ],
     [
      "Josh Allen",
-     179.3
+     178.5
     ],
     [
      "Brock Purdy",
-     179.2
+     177.9
     ]
    ],
    "RB": [
@@ -124,11 +127,11 @@
    "TE": [
     [
      "Brock Bowers",
-     132.6
+     131.8
     ],
     [
      "George Kittle",
-     130.1
+     128.8
     ],
     [
      "Trey McBride",
@@ -138,7 +141,7 @@
    "WR": [
     [
      "Jaxon Smith-Njigba",
-     172.2
+     171.4
     ],
     [
      "Ja'Marr Chase",
@@ -156,7 +159,7 @@
   "nfl_rows": 362,
   "nfl_matched": 362,
   "nfl_unmatched": [],
-  "espn_out": 111,
+  "espn_out": 120,
   "espn_unmatched": [
    "Doneiko Slaughter (PIT)",
    "Ben Skowronek (PIT)",
@@ -167,8 +170,8 @@
    "Carnell Tate (TEN)",
    "Jaylon Jones (TEN)"
   ],
-  "hash": "3dc7ac95be12",
-  "rows_added": 27,
+  "hash": "9de46a4ee08d",
+  "rows_added": 34,
   "values_updated": 0
  }
 }
