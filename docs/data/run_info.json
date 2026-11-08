@@ -1,19 +1,19 @@
 {
- "updated": "2026-11-08T14:16:58+00:00",
+ "updated": "2026-11-08T15:13:38+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 9,
  "games_started": true,
- "reason": "schedule_and_lines,injury_reports,depth_charts",
+ "reason": "schedule_and_lines,rosters",
  "steps": [
   {
    "step": "bash",
-   "seconds": 45,
+   "seconds": 41,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 6,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -23,27 +23,27 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 6,
+   "seconds": 4,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/injuries_live.py --data",
-   "seconds": 1,
+   "seconds": 2,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 0,
+   "seconds": 1,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 38,
+   "seconds": 37,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 18,
+   "seconds": 17,
    "ok": true
   }
  ],
@@ -52,11 +52,11 @@
   "season": 2026,
   "week": 9,
   "inactives": {
-   "nflverse_roster": 3,
+   "nflverse_roster": 6,
    "file": "ref/inactives_2026_wk9.csv",
    "matched": 3,
    "unmatched": [],
-   "total": 6
+   "total": 7
   },
   "inactive_rows": 0,
   "players": 365,
@@ -89,7 +89,7 @@
    "WR/TE": 51
   },
   "experts_ros_date": "2026-11-07 00:00:00",
-  "seconds": 17,
+  "seconds": 15,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -135,7 +135,7 @@
     ],
     [
      "Trey McBride",
-     112.4
+     113.0
     ]
    ],
    "WR": [
