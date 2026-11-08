@@ -1,24 +1,24 @@
 {
- "updated": "2026-11-08T00:56:09+00:00",
+ "updated": "2026-11-08T01:59:42+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 9,
  "games_started": true,
- "reason": "schedule_and_lines,injury_news",
+ "reason": "schedule_and_lines",
  "steps": [
   {
    "step": "bash",
-   "seconds": 40,
+   "seconds": 39,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 3,
+   "seconds": 4,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 1,
+   "seconds": 2,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 22,
+   "seconds": 25,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 10,
+   "seconds": 12,
    "ok": true
   }
  ],
@@ -86,7 +86,7 @@
    "WR/TE": 81
   },
   "experts_ros_date": "2026-11-07 00:00:00",
-  "seconds": 9,
+  "seconds": 11,
   "model_cache": {
    "hit": 18,
    "miss": 0,
