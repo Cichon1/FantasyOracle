@@ -1,19 +1,19 @@
 {
- "updated": "2026-11-08T20:33:53+00:00",
+ "updated": "2026-11-08T21:11:43+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 9,
  "games_started": true,
- "reason": "schedule_and_lines,fp_rankings,injury_news,inactives",
+ "reason": "schedule_and_lines",
  "steps": [
   {
    "step": "bash",
-   "seconds": 39,
+   "seconds": 40,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 4,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 23,
+   "seconds": 38,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 11,
+   "seconds": 18,
    "ok": true
   }
  ],
@@ -58,7 +58,7 @@
    "unmatched": [],
    "total": 57
   },
-  "inactive_rows": 4,
+  "inactive_rows": 1,
   "players": 365,
   "upcoming": 322,
   "season_scoreboard": {
@@ -82,14 +82,14 @@
   "out_this_week": 93,
   "on_bye": 22,
   "this_week_source": "official",
-  "training_snapshots": 47931,
+  "training_snapshots": 47940,
   "rounds": {
    "QB": 50,
-   "RB": 97,
-   "WR/TE": 50
+   "RB": 81,
+   "WR/TE": 51
   },
   "experts_ros_date": "2026-11-07 00:00:00",
-  "seconds": 10,
+  "seconds": 17,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -99,57 +99,57 @@
    "QB": [
     [
      "Josh Allen",
-     180.0
+     180.1
     ],
     [
      "Brock Purdy",
-     177.1
+     179.4
     ],
     [
      "Drake Maye",
-     163.4
+     164.3
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     214.4
+     206.3
     ],
     [
      "Kenneth Walker III",
-     207.5
+     178.4
     ],
     [
      "Christian McCaffrey",
-     177.5
+     146.9
     ]
    ],
    "TE": [
     [
      "Brock Bowers",
-     130.7
+     130.8
     ],
     [
      "George Kittle",
-     130.3
+     129.6
     ],
     [
      "Trey McBride",
-     114.5
+     113.0
     ]
    ],
    "WR": [
     [
      "Jaxon Smith-Njigba",
-     157.8
+     158.9
     ],
     [
      "Puka Nacua",
-     146.3
+     145.6
     ],
     [
-     "Amon-Ra St. Brown",
-     146.0
+     "CeeDee Lamb",
+     141.3
     ]
    ]
   }
