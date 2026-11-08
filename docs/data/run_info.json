@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-08T04:51:08+00:00",
+ "updated": "2026-11-08T05:47:19+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 9,
@@ -8,22 +8,22 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 41,
+   "seconds": 39,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 6,
+   "seconds": 3,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 2,
+   "seconds": 1,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 5,
+   "seconds": 4,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 44,
+   "seconds": 24,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 21,
+   "seconds": 11,
    "ok": true
   }
  ],
@@ -86,7 +86,7 @@
    "WR/TE": 81
   },
   "experts_ros_date": "2026-11-07 00:00:00",
-  "seconds": 20,
+  "seconds": 10,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -138,7 +138,7 @@
    "WR": [
     [
      "Jaxon Smith-Njigba",
-     171.3
+     170.6
     ],
     [
      "Ja'Marr Chase",
