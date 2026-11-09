@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-09T13:04:02+00:00",
+ "updated": "2026-11-09T14:18:45+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 9,
  "games_started": true,
- "reason": "schedule_and_lines,snap_counts,ftn_charting",
+ "reason": "player_stats,play_by_play,schedule_and_lines",
  "steps": [
   {
    "step": "bash",
-   "seconds": 42,
+   "seconds": 43,
    "ok": true
   },
   {
@@ -89,7 +89,7 @@
    "WR/TE": 50
   },
   "experts_ros_date": "2026-11-07 00:00:00",
-  "seconds": 13,
+  "seconds": 12,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -99,7 +99,7 @@
    "QB": [
     [
      "Josh Allen",
-     173.8
+     176.0
     ],
     [
      "Joe Burrow",
