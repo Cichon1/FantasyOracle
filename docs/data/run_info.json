@@ -1,19 +1,19 @@
 {
- "updated": "2026-11-09T00:07:54+00:00",
+ "updated": "2026-11-09T01:04:21+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 9,
  "games_started": true,
- "reason": "schedule_and_lines,injury_news,inactives",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 40,
+   "seconds": 41,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 5,
+   "seconds": 4,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 2,
+   "seconds": 1,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 30,
+   "seconds": 29,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 14,
+   "seconds": 13,
    "ok": true
   }
  ],
@@ -89,7 +89,7 @@
    "WR/TE": 59
   },
   "experts_ros_date": "2026-11-07 00:00:00",
-  "seconds": 13,
+  "seconds": 12,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -99,50 +99,46 @@
    "QB": [
     [
      "Josh Allen",
-     178.2
-    ],
-    [
-     "Brock Purdy",
      174.8
     ],
     [
      "Joe Burrow",
      172.5
+    ],
+    [
+     "Caleb Williams",
+     146.0
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     206.9
-    ],
-    [
-     "Christian McCaffrey",
      189.4
     ],
     [
      "Kenneth Walker III",
      156.2
+    ],
+    [
+     "Bijan Robinson",
+     150.4
     ]
    ],
    "TE": [
     [
-     "Brock Bowers",
-     132.1
-    ],
-    [
-     "George Kittle",
-     129.6
+     "Colston Loveland",
+     98.4
     ],
     [
      "Trey McBride",
-     112.5
+     95.0
+    ],
+    [
+     "Brock Bowers",
+     90.5
     ]
    ],
    "WR": [
-    [
-     "Jaxon Smith-Njigba",
-     158.6
-    ],
     [
      "Ja'Marr Chase",
      151.5
@@ -150,6 +146,10 @@
     [
      "Puka Nacua",
      129.9
+    ],
+    [
+     "Amon-Ra St. Brown",
+     128.1
     ]
    ]
   }
@@ -159,7 +159,7 @@
   "nfl_rows": 362,
   "nfl_matched": 362,
   "nfl_unmatched": [],
-  "espn_out": 212,
+  "espn_out": 218,
   "espn_unmatched": [
    "CJ Okoye (NYG)",
    "Doneiko Slaughter (PIT)",
@@ -171,8 +171,8 @@
    "Carnell Tate (TEN)",
    "Jaylon Jones (TEN)"
   ],
-  "hash": "cffad7b33b1a",
-  "rows_added": 103,
+  "hash": "dde698dfda41",
+  "rows_added": 108,
   "values_updated": 0
  }
 }
