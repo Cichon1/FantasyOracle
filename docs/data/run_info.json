@@ -1,19 +1,19 @@
 {
- "updated": "2026-11-09T17:33:42+00:00",
+ "updated": "2026-11-09T18:21:26+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 9,
  "games_started": true,
- "reason": "schedule_and_lines,injury_reports,depth_charts",
+ "reason": "schedule_and_lines,rosters,fp_rankings",
  "steps": [
   {
    "step": "bash",
-   "seconds": 47,
+   "seconds": 43,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 3,
+   "seconds": 4,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 115,
+   "seconds": 99,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 11,
+   "seconds": 13,
    "ok": true
   }
  ],
@@ -89,7 +89,7 @@
    "WR/TE": 50
   },
   "experts_ros_date": "2026-11-07 00:00:00",
-  "seconds": 10,
+  "seconds": 12,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -99,7 +99,7 @@
    "QB": [
     [
      "Josh Allen",
-     176.0
+     177.5
     ],
     [
      "Joe Burrow",
