@@ -1,24 +1,24 @@
 {
- "updated": "2026-11-09T18:21:26+00:00",
+ "updated": "2026-11-09T19:33:57+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 9,
  "games_started": true,
- "reason": "schedule_and_lines,rosters,fp_rankings",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 43,
+   "seconds": 45,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 4,
+   "seconds": 6,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 2,
+   "seconds": 3,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 99,
+   "seconds": 218,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 13,
+   "seconds": 18,
    "ok": true
   }
  ],
@@ -82,14 +82,14 @@
   "out_this_week": 107,
   "on_bye": 22,
   "this_week_source": "official",
-  "training_snapshots": 47931,
+  "training_snapshots": 47940,
   "rounds": {
    "QB": 50,
-   "RB": 97,
+   "RB": 73,
    "WR/TE": 50
   },
   "experts_ros_date": "2026-11-07 00:00:00",
-  "seconds": 12,
+  "seconds": 17,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -99,57 +99,57 @@
    "QB": [
     [
      "Josh Allen",
-     177.5
+     178.3
     ],
     [
      "Joe Burrow",
-     172.8
+     172.0
     ],
     [
      "Brock Purdy",
-     157.6
+     157.8
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     189.8
+     190.1
     ],
     [
      "Kenneth Walker III",
-     183.2
+     181.9
     ],
     [
      "Christian McCaffrey",
-     157.2
+     157.4
     ]
    ],
    "TE": [
     [
      "Brock Bowers",
-     114.6
+     114.2
     ],
     [
      "George Kittle",
-     114.5
+     114.0
     ],
     [
      "Trey McBride",
-     97.8
+     97.4
     ]
    ],
    "WR": [
     [
      "Jaxon Smith-Njigba",
-     150.3
+     150.9
     ],
     [
      "Ja'Marr Chase",
-     138.5
+     136.8
     ],
     [
      "Puka Nacua",
-     130.0
+     129.5
     ]
    ]
   }
