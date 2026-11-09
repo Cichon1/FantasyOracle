@@ -1,14 +1,14 @@
 {
- "pulled_at": "2026-11-09T15:43-05:00",
+ "pulled_at": "2026-11-09T18:31-05:00",
  "pages": 8,
- "expert_pages": 4,
+ "expert_pages": 3,
  "errors": [],
  "expert_pages_waiting": 0,
  "cutoff_ros": "2026-11-08T23:40-05:00",
  "cutoff_weekly": "2026-11-08T23:40-05:00",
  "panels": {
   "weekly|QB": {
-   "default": 44,
+   "default": 43,
    "recent": 82,
    "recent_acc": 82,
    "listed": 171,
@@ -19,8 +19,8 @@
     "recent": 31,
     "recent_acc": 31
    },
-   "agree_recent": 0.992,
-   "agree_recent_acc": 0.992
+   "agree_recent": 0.993,
+   "agree_recent_acc": 0.993
   },
   "weekly|RB": {
    "default": 38,
@@ -45,12 +45,12 @@
    "public_pages": 80,
    "recent_rule": "kept last good version",
    "players": {
-    "default": 158,
+    "default": 157,
     "recent": 102,
     "recent_acc": 102
    },
-   "agree_recent": 0.987,
-   "agree_recent_acc": 0.987
+   "agree_recent": 0.986,
+   "agree_recent_acc": 0.986
   },
   "weekly|TE": {
    "default": 38,
@@ -68,44 +68,44 @@
    "agree_recent_acc": 0.99
   },
   "ros|QB": {
-   "default": 3,
+   "default": 4,
    "recent": 12,
    "recent_acc": 12,
    "listed": 31,
    "public_pages": 16,
    "recent_rule": "fallback: last 7 days",
    "players": {
-    "default": 49,
+    "default": 63,
     "recent": 44,
     "recent_acc": 44
    },
-   "agree_recent": 0.979,
-   "agree_recent_acc": 0.979
+   "agree_recent": 0.988,
+   "agree_recent_acc": 0.988
   },
   "ros|RB": {
-   "default": 2,
+   "default": 3,
    "recent": 11,
    "recent_acc": 11,
    "listed": 26,
    "public_pages": 14,
    "recent_rule": "fallback: last 7 days",
    "players": {
-    "default": 86,
-    "recent": 103,
-    "recent_acc": 103
+    "default": 110,
+    "recent": 104,
+    "recent_acc": 104
    },
-   "agree_recent": 0.965,
-   "agree_recent_acc": 0.965
+   "agree_recent": 0.967,
+   "agree_recent_acc": 0.967
   },
   "ros|WR": {
    "default": 7,
-   "recent": 10,
-   "recent_acc": 10,
+   "recent": 11,
+   "recent_acc": 11,
    "listed": 26,
    "public_pages": 14,
    "recent_rule": "fallback: last 7 days",
    "players": {
-    "default": 175,
+    "default": 174,
     "recent": 129,
     "recent_acc": 129
    },
@@ -124,9 +124,9 @@
     "recent": 60,
     "recent_acc": 60
    },
-   "agree_recent": 0.993,
-   "agree_recent_acc": 0.993
+   "agree_recent": 0.992,
+   "agree_recent_acc": 0.992
   }
  },
- "stamp": "d2b49e84f472"
+ "stamp": "12f8580b7289"
 }
