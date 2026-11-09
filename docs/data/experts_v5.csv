@@ -1,4 +1,4 @@
 source,spearman,pairwise,topk_hit,vs_experts,vs_experts_se,win_share,weeks
-Model v5,0.4314,0.6528,0.6362,0.0146,0.0059,0.591,220
-FantasyPros experts,0.4169,0.6472,0.6356,0.0,0.0,,220
-Official (model + experts),0.4323,0.652,0.6386,0.0155,0.0035,0.632,220
+Model v5,0.4313,0.6526,0.636,0.0146,0.0059,0.591,220
+FantasyPros experts,0.4166,0.647,0.6352,0.0,0.0,,220
+Official (model + experts),0.4322,0.6518,0.6381,0.0156,0.0035,0.627,220
