@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-09T03:55:24+00:00",
+ "updated": "2026-11-09T05:01:31+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 9,
@@ -8,7 +8,7 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 41,
+   "seconds": 38,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 1,
+   "seconds": 0,
    "ok": true
   },
   {
@@ -33,7 +33,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 1,
+   "seconds": 0,
    "ok": true
   },
   {
@@ -135,7 +135,7 @@
     ],
     [
      "Trey McBride",
-     99.4
+     99.1
     ]
    ],
    "WR": [
@@ -159,7 +159,7 @@
   "nfl_rows": 362,
   "nfl_matched": 362,
   "nfl_unmatched": [],
-  "espn_out": 218,
+  "espn_out": 217,
   "espn_unmatched": [
    "CJ Okoye (NYG)",
    "Doneiko Slaughter (PIT)",
@@ -171,8 +171,8 @@
    "Carnell Tate (TEN)",
    "Jaylon Jones (TEN)"
   ],
-  "hash": "dde698dfda41",
-  "rows_added": 108,
+  "hash": "4084b840c454",
+  "rows_added": 107,
   "values_updated": 0
  }
 }
