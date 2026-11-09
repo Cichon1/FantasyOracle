@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-09T11:54:09+00:00",
+ "updated": "2026-11-09T13:04:02+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 9,
  "games_started": true,
- "reason": "schedule_and_lines",
+ "reason": "schedule_and_lines,snap_counts,ftn_charting",
  "steps": [
   {
    "step": "bash",
-   "seconds": 40,
+   "seconds": 42,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 1,
+   "seconds": 0,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 23,
+   "seconds": 30,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 10,
+   "seconds": 13,
    "ok": true
   }
  ],
@@ -79,7 +79,7 @@
   "week": 9,
   "last_week": 17,
   "players": 461,
-  "out_this_week": 129,
+  "out_this_week": 107,
   "on_bye": 22,
   "this_week_source": "official",
   "training_snapshots": 47931,
@@ -89,7 +89,7 @@
    "WR/TE": 50
   },
   "experts_ros_date": "2026-11-07 00:00:00",
-  "seconds": 10,
+  "seconds": 13,
   "model_cache": {
    "hit": 18,
    "miss": 0,
