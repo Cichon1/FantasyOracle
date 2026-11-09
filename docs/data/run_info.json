@@ -1,24 +1,24 @@
 {
- "updated": "2026-11-09T01:04:21+00:00",
+ "updated": "2026-11-09T02:09:30+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 9,
  "games_started": true,
- "reason": "schedule_and_lines,injury_news",
+ "reason": "player_stats,play_by_play,schedule_and_lines,expected_points",
  "steps": [
   {
    "step": "bash",
-   "seconds": 41,
+   "seconds": 40,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 4,
+   "seconds": 6,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 2,
+   "seconds": 3,
    "ok": true
   },
   {
@@ -28,22 +28,22 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/injuries_live.py --data",
-   "seconds": 1,
+   "seconds": 2,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 0,
+   "seconds": 1,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 29,
+   "seconds": 208,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 13,
+   "seconds": 41,
    "ok": true
   }
  ],
@@ -60,17 +60,17 @@
   },
   "inactive_rows": 0,
   "players": 365,
-  "upcoming": 138,
+  "upcoming": 50,
   "season_scoreboard": {
-   "model": 0.4013,
-   "experts": 0.4072,
-   "official": 0.4097
+   "model": 0.3872,
+   "experts": 0.3913,
+   "official": 0.3949
   },
   "latest_week_scoreboard": {
    "week": 9,
-   "model": 0.5837,
-   "experts": 0.6079,
-   "official": 0.6034
+   "model": 0.4566,
+   "experts": 0.4645,
+   "official": 0.4702
   }
  },
  "ros_info": {
@@ -79,77 +79,77 @@
   "week": 9,
   "last_week": 17,
   "players": 463,
-  "out_this_week": 119,
+  "out_this_week": 130,
   "on_bye": 22,
   "this_week_source": "official",
   "training_snapshots": 47931,
   "rounds": {
    "QB": 50,
-   "RB": 101,
-   "WR/TE": 59
+   "RB": 97,
+   "WR/TE": 50
   },
   "experts_ros_date": "2026-11-07 00:00:00",
-  "seconds": 12,
+  "seconds": 40,
   "model_cache": {
-   "hit": 18,
-   "miss": 0,
+   "hit": 0,
+   "miss": 18,
    "on": true
   },
   "top": {
    "QB": [
     [
      "Josh Allen",
-     174.8
+     173.8
     ],
     [
      "Joe Burrow",
-     172.5
+     172.8
     ],
     [
-     "Caleb Williams",
-     146.0
+     "Brock Purdy",
+     157.6
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     189.4
+     189.8
     ],
     [
      "Kenneth Walker III",
-     156.2
+     183.2
     ],
     [
-     "Bijan Robinson",
-     150.4
+     "Christian McCaffrey",
+     157.2
     ]
    ],
    "TE": [
     [
-     "Colston Loveland",
-     98.4
+     "Brock Bowers",
+     114.6
+    ],
+    [
+     "George Kittle",
+     114.5
     ],
     [
      "Trey McBride",
-     95.0
-    ],
-    [
-     "Brock Bowers",
-     90.5
+     97.9
     ]
    ],
    "WR": [
     [
+     "Jaxon Smith-Njigba",
+     150.3
+    ],
+    [
      "Ja'Marr Chase",
-     151.5
+     138.5
     ],
     [
      "Puka Nacua",
-     129.9
-    ],
-    [
-     "Amon-Ra St. Brown",
-     128.1
+     130.0
     ]
    ]
   }
