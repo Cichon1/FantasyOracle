@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-10T01:01:32+00:00",
+ "updated": "2026-11-10T02:00:32+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 9,
@@ -8,17 +8,17 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 40,
+   "seconds": 42,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 6,
+   "seconds": 4,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 3,
+   "seconds": 2,
    "ok": true
   },
   {
@@ -28,22 +28,22 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/injuries_live.py --data",
-   "seconds": 2,
-   "ok": true
-  },
-  {
-   "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
    "seconds": 1,
    "ok": true
   },
   {
+   "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
+   "seconds": 0,
+   "ok": true
+  },
+  {
    "step": "cloud_run.py project",
-   "seconds": 41,
+   "seconds": 30,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 19,
+   "seconds": 14,
    "ok": true
   }
  ],
@@ -89,7 +89,7 @@
    "WR/TE": 50
   },
   "experts_ros_date": "2026-11-07 00:00:00",
-  "seconds": 18,
+  "seconds": 13,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -99,7 +99,7 @@
    "QB": [
     [
      "Josh Allen",
-     181.3
+     181.2
     ],
     [
      "Joe Burrow",
@@ -159,7 +159,7 @@
   "nfl_rows": 362,
   "nfl_matched": 362,
   "nfl_unmatched": [],
-  "espn_out": 136,
+  "espn_out": 139,
   "espn_unmatched": [
    "Doneiko Slaughter (PIT)",
    "Ben Skowronek (PIT)",
@@ -171,7 +171,7 @@
    "Carnell Tate (TEN)",
    "Jaylon Jones (TEN)"
   ],
-  "hash": "adf73bfef00b",
+  "hash": "547bc94eed13",
   "rows_added": 32,
   "values_updated": 0
  }
