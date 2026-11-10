@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-10T19:51:16+00:00",
+ "updated": "2026-11-10T20:43:41+00:00",
  "season": 2026,
  "projection_week": 10,
  "results_week": 9,
  "games_started": false,
- "reason": "schedule_and_lines,injury_news",
+ "reason": "schedule_and_lines,fp_rankings,injury_news",
  "steps": [
   {
    "step": "bash",
@@ -13,37 +13,37 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 4,
+   "seconds": 5,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 2,
-   "ok": true
-  },
-  {
-   "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
    "seconds": 3,
    "ok": true
   },
   {
-   "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/injuries_live.py --data",
-   "seconds": 2,
+   "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
+   "seconds": 4,
    "ok": true
   },
   {
-   "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
+   "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/injuries_live.py --data",
    "seconds": 1,
    "ok": true
   },
   {
+   "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
+   "seconds": 0,
+   "ok": true
+  },
+  {
    "step": "cloud_run.py project",
-   "seconds": 27,
+   "seconds": 39,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 12,
+   "seconds": 19,
    "ok": true
   }
  ],
@@ -56,8 +56,8 @@
    "total": 0
   },
   "inactive_rows": 0,
-  "players": 365,
-  "upcoming": 365,
+  "players": 364,
+  "upcoming": 364,
   "season_scoreboard": {
    "model": 0.3908,
    "experts": 0.3968,
@@ -75,18 +75,18 @@
   "season": 2026,
   "week": 10,
   "last_week": 17,
-  "players": 472,
-  "out_this_week": 59,
+  "players": 474,
+  "out_this_week": 62,
   "on_bye": 48,
   "this_week_source": "official",
-  "training_snapshots": 47932,
+  "training_snapshots": 47940,
   "rounds": {
    "QB": 50,
-   "RB": 101,
-   "WR/TE": 53
+   "RB": 68,
+   "WR/TE": 60
   },
   "experts_ros_date": "2026-11-10 00:00:00",
-  "seconds": 11,
+  "seconds": 17,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -96,57 +96,57 @@
    "QB": [
     [
      "Josh Allen",
-     152.6
+     152.0
     ],
     [
      "Brock Purdy",
-     148.2
+     147.2
     ],
     [
      "Joe Burrow",
-     146.1
+     144.2
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     154.9
-    ],
-    [
-     "Christian McCaffrey",
-     154.7
+     157.0
     ],
     [
      "Kenneth Walker III",
+     150.7
+    ],
+    [
+     "Christian McCaffrey",
      143.2
     ]
    ],
    "TE": [
     [
      "Brock Bowers",
-     107.0
+     105.6
     ],
     [
      "George Kittle",
-     101.2
+     101.4
     ],
     [
      "Trey McBride",
-     92.8
+     93.6
     ]
    ],
    "WR": [
     [
      "Amon-Ra St. Brown",
-     147.7
+     148.2
     ],
     [
      "Ja'Marr Chase",
-     146.9
+     146.1
     ],
     [
      "Jaxon Smith-Njigba",
-     139.4
+     136.7
     ]
    ]
   }
@@ -154,10 +154,10 @@
  "injuries_live": {
   "nfl_week": 9,
   "nfl_rows": 362,
-  "espn_out": 5,
+  "espn_out": 7,
   "espn_unmatched": [],
-  "hash": "ecec62f2eee4",
-  "rows_added": 5,
+  "hash": "e738728df17c",
+  "rows_added": 7,
   "values_updated": 0
  }
 }
