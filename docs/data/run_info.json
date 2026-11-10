@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-10T00:08:19+00:00",
+ "updated": "2026-11-10T01:01:32+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 9,
  "games_started": true,
- "reason": "schedule_and_lines,fp_rankings,injury_news",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 37,
+   "seconds": 40,
    "ok": true
   },
   {
@@ -28,22 +28,22 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/injuries_live.py --data",
-   "seconds": 1,
+   "seconds": 2,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 0,
+   "seconds": 1,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 38,
+   "seconds": 41,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 18,
+   "seconds": 19,
    "ok": true
   }
  ],
@@ -82,14 +82,14 @@
   "out_this_week": 110,
   "on_bye": 22,
   "this_week_source": "official",
-  "training_snapshots": 47940,
+  "training_snapshots": 47931,
   "rounds": {
    "QB": 50,
-   "RB": 73,
+   "RB": 97,
    "WR/TE": 50
   },
   "experts_ros_date": "2026-11-07 00:00:00",
-  "seconds": 17,
+  "seconds": 18,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -99,57 +99,57 @@
    "QB": [
     [
      "Josh Allen",
-     177.6
+     181.3
     ],
     [
      "Joe Burrow",
-     172.0
+     172.8
     ],
     [
      "Brock Purdy",
-     157.8
+     157.6
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     190.1
+     189.8
     ],
     [
      "Kenneth Walker III",
-     181.9
+     183.2
     ],
     [
      "Christian McCaffrey",
-     157.4
+     157.2
     ]
    ],
    "TE": [
     [
      "Brock Bowers",
-     114.2
+     114.6
     ],
     [
      "George Kittle",
-     114.0
+     114.5
     ],
     [
      "Trey McBride",
-     97.4
+     97.8
     ]
    ],
    "WR": [
     [
      "Jaxon Smith-Njigba",
-     150.9
+     150.3
     ],
     [
      "Ja'Marr Chase",
-     136.8
+     138.5
     ],
     [
      "Puka Nacua",
-     129.5
+     130.0
     ]
    ]
   }
@@ -159,7 +159,7 @@
   "nfl_rows": 362,
   "nfl_matched": 362,
   "nfl_unmatched": [],
-  "espn_out": 140,
+  "espn_out": 136,
   "espn_unmatched": [
    "Doneiko Slaughter (PIT)",
    "Ben Skowronek (PIT)",
@@ -171,8 +171,8 @@
    "Carnell Tate (TEN)",
    "Jaylon Jones (TEN)"
   ],
-  "hash": "fb6617dc1042",
-  "rows_added": 33,
+  "hash": "adf73bfef00b",
+  "rows_added": 32,
   "values_updated": 0
  }
 }
