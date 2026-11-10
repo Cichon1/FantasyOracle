@@ -155,7 +155,7 @@ def defense_allowed(stats, tg):
                ["fantasy_points_ppr"].sum()
                .rename(columns={"opponent_team": "def_team", "fantasy_points_ppr": "pts_allowed"}))
     dg = tg[["team", "game_id", "season", "week"]].rename(columns={"team": "def_team"})
-    dg = dg[dg["game_id"].isin(set(stats["game_id"])) | dg["season"].ge(2026)]
+    dg = dg[dg["game_id"].isin(set(stats["game_id"])) | dg["season"].eq(dg["season"].max())]   # + the current season's unplayed games (was hard-coded to 2026)
     full = dg.merge(pd.DataFrame({"position": POSITIONS}), how="cross")
     full = full.merge(allowed, on=["def_team", "position", "game_id", "season", "week"], how="left")
     played = full["game_id"].isin(set(stats["game_id"]))

@@ -124,6 +124,30 @@ Outputs: `dash_out/ros_v5.csv` (rankings), `dash_out/trade_values_v5.csv`, `dash
 The trade-values table is still written (datasets/trade_values) but the page no longer shows it: the trade analyzer
 below replaced it.
 
+## Availability in the trade analyzer (Nov 9, 2026; `ros.depth_inputs`, `avail.py`, page script `foAvail`)
+
+Three changes from Jackson's questions about the flat 89% chance to play:
+- **A missed game is filled by a replacement.** Trade value per game is now his chance to play x (his points when
+  playing - the level), with the waiver and last-starter levels in points when playing (healthy free agents only).
+  Before, expected points with missed games as zero were compared with levels that were also discounted. Lineup
+  values (does it help you, power rankings, season simulation, trade finder) add a waiver-level player for the games
+  a starter misses.
+- **The chance to play falls the further out a game is** (`v5_config` `ros.avail_curve`, nflverse snap counts
+  2021-2025, starters as of each week 3-14): a starting WR plays ~91% of next week's games and ~83% eight games out;
+  QBs (who also get benched) 88% -> 73%. Fantasy playoff weeks are worth less than near weeks for every player.
+- **Player-specific chances** (`avail.py`, test `avail_lab.py`): logistic regression on the curve plus his injury
+  report this week and last, age, games missed this season and the two before, snap share. Fit 2021-2023, tested
+  2024-2025: log loss on games 1+ weeks out 0.4157 -> 0.4054, Brier 0.1256 -> 0.1223 (games 4+ out 0.4584 -> 0.4507).
+  Production coefficients fit on 2021-2025 (`ros.avail_player`).
+`ros_v5.csv` gains `play_curve` (chance game by game after this week); `pts_when_playing` = ROS points after this week
+over the availability they already price in (weekly part ~95%, ROS-rate part the curve's average), so the trade tools'
+expected points sit a little below the ROS table for players the ROS total treats as healthy every week. ROS points and
+rankings themselves are unchanged.
+
+Effect on the Nov 9 data: rostered players at 0 value 13.5% / 17.5% / 18.1% -> 12.4% / 10.7% / 13.8% (BDSM / The
+League / Ezekiel); order of values vs before rank correlation ~0.90; values ~20% lower overall (playoff weeks now
+weighted by the chance to play them); injury-prone players and players out now shift relative to healthy ones.
+
 ## League trade analyzer (Oct 12, 2026; page scripts `taEngine`, `league_players`; `yahoo_league.py`)
 
 Trades are judged inside each of Jackson's Yahoo leagues (BDSM League, The League, Ezekiel 25.17) the way FantasyPros

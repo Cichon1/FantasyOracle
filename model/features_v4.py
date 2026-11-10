@@ -654,6 +654,10 @@ def context_features(df, games, data_dir):
     pen = af.roll(pen, "referee", ["season", "week"], {"ctx_ref_penalties_pg": ("penalty", None)}, halflife=16)
     tmp = df[["season", "week"]].assign(referee=x["referee"].values)
     out["ctx_ref_penalties_pg"] = af.attach_prior(tmp, pen, "referee", "referee", ["ctx_ref_penalties_pg"])["ctx_ref_penalties_pg"]
+    # nflverse stopped listing referees from 2026 Week 5: a game with no referee gets the league's average crew (the
+    # model was trained on games that all had one, so a blank would send them down an untrained branch)
+    known = out["ctx_ref_penalties_pg"].notna()
+    out.loc[~known, "ctx_ref_penalties_pg"] = float(pen["ctx_ref_penalties_pg"].mean()) if len(pen) else np.nan
     return out
 
 

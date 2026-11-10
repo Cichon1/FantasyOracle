@@ -544,29 +544,122 @@ def injury_labels(ctx, season, week, ids):
     return ids.map(lab)
 
 
+def _curve(vals, n):
+    """First n values of a play-chance curve (its last value repeats)."""
+    vals = list(vals) or [0.85]
+    return np.array([vals[min(i, len(vals) - 1)] for i in range(n)], dtype=float)
+
+
+def _fill_curve(shape, total):
+    """Scale a curve's shape so its sum is `total` games, no game above 0.99 (the excess moves to the other games)."""
+    c = np.zeros(len(shape))
+    if total <= 0 or not len(shape) or shape.sum() <= 0:
+        return c
+    total = min(total, 0.99 * len(shape))
+    free = np.ones(len(shape), dtype=bool)
+    for _ in range(len(shape) + 1):
+        left = total - c[~free].sum()
+        c[free] = shape[free] * left / shape[free].sum()
+        over = free & (c > 0.99)
+        if not over.any():
+            break
+        c[over], free = 0.99, free & ~over
+    return c
+
+
 def depth_inputs(s, ctx, season, week, cfg):
     """Inputs for simulating weekly lineups (trade analyzer): chance he plays each remaining game, points when he plays,
-    the team's remaining bye week, fumbles lost per game, and chances of big yardage games (for league bonuses)."""
-    av = cfg["avail"]
+    the team's remaining bye week, fumbles lost per game, and chances of big yardage games (for league bonuses).
+
+    Nov 9, 2026: the chance he plays a game falls the further away it is (cfg avail_curve: a starter plays ~91% of
+    next week's WR games, ~83% eight games out), instead of one flat rate per position.
+      - his game this week (still to play): play_now = this week's official projection / points when playing (the
+        weekly projection already prices in the injury report; 1 for a healthy player);
+      - later games: his own chance game by game (play_curve): the position's curve adjusted for his injury report,
+        age, games missed and snap share (avail.py), when cfg avail_player is set;
+      - points when playing: his ROS points after this week over the availability they already price in (the
+        weekly projection part only this week's ~95%, the ROS rate model part the position curve's average); the
+        trade analyzer's expected points are then points when playing x his own chances, a little below the ROS
+        table's points for players the ROS total treats as healthy every week;
+      - players out this week: when they come back they score like their healthy selves (long-run points per game
+        played), so a low ROS total means fewer games, not weaker games; those expected games follow the out
+        curve's shape (returns build up over the next weeks)."""
+    av, cv = cfg["avail"], cfg.get("avail_curve")
     cat = np.where(s["ros_out_now"].eq(1) & s["ros_res"].eq(1), "res", np.where(s["ros_out_now"].eq(1), "out", "active"))
     a = pd.Series([av[c].get(p, 0.85) for c, p in zip(cat, s["position"])], index=s.index)
     G = (s["ros_games_after"] + s["ros_games_cur"]).clip(lower=1)
-    h = s["ros_ppr"] / (a * G)
-    # players out now: when they come back they score like their healthy selves (long-run points per game played),
-    # so a low ROS total means fewer games, not weaker games; expected ROS points stay the same
     outp = s["ros_out_now"].eq(1)
     healthy = 0.9 * s["fantasy_points_ppr_ewm_long"].fillna(0)
-    h = h.where(~outp, np.maximum(h, healthy))
-    a = a.where(~outp, (s["ros_ppr"] / (h * G).where(h * G > 0)).fillna(0).clip(0, 1))
     out = pd.DataFrame(index=s.index)
-    out["play_rate"] = a.round(3)
-    out["pts_when_playing"] = h.round(2)
-    # out this week (or ruled inactive): no game this week; later weeks carry the rest of his expected games
     now_out = s["ros_out_now"].eq(1) | s["wk_status"].isin(["Inactive", "Did not play"]) | s["ros_bye_now"].eq(1) | s["ros_cur_played"].astype(bool)
     has_now = s["ros_games_cur"].gt(0) & ~s["ros_cur_played"].astype(bool)
-    out["play_now"] = np.where(now_out | ~has_now, 0.0, a).round(3)
-    later = np.where(s["ros_out_now"].eq(1) & has_now & (G > 1), (a * G / (G - 1).clip(lower=1)).clip(upper=1), a)
-    out["play_later"] = np.round(later, 3)
+    if cv is None:   # flat rate per position (before Nov 9, 2026)
+        h = s["ros_ppr"] / (a * G)
+        h = h.where(~outp, np.maximum(h, healthy))
+        a = a.where(~outp, (s["ros_ppr"] / (h * G).where(h * G > 0)).fillna(0).clip(0, 1))
+        out["play_rate"] = a.round(3)
+        out["pts_when_playing"] = h.round(2)
+        out["play_now"] = np.where(now_out | ~has_now, 0.0, a).round(3)
+        later = np.where(s["ros_out_now"].eq(1) & has_now & (G > 1), (a * G / (G - 1).clip(lower=1)).clip(upper=1), a)
+        out["play_later"] = np.round(later, 3)
+    else:
+        n_after = s["ros_games_after"].fillna(0).astype(int).clip(lower=0)
+        open_now = (~now_out) & has_now
+        this_wk = pd.to_numeric(s.get("this_week"), errors="coerce").fillna(0).where(open_now, 0)
+        # player-specific chances for active players' later games (avail.py); the position curve sets his points
+        # when playing, so a player with a worse outlook keeps the same per-game level but plays fewer games
+        pc = cfg.get("avail_player")
+        pinp = None
+        if pc is not None:
+            import avail as AV
+            try:
+                pinp = AV.fill_defaults(AV.player_inputs(ctx.data_dir, season, week, s["player_id"].unique()))
+            except Exception as e:   # missing data: fall back to the position curve
+                print("avail: player inputs unavailable:", e, flush=True)
+        a_w = float(cfg.get("a_weekly", 0.8))
+        c0_pos = {p: v[0] for p, v in pc["curve"].items()} if pc is not None else {}
+        has_wk = (s["wk"].notna() if "wk" in s else pd.Series(False, index=s.index)) & s["ros_out_now"].eq(0)
+        rate, curves, h_out, now_c = [], [], [], []
+        for i in s.index:
+            pos, n = s.at[i, "position"], int(n_after.at[i])
+            tot = float(s.at[i, "ros_ppr"])
+            if outp.at[i]:
+                h = max(tot / max(a.at[i] * G.at[i], 1e-9), float(healthy.at[i]))
+                c = _fill_curve(_curve(cv["out"].get(pos, cv["out"]["WR"]), n), tot / h if h > 0 else 0.0)
+                c0 = 0.0
+            else:
+                c = _curve(cv["active"].get(pos, cv["active"]["WR"]), n)
+                rest = max(tot - float(this_wk.at[i]), 0.0)
+                # points when playing: his later games' rate is a_weekly x this week's projection (which only prices
+                # in this week's chance to play, ~95%) + (1 - a_weekly) x the ROS rate model (trained with missed
+                # games as zero, so it prices in the average chance over the remaining games)
+                c_now = c0_pos.get(pos, 0.95) if has_wk.at[i] else None
+                per = (a_w * c_now + (1 - a_w) * c.mean()) if c_now is not None and n > 0 else (c.mean() if n > 0 else 1.0)
+                h = rest / (n * per) if n > 0 and per > 0 else float(this_wk.at[i])
+                if pinp is not None and n > 0 and s.at[i, "player_id"] in pinp.index:
+                    pr = pd.DataFrame([pinp.loc[s.at[i, "player_id"]]] * n).reset_index(drop=True)
+                    pr["k"] = np.arange(1, n + 1)
+                    pr["curve"] = _curve(pc["curve"].get(pos, pc["curve"]["WR"])[1:], n)
+                    c = np.clip(AV.predict(pr, pc).values, 0.0, 0.995)
+                if bool(open_now.at[i]):
+                    if n == 0 or h <= 0:
+                        h = max(h, float(this_wk.at[i]))
+                    # a healthy player's projection is about his points when he plays; a questionable one's is lower
+                    c0 = min(1.0, float(this_wk.at[i]) / h) if h > 0 else 0.0
+                else:
+                    c0 = 0.0
+            games = c0 + c.sum()
+            rate.append(games / max(int(open_now.at[i]) + n, 1))
+            curves.append(";".join(f"{x:.3f}" for x in c))
+            h_out.append(h)
+            now_c.append(c0)
+        out["play_rate"] = np.round(rate, 3)
+        out["pts_when_playing"] = np.round(h_out, 2)
+        out["play_now"] = np.round(now_c, 3)
+        n_safe = n_after.where(n_after > 0)
+        out["play_later"] = np.round([np.mean([float(x) for x in cc.split(";")]) if cc else 0.0 for cc in curves], 3)
+        out.loc[n_safe.isna(), "play_later"] = 0.0
+        out["play_curve"] = curves
     lw = last_week(season)
     sc = ctx.sched[(ctx.sched["season"] == season) & (ctx.sched["week"] > week) & (ctx.sched["week"] <= lw)]
     byes = {t: [w for w in range(week + 1, lw + 1) if w not in set(g["week"])] for t, g in sc.groupby("team")}

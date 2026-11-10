@@ -9,3 +9,5 @@ model/ref/inactives_*.csv
 automation/state/sources.new.json
 __pycache__/
 *.pyc
+model/lab_ros/
+model/lab/*.parquet

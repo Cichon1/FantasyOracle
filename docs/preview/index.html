@@ -1171,6 +1171,63 @@ dash.onData(() => {
 </script>
 
 <script>
+// Shared availability math (Nov 9, 2026). When a player misses a game his fantasy team starts someone else, so a missed
+// game costs his points minus a waiver-level replacement's, not his whole score. And the chance he plays falls the
+// further away a game is (ros_v5 play_now for this week, play_curve game by game after it).
+window.foAvail = (() => {
+  const num = (v, d = 0) => (v === '' || v == null || isNaN(+v) ? d : +v);
+  const POS = ['QB', 'RB', 'WR', 'TE'];
+  // league scoring per game played, relative to standard PPR (4-pt pass TD, -2 INT, 25 pass yds/pt, -2 fumble lost,
+  // 1 per catch, no bonuses), from the player's per-game rates
+  const adj = (r, lg) => {
+    if (!r) return 0;
+    let a = (num(lg.fum_lost, -2) + 2) * num(r.fum_pg) + (num(lg.rec_pt, 1) - 1) * num(r.rec_pg)
+      + num(lg.bonus_rush150) * num(r.p_rush150) + num(lg.bonus_rec175) * num(r.p_rec175);
+    if (r.pos === 'QB') a += (num(lg.pass_td, 4) - 4) * num(r.pass_td_pg) + (num(lg.pass_int, -2) + 2) * num(r.int_pg)
+      + (1 / num(lg.pass_yds_per_pt, 25) - 1 / 25) * num(r.pass_yds_pg) + num(lg.bonus_pass400) * num(r.p_pass400);
+    return a;
+  };
+  const rate = (r) => Math.min(1, Math.max(0, num(r.play_rate, num(r.avail, 1))));
+  const hasH = (r) => !(r.pts_when_playing === '' || r.pts_when_playing == null);
+  // points per game when he plays, league scoring
+  const whenPlaying = (r, lg) => {
+    const a = rate(r), h = hasH(r) ? num(r.pts_when_playing) : (a > 0 ? num(r.ros_ppg) / a : 0);
+    return Math.max(0, h + adj(r, lg));
+  };
+  // points per game left, his missed games counted as zero, league scoring: his chance to play x points when playing
+  const expected = (r, lg) => (hasH(r) ? rate(r) * whenPlaying(r, lg) : Math.max(0, num(r.ros_ppg) + adj(r, lg) * rate(r)));
+  // a free agent you could pick up and start: not hurt or on IR right now
+  const playable = (r) => ['Plays this week', 'Played this week', 'Bye this week'].includes(r.status);
+  // waiver level per position: points when playing of the 3 best healthy players on no team in the league (chosen by
+  // expected points)
+  const waiver = (lg, ros, rosteredKeys) => {
+    const out = {};
+    POS.forEach((pos) => {
+      const fa = ros.filter((r) => r.pos === pos && !rosteredKeys.has(r.key) && playable(r)).map((r) => ({ r, e: expected(r, lg) }))
+        .sort((a, b) => b.e - a.e).slice(0, 3);
+      out[pos] = fa.length ? fa.reduce((t, x) => t + whenPlaying(x.r, lg), 0) / fa.length : 0;
+    });
+    return out;
+  };
+  // expected points per week with a waiver-level player filling the games he misses
+  const weekly = (r, lg, lw) => expected(r, lg) + (1 - rate(r)) * num(lw && lw[r.pos]);
+  // chance he plays in each week from..to: this week's from play_now, later games from play_curve (0 on his bye)
+  const chances = (r, from, to) => {
+    const cur = String(r.play_curve || '').split(';').filter((x) => x !== '').map(Number);
+    const later = num(r.play_later, rate(r)), bye = num(r.bye_week, -1), out = {};
+    let k = 0;
+    for (let w = from; w <= to; w++) {
+      if (w === bye) { out[w] = 0; continue; }
+      if (w === from) { out[w] = num(r.play_now, rate(r)); continue; }
+      out[w] = cur.length ? cur[Math.min(k, cur.length - 1)] : later;
+      k++;
+    }
+    return out;
+  };
+  return { adj, rate, expected, whenPlaying, waiver, weekly, chances, playable };
+})();
+</script>
+<script>
 // My team: start / sit and waiver wire for each Yahoo league (Oct 20)
 (() => {
   const st = { league: null, pos: 'All' };
@@ -1366,7 +1423,10 @@ dash.onData(() => {
     const ros = new Map(rosRows.map((r) => [r.key, r]));
     const slots = String(lg.lineup || '').split(' ').filter((x) => elig(x).length);
     const order = slots.slice().sort((a, b) => elig(a).length - elig(b).length);
-    const val = (r) => Math.max(0, num(r.ros_ppg) + adj(r, lg) * num(r.play_rate, num(r.avail, 1)));
+    // expected points per week, a waiver-level player filling the games he misses (same rule as the trade analyzer)
+    const onTeam = new Set(rosters.filter((p) => String(p.league_id) === st.league && p.ros_key).map((p) => p.ros_key));
+    const lw = window.foAvail.waiver(lg, rosRows, onTeam);
+    const val = (r) => window.foAvail.weekly(r, lg, lw);
     const teams = new Map();
     rosters.filter((p) => String(p.league_id) === st.league && p.kind === 'skill' && p.slot !== 'IR' && p.ros_key && ros.has(p.ros_key))
       .forEach((p) => {
@@ -2042,8 +2102,9 @@ window.taEngine = (() => {
       + num(lg.bonus_rush150) * num(r.p_rush150) + num(lg.bonus_rec175) * num(r.p_rec175);
     return a;
   };
-  // ROS points per week (per game left, missed games included) in the league's scoring
-  const perWeek = (r, lg) => Math.max(0, num(r.ros_ppg) + leagueAdj(r, lg) * num(r.play_rate, num(r.avail, 1)));
+  // ROS points per week in the league's scoring: expected points per game left, with a waiver-level player filling
+  // the games he misses (lw: the league's waiver level per position, points when playing)
+  const perWeek = (r, lg, lw) => window.foAvail.weekly(r, lg, lw);
   const slotDefs = (lg) => {
     const map = Object.fromEntries(String(lg.slot_pos).split('; ').map((x) => x.split('=')).map(([k, v]) => [k, (v || '').split(' ')]));
     const skill = String(lg.lineup).split(' ').filter(Boolean)
@@ -2066,6 +2127,8 @@ window.taEngine = (() => {
     const rows = rosters.filter((r) => String(r.league_id) === String(lid));
     const lpBy = new Map((lp || []).map((x) => [x.key, x]));
     const nn = (v) => (v === '' || v == null || isNaN(+v) ? null : +v);
+    const lv = Object.fromEntries((levels || []).filter((x) => String(x.league_id) === String(lid)).map((x) => [x.pos, x]));
+    const lw = Object.fromEntries(Object.entries(lv).map(([pos, x]) => [pos, num(x.waiver_pw)]));
     const players = rows.map((r) => {
       const x = r.kind === 'skill' ? rosBy.get(r.ros_key) : null;
       const p = { key: r.key, name: r.player, pos: r.kind === 'IDP' ? String(r.pos_list || 'IDP').replace(/,/g, '/') : r.pos, kind: r.kind,
@@ -2073,7 +2136,7 @@ window.taEngine = (() => {
         exp: 0, rank: '', modelRank: '', market: '', value: '', gap: null, tradeRank: '', trades: null, valueT: '', gapT: null, actual: 0, trade: 0, tsrc: '' };
       if (x) {
         const v = lpBy.get(r.key) || {};
-        p.exp = perWeek(x, lg);
+        p.exp = perWeek(x, lg, lw);
         p.rank = x.pos + x.ros_rank;
         p.modelRank = v.model_rank || '';
         p.market = v.expert_rank || '';
@@ -2095,7 +2158,6 @@ window.taEngine = (() => {
     // free agents by trade value (fill roster spots a trade opens), waiver / last-starter levels, weeks and their weights
     const fas = (lp || []).filter((x) => +x.fa === 1 && String(x.league_id) === String(lid))
       .map((x) => ({ name: x.player, pos: x.pos, actual: num(x.actual_value), trade: num(x.actual_value) })).sort((a, b) => b.actual - a.actual);
-    const lv = Object.fromEntries((levels || []).filter((x) => String(x.league_id) === String(lid)).map((x) => [x.pos, x]));
     const wk = (weeks || []).filter((x) => String(x.league_id) === String(lid)).map((x) => ({ week: num(x.week), weight: num(x.weight), phase: x.phase }));
     const po = wk.filter((x) => x.phase === 'playoffs');
     const Wsum = wk.reduce((t, x) => t + x.weight, 0);
@@ -2331,30 +2393,25 @@ dash.calc('trade_weeks', {
 });
 dash.calc('trade_levels', {
   inputs: ['league_rosters', 'ros', 'leagues'], title: 'Waiver and last-starter levels',
-  description: 'For each league and position, in that league\'s scoring (rest-of-season points per game left, expected missed games as zero): waiver level = the average of the 3 best players on no team in the league; last-starter level = the best player left once every team\'s starting lineup (QB, RB, WR, TE, then FLEX) is filled from the whole player pool.',
+  description: 'For each league and position, in that league\'s scoring, points per game when the player plays: waiver level = the average of the 3 best healthy players on no team in the league; last-starter level = the best player left once every team\'s starting lineup (QB, RB, WR, TE, then FLEX) is filled from the whole player pool. Players are picked by their expected points (missed games as zero), so a hurt player isn\'t counted as a pickup or a starter.',
   fn: (league_rosters, ros, leagues) => {
     const num = (v, d = 0) => (v === '' || v == null || isNaN(+v) ? d : +v), POS = ['QB', 'RB', 'WR', 'TE'];
-    const adj = (r, lg) => {
-      let a = (num(lg.fum_lost, -2) + 2) * num(r.fum_pg) + (num(lg.rec_pt, 1) - 1) * num(r.rec_pg)
-        + num(lg.bonus_rush150) * num(r.p_rush150) + num(lg.bonus_rec175) * num(r.p_rec175);
-      if (r.pos === 'QB') a += (num(lg.pass_td, 4) - 4) * num(r.pass_td_pg) + (num(lg.pass_int, -2) + 2) * num(r.int_pg)
-        + (1 / num(lg.pass_yds_per_pt, 25) - 1 / 25) * num(r.pass_yds_pg) + num(lg.bonus_pass400) * num(r.p_pass400);
-      return a;
-    };
+    const A = window.foAvail;
     const r2 = (v) => Math.round(v * 100) / 100, out = [];
     leagues.forEach((lg) => {
       const lid = String(lg.league_id), T = num(lg.teams, 12);
       const rostered = new Set(league_rosters.filter((p) => String(p.league_id) === lid && p.ros_key).map((p) => p.ros_key));
+      // pw: points per game when he plays (the level); e: expected points per game left (who'd actually start)
       const pool = ros.filter((r) => POS.includes(r.pos))
-        .map((r) => ({ key: r.key, name: r.player, pos: r.pos, pw: Math.max(0, num(r.ros_ppg) + adj(r, lg) * num(r.play_rate, num(r.avail, 1))) }))
-        .sort((a, b) => b.pw - a.pw);
+        .map((r) => ({ key: r.key, name: r.player, pos: r.pos, pw: A.whenPlaying(r, lg), e: A.expected(r, lg), ok: A.playable(r) }))
+        .sort((a, b) => b.e - a.e);
       const map = Object.fromEntries(String(lg.slot_pos).split('; ').map((x) => x.split('=')).map(([k, v]) => [k, (v || '').split(' ')]));
       const slots = String(lg.lineup).split(' ').filter((t) => (map[t] || []).length && map[t].every((q) => POS.includes(q)))
         .map((t) => map[t]).sort((a, b) => a.length - b.length);
       const used = new Set();
       slots.forEach((elig) => { for (let i = 0; i < T; i++) { const c = pool.find((p) => elig.includes(p.pos) && !used.has(p.key)); if (c) used.add(c.key); } });
       POS.forEach((pos) => {
-        const fa = pool.filter((p) => p.pos === pos && !rostered.has(p.key)).slice(0, 3);
+        const fa = pool.filter((p) => p.pos === pos && !rostered.has(p.key) && p.ok).slice(0, 3);
         const left = pool.find((p) => p.pos === pos && !used.has(p.key)) || { pw: 0, name: '' };
         out.push({ league_id: lg.league_id, pos, waiver_pw: r2(fa.reduce((t, p) => t + p.pw, 0) / Math.max(1, fa.length)),
           waiver_players: fa.map((p) => p.name).join(', '), starter_pw: r2(left.pw), starter_player: left.name });
@@ -2365,10 +2422,10 @@ dash.calc('trade_levels', {
 });
 dash.calc('league_players', {
   inputs: ['league_rosters', 'ros', 'leagues', 'trade_market', 'trade_levels', 'trade_weeks'], title: 'Players: league points, actual and trade value, labels',
-  description: 'Each Yahoo-rostered QB, RB, WR and TE (plus each league\'s 15 most valuable free agents) in his league\'s scoring. Pts / wk: ROS points per game left (expected missed games as zero; passing TDs, interceptions, passing yards per point, fumbles lost, points per catch and yardage bonuses from his per-game rates). Trade value (what the market pays, on the actual-value scale): the player the FantasyPros trade market ranks k-th across all positions (20+ trades in 10 days) gets the k-th highest actual value among the players it prices, ties averaged; players it doesn\'t price get the actual value of the player at their FantasyPros expert rank (same position), else their own actual value; free agents their actual value. Actual value: per game, the expected points above the league\'s waiver level plus the expected points above its last starter (each counted only when positive, over a two-piece normal with his projected points as the mean and the spread of his 10th- and 90th-percentile per-game points), less what the 3 best free agents at his position offer on the same terms (a free agent costs nothing), never below 0; times the weeks left that count (his bye skipped). Labels: our model\'s ROS points in league scoring minus the model points of the player at his FantasyPros expert rank (same position), per game left; Undervalued at +1.0 or more, Overvalued at -1.0 or less, for the experts\' top QB32 / RB60 / WR80 / TE32 (tested 2020-2025); Trades: the same with his FantasyPros trade-market rank (20+ trades in 10 days; not yet tested).',
+  description: 'Each Yahoo-rostered QB, RB, WR and TE (plus each league\'s 15 most valuable free agents) in his league\'s scoring. Pts / wk: ROS points per game left (expected missed games as zero; passing TDs, interceptions, passing yards per point, fumbles lost, points per catch and yardage bonuses from his per-game rates). Trade value (what the market pays, on the actual-value scale): the player the FantasyPros trade market ranks k-th across all positions (20+ trades in 10 days) gets the k-th highest actual value among the players it prices, ties averaged; players it doesn\'t price get the actual value of the player at their FantasyPros expert rank (same position), else their own actual value; free agents their actual value. Actual value: per game he plays, the expected points above the league\'s waiver level plus the expected points above its last starter (each counted only when positive, over a two-piece normal with his points when playing as the mean and the spread of his ROS range), less what the 3 best free agents at his position offer on the same terms (a free agent costs nothing), never below 0; times the weeks left that count, each weighted by his chance to play it (his bye 0; the chance falls the further out the week is). A game he misses is filled by a waiver-level player, so it costs his edge over that player, not his whole score. Labels: our model\'s ROS points in league scoring minus the model points of the player at his FantasyPros expert rank (same position), per game left; Undervalued at +1.0 or more, Overvalued at -1.0 or less, for the experts\' top QB32 / RB60 / WR80 / TE32 (tested 2020-2025); Trades: the same with his FantasyPros trade-market rank (20+ trades in 10 days; not yet tested).',
   fn: (league_rosters, ros, leagues, trade_market, trade_levels, trade_weeks) => {
     const num = (v, d = 0) => (v === '' || v == null || isNaN(+v) ? d : +v);
-    const POOL = { QB: 32, RB: 60, WR: 80, TE: 32 }, T = 1.0, MIN_TRADES = 20, N_FA = 15;
+    const POOL = { QB: 32, RB: 60, WR: 80, TE: 32 }, T = 1.0, MIN_TRADES = 20, N_FA = 15, A = window.foAvail;
     const label = (g) => (g >= T ? 'Undervalued' : g <= -T ? 'Overvalued' : 'At value');
     const nkey = (s) => String(s).normalize('NFKD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[.'’\-]/g, '')
       .replace(/\b(jr|sr|ii|iii|iv|v)\b/g, '').replace(/\s+/g, ' ').trim();
@@ -2400,19 +2457,26 @@ dash.calc('league_players', {
       const lv = Object.fromEntries(trade_levels.filter((x) => String(x.league_id) === lid).map((x) => [x.pos, x]));
       const wk = trade_weeks.filter((x) => String(x.league_id) === lid);
       const on = new Set(league_rosters.filter((p) => String(p.league_id) === lid && p.ros_key).map((p) => p.ros_key));
+      const from = num(ros[0] && ros[0].from_week, 1), to = num(ros[0] && ros[0].through_week, 17);
       ros.forEach((r) => {
         if (!POOL[r.pos]) return;
-        const a = num(r.play_rate, num(r.avail, 1)), G = Math.max(1, num(r.games_left, 1)), d = adj(r, lg);
-        const pw = Math.max(0, num(r.ros_ppg) + d * a), k = num(r.ros_ppg) > 0 ? pw / num(r.ros_ppg) : 1;
-        const lo = num(r.ros_low) / G * k, hi = num(r.ros_high) / G * k, L = lv[r.pos] || {};
-        const uw = upside(pw, lo, hi, num(L.waiver_pw)), us = upside(pw, lo, hi, num(L.starter_pw));
-        const wg = wk.filter((x) => num(x.week) !== num(r.bye_week, -1)).reduce((t, x) => t + num(x.weight), 0);
+        const a = A.rate(r), G = Math.max(1, num(r.games_left, 1)), d = adj(r, lg);
+        // pw: expected points per game left (missed games as zero); hw: points per game when he plays, with the
+        // spread of his ROS range around it
+        const pw = A.expected(r, lg), hw = A.whenPlaying(r, lg), tot = num(r.ros_ppr);
+        const lo = tot > 0 ? hw * num(r.ros_low) / tot : hw, hi = tot > 0 ? hw * num(r.ros_high) / tot : hw, L = lv[r.pos] || {};
+        // per game he plays: points above a waiver pickup and above the last starter (a game he misses is filled by a
+        // waiver-level player: worth 0 above either level, not a loss of his whole score)
+        const uw = upside(hw, lo, hi, num(L.waiver_pw)), us = upside(hw, lo, hi, num(L.starter_pw));
+        // weeks that count x his chance to play each of them (bye 0; chance falls the further out the week is)
+        const ch = A.chances(r, from, to);
+        const wg = wk.reduce((t, x) => t + num(x.weight) * num(ch[num(x.week)], 0), 0);
         const o = { r, G, m: num(r.ros_model) + d * a * G, pw, uw, us, wg, fa: !on.has(r.key) };
         out.set(r.key, o); (by[r.pos] = by[r.pos] || []).push(o);
       });
       for (const [pos, list] of Object.entries(by)) {
         // what a free agent already offers for nothing (the 3 best at the position): only upside beyond it counts
-        const top = list.filter((o) => o.fa).sort((x, y) => y.pw - x.pw).slice(0, 3), n = Math.max(1, top.length);
+        const top = list.filter((o) => o.fa && A.playable(o.r)).sort((x, y) => y.pw - x.pw).slice(0, 3), n = Math.max(1, top.length);
         const bw = top.reduce((t, o) => t + o.uw, 0) / n, bs = top.reduce((t, o) => t + o.us, 0) / n;
         list.forEach((o) => { o.ow = Math.max(0, o.uw - bw); o.os = Math.max(0, o.us - bs); o.tv = (o.ow + o.os) * o.wg; });
         list.slice().sort((x, y) => y.m - x.m).forEach((o, i) => { o.modelRank = pos + (i + 1); });
