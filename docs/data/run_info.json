@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-10T02:00:32+00:00",
+ "updated": "2026-11-10T02:47:18+00:00",
  "season": 2026,
  "projection_week": 9,
  "results_week": 9,
  "games_started": true,
- "reason": "schedule_and_lines,injury_news",
+ "reason": "fp_rankings,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 42,
+   "seconds": 41,
    "ok": true
   },
   {
@@ -159,20 +159,20 @@
   "nfl_rows": 362,
   "nfl_matched": 362,
   "nfl_unmatched": [],
-  "espn_out": 139,
+  "espn_out": 140,
   "espn_unmatched": [
    "Doneiko Slaughter (PIT)",
    "Ben Skowronek (PIT)",
    "Brandin Echols (PIT)",
    "Brandon Aiyuk (SF)",
-   "James Williams Sr. (TEN)",
+   "Dorian Mausi (TEN)",
    "Tommy Townsend (TEN)",
    "Tyjae Spears (TEN)",
    "Carnell Tate (TEN)",
    "Jaylon Jones (TEN)"
   ],
-  "hash": "547bc94eed13",
-  "rows_added": 32,
+  "hash": "342e79f4de59",
+  "rows_added": 33,
   "values_updated": 0
  }
 }
