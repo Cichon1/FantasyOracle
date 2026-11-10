@@ -439,6 +439,8 @@
      0.8
     ]
    }
-  }
+  },
+  "avail_in_ros": true,
+  "avail_in_ros_note": "Nov 9, 2026: later games' weekly part x the player's own chance to play relative to this week's (avail.py). ros_lab.score_variants, official 50/50 blend, rank corr vs production: validation 2020-22 +0.0063 +/- 0.0032 (8/12 season-positions up), test 2023-25 -0.0016 +/- 0.0031 (noise); ROS totals on all projected players: bias +6.9 / +4.0 -> +2.6 / -0.4 PPR, R2 0.644 / 0.681 -> 0.670 / 0.690, MAE 22.89 / 22.07 -> 22.14 / 21.77 (validation / test). Rejected the same round: position curve only (val -0.0002, test -0.0040), schedule-neutral weekly part (ros_neutral.py; val -0.0033 +/- 0.0044 and -0.0033 +/- 0.0022 for the official-minus-matchup version; test +0.0052 / +0.0031)."
  }
 }

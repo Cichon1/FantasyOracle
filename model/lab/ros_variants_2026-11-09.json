@@ -1,0 +1,128 @@
+{
+ "validation": {
+  "experts": 0.4743,
+  "base": {
+   "model": 0.4833,
+   "official": 0.5081,
+   "vs_base": 0.0,
+   "se": 0.0,
+   "cells_up": "0/12",
+   "mae_all": 22.89,
+   "bias_all": 6.9,
+   "r2_all": 0.6441
+  },
+  "avail": {
+   "model": 0.4866,
+   "official": 0.5079,
+   "vs_base": -0.0002,
+   "se": 0.0025,
+   "cells_up": "3/12",
+   "mae_all": 22.24,
+   "bias_all": 2.13,
+   "r2_all": 0.6684
+  },
+  "pavail": {
+   "model": 0.4923,
+   "official": 0.5144,
+   "vs_base": 0.0063,
+   "se": 0.0032,
+   "cells_up": "8/12",
+   "mae_all": 22.14,
+   "bias_all": 2.64,
+   "r2_all": 0.6698
+  },
+  "neutral": {
+   "model": 0.4697,
+   "official": 0.5048,
+   "vs_base": -0.0033,
+   "se": 0.0044,
+   "cells_up": "4/12",
+   "mae_all": 23.0,
+   "bias_all": 7.08,
+   "r2_all": 0.6401
+  },
+  "neutral_off": {
+   "model": 0.4817,
+   "official": 0.5048,
+   "vs_base": -0.0033,
+   "se": 0.0022,
+   "cells_up": "4/12",
+   "mae_all": 22.94,
+   "bias_all": 7.24,
+   "r2_all": 0.6416
+  },
+  "both": {
+   "model": 0.4861,
+   "official": 0.5069,
+   "vs_base": -0.0012,
+   "se": 0.0028,
+   "cells_up": "5/12",
+   "mae_all": 22.21,
+   "bias_all": 2.42,
+   "r2_all": 0.6692
+  }
+ },
+ "test": {
+  "experts": 0.459,
+  "base": {
+   "model": 0.4698,
+   "official": 0.4849,
+   "vs_base": 0.0,
+   "se": 0.0,
+   "cells_up": "0/12",
+   "mae_all": 22.07,
+   "bias_all": 3.97,
+   "r2_all": 0.6809
+  },
+  "avail": {
+   "model": 0.4671,
+   "official": 0.4809,
+   "vs_base": -0.004,
+   "se": 0.0027,
+   "cells_up": "4/12",
+   "mae_all": 21.87,
+   "bias_all": -0.79,
+   "r2_all": 0.6885
+  },
+  "pavail": {
+   "model": 0.4679,
+   "official": 0.4833,
+   "vs_base": -0.0016,
+   "se": 0.0031,
+   "cells_up": "5/12",
+   "mae_all": 21.77,
+   "bias_all": -0.37,
+   "r2_all": 0.69
+  },
+  "neutral": {
+   "model": 0.4696,
+   "official": 0.49,
+   "vs_base": 0.0052,
+   "se": 0.0027,
+   "cells_up": "8/12",
+   "mae_all": 22.08,
+   "bias_all": 4.2,
+   "r2_all": 0.6803
+  },
+  "neutral_off": {
+   "model": 0.4702,
+   "official": 0.488,
+   "vs_base": 0.0031,
+   "se": 0.0012,
+   "cells_up": "9/12",
+   "mae_all": 22.1,
+   "bias_all": 4.28,
+   "r2_all": 0.6795
+  },
+  "both": {
+   "model": 0.4684,
+   "official": 0.483,
+   "vs_base": -0.0019,
+   "se": 0.0035,
+   "cells_up": "7/12",
+   "mae_all": 21.87,
+   "bias_all": -0.52,
+   "r2_all": 0.6889
+  }
+ }
+}

@@ -485,7 +485,16 @@ def project_live(df, ctx, season, week, cfg_all, store=None, log=print):
     has = snap["wk"].notna() & snap["ros_out_now"].eq(0) & (snap["ros_games_cur"].gt(0) | snap["wk_status"].eq("Final"))
     o = cur_open(snap)
     snap["ros_games"] = snap["ros_games_after"] + o
-    fut = np.where(has, a * snap["wk"].fillna(0) + (1 - a) * snap["rate"], snap["rate"])
+    # Nov 9, 2026 (ros_lab.score_variants "pavail"): the weekly projection only prices in this week's chance to play,
+    # so each later game gets his own chance for it relative to this week's (avail.py); the ROS rate part already
+    # prices in missed games
+    rel = pd.Series(1.0, index=snap.index)
+    if cfg.get("avail_in_ros") and cfg.get("avail_player"):
+        snap["_pcurve"] = player_curves(snap, ctx, season, week, cfg)
+        c0 = snap["position"].map({p: v[0] for p, v in cfg["avail_player"]["curve"].items()})
+        sm = snap["_pcurve"].map(lambda c: float(np.mean(c)) if c is not None and len(c) else np.nan)
+        rel = (sm / c0).fillna(1.0)
+    fut = np.where(has, a * snap["wk"].fillna(0) * rel + (1 - a) * snap["rate"], snap["rate"])
     cur = np.where(has, snap["wk"].fillna(0), snap["rate"]) * o
     snap["this_week"] = np.where(o > 0, cur, np.nan)
     snap["ros_model"] = cur + fut * snap["ros_games_after"]
@@ -567,6 +576,33 @@ def _fill_curve(shape, total):
     return c
 
 
+def player_curves(s, ctx, season, week, cfg):
+    """Each active player's chance to play each of his team's games after this week (avail.py), as a Series of arrays
+    (None for players out now or when the player inputs can't be built)."""
+    pc = cfg.get("avail_player")
+    res = pd.Series([None] * len(s), index=s.index, dtype=object)
+    if pc is None:
+        return res
+    import avail as AV
+    try:
+        inp = AV.fill_defaults(AV.player_inputs(ctx.data_dir, season, week, s["player_id"].unique()))
+    except Exception as e:   # missing data: fall back to the position curve
+        print("avail: player inputs unavailable:", e, flush=True)
+        return res
+    n_after = s["ros_games_after"].fillna(0).astype(int).clip(lower=0)
+    rows = [(i, pid, pos, k) for i, pid, pos, n, out in zip(s.index, s["player_id"], s["position"], n_after,
+                                                              s["ros_out_now"].eq(1))
+            if not out and pid in inp.index for k in range(1, n + 1)]
+    if not rows:
+        return res
+    r = pd.DataFrame(rows, columns=["idx", "player_id", "position", "k"]).join(inp, on="player_id")
+    r["curve"] = [pc["curve"].get(p, pc["curve"]["WR"])[min(k, 13)] for p, k in zip(r["position"], r["k"])]
+    r["p"] = np.clip(AV.predict(r, pc).values, 0.0, 0.995)
+    for i, g in r.groupby("idx", sort=False):
+        res.at[i] = g.sort_values("k")["p"].values
+    return res
+
+
 def depth_inputs(s, ctx, season, week, cfg):
     """Inputs for simulating weekly lineups (trade analyzer): chance he plays each remaining game, points when he plays,
     the team's remaining bye week, fumbles lost per game, and chances of big yardage games (for league bonuses).
@@ -609,13 +645,8 @@ def depth_inputs(s, ctx, season, week, cfg):
         # player-specific chances for active players' later games (avail.py); the position curve sets his points
         # when playing, so a player with a worse outlook keeps the same per-game level but plays fewer games
         pc = cfg.get("avail_player")
-        pinp = None
-        if pc is not None:
-            import avail as AV
-            try:
-                pinp = AV.fill_defaults(AV.player_inputs(ctx.data_dir, season, week, s["player_id"].unique()))
-            except Exception as e:   # missing data: fall back to the position curve
-                print("avail: player inputs unavailable:", e, flush=True)
+        pcur = s["_pcurve"] if "_pcurve" in s else player_curves(s, ctx, season, week, cfg)
+        in_ros = bool(cfg.get("avail_in_ros")) and "_pcurve" in s
         a_w = float(cfg.get("a_weekly", 0.8))
         c0_pos = {p: v[0] for p, v in pc["curve"].items()} if pc is not None else {}
         has_wk = (s["wk"].notna() if "wk" in s else pd.Series(False, index=s.index)) & s["ros_out_now"].eq(0)
@@ -628,19 +659,20 @@ def depth_inputs(s, ctx, season, week, cfg):
                 c = _fill_curve(_curve(cv["out"].get(pos, cv["out"]["WR"]), n), tot / h if h > 0 else 0.0)
                 c0 = 0.0
             else:
-                c = _curve(cv["active"].get(pos, cv["active"]["WR"]), n)
+                cpop = _curve(cv["active"].get(pos, cv["active"]["WR"]), n)
+                pcv = pcur.at[i]
+                c = pcv if pcv is not None and len(pcv) == n else cpop
                 rest = max(tot - float(this_wk.at[i]), 0.0)
-                # points when playing: his later games' rate is a_weekly x this week's projection (which only prices
-                # in this week's chance to play, ~95%) + (1 - a_weekly) x the ROS rate model (trained with missed
-                # games as zero, so it prices in the average chance over the remaining games)
-                c_now = c0_pos.get(pos, 0.95) if has_wk.at[i] else None
-                per = (a_w * c_now + (1 - a_w) * c.mean()) if c_now is not None and n > 0 else (c.mean() if n > 0 else 1.0)
+                # points when playing: his later games' rate is a_weekly x this week's projection + (1 - a_weekly) x
+                # the ROS rate model (trained with missed games as zero: the position curve's average chance). The
+                # weekly part prices in his own chance for each game when ROS uses it (avail_in_ros), else only this
+                # week's (~95%)
+                if has_wk.at[i] and n > 0:
+                    wk_c = c.mean() if in_ros else c0_pos.get(pos, 0.95)
+                    per = a_w * wk_c + (1 - a_w) * cpop.mean()
+                else:
+                    per = cpop.mean() if n > 0 else 1.0
                 h = rest / (n * per) if n > 0 and per > 0 else float(this_wk.at[i])
-                if pinp is not None and n > 0 and s.at[i, "player_id"] in pinp.index:
-                    pr = pd.DataFrame([pinp.loc[s.at[i, "player_id"]]] * n).reset_index(drop=True)
-                    pr["k"] = np.arange(1, n + 1)
-                    pr["curve"] = _curve(pc["curve"].get(pos, pc["curve"]["WR"])[1:], n)
-                    c = np.clip(AV.predict(pr, pc).values, 0.0, 0.995)
                 if bool(open_now.at[i]):
                     if n == 0 or h <= 0:
                         h = max(h, float(this_wk.at[i]))

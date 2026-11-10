@@ -141,12 +141,34 @@ Three changes from Jackson's questions about the flat 89% chance to play:
   Production coefficients fit on 2021-2025 (`ros.avail_player`).
 `ros_v5.csv` gains `play_curve` (chance game by game after this week); `pts_when_playing` = ROS points after this week
 over the availability they already price in (weekly part ~95%, ROS-rate part the curve's average), so the trade tools'
-expected points sit a little below the ROS table for players the ROS total treats as healthy every week. ROS points and
-rankings themselves are unchanged.
+expected points sit a little below the ROS table for players the ROS total treats as healthy every week. ROS points:
+the weekly part of each later game now also prices in his own chance to play it (`ros.avail_in_ros`, below).
 
 Effect on the Nov 9 data: rostered players at 0 value 13.5% / 17.5% / 18.1% -> 12.4% / 10.7% / 13.8% (BDSM / The
 League / Ezekiel); order of values vs before rank correlation ~0.90; values ~20% lower overall (playoff weeks now
 weighted by the chance to play them); injury-prone players and players out now shift relative to healthy ones.
+
+### Nov 9, 2026 optimization round (`ros_lab.score_variants`, `lab9.py`; decisions on validation seasons)
+
+ROS (official 50/50 blend, mean weekly rank correlation on the experts' pool vs production; totals on all players):
+
+| ROS variant | Val 2020-22 vs prod | Test 2023-25 vs prod | Bias (val / test PPR) | R2 (val / test) | Decision |
+|---|---|---|---|---|---|
+| Production (later games 0.8 x this week + 0.2 x ROS rate) | - | - | +6.9 / +4.0 | 0.644 / 0.681 | |
+| Weekly part x position play-chance curve | -0.0002 +/- 0.0025 | -0.0040 +/- 0.0027 | +2.1 / -0.8 | 0.668 / 0.689 | Dropped |
+| Weekly part x player's own chance (avail.py) | +0.0063 +/- 0.0032 (8/12) | -0.0016 +/- 0.0031 | +2.6 / -0.4 | 0.670 / 0.690 | **Adopted** (`avail_in_ros`) |
+| Schedule-neutral weekly part (`ros_neutral.py`, model only) | -0.0033 +/- 0.0044 | +0.0052 +/- 0.0027 | +7.1 / +4.2 | 0.640 / 0.680 | Dropped |
+| Official minus the model's matchup effect | -0.0033 +/- 0.0022 | +0.0031 +/- 0.0012 | +7.2 / +4.3 | 0.642 / 0.680 | Dropped |
+| Neutral + position curve | -0.0012 +/- 0.0028 | -0.0019 +/- 0.0035 | +2.4 / -0.5 | 0.669 / 0.689 | Dropped |
+
+The schedule-neutral projection moved weekly points by only 0.2 per player on average (correlation 0.997 with the
+real one): the weekly model's matchup effect is small, so stripping it out of later weeks didn't help on validation.
+
+Weekly model, team pass identity this season vs the head coach's last three seasons and a broken run game
+(`features_v9.py`; Gemini idea #3 / the Green Bay question), extra-trees proxy, 3 seeds: validation -0.0005 +/- 0.0022
+(QB +0.0025, RB -0.0029, TE +0.0009, WR -0.0026), test +0.0040 +/- 0.0028 (QB +0.017, WR -0.005); error on WR/TE/QB
+whose team passes 4+ points away from its coach's history unchanged (validation -0.18 -> -0.18 PPR). Dropped; the
+model already under-projects those players by only ~0.2 PPR.
 
 ## League trade analyzer (Oct 12, 2026; page scripts `taEngine`, `league_players`; `yahoo_league.py`)
 

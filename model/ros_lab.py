@@ -345,3 +345,103 @@ def final_eval(name="base_md40", a=0.8, w=0.5):
     json.dump(out, open(f"{OUT}/final_report.json", "w"), indent=1, default=float)
     print(json.dumps(out, indent=1, default=float))
     return out
+
+
+# --------------------------------------------------------------- Nov 9, 2026: availability and neutral-schedule tests
+def _curve_sum(d, curve):
+    """Sum of the position's play-chance curve over each row's games after this week (k = 1..n)."""
+    out = np.zeros(len(d))
+    pos, n = d["position"].values, d["ros_games_after"].fillna(0).astype(int).values
+    for i in range(len(d)):
+        c = curve.get(pos[i], curve["WR"])
+        out[i] = sum(c[min(k, len(c) - 1)] for k in range(1, n[i] + 1))
+    return out
+
+
+def _player_curve_sum(d, data_dir="data"):
+    """Same with each player's own chances (avail.py), inputs as of each snapshot week."""
+    import avail as AV
+    cfg = json.load(open("v5_config.json"))["ros"]["avail_player"]
+    out = np.zeros(len(d))
+    for (S, W), g in d.groupby(["season", "week"]):
+        inp = AV.fill_defaults(AV.player_inputs(data_dir, int(S), int(W), g["player_id"].unique()))
+        rows = []
+        for idx, pid, pos, n in zip(g.index, g["player_id"], g["position"], g["ros_games_after"].fillna(0).astype(int)):
+            for k in range(1, n + 1):
+                rows.append((idx, pid, pos, k))
+        if not rows:
+            continue
+        r = pd.DataFrame(rows, columns=["idx", "player_id", "position", "k"])
+        r = r.join(inp, on="player_id")
+        r["curve"] = [cfg["curve"].get(p, cfg["curve"]["WR"])[min(k, 13)] for p, k in zip(r["position"], r["k"])]
+        r["p"] = AV.predict(r, cfg).values
+        s = r.groupby("idx")["p"].sum()
+        out[d.index.get_indexer(s.index)] = s.values
+    return out
+
+
+def score_variants(name="base_md40", a=0.8, w=0.5, player=True):
+    """ROS points variants, Sunday state (this week's official projection), scored like final_eval (official = 50/50
+    rank blend with the experts, model points handed out in that order) on validation 2020-22 / test 2023-25:
+      base     later games: a x this week's projection + (1-a) x ROS rate (production)
+      avail    the weekly part of each later game x the position's chance to play it relative to this week's
+               (the rate part already prices in missed games)
+      pavail   same with each player's own chances (avail.py)
+      neutral  the weekly part from a schedule-neutral model projection (ros_neutral.py); this week's game unchanged
+      neutral_off  the official projection minus the model's matchup effect (official + neutral - model)
+      both     neutral_off + avail"""
+    d = attach_weekly(pd.read_parquet(f"{OUT}/{name}.parquet"))
+    wk = pd.read_parquet(WEEKLY).drop_duplicates(["season", "week", "player_id"]).set_index(["season", "week", "player_id"])
+    k = pd.MultiIndex.from_arrays([d["season"], d["week"], d["player_id"]])
+    inn = (d["ros_out_now"] == 0) & (d.get("ros_bye_now", 0) == 0)
+    d["wk_neutral"] = pd.Series(wk["pred_ppr_neutral"].reindex(k).values, index=d.index).where(inn) if "pred_ppr_neutral" in wk else np.nan
+    lw = d["season"].map(R.last_week)
+    d = d[(d["week"] >= 3) & (d["week"] <= lw - 3)].copy()
+    cfg = json.load(open("v5_config.json"))["ros"]
+    cur_c = cfg["avail_curve"]["active"]
+    c0 = {p: v[0] for p, v in cfg["avail_player"]["curve"].items()}
+    n = d["ros_games_after"].clip(lower=0)
+    rel = pd.Series(_curve_sum(d, cur_c), index=d.index) / d["position"].map(c0) / n.where(n > 0)
+    rel = rel.fillna(1.0)
+    o = R.cur_open(d)
+    has = d["wk_official"].notna() & (o > 0)
+    cur = np.where(has, d["wk_official"].fillna(0), d["rate"] * o)
+
+    def total(wkcol, scale):
+        fut = np.where(has & d[wkcol].notna(), a * d[wkcol].fillna(0) * scale + (1 - a) * d["rate"], d["rate"])
+        return pd.Series(cur + fut * n, index=d.index)
+    V = {"base": total("wk_official", 1.0), "avail": total("wk_official", rel)}
+    if player:
+        prel = pd.Series(_player_curve_sum(d), index=d.index) / d["position"].map(c0) / n.where(n > 0)
+        V["pavail"] = total("wk_official", prel.fillna(1.0))
+    if d["wk_neutral"].notna().any():
+        # neutral model points rescaled to the official projection's level for the player's position-week
+        V["neutral"] = total("wk_neutral", 1.0)
+        # the official projection with the model's matchup effect taken out (neutral - model, added to official)
+        d["wk_off_neutral"] = (d["wk_official"] + d["wk_neutral"] - d["wk_model"]).clip(lower=0)
+        V["neutral_off"] = total("wk_off_neutral", 1.0)
+        V["both"] = total("wk_off_neutral", rel)
+    d["experts"] = -d["ros_ecr_pos_rank"]
+    rep, cols = {}, []
+    for v, tot in V.items():
+        d[f"m_{v}"] = tot
+        d[f"o_{v}"] = R.blend_with_experts(d, f"m_{v}", w)
+        cols += [f"m_{v}", f"o_{v}"]
+    pl = pool(d)
+    t = corr_table(pl, ["experts"] + cols)
+    for ph, ss in (("validation", VAL), ("test", TEST)):
+        tt = t[t["season"].isin(ss)]
+        ga = d[d["season"].isin(ss)]
+        rep[ph] = {"experts": round(float(tt["experts"].mean()), 4)}
+        for v in V:
+            diff = tt[f"o_{v}"] - tt["o_base"]
+            cell = tt.assign(_d=diff).groupby(["season", "pos"])["_d"].mean()
+            err = ga[f"o_{v}"] - ga["ros_pts"]
+            rep[ph][v] = {"model": round(float(tt[f"m_{v}"].mean()), 4), "official": round(float(tt[f"o_{v}"].mean()), 4),
+                          "vs_base": round(float(diff.mean()), 4), "se": round(float(cell.std() / np.sqrt(len(cell))), 4),
+                          "cells_up": f"{int((cell > 0).sum())}/{len(cell)}",
+                          "mae_all": round(float(err.abs().mean()), 2), "bias_all": round(float(err.mean()), 2),
+                          "r2_all": round(float(1 - (err ** 2).sum() / ((ga["ros_pts"] - ga["ros_pts"].mean()) ** 2).sum()), 4)}
+    json.dump(rep, open(f"{OUT}/{name}_variants.json", "w"), indent=1)
+    print(json.dumps(rep, indent=1))
+    return rep
