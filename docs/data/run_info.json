@@ -1,19 +1,19 @@
 {
- "updated": "2026-11-10T22:40:18+00:00",
+ "updated": "2026-11-10T23:34:19+00:00",
  "season": 2026,
  "projection_week": 10,
  "results_week": 9,
  "games_started": false,
- "reason": "schedule_and_lines,injury_news",
+ "reason": "schedule_and_lines,fp_rankings",
  "steps": [
   {
    "step": "bash",
-   "seconds": 41,
+   "seconds": 52,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 5,
+   "seconds": 6,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 38,
+   "seconds": 42,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 19,
+   "seconds": 21,
    "ok": true
   }
  ],
@@ -75,8 +75,8 @@
   "season": 2026,
   "week": 10,
   "last_week": 17,
-  "players": 474,
-  "out_this_week": 66,
+  "players": 473,
+  "out_this_week": 65,
   "on_bye": 48,
   "this_week_source": "official",
   "training_snapshots": 47940,
@@ -86,7 +86,7 @@
    "WR/TE": 60
   },
   "experts_ros_date": "2026-11-10 00:00:00",
-  "seconds": 17,
+  "seconds": 19,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -100,11 +100,11 @@
     ],
     [
      "Brock Purdy",
-     147.2
+     149.6
     ],
     [
      "Joe Burrow",
-     144.2
+     144.7
     ]
    ],
    "RB": [
@@ -142,7 +142,7 @@
     ],
     [
      "Ja'Marr Chase",
-     146.1
+     146.7
     ],
     [
      "Jaxon Smith-Njigba",
@@ -154,10 +154,10 @@
  "injuries_live": {
   "nfl_week": 9,
   "nfl_rows": 362,
-  "espn_out": 11,
+  "espn_out": 13,
   "espn_unmatched": [],
-  "hash": "316b6bc271a7",
-  "rows_added": 11,
+  "hash": "ed8b79503a08",
+  "rows_added": 13,
   "values_updated": 0
  }
 }
