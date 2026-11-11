@@ -703,6 +703,7 @@
     });
     const byPos = {}; all.forEach((o) => (byPos[o.r.pos] = byPos[o.r.pos] || []).push(o));
     Object.values(byPos).forEach((l) => l.sort((a, b) => b.pts - a.pts).forEach((o, i) => { o.prank = i + 1; }));
+    all.slice().sort((a, b) => b.pts - a.pts).forEach((o, i) => { o.orank = i + 1; });   // overall rank, all positions
     const max = d3.max(all, (o) => Math.max(o.hi || 0, num(o.r.act_ppr))) || 1;
     const rows = all.filter((o) => (wst.pos === 'All' || o.r.pos === wst.pos)
       && (wst.status === 'All' || (wst.status === 'Upcoming' ? o.r.status === 'Upcoming' : wst.status === 'Inactive' ? o.r.status === 'Inactive' : (o.r.status !== 'Upcoming' && o.r.status !== 'Inactive')))
@@ -710,6 +711,7 @@
     const n = (k, fmt = f0) => (o) => (has(o.r[k]) ? fmt(num(o.r[k])) : '—');
     const nv = (k) => (o) => (has(o.r[k]) ? num(o.r[k]) : NaN);
     const cols = [
+      { k: 'orank', label: 'Rank', hc: 'sm', v: (o) => -o.orank, f: (o) => String(o.orank), w: 48 },
       { k: 'prank', label: 'Pos Rank', html: 'Pos<br>Rank', hc: 'sm', v: (o) => (wst.pos === 'All' ? o.pts : -o.prank) * 1, f: (o) => o.r.pos + o.prank, w: 56 },
       { k: 'player', label: 'Player', l: true, asc: true, v: (o) => o.r.key, f: (o) => o.r.key, w: 250 },
       { k: 'pos', label: 'Pos', asc: true, v: (o) => o.r.pos, f: (o) => chip(o.r.pos, o.r.pos, 'sm') },
@@ -737,7 +739,7 @@
     ];
     wst.empty = 'No players match these filters this week. Inactive players appear once game-day inactives are posted.';
     rkTable($('#wr-table'), cols, rows, wst, RENDER.projections);
-    $('#wr-note').textContent = 'Projections in ' + lg.league + ' scoring (' + scoringText(lg) + '); Actual and +/- are standard PPR. Shaded rows are your players. '
+    $('#wr-note').textContent = 'Projections in ' + lg.league + ' scoring (' + scoringText(lg) + '); Actual and +/- are standard PPR. Rank: overall, all positions. Shaded rows are your players. '
       + (wst.week <= RE_WEEKS ? 'Week ' + wst.week + ' was re-created after the fact by models trained only on earlier games.' : 'White tick on a bar = actual points.');
   };
 
@@ -779,12 +781,14 @@
     const SR = seasonRanks(rst.week), mine = mineKeys(lg), owned = rosteredKeys(lg);
     const live = new Map(D('ros').data.map((r) => [r.key, r]));
     const list = [...L.values()].map((o) => Object.assign(o, { _mine: mine.has(o.r.key), cr: SR.rank.get(o.r.key), prev: Lp && Lp.get(o.r.key) ? Lp.get(o.r.key).rank : null, lv: live.get(o.r.key) || o.r }));
+    list.slice().sort((a, b) => b.pts - a.pts).forEach((o, i) => { o.orank = i + 1; });   // overall rank, all positions
     const max = d3.max(list, (o) => o.hi) || 1;
     const rows = list.filter((o) => (rst.pos === 'All' || o.r.pos === rst.pos)
       && (rst.status === 'All' || (rst.status === 'Healthy' ? !/IR|reserve|Out/i.test(String(o.r.status) + ' ' + String(o.r.injury)) : rst.status === 'Rostered' ? owned.has(o.r.key) : !owned.has(o.r.key)))
       && (!rst.q || (o.r.key).toLowerCase().includes(rst.q)));
     const spg = (o) => (SR.g.get(o.r.key) ? SR.pts.get(o.r.key) / SR.g.get(o.r.key) : (rst.week === curW ? num(o.r.season_ppg, NaN) : NaN));
     const cols = [
+      { k: 'orank', label: 'Rank', hc: 'sm', v: (o) => -o.orank, f: (o) => String(o.orank), w: 48 },
       { k: 'rank', label: 'Pos Rank', html: 'Pos<br>Rank', hc: 'sm', v: (o) => (rst.pos === 'All' ? o.pts : -o.rank), f: (o) => o.r.pos + o.rank, w: 56 },
       { k: 'player', label: 'Player', l: true, asc: true, v: (o) => o.r.key, f: (o) => o.r.key, w: 250 },
       { k: 'pos', label: 'Pos', asc: true, v: (o) => o.r.pos, f: (o) => chip(o.r.pos, o.r.pos, 'sm') },
@@ -807,7 +811,7 @@
     ];
     rkTable($('#rr-table'), cols, rows, rst, RENDER.ros);
     const H = D('ros_history');
-    $('#rr-note').textContent = 'Weeks ' + rst.week + '–' + num(rows0[0] && rows0[0].through_week, 17) + ' in ' + lg.league + ' scoring. Current rk: his rank on points so far'
+    $('#rr-note').textContent = 'Weeks ' + rst.week + '–' + num(rows0[0] && rows0[0].through_week, 17) + ' in ' + lg.league + ' scoring. Rank: overall, all positions; shaded rows are your players. Current rk: his rank on points so far'
       + (rst.week > 1 ? ' (through Week ' + (rst.week - 1) + ')' : '') + '; +/- = places the ROS ranking expects him to climb. Wk chg: ROS rank vs the week before. '
       + (re.has(rst.week) ? 'Week ' + rst.week + ' was re-created after the fact.' : (H.status === 'ok' && weeks.length < 3 ? 'Earlier weeks are being re-created and will appear as tabs.' : ''));
   };
