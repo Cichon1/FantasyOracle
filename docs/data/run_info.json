@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-11T04:56:34+00:00",
+ "updated": "2026-11-11T05:56:36+00:00",
  "season": 2026,
  "projection_week": 10,
  "results_week": 9,
  "games_started": false,
- "reason": "schedule_and_lines",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
@@ -18,12 +18,12 @@
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 3,
+   "seconds": 2,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 4,
+   "seconds": 3,
    "ok": true
   },
   {
@@ -56,8 +56,8 @@
    "total": 0
   },
   "inactive_rows": 0,
-  "players": 360,
-  "upcoming": 360,
+  "players": 361,
+  "upcoming": 361,
   "season_scoreboard": {
    "model": 0.3908,
    "experts": 0.3968,
@@ -76,7 +76,7 @@
   "week": 10,
   "last_week": 17,
   "players": 472,
-  "out_this_week": 64,
+  "out_this_week": 63,
   "on_bye": 48,
   "this_week_source": "official",
   "training_snapshots": 47932,
@@ -96,7 +96,7 @@
    "QB": [
     [
      "Josh Allen",
-     154.9
+     153.7
     ],
     [
      "Brock Purdy",
@@ -152,12 +152,14 @@
   }
  },
  "injuries_live": {
-  "nfl_week": 9,
-  "nfl_rows": 362,
+  "nfl_week": 10,
+  "nfl_rows": 20,
+  "nfl_matched": 20,
+  "nfl_unmatched": [],
   "espn_out": 13,
   "espn_unmatched": [],
-  "hash": "d3ffcc333cda",
-  "rows_added": 13,
+  "hash": "0eff17a666c0",
+  "rows_added": 32,
   "values_updated": 0
  }
 }
