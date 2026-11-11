@@ -1,92 +1,92 @@
 {
- "pulled_at": "2026-11-10T21:41-05:00",
+ "pulled_at": "2026-11-11T12:48-05:00",
  "pages": 8,
- "expert_pages": 13,
+ "expert_pages": 15,
  "errors": [],
  "expert_pages_waiting": 0,
  "cutoff_ros": "2026-11-09T23:35-05:00",
  "cutoff_weekly": "2026-11-09T23:35-05:00",
  "panels": {
   "weekly|QB": {
-   "default": 9,
-   "recent": 21,
+   "default": 12,
+   "recent": 25,
    "recent_acc": 20,
-   "listed": 36,
-   "public_pages": 22,
+   "listed": 48,
+   "public_pages": 25,
    "recent_rule": "since cutoff",
    "players": {
     "default": 60,
-    "recent": 36,
-    "recent_acc": 36
+    "recent": 34,
+    "recent_acc": 35
    },
-   "agree_recent": 0.993,
-   "agree_recent_acc": 0.993
+   "agree_recent": 0.994,
+   "agree_recent_acc": 0.991
   },
   "weekly|RB": {
-   "default": 9,
-   "recent": 20,
+   "default": 11,
+   "recent": 23,
    "recent_acc": 20,
-   "listed": 34,
-   "public_pages": 21,
+   "listed": 46,
+   "public_pages": 24,
    "recent_rule": "since cutoff",
    "players": {
-    "default": 95,
-    "recent": 79,
-    "recent_acc": 79
-   },
-   "agree_recent": 0.992,
-   "agree_recent_acc": 0.992
-  },
-  "weekly|WR": {
-   "default": 9,
-   "recent": 21,
-   "recent_acc": 20,
-   "listed": 34,
-   "public_pages": 21,
-   "recent_rule": "since cutoff",
-   "players": {
-    "default": 123,
-    "recent": 110,
-    "recent_acc": 110
+    "default": 96,
+    "recent": 83,
+    "recent_acc": 83
    },
    "agree_recent": 0.989,
    "agree_recent_acc": 0.989
   },
-  "weekly|TE": {
-   "default": 9,
-   "recent": 20,
+  "weekly|WR": {
+   "default": 11,
+   "recent": 24,
    "recent_acc": 20,
-   "listed": 34,
-   "public_pages": 21,
+   "listed": 46,
+   "public_pages": 24,
+   "recent_rule": "since cutoff",
+   "players": {
+    "default": 128,
+    "recent": 110,
+    "recent_acc": 110
+   },
+   "agree_recent": 0.989,
+   "agree_recent_acc": 0.988
+  },
+  "weekly|TE": {
+   "default": 11,
+   "recent": 23,
+   "recent_acc": 20,
+   "listed": 46,
+   "public_pages": 24,
    "recent_rule": "since cutoff",
    "players": {
     "default": 57,
-    "recent": 41,
-    "recent_acc": 41
+    "recent": 42,
+    "recent_acc": 42
    },
    "agree_recent": 0.994,
-   "agree_recent_acc": 0.994
+   "agree_recent_acc": 0.992
   },
   "ros|QB": {
-   "default": 6,
+   "default": 5,
    "recent": 12,
    "recent_acc": 12,
-   "listed": 32,
+   "listed": 33,
    "public_pages": 16,
    "recent_rule": "fallback: last 7 days",
    "players": {
     "default": 65,
-    "recent": 45,
-    "recent_acc": 45
+    "recent": 46,
+    "recent_acc": 46
    },
-   "agree_recent": 0.982,
-   "agree_recent_acc": 0.982
+   "agree_recent": 0.975,
+   "agree_recent_acc": 0.975
   },
   "ros|RB": {
-   "default": 5,
+   "default": 4,
    "recent": 11,
    "recent_acc": 11,
-   "listed": 27,
+   "listed": 28,
    "public_pages": 14,
    "recent_rule": "fallback: last 7 days",
    "players": {
@@ -94,29 +94,29 @@
     "recent": 105,
     "recent_acc": 105
    },
-   "agree_recent": 0.981,
-   "agree_recent_acc": 0.981
+   "agree_recent": 0.975,
+   "agree_recent_acc": 0.975
   },
   "ros|WR": {
-   "default": 5,
-   "recent": 12,
-   "recent_acc": 12,
-   "listed": 27,
+   "default": 4,
+   "recent": 8,
+   "recent_acc": 8,
+   "listed": 28,
    "public_pages": 14,
-   "recent_rule": "fallback: last 7 days",
+   "recent_rule": "since cutoff",
    "players": {
-    "default": 139,
-    "recent": 128,
-    "recent_acc": 128
+    "default": 141,
+    "recent": 130,
+    "recent_acc": 130
    },
-   "agree_recent": 0.977,
-   "agree_recent_acc": 0.977
+   "agree_recent": 0.949,
+   "agree_recent_acc": 0.948
   },
   "ros|TE": {
-   "default": 5,
+   "default": 4,
    "recent": 11,
    "recent_acc": 11,
-   "listed": 26,
+   "listed": 27,
    "public_pages": 14,
    "recent_rule": "fallback: last 7 days",
    "players": {
@@ -124,9 +124,9 @@
     "recent": 60,
     "recent_acc": 60
    },
-   "agree_recent": 0.982,
-   "agree_recent_acc": 0.982
+   "agree_recent": 0.986,
+   "agree_recent_acc": 0.986
   }
  },
- "stamp": "65c5e4910b47"
+ "stamp": "3bcd9fe5d894"
 }
