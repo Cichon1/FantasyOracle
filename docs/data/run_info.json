@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-11T21:34:20+00:00",
+ "updated": "2026-11-11T22:30:19+00:00",
  "season": 2026,
  "projection_week": 10,
  "results_week": 9,
@@ -8,42 +8,42 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 40,
+   "seconds": 41,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 3,
+   "seconds": 5,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 2,
+   "seconds": 3,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 4,
+   "seconds": 3,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/injuries_live.py --data",
-   "seconds": 1,
+   "seconds": 2,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 1,
+   "seconds": 0,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 203,
+   "seconds": 38,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 10,
+   "seconds": 19,
    "ok": true
   }
  ],
@@ -56,8 +56,8 @@
    "total": 0
   },
   "inactive_rows": 0,
-  "players": 351,
-  "upcoming": 351,
+  "players": 354,
+  "upcoming": 354,
   "season_scoreboard": {
    "model": 0.3908,
    "experts": 0.3968,
@@ -76,17 +76,17 @@
   "week": 10,
   "last_week": 17,
   "players": 472,
-  "out_this_week": 73,
+  "out_this_week": 70,
   "on_bye": 48,
   "this_week_source": "official",
-  "training_snapshots": 47937,
+  "training_snapshots": 47940,
   "rounds": {
    "QB": 50,
-   "RB": 95,
-   "WR/TE": 58
+   "RB": 64,
+   "WR/TE": 50
   },
   "experts_ros_date": "2026-11-11 00:00:00",
-  "seconds": 9,
+  "seconds": 17,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -96,70 +96,73 @@
    "QB": [
     [
      "Josh Allen",
-     155.9
+     154.6
     ],
     [
      "Brock Purdy",
-     151.5
+     150.4
     ],
     [
      "Joe Burrow",
-     146.7
+     146.2
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     164.7
+     157.7
     ],
     [
      "Kenneth Walker III",
-     146.2
+     154.6
     ],
     [
      "Christian McCaffrey",
-     142.3
+     147.5
     ]
    ],
    "TE": [
     [
      "Brock Bowers",
-     103.3
+     101.5
     ],
     [
      "George Kittle",
-     102.4
+     99.9
     ],
     [
      "Trey McBride",
-     92.9
+     92.0
     ]
    ],
    "WR": [
     [
      "Ja'Marr Chase",
-     151.6
+     147.2
     ],
     [
      "Jaxon Smith-Njigba",
-     144.6
+     130.1
     ],
     [
      "Amon-Ra St. Brown",
-     134.5
+     125.8
     ]
    ]
   }
  },
  "injuries_live": {
   "nfl_week": 10,
-  "nfl_rows": 20,
-  "nfl_matched": 20,
-  "nfl_unmatched": [],
-  "espn_out": 28,
+  "nfl_rows": 189,
+  "nfl_matched": 187,
+  "nfl_unmatched": [
+   "Jessie Bates (JAX)",
+   "Jordan Davis (JAX)"
+  ],
+  "espn_out": 32,
   "espn_unmatched": [],
-  "hash": "3577c9f8436a",
-  "rows_added": 25,
-  "values_updated": 0
+  "hash": "8487f32c0436",
+  "rows_added": 181,
+  "values_updated": 7
  }
 }
