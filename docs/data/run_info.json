@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-10T23:34:19+00:00",
+ "updated": "2026-11-11T00:06:43+00:00",
  "season": 2026,
  "projection_week": 10,
  "results_week": 9,
  "games_started": false,
- "reason": "schedule_and_lines,fp_rankings",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 52,
+   "seconds": 40,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 1,
+   "seconds": 2,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 42,
+   "seconds": 38,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 21,
+   "seconds": 18,
    "ok": true
   }
  ],
@@ -86,7 +86,7 @@
    "WR/TE": 60
   },
   "experts_ros_date": "2026-11-10 00:00:00",
-  "seconds": 19,
+  "seconds": 17,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -154,10 +154,10 @@
  "injuries_live": {
   "nfl_week": 9,
   "nfl_rows": 362,
-  "espn_out": 13,
+  "espn_out": 14,
   "espn_unmatched": [],
-  "hash": "ed8b79503a08",
-  "rows_added": 13,
+  "hash": "4c0773a449fb",
+  "rows_added": 14,
   "values_updated": 0
  }
 }
