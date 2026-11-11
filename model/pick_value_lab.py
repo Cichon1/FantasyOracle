@@ -1,4 +1,11 @@
-"""Next-season draft pick values for The League (Yahoo 200436): 12 teams, snake, 16 rounds, 1 keeper per team (keepers
+"""Next-season draft pick values, per league (run: python pick_value_lab.py [league_id]; default The League).
+
+BDSM League (Yahoo 126912), added Nov 11, 2026: 12 teams, 15 rounds, no keepers, lineup QB, 2 RB, 2 WR, TE, W/R/T, K, DEF;
+6-pt pass TD, -0.5 INT, 25 pass yds/pt, 1 per catch, -2 fumble lost, no yardage bonuses. Draft order is set by a bet on
+another sporting event (worst regular-season record picks an athlete first; the athletes' finish sets the order), so the
+page values a BDSM pick at the average of its round. Same method as below with no keepers taken out.
+
+The League (Yahoo 200436): 12 teams, snake, 16 rounds, 1 keeper per team (keepers
 take each team's round-16 pick), lineup QB, 2 RB, 3 WR, TE, W/R/T, K, DEF; 6-pt pass TD, -0.5 INT, 25 pass yds/pt,
 1 per catch, +10 at 400 pass / 150 rush / 175 rec yards, -2 fumble lost.
 
@@ -11,9 +18,20 @@ starting lineups: QB13, RB/WR/TE after 24 RB, 36 WR, 12 TE and 12 flex). Kickers
 Check: curves from 2020-2022 vs 2023-2025."""
 import json, numpy as np, pandas as pd
 
-LG = dict(pass_td=6, pass_int=-0.5, pass_yds_per_pt=25, fum_lost=-2, rec_pt=1, bonus_pass400=10, bonus_rush150=10, bonus_rec175=10)
-KEEPERS, TEAMS, ROUNDS = 12, 12, 16
-KEEPER_RANKS = {1, 2, 3, 4, 7, 9, 10, 12, 23, 26, 28, 38}   # consensus ranks of The League's 2026 keepers
+import sys
+LEAGUES = {
+    '200436': dict(lg=dict(pass_td=6, pass_int=-0.5, pass_yds_per_pt=25, fum_lost=-2, rec_pt=1, bonus_pass400=10, bonus_rush150=10, bonus_rec175=10),
+                   teams=12, rounds=16, keeper_round=True, keeper_ranks={1, 2, 3, 4, 7, 9, 10, 12, 23, 26, 28, 38},   # The League's 2026 keepers
+                   start={'QB': 12, 'RB': 24, 'WR': 36, 'TE': 12}, flex=12),
+    '126912': dict(lg=dict(pass_td=6, pass_int=-0.5, pass_yds_per_pt=25, fum_lost=-2, rec_pt=1, bonus_pass400=0, bonus_rush150=0, bonus_rec175=0),
+                   teams=12, rounds=15, keeper_round=False, keeper_ranks=set(), start={'QB': 12, 'RB': 24, 'WR': 24, 'TE': 12}, flex=12),
+}
+LID = sys.argv[1] if len(sys.argv) > 1 and sys.argv[1] in LEAGUES else '200436'
+CFG = LEAGUES[LID]
+LG, TEAMS, ROUNDS = CFG['lg'], CFG['teams'], CFG['rounds']
+KEEPER_RANKS = CFG['keeper_ranks']
+KEEPERS = len(KEEPER_RANKS)
+LAST_PAID = ROUNDS if not CFG['keeper_round'] else ROUNDS - 1   # rounds with a value (The League's round 16 = keeper round)
 SEASONS = list(range(2020, 2026))
 
 
@@ -34,10 +52,10 @@ def baselines(sp):
     out = {}
     for s, g in sp.groupby('season'):
         g = g[g.pos.isin(['QB', 'RB', 'WR', 'TE'])].sort_values('pts', ascending=False)
-        start = {'QB': 12, 'RB': 24, 'WR': 36, 'TE': 12}
+        start = CFG['start']
         taken = pd.concat([g[g.pos == p].head(n) for p, n in start.items()])
         rest = g.drop(taken.index)
-        flex = rest[rest.pos.isin(['RB', 'WR', 'TE'])].head(12)
+        flex = rest[rest.pos.isin(['RB', 'WR', 'TE'])].head(CFG['flex'])
         rest = rest.drop(flex.index)
         out[s] = {p: float(rest[rest.pos == p].pts.max()) for p in start}
     return out
@@ -82,7 +100,7 @@ def main():
     sp = season_points()
     base = baselines(sp)
     pr = preseason_ranks()
-    keep26 = ['Jahmyr Gibbs', 'Bijan Robinson', "Ja'Marr Chase", 'Jonathan Taylor', 'Justin Jefferson', 'CeeDee Lamb', 'Puka Nacua',
+    keep26 = [] if not KEEPERS else ['Jahmyr Gibbs', 'Bijan Robinson', "Ja'Marr Chase", 'Jonathan Taylor', 'Justin Jefferson', 'CeeDee Lamb', 'Puka Nacua',
               'Derrick Henry', 'Ashton Jeanty', 'Malik Nabers', 'A.J. Brown', 'Josh Allen']
     k26 = pr[(pr.season == 2026) & pr.player.isin(keep26)][['player', 'rank']].sort_values('rank')
     rows = pr[pr.season.isin(SEASONS)].merge(sp, left_on=['season', 'gsis_id'], right_on=['season', 'player_id'], how='left', suffixes=('', '_s'))
@@ -90,6 +108,7 @@ def main():
     rows['var'] = [max(0.0, p - base[s].get(pos, 1e9)) if pos in ('QB', 'RB', 'WR', 'TE') else 0.0
                    for p, s, pos in zip(rows.pts, rows.season, rows.pos)]
     full = curve(rows)
+    ppw = curve(rows.assign(var=rows.pts / 17))     # what the player at that rank scored per week (missed games as 0)
     a = curve(rows[rows.season <= 2022]); b = curve(rows[rows.season >= 2023])
     avail = [k for k in range(1, ROUNDS * TEAMS + KEEPERS + 4) if k not in KEEPER_RANKS]
     picks = []
@@ -98,17 +117,24 @@ def main():
         r = avail[n - 1]
         win = rows.loc[(rows['rank'] - r).abs() <= 3, 'var']
         picks.append(dict(overall=n, round=rnd, pick_in_round=(n - 1) % TEAMS + 1, consensus_rank=r,
-                          value=round(float(full[r]), 1) if rnd < ROUNDS else 0.0,
-                          low=round(float(win.quantile(0.1)), 1) if rnd < ROUNDS else 0.0,
-                          high=round(float(win.quantile(0.9)), 1) if rnd < ROUNDS else 0.0,
-                          hit_rate=round(float((win > 0).mean()), 3) if rnd < ROUNDS else 0.0,
-                          value_2020_22=round(float(a[r]), 1), value_2023_25=round(float(b[r]), 1)))
+                          value=round(float(full[r]), 1) if rnd <= LAST_PAID else 0.0,
+                          low=round(float(win.quantile(0.1)), 1) if rnd <= LAST_PAID else 0.0,
+                          high=round(float(win.quantile(0.9)), 1) if rnd <= LAST_PAID else 0.0,
+                          hit_rate=round(float((win > 0).mean()), 3) if rnd <= LAST_PAID else 0.0,
+                          value_2020_22=round(float(a[r]), 1), value_2023_25=round(float(b[r]), 1),
+                          pts_per_week=round(float(ppw[r]), 2) if rnd <= LAST_PAID else 0.0))
     P = pd.DataFrame(picks)
-    P.loc[P['round'] == ROUNDS, 'note'] = 'keeper round (each team keeps 1 player with its round-16 pick)'
-    P.to_csv('dash_out/pick_values_v5.csv', index=False)
-    rd = P[P['round'] < ROUNDS].groupby('round')[['value', 'low', 'high', 'hit_rate', 'value_2020_22', 'value_2023_25']].mean().round(1)
+    P['value_pw'] = (P['value'] / 17).round(2)
+    P['note'] = ''
+    if CFG['keeper_round']:
+        P.loc[P['round'] == ROUNDS, 'note'] = 'keeper round (each team keeps 1 player with its round-16 pick)'
+    P.insert(0, 'league_id', LID)
+    out = 'dash_out/pick_values_' + LID + '.csv'
+    P.to_csv(out, index=False)
+    print('wrote', out)
+    rd = P[P['round'] <= LAST_PAID].groupby('round')[['value', 'low', 'high', 'hit_rate', 'value_2020_22', 'value_2023_25']].mean().round(1)
     print(rd.to_string())
-    agree = P[P['round'] < ROUNDS]
+    agree = P[P['round'] <= LAST_PAID]
     print('2026 keepers consensus ranks:', k26.values.tolist())
     print('baselines', {s: {p: round(v) for p, v in b.items()} for s, b in base.items()})
     print('half-curves mean abs diff (pts):', round(float((agree.value_2020_22 - agree.value_2023_25).abs().mean()), 1),

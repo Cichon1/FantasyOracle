@@ -1,6 +1,9 @@
-"""The League (Yahoo 200436): standings, weekly matchups and next season's draft pick ownership, for the trade
-analyzer's draft-pick feature. Pulled on request with yahoo_picks.js in Jackson's signed-in Chrome (text saved as
-yahoo/the_league_<date>.txt), then:  python yahoo_draft.py yahoo/the_league_<date>.txt dash_out
+"""Next season's draft pick ownership for the leagues that trade picks - The League (Yahoo 200436) and, from Nov 11, 2026,
+BDSM League (126912) - for the trade analyzer's draft-pick feature. Pulled on request with yahoo_picks.js in Jackson's
+signed-in browser (set LID in the script; text saved as yahoo/the_league_<date>.txt or yahoo/bdsm_picks_<date>.txt), then:
+  python yahoo_draft.py yahoo/<file>.txt dash_out [league_id, default 200436]
+Rewrites only that league's rows in dash_out/league_picks_v5.csv (other leagues' rows are kept).
+BDSM: 15 rounds, no keepers, picks may be traded for players; order set by a bet on another event (page: round average).
 -> dash_out/league_picks_v5.csv (standings and schedules for all leagues: yahoo_standings.js / yahoo_standings.py).
 Draft rules (Jackson, Oct 12, 2026): next season's order follows this season's finish (last place picks first),
 snake, 16 rounds, 1 keeper per team (keepers take the round-16 pick), every pick tradeable but only pick-for-pick."""
@@ -8,10 +11,13 @@ import sys
 from datetime import datetime, timezone
 import pandas as pd
 
-LID, SEASON_NEXT, ROUNDS = "200436", 2027, 16
+import os
+SEASON_NEXT = 2027
+RULES = {"200436": dict(rounds=16, keeper_round=True), "126912": dict(rounds=15, keeper_round=False)}
 
 
-def build(raw, out_dir):
+def build(raw, out_dir, LID="200436"):
+    ROUNDS, KEEPER = RULES[LID]["rounds"], RULES[LID]["keeper_round"]
     txt = open(raw, encoding="utf-8").read()
     st_txt, rest = txt.split("STANDINGS\n")[1].split("MATCHUPS\n")
     m_txt, p_txt = rest.split("PICKS")
@@ -62,16 +68,21 @@ def build(raw, out_dir):
     pk.insert(0, "league_id", LID)
     pk.insert(1, "season", SEASON_NEXT)
     pk["key"] = LID + "|" + str(SEASON_NEXT) + "|" + pk["round"].astype(str) + "|" + pk.orig_team_id
-    pk["keeper_round"] = (pk["round"] == ROUNDS).astype(int)
+    pk["keeper_round"] = ((pk["round"] == ROUNDS) & KEEPER).astype(int)
     pk["pulled_at"] = now
     # standings / schedule for every league now come from yahoo_standings.py (league_standings_v5.csv,
     # league_schedule_v5.csv); these copies are The League only, kept for checking
-    st.to_csv(f"{out_dir}/league_standings_200436_v5.csv", index=False)
-    sc.to_csv(f"{out_dir}/league_schedule_200436_v5.csv", index=False)
-    pk.to_csv(f"{out_dir}/league_picks_v5.csv", index=False)
+    st.to_csv(f"{out_dir}/league_standings_{LID}_v5.csv", index=False)
+    sc.to_csv(f"{out_dir}/league_schedule_{LID}_v5.csv", index=False)
+    pth = f"{out_dir}/league_picks_v5.csv"
+    if os.path.exists(pth):
+        old = pd.read_csv(pth, dtype=str)
+        pk = pd.concat([old[old.league_id != LID], pk.astype(str)], ignore_index=True)
+    pk.to_csv(pth, index=False)
+    pk = pk[pk.league_id == LID]
     print(len(st), "teams,", played, "weeks final;", len(sc), "matchups;", len(pk), "picks (", (pk.owner_team_id != pk.orig_team_id).sum(), "traded )")
     assert len(pk) == ROUNDS * len(st), "pick count looks wrong"
 
 
 if __name__ == "__main__":
-    build(sys.argv[1], sys.argv[2])
+    build(sys.argv[1], sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else "200436")

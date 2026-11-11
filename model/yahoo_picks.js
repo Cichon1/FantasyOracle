@@ -1,7 +1,8 @@
 // The League (Yahoo 200436): standings, weekly matchups for the rest of the regular season, and next season's draft
 // pick ownership. Run with Claude in Chrome on football.fantasysports.yahoo.com (signed in); writes text into the page.
 (async () => {
-  const LID = '200436', t = (e) => (e ? e.textContent.replace(/\s+/g, ' ').trim() : '');
+  const LID = '200436',   // The League; '126912' for BDSM League
+    t = (e) => (e ? e.textContent.replace(/\s+/g, ' ').trim() : '');
   const get = async (u) => new DOMParser().parseFromString(await fetch(u).then((r) => r.text()), 'text/html');
   const out = [];
   // standings

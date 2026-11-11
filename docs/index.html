@@ -519,7 +519,7 @@
   <!-- ============================== TRADE ANALYZER -->
   <section class="nf-panel" id="trade" role="tabpanel" hidden>
     <p class="nf-take" id="trade-take">
-      Pick a league and a trade partner, then check the players (and, in The League, 2027 picks) going each way. Every trade
+      Pick a league and a trade partner, then check the players (and, in The League and BDSM League, 2027 picks) going each way. Every trade
       gets two answers. <b>Does it help you?</b> Each team's best lineup in that league's slots and scoring, before and after,
       counted over the weeks still left that matter to that team. <b>Is it a fair price?</b> Every player's trade value (what the market pays) and actual
       value (what our projections say he's worth) in this league, with players you'd have to cut, or open spots you'd fill, counted
@@ -657,7 +657,7 @@
           </tr></thead><tbody></tbody></table></div>
         </div>
       </div>
-      <p class="nf-note" id="ta-draft-note">A pick's Pts / wk is what the player usually taken at that slot scored per week the next season, in this league's scoring (2020–2025, missed games as zero). Its value (picks have no trade market, so one number) is on the same scale as players' actual value: next season's points above a waiver pickup plus points above the league's last starter, over the weeks of a season that count, times how much next season counts (the chips). The slot comes from simulating the rest of this season 4,000 times (remaining Yahoo matchups, then the 6-team playoff): next season's snake order follows the finish, last place first, so a trade that makes a team better also lowers its own picks' value. Weeks that count: regular-season weeks the team is still alive in, plus playoff weeks it plays in, from the same simulation. Round 16 is the keeper round and counts 0. Players' value as next year's keeper isn't counted.</p>
+      <p class="nf-note" id="ta-draft-note">A pick's Pts / wk is what the player usually taken at that slot scored per week the next season, in this league's scoring (2020–2025, missed games as zero). Its value (picks have no trade market, so one number) is on the same scale as players' actual value: next season's points above a waiver pickup plus points above the league's last starter, over the weeks of a season that count, times how much next season counts (the chips). <span id="ta-draft-note-lg">The League: the slot comes from simulating the rest of this season 4,000 times (remaining Yahoo matchups, then the 6-team playoff): next season's snake order follows the finish, last place first, so a trade that makes a team better also lowers its own picks' value. Round 16 is the keeper round and counts 0. Players' value as next year's keeper isn't counted.</span> Weeks that count: regular-season weeks the team is still alive in, plus playoff weeks it plays in, from the season simulation.</p>
     </div>
 
     <div class="nf-grid">
@@ -2253,7 +2253,7 @@ window.taEngine = (() => {
 })();
 </script>
 <script>
-// Draft-pick engine for leagues that trade next season's picks (The League): simulate the rest of this season
+// Draft-pick engine for leagues that trade next season's picks (The League; BDSM League with a random order): simulate the rest of this season
 // (remaining regular-season matchups, then a 6-team playoff) to get each team's chance of every final finish; next
 // season's snake order follows the finish (last place picks first), so each pick's slot - and its value from the
 // pick-value curve - follows its original team's finish. The same simulation gives the weeks that still count for each
@@ -2264,6 +2264,12 @@ window.taDraft = (() => {
   const SD_TEAM = 7;           // how far a team's true strength may sit from our projection, for the rest of the season
   const SIMS = 4000;
   const PO = 6;                // playoff teams (seeds 1-2 get a week-1 bye)
+  // next season's draft rules (Jackson): The League - order follows this season's finish (last place first), round 16 is
+  // the keeper round, picks trade pick-for-pick only; BDSM League - order set by a bet on another sporting event (worst
+  // regular-season record picks an athlete first; the athletes' finish sets the order), so every slot is equally likely
+  // and a pick is worth its round's average; picks can be traded for players; no keepers
+  const RULES = { '200436': { order: 'finish', pickForPick: true, name: 'The League' },
+                  '126912': { order: 'random', pickForPick: false, name: 'BDSM League' } };
   // seeded normal draws so before / after a trade use the same luck
   const mulberry = (a) => () => { a |= 0; a = (a + 0x6D2B79F5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
   const gauss = (rng) => { const u = Math.max(1e-12, rng()), v = rng(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); };
@@ -2277,9 +2283,10 @@ window.taDraft = (() => {
       .sort((x, y) => x.week - y.week);
     const played = Math.max(...st.map((r) => num(r.games)));
     const lastReg = Math.max(...sched.map((m) => m.week));
-    const val = []; values.forEach((r) => { val[num(r.overall)] = { v: num(r.value), ppw: num(r.pts_per_week), vpw: num(r.value_pw, num(r.value) / 17), lo: num(r.low), hi: num(r.high), hit: num(r.hit_rate) }; });
-    const rounds = Math.max(...picks.map((p) => num(p.round)), 1);
-    return { lid: String(lid), teams, st, sched: sched.filter((m) => m.week > played), lastReg, val, rounds, nTeams: teams.length,
+    const val = []; values.filter((r) => String(r.league_id || '200436') === String(lid)).forEach((r) => { val[num(r.overall)] = { v: num(r.value), ppw: num(r.pts_per_week), vpw: num(r.value_pw, num(r.value) / 17), lo: num(r.low), hi: num(r.high), hit: num(r.hit_rate) }; });
+    const rounds = Math.max(...picks.filter((p) => String(p.league_id) === String(lid)).map((p) => num(p.round)), 1);
+    const rules = RULES[String(lid)] || { order: 'finish', pickForPick: false, name: '' };
+    return { lid: String(lid), rules, teams, st, sched: sched.filter((m) => m.week > played), lastReg, val, rounds, nTeams: teams.length,
       picks: picks.filter((p) => String(p.league_id) === String(lid)).map((p) => ({ key: p.key, round: num(p.round), owner: String(p.owner_team_id),
         orig: String(p.orig_team_id), keeper: num(p.keeper_round) === 1, season: p.season })) };
   }
@@ -2389,7 +2396,7 @@ window.taDraft = (() => {
   // a pick's next-season value: its original team's finish sets the slot (last place = slot 1), snake order sets the
   // overall number, the curve gives points above the last starter next season (value) and per week (ppw)
   function pickInfo(D, sim, pick) {
-    const f = sim.get(pick.orig).finish;
+    const f = D.rules.order === 'random' ? Array.from({ length: D.nTeams + 1 }, (_, k) => (k ? 1 / D.nTeams : 0)) : sim.get(pick.orig).finish;
     let ev = 0, eppw = 0, evpw = 0, lo = null, hi = null, acc = 0;
     const slots = [];
     for (let place = 1; place <= D.nTeams; place++) {
@@ -2405,7 +2412,7 @@ window.taDraft = (() => {
     return { value: ev, ppw: eppw, vpw: evpw, slotLo: lo || 1, slotHi: hi || D.nTeams, expSlot };
   }
   const label = (round, slot) => round + '.' + String(Math.round(slot)).padStart(2, '0');
-  return { setup, simulate, pickInfo, label, SIMS };
+  return { setup, simulate, pickInfo, label, SIMS, RULES };
 })();
 </script>
 <script>
@@ -2624,7 +2631,7 @@ dash.calc('league_players', {
     return c;
   };
 
-  // ---------------------------------------------------------------- draft picks (The League trades next season's picks)
+  // ---------------------------------------------------------------- draft picks (The League and BDSM League trade next season's picks)
   const W_OPTS = [[0, 'Not at all'], [0.25, '25%'], [0.5, '50%'], [0.75, '75%'], [1, 'Fully']];
   // weekly spread of a lineup: each starter's bad week / big week (10th / 90th percentile) as a ratio to his projection,
   // from the weekly model's ranges over his latest 4 weeks (position median when he has none), added up as independent
@@ -2701,7 +2708,7 @@ dash.calc('league_players', {
     return { D, simB, simA, spB, spA, k };
   }
 
-  // pick prices for a league with pick data (The League), on top of the season simulation, or null
+  // pick prices for a league with pick data (The League, BDSM League), on top of the season simulation, or null
   function draftState(ctx, res, ss) {
     if (!ss) return null;
     const PK = dash.data('league_picks'), PV = dash.data('pick_values');
@@ -2760,11 +2767,15 @@ dash.calc('league_players', {
     card.hidden = !ds;
     if (!ds) return;
     const { D, simB, simA, giveK, getK } = ds;
+    document.getElementById('ta-draft-note-lg').textContent = D.rules.order === 'random'
+      ? D.rules.name + ': 15 rounds, no keepers. Next season\u2019s order is set by a bet on another sporting event (worst regular-season record picks an athlete first; the athletes\u2019 finish sets the order), so every slot in a round is treated as equally likely and a pick is worth its round\u2019s average. Getting first choice of athlete may be worth a little; that isn\u2019t counted.'
+      : 'The League: the slot comes from simulating the rest of this season 4,000 times (remaining Yahoo matchups, then the 6-team playoff): next season\u2019s snake order follows the finish, last place first, so a trade that makes a team better also lowers its own picks\u2019 value. Round 16 is the keeper round and counts 0. Players\u2019 value as next year\u2019s keeper isn\u2019t counted.';
     const tname = (tid) => name(tid) || ('team ' + tid);
     // a pick is named by the team whose finish sets its slot, so both sides read clearly
     const pickName = (p, owner) => 'Rd ' + p.round + ' · ' + tname(p.orig) + (p.orig === owner ? '' : ' (acquired)') + (p.keeper ? ' · keeper round' : '');
     // where in its round the pick falls (snake: even rounds run in reverse), 10th-90th percentile of the simulated finishes
     const slotText = (p, sim) => {
+      if (D.rules.order === 'random') return 'Rd ' + p.round + ', any slot';
       const i = Dr.pickInfo(D, sim, p), pos = (sl) => (p.round % 2 === 1 ? sl : D.nTeams + 1 - sl);
       const lo = Math.min(pos(i.slotLo), pos(i.slotHi)), hi = Math.max(pos(i.slotLo), pos(i.slotHi));
       return lo === hi ? Dr.label(p.round, lo) : Dr.label(p.round, lo) + '–' + String(hi).padStart(2, '0');
@@ -2787,7 +2798,11 @@ dash.calc('league_players', {
     drawPicks('ta-theirs-picks', st.theirs, st.get);
 
     const rule = document.getElementById('ta-draft-rule');
-    if (giveK.length || getK.length) {
+    if (!D.rules.pickForPick) {
+      rule.className = 'nf-note';
+      rule.textContent = (giveK.length || getK.length ? giveK.length + ' pick' + (giveK.length === 1 ? '' : 's') + ' out, ' + getK.length + ' in. ' : 'Check 2027 picks on either roster to include them. ')
+        + 'League rule: picks can go for players or other picks. Next year\u2019s order is set by a bet on another event, so a pick\u2019s slot is unknown: it is worth the average of its round, and finishing higher or lower doesn\u2019t change it.';
+    } else if (giveK.length || getK.length) {
       rule.className = 'nf-note' + (giveK.length === getK.length ? '' : ' nf-bad');
       rule.textContent = giveK.length === getK.length ? 'Pick-for-pick: ' + giveK.length + ' each way, as the league requires.'
         : 'League rule: picks go pick-for-pick (the same number each way). This trade sends ' + giveK.length + ' and brings back ' + getK.length + ', so it would need to change.';
@@ -2910,7 +2925,7 @@ dash.calc('league_players', {
     head.textContent = s1 + ' ' + s2;
     sub.textContent = 'Helps you ' + sg0(H) + ' value points' + (ds ? ' (this season ' + sg0(help[st.mine].thisS) + ', picks ' + sg0(help[st.mine].next) + ')' : '')
       + '; ' + them + ' ' + sg0(Hp) + '. Net for you: ' + sg0(T.netMine) + ' by trade value, ' + sg0(A.netMine) + ' by actual value.'
-      + (ds && ds.giveK.length !== ds.getK.length ? ' The League trades picks pick-for-pick, so this one would need to change.' : '');
+      + (ds && ds.D.rules.pickForPick && ds.giveK.length !== ds.getK.length ? ' The League trades picks pick-for-pick, so this one would need to change.' : '');
   }
 
   function placeholder(failed) {

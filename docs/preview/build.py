@@ -115,7 +115,7 @@ more["weekly"] = ('<p class="mp-intro">Everything on the old weekly page: the fu
 more["rosdetails"] = strip_section(ros)
 trade_inner = strip_section(trade).replace('<div id="ta-leagues"', '<div class="hide-here" id="ta-leagues"')
 more["tradedetails"] = ('<p class="mp-intro">The complete trade analysis for the trade checked on the Trade Analyzer page (same league, '
-                        'same teams and players): the price in trade and actual value, the value check, draft picks (The League), '
+                        'same teams and players): the price in trade and actual value, the value check, draft picks (The League, BDSM League), '
                         'both lineups, the league power rankings and the playoff predictor.</p>' + trade_inner)
 for k in ["matchups", "style", "weather", "experts", "model"]:
     more[k] = strip_section(S[k])
