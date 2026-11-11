@@ -1,19 +1,19 @@
 {
- "updated": "2026-11-11T17:59:50+00:00",
+ "updated": "2026-11-11T18:22:27+00:00",
  "season": 2026,
  "projection_week": 10,
  "results_week": 9,
  "games_started": false,
- "reason": "player_stats,play_by_play,schedule_and_lines,fp_rankings,injury_news",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 40,
+   "seconds": 41,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 6,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -38,7 +38,7 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 364,
+   "seconds": 38,
    "ok": true
   },
   {
@@ -156,9 +156,9 @@
   "nfl_rows": 20,
   "nfl_matched": 20,
   "nfl_unmatched": [],
-  "espn_out": 18,
+  "espn_out": 20,
   "espn_unmatched": [],
-  "hash": "cbd002006386",
+  "hash": "afa2f69fb5a9",
   "rows_added": 17,
   "values_updated": 0
  }
