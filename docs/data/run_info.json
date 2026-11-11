@@ -1,19 +1,19 @@
 {
- "updated": "2026-11-11T18:54:14+00:00",
+ "updated": "2026-11-11T19:57:08+00:00",
  "season": 2026,
  "projection_week": 10,
  "results_week": 9,
  "games_started": false,
- "reason": "schedule_and_lines",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 43,
+   "seconds": 40,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 6,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -33,7 +33,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 0,
+   "seconds": 1,
    "ok": true
   },
   {
@@ -56,8 +56,8 @@
    "total": 0
   },
   "inactive_rows": 0,
-  "players": 354,
-  "upcoming": 354,
+  "players": 352,
+  "upcoming": 352,
   "season_scoreboard": {
    "model": 0.3908,
    "experts": 0.3968,
@@ -76,7 +76,7 @@
   "week": 10,
   "last_week": 17,
   "players": 472,
-  "out_this_week": 70,
+  "out_this_week": 72,
   "on_bye": 48,
   "this_week_source": "official",
   "training_snapshots": 47940,
@@ -96,7 +96,7 @@
    "QB": [
     [
      "Josh Allen",
-     154.0
+     154.6
     ],
     [
      "Brock Purdy",
@@ -110,7 +110,7 @@
    "RB": [
     [
      "Jahmyr Gibbs",
-     164.5
+     165.1
     ],
     [
      "Kenneth Walker III",
@@ -156,10 +156,10 @@
   "nfl_rows": 20,
   "nfl_matched": 20,
   "nfl_unmatched": [],
-  "espn_out": 20,
+  "espn_out": 25,
   "espn_unmatched": [],
-  "hash": "afa2f69fb5a9",
-  "rows_added": 17,
+  "hash": "0029018af576",
+  "rows_added": 22,
   "values_updated": 0
  }
 }
