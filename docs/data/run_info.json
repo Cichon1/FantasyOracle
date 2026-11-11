@@ -1,19 +1,19 @@
 {
- "updated": "2026-11-11T02:48:07+00:00",
+ "updated": "2026-11-11T03:52:20+00:00",
  "season": 2026,
  "projection_week": 10,
  "results_week": 9,
  "games_started": false,
- "reason": "schedule_and_lines,fp_rankings,injury_news",
+ "reason": "schedule_and_lines",
  "steps": [
   {
    "step": "bash",
-   "seconds": 39,
+   "seconds": 41,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 5,
+   "seconds": 4,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 0,
+   "seconds": 1,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 36,
+   "seconds": 28,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 16,
+   "seconds": 13,
    "ok": true
   }
  ],
@@ -86,7 +86,7 @@
    "WR/TE": 53
   },
   "experts_ros_date": "2026-11-10 00:00:00",
-  "seconds": 15,
+  "seconds": 12,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -96,7 +96,7 @@
    "QB": [
     [
      "Josh Allen",
-     152.6
+     154.9
     ],
     [
      "Brock Purdy",
@@ -137,12 +137,12 @@
    ],
    "WR": [
     [
-     "Amon-Ra St. Brown",
-     147.7
+     "Ja'Marr Chase",
+     149.4
     ],
     [
-     "Ja'Marr Chase",
-     146.9
+     "Amon-Ra St. Brown",
+     147.7
     ],
     [
      "Jaxon Smith-Njigba",
