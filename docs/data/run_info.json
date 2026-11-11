@@ -1,24 +1,24 @@
 {
- "updated": "2026-11-11T01:59:43+00:00",
+ "updated": "2026-11-11T02:48:07+00:00",
  "season": 2026,
  "projection_week": 10,
  "results_week": 9,
  "games_started": false,
- "reason": "schedule_and_lines,injury_news",
+ "reason": "schedule_and_lines,fp_rankings,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 41,
+   "seconds": 39,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 6,
+   "seconds": 5,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 3,
+   "seconds": 2,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 42,
+   "seconds": 36,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 19,
+   "seconds": 16,
    "ok": true
   }
  ],
@@ -75,8 +75,8 @@
   "season": 2026,
   "week": 10,
   "last_week": 17,
-  "players": 473,
-  "out_this_week": 65,
+  "players": 472,
+  "out_this_week": 64,
   "on_bye": 48,
   "this_week_source": "official",
   "training_snapshots": 47932,
@@ -86,7 +86,7 @@
    "WR/TE": 53
   },
   "experts_ros_date": "2026-11-10 00:00:00",
-  "seconds": 18,
+  "seconds": 15,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -146,7 +146,7 @@
     ],
     [
      "Jaxon Smith-Njigba",
-     138.1
+     138.2
     ]
    ]
   }
@@ -154,10 +154,10 @@
  "injuries_live": {
   "nfl_week": 9,
   "nfl_rows": 362,
-  "espn_out": 14,
+  "espn_out": 13,
   "espn_unmatched": [],
-  "hash": "c85e27318dac",
-  "rows_added": 14,
+  "hash": "d3ffcc333cda",
+  "rows_added": 13,
   "values_updated": 0
  }
 }
