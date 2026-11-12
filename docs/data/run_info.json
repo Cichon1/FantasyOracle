@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-12T01:51:10+00:00",
+ "updated": "2026-11-12T02:49:43+00:00",
  "season": 2026,
  "projection_week": 10,
  "results_week": 9,
  "games_started": false,
- "reason": "schedule_and_lines,injury_news",
+ "reason": "schedule_and_lines,fp_rankings,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 41,
+   "seconds": 39,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 4,
+   "seconds": 3,
    "ok": true
   },
   {
@@ -104,7 +104,7 @@
     ],
     [
      "Joe Burrow",
-     146.7
+     147.8
     ]
    ],
    "RB": [
@@ -159,9 +159,9 @@
    "Jessie Bates (JAX)",
    "Jordan Davis (JAX)"
   ],
-  "espn_out": 60,
+  "espn_out": 61,
   "espn_unmatched": [],
-  "hash": "8d988bd58ff0",
+  "hash": "28d7c8cd3039",
   "rows_added": 250,
   "values_updated": 7
  }
