@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-12T09:32:50+00:00",
+ "updated": "2026-11-12T10:38:09+00:00",
  "season": 2026,
  "projection_week": 10,
  "results_week": 9,
  "games_started": false,
- "reason": "schedule_and_lines",
+ "reason": "player_stats,play_by_play,schedule_and_lines",
  "steps": [
   {
    "step": "bash",
-   "seconds": 39,
+   "seconds": 38,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 4,
+   "seconds": 3,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 41,
+   "seconds": 368,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 18,
+   "seconds": 46,
    "ok": true
   }
  ],
@@ -79,74 +79,74 @@
   "out_this_week": 68,
   "on_bye": 48,
   "this_week_source": "official",
-  "training_snapshots": 47931,
+  "training_snapshots": 47940,
   "rounds": {
    "QB": 50,
-   "RB": 79,
-   "WR/TE": 62
+   "RB": 74,
+   "WR/TE": 72
   },
   "experts_ros_date": "2026-11-11 00:00:00",
-  "seconds": 17,
+  "seconds": 44,
   "model_cache": {
-   "hit": 18,
-   "miss": 0,
+   "hit": 0,
+   "miss": 18,
    "on": true
   },
   "top": {
    "QB": [
     [
      "Josh Allen",
-     155.4
+     154.9
     ],
     [
      "Brock Purdy",
-     150.1
+     147.8
     ],
     [
      "Joe Burrow",
-     148.9
+     146.3
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     164.1
+     156.4
     ],
     [
      "Kenneth Walker III",
-     147.8
+     153.7
     ],
     [
      "Christian McCaffrey",
-     142.3
+     144.9
     ]
    ],
    "TE": [
     [
      "Brock Bowers",
-     102.1
+     103.3
     ],
     [
      "George Kittle",
-     101.3
+     103.3
     ],
     [
      "Trey McBride",
-     91.5
+     91.7
     ]
    ],
    "WR": [
     [
      "Ja'Marr Chase",
-     148.8
+     147.7
     ],
     [
      "Jaxon Smith-Njigba",
-     133.1
+     134.2
     ],
     [
      "Amon-Ra St. Brown",
-     128.7
+     127.6
     ]
    ]
   }
