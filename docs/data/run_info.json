@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-12T22:44:50+00:00",
+ "updated": "2026-11-12T23:41:53+00:00",
  "season": 2026,
  "projection_week": 10,
  "results_week": 9,
  "games_started": false,
- "reason": "schedule_and_lines,injury_news",
+ "reason": "fp_rankings,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 37,
+   "seconds": 40,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 1,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 37,
+   "seconds": 40,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 18,
+   "seconds": 19,
    "ok": true
   }
  ],
@@ -79,14 +79,14 @@
   "out_this_week": 67,
   "on_bye": 48,
   "this_week_source": "official",
-  "training_snapshots": 47940,
+  "training_snapshots": 47931,
   "rounds": {
    "QB": 50,
-   "RB": 74,
-   "WR/TE": 72
+   "RB": 79,
+   "WR/TE": 62
   },
   "experts_ros_date": "2026-11-12 00:00:00",
-  "seconds": 16,
+  "seconds": 18,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -96,70 +96,70 @@
    "QB": [
     [
      "Josh Allen",
-     154.9
+     155.4
     ],
     [
      "Brock Purdy",
-     148.4
+     150.1
     ],
     [
      "Joe Burrow",
-     146.3
+     148.9
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     153.1
+     154.2
     ],
     [
      "Kenneth Walker III",
-     144.9
+     142.3
     ],
     [
      "James Cook",
-     134.8
+     137.7
     ]
    ],
    "TE": [
     [
      "Brock Bowers",
-     103.3
+     102.1
     ],
     [
      "George Kittle",
-     103.3
+     101.3
     ],
     [
      "Trey McBride",
-     91.7
+     91.5
     ]
    ],
    "WR": [
     [
      "Ja'Marr Chase",
-     147.7
+     148.8
     ],
     [
      "CeeDee Lamb",
-     126.7
+     125.5
     ],
     [
      "Amon-Ra St. Brown",
-     123.6
+     122.6
     ]
    ]
   }
  },
  "injuries_live": {
   "nfl_week": 10,
-  "nfl_rows": 295,
-  "nfl_matched": 295,
+  "nfl_rows": 296,
+  "nfl_matched": 296,
   "nfl_unmatched": [],
-  "espn_out": 73,
+  "espn_out": 52,
   "espn_unmatched": [],
-  "hash": "ee2f2b58fc44",
+  "hash": "5b4a9a2db46a",
   "rows_added": 35,
-  "values_updated": 42
+  "values_updated": 47
  }
 }
