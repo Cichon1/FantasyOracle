@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-12T18:52:54+00:00",
+ "updated": "2026-11-12T19:53:23+00:00",
  "season": 2026,
  "projection_week": 10,
  "results_week": 9,
@@ -8,7 +8,7 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 42,
+   "seconds": 40,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 3,
+   "seconds": 4,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 29,
+   "seconds": 26,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 13,
+   "seconds": 12,
    "ok": true
   }
  ],
@@ -86,7 +86,7 @@
    "WR/TE": 62
   },
   "experts_ros_date": "2026-11-12 00:00:00",
-  "seconds": 13,
+  "seconds": 11,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -156,10 +156,10 @@
   "nfl_rows": 276,
   "nfl_matched": 276,
   "nfl_unmatched": [],
-  "espn_out": 63,
+  "espn_out": 66,
   "espn_unmatched": [],
-  "hash": "f24ae1d7163c",
-  "rows_added": 17,
+  "hash": "9f521000651c",
+  "rows_added": 18,
   "values_updated": 0
  }
 }
