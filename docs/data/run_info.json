@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-12T12:28:37+00:00",
+ "updated": "2026-11-12T13:49:13+00:00",
  "season": 2026,
  "projection_week": 10,
  "results_week": 9,
  "games_started": false,
- "reason": "schedule_and_lines",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
@@ -13,7 +13,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 6,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 5,
+   "seconds": 3,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 38,
+   "seconds": 39,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 18,
+   "seconds": 19,
    "ok": true
   }
  ],
@@ -56,8 +56,8 @@
    "total": 0
   },
   "inactive_rows": 0,
-  "players": 352,
-  "upcoming": 352,
+  "players": 353,
+  "upcoming": 353,
   "season_scoreboard": {
    "model": 0.3908,
    "experts": 0.3968,
@@ -76,7 +76,7 @@
   "week": 10,
   "last_week": 17,
   "players": 468,
-  "out_this_week": 68,
+  "out_this_week": 67,
   "on_bye": 48,
   "this_week_source": "official",
   "training_snapshots": 47940,
@@ -110,15 +110,15 @@
    "RB": [
     [
      "Jahmyr Gibbs",
-     156.4
-    ],
-    [
-     "Kenneth Walker III",
      153.7
     ],
     [
-     "Christian McCaffrey",
+     "Kenneth Walker III",
      144.9
+    ],
+    [
+     "James Cook",
+     134.8
     ]
    ],
    "TE": [
@@ -141,25 +141,25 @@
      148.3
     ],
     [
-     "Jaxon Smith-Njigba",
-     134.2
+     "CeeDee Lamb",
+     126.7
     ],
     [
      "Amon-Ra St. Brown",
-     127.6
+     123.6
     ]
    ]
   }
  },
  "injuries_live": {
   "nfl_week": 10,
-  "nfl_rows": 254,
-  "nfl_matched": 254,
+  "nfl_rows": 276,
+  "nfl_matched": 276,
   "nfl_unmatched": [],
   "espn_out": 61,
   "espn_unmatched": [],
-  "hash": "73fa2751e3e1",
-  "rows_added": 18,
+  "hash": "a3068c668bff",
+  "rows_added": 38,
   "values_updated": 0
  }
 }
