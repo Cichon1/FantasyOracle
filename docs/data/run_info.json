@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-13T11:27:19+00:00",
+ "updated": "2026-11-13T12:28:00+00:00",
  "season": 2026,
  "projection_week": 10,
  "results_week": 10,
  "games_started": true,
- "reason": "schedule_and_lines",
+ "reason": "schedule_and_lines,snap_counts",
  "steps": [
   {
    "step": "bash",
-   "seconds": 40,
+   "seconds": 38,
    "ok": true
   },
   {
@@ -38,7 +38,7 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 30,
+   "seconds": 31,
    "ok": true
   },
   {
@@ -76,7 +76,7 @@
   "week": 10,
   "last_week": 17,
   "players": 466,
-  "out_this_week": 65,
+  "out_this_week": 63,
   "on_bye": 48,
   "this_week_source": "official",
   "training_snapshots": 47931,
@@ -110,7 +110,7 @@
    "RB": [
     [
      "Jahmyr Gibbs",
-     152.4
+     151.8
     ],
     [
      "Kenneth Walker III",
