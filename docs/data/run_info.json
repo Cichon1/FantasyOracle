@@ -1,24 +1,24 @@
 {
- "updated": "2026-11-13T01:00:01+00:00",
+ "updated": "2026-11-13T02:03:58+00:00",
  "season": 2026,
  "projection_week": 10,
  "results_week": 9,
- "games_started": false,
+ "games_started": true,
  "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 39,
+   "seconds": 38,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 3,
+   "seconds": 6,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 1,
+   "seconds": 3,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 21,
+   "seconds": 38,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 10,
+   "seconds": 19,
    "ok": true
   }
  ],
@@ -79,14 +79,14 @@
   "out_this_week": 65,
   "on_bye": 48,
   "this_week_source": "official",
-  "training_snapshots": 47931,
+  "training_snapshots": 47940,
   "rounds": {
    "QB": 50,
-   "RB": 79,
-   "WR/TE": 62
+   "RB": 74,
+   "WR/TE": 72
   },
   "experts_ros_date": "2026-11-12 00:00:00",
-  "seconds": 9,
+  "seconds": 17,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -96,57 +96,57 @@
    "QB": [
     [
      "Josh Allen",
-     155.4
+     154.9
     ],
     [
      "Brock Purdy",
-     150.1
+     148.4
     ],
     [
      "Joe Burrow",
-     148.9
+     145.7
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     154.2
+     151.9
     ],
     [
      "Kenneth Walker III",
-     142.3
+     144.9
     ],
     [
      "James Cook",
-     137.7
+     134.8
     ]
    ],
    "TE": [
     [
      "Brock Bowers",
-     102.1
+     103.3
     ],
     [
      "George Kittle",
-     101.3
+     103.3
     ],
     [
      "Trey McBride",
-     91.5
+     91.7
     ]
    ],
    "WR": [
     [
      "Ja'Marr Chase",
-     148.8
+     147.7
     ],
     [
      "CeeDee Lamb",
-     125.5
+     126.7
     ],
     [
      "Amon-Ra St. Brown",
-     122.6
+     123.6
     ]
    ]
   }
@@ -160,7 +160,7 @@
   "espn_unmatched": [
    "CJ Okoye (NYG)"
   ],
-  "hash": "4ee7699e734a",
+  "hash": "cca17f6f98b0",
   "rows_added": 40,
   "values_updated": 47
  }
