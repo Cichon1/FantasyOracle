@@ -1,9 +1,9 @@
 key,team,opp,ypc,explosive_rate,gump_rate,stuff_rate,epa_per_carry,goal_line_share,opp_two_high,opp_explosive_allowed,proj_rush_yds
-Jahmyr Gibbs (DET),DET,NE,4.86,0.146,0.025,0.213,-0.02,0.651,0.408,0.09,87.0
 Kenneth Walker III (KC),KC,ATL,5.02,0.145,0.038,0.157,0.028,0.661,0.43,0.118,90.0
+Jahmyr Gibbs (DET),DET,NE,4.86,0.146,0.025,0.213,-0.02,0.651,0.408,0.09,87.0
+Bijan Robinson (ATL),ATL,KC,5.12,0.121,0.042,0.139,-0.017,0.622,0.497,0.072,74.0
 Christian McCaffrey (SF),SF,DAL,4.25,0.104,0.008,0.144,0.034,0.707,0.424,0.115,48.0
 James Cook (BUF),BUF,NYJ,4.78,0.128,0.022,0.103,-0.005,0.507,0.409,0.103,93.0
-Bijan Robinson (ATL),ATL,KC,5.12,0.121,0.042,0.139,-0.017,0.622,0.497,0.072,75.0
 Jaylen Warren (PIT),PIT,CIN,5.43,0.128,0.047,0.155,0.071,0.405,0.348,0.111,71.0
 Chuba Hubbard (CAR),CAR,NO,4.39,0.102,0.019,0.127,0.021,0.716,0.38,0.088,76.0
 Javonte Williams (DAL),DAL,SF,4.28,0.089,0.019,0.142,0.008,0.795,0.413,0.058,68.0
@@ -28,7 +28,7 @@ Jadarian Price (SEA),SEA,LV,3.55,0.096,0.02,0.252,-0.379,0.117,0.408,0.121,39.0
 Audric Estime (NO),NO,CAR,4.02,0.043,0.012,0.157,0.023,0.39,0.451,0.09,44.0
 Corey Kiner (NE),NE,DET,5.14,0.14,0.061,0.107,-0.092,0.24,0.404,0.105,30.0
 Jordan Mason (MIN),MIN,GB,4.71,0.151,0.032,0.165,-0.084,0.431,0.477,0.088,56.0
-Aaron Jones (MIN),MIN,GB,4.15,0.085,0.008,0.151,-0.126,0.555,0.477,0.088,41.0
+Aaron Jones (MIN),MIN,GB,4.15,0.085,0.008,0.151,-0.126,0.555,0.477,0.088,42.0
 Omarion Hampton (LAC),LAC,BAL,3.84,0.088,0.017,0.226,-0.195,0.723,0.357,0.07,41.0
 Kaelon Black (SF),SF,DAL,4.6,0.099,0.018,0.198,-0.079,0.182,0.424,0.115,45.0
 Chris Rodriguez Jr. (JAX),JAX,TEN,4.32,0.091,0.027,0.101,0.059,0.456,0.474,0.09,36.0
