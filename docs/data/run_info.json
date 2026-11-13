@@ -1,24 +1,24 @@
 {
- "updated": "2026-11-13T16:51:51+00:00",
+ "updated": "2026-11-13T17:49:41+00:00",
  "season": 2026,
  "projection_week": 10,
  "results_week": 10,
  "games_started": true,
- "reason": "schedule_and_lines,injury_news",
+ "reason": "player_stats,play_by_play,schedule_and_lines,fp_rankings,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 42,
+   "seconds": 39,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 4,
+   "seconds": 3,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 2,
+   "seconds": 1,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 30,
+   "seconds": 83,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 14,
+   "seconds": 11,
    "ok": true
   }
  ],
@@ -86,7 +86,7 @@
    "WR/TE": 70
   },
   "experts_ros_date": "2026-11-13 00:00:00",
-  "seconds": 13,
+  "seconds": 10,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -110,11 +110,11 @@
    "RB": [
     [
      "Jahmyr Gibbs",
-     156.8
+     165.4
     ],
     [
      "Kenneth Walker III",
-     151.8
+     145.1
     ],
     [
      "Christian McCaffrey",
@@ -124,7 +124,7 @@
    "TE": [
     [
      "Brock Bowers",
-     103.1
+     102.6
     ],
     [
      "George Kittle",
@@ -132,21 +132,21 @@
     ],
     [
      "Trey McBride",
-     90.7
+     90.2
     ]
    ],
    "WR": [
     [
      "Ja'Marr Chase",
-     149.8
+     149.1
     ],
     [
      "Jaxon Smith-Njigba",
-     137.6
+     138.2
     ],
     [
      "Amon-Ra St. Brown",
-     131.0
+     130.4
     ]
    ]
   }
@@ -156,11 +156,11 @@
   "nfl_rows": 326,
   "nfl_matched": 326,
   "nfl_unmatched": [],
-  "espn_out": 59,
+  "espn_out": 64,
   "espn_unmatched": [
    "CJ Okoye (NYG)"
   ],
-  "hash": "9bdf1d107350",
+  "hash": "c189c8885fe2",
   "rows_added": 46,
   "values_updated": 0
  }
