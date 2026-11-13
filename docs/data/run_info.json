@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-13T05:59:29+00:00",
+ "updated": "2026-11-13T07:10:41+00:00",
  "season": 2026,
  "projection_week": 10,
  "results_week": 10,
  "games_started": true,
- "reason": "player_stats,play_by_play,schedule_and_lines",
+ "reason": "injury_reports,depth_charts,rosters,expert_rankings",
  "steps": [
   {
    "step": "bash",
-   "seconds": 41,
+   "seconds": 38,
    "ok": true
   },
   {
@@ -23,12 +23,12 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 91,
+   "seconds": 3,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/injuries_live.py --data",
-   "seconds": 2,
+   "seconds": 1,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 31,
+   "seconds": 185,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 14,
+   "seconds": 32,
    "ok": true
   }
  ],
@@ -52,8 +52,8 @@
   "season": 2026,
   "week": 10,
   "inactives": {
-   "nflverse_roster": 0,
-   "total": 0
+   "nflverse_roster": 3,
+   "total": 3
   },
   "inactive_rows": 0,
   "players": 355,
@@ -75,50 +75,50 @@
   "season": 2026,
   "week": 10,
   "last_week": 17,
-  "players": 468,
-  "out_this_week": 67,
+  "players": 466,
+  "out_this_week": 65,
   "on_bye": 48,
   "this_week_source": "official",
   "training_snapshots": 47931,
   "rounds": {
    "QB": 50,
-   "RB": 79,
-   "WR/TE": 62
+   "RB": 83,
+   "WR/TE": 70
   },
-  "experts_ros_date": "2026-11-12 00:00:00",
-  "seconds": 13,
+  "experts_ros_date": "2026-11-13 00:00:00",
+  "seconds": 31,
   "model_cache": {
-   "hit": 18,
-   "miss": 0,
+   "hit": 6,
+   "miss": 12,
    "on": true
   },
   "top": {
    "QB": [
     [
      "Josh Allen",
-     155.4
+     154.3
     ],
     [
      "Brock Purdy",
-     151.2
+     148.9
     ],
     [
      "Joe Burrow",
-     149.4
+     146.6
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     153.0
+     152.4
     ],
     [
      "Kenneth Walker III",
-     142.3
+     143.4
     ],
     [
      "James Cook",
-     134.7
+     135.5
     ]
    ],
    "TE": [
@@ -128,25 +128,25 @@
     ],
     [
      "George Kittle",
-     102.1
+     102.6
     ],
     [
      "Trey McBride",
-     91.5
+     90.7
     ]
    ],
    "WR": [
     [
      "Ja'Marr Chase",
-     148.8
+     149.8
     ],
     [
      "Amon-Ra St. Brown",
-     138.9
+     137.6
     ],
     [
      "Jaxon Smith-Njigba",
-     126.2
+     126.3
     ]
    ]
   }
@@ -161,7 +161,7 @@
    "CJ Okoye (NYG)"
   ],
   "hash": "cca17f6f98b0",
-  "rows_added": 40,
-  "values_updated": 47
+  "rows_added": 20,
+  "values_updated": 0
  }
 }
