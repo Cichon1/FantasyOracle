@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-13T21:48:56+00:00",
+ "updated": "2026-11-13T22:42:40+00:00",
  "season": 2026,
  "projection_week": 10,
  "results_week": 10,
@@ -8,7 +8,7 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 42,
+   "seconds": 40,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 151,
+   "seconds": 1,
    "ok": true
   },
   {
@@ -56,8 +56,8 @@
    "total": 3
   },
   "inactive_rows": 0,
-  "players": 340,
-  "upcoming": 318,
+  "players": 336,
+  "upcoming": 314,
   "season_scoreboard": {
    "model": 0.4023,
    "experts": 0.4103,
@@ -76,7 +76,7 @@
   "week": 10,
   "last_week": 17,
   "players": 466,
-  "out_this_week": 78,
+  "out_this_week": 82,
   "on_bye": 48,
   "this_week_source": "official",
   "training_snapshots": 47940,
@@ -96,21 +96,21 @@
    "QB": [
     [
      "Josh Allen",
-     157.4
+     158.0
     ],
     [
      "Brock Purdy",
-     150.1
+     149.5
     ],
     [
      "Joe Burrow",
-     148.1
+     147.0
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     167.1
+     171.4
     ],
     [
      "Christian McCaffrey",
@@ -124,11 +124,11 @@
    "TE": [
     [
      "Brock Bowers",
-     102.7
+     103.1
     ],
     [
      "George Kittle",
-     101.9
+     102.7
     ],
     [
      "Trey McBride",
@@ -142,7 +142,7 @@
     ],
     [
      "Jaxon Smith-Njigba",
-     128.7
+     128.0
     ],
     [
      "CeeDee Lamb",
@@ -153,15 +153,15 @@
  },
  "injuries_live": {
   "nfl_week": 10,
-  "nfl_rows": 343,
-  "nfl_matched": 343,
+  "nfl_rows": 344,
+  "nfl_matched": 344,
   "nfl_unmatched": [],
-  "espn_out": 90,
+  "espn_out": 96,
   "espn_unmatched": [
    "CJ Okoye (NYG)"
   ],
-  "hash": "4d20ab04e56f",
-  "rows_added": 63,
-  "values_updated": 189
+  "hash": "0fd105a19979",
+  "rows_added": 64,
+  "values_updated": 230
  }
 }
