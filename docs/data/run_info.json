@@ -1,24 +1,24 @@
 {
- "updated": "2026-11-13T17:49:41+00:00",
+ "updated": "2026-11-13T18:51:05+00:00",
  "season": 2026,
  "projection_week": 10,
  "results_week": 10,
  "games_started": true,
- "reason": "player_stats,play_by_play,schedule_and_lines,fp_rankings,injury_news",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 39,
+   "seconds": 42,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 3,
+   "seconds": 6,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 1,
+   "seconds": 2,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 83,
+   "seconds": 142,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 11,
+   "seconds": 19,
    "ok": true
   }
  ],
@@ -79,14 +79,14 @@
   "out_this_week": 65,
   "on_bye": 48,
   "this_week_source": "official",
-  "training_snapshots": 47931,
+  "training_snapshots": 47940,
   "rounds": {
    "QB": 50,
-   "RB": 83,
-   "WR/TE": 70
+   "RB": 89,
+   "WR/TE": 50
   },
   "experts_ros_date": "2026-11-13 00:00:00",
-  "seconds": 10,
+  "seconds": 18,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -96,7 +96,7 @@
    "QB": [
     [
      "Josh Allen",
-     154.3
+     158.0
     ],
     [
      "Brock Purdy",
@@ -104,49 +104,49 @@
     ],
     [
      "Joe Burrow",
-     146.6
+     147.0
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     165.4
+     159.2
     ],
     [
      "Kenneth Walker III",
-     145.1
+     153.5
     ],
     [
      "Christian McCaffrey",
-     144.6
+     146.7
     ]
    ],
    "TE": [
     [
      "Brock Bowers",
-     102.6
+     102.7
     ],
     [
      "George Kittle",
-     102.0
+     101.9
     ],
     [
      "Trey McBride",
-     90.2
+     91.5
     ]
    ],
    "WR": [
     [
      "Ja'Marr Chase",
-     149.1
-    ],
-    [
-     "Jaxon Smith-Njigba",
-     138.2
+     148.6
     ],
     [
      "Amon-Ra St. Brown",
-     130.4
+     135.1
+    ],
+    [
+     "Jaxon Smith-Njigba",
+     130.8
     ]
    ]
   }
@@ -156,11 +156,11 @@
   "nfl_rows": 326,
   "nfl_matched": 326,
   "nfl_unmatched": [],
-  "espn_out": 64,
+  "espn_out": 75,
   "espn_unmatched": [
    "CJ Okoye (NYG)"
   ],
-  "hash": "c189c8885fe2",
+  "hash": "8ec3bed392e6",
   "rows_added": 46,
   "values_updated": 0
  }
