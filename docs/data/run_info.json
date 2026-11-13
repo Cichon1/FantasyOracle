@@ -1,19 +1,19 @@
 {
- "updated": "2026-11-13T04:57:03+00:00",
+ "updated": "2026-11-13T05:59:29+00:00",
  "season": 2026,
  "projection_week": 10,
  "results_week": 10,
  "games_started": true,
- "reason": "schedule_and_lines",
+ "reason": "player_stats,play_by_play,schedule_and_lines",
  "steps": [
   {
    "step": "bash",
-   "seconds": 40,
+   "seconds": 41,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 5,
+   "seconds": 4,
    "ok": true
   },
   {
@@ -23,12 +23,12 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 1,
+   "seconds": 91,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/injuries_live.py --data",
-   "seconds": 1,
+   "seconds": 2,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 38,
+   "seconds": 31,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 18,
+   "seconds": 14,
    "ok": true
   }
  ],
@@ -57,17 +57,17 @@
   },
   "inactive_rows": 0,
   "players": 355,
-  "upcoming": 355,
+  "upcoming": 333,
   "season_scoreboard": {
-   "model": 0.3908,
-   "experts": 0.3968,
-   "official": 0.3998
+   "model": 0.4023,
+   "experts": 0.4103,
+   "official": 0.4132
   },
   "latest_week_scoreboard": {
-   "week": 9,
-   "model": 0.4893,
-   "experts": 0.5146,
-   "official": 0.5144
+   "week": 10,
+   "model": 0.8154,
+   "experts": 0.8942,
+   "official": 0.8942
   }
  },
  "ros_info": {
@@ -76,7 +76,7 @@
   "week": 10,
   "last_week": 17,
   "players": 468,
-  "out_this_week": 65,
+  "out_this_week": 67,
   "on_bye": 48,
   "this_week_source": "official",
   "training_snapshots": 47931,
@@ -86,7 +86,7 @@
    "WR/TE": 62
   },
   "experts_ros_date": "2026-11-12 00:00:00",
-  "seconds": 17,
+  "seconds": 13,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -100,11 +100,11 @@
     ],
     [
      "Brock Purdy",
-     150.1
+     151.2
     ],
     [
      "Joe Burrow",
-     148.9
+     149.4
     ]
    ],
    "RB": [
@@ -118,17 +118,17 @@
     ],
     [
      "James Cook",
-     137.7
+     134.7
     ]
    ],
    "TE": [
     [
      "Brock Bowers",
-     102.1
+     103.1
     ],
     [
      "George Kittle",
-     101.3
+     102.1
     ],
     [
      "Trey McBride",
@@ -141,12 +141,12 @@
      148.8
     ],
     [
-     "CeeDee Lamb",
-     125.6
+     "Amon-Ra St. Brown",
+     138.9
     ],
     [
-     "Amon-Ra St. Brown",
-     122.6
+     "Jaxon Smith-Njigba",
+     126.2
     ]
    ]
   }

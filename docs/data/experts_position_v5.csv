@@ -8,6 +8,6 @@ RB,Official (model + experts),0.5594,0.6984,0.7121,RB · Official (model + exper
 TE,FantasyPros experts,0.3374,0.6203,0.5909,TE · FantasyPros experts
 TE,Model v5,0.3466,0.625,0.6045,TE · Model v5
 TE,Official (model + experts),0.3504,0.6241,0.6045,TE · Official (model + experts)
-WR,FantasyPros experts,0.4409,0.6547,0.597,WR · FantasyPros experts
-WR,Model v5,0.4491,0.6574,0.5977,WR · Model v5
-WR,Official (model + experts),0.4541,0.6588,0.5992,WR · Official (model + experts)
+WR,FantasyPros experts,0.449,0.6595,0.5937,WR · FantasyPros experts
+WR,Model v5,0.4556,0.6608,0.5945,WR · Model v5
+WR,Official (model + experts),0.462,0.6635,0.596,WR · Official (model + experts)
