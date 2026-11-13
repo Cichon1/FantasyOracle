@@ -1,29 +1,29 @@
 {
- "updated": "2026-11-12T23:41:53+00:00",
+ "updated": "2026-11-13T01:00:01+00:00",
  "season": 2026,
  "projection_week": 10,
  "results_week": 9,
  "games_started": false,
- "reason": "fp_rankings,injury_news",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 40,
+   "seconds": 39,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 6,
-   "ok": true
-  },
-  {
-   "step": "cloud_run.py results",
    "seconds": 3,
    "ok": true
   },
   {
+   "step": "cloud_run.py results",
+   "seconds": 1,
+   "ok": true
+  },
+  {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 5,
+   "seconds": 2,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 40,
+   "seconds": 21,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 19,
+   "seconds": 10,
    "ok": true
   }
  ],
@@ -56,8 +56,8 @@
    "total": 0
   },
   "inactive_rows": 0,
-  "players": 353,
-  "upcoming": 353,
+  "players": 355,
+  "upcoming": 355,
   "season_scoreboard": {
    "model": 0.3908,
    "experts": 0.3968,
@@ -76,7 +76,7 @@
   "week": 10,
   "last_week": 17,
   "players": 468,
-  "out_this_week": 67,
+  "out_this_week": 65,
   "on_bye": 48,
   "this_week_source": "official",
   "training_snapshots": 47931,
@@ -86,7 +86,7 @@
    "WR/TE": 62
   },
   "experts_ros_date": "2026-11-12 00:00:00",
-  "seconds": 18,
+  "seconds": 9,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -156,10 +156,12 @@
   "nfl_rows": 296,
   "nfl_matched": 296,
   "nfl_unmatched": [],
-  "espn_out": 52,
-  "espn_unmatched": [],
-  "hash": "5b4a9a2db46a",
-  "rows_added": 35,
+  "espn_out": 54,
+  "espn_unmatched": [
+   "CJ Okoye (NYG)"
+  ],
+  "hash": "4ee7699e734a",
+  "rows_added": 40,
   "values_updated": 47
  }
 }
