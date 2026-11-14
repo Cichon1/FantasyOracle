@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-14T18:44:31+00:00",
+ "updated": "2026-11-14T19:41:44+00:00",
  "season": 2026,
  "projection_week": 10,
  "results_week": 10,
@@ -8,7 +8,7 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 39,
+   "seconds": 41,
    "ok": true
   },
   {
@@ -18,7 +18,7 @@
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 1,
+   "seconds": 2,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 0,
+   "seconds": 1,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 23,
+   "seconds": 29,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 11,
+   "seconds": 14,
    "ok": true
   }
  ],
@@ -86,7 +86,7 @@
    "WR/TE": 60
   },
   "experts_ros_date": "2026-11-14 00:00:00",
-  "seconds": 10,
+  "seconds": 13,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -156,11 +156,11 @@
   "nfl_rows": 345,
   "nfl_matched": 345,
   "nfl_unmatched": [],
-  "espn_out": 106,
+  "espn_out": 105,
   "espn_unmatched": [
    "CJ Okoye (NYG)"
   ],
-  "hash": "d2f95b11ca9e",
+  "hash": "9b9480b0dc52",
   "rows_added": 20,
   "values_updated": 0
  }
