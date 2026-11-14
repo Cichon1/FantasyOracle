@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-14T00:55:13+00:00",
+ "updated": "2026-11-14T01:59:21+00:00",
  "season": 2026,
  "projection_week": 10,
  "results_week": 10,
  "games_started": true,
- "reason": "schedule_and_lines,injury_news",
+ "reason": "injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 40,
+   "seconds": 39,
    "ok": true
   },
   {
@@ -38,7 +38,7 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 37,
+   "seconds": 38,
    "ok": true
   },
   {
@@ -156,11 +156,11 @@
   "nfl_rows": 345,
   "nfl_matched": 345,
   "nfl_unmatched": [],
-  "espn_out": 103,
+  "espn_out": 104,
   "espn_unmatched": [
    "CJ Okoye (NYG)"
   ],
-  "hash": "7c3b6c8894bc",
+  "hash": "c4c16acc81ab",
   "rows_added": 65,
   "values_updated": 230
  }
