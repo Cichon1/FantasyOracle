@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-14T18:10:42+00:00",
+ "updated": "2026-11-14T18:44:31+00:00",
  "season": 2026,
  "projection_week": 10,
  "results_week": 10,
  "games_started": true,
- "reason": "fp_rankings,injury_news",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
@@ -13,12 +13,12 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 5,
+   "seconds": 4,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 2,
+   "seconds": 1,
    "ok": true
   },
   {
@@ -28,7 +28,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/injuries_live.py --data",
-   "seconds": 2,
+   "seconds": 1,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 200,
+   "seconds": 23,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 17,
+   "seconds": 11,
    "ok": true
   }
  ],
@@ -86,7 +86,7 @@
    "WR/TE": 60
   },
   "experts_ros_date": "2026-11-14 00:00:00",
-  "seconds": 16,
+  "seconds": 10,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -156,11 +156,11 @@
   "nfl_rows": 345,
   "nfl_matched": 345,
   "nfl_unmatched": [],
-  "espn_out": 105,
+  "espn_out": 106,
   "espn_unmatched": [
    "CJ Okoye (NYG)"
   ],
-  "hash": "60ee78bfe066",
+  "hash": "d2f95b11ca9e",
   "rows_added": 20,
   "values_updated": 0
  }
