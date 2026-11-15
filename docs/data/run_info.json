@@ -1,19 +1,19 @@
 {
- "updated": "2026-11-15T02:52:09+00:00",
+ "updated": "2026-11-15T03:51:07+00:00",
  "season": 2026,
  "projection_week": 10,
  "results_week": 10,
  "games_started": true,
- "reason": "schedule_and_lines,fp_rankings",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 36,
+   "seconds": 37,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 4,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 30,
+   "seconds": 29,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 14,
+   "seconds": 13,
    "ok": true
   }
  ],
@@ -86,7 +86,7 @@
    "WR/TE": 60
   },
   "experts_ros_date": "2026-11-14 00:00:00",
-  "seconds": 13,
+  "seconds": 12,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -100,7 +100,7 @@
     ],
     [
      "Brock Purdy",
-     148.2
+     147.6
     ],
     [
      "Joe Burrow",
