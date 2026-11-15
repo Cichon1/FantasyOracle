@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T08:49:36+00:00",
+ "updated": "2026-11-15T09:48:59+00:00",
  "season": 2026,
  "projection_week": 10,
  "results_week": 10,
@@ -8,17 +8,17 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 38,
+   "seconds": 46,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 3,
+   "seconds": 6,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 1,
+   "seconds": 2,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 22,
+   "seconds": 228,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 10,
+   "seconds": 44,
    "ok": true
   }
  ],
@@ -79,74 +79,74 @@
   "out_this_week": 82,
   "on_bye": 48,
   "this_week_source": "official",
-  "training_snapshots": 47941,
+  "training_snapshots": 47940,
   "rounds": {
    "QB": 50,
-   "RB": 67,
-   "WR/TE": 58
+   "RB": 83,
+   "WR/TE": 64
   },
   "experts_ros_date": "2026-11-14 00:00:00",
-  "seconds": 9,
+  "seconds": 43,
   "model_cache": {
-   "hit": 18,
-   "miss": 0,
+   "hit": 0,
+   "miss": 18,
    "on": true
   },
   "top": {
    "QB": [
     [
      "Josh Allen",
-     151.0
+     152.8
     ],
     [
      "Brock Purdy",
-     147.5
+     148.8
     ],
     [
      "Joe Burrow",
-     145.9
+     146.9
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     163.4
+     164.7
     ],
     [
      "Christian McCaffrey",
-     150.8
+     153.9
     ],
     [
      "Bijan Robinson",
-     142.7
+     144.1
     ]
    ],
    "TE": [
     [
      "Brock Bowers",
-     103.2
+     102.7
     ],
     [
      "George Kittle",
-     103.1
+     101.7
     ],
     [
      "Trey McBride",
-     91.0
+     91.6
     ]
    ],
    "WR": [
     [
      "Ja'Marr Chase",
-     144.5
+     145.8
     ],
     [
      "Jaxon Smith-Njigba",
-     129.8
+     128.3
     ],
     [
      "Amon-Ra St. Brown",
-     122.8
+     122.6
     ]
    ]
   }
