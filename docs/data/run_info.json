@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-15T14:20:00+00:00",
+ "updated": "2026-11-15T15:19:15+00:00",
  "season": 2026,
  "projection_week": 10,
  "results_week": 10,
  "games_started": true,
- "reason": "schedule_and_lines",
+ "reason": "schedule_and_lines,injury_reports,depth_charts,rosters",
  "steps": [
   {
    "step": "bash",
-   "seconds": 37,
+   "seconds": 40,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 1,
+   "seconds": 181,
    "ok": true
   },
   {
@@ -38,7 +38,7 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 37,
+   "seconds": 38,
    "ok": true
   },
   {
@@ -52,15 +52,15 @@
   "season": 2026,
   "week": 10,
   "inactives": {
-   "nflverse_roster": 3,
+   "nflverse_roster": 4,
    "file": "ref/inactives_2026_wk10.csv",
    "matched": 1,
    "unmatched": [],
    "total": 4
   },
   "inactive_rows": 0,
-  "players": 336,
-  "upcoming": 314,
+  "players": 334,
+  "upcoming": 312,
   "season_scoreboard": {
    "model": 0.4023,
    "experts": 0.4103,
@@ -78,8 +78,8 @@
   "season": 2026,
   "week": 10,
   "last_week": 17,
-  "players": 466,
-  "out_this_week": 82,
+  "players": 465,
+  "out_this_week": 83,
   "on_bye": 48,
   "this_week_source": "official",
   "training_snapshots": 47940,
@@ -103,7 +103,7 @@
     ],
     [
      "Brock Purdy",
-     149.4
+     150.6
     ],
     [
      "Joe Burrow",
@@ -121,7 +121,7 @@
     ],
     [
      "Bijan Robinson",
-     143.5
+     142.9
     ]
    ],
    "TE": [
