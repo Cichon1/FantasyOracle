@@ -1,19 +1,19 @@
 {
- "updated": "2026-11-15T03:51:07+00:00",
+ "updated": "2026-11-15T05:55:11+00:00",
  "season": 2026,
  "projection_week": 10,
  "results_week": 10,
  "games_started": true,
- "reason": "schedule_and_lines,injury_news",
+ "reason": "schedule_and_lines",
  "steps": [
   {
    "step": "bash",
-   "seconds": 37,
+   "seconds": 40,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 5,
+   "seconds": 4,
    "ok": true
   },
   {
@@ -23,12 +23,12 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 1,
+   "seconds": 181,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/injuries_live.py --data",
-   "seconds": 1,
+   "seconds": 2,
    "ok": true
   },
   {
@@ -38,7 +38,7 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 29,
+   "seconds": 28,
    "ok": true
   },
   {
@@ -96,15 +96,15 @@
    "QB": [
     [
      "Josh Allen",
-     153.6
+     154.1
     ],
     [
      "Brock Purdy",
-     147.6
+     150.5
     ],
     [
      "Joe Burrow",
-     147.2
+     150.1
     ]
    ],
    "RB": [
@@ -114,11 +114,11 @@
     ],
     [
      "Christian McCaffrey",
-     152.7
+     151.4
     ],
     [
      "Bijan Robinson",
-     141.1
+     142.3
     ]
    ],
    "TE": [
@@ -138,7 +138,7 @@
    "WR": [
     [
      "Ja'Marr Chase",
-     145.8
+     148.9
     ],
     [
      "Jaxon Smith-Njigba",
