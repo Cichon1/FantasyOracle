@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-15T13:30:57+00:00",
+ "updated": "2026-11-15T14:20:00+00:00",
  "season": 2026,
  "projection_week": 10,
  "results_week": 10,
  "games_started": true,
- "reason": "schedule_and_lines,injury_news,inactives",
+ "reason": "schedule_and_lines",
  "steps": [
   {
    "step": "bash",
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 39,
+   "seconds": 37,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 19,
+   "seconds": 18,
    "ok": true
   }
  ],
