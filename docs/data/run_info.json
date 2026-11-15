@@ -1,19 +1,19 @@
 {
- "updated": "2026-11-15T09:48:59+00:00",
+ "updated": "2026-11-15T10:42:04+00:00",
  "season": 2026,
  "projection_week": 10,
  "results_week": 10,
  "games_started": true,
- "reason": "schedule_and_lines",
+ "reason": "player_stats,play_by_play,schedule_and_lines",
  "steps": [
   {
    "step": "bash",
-   "seconds": 46,
+   "seconds": 37,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 6,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 228,
+   "seconds": 30,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 44,
+   "seconds": 14,
    "ok": true
   }
  ],
@@ -79,74 +79,74 @@
   "out_this_week": 82,
   "on_bye": 48,
   "this_week_source": "official",
-  "training_snapshots": 47940,
+  "training_snapshots": 47941,
   "rounds": {
    "QB": 50,
-   "RB": 83,
-   "WR/TE": 64
+   "RB": 67,
+   "WR/TE": 58
   },
   "experts_ros_date": "2026-11-14 00:00:00",
-  "seconds": 43,
+  "seconds": 13,
   "model_cache": {
-   "hit": 0,
-   "miss": 18,
+   "hit": 18,
+   "miss": 0,
    "on": true
   },
   "top": {
    "QB": [
     [
      "Josh Allen",
-     152.8
-    ],
-    [
-     "Brock Purdy",
-     148.8
+     152.7
     ],
     [
      "Joe Burrow",
-     146.9
+     148.2
+    ],
+    [
+     "Brock Purdy",
+     148.0
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     164.7
+     163.4
     ],
     [
      "Christian McCaffrey",
-     153.9
+     150.8
     ],
     [
      "Bijan Robinson",
-     144.1
+     143.9
     ]
    ],
    "TE": [
     [
      "Brock Bowers",
-     102.7
+     103.2
     ],
     [
      "George Kittle",
-     101.7
+     103.1
     ],
     [
      "Trey McBride",
-     91.6
+     91.0
     ]
    ],
    "WR": [
     [
      "Ja'Marr Chase",
-     145.8
+     144.5
     ],
     [
      "Jaxon Smith-Njigba",
-     128.3
+     129.8
     ],
     [
      "Amon-Ra St. Brown",
-     122.6
+     122.8
     ]
    ]
   }
