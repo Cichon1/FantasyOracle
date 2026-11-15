@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-15T18:10:51+00:00",
+ "updated": "2026-11-15T18:46:59+00:00",
  "season": 2026,
  "projection_week": 10,
  "results_week": 10,
  "games_started": true,
- "reason": "schedule_and_lines,ftn_charting,fp_rankings,injury_news",
+ "reason": "schedule_and_lines",
  "steps": [
   {
    "step": "bash",
@@ -13,7 +13,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 5,
+   "seconds": 6,
    "ok": true
   },
   {
@@ -38,7 +38,7 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 225,
+   "seconds": 37,
    "ok": true
   },
   {
@@ -103,7 +103,7 @@
     ],
     [
      "Brock Purdy",
-     150.0
+     149.4
     ],
     [
      "Joe Burrow",
