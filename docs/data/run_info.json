@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-14T23:09:57+00:00",
+ "updated": "2026-11-15T00:09:30+00:00",
  "season": 2026,
  "projection_week": 10,
  "results_week": 10,
  "games_started": true,
- "reason": "schedule_and_lines,injury_news",
+ "reason": "schedule_and_lines,fp_rankings,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 37,
+   "seconds": 40,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 1,
+   "seconds": 181,
    "ok": true
   },
   {
@@ -33,7 +33,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 0,
+   "seconds": 1,
    "ok": true
   },
   {
@@ -96,15 +96,15 @@
    "QB": [
     [
      "Josh Allen",
-     153.6
-    ],
-    [
-     "Joe Burrow",
-     147.2
+     154.1
     ],
     [
      "Brock Purdy",
-     147.0
+     149.9
+    ],
+    [
+     "Joe Burrow",
+     149.5
     ]
    ],
    "RB": [
@@ -138,7 +138,7 @@
    "WR": [
     [
      "Ja'Marr Chase",
-     145.8
+     148.9
     ],
     [
      "Jaxon Smith-Njigba",
@@ -156,11 +156,11 @@
   "nfl_rows": 347,
   "nfl_matched": 347,
   "nfl_unmatched": [],
-  "espn_out": 104,
+  "espn_out": 105,
   "espn_unmatched": [
    "CJ Okoye (NYG)"
   ],
-  "hash": "ebfcdd7c2b7c",
+  "hash": "b1de576fa84c",
   "rows_added": 22,
   "values_updated": 18
  }
