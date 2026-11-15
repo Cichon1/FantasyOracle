@@ -1,6 +1,6 @@
 {
- "at": "2026-10-20T06:30:55+00:00",
- "error": "GET game/nfl: HTTP 403 b'<?xml version=\"1.0\" encoding=\"UTF-8\"?>\\n<error xml:lang=\"en-us\" yahoo:uri=\"http://fantasysports.yahooapis.com/fantasy/v2/game/nfl\" xmlns:yahoo=\"http://www.yahooapis.com/v1/base.rng\" xmlns=\"http://www.yahooapis.com/v1/base.rng\">\\n <description>This application is not authorized to perform this action.<'",
+ "at": "2026-11-15T17:15:02+00:00",
+ "error": "GET league/470.l.126912/settings: HTTP 403 b'<?xml version=\"1.0\" encoding=\"UTF-8\"?>\\n<error xml:lang=\"en-us\" yahoo:uri=\"http://fantasysports.yahooapis.com/fantasy/v2/league/470.l.126912/settings\" xmlns:yahoo=\"http://www.yahooapis.com/v1/base.rng\" xmlns=\"http://www.yahooapis.com/v1/base.rng\">\\n <description>This application is not authorized to p'",
  "diag": {
   "token_fields": [
    "expires_in",
@@ -10,7 +10,7 @@
    "token_type": "bearer",
    "expires_in": 3600
   },
-  "users;use_login=1/games;game_codes=nfl": "GET users;use_login=1/games;game_codes=nfl: HTTP 403 b'<?xml version=\"1.0\" encoding=\"UTF-8\"?>\\n<error xml:lang=\"en-us\" yahoo:uri=\"http://fantasysports.yahooapis.com/fantasy/v2/users;use_login=1/games;game_codes=nfl\" xmlns:yahoo=\"http://www.yahooapis.com/v1/base.rng\" xmlns=\"http://www.yahooapis.com/v1/base.rng\">\\n <description>This application is not autho'",
+  "users;use_login=1/games;game_codes=nfl": "ok",
   "game/nfl": "GET game/nfl: HTTP 403 b'<?xml version=\"1.0\" encoding=\"UTF-8\"?>\\n<error xml:lang=\"en-us\" yahoo:uri=\"http://fantasysports.yahooapis.com/fantasy/v2/game/nfl\" xmlns:yahoo=\"http://www.yahooapis.com/v1/base.rng\" xmlns=\"http://www.yahooapis.com/v1/base.rng\">\\n <description>This application is not authorized to perform this action.<'"
  }
 }
