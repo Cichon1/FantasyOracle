@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T18:46:59+00:00",
+ "updated": "2026-11-15T19:44:00+00:00",
  "season": 2026,
  "projection_week": 10,
  "results_week": 10,
@@ -8,22 +8,22 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 40,
+   "seconds": 39,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 6,
+   "seconds": 4,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 2,
+   "seconds": 1,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 1,
+   "seconds": 2,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 37,
+   "seconds": 127,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 18,
+   "seconds": 10,
    "ok": true
   }
  ],
@@ -82,14 +82,14 @@
   "out_this_week": 90,
   "on_bye": 48,
   "this_week_source": "official",
-  "training_snapshots": 47940,
+  "training_snapshots": 47941,
   "rounds": {
    "QB": 50,
-   "RB": 83,
-   "WR/TE": 64
+   "RB": 67,
+   "WR/TE": 58
   },
   "experts_ros_date": "2026-11-14 00:00:00",
-  "seconds": 17,
+  "seconds": 9,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -103,53 +103,53 @@
     ],
     [
      "Brock Purdy",
-     149.4
+     148.6
     ],
     [
      "Joe Burrow",
-     148.6
+     147.6
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     162.4
+     162.2
     ],
     [
      "Christian McCaffrey",
-     143.5
+     143.9
     ],
     [
      "James Cook",
-     135.6
+     129.4
     ]
    ],
    "TE": [
     [
      "Brock Bowers",
-     102.7
+     104.3
     ],
     [
      "George Kittle",
-     101.7
+     103.1
     ],
     [
      "Trey McBride",
-     92.7
+     91.6
     ]
    ],
    "WR": [
     [
      "Ja'Marr Chase",
-     147.1
+     147.6
     ],
     [
      "Jaxon Smith-Njigba",
-     127.7
+     130.9
     ],
     [
      "CeeDee Lamb",
-     123.6
+     123.3
     ]
    ]
   }
