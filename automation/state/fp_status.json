@@ -1,71 +1,71 @@
 {
- "pulled_at": "2026-11-15T12:27-05:00",
+ "pulled_at": "2026-11-15T15:30-05:00",
  "pages": 8,
  "expert_pages": 45,
  "errors": [],
- "expert_pages_waiting": 31,
+ "expert_pages_waiting": 14,
  "cutoff_ros": "2026-11-09T23:35-05:00",
  "cutoff_weekly": "2026-11-13T16:00-05:00",
  "panels": {
   "weekly|QB": {
-   "default": 40,
-   "recent": 49,
+   "default": 42,
+   "recent": 68,
    "recent_acc": 20,
-   "listed": 165,
-   "public_pages": 83,
+   "listed": 169,
+   "public_pages": 84,
    "recent_rule": "since cutoff",
    "players": {
     "default": 79,
-    "recent": 33,
-    "recent_acc": 33
+    "recent": 34,
+    "recent_acc": 32
    },
-   "agree_recent": 0.994,
-   "agree_recent_acc": 0.992
+   "agree_recent": 0.997,
+   "agree_recent_acc": 0.996
   },
   "weekly|RB": {
-   "default": 36,
-   "recent": 49,
+   "default": 38,
+   "recent": 66,
    "recent_acc": 20,
-   "listed": 160,
-   "public_pages": 80,
+   "listed": 164,
+   "public_pages": 81,
    "recent_rule": "since cutoff",
    "players": {
-    "default": 125,
-    "recent": 81,
-    "recent_acc": 78
+    "default": 103,
+    "recent": 88,
+    "recent_acc": 81
    },
-   "agree_recent": 0.974,
-   "agree_recent_acc": 0.979
+   "agree_recent": 0.978,
+   "agree_recent_acc": 0.988
   },
   "weekly|WR": {
-   "default": 36,
-   "recent": 49,
+   "default": 38,
+   "recent": 68,
    "recent_acc": 20,
-   "listed": 160,
-   "public_pages": 80,
+   "listed": 164,
+   "public_pages": 81,
    "recent_rule": "since cutoff",
    "players": {
-    "default": 208,
-    "recent": 104,
-    "recent_acc": 112
+    "default": 153,
+    "recent": 108,
+    "recent_acc": 141
    },
-   "agree_recent": 0.987,
-   "agree_recent_acc": 0.989
+   "agree_recent": 0.986,
+   "agree_recent_acc": 0.99
   },
   "weekly|TE": {
-   "default": 36,
-   "recent": 56,
+   "default": 38,
+   "recent": 69,
    "recent_acc": 20,
-   "listed": 160,
-   "public_pages": 80,
+   "listed": 164,
+   "public_pages": 81,
    "recent_rule": "since cutoff",
    "players": {
-    "default": 123,
-    "recent": 40,
-    "recent_acc": 42
+    "default": 124,
+    "recent": 41,
+    "recent_acc": 45
    },
    "agree_recent": 0.993,
-   "agree_recent_acc": 0.992
+   "agree_recent_acc": 0.989
   },
   "ros|QB": {
    "default": 7,
@@ -128,5 +128,5 @@
    "agree_recent_acc": 0.99
   }
  },
- "stamp": "d8dbf4971462"
+ "stamp": "6a3bf870ee8a"
 }
