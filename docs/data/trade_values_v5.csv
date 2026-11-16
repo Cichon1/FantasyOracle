@@ -1,464 +1,465 @@
 key,player,pos,team,status,ros_ppr,games_left,val_10_1qb,rep_10_1qb,wav_10_1qb,val_12_1qb,rep_12_1qb,wav_12_1qb,val_14_1qb,rep_14_1qb,wav_14_1qb,val_10_sf,rep_10_sf,wav_10_sf,val_12_sf,rep_12_sf,wav_12_sf,val_14_sf,rep_14_sf,wav_14_sf
-Jahmyr Gibbs (DET),Jahmyr Gibbs,RB,DET,Played this week,141.1,7,63.8,9.7,5.98,67.4,10.21,4.33,78.8,7.35,3.17,57.1,9.7,8.34,62.0,10.21,6.14,69.2,9.67,4.23
-Bijan Robinson (ATL),Bijan Robinson,RB,ATL,Played this week,124.0,6,59.7,9.7,5.98,62.7,10.21,4.33,72.4,7.35,3.17,54.0,9.7,8.34,58.1,10.21,6.14,64.2,9.67,4.23
-Christian McCaffrey (SF),Christian McCaffrey,RB,SF,Played this week,134.2,7,58.7,9.7,5.98,62.2,10.21,4.33,73.2,7.35,3.17,52.2,9.7,8.34,57.0,10.21,6.14,63.9,9.67,4.23
-Ja'Marr Chase (CIN),Ja'Marr Chase,WR,CIN,Played this week,129.8,7,55.0,9.48,6.62,55.8,9.16,6.65,61.9,8.56,5.13,51.6,9.48,7.81,53.7,9.16,7.4,62.7,7.31,6.05
-Jaxon Smith-Njigba (SEA),Jaxon Smith-Njigba,WR,SEA,Played this week,111.2,6,53.3,9.48,6.62,54.0,9.16,6.65,59.5,8.56,5.13,50.2,9.48,7.81,52.1,9.16,7.4,60.2,7.31,6.05
-CeeDee Lamb (DAL),CeeDee Lamb,WR,DAL,Played this week,105.3,6,46.7,9.48,6.62,47.4,9.16,6.65,52.7,8.56,5.13,43.7,9.48,7.81,45.5,9.16,7.4,53.4,7.31,6.05
-Malik Nabers (NYG),Malik Nabers,WR,NYG,Played this week,103.0,7,46.5,9.48,6.62,47.2,9.16,6.65,53.4,8.56,5.13,43.0,9.48,7.81,45.0,9.16,7.4,54.1,7.31,6.05
-Chuba Hubbard (CAR),Chuba Hubbard,RB,CAR,Played this week,96.9,7,42.0,9.7,5.98,46.1,10.21,4.33,58.3,7.35,3.17,34.6,9.7,8.34,40.1,10.21,6.14,47.9,9.67,4.23
-Kenneth Walker III (KC),Kenneth Walker III,RB,KC,Inactive this week,101.3,7,40.8,9.7,5.98,44.6,10.21,4.33,55.8,7.35,3.17,34.0,9.7,8.34,39.0,10.21,6.14,46.2,9.67,4.23
-James Cook (BUF),James Cook,RB,BUF,Played this week,108.2,7,40.6,9.7,5.98,44.1,10.21,4.33,54.8,7.35,3.17,34.2,9.7,8.34,38.9,10.21,6.14,45.7,9.67,4.23
-Javonte Williams (DAL),Javonte Williams,RB,DAL,Played this week,95.7,6,40.0,9.7,5.98,43.4,10.21,4.33,54.0,7.35,3.17,33.8,9.7,8.34,38.4,10.21,6.14,45.0,9.67,4.23
-Chris Olave (NO),Chris Olave,WR,NO,Played this week,104.7,7,42.5,9.48,6.62,43.2,9.16,6.65,49.2,8.56,5.13,39.1,9.48,7.81,41.1,9.16,7.4,49.8,7.31,6.05
-Justin Jefferson (MIN),Justin Jefferson,WR,MIN,Played this week,97.8,7,40.8,9.48,6.62,41.6,9.16,6.65,47.9,8.56,5.13,37.3,9.48,7.81,39.4,9.16,7.4,48.6,7.31,6.05
-Amon-Ra St. Brown (DET),Amon-Ra St. Brown,WR,DET,Played this week,106.9,7,40.8,9.48,6.62,41.5,9.16,6.65,47.4,8.56,5.13,37.6,9.48,7.81,39.5,9.16,7.4,48.1,7.31,6.05
-Tee Higgins (CIN),Tee Higgins,WR,CIN,Played this week,99.3,7,40.0,9.48,6.62,40.7,9.16,6.65,46.6,8.56,5.13,36.7,9.48,7.81,38.6,9.16,7.4,47.3,7.31,6.05
-Christian Watson (GB),Christian Watson,WR,GB,Played this week,90.7,6,37.6,9.48,6.62,38.2,9.16,6.65,43.6,8.56,5.13,34.6,9.48,7.81,36.3,9.16,7.4,44.2,7.31,6.05
-Matthew Golden (GB),Matthew Golden,WR,GB,Played this week,87.7,6,36.2,9.48,6.62,36.8,9.16,6.65,42.4,8.56,5.13,33.1,9.48,7.81,34.9,9.16,7.4,43.1,7.31,6.05
-Brock Purdy (SF),Brock Purdy,QB,SF,Played this week,126.2,7,27.5,17.26,11.92,36.6,13.93,10.98,47.5,13.0,7.72,48.8,11.92,8.19,62.2,10.98,4.42,70.3,9.42,3.14
-Jonathan Taylor (IND),Jonathan Taylor,RB,IND,Played this week,84.2,6,33.4,9.7,5.98,36.5,10.21,4.33,45.7,7.35,3.17,27.8,9.7,8.34,31.9,10.21,6.14,37.9,9.67,4.23
-Jaylen Warren (PIT),Jaylen Warren,RB,PIT,Played this week,88.4,7,31.7,9.7,5.98,35.5,10.21,4.33,46.2,7.35,3.17,25.2,9.7,8.34,30.0,10.21,6.14,37.0,9.67,4.23
-Drake London (ATL),Drake London,WR,ATL,Played this week,82.0,6,34.9,9.48,6.62,35.5,9.16,6.65,41.0,8.56,5.13,31.9,9.48,7.81,33.6,9.16,7.4,41.6,7.31,6.05
-Chase Brown (CIN),Chase Brown,RB,CIN,Played this week,86.3,7,32.0,9.7,5.98,35.5,10.21,4.33,45.3,7.35,3.17,26.1,9.7,8.34,30.5,10.21,6.14,36.9,9.67,4.23
-Kyren Williams (LA),Kyren Williams,RB,LA,Played this week,84.3,6,31.7,9.7,5.98,34.8,10.21,4.33,44.0,7.35,3.17,26.2,9.7,8.34,30.3,10.21,6.14,36.2,9.67,4.23
-Bucky Irving (TB),Bucky Irving,RB,TB,Bye this week,87.0,7,30.5,9.7,5.98,34.1,10.21,4.33,44.4,7.35,3.17,24.3,9.7,8.34,28.9,10.21,6.14,35.6,9.67,4.23
-Joe Burrow (CIN),Joe Burrow,QB,CIN,Played this week,126.2,7,25.0,17.26,11.92,33.9,13.93,10.98,44.5,13.0,7.72,45.8,11.92,8.19,58.8,10.98,4.42,66.6,9.42,3.14
-Brock Bowers (LV),Brock Bowers,TE,LV,Played this week,89.5,6,31.7,8.56,8.58,33.8,7.99,8.29,38.5,7.66,6.72,31.7,8.56,8.58,33.8,7.99,8.29,38.5,7.66,6.72
-Derrick Henry (BAL),Derrick Henry,RB,BAL,Plays this week,84.5,7,29.7,9.7,5.98,33.3,10.21,4.33,43.5,7.35,3.17,23.7,9.7,8.34,28.2,10.21,6.14,34.8,9.67,4.23
-Josh Allen (BUF),Josh Allen,QB,BUF,Played this week,131.7,7,23.7,17.26,11.92,32.9,13.93,10.98,43.4,13.0,7.72,44.7,11.92,8.19,57.6,10.98,4.42,65.3,9.42,3.14
-Parker Washington (JAX),Parker Washington,WR,JAX,Played this week,87.7,7,32.1,9.48,6.62,32.8,9.16,6.65,38.8,8.56,5.13,28.8,9.48,7.81,30.7,9.16,7.4,39.3,7.31,6.05
-Drake Maye (NE),Drake Maye,QB,NE,Played this week,114.6,6,24.0,17.26,11.92,32.0,13.93,10.98,41.3,13.0,7.72,42.4,11.92,8.19,53.7,10.98,4.42,60.5,9.42,3.14
-George Kittle (SF),George Kittle,TE,SF,Played this week,89.1,7,29.2,8.56,8.58,31.5,7.99,8.29,37.1,7.66,6.72,29.2,8.56,8.58,31.5,7.99,8.29,37.1,7.66,6.72
-Tetairoa McMillan (CAR),Tetairoa McMillan,WR,CAR,Played this week,86.0,7,30.8,9.48,6.62,31.5,9.16,6.65,37.2,8.56,5.13,27.7,9.48,7.81,29.5,9.16,7.4,37.7,7.31,6.05
-D'Andre Swift (CHI),D'Andre Swift,RB,CHI,Bye this week,86.1,7,26.7,9.7,5.98,30.4,10.21,4.33,40.9,7.35,3.17,20.4,9.7,8.34,25.1,10.21,6.14,31.9,9.67,4.23
-Puka Nacua (LA),Puka Nacua,WR,LA,IR / reserve,78.7,6,29.1,9.48,6.62,29.6,9.16,6.65,34.2,8.56,5.13,26.5,9.48,7.81,28.0,9.16,7.4,34.7,7.31,6.05
-Tony Pollard (TEN),Tony Pollard,RB,TEN,Played this week,74.7,7,24.6,9.7,5.98,28.6,10.21,4.33,38.7,7.35,3.17,18.4,9.7,8.34,23.2,10.21,6.14,30.0,9.67,4.23
-Zay Flowers (BAL),Zay Flowers,WR,BAL,Plays this week,92.3,7,27.7,9.48,6.62,28.4,9.16,6.65,34.0,8.56,5.13,24.6,9.48,7.81,26.4,9.16,7.4,34.6,7.31,6.05
-Josh Jacobs (GB),Josh Jacobs,RB,GB,Not projected this week,68.9,6,25.4,9.7,5.98,28.3,10.21,4.33,36.5,7.35,3.17,20.5,9.7,8.34,24.2,10.21,6.14,29.5,9.67,4.23
-Nico Collins (HOU),Nico Collins,WR,HOU,Played this week,81.7,7,27.2,9.48,6.62,27.9,9.16,6.65,33.4,8.56,5.13,24.2,9.48,7.81,25.9,9.16,7.4,33.9,7.31,6.05
-Trey McBride (ARI),Trey McBride,TE,ARI,Played this week,77.7,6,25.7,8.56,8.58,27.7,7.99,8.29,32.1,7.66,6.72,25.7,8.56,8.58,27.7,7.99,8.29,32.1,7.66,6.72
-George Pickens (DAL),George Pickens,WR,DAL,Played this week,72.7,6,26.4,9.48,6.62,26.9,9.16,6.65,31.8,8.56,5.13,23.7,9.48,7.81,25.2,9.16,7.4,32.3,7.31,6.05
-Ashton Jeanty (LV),Ashton Jeanty,RB,LV,Played this week,69.8,6,23.8,9.7,5.98,26.7,10.21,4.33,34.8,7.35,3.17,18.9,9.7,8.34,22.6,10.21,6.14,27.9,9.67,4.23
-Trevor Lawrence (JAX),Trevor Lawrence,QB,JAX,Played this week,112.5,7,18.2,17.26,11.92,26.2,13.93,10.98,36.3,13.0,7.72,37.5,11.92,8.19,50.2,10.98,4.42,57.8,9.42,3.14
-Saquon Barkley (PHI),Saquon Barkley,RB,PHI,Bye this week,68.9,7,22.4,9.7,5.98,26.1,10.21,4.33,35.4,7.35,3.17,16.7,9.7,8.34,21.1,10.21,6.14,27.4,9.67,4.23
-Jonah Coleman (DEN),Jonah Coleman,RB,DEN,Bye this week,74.6,7,22.6,9.7,5.98,26.1,10.21,4.33,35.4,7.35,3.17,17.0,9.7,8.34,21.3,10.21,6.14,27.4,9.67,4.23
-Breece Hall (NYJ),Breece Hall,RB,NYJ,Played this week,72.2,6,23.0,9.7,5.98,26.1,10.21,4.33,34.8,7.35,3.17,17.7,9.7,8.34,21.7,10.21,6.14,27.3,9.67,4.23
-Dak Prescott (DAL),Dak Prescott,QB,DAL,Played this week,103.5,6,18.2,17.26,11.92,25.6,13.93,10.98,34.5,13.0,7.72,35.5,11.92,8.19,46.5,10.98,4.42,53.2,9.42,3.14
-Bhayshul Tuten (JAX),Bhayshul Tuten,RB,JAX,Played this week,79.0,7,21.9,9.7,5.98,25.6,10.21,4.33,35.5,7.35,3.17,15.8,9.7,8.34,20.4,10.21,6.14,27.0,9.67,4.23
-Travis Etienne (NO),Travis Etienne,RB,NO,Not projected this week,67.9,7,22.1,9.7,5.98,25.5,10.21,4.33,34.3,7.35,3.17,16.7,9.7,8.34,20.8,10.21,6.14,26.7,9.67,4.23
-Alvin Kamara (NO),Alvin Kamara,RB,NO,Played this week,55.7,7,22.1,9.7,5.98,25.5,10.21,4.33,33.3,7.35,3.17,17.4,9.7,8.34,21.0,10.21,6.14,26.5,9.67,4.23
-Garrett Wilson (NYJ),Garrett Wilson,WR,NYJ,Played this week,68.2,6,24.6,9.48,6.62,25.1,9.16,6.65,29.8,8.56,5.13,22.0,9.48,7.81,23.5,9.16,7.4,30.2,7.31,6.05
-Patrick Mahomes (KC),Patrick Mahomes,QB,KC,Played this week,108.9,7,17.2,17.26,11.92,24.9,13.93,10.98,35.0,13.0,7.72,36.0,11.92,8.19,48.9,10.98,4.42,56.5,9.42,3.14
-Rashee Rice (KC),Rashee Rice,WR,KC,Played this week,76.9,7,23.9,9.48,6.62,24.5,9.16,6.65,29.8,8.56,5.13,20.9,9.48,7.81,22.6,9.16,7.4,30.2,7.31,6.05
-Quinshon Judkins (CLE),Quinshon Judkins,RB,CLE,Played this week,67.8,6,21.5,9.7,5.98,24.4,10.21,4.33,32.6,7.35,3.17,16.5,9.7,8.34,20.2,10.21,6.14,25.6,9.67,4.23
-Woody Marks (HOU),Woody Marks,RB,HOU,Played this week,68.1,7,20.4,9.7,5.98,24.1,10.21,4.33,33.3,7.35,3.17,14.9,9.7,8.34,19.2,10.21,6.14,25.4,9.67,4.23
-Jameson Williams (DET),Jameson Williams,WR,DET,Played this week,81.0,7,23.3,9.48,6.62,23.9,9.16,6.65,29.1,8.56,5.13,20.5,9.48,7.81,22.1,9.16,7.4,29.6,7.31,6.05
-Mike Evans (SF),Mike Evans,WR,SF,Not projected this week,69.9,7,23.4,9.48,6.62,23.9,9.16,6.65,28.8,8.56,5.13,20.7,9.48,7.81,22.2,9.16,7.4,29.2,7.31,6.05
-Caleb Williams (CHI),Caleb Williams,QB,CHI,Bye this week,111.9,7,15.5,17.26,11.92,23.4,13.93,10.98,33.2,13.0,7.72,34.3,11.92,8.19,46.7,10.98,4.42,54.2,9.42,3.14
-Ollie Gordon II (MIA),Ollie Gordon II,RB,MIA,Played this week,74.7,7,19.6,9.7,5.98,23.3,10.21,4.33,33.0,7.35,3.17,13.8,9.7,8.34,18.3,10.21,6.14,24.7,9.67,4.23
-Jordan Love (GB),Jordan Love,QB,GB,Played this week,98.3,6,15.2,17.26,11.92,22.3,13.93,10.98,31.5,13.0,7.72,32.5,11.92,8.19,44.0,10.98,4.42,51.0,9.42,3.14
-Zach Charbonnet (SEA),Zach Charbonnet,RB,SEA,Played this week,65.5,6,18.9,9.7,5.98,22.3,10.21,4.33,31.2,7.35,3.17,13.5,9.7,8.34,17.6,10.21,6.14,23.5,9.67,4.23
-Carnell Tate (TEN),Carnell Tate,WR,TEN,Not projected this week,72.4,7,21.7,9.48,6.62,22.2,9.16,6.65,27.2,8.56,5.13,18.9,9.48,7.81,20.5,9.16,7.4,27.6,7.31,6.05
-Luther Burden III (CHI),Luther Burden III,WR,CHI,Bye this week,74.3,7,21.3,9.48,6.62,21.9,9.16,6.65,27.2,8.56,5.13,18.4,9.48,7.81,20.0,9.16,7.4,27.6,7.31,6.05
-Jalen Coker (CAR),Jalen Coker,WR,CAR,Played this week,72.7,7,21.2,9.48,6.62,21.7,9.16,6.65,27.2,8.56,5.13,18.1,9.48,7.81,19.8,9.16,7.4,27.6,7.31,6.05
-DJ Moore (BUF),DJ Moore,WR,BUF,Played this week,70.6,7,21.0,9.48,6.62,21.6,9.16,6.65,26.9,8.56,5.13,18.2,9.48,7.81,19.7,9.16,7.4,27.2,7.31,6.05
-Jared Goff (DET),Jared Goff,QB,DET,Played this week,109.6,7,13.7,17.26,11.92,21.2,13.93,10.98,31.0,13.0,7.72,32.1,11.92,8.19,44.4,10.98,4.42,51.8,9.42,3.14
-C.J. Stroud (HOU),C.J. Stroud,QB,HOU,Played this week,105.1,7,14.1,17.26,11.92,21.2,13.93,10.98,30.8,13.0,7.72,31.8,11.92,8.19,44.0,10.98,4.42,51.4,9.42,3.14
-Cam Skattebo (NYG),Cam Skattebo,RB,NYG,Played this week,70.0,7,17.4,9.7,5.98,20.7,10.21,4.33,29.6,7.35,3.17,12.1,9.7,8.34,16.1,10.21,6.14,22.0,9.67,4.23
-Tyler Shough (NO),Tyler Shough,QB,NO,Played this week,105.4,7,13.5,17.26,11.92,20.6,13.93,10.98,30.2,13.0,7.72,31.3,11.92,8.19,43.5,10.98,4.42,50.8,9.42,3.14
-Sam LaPorta (DET),Sam LaPorta,TE,DET,Played this week,74.0,7,18.3,8.56,8.58,20.4,7.99,8.29,25.4,7.66,6.72,18.3,8.56,8.58,20.4,7.99,8.29,25.4,7.66,6.72
-Tyler Allgeier (ARI),Tyler Allgeier,RB,ARI,Played this week,56.9,6,16.9,9.7,5.98,20.2,10.21,4.33,28.1,7.35,3.17,12.0,9.7,8.34,15.8,10.21,6.14,21.2,9.67,4.23
-KC Concepcion (CLE),KC Concepcion,WR,CLE,Played this week,64.3,6,19.6,9.48,6.62,20.1,9.16,6.65,24.7,8.56,5.13,17.1,9.48,7.81,18.5,9.16,7.4,25.0,7.31,6.05
-Tyler Warren (IND),Tyler Warren,TE,IND,Played this week,65.6,6,17.9,8.56,8.58,19.7,7.99,8.29,24.0,7.66,6.72,17.9,8.56,8.58,19.7,7.99,8.29,24.0,7.66,6.72
-Rachaad White (WAS),Rachaad White,RB,WAS,Played this week,65.0,7,16.2,9.7,5.98,19.7,10.21,4.33,28.3,7.35,3.17,11.0,9.7,8.34,15.1,10.21,6.14,20.8,9.67,4.23
-Colston Loveland (CHI),Colston Loveland,TE,CHI,Bye this week,74.7,7,17.5,8.56,8.58,19.6,7.99,8.29,24.3,7.66,6.72,17.5,8.56,8.58,19.6,7.99,8.29,24.3,7.66,6.72
-Blake Corum (LA),Blake Corum,RB,LA,Played this week,61.2,6,16.3,9.7,5.98,19.4,10.21,4.33,27.5,7.35,3.17,11.4,9.7,8.34,15.2,10.21,6.14,20.5,9.67,4.23
-Jaylen Waddle (DEN),Jaylen Waddle,WR,DEN,Bye this week,66.1,7,18.7,9.48,6.62,19.2,9.16,6.65,24.1,8.56,5.13,16.0,9.48,7.81,17.4,9.16,7.4,24.4,7.31,6.05
-Rico Dowdle (PIT),Rico Dowdle,RB,PIT,Played this week,60.7,7,15.6,9.7,5.98,19.1,10.21,4.33,27.1,7.35,3.17,10.7,9.7,8.34,14.6,10.21,6.14,20.1,9.67,4.23
-Kenny Gainwell (TB),Kenny Gainwell,RB,TB,Bye this week,50.4,7,15.9,9.7,5.98,19.0,10.21,4.33,26.0,7.35,3.17,11.7,9.7,8.34,15.0,10.21,6.14,19.9,9.67,4.23
-Jeremiyah Love (ARI),Jeremiyah Love,RB,ARI,IR / reserve,54.0,6,15.8,9.7,5.98,18.7,10.21,4.33,25.7,7.35,3.17,11.6,9.7,8.34,14.9,10.21,6.14,19.6,9.67,4.23
-Emeka Egbuka (TB),Emeka Egbuka,WR,TB,Bye this week,68.2,7,18.1,9.48,6.62,18.6,9.16,6.65,23.6,8.56,5.13,15.3,9.48,7.81,16.8,9.16,7.4,23.9,7.31,6.05
-DK Metcalf (PIT),DK Metcalf,WR,PIT,Played this week,66.4,7,18.1,9.48,6.62,18.6,9.16,6.65,23.7,8.56,5.13,15.4,9.48,7.81,16.9,9.16,7.4,23.9,7.31,6.05
-Davante Adams (LA),Davante Adams,WR,LA,IR / reserve,52.2,6,18.1,9.48,6.62,18.5,9.16,6.65,22.3,8.56,5.13,16.0,9.48,7.81,17.1,9.16,7.4,22.5,7.31,6.05
-David Montgomery (HOU),David Montgomery,RB,HOU,Not projected this week,57.4,7,14.7,9.7,5.98,18.0,10.21,4.33,25.5,7.35,3.17,10.0,9.7,8.34,13.7,10.21,6.14,18.9,9.67,4.23
-Stefon Diggs (WAS),Stefon Diggs,WR,WAS,Played this week,65.3,7,17.3,9.48,6.62,17.8,9.16,6.65,22.9,8.56,5.13,14.6,9.48,7.81,16.0,9.16,7.4,23.1,7.31,6.05
-Rhamondre Stevenson (NE),Rhamondre Stevenson,RB,NE,Played this week,54.2,6,14.5,9.7,5.98,17.7,10.21,4.33,25.0,7.35,3.17,10.0,9.7,8.34,13.5,10.21,6.14,18.6,9.67,4.23
-Rome Odunze (CHI),Rome Odunze,WR,CHI,Bye this week,62.5,7,17.0,9.48,6.62,17.5,9.16,6.65,22.3,8.56,5.13,14.4,9.48,7.81,15.8,9.16,7.4,22.5,7.31,6.05
-Audric Estime (NO),Audric Estime,RB,NO,Played this week,50.6,7,14.1,9.7,5.98,17.4,10.21,4.33,24.3,7.35,3.17,9.9,9.7,8.34,13.3,10.21,6.14,18.2,9.67,4.23
-Braelon Allen (NYJ),Braelon Allen,RB,NYJ,Played this week,58.0,6,14.0,9.7,5.98,17.1,10.21,4.33,24.8,7.35,3.17,9.4,9.7,8.34,13.0,10.21,6.14,18.1,9.67,4.23
-Denzel Boston (CLE),Denzel Boston,WR,CLE,Played this week,57.0,6,16.6,9.48,6.62,17.1,9.16,6.65,21.3,8.56,5.13,14.3,9.48,7.81,15.6,9.16,7.4,21.5,7.31,6.05
-DeVonta Smith (PHI),DeVonta Smith,WR,PHI,Not projected this week,64.8,7,16.5,9.48,6.62,17.0,9.16,6.65,21.7,8.56,5.13,14.0,9.48,7.81,15.4,9.16,7.4,22.0,7.31,6.05
-Emmett Johnson (KC),Emmett Johnson,RB,KC,Played this week,66.1,7,13.3,9.7,5.98,17.0,10.21,4.33,25.8,7.35,3.17,7.9,9.7,8.34,12.2,10.21,6.14,18.1,9.67,4.23
-Jadarian Price (SEA),Jadarian Price,RB,SEA,Played this week,54.4,6,14.0,9.7,5.98,16.9,10.21,4.33,23.9,7.35,3.17,9.7,9.7,8.34,13.1,10.21,6.14,17.8,9.67,4.23
-Khalil Shakir (BUF),Khalil Shakir,WR,BUF,Played this week,58.4,7,16.5,9.48,6.62,16.9,9.16,6.65,21.5,8.56,5.13,14.0,9.48,7.81,15.3,9.16,7.4,21.5,7.31,6.05
-Omar Cooper Jr. (NYJ),Omar Cooper Jr.,WR,NYJ,Not projected this week,61.4,6,16.0,9.48,6.62,16.5,9.16,6.65,20.9,8.56,5.13,13.6,9.48,7.81,14.9,9.16,7.4,21.2,7.31,6.05
-Omarion Hampton (LAC),Omarion Hampton,RB,LAC,Plays this week,58.8,8,12.7,9.7,5.98,16.5,10.21,4.33,24.1,7.35,3.17,7.9,9.7,8.34,11.8,10.21,6.14,17.4,9.67,4.23
-Travis Kelce (KC),Travis Kelce,TE,KC,Played this week,69.7,7,14.2,8.56,8.58,16.2,7.99,8.29,20.9,7.66,6.72,14.2,8.56,8.58,16.2,7.99,8.29,20.9,7.66,6.72
-Jordan Mason (MIN),Jordan Mason,RB,MIN,Played this week,57.1,7,12.2,9.7,5.98,16.0,10.21,4.33,23.7,7.35,3.17,7.3,9.7,8.34,11.2,10.21,6.14,16.8,9.67,4.23
-Wan'Dale Robinson (TEN),Wan'Dale Robinson,WR,TEN,Played this week,61.9,7,15.6,9.48,6.62,16.0,9.16,6.65,20.7,8.56,5.13,13.0,9.48,7.81,14.4,9.16,7.4,20.9,7.31,6.05
-Harold Fannin Jr. (CLE),Harold Fannin Jr.,TE,CLE,Played this week,60.8,6,14.3,8.56,8.58,16.0,7.99,8.29,20.1,7.66,6.72,14.3,8.56,8.58,16.0,7.99,8.29,20.1,7.66,6.72
-Jayden Daniels (WAS),Jayden Daniels,QB,WAS,Played this week,97.5,7,10.2,17.26,11.92,16.0,13.93,10.98,25.3,13.0,7.72,26.2,11.92,8.19,38.1,10.98,4.42,45.3,9.42,3.14
-Deebo Samuel Sr. (SF),Deebo Samuel Sr.,WR,SF,Played this week,53.9,7,15.4,9.48,6.62,15.8,9.16,6.65,20.3,8.56,5.13,13.2,9.48,7.81,14.3,9.16,7.4,20.1,7.31,6.05
-RJ Harvey (DEN),RJ Harvey,RB,DEN,Not projected this week,53.7,7,12.5,9.7,5.98,15.8,10.21,4.33,22.9,7.35,3.17,8.1,9.7,8.34,11.7,10.21,6.14,16.7,9.67,4.23
-Matthew Stafford (LA),Matthew Stafford,QB,LA,Played this week,85.2,6,10.3,17.26,11.92,15.8,13.93,10.98,24.0,13.0,7.72,24.8,11.92,8.19,35.5,10.98,4.42,41.9,9.42,3.14
-Isaiah Likely (NYG),Isaiah Likely,TE,NYG,Played this week,71.9,7,13.6,8.56,8.58,15.5,7.99,8.29,20.1,7.66,6.72,13.6,8.56,8.58,15.5,7.99,8.29,20.1,7.66,6.72
-Germie Bernard (PIT),Germie Bernard,WR,PIT,Played this week,63.4,7,14.6,9.48,6.62,15.1,9.16,6.65,20.0,8.56,5.13,12.0,9.48,7.81,13.4,9.16,7.4,20.2,7.31,6.05
-Makai Lemon (PHI),Makai Lemon,WR,PHI,Bye this week,64.1,7,14.6,9.48,6.62,15.1,9.16,6.65,19.9,8.56,5.13,12.0,9.48,7.81,13.4,9.16,7.4,20.2,7.31,6.05
-Jakobi Meyers (JAX),Jakobi Meyers,WR,JAX,Played this week,59.9,7,14.6,9.48,6.62,15.0,9.16,6.65,19.8,8.56,5.13,12.0,9.48,7.81,13.3,9.16,7.4,19.9,7.31,6.05
-Kaelon Black (SF),Kaelon Black,RB,SF,Played this week,48.5,7,11.7,9.7,5.98,14.9,10.21,4.33,21.4,7.35,3.17,7.7,9.7,8.34,10.9,10.21,6.14,15.6,9.67,4.23
-Dylan Sampson (CLE),Dylan Sampson,RB,CLE,Played this week,50.1,6,12.0,9.7,5.98,14.9,10.21,4.33,21.5,7.35,3.17,8.0,9.7,8.34,11.2,10.21,6.14,15.7,9.67,4.23
-Kyle Monangai (CHI),Kyle Monangai,RB,CHI,Not projected this week,55.2,7,11.4,9.7,5.98,14.8,10.21,4.33,22.0,7.35,3.17,6.9,9.7,8.34,10.6,10.21,6.14,15.6,9.67,4.23
-Keenan Allen (SF),Keenan Allen,WR,SF,Not projected this week,54.7,7,14.0,9.48,6.62,14.3,9.16,6.65,18.5,8.56,5.13,11.7,9.48,7.81,12.9,9.16,7.4,18.6,7.31,6.05
-A.J. Brown (NE),A.J. Brown,WR,NE,Played this week,56.2,6,13.8,9.48,6.62,14.2,9.16,6.65,18.3,8.56,5.13,11.6,9.48,7.81,12.8,9.16,7.4,18.5,7.31,6.05
-Caleb Douglas (MIA),Caleb Douglas,WR,MIA,Played this week,60.3,7,13.7,9.48,6.62,14.1,9.16,6.65,18.6,8.56,5.13,11.2,9.48,7.81,12.5,9.16,7.4,18.8,7.31,6.05
-Jordan Addison (MIN),Jordan Addison,WR,MIN,Inactive this week,52.9,7,13.4,9.48,6.62,13.7,9.16,6.65,17.8,8.56,5.13,11.2,9.48,7.81,12.3,9.16,7.4,17.8,7.31,6.05
-Aaron Jones (MIN),Aaron Jones,RB,MIN,Played this week,57.5,7,10.2,9.7,5.98,13.7,10.21,4.33,21.0,7.35,3.17,5.4,9.7,8.34,9.3,10.21,6.14,14.5,9.67,4.23
-J.K. Dobbins (DEN),J.K. Dobbins,RB,DEN,Bye this week,40.3,7,10.7,9.7,5.98,13.6,10.21,4.33,19.6,7.35,3.17,7.4,9.7,8.34,10.1,10.21,6.14,14.3,9.67,4.23
-Tre Tucker (LV),Tre Tucker,WR,LV,Played this week,53.2,6,12.9,9.48,6.62,13.3,9.16,6.65,17.3,8.56,5.13,10.8,9.48,7.81,11.9,9.16,7.4,17.5,7.31,6.05
-Jordyn Tyson (NO),Jordyn Tyson,WR,NO,Played this week,60.9,7,12.8,9.48,6.62,13.2,9.16,6.65,17.9,8.56,5.13,10.3,9.48,7.81,11.6,9.16,7.4,18.0,7.31,6.05
-Kirk Cousins (MIN),Kirk Cousins,QB,MIN,Not projected this week,85.0,7,8.5,17.26,11.92,13.1,13.93,10.98,21.4,13.0,7.72,22.1,11.92,8.19,33.5,10.98,4.42,40.3,9.42,3.14
-Tucker Kraft (GB),Tucker Kraft,TE,GB,Played this week,60.6,6,11.4,8.56,8.58,13.1,7.99,8.29,17.4,7.66,6.72,11.4,8.56,8.58,13.1,7.99,8.29,17.4,7.66,6.72
-Josh Downs (KC),Josh Downs,WR,KC,Plays this week,61.3,7,12.6,9.48,6.62,13.0,9.16,6.65,17.7,8.56,5.13,10.0,9.48,7.81,11.3,9.16,7.4,17.8,7.31,6.05
-Tank Dell (HOU),Tank Dell,WR,HOU,Played this week,56.1,7,12.5,9.48,6.62,12.8,9.16,6.65,17.2,8.56,5.13,10.1,9.48,7.81,11.3,9.16,7.4,17.2,7.31,6.05
-Adonai Mitchell (NYJ),Adonai Mitchell,WR,NYJ,Played this week,48.4,6,12.2,9.48,6.62,12.5,9.16,6.65,16.2,8.56,5.13,10.1,9.48,7.81,11.2,9.16,7.4,16.3,7.31,6.05
-Bryce Young (CAR),Bryce Young,QB,CAR,Played this week,91.0,7,7.3,17.26,11.92,11.9,13.93,10.98,20.6,13.0,7.72,21.4,11.92,8.19,33.1,10.98,4.42,40.1,9.42,3.14
-Jacoby Brissett (BAL),Jacoby Brissett,QB,BAL,Not projected this week,63.7,6,8.2,17.26,11.92,11.8,13.93,10.98,18.3,13.0,7.72,18.6,11.92,8.19,27.8,10.98,4.42,33.3,9.42,3.14
-Devin Singletary (NYG),Devin Singletary,RB,NYG,Played this week,43.0,7,8.5,9.7,5.98,11.5,10.21,4.33,17.2,7.35,3.17,5.1,9.7,8.34,7.9,10.21,6.14,12.2,9.67,4.23
-DeMario Douglas (NE),DeMario Douglas,WR,NE,Played this week,52.5,6,11.1,9.48,6.62,11.5,9.16,6.65,15.7,8.56,5.13,8.9,9.48,7.81,10.0,9.16,7.4,15.8,7.31,6.05
-Bo Nix (DEN),Bo Nix,QB,DEN,Bye this week,97.2,7,6.8,17.26,11.92,11.4,13.93,10.98,20.6,13.0,7.72,21.5,11.92,8.19,33.5,10.98,4.42,40.6,9.42,3.14
-Mike Washington Jr. (LV),Mike Washington Jr.,RB,LV,Played this week,44.4,6,8.3,9.7,5.98,11.3,10.21,4.33,16.9,7.35,3.17,4.7,9.7,8.34,7.7,10.21,6.14,11.9,9.67,4.23
-Corey Kiner (NE),Corey Kiner,RB,NE,Played this week,43.1,6,8.2,9.7,5.98,11.2,10.21,4.33,16.9,7.35,3.17,4.7,9.7,8.34,7.6,10.21,6.14,11.9,9.67,4.23
-Ladd McConkey (LAC),Ladd McConkey,WR,LAC,Plays this week,58.5,8,10.8,9.48,6.62,11.1,9.16,6.65,15.7,8.56,5.13,8.4,9.48,7.81,9.5,9.16,7.4,15.5,7.31,6.05
-Dalton Kincaid (BUF),Dalton Kincaid,TE,BUF,Played this week,59.9,7,9.4,8.56,8.58,11.0,7.99,8.29,14.9,7.66,6.72,9.4,8.56,8.58,11.0,7.99,8.29,14.9,7.66,6.72
-Antonio Williams (WAS),Antonio Williams,WR,WAS,Played this week,53.2,7,10.5,9.48,6.62,10.8,9.16,6.65,15.1,8.56,5.13,8.2,9.48,7.81,9.3,9.16,7.4,14.9,7.31,6.05
-Xavier Worthy (KC),Xavier Worthy,WR,KC,Played this week,51.8,7,10.3,9.48,6.62,10.7,9.16,6.65,14.7,8.56,5.13,8.2,9.48,7.81,9.3,9.16,7.4,14.6,7.31,6.05
-TreVeyon Henderson (NE),TreVeyon Henderson,RB,NE,IR / reserve,35.6,6,7.7,9.7,5.98,10.2,10.21,4.33,15.0,7.35,3.17,4.9,9.7,8.34,7.2,10.21,6.14,10.7,9.67,4.23
-Malik Washington (MIA),Malik Washington,WR,MIA,Played this week,54.4,7,9.8,9.48,6.62,10.1,9.16,6.65,14.3,8.56,5.13,7.5,9.48,7.81,8.7,9.16,7.4,14.3,7.31,6.05
-Bam Knight (ARI),Bam Knight,RB,ARI,Played this week,38.7,6,7.2,9.7,5.98,10.0,10.21,4.33,15.1,7.35,3.17,4.2,9.7,8.34,6.7,10.21,6.14,10.5,9.67,4.23
-Aaron Rodgers (PIT),Aaron Rodgers,QB,PIT,Played this week,86.1,7,6.1,17.26,11.92,10.0,13.93,10.98,18.3,13.0,7.72,19.0,11.92,8.19,30.4,10.98,4.42,37.3,9.42,3.14
-Kyle Pitts (ATL),Kyle Pitts,TE,ATL,Played this week,51.5,6,8.3,8.56,8.58,9.6,7.99,8.29,12.9,7.66,6.72,8.3,8.56,8.58,9.6,7.99,8.29,12.9,7.66,6.72
-Chris Godwin Jr. (TB),Chris Godwin Jr.,WR,TB,Bye this week,50.2,7,9.1,9.48,6.62,9.4,9.16,6.65,13.3,8.56,5.13,7.1,9.48,7.81,8.1,9.16,7.4,13.1,7.31,6.05
-Courtland Sutton (DEN),Courtland Sutton,WR,DEN,Bye this week,49.6,7,9.1,9.48,6.62,9.3,9.16,6.65,13.2,8.56,5.13,7.0,9.48,7.81,8.0,9.16,7.4,13.0,7.31,6.05
-Ryan Flournoy (DAL),Ryan Flournoy,WR,DAL,Played this week,50.2,6,9.0,9.48,6.62,9.3,9.16,6.65,13.3,8.56,5.13,6.9,9.48,7.81,8.0,9.16,7.4,13.3,7.31,6.05
-Chris Rodriguez Jr. (JAX),Chris Rodriguez Jr.,RB,JAX,Played this week,41.8,7,6.2,9.7,5.98,9.3,10.21,4.33,14.3,7.35,3.17,3.1,9.7,8.34,5.7,10.21,6.14,9.8,9.67,4.23
-Austin Ekeler (WAS),Austin Ekeler,RB,WAS,Played this week,29.6,7,7.1,9.7,5.98,9.3,10.21,4.33,13.7,7.35,3.17,4.6,9.7,8.34,6.6,10.21,6.14,9.8,9.67,4.23
-Sam Darnold (SEA),Sam Darnold,QB,SEA,Not projected this week,65.9,6,5.9,17.26,11.92,9.2,13.93,10.98,15.7,13.0,7.72,16.1,11.92,8.19,25.4,10.98,4.42,31.0,9.42,3.14
-Jacory Croskey-Merritt (WAS),Jacory Croskey-Merritt,RB,WAS,IR / reserve,30.3,7,6.8,9.7,5.98,9.0,10.21,4.33,13.5,7.35,3.17,4.2,9.7,8.34,6.3,10.21,6.14,9.5,9.67,4.23
-MarShawn Lloyd (GB),MarShawn Lloyd,RB,GB,Played this week,30.0,6,6.9,9.7,5.98,9.0,10.21,4.33,13.4,7.35,3.17,4.4,9.7,8.34,6.4,10.21,6.14,9.5,9.67,4.23
-Seth McGowan (IND),Seth McGowan,RB,IND,Played this week,40.0,6,6.0,9.7,5.98,8.8,10.21,4.33,13.6,7.35,3.17,2.9,9.7,8.34,5.5,10.21,6.14,9.2,9.67,4.23
-T.J. Hockenson (MIN),T.J. Hockenson,TE,MIN,Not projected this week,53.6,7,7.5,8.56,8.58,8.8,7.99,8.29,12.2,7.66,6.72,7.5,8.56,8.58,8.8,7.99,8.29,12.2,7.66,6.72
-Devaughn Vele (NO),Devaughn Vele,WR,NO,Played this week,51.6,7,8.5,9.48,6.62,8.7,9.16,6.65,12.7,8.56,5.13,6.3,9.48,7.81,7.4,9.16,7.4,12.6,7.31,6.05
-Marvin Harrison Jr. (HOU),Marvin Harrison Jr.,WR,HOU,Not projected this week,41.2,7,8.5,9.48,6.62,8.7,9.16,6.65,12.0,8.56,5.13,6.8,9.48,7.81,7.6,9.16,7.4,11.8,7.31,6.05
-Dallas Goedert (PHI),Dallas Goedert,TE,PHI,Bye this week,59.8,7,6.9,8.56,8.58,8.5,7.99,8.29,12.4,7.66,6.72,6.9,8.56,8.58,8.5,7.99,8.29,12.4,7.66,6.72
-Romeo Doubs (NE),Romeo Doubs,WR,NE,IR / reserve,32.0,6,8.3,9.48,6.62,8.5,9.16,6.65,11.1,8.56,5.13,6.9,9.48,7.81,7.6,9.16,7.4,11.1,7.31,6.05
-Malik Willis (MIA),Malik Willis,QB,MIA,IR / reserve,50.4,7,5.7,17.26,11.92,8.3,13.93,10.98,13.4,13.0,7.72,13.6,11.92,8.19,22.0,10.98,4.42,27.2,9.42,3.14
-Keaton Mitchell (LAC),Keaton Mitchell,RB,LAC,Plays this week,33.6,8,5.6,9.7,5.98,8.1,10.21,4.33,12.6,7.35,3.17,3.1,9.7,8.34,5.1,10.21,6.14,8.6,9.67,4.23
-Alec Pierce (IND),Alec Pierce,WR,IND,IR / reserve,30.4,6,7.7,9.48,6.62,7.9,9.16,6.65,10.5,8.56,5.13,6.4,9.48,7.81,7.1,9.16,7.4,10.4,7.31,6.05
-Michael Penix Jr. (ATL),Michael Penix Jr.,QB,ATL,Played this week,70.5,6,4.7,17.26,11.92,7.8,13.93,10.98,14.6,13.0,7.72,15.1,11.92,8.19,24.7,10.98,4.42,30.4,9.42,3.14
-Kaleb Johnson (GB),Kaleb Johnson,RB,GB,Played this week,36.8,6,5.0,9.7,5.98,7.7,10.21,4.33,12.2,7.35,3.17,2.3,9.7,8.34,4.6,10.21,6.14,8.2,9.67,4.23
-Michael Pittman (PIT),Michael Pittman,WR,PIT,IR / reserve,36.0,7,7.4,9.48,6.62,7.6,9.16,6.65,10.4,8.56,5.13,5.9,9.48,7.81,6.6,9.16,7.4,10.3,7.31,6.05
-Kyler Murray (MIN),Kyler Murray,QB,MIN,Not projected this week,43.4,7,5.2,17.26,11.92,7.5,13.93,10.98,12.1,13.0,7.72,12.3,11.92,8.19,19.9,10.98,4.42,24.7,9.42,3.14
-Kimani Vidal (LAC),Kimani Vidal,RB,LAC,Plays this week,34.5,8,4.9,9.7,5.98,7.5,10.21,4.33,11.9,7.35,3.17,2.5,9.7,8.34,4.5,10.21,6.14,7.9,9.67,4.23
-J.J. McCarthy (NYG),J.J. McCarthy,QB,NYG,Played this week,79.4,7,4.3,17.26,11.92,7.4,13.93,10.98,15.0,13.0,7.72,15.4,11.92,8.19,26.4,10.98,4.42,33.0,9.42,3.14
-Mack Hollins (NE),Mack Hollins,WR,NE,Played this week,37.2,6,7.1,9.48,6.62,7.3,9.16,6.65,10.2,8.56,5.13,5.6,9.48,7.81,6.3,9.16,7.4,10.0,7.31,6.05
-Justice Hill (BAL),Justice Hill,RB,BAL,Plays this week,32.2,7,4.9,9.7,5.98,7.3,10.21,4.33,11.6,7.35,3.17,2.6,9.7,8.34,4.5,10.21,6.14,7.8,9.67,4.23
-Emanuel Wilson (SEA),Emanuel Wilson,RB,SEA,Not projected this week,25.9,6,5.2,9.7,5.98,7.2,10.21,4.33,10.9,7.35,3.17,3.2,9.7,8.34,4.9,10.21,6.14,7.6,9.67,4.23
-Brenton Strange (JAX),Brenton Strange,TE,JAX,Played this week,55.9,7,5.7,8.56,8.58,7.1,7.99,8.29,10.6,7.66,6.72,5.7,8.56,8.58,7.1,7.99,8.29,10.6,7.66,6.72
-Quentin Johnston (LAC),Quentin Johnston,WR,LAC,Plays this week,53.0,8,6.9,9.48,6.62,7.1,9.16,6.65,11.1,8.56,5.13,4.8,9.48,7.81,5.7,9.16,7.4,10.7,7.31,6.05
-Geno Smith (NYJ),Geno Smith,QB,NYJ,Played this week,71.5,6,4.1,17.26,11.92,7.0,13.93,10.98,13.8,13.0,7.72,14.3,11.92,8.19,23.9,10.98,4.42,29.7,9.42,3.14
-Dontayvion Wicks (PHI),Dontayvion Wicks,WR,PHI,Not projected this week,42.4,7,6.4,9.48,6.62,6.6,9.16,6.65,9.9,8.56,5.13,4.8,9.48,7.81,5.5,9.16,7.4,9.5,7.31,6.05
-Samaje Perine (CIN),Samaje Perine,RB,CIN,Played this week,36.0,7,3.7,9.7,5.98,6.4,10.21,4.33,10.4,7.35,3.17,1.4,9.7,8.34,3.4,10.21,6.14,6.8,9.67,4.23
-Deshaun Watson (CLE),Deshaun Watson,QB,CLE,Played this week,56.5,6,4.0,17.26,11.92,6.4,13.93,10.98,11.9,13.0,7.72,12.0,11.92,8.19,20.5,10.98,4.42,25.5,9.42,3.14
-Tyjae Spears (TEN),Tyjae Spears,RB,TEN,Not projected this week,30.3,7,4.0,9.7,5.98,6.3,10.21,4.33,10.0,7.35,3.17,1.9,9.7,8.34,3.6,10.21,6.14,6.6,9.67,4.23
-Hunter Henry (NE),Hunter Henry,TE,NE,Played this week,49.7,6,5.0,8.56,8.58,6.2,7.99,8.29,9.5,7.66,6.72,5.0,8.56,8.58,6.2,7.99,8.29,9.5,7.66,6.72
-Chris Bell (MIA),Chris Bell,WR,MIA,Inactive this week,33.5,7,5.9,9.48,6.62,6.1,9.16,6.65,8.7,8.56,5.13,4.6,9.48,7.81,5.3,9.16,7.4,8.5,7.31,6.05
-Malachi Fields (NYG),Malachi Fields,WR,NYG,Played this week,45.4,7,5.8,9.48,6.62,6.0,9.16,6.65,9.4,8.56,5.13,4.1,9.48,7.81,4.9,9.16,7.4,9.1,7.31,6.05
-Brian Robinson (ATL),Brian Robinson,RB,ATL,IR / reserve,27.0,6,4.0,9.7,5.98,6.0,10.21,4.33,9.5,7.35,3.17,2.1,9.7,8.34,3.7,10.21,6.14,6.4,9.67,4.23
-Brian Thomas Jr. (JAX),Brian Thomas Jr.,WR,JAX,Played this week,30.8,7,5.7,9.48,6.62,5.8,9.16,6.65,8.3,8.56,5.13,4.4,9.48,7.81,5.0,9.16,7.4,8.1,7.31,6.05
-Terrance Ferguson (LA),Terrance Ferguson,TE,LA,IR / reserve,41.3,6,4.9,8.56,8.58,5.8,7.99,8.29,8.3,7.66,6.72,4.9,8.56,8.58,5.8,7.99,8.29,8.3,7.66,6.72
-Keon Coleman (BUF),Keon Coleman,WR,BUF,Played this week,41.7,7,5.6,9.48,6.62,5.7,9.16,6.65,8.9,8.56,5.13,4.0,9.48,7.81,4.7,9.16,7.4,8.5,7.31,6.05
-Baker Mayfield (TB),Baker Mayfield,QB,TB,Bye this week,80.6,7,3.2,17.26,11.92,5.7,13.93,10.98,13.2,13.0,7.72,13.6,11.92,8.19,24.6,10.98,4.42,31.3,9.42,3.14
-Cooper Kupp (SEA),Cooper Kupp,WR,SEA,Played this week,32.3,6,5.5,9.48,6.62,5.6,9.16,6.65,8.1,8.56,5.13,4.2,9.48,7.81,4.8,9.16,7.4,7.9,7.31,6.05
-Chig Okonkwo (WAS),Chig Okonkwo,TE,WAS,Played this week,53.6,7,4.2,8.56,8.58,5.4,7.99,8.29,8.7,7.66,6.72,4.2,8.56,8.58,5.4,7.99,8.29,8.7,7.66,6.72
-Kyle McCord (MIA),Kyle McCord,QB,MIA,Played this week,54.0,7,3.4,17.26,11.92,5.4,13.93,10.98,10.5,13.0,7.72,10.5,11.92,8.19,20.0,10.98,4.42,25.9,9.42,3.14
-Juwan Johnson (NO),Juwan Johnson,TE,NO,Played this week,50.2,7,4.3,8.56,8.58,5.4,7.99,8.29,8.4,7.66,6.72,4.3,8.56,8.58,5.4,7.99,8.29,8.4,7.66,6.72
-Xavier Hutchinson (HOU),Xavier Hutchinson,WR,HOU,Played this week,35.9,7,5.0,9.48,6.62,5.1,9.16,6.65,7.8,8.56,5.13,3.6,9.48,7.81,4.2,9.16,7.4,7.5,7.31,6.05
-Michael Wilson (ARI),Michael Wilson,WR,ARI,IR / reserve,14.7,6,4.9,9.48,6.62,5.1,9.16,6.65,6.8,8.56,5.13,4.1,9.48,7.81,4.5,9.16,7.4,6.7,7.31,6.05
-Daniel Jones (IND),Daniel Jones,QB,IND,Played this week,49.1,6,3.2,17.26,11.92,5.1,13.93,10.98,9.8,13.0,7.72,9.8,11.92,8.19,17.6,10.98,4.42,22.2,9.42,3.14
-Darren Waller (CAR),Darren Waller,TE,CAR,Played this week,48.3,7,4.0,8.56,8.58,5.0,7.99,8.29,7.7,7.66,6.72,4.0,8.56,8.58,5.0,7.99,8.29,7.7,7.66,6.72
-AJ Barner (SEA),AJ Barner,TE,SEA,Played this week,44.4,6,4.0,8.56,8.58,4.9,7.99,8.29,7.6,7.66,6.72,4.0,8.56,8.58,4.9,7.99,8.29,7.6,7.66,6.72
-Joe Milton III (PHI),Joe Milton III,QB,PHI,Not projected this week,48.5,7,3.0,17.26,11.92,4.7,13.93,10.98,9.2,13.0,7.72,9.2,11.92,8.19,17.1,10.98,4.42,22.0,9.42,3.14
-Jahan Dotson (ATL),Jahan Dotson,WR,ATL,Played this week,31.6,6,4.6,9.48,6.62,4.7,9.16,6.65,7.1,8.56,5.13,3.4,9.48,7.81,4.0,9.16,7.4,6.9,7.31,6.05
-Tyrone Tracy Jr. (NYG),Tyrone Tracy Jr.,RB,NYG,IR / reserve,17.8,7,3.1,9.7,5.98,4.7,10.21,4.33,7.5,7.35,3.17,1.6,9.7,8.34,2.9,10.21,6.14,5.0,9.67,4.23
-Pat Bryant (DEN),Pat Bryant,WR,DEN,Not projected this week,40.3,7,4.5,9.48,6.62,4.6,9.16,6.65,7.6,8.56,5.13,3.1,9.48,7.81,3.7,9.16,7.4,7.1,7.31,6.05
-Jordan Watkins (SF),Jordan Watkins,WR,SF,Played this week,46.5,7,4.4,9.48,6.62,4.5,9.16,6.65,8.1,8.56,5.13,2.7,9.48,7.81,3.4,9.16,7.4,7.5,7.31,6.05
-Rashid Shaheed (SEA),Rashid Shaheed,WR,SEA,Plays this week,31.8,6,4.2,9.48,6.62,4.3,9.16,6.65,6.7,8.56,5.13,3.0,9.48,7.81,3.5,9.16,7.4,6.3,7.31,6.05
-Jonathon Brooks (CAR),Jonathon Brooks,RB,CAR,IR / reserve,22.2,7,2.5,9.7,5.98,4.2,10.21,4.33,6.9,7.35,3.17,1.1,9.7,8.34,2.2,10.21,6.14,4.4,9.67,4.23
-Greg Dulcich (MIA),Greg Dulcich,TE,MIA,Played this week,47.0,7,3.3,8.56,8.58,4.2,7.99,8.29,6.8,7.66,6.72,3.3,8.56,8.58,4.2,7.99,8.29,6.8,7.66,6.72
-Pat Freiermuth (PIT),Pat Freiermuth,TE,PIT,Played this week,50.5,7,3.0,8.56,8.58,4.0,7.99,8.29,6.9,7.66,6.72,3.0,8.56,8.58,4.0,7.99,8.29,6.9,7.66,6.72
-Justin Herbert (LAC),Justin Herbert,QB,LAC,Plays this week,71.1,8,2.2,17.26,11.92,3.9,13.93,10.98,10.2,13.0,7.72,10.0,11.92,8.19,20.7,10.98,4.42,27.0,9.42,3.14
-Fernando Mendoza (LV),Fernando Mendoza,QB,LV,Played this week,67.9,6,2.1,17.26,11.92,3.9,13.93,10.98,10.2,13.0,7.72,10.3,11.92,8.19,19.7,10.98,4.42,25.4,9.42,3.14
-Eli Raridon (NE),Eli Raridon,TE,NE,Played this week,41.3,6,3.1,8.56,8.58,3.9,7.99,8.29,6.2,7.66,6.72,3.1,8.56,8.58,3.9,7.99,8.29,6.2,7.66,6.72
-Jaylen Wright (MIA),Jaylen Wright,RB,MIA,Played this week,20.9,7,2.2,9.7,5.98,3.8,10.21,4.33,6.3,7.35,3.17,0.9,9.7,8.34,2.0,10.21,6.14,4.0,9.67,4.23
-Konata Mumpfield (LA),Konata Mumpfield,WR,LA,Played this week,34.9,6,3.7,9.48,6.62,3.8,9.16,6.65,6.4,8.56,5.13,2.5,9.48,7.81,3.0,9.16,7.4,5.9,7.31,6.05
-Dalton Schultz (HOU),Dalton Schultz,TE,HOU,Played this week,48.1,7,2.8,8.56,8.58,3.7,7.99,8.29,6.3,7.66,6.72,2.8,8.56,8.58,3.7,7.99,8.29,6.3,7.66,6.72
-Kayshon Boutte (HOU),Kayshon Boutte,WR,HOU,Played this week,37.0,7,3.6,9.48,6.62,3.7,9.16,6.65,6.3,8.56,5.13,2.4,9.48,7.81,2.9,9.16,7.4,5.8,7.31,6.05
-Jerry Jeudy (CLE),Jerry Jeudy,WR,CLE,Played this week,29.1,6,3.6,9.48,6.62,3.7,9.16,6.65,5.8,8.56,5.13,2.6,9.48,7.81,3.0,9.16,7.4,5.5,7.31,6.05
-Michael Mayer (LV),Michael Mayer,TE,LV,Played this week,45.3,6,2.7,8.56,8.58,3.6,7.99,8.29,6.4,7.66,6.72,2.7,8.56,8.58,3.6,7.99,8.29,6.4,7.66,6.72
-Elic Ayomanor (TEN),Elic Ayomanor,WR,TEN,Played this week,28.1,7,3.5,9.48,6.62,3.6,9.16,6.65,5.7,8.56,5.13,2.5,9.48,7.81,3.0,9.16,7.4,5.4,7.31,6.05
-Ted Hurst III (TB),Ted Hurst III,WR,TB,Bye this week,30.3,7,3.5,9.48,6.62,3.6,9.16,6.65,5.8,8.56,5.13,2.5,9.48,7.81,2.9,9.16,7.4,5.5,7.31,6.05
-Tyler Higbee (LA),Tyler Higbee,TE,LA,Played this week,44.2,6,2.7,8.56,8.58,3.6,7.99,8.29,6.3,7.66,6.72,2.7,8.56,8.58,3.6,7.99,8.29,6.3,7.66,6.72
-Treylon Burks (WAS),Treylon Burks,WR,WAS,Played this week,26.8,7,3.4,9.48,6.62,3.5,9.16,6.65,5.5,8.56,5.13,2.4,9.48,7.81,2.8,9.16,7.4,5.2,7.31,6.05
-Mason Taylor (NYJ),Mason Taylor,TE,NYJ,Played this week,37.8,6,2.7,8.56,8.58,3.4,7.99,8.29,5.4,7.66,6.72,2.7,8.56,8.58,3.4,7.99,8.29,5.4,7.66,6.72
-Roschon Johnson (CHI),Roschon Johnson,RB,CHI,Bye this week,20.0,7,1.8,9.7,5.98,3.3,10.21,4.33,5.6,7.35,3.17,0.7,9.7,8.34,1.6,10.21,6.14,3.5,9.67,4.23
-Dameon Pierce (PHI),Dameon Pierce,RB,PHI,Not projected this week,11.6,7,2.0,9.7,5.98,3.2,10.21,4.33,5.3,7.35,3.17,0.9,9.7,8.34,1.8,10.21,6.14,3.4,9.67,4.23
-Jauan Jennings (MIN),Jauan Jennings,WR,MIN,Not projected this week,27.9,7,3.1,9.48,6.62,3.2,9.16,6.65,5.2,8.56,5.13,2.1,9.48,7.81,2.5,9.16,7.4,4.8,7.31,6.05
-Tre Harris (LAC),Tre Harris,WR,LAC,Plays this week,44.0,8,3.1,9.48,6.62,3.2,9.16,6.65,6.2,8.56,5.13,1.8,9.48,7.81,2.3,9.16,7.4,5.4,7.31,6.05
-Kaytron Allen (MIA),Kaytron Allen,RB,MIA,Played this week,18.7,7,1.7,9.7,5.98,3.1,10.21,4.33,5.3,7.35,3.17,0.6,9.7,8.34,1.5,10.21,6.14,3.3,9.67,4.23
-Cam Ward (TEN),Cam Ward,QB,TEN,Played this week,56.0,7,1.8,17.26,11.92,3.1,13.93,10.98,7.9,13.0,7.72,7.7,11.92,8.19,16.4,10.98,4.42,21.5,9.42,3.14
-Gardner Minshew (ARI),Gardner Minshew,QB,ARI,IR / reserve,35.4,6,1.8,17.26,11.92,2.9,13.93,10.98,6.0,13.0,7.72,5.9,11.92,8.19,11.8,10.98,4.42,15.6,9.42,3.14
-Josh Palmer (BUF),Josh Palmer,WR,BUF,IR / reserve,18.6,7,2.8,9.48,6.62,2.9,9.16,6.65,4.5,8.56,5.13,2.1,9.48,7.81,2.4,9.16,7.4,4.3,7.31,6.05
-Ty Johnson (BUF),Ty Johnson,RB,BUF,Played this week,23.8,7,1.3,9.7,5.98,2.9,10.21,4.33,5.2,7.35,3.17,0.3,9.7,8.34,1.1,10.21,6.14,3.1,9.67,4.23
-DJ Giddens (IND),DJ Giddens,RB,IND,Not projected this week,20.3,6,1.4,9.7,5.98,2.9,10.21,4.33,5.0,7.35,3.17,0.4,9.7,8.34,1.3,10.21,6.14,3.1,9.67,4.23
-Rashod Bateman (BAL),Rashod Bateman,WR,BAL,Plays this week,32.4,7,2.9,9.48,6.62,2.9,9.16,6.65,5.1,8.56,5.13,1.9,9.48,7.81,2.3,9.16,7.4,4.7,7.31,6.05
-CJ Donaldson (NO),CJ Donaldson,RB,NO,Not projected this week,14.9,7,1.4,9.7,5.98,2.7,10.21,4.33,4.7,7.35,3.17,0.5,9.7,8.34,1.3,10.21,6.14,2.9,9.67,4.23
-Sean Tucker (TB),Sean Tucker,RB,TB,Bye this week,23.0,7,1.2,9.7,5.98,2.7,10.21,4.33,4.9,7.35,3.17,0.3,9.7,8.34,1.0,10.21,6.14,2.9,9.67,4.23
-Emari Demercado (HOU),Emari Demercado,RB,HOU,Played this week,20.1,7,1.3,9.7,5.98,2.7,10.21,4.33,4.8,7.35,3.17,0.4,9.7,8.34,1.2,10.21,6.14,2.9,9.67,4.23
-Jalen Nailor (LV),Jalen Nailor,WR,LV,Played this week,27.5,6,2.6,9.48,6.62,2.7,9.16,6.65,4.6,8.56,5.13,1.8,9.48,7.81,2.1,9.16,7.4,4.2,7.31,6.05
-Colby Parkinson (LA),Colby Parkinson,TE,LA,Played this week,38.4,6,2.0,8.56,8.58,2.6,7.99,8.29,4.6,7.66,6.72,2.0,8.56,8.58,2.6,7.99,8.29,4.6,7.66,6.72
-Ray Davis (BUF),Ray Davis,RB,BUF,Played this week,22.4,7,1.0,9.7,5.98,2.5,10.21,4.33,4.6,7.35,3.17,0.2,9.7,8.34,0.9,10.21,6.14,2.7,9.67,4.23
-Drew Lock (SEA),Drew Lock,QB,SEA,Played this week,31.0,6,1.6,17.26,11.92,2.5,13.93,10.98,5.3,13.0,7.72,5.3,11.92,8.19,10.6,10.98,4.42,14.0,9.42,3.14
-Zachariah Branch (ATL),Zachariah Branch,WR,ATL,Not projected this week,23.4,6,2.5,9.48,6.62,2.5,9.16,6.65,4.2,8.56,5.13,1.7,9.48,7.81,2.0,9.16,7.4,3.9,7.31,6.05
-Tutu Atwell (LA),Tutu Atwell,WR,LA,Played this week,27.0,6,2.4,9.48,6.62,2.5,9.16,6.65,4.3,8.56,5.13,1.6,9.48,7.81,1.9,9.16,7.4,3.9,7.31,6.05
-Efton Chism III (NE),Efton Chism III,WR,NE,Played this week,31.0,6,2.3,9.48,6.62,2.4,9.16,6.65,4.4,8.56,5.13,1.4,9.48,7.81,1.7,9.16,7.4,3.9,7.31,6.05
-Darnell Mooney (NYG),Darnell Mooney,WR,NYG,Played this week,26.6,7,2.4,9.48,6.62,2.4,9.16,6.65,4.2,8.56,5.13,1.6,9.48,7.81,1.9,9.16,7.4,3.9,7.31,6.05
-Tyler Goodson (DAL),Tyler Goodson,RB,DAL,IR / reserve,16.8,6,1.1,9.7,5.98,2.3,10.21,4.33,4.1,7.35,3.17,0.3,9.7,8.34,1.0,10.21,6.14,2.4,9.67,4.23
-Tory Horton (SEA),Tory Horton,WR,SEA,Not projected this week,25.8,6,2.2,9.48,6.62,2.3,9.16,6.65,4.0,8.56,5.13,1.4,9.48,7.81,1.7,9.16,7.4,3.6,7.31,6.05
-Darnell Washington (PIT),Darnell Washington,TE,PIT,Played this week,43.5,7,1.7,8.56,8.58,2.3,7.99,8.29,4.3,7.66,6.72,1.7,8.56,8.58,2.3,7.99,8.29,4.3,7.66,6.72
-AJ Dillon (CAR),AJ Dillon,RB,CAR,Not projected this week,10.5,7,1.1,9.7,5.98,2.2,10.21,4.33,3.8,7.35,3.17,0.4,9.7,8.34,1.0,10.21,6.14,2.3,9.67,4.23
-De'Zhaun Stribling (SF),De'Zhaun Stribling,WR,SF,IR / reserve,29.6,7,2.1,9.48,6.62,2.2,9.16,6.65,4.1,8.56,5.13,1.3,9.48,7.81,1.6,9.16,7.4,3.6,7.31,6.05
-Calvin Ridley (TEN),Calvin Ridley,WR,TEN,Not projected this week,24.3,7,2.1,9.48,6.62,2.1,9.16,6.65,3.8,8.56,5.13,1.4,9.48,7.81,1.7,9.16,7.4,3.4,7.31,6.05
-Jaylin Noel (HOU),Jaylin Noel,WR,HOU,IR / reserve,11.9,7,2.1,9.48,6.62,2.1,9.16,6.65,3.4,8.56,5.13,1.5,9.48,7.81,1.7,9.16,7.4,3.2,7.31,6.05
-George Holani (SEA),George Holani,RB,SEA,Not projected this week,17.5,6,0.9,9.7,5.98,2.1,10.21,4.33,3.7,7.35,3.17,0.2,9.7,8.34,0.8,10.21,6.14,2.2,9.67,4.23
-Kenyon Sadiq (NYJ),Kenyon Sadiq,TE,NYJ,Played this week,40.6,6,1.5,8.56,8.58,2.1,7.99,8.29,4.2,7.66,6.72,1.5,8.56,8.58,2.1,7.99,8.29,4.2,7.66,6.72
-Chimere Dike (TEN),Chimere Dike,WR,TEN,Played this week,27.8,7,1.9,9.48,6.62,2.0,9.16,6.65,3.7,8.56,5.13,1.2,9.48,7.81,1.5,9.16,7.4,3.3,7.31,6.05
-Bryce Lance (NO),Bryce Lance,WR,NO,Played this week,26.0,7,1.9,9.48,6.62,2.0,9.16,6.65,3.6,8.56,5.13,1.2,9.48,7.81,1.5,9.16,7.4,3.2,7.31,6.05
-Jack Bech (LV),Jack Bech,WR,LV,Played this week,22.9,6,2.0,9.48,6.62,2.0,9.16,6.65,3.5,8.56,5.13,1.3,9.48,7.81,1.5,9.16,7.4,3.2,7.31,6.05
-Sione Vaki (DET),Sione Vaki,RB,DET,Played this week,25.6,7,0.5,9.7,5.98,2.0,10.21,4.33,4.0,7.35,3.17,0.0,9.7,8.34,0.5,10.21,6.14,2.1,9.67,4.23
-Isaac TeSlaa (DET),Isaac TeSlaa,WR,DET,Played this week,27.6,7,1.8,9.48,6.62,1.9,9.16,6.65,3.5,8.56,5.13,1.1,9.48,7.81,1.4,9.16,7.4,3.1,7.31,6.05
-Kyle Williams (NE),Kyle Williams,WR,NE,Played this week,26.3,6,1.8,9.48,6.62,1.8,9.16,6.65,3.5,8.56,5.13,1.1,9.48,7.81,1.4,9.16,7.4,3.0,7.31,6.05
-Kendrick Bourne (ARI),Kendrick Bourne,WR,ARI,IR / reserve,9.3,6,1.7,9.48,6.62,1.7,9.16,6.65,2.7,8.56,5.13,1.2,9.48,7.81,1.4,9.16,7.4,2.5,7.31,6.05
-Kalif Raymond (CHI),Kalif Raymond,WR,CHI,Bye this week,31.3,7,1.7,9.48,6.62,1.7,9.16,6.65,3.6,8.56,5.13,0.9,9.48,7.81,1.2,9.16,7.4,3.0,7.31,6.05
-Mark Andrews (BAL),Mark Andrews,TE,BAL,Plays this week,42.4,7,1.2,8.56,8.58,1.7,7.99,8.29,3.5,7.66,6.72,1.2,8.56,8.58,1.7,7.99,8.29,3.5,7.66,6.72
-Savion Williams (GB),Savion Williams,WR,GB,Played this week,28.8,6,1.7,9.48,6.62,1.7,9.16,6.65,3.5,8.56,5.13,0.9,9.48,7.81,1.2,9.16,7.4,3.0,7.31,6.05
-Cade Otton (TB),Cade Otton,TE,TB,Bye this week,40.2,7,1.2,8.56,8.58,1.7,7.99,8.29,3.3,7.66,6.72,1.2,8.56,8.58,1.7,7.99,8.29,3.3,7.66,6.72
-Quinn Ewers (JAX),Quinn Ewers,QB,JAX,Not projected this week,20.4,7,1.0,17.26,11.92,1.6,13.93,10.98,3.7,13.0,7.72,3.6,11.92,8.19,8.0,10.98,4.42,10.7,9.42,3.14
-Ja'Kobi Lane (BAL),Ja'Kobi Lane,WR,BAL,Plays this week,29.3,7,1.5,9.48,6.62,1.6,9.16,6.65,3.2,8.56,5.13,0.8,9.48,7.81,1.1,9.16,7.4,2.7,7.31,6.05
-Dohnte Meyers (CIN),Dohnte Meyers,WR,CIN,Played this week,30.4,7,1.6,9.48,6.62,1.6,9.16,6.65,3.4,8.56,5.13,0.9,9.48,7.81,1.1,9.16,7.4,2.8,7.31,6.05
-Olamide Zaccheaus (ATL),Olamide Zaccheaus,WR,ATL,Played this week,19.3,6,1.6,9.48,6.62,1.6,9.16,6.65,2.9,8.56,5.13,1.0,9.48,7.81,1.2,9.16,7.4,2.6,7.31,6.05
-Kevin Coleman Jr. (MIA),Kevin Coleman Jr.,WR,MIA,Played this week,26.3,7,1.5,9.48,6.62,1.5,9.16,6.65,3.1,8.56,5.13,0.9,9.48,7.81,1.1,9.16,7.4,2.6,7.31,6.05
-Mike Gesicki (CIN),Mike Gesicki,TE,CIN,Played this week,45.9,7,1.0,8.56,8.58,1.5,7.99,8.29,3.5,7.66,6.72,1.0,8.56,8.58,1.5,7.99,8.29,3.5,7.66,6.72
-Jaydon Blue (PHI),Jaydon Blue,RB,PHI,Bye this week,16.8,7,0.5,9.7,5.98,1.5,10.21,4.33,3.0,7.35,3.17,0.1,9.7,8.34,0.5,10.21,6.14,1.6,9.67,4.23
-Troy Franklin (DEN),Troy Franklin,WR,DEN,Bye this week,24.5,7,1.4,9.48,6.62,1.4,9.16,6.65,2.9,8.56,5.13,0.8,9.48,7.81,1.0,9.16,7.4,2.4,7.31,6.05
-Marquise Brown (PHI),Marquise Brown,WR,PHI,Bye this week,23.4,7,1.4,9.48,6.62,1.4,9.16,6.65,2.8,8.56,5.13,0.8,9.48,7.81,1.0,9.16,7.4,2.4,7.31,6.05
-Gunnar Helm (TEN),Gunnar Helm,TE,TEN,Played this week,37.0,7,0.9,8.56,8.58,1.3,7.99,8.29,2.6,7.66,6.72,0.9,8.56,8.58,1.3,7.99,8.29,2.6,7.66,6.72
-Darius Cooper (PHI),Darius Cooper,WR,PHI,Bye this week,27.8,7,1.3,9.48,6.62,1.3,9.16,6.65,2.9,8.56,5.13,0.7,9.48,7.81,0.9,9.16,7.4,2.3,7.31,6.05
-Skyler Bell (BUF),Skyler Bell,WR,BUF,Not projected this week,18.9,7,1.2,9.48,6.62,1.3,9.16,6.65,2.5,8.56,5.13,0.7,9.48,7.81,0.9,9.16,7.4,2.1,7.31,6.05
-Trevor Etienne (CAR),Trevor Etienne,RB,CAR,Played this week,17.6,7,0.3,9.7,5.98,1.2,10.21,4.33,2.6,7.35,3.17,0.0,9.7,8.34,0.3,10.21,6.14,1.3,9.67,4.23
-Pierre Strong (GB),Pierre Strong,RB,GB,Inactive this week,13.4,6,0.4,9.7,5.98,1.2,10.21,4.33,2.4,7.35,3.17,0.1,9.7,8.34,0.4,10.21,6.14,1.3,9.67,4.23
-Jeremy McNichols (WAS),Jeremy McNichols,RB,WAS,IR / reserve,8.7,7,0.4,9.7,5.98,1.1,10.21,4.33,2.2,7.35,3.17,0.1,9.7,8.34,0.4,10.21,6.14,1.2,9.67,4.23
-Ameer Abdullah (JAX),Ameer Abdullah,RB,JAX,Not projected this week,10.7,7,0.4,9.7,5.98,1.1,10.21,4.33,2.3,7.35,3.17,0.1,9.7,8.34,0.4,10.21,6.14,1.2,9.67,4.23
-Tez Johnson (TB),Tez Johnson,WR,TB,Bye this week,25.2,7,1.1,9.48,6.62,1.1,9.16,6.65,2.4,8.56,5.13,0.6,9.48,7.81,0.7,9.16,7.4,2.0,7.31,6.05
-Demond Claiborne (MIN),Demond Claiborne,RB,MIN,IR / reserve,13.1,7,0.3,9.7,5.98,1.1,10.21,4.33,2.2,7.35,3.17,0.0,9.7,8.34,0.3,10.21,6.14,1.1,9.67,4.23
-Evan Engram (DEN),Evan Engram,TE,DEN,Bye this week,30.5,7,0.8,8.56,8.58,1.1,7.99,8.29,2.1,7.66,6.72,0.8,8.56,8.58,1.1,7.99,8.29,2.1,7.66,6.72
-Jake Ferguson (DAL),Jake Ferguson,TE,DAL,Not projected this week,24.6,6,0.7,8.56,8.58,1.0,7.99,8.29,1.8,7.66,6.72,0.7,8.56,8.58,1.0,7.99,8.29,1.8,7.66,6.72
-Marvin Mims Jr. (DEN),Marvin Mims Jr.,WR,DEN,Bye this week,25.0,7,1.0,9.48,6.62,1.0,9.16,6.65,2.3,8.56,5.13,0.5,9.48,7.81,0.7,9.16,7.4,1.8,7.31,6.05
-Oronde Gadsden II (LAC),Oronde Gadsden II,TE,LAC,Plays this week,43.8,8,0.6,8.56,8.58,1.0,7.99,8.29,2.3,7.66,6.72,0.6,8.56,8.58,1.0,7.99,8.29,2.3,7.66,6.72
-Theo Wease Jr. (LAC),Theo Wease Jr.,WR,LAC,Not projected this week,13.4,7,0.8,9.48,6.62,0.9,9.16,6.65,1.7,8.56,5.13,0.5,9.48,7.81,0.6,9.16,7.4,1.4,7.31,6.05
-Jaleel McLaughlin (CLE),Jaleel McLaughlin,RB,CLE,Not projected this week,15.9,6,0.2,9.7,5.98,0.9,10.21,4.33,2.0,7.35,3.17,0.0,9.7,8.34,0.2,10.21,6.14,1.0,9.67,4.23
-Brandin Cooks (SF),Brandin Cooks,WR,SF,Inactive this week,12.0,7,0.9,9.48,6.62,0.9,9.16,6.65,1.8,8.56,5.13,0.5,9.48,7.81,0.6,9.16,7.4,1.5,7.31,6.05
-Tommy Tremble (CAR),Tommy Tremble,TE,CAR,Played this week,34.5,7,0.6,8.56,8.58,0.9,7.99,8.29,2.0,7.66,6.72,0.6,8.56,8.58,0.9,7.99,8.29,2.0,7.66,6.72
-Shedeur Sanders (CLE),Shedeur Sanders,QB,CLE,Not projected this week,28.5,6,0.5,17.26,11.92,0.9,13.93,10.98,2.9,13.0,7.72,2.7,11.92,8.19,7.3,10.98,4.42,10.2,9.42,3.14
-Reggie Virgil (ARI),Reggie Virgil,WR,ARI,Not projected this week,24.1,6,0.9,9.48,6.62,0.9,9.16,6.65,2.1,8.56,5.13,0.4,9.48,7.81,0.6,9.16,7.4,1.6,7.31,6.05
-Van Jefferson (WAS),Van Jefferson,WR,WAS,Played this week,25.2,7,0.8,9.48,6.62,0.8,9.16,6.65,1.9,8.56,5.13,0.3,9.48,7.81,0.5,9.16,7.4,1.4,7.31,6.05
-Demarcus Robinson (SF),Demarcus Robinson,WR,SF,Not projected this week,14.4,7,0.7,9.48,6.62,0.7,9.16,6.65,1.6,8.56,5.13,0.4,9.48,7.81,0.5,9.16,7.4,1.3,7.31,6.05
-Jameis Winston (NYG),Jameis Winston,QB,NYG,Played this week,25.1,7,0.4,17.26,11.92,0.7,13.93,10.98,2.4,13.0,7.72,2.2,11.92,8.19,6.4,10.98,4.42,9.1,9.42,3.14
-Isaiah Davis (NYJ),Isaiah Davis,RB,NYJ,Played this week,15.5,6,0.1,9.7,5.98,0.7,10.21,4.33,1.7,7.35,3.17,0.0,9.7,8.34,0.1,10.21,6.14,0.8,9.67,4.23
-Jalon Daniels (TB),Jalon Daniels,QB,TB,Bye this week,24.7,7,0.4,17.26,11.92,0.7,13.93,10.98,2.2,13.0,7.72,2.1,11.92,8.19,6.2,10.98,4.42,8.9,9.42,3.14
-Anthony Richardson (IND),Anthony Richardson,QB,IND,Not projected this week,26.5,6,0.3,17.26,11.92,0.6,13.93,10.98,2.1,13.0,7.72,1.9,11.92,8.19,6.0,10.98,4.42,8.7,9.42,3.14
-Jalen Tolbert (MIA),Jalen Tolbert,WR,MIA,Played this week,16.0,7,0.6,9.48,6.62,0.6,9.16,6.65,1.4,8.56,5.13,0.3,9.48,7.81,0.4,9.16,7.4,1.0,7.31,6.05
-John Metchie III (CAR),John Metchie III,WR,CAR,Played this week,13.9,7,0.5,9.48,6.62,0.6,9.16,6.65,1.3,8.56,5.13,0.3,9.48,7.81,0.4,9.16,7.4,1.0,7.31,6.05
-Justin Fields (KC),Justin Fields,QB,KC,Played this week,16.2,7,0.3,17.26,11.92,0.5,13.93,10.98,1.7,13.0,7.72,1.6,11.92,8.19,4.8,10.98,4.42,7.0,9.42,3.14
-Cody White (LV),Cody White,WR,LV,Not projected this week,9.0,6,0.5,9.48,6.62,0.5,9.16,6.65,1.1,8.56,5.13,0.3,9.48,7.81,0.3,9.16,7.4,0.9,7.31,6.05
-Dyami Brown (WAS),Dyami Brown,WR,WAS,IR / reserve,8.8,7,0.5,9.48,6.62,0.5,9.16,6.65,1.2,8.56,5.13,0.3,9.48,7.81,0.4,9.16,7.4,0.9,7.31,6.05
-Nate Boerkircher (JAX),Nate Boerkircher,TE,JAX,Played this week,28.1,7,0.3,8.56,8.58,0.5,7.99,8.29,1.1,7.66,6.72,0.3,8.56,8.58,0.5,7.99,8.29,1.1,7.66,6.72
-Isaiah Bond (CLE),Isaiah Bond,WR,CLE,Played this week,14.8,6,0.4,9.48,6.62,0.5,9.16,6.65,1.1,8.56,5.13,0.2,9.48,7.81,0.3,9.16,7.4,0.8,7.31,6.05
-Malik Benson (LV),Malik Benson,WR,LV,Not projected this week,16.1,6,0.5,9.48,6.62,0.5,9.16,6.65,1.3,8.56,5.13,0.2,9.48,7.81,0.3,9.16,7.4,1.0,7.31,6.05
-Zavier Scott (CHI),Zavier Scott,RB,CHI,Not projected this week,8.6,7,0.1,9.7,5.98,0.4,10.21,4.33,1.0,7.35,3.17,0.0,9.7,8.34,0.1,10.21,6.14,0.4,9.67,4.23
-Lan Larison (NE),Lan Larison,RB,NE,Played this week,8.7,6,0.1,9.7,5.98,0.4,10.21,4.33,1.0,7.35,3.17,0.0,9.7,8.34,0.1,10.21,6.14,0.4,9.67,4.23
-Mac Jones (SF),Mac Jones,QB,SF,Not projected this week,22.0,7,0.2,17.26,11.92,0.4,13.93,10.98,1.6,13.0,7.72,1.4,11.92,8.19,5.0,10.98,4.42,7.4,9.42,3.14
-Zavion Thomas (CHI),Zavion Thomas,WR,CHI,Bye this week,21.1,7,0.4,9.48,6.62,0.4,9.16,6.65,1.2,8.56,5.13,0.2,9.48,7.81,0.2,9.16,7.4,0.8,7.31,6.05
-LeQuint Allen Jr. (JAX),LeQuint Allen Jr.,RB,JAX,Played this week,14.4,7,0.1,9.7,5.98,0.4,10.21,4.33,1.2,7.35,3.17,0.0,9.7,8.34,0.0,10.21,6.14,0.5,9.67,4.23
-Laquon Treadwell (IND),Laquon Treadwell,WR,IND,Played this week,13.5,6,0.4,9.48,6.62,0.4,9.16,6.65,1.0,8.56,5.13,0.2,9.48,7.81,0.2,9.16,7.4,0.7,7.31,6.05
-Tahj Brooks (CIN),Tahj Brooks,RB,CIN,Played this week,11.9,7,0.0,9.7,5.98,0.4,10.21,4.33,1.0,7.35,3.17,0.0,9.7,8.34,0.0,10.21,6.14,0.4,9.67,4.23
-Josh Cameron (JAX),Josh Cameron,WR,JAX,Played this week,13.0,7,0.4,9.48,6.62,0.4,9.16,6.65,1.0,8.56,5.13,0.2,9.48,7.81,0.2,9.16,7.4,0.7,7.31,6.05
-Tyler Huntley (BAL),Tyler Huntley,QB,BAL,IR / reserve,9.1,6,0.1,17.26,11.92,0.3,13.93,10.98,1.0,13.0,7.72,1.0,11.92,8.19,3.2,10.98,4.42,4.7,9.42,3.14
-Joe Fagnano (BAL),Joe Fagnano,QB,BAL,Plays this week,16.0,7,0.1,17.26,11.92,0.3,13.93,10.98,1.2,13.0,7.72,1.1,11.92,8.19,4.0,10.98,4.42,5.9,9.42,3.14
-Tim Patrick (NYJ),Tim Patrick,WR,NYJ,Not projected this week,9.0,6,0.3,9.48,6.62,0.3,9.16,6.65,0.7,8.56,5.13,0.1,9.48,7.81,0.2,9.16,7.4,0.5,7.31,6.05
-Joe Flacco (CIN),Joe Flacco,QB,CIN,Not projected this week,18.4,7,0.2,17.26,11.92,0.3,13.93,10.98,1.3,13.0,7.72,1.1,11.92,8.19,4.2,10.98,4.42,6.3,9.42,3.14
-Jordan James (SF),Jordan James,RB,SF,Played this week,12.6,7,0.0,9.7,5.98,0.3,10.21,4.33,1.0,7.35,3.17,0.0,9.7,8.34,0.0,10.21,6.14,0.3,9.67,4.23
-Cyrus Allen (KC),Cyrus Allen,WR,KC,Played this week,23.5,7,0.3,9.48,6.62,0.3,9.16,6.65,1.1,8.56,5.13,0.1,9.48,7.81,0.2,9.16,7.4,0.7,7.31,6.05
-Eli Stowers (PHI),Eli Stowers,TE,PHI,Bye this week,28.5,7,0.2,8.56,8.58,0.3,7.99,8.29,0.8,7.66,6.72,0.2,8.56,8.58,0.3,7.99,8.29,0.8,7.66,6.72
-Noah Fant (NO),Noah Fant,TE,NO,Played this week,25.1,7,0.2,8.56,8.58,0.3,7.99,8.29,0.7,7.66,6.72,0.2,8.56,8.58,0.3,7.99,8.29,0.7,7.66,6.72
-Isaiah Williams (NYJ),Isaiah Williams,WR,NYJ,Played this week,11.7,6,0.3,9.48,6.62,0.3,9.16,6.65,0.9,8.56,5.13,0.2,9.48,7.81,0.2,9.16,7.4,0.6,7.31,6.05
-Evan Hull (ARI),Evan Hull,RB,ARI,Not projected this week,8.0,6,0.1,9.7,5.98,0.3,10.21,4.33,0.9,7.35,3.17,0.0,9.7,8.34,0.0,10.21,6.14,0.4,9.67,4.23
-Carson Wentz (MIN),Carson Wentz,QB,MIN,Not projected this week,23.6,7,0.1,17.26,11.92,0.3,13.93,10.98,1.3,13.0,7.72,1.2,11.92,8.19,4.7,10.98,4.42,7.1,9.42,3.14
-Davis Mills (HOU),Davis Mills,QB,HOU,Not projected this week,14.9,7,0.1,17.26,11.92,0.3,13.93,10.98,1.1,13.0,7.72,1.0,11.92,8.19,3.7,10.98,4.42,5.6,9.42,3.14
-Jaydn Ott (KC),Jaydn Ott,RB,KC,Inactive this week,5.2,7,0.0,9.7,5.98,0.3,10.21,4.33,0.8,7.35,3.17,0.0,9.7,8.34,0.0,10.21,6.14,0.3,9.67,4.23
-Case Keenum (CHI),Case Keenum,QB,CHI,Not projected this week,15.5,7,0.1,17.26,11.92,0.2,13.93,10.98,1.1,13.0,7.72,0.9,11.92,8.19,3.6,10.98,4.42,5.6,9.42,3.14
-Tua Tagovailoa (ATL),Tua Tagovailoa,QB,ATL,Not projected this week,24.4,6,0.1,17.26,11.92,0.2,13.93,10.98,1.2,13.0,7.72,1.0,11.92,8.19,4.4,10.98,4.42,6.8,9.42,3.14
-Ronnie Rivers (LA),Ronnie Rivers,RB,LA,Played this week,4.6,6,0.0,9.7,5.98,0.2,10.21,4.33,0.6,7.35,3.17,0.0,9.7,8.34,0.0,10.21,6.14,0.2,9.67,4.23
-Khalil Herbert (ATL),Khalil Herbert,RB,ATL,Played this week,9.0,6,0.0,9.7,5.98,0.2,10.21,4.33,0.6,7.35,3.17,0.0,9.7,8.34,0.0,10.21,6.14,0.2,9.67,4.23
-Lil'Jordan Humphrey (DEN),Lil'Jordan Humphrey,WR,DEN,Bye this week,9.5,7,0.2,9.48,6.62,0.2,9.16,6.65,0.7,8.56,5.13,0.1,9.48,7.81,0.1,9.16,7.4,0.5,7.31,6.05
-Elijah Moore (PHI),Elijah Moore,WR,PHI,Bye this week,9.9,7,0.2,9.48,6.62,0.2,9.16,6.65,0.6,8.56,5.13,0.1,9.48,7.81,0.1,9.16,7.4,0.4,7.31,6.05
-Spencer Rattler (NO),Spencer Rattler,QB,NO,Not projected this week,21.5,7,0.1,17.26,11.92,0.2,13.93,10.98,1.2,13.0,7.72,1.0,11.92,8.19,4.2,10.98,4.42,6.5,9.42,3.14
-Tyson Bagent (CHI),Tyson Bagent,QB,CHI,Not projected this week,20.7,7,0.1,17.26,11.92,0.2,13.93,10.98,1.0,13.0,7.72,0.9,11.92,8.19,3.9,10.98,4.42,6.0,9.42,3.14
-Mitchell Tinsley (CIN),Mitchell Tinsley,WR,CIN,Not projected this week,10.2,7,0.2,9.48,6.62,0.2,9.16,6.65,0.5,8.56,5.13,0.0,9.48,7.81,0.1,9.16,7.4,0.3,7.31,6.05
-Cole Kmet (CHI),Cole Kmet,TE,CHI,Not projected this week,13.6,7,0.1,8.56,8.58,0.2,7.99,8.29,0.4,7.66,6.72,0.1,8.56,8.58,0.2,7.99,8.29,0.4,7.66,6.72
-Tanner McKee (PHI),Tanner McKee,QB,PHI,Bye this week,22.6,7,0.1,17.26,11.92,0.2,13.93,10.98,1.2,13.0,7.72,1.1,11.92,8.19,4.4,10.98,4.42,6.7,9.42,3.14
-David Sills (TB),David Sills,WR,TB,Bye this week,10.2,7,0.2,9.48,6.62,0.2,9.16,6.65,0.7,8.56,5.13,0.1,9.48,7.81,0.1,9.16,7.4,0.5,7.31,6.05
-Dawson Knox (BUF),Dawson Knox,TE,BUF,Played this week,23.0,7,0.1,8.56,8.58,0.2,7.99,8.29,0.4,7.66,6.72,0.1,8.56,8.58,0.2,7.99,8.29,0.4,7.66,6.72
-Barion Brown (NO),Barion Brown,WR,NO,Played this week,17.8,7,0.1,9.48,6.62,0.1,9.16,6.65,0.6,8.56,5.13,0.0,9.48,7.81,0.1,9.16,7.4,0.3,7.31,6.05
-Anthony Tyus III (CAR),Anthony Tyus III,RB,CAR,Played this week,7.4,7,0.0,9.7,5.98,0.1,10.21,4.33,0.5,7.35,3.17,0.0,9.7,8.34,0.0,10.21,6.14,0.2,9.67,4.23
-DeeJay Dallas (MIN),DeeJay Dallas,RB,MIN,Played this week,8.7,7,0.0,9.7,5.98,0.1,10.21,4.33,0.5,7.35,3.17,0.0,9.7,8.34,0.0,10.21,6.14,0.1,9.67,4.23
-Colbie Young (CIN),Colbie Young,WR,CIN,Not projected this week,17.4,7,0.1,9.48,6.62,0.1,9.16,6.65,0.6,8.56,5.13,0.0,9.48,7.81,0.1,9.16,7.4,0.3,7.31,6.05
-Kene Nwangwu (NYJ),Kene Nwangwu,RB,NYJ,Played this week,3.6,6,0.0,9.7,5.98,0.1,10.21,4.33,0.4,7.35,3.17,0.0,9.7,8.34,0.0,10.21,6.14,0.1,9.67,4.23
-Brevyn Spann-Ford (DAL),Brevyn Spann-Ford,TE,DAL,Played this week,31.0,6,0.0,8.56,8.58,0.1,7.99,8.29,0.4,7.66,6.72,0.0,8.56,8.58,0.1,7.99,8.29,0.4,7.66,6.72
-Devin Duvernay (ARI),Devin Duvernay,WR,ARI,Played this week,19.6,6,0.1,9.48,6.62,0.1,9.16,6.65,0.4,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.2,7.31,6.05
-Jonathan Mingo (DAL),Jonathan Mingo,WR,DAL,Not projected this week,6.6,6,0.1,9.48,6.62,0.1,9.16,6.65,0.2,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.1,7.31,6.05
-Jared Wayne (MIA),Jared Wayne,WR,MIA,Not projected this week,8.2,7,0.1,9.48,6.62,0.1,9.16,6.65,0.3,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.2,7.31,6.05
-Kenny Pickett (CAR),Kenny Pickett,QB,CAR,Not projected this week,7.0,7,0.0,17.26,11.92,0.1,13.93,10.98,0.5,13.0,7.72,0.4,11.92,8.19,2.1,10.98,4.42,3.5,9.42,3.14
-Dylan Laube (LV),Dylan Laube,RB,LV,Played this week,6.3,6,0.0,9.7,5.98,0.1,10.21,4.33,0.3,7.35,3.17,0.0,9.7,8.34,0.0,10.21,6.14,0.1,9.67,4.23
-Dare Ogunbowale (HOU),Dare Ogunbowale,RB,HOU,Not projected this week,7.5,7,0.0,9.7,5.98,0.1,10.21,4.33,0.4,7.35,3.17,0.0,9.7,8.34,0.0,10.21,6.14,0.1,9.67,4.23
-Tyrod Taylor (GB),Tyrod Taylor,QB,GB,Played this week,10.8,6,0.1,17.26,11.92,0.1,13.93,10.98,0.7,13.0,7.72,0.6,11.92,8.19,2.6,10.98,4.42,4.0,9.42,3.14
-Travis Homer (PIT),Travis Homer,RB,PIT,Played this week,3.5,7,0.0,9.7,5.98,0.1,10.21,4.33,0.4,7.35,3.17,0.0,9.7,8.34,0.0,10.21,6.14,0.1,9.67,4.23
-KeAndre Lambert-Smith (LAC),KeAndre Lambert-Smith,WR,LAC,Plays this week,14.1,8,0.1,9.48,6.62,0.1,9.16,6.65,0.5,8.56,5.13,0.0,9.48,7.81,0.1,9.16,7.4,0.3,7.31,6.05
-Jalen Brooks (ARI),Jalen Brooks,WR,ARI,IR / reserve,7.3,6,0.1,9.48,6.62,0.1,9.16,6.65,0.3,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.2,7.31,6.05
-Charlie Kolar (LAC),Charlie Kolar,TE,LAC,Plays this week,32.1,8,0.0,8.56,8.58,0.1,7.99,8.29,0.3,7.66,6.72,0.0,8.56,8.58,0.1,7.99,8.29,0.3,7.66,6.72
-Simi Fehoko (ARI),Simi Fehoko,WR,ARI,Played this week,17.8,6,0.1,9.48,6.62,0.1,9.16,6.65,0.5,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.2,7.31,6.05
-Rasheen Ali (BAL),Rasheen Ali,RB,BAL,Plays this week,6.2,7,0.0,9.7,5.98,0.1,10.21,4.33,0.3,7.35,3.17,0.0,9.7,8.34,0.0,10.21,6.14,0.1,9.67,4.23
-CJ Daniels (LA),CJ Daniels,WR,LA,Played this week,17.4,6,0.1,9.48,6.62,0.1,9.16,6.65,0.4,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.2,7.31,6.05
-Noah Gray (KC),Noah Gray,TE,KC,Played this week,23.3,7,0.0,8.56,8.58,0.1,7.99,8.29,0.3,7.66,6.72,0.0,8.56,8.58,0.1,7.99,8.29,0.3,7.66,6.72
-Greg Dortch (BUF),Greg Dortch,WR,BUF,Played this week,5.2,7,0.1,9.48,6.62,0.1,9.16,6.65,0.2,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.1,7.31,6.05
-Jalen Royals (KC),Jalen Royals,WR,KC,Played this week,19.1,7,0.1,9.48,6.62,0.1,9.16,6.65,0.4,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.2,7.31,6.05
-Cameron Latu (NE),Cameron Latu,TE,NE,Not projected this week,5.9,6,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Jack Endries (CIN),Jack Endries,TE,CIN,Played this week,9.4,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Blake Whiteheart (CLE),Blake Whiteheart,TE,CLE,Played this week,6.7,6,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Charlie Jones (NYG),Charlie Jones,WR,NYG,Played this week,4.7,7,0.0,9.48,6.62,0.0,9.16,6.65,0.0,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.0,7.31,6.05
-Brayden Willis (SF),Brayden Willis,TE,SF,Played this week,5.0,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Deion Burks (IND),Deion Burks,WR,IND,Played this week,11.8,6,0.0,9.48,6.62,0.0,9.16,6.65,0.2,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.1,7.31,6.05
-Cam Grandy (CIN),Cam Grandy,TE,CIN,Not projected this week,5.7,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Andrew Ogletree (IND),Andrew Ogletree,TE,IND,Played this week,5.9,6,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Malik McClain (NYJ),Malik McClain,WR,NYJ,Played this week,3.8,6,0.0,9.48,6.62,0.0,9.16,6.65,0.0,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.0,7.31,6.05
-Tay Martin (DET),Tay Martin,WR,DET,Played this week,4.2,7,0.0,9.48,6.62,0.0,9.16,6.65,0.0,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.0,7.31,6.05
-Luke Farrell (SF),Luke Farrell,TE,SF,Not projected this week,9.7,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Max Klare (LA),Max Klare,TE,LA,Not projected this week,14.7,6,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-David Martin-Robinson (TEN),David Martin-Robinson,TE,TEN,Not projected this week,6.1,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Teagan Quitoriano (ARI),Teagan Quitoriano,TE,ARI,Not projected this week,7.6,6,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Daniel Bellinger (TEN),Daniel Bellinger,TE,TEN,Played this week,15.3,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Tanner Koziol (JAX),Tanner Koziol,TE,JAX,Played this week,8.0,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Ben Yurosek (MIN),Ben Yurosek,TE,MIN,Played this week,10.1,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Johnny Mundt (PHI),Johnny Mundt,TE,PHI,Bye this week,7.5,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Sam Roush (CHI),Sam Roush,TE,CHI,Bye this week,15.7,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Mo Alie-Cox (IND),Mo Alie-Cox,TE,IND,IR / reserve,5.9,6,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Jackson Hawes (BUF),Jackson Hawes,TE,BUF,Played this week,8.9,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Bauer Sharp (TB),Bauer Sharp,TE,TB,Bye this week,9.0,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Jordan Whittington (LA),Jordan Whittington,WR,LA,IR / reserve,4.3,6,0.0,9.48,6.62,0.0,9.16,6.65,0.0,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.0,7.31,6.05
-Colson Yankoff (WAS),Colson Yankoff,TE,WAS,Not projected this week,4.7,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Kameron Johnson (TB),Kameron Johnson,WR,TB,Bye this week,6.9,7,0.0,9.48,6.62,0.0,9.16,6.65,0.0,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.0,7.31,6.05
-Myles Price (MIN),Myles Price,WR,MIN,Played this week,11.1,7,0.0,9.48,6.62,0.0,9.16,6.65,0.1,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.0,7.31,6.05
-Mitchell Evans (CAR),Mitchell Evans,TE,CAR,Played this week,21.6,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Tai Felton (MIN),Tai Felton,WR,MIN,Played this week,16.0,7,0.0,9.48,6.62,0.0,9.16,6.65,0.1,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.0,7.31,6.05
-Malachi Corley (CLE),Malachi Corley,WR,CLE,Played this week,4.9,6,0.0,9.48,6.62,0.0,9.16,6.65,0.0,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.0,7.31,6.05
-Jake Briningstool (KC),Jake Briningstool,TE,KC,Played this week,8.5,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Keleki Latu (BUF),Keleki Latu,TE,BUF,Played this week,7.4,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Beaux Collins (ATL),Beaux Collins,WR,ATL,Played this week,4.0,6,0.0,9.48,6.62,0.0,9.16,6.65,0.0,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.0,7.31,6.05
-Jahdae Walker (CHI),Jahdae Walker,WR,CHI,Bye this week,7.6,7,0.0,9.48,6.62,0.0,9.16,6.65,0.0,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.0,7.31,6.05
-Charlie Woerner (ATL),Charlie Woerner,TE,ATL,Played this week,10.0,6,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Andrew Armstrong (KC),Andrew Armstrong,WR,KC,Played this week,8.4,7,0.0,9.48,6.62,0.0,9.16,6.65,0.0,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.0,7.31,6.05
-Gavin Bartholomew (MIN),Gavin Bartholomew,TE,MIN,Played this week,12.2,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Jacob Saylors (DET),Jacob Saylors,RB,DET,Played this week,3.0,7,0.0,9.7,5.98,0.0,10.21,4.33,0.2,7.35,3.17,0.0,9.7,8.34,0.0,10.21,6.14,0.0,9.67,4.23
-Brycen Tremayne (CAR),Brycen Tremayne,WR,CAR,Played this week,17.3,7,0.0,9.48,6.62,0.0,9.16,6.65,0.2,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.1,7.31,6.05
-Jeremy Ruckert (NYJ),Jeremy Ruckert,TE,NYJ,Played this week,6.3,6,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Drew Sample (CIN),Drew Sample,TE,CIN,Played this week,12.3,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Bo Melton (GB),Bo Melton,WR,GB,Played this week,8.5,6,0.0,9.48,6.62,0.0,9.16,6.65,0.1,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.0,7.31,6.05
-Dareke Young (LV),Dareke Young,WR,LV,Played this week,3.7,6,0.0,9.48,6.62,0.0,9.16,6.65,0.0,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.0,7.31,6.05
-Irvin Charles (SEA),Irvin Charles,WR,SEA,Played this week,3.6,6,0.0,9.48,6.62,0.0,9.16,6.65,0.0,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.0,7.31,6.05
-Camden Brown (DAL),Camden Brown,WR,DAL,Played this week,6.8,6,0.0,9.48,6.62,0.0,9.16,6.65,0.1,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.0,7.31,6.05
-J. Michael Sturdivant (GB),J. Michael Sturdivant,WR,GB,Played this week,5.5,6,0.0,9.48,6.62,0.0,9.16,6.65,0.0,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.0,7.31,6.05
-Harrison Wallace III (ARI),Harrison Wallace III,WR,ARI,Played this week,6.0,6,0.0,9.48,6.62,0.0,9.16,6.65,0.0,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.0,7.31,6.05
-Nick Kallerup (SEA),Nick Kallerup,TE,SEA,Not projected this week,6.1,6,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Eric Saubert (SEA),Eric Saubert,TE,SEA,Not projected this week,7.2,6,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Oscar Delp (NO),Oscar Delp,TE,NO,Not projected this week,21.5,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Foster Moreau (HOU),Foster Moreau,TE,HOU,Not projected this week,13.3,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Marlin Klein (HOU),Marlin Klein,TE,HOU,Not projected this week,17.0,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Nick Muse (ATL),Nick Muse,TE,ATL,Not projected this week,5.6,6,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Tyler Conklin (DET),Tyler Conklin,TE,DET,Not projected this week,9.9,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Jonnu Smith (GB),Jonnu Smith,TE,GB,Not projected this week,20.3,6,0.0,8.56,8.58,0.0,7.99,8.29,0.2,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.2,7.66,6.72
-Devontez Walker (BAL),Devontez Walker,WR,BAL,Plays this week,8.8,7,0.0,9.48,6.62,0.0,9.16,6.65,0.0,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.0,7.31,6.05
-Derius Davis (LAC),Derius Davis,WR,LAC,Plays this week,8.8,8,0.0,9.48,6.62,0.0,9.16,6.65,0.0,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.0,7.31,6.05
-Will Kacmarek (MIA),Will Kacmarek,TE,MIA,Played this week,14.9,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-John Bates (WAS),John Bates,TE,WAS,Played this week,14.4,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Tylan Wallace (CLE),Tylan Wallace,WR,CLE,Played this week,4.7,6,0.0,9.48,6.62,0.0,9.16,6.65,0.0,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.0,7.31,6.05
-Kylen Granson (TEN),Kylen Granson,TE,TEN,Not projected this week,7.2,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Erick All (CIN),Erick All,TE,CIN,IR / reserve,8.6,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Britain Covey (PHI),Britain Covey,WR,PHI,Not projected this week,5.3,7,0.0,9.48,6.62,0.0,9.16,6.65,0.1,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.0,7.31,6.05
-Tommy DeVito (NE),Tommy DeVito,QB,NE,Played this week,4.9,6,0.0,17.26,11.92,0.0,13.93,10.98,0.3,13.0,7.72,0.3,11.92,8.19,1.6,10.98,4.42,2.6,9.42,3.14
-Feleipe Franks (CAR),Feleipe Franks,TE,CAR,Played this week,2.6,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Brock Wright (DET),Brock Wright,TE,DET,Played this week,10.0,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Robert Tonyan (PIT),Robert Tonyan,TE,PIT,Played this week,4.3,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Austin Hooper (ATL),Austin Hooper,TE,ATL,Played this week,9.4,6,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-DeAndre Carter (DET),DeAndre Carter,WR,DET,Played this week,3.7,7,0.0,9.48,6.62,0.0,9.16,6.65,0.0,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.0,7.31,6.05
-Brandon Smith (PIT),Brandon Smith,WR,PIT,Played this week,8.1,7,0.0,9.48,6.62,0.0,9.16,6.65,0.0,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.0,7.31,6.05
-Lew Nichols III (PIT),Lew Nichols III,RB,PIT,Played this week,3.8,7,0.0,9.7,5.98,0.0,10.21,4.33,0.1,7.35,3.17,0.0,9.7,8.34,0.0,10.21,6.14,0.0,9.67,4.23
-Josh Cuevas (BAL),Josh Cuevas,TE,BAL,Plays this week,18.2,7,0.0,8.56,8.58,0.0,7.99,8.29,0.1,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.1,7.66,6.72
-Chris Blair (ATL),Chris Blair,WR,ATL,Played this week,5.5,6,0.0,9.48,6.62,0.0,9.16,6.65,0.0,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.0,7.31,6.05
-Quintin Morris (JAX),Quintin Morris,TE,JAX,Played this week,4.2,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Elijah Higgins (ARI),Elijah Higgins,TE,ARI,Not projected this week,13.7,6,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Julius Chestnut (TEN),Julius Chestnut,RB,TEN,Not projected this week,7.8,7,0.0,9.7,5.98,0.0,10.21,4.33,0.1,7.35,3.17,0.0,9.7,8.34,0.0,10.21,6.14,0.0,9.67,4.23
-Kaden Wetjen (PIT),Kaden Wetjen,WR,PIT,Played this week,4.8,7,0.0,9.48,6.62,0.0,9.16,6.65,0.0,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.0,7.31,6.05
-LaJohntay Wester (BAL),LaJohntay Wester,WR,BAL,Plays this week,5.7,7,0.0,9.48,6.62,0.0,9.16,6.65,0.0,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.0,7.31,6.05
-Matthew Hibner (BAL),Matthew Hibner,TE,BAL,Plays this week,12.1,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Seydou Traore (MIA),Seydou Traore,TE,MIA,Played this week,5.9,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Jalin Hyatt (NYG),Jalin Hyatt,WR,NYG,Played this week,6.0,7,0.0,9.48,6.62,0.0,9.16,6.65,0.1,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.0,7.31,6.05
-Mark Redman (GB),Mark Redman,TE,GB,Played this week,7.2,6,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Josh Whyle (GB),Josh Whyle,TE,GB,IR / reserve,13.9,6,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Dean Connors (LA),Dean Connors,RB,LA,IR / reserve,4.4,6,0.0,9.7,5.98,0.0,10.21,4.33,0.2,7.35,3.17,0.0,9.7,8.34,0.0,10.21,6.14,0.1,9.67,4.23
-Grant Calcaterra (PHI),Grant Calcaterra,TE,PHI,Bye this week,6.9,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Ben Sinnott (WAS),Ben Sinnott,TE,WAS,Played this week,14.7,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Jacob Cowing (SF),Jacob Cowing,WR,SF,Played this week,10.3,7,0.0,9.48,6.62,0.0,9.16,6.65,0.1,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.0,7.31,6.05
-Davis Allen (LA),Davis Allen,TE,LA,Played this week,13.8,6,0.0,8.56,8.58,0.0,7.99,8.29,0.1,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.1,7.66,6.72
-Stephen Carlson (CHI),Stephen Carlson,TE,CHI,Bye this week,5.9,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Joshua Dobbs (DET),Joshua Dobbs,QB,DET,Not projected this week,6.1,7,0.0,17.26,11.92,0.0,13.93,10.98,0.2,13.0,7.72,0.2,11.92,8.19,1.4,10.98,4.42,2.5,9.42,3.14
-DJ Uiagalelei (LAC),DJ Uiagalelei,QB,LAC,Plays this week,16.8,8,0.0,17.26,11.92,0.0,13.93,10.98,0.4,13.0,7.72,0.3,11.92,8.19,2.5,10.98,4.42,4.2,9.42,3.14
-Anthony Gould (IND),Anthony Gould,WR,IND,Played this week,8.0,6,0.0,9.48,6.62,0.0,9.16,6.65,0.0,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.0,7.31,6.05
-Theo Johnson (NYG),Theo Johnson,TE,NYG,Played this week,20.9,7,0.0,8.56,8.58,0.0,7.99,8.29,0.2,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.2,7.66,6.72
-Adam Trautman (DEN),Adam Trautman,TE,DEN,Bye this week,11.3,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Brevin Jordan (HOU),Brevin Jordan,TE,HOU,Not projected this week,7.8,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Will Mallory (IND),Will Mallory,TE,IND,Inactive this week,8.4,6,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Thomas Fidone II (NYG),Thomas Fidone II,TE,NYG,Not projected this week,6.6,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Jared Wiley (KC),Jared Wiley,TE,KC,Not projected this week,14.4,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Jelani Woods (NYJ),Jelani Woods,TE,NYJ,Inactive this week,7.5,6,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Ko Kieft (TB),Ko Kieft,TE,TB,Bye this week,5.9,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Payne Durham (TB),Payne Durham,TE,TB,Bye this week,9.6,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Ashton Dulin (IND),Ashton Dulin,WR,IND,Played this week,12.3,6,0.0,9.48,6.62,0.0,9.16,6.65,0.2,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.1,7.31,6.05
-Cade Stover (HOU),Cade Stover,TE,HOU,Played this week,8.8,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Mason Rudolph (PIT),Mason Rudolph,QB,PIT,Played this week,5.5,7,0.0,17.26,11.92,0.0,13.93,10.98,0.3,13.0,7.72,0.3,11.92,8.19,1.7,10.98,4.42,2.9,9.42,3.14
-Nate Adkins (DEN),Nate Adkins,TE,DEN,Bye this week,10.4,7,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Luke McCaffrey (WAS),Luke McCaffrey,WR,WAS,Played this week,15.4,7,0.0,9.48,6.62,0.0,9.16,6.65,0.2,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.1,7.31,6.05
-Nikko Remigio (HOU),Nikko Remigio,WR,HOU,Not projected this week,4.9,7,0.0,9.48,6.62,0.0,9.16,6.65,0.0,8.56,5.13,0.0,9.48,7.81,0.0,9.16,7.4,0.0,7.31,6.05
-Ian Thomas (LV),Ian Thomas,TE,LV,Played this week,5.7,6,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Kyle Allen (BUF),Kyle Allen,QB,BUF,Played this week,4.1,7,0.0,17.26,11.92,0.0,13.93,10.98,0.2,13.0,7.72,0.1,11.92,8.19,1.2,10.98,4.42,2.2,9.42,3.14
-Luke Schoonmaker (DAL),Luke Schoonmaker,TE,DAL,Not projected this week,5.1,6,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
-Pharaoh Brown (IND),Pharaoh Brown,TE,IND,Not projected this week,4.5,6,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72,0.0,8.56,8.58,0.0,7.99,8.29,0.0,7.66,6.72
+Jahmyr Gibbs (DET),Jahmyr Gibbs,RB,DET,Played this week,140.4,7,61.2,9.75,5.87,64.3,10.23,4.39,69.4,9.73,3.14,54.2,9.75,8.36,58.6,10.23,6.33,66.4,9.73,4.15
+Christian McCaffrey (SF),Christian McCaffrey,RB,SF,Played this week,134.8,7,60.0,9.75,5.87,63.1,10.23,4.39,68.1,9.73,3.14,53.2,9.75,8.36,57.5,10.23,6.33,65.1,9.73,4.15
+Bijan Robinson (ATL),Bijan Robinson,RB,ATL,Played this week,123.8,6,57.9,9.75,5.87,60.6,10.23,4.39,65.0,9.73,3.14,51.8,9.75,8.36,55.7,10.23,6.33,62.4,9.73,4.15
+Ja'Marr Chase (CIN),Ja'Marr Chase,WR,CIN,Played this week,129.4,7,50.7,9.33,8.6,56.7,9.08,6.7,62.8,8.38,5.29,53.0,9.33,7.77,54.9,9.08,7.31,60.3,8.38,6.12
+Jaxon Smith-Njigba (SEA),Jaxon Smith-Njigba,WR,SEA,Played this week,110.7,6,49.5,9.33,8.6,54.9,9.08,6.7,60.4,8.38,5.29,51.6,9.33,7.77,53.3,9.08,7.31,58.2,8.38,6.12
+Chuba Hubbard (CAR),Chuba Hubbard,RB,CAR,Played this week,102.6,7,45.4,9.75,5.87,49.0,10.23,4.39,54.7,9.73,3.14,37.3,9.75,8.36,42.5,10.23,6.33,51.3,9.73,4.15
+Javonte Williams (DAL),Javonte Williams,RB,DAL,Played this week,97.0,6,45.7,9.75,5.87,48.7,10.23,4.39,53.6,9.73,3.14,38.9,9.75,8.36,43.2,10.23,6.33,50.6,9.73,4.15
+CeeDee Lamb (DAL),CeeDee Lamb,WR,DAL,Played this week,105.6,6,42.7,9.33,8.6,47.9,9.08,6.7,53.1,8.38,5.29,44.7,9.33,7.77,46.4,9.08,7.31,51.0,8.38,6.12
+James Cook (BUF),James Cook,RB,BUF,Played this week,107.4,7,42.3,9.75,5.87,45.4,10.23,4.39,50.2,9.73,3.14,35.6,9.75,8.36,39.9,10.23,6.33,47.2,9.73,4.15
+Malik Nabers (NYG),Malik Nabers,WR,NYG,Played this week,102.4,7,38.9,9.33,8.6,44.6,9.08,6.7,50.6,8.38,5.29,41.1,9.33,7.77,43.0,9.08,7.31,48.1,8.38,6.12
+Chris Olave (NO),Chris Olave,WR,NO,Played this week,105.3,7,38.4,9.33,8.6,44.2,9.08,6.7,50.1,8.38,5.29,40.6,9.33,7.77,42.5,9.08,7.31,47.7,8.38,6.12
+Justin Jefferson (MIN),Justin Jefferson,WR,MIN,Played this week,96.1,7,37.3,9.33,8.6,43.4,9.08,6.7,49.7,8.38,5.29,39.6,9.33,7.77,41.6,9.08,7.31,47.2,8.38,6.12
+Amon-Ra St. Brown (DET),Amon-Ra St. Brown,WR,DET,Played this week,106.7,7,36.8,9.33,8.6,42.4,9.08,6.7,48.1,8.38,5.29,38.9,9.33,7.77,40.7,9.08,7.31,45.7,8.38,6.12
+Tee Higgins (CIN),Tee Higgins,WR,CIN,Played this week,99.8,7,36.5,9.33,8.6,42.3,9.08,6.7,48.3,8.38,5.29,38.7,9.33,7.77,40.6,9.08,7.31,45.8,8.38,6.12
+Christian Watson (GB),Christian Watson,WR,GB,Played this week,90.0,6,34.8,9.33,8.6,40.0,9.08,6.7,45.2,8.38,5.29,36.7,9.33,7.77,38.4,9.08,7.31,43.1,8.38,6.12
+Kenneth Walker III (KC),Kenneth Walker III,RB,KC,Inactive this week,95.9,7,35.9,9.75,5.87,39.1,10.23,4.39,44.1,9.73,3.14,29.2,9.75,8.36,33.5,10.23,6.33,41.0,9.73,4.15
+Drake London (ATL),Drake London,WR,ATL,Played this week,82.4,6,33.5,9.33,8.6,39.0,9.08,6.7,44.6,8.38,5.29,35.6,9.33,7.77,37.4,9.08,7.31,42.3,8.38,6.12
+Brock Purdy (SF),Brock Purdy,QB,SF,Played this week,126.8,7,31.8,17.38,10.25,38.2,13.78,10.63,47.0,12.92,8.01,52.7,10.25,8.32,61.6,10.63,4.91,73.9,8.01,3.15
+Brock Bowers (LV),Brock Bowers,TE,LV,Played this week,90.4,6,35.2,8.53,8.89,37.8,7.97,8.4,43.2,7.64,6.66,35.2,8.53,8.89,37.8,7.97,8.4,43.2,7.64,6.66
+Matthew Golden (GB),Matthew Golden,WR,GB,Played this week,88.2,6,32.5,9.33,8.6,37.7,9.08,6.7,43.1,8.38,5.29,34.5,9.33,7.77,36.2,9.08,7.31,40.9,8.38,6.12
+Josh Allen (BUF),Josh Allen,QB,BUF,Played this week,130.6,7,31.2,17.38,10.25,37.6,13.78,10.63,46.3,12.92,8.01,51.9,10.25,8.32,60.4,10.63,4.91,72.4,8.01,3.15
+Joe Burrow (CIN),Joe Burrow,QB,CIN,Played this week,126.4,7,29.8,17.38,10.25,36.0,13.78,10.63,44.6,12.92,8.01,50.1,10.25,8.32,58.7,10.63,4.91,70.6,8.01,3.15
+Drake Maye (NE),Drake Maye,QB,NE,Played this week,113.8,6,28.2,17.38,10.25,33.9,13.78,10.63,41.6,12.92,8.01,46.5,10.25,8.32,54.2,10.63,4.91,64.7,8.01,3.15
+Bucky Irving (TB),Bucky Irving,RB,TB,Bye this week,85.7,7,30.6,9.75,5.87,33.8,10.23,4.39,38.6,9.73,3.14,24.1,9.75,8.36,28.3,10.23,6.33,35.6,9.73,4.15
+Jonathan Taylor (IND),Jonathan Taylor,RB,IND,Played this week,84.2,6,31.0,9.75,5.87,33.7,10.23,4.39,37.9,9.73,3.14,25.4,9.75,8.36,29.0,10.23,6.33,35.3,9.73,4.15
+Kyren Williams (LA),Kyren Williams,RB,LA,Played this week,85.0,6,30.5,9.75,5.87,33.2,10.23,4.39,37.4,9.73,3.14,24.9,9.75,8.36,28.5,10.23,6.33,34.8,9.73,4.15
+Parker Washington (JAX),Parker Washington,WR,JAX,Played this week,87.2,7,26.8,9.33,8.6,32.6,9.08,6.7,38.6,8.38,5.29,29.0,9.33,7.77,30.9,9.08,7.31,36.1,8.38,6.12
+Jaylen Warren (PIT),Jaylen Warren,RB,PIT,Played this week,88.9,7,29.2,9.75,5.87,32.5,10.23,4.39,37.4,9.73,3.14,22.6,9.75,8.36,26.9,10.23,6.33,34.3,9.73,4.15
+Chase Brown (CIN),Chase Brown,RB,CIN,Played this week,85.7,7,28.6,9.75,5.87,31.7,10.23,4.39,36.3,9.73,3.14,22.5,9.75,8.36,26.4,10.23,6.33,33.4,9.73,4.15
+Derrick Henry (BAL),Derrick Henry,RB,BAL,Plays this week,84.0,7,28.0,9.75,5.87,31.1,10.23,4.39,35.8,9.73,3.14,21.8,9.75,8.36,25.8,10.23,6.33,32.8,9.73,4.15
+Tony Pollard (TEN),Tony Pollard,RB,TEN,Played this week,74.9,7,26.3,9.75,5.87,29.8,10.23,4.39,34.7,9.73,3.14,19.8,9.75,8.36,24.1,10.23,6.33,31.5,9.73,4.15
+Zay Flowers (BAL),Zay Flowers,WR,BAL,Plays this week,92.5,7,24.1,9.33,8.6,29.7,9.08,6.7,35.3,8.38,5.29,26.2,9.33,7.77,28.0,9.08,7.31,33.0,8.38,6.12
+Puka Nacua (LA),Puka Nacua,WR,LA,IR / reserve,78.9,6,25.1,9.33,8.6,29.6,9.08,6.7,34.2,8.38,5.29,26.8,9.33,7.77,28.3,9.08,7.31,32.3,8.38,6.12
+D'Andre Swift (CHI),D'Andre Swift,RB,CHI,Bye this week,83.1,7,25.8,9.75,5.87,29.1,10.23,4.39,33.8,9.73,3.14,19.5,9.75,8.36,23.6,10.23,6.33,30.8,9.73,4.15
+Tetairoa McMillan (CAR),Tetairoa McMillan,WR,CAR,Played this week,84.7,7,23.4,9.33,8.6,28.7,9.08,6.7,34.2,8.38,5.29,25.4,9.33,7.77,27.1,9.08,7.31,31.9,8.38,6.12
+Trey McBride (ARI),Trey McBride,TE,ARI,Played this week,76.6,6,26.2,8.53,8.89,28.5,7.97,8.4,33.4,7.64,6.66,26.2,8.53,8.89,28.5,7.97,8.4,33.4,7.64,6.66
+George Kittle (SF),George Kittle,TE,SF,Played this week,88.7,7,24.6,8.53,8.89,27.3,7.97,8.4,33.2,7.64,6.66,24.6,8.53,8.89,27.3,7.97,8.4,33.2,7.64,6.66
+Josh Jacobs (GB),Josh Jacobs,RB,GB,Not projected this week,67.9,6,24.3,9.75,5.87,26.9,10.23,4.39,30.7,9.73,3.14,19.2,9.75,8.36,22.5,10.23,6.33,28.3,9.73,4.15
+Jordan Love (GB),Jordan Love,QB,GB,Played this week,104.3,6,21.6,17.38,10.25,26.9,13.78,10.63,34.5,12.92,8.01,39.4,10.25,8.32,47.1,10.63,4.91,57.7,8.01,3.15
+Nico Collins (HOU),Nico Collins,WR,HOU,Played this week,81.7,7,21.5,9.33,8.6,26.7,9.08,6.7,32.1,8.38,5.29,23.4,9.33,7.77,25.1,9.08,7.31,29.8,8.38,6.12
+Breece Hall (NYJ),Breece Hall,RB,NYJ,Played this week,73.7,6,23.7,9.75,5.87,26.5,10.23,4.39,30.6,9.73,3.14,18.2,9.75,8.36,21.8,10.23,6.33,28.0,9.73,4.15
+Patrick Mahomes (KC),Patrick Mahomes,QB,KC,Played this week,109.6,7,21.3,17.38,10.25,26.5,13.78,10.63,35.0,12.92,8.01,40.3,10.25,8.32,49.1,10.63,4.91,61.3,8.01,3.15
+Jameson Williams (DET),Jameson Williams,WR,DET,Played this week,80.1,7,21.4,9.33,8.6,26.4,9.08,6.7,31.5,8.38,5.29,23.3,9.33,7.77,24.9,9.08,7.31,29.3,8.38,6.12
+Dak Prescott (DAL),Dak Prescott,QB,DAL,Played this week,98.0,6,21.4,17.38,10.25,26.2,13.78,10.63,33.5,12.92,8.01,38.1,10.25,8.32,45.5,10.63,4.91,55.8,8.01,3.15
+Bhayshul Tuten (JAX),Bhayshul Tuten,RB,JAX,Played this week,79.0,7,22.8,9.75,5.87,26.1,10.23,4.39,30.9,9.73,3.14,16.5,9.75,8.36,20.6,10.23,6.33,27.8,9.73,4.15
+George Pickens (DAL),George Pickens,WR,DAL,Played this week,74.2,6,21.1,9.33,8.6,25.8,9.08,6.7,30.6,8.38,5.29,22.9,9.33,7.77,24.4,9.08,7.31,28.6,8.38,6.12
+Trevor Lawrence (JAX),Trevor Lawrence,QB,JAX,Played this week,112.3,7,20.3,17.38,10.25,25.7,13.78,10.63,34.0,12.92,8.01,39.2,10.25,8.32,47.7,10.63,4.91,59.4,8.01,3.15
+Garrett Wilson (NYJ),Garrett Wilson,WR,NYJ,Played this week,69.5,6,20.7,9.33,8.6,25.4,9.08,6.7,30.2,8.38,5.29,22.5,9.33,7.77,24.0,9.08,7.31,28.2,8.38,6.12
+Ollie Gordon II (MIA),Ollie Gordon II,RB,MIA,Played this week,74.7,7,21.6,9.75,5.87,25.1,10.23,4.39,30.0,9.73,3.14,15.0,9.75,8.36,19.4,10.23,6.33,26.8,9.73,4.15
+Saquon Barkley (PHI),Saquon Barkley,RB,PHI,Bye this week,72.3,7,21.9,9.75,5.87,25.1,10.23,4.39,29.7,9.73,3.14,16.0,9.75,8.36,19.9,10.23,6.33,26.7,9.73,4.15
+Woody Marks (HOU),Woody Marks,RB,HOU,Played this week,68.3,7,21.5,9.75,5.87,24.7,10.23,4.39,29.2,9.73,3.14,15.7,9.75,8.36,19.5,10.23,6.33,26.2,9.73,4.15
+Alvin Kamara (NO),Alvin Kamara,RB,NO,Played this week,56.5,7,21.1,9.75,5.87,24.2,10.23,4.39,28.3,9.73,3.14,16.2,9.75,8.36,19.4,10.23,6.33,25.5,9.73,4.15
+Caleb Williams (CHI),Caleb Williams,QB,CHI,Bye this week,115.3,7,18.4,17.38,10.25,23.9,13.78,10.63,32.2,12.92,8.01,37.5,10.25,8.32,45.9,10.63,4.91,57.5,8.01,3.15
+Zach Charbonnet (SEA),Zach Charbonnet,RB,SEA,Played this week,66.7,6,21.0,9.75,5.87,23.9,10.23,4.39,28.0,9.73,3.14,15.5,9.75,8.36,19.1,10.23,6.33,25.3,9.73,4.15
+KC Concepcion (CLE),KC Concepcion,WR,CLE,Played this week,68.4,6,19.2,9.33,8.6,23.7,9.08,6.7,28.4,8.38,5.29,20.9,9.33,7.77,22.3,9.08,7.31,26.4,8.38,6.12
+Jonah Coleman (DEN),Jonah Coleman,RB,DEN,Bye this week,70.7,7,20.3,9.75,5.87,23.5,10.23,4.39,28.0,9.73,3.14,14.4,9.75,8.36,18.3,10.23,6.33,25.1,9.73,4.15
+Ashton Jeanty (LV),Ashton Jeanty,RB,LV,Played this week,69.9,6,20.5,9.75,5.87,23.0,10.23,4.39,26.9,9.73,3.14,15.3,9.75,8.36,18.6,10.23,6.33,24.5,9.73,4.15
+Quinshon Judkins (CLE),Quinshon Judkins,RB,CLE,Played this week,66.8,6,20.5,9.75,5.87,23.0,10.23,4.39,26.9,9.73,3.14,15.4,9.75,8.36,18.7,10.23,6.33,24.4,9.73,4.15
+Jared Goff (DET),Jared Goff,QB,DET,Played this week,111.9,7,17.7,17.38,10.25,22.9,13.78,10.63,31.1,12.92,8.01,36.2,10.25,8.32,44.6,10.63,4.91,56.1,8.01,3.15
+Travis Etienne (NO),Travis Etienne,RB,NO,Not projected this week,67.5,7,19.8,9.75,5.87,22.8,10.23,4.39,27.1,9.73,3.14,14.4,9.75,8.36,18.0,10.23,6.33,24.3,9.73,4.15
+Tyler Shough (NO),Tyler Shough,QB,NO,Played this week,105.4,7,18.0,17.38,10.25,22.6,13.78,10.63,30.6,12.92,8.01,35.6,10.25,8.32,43.8,10.63,4.91,55.2,8.01,3.15
+Rashee Rice (KC),Rashee Rice,WR,KC,Played this week,77.4,7,17.1,9.33,8.6,22.2,9.08,6.7,27.4,8.38,5.29,19.0,9.33,7.77,20.7,9.08,7.31,25.2,8.38,6.12
+Jalen Coker (CAR),Jalen Coker,WR,CAR,Played this week,71.6,7,17.2,9.33,8.6,22.1,9.08,6.7,27.4,8.38,5.29,19.0,9.33,7.77,20.6,9.08,7.31,25.1,8.38,6.12
+DK Metcalf (PIT),DK Metcalf,WR,PIT,Played this week,68.7,7,16.7,9.33,8.6,21.6,9.08,6.7,26.8,8.38,5.29,18.5,9.33,7.77,20.1,9.08,7.31,24.5,8.38,6.12
+Luther Burden III (CHI),Luther Burden III,WR,CHI,Bye this week,72.9,7,16.6,9.33,8.6,21.6,9.08,6.7,26.8,8.38,5.29,18.5,9.33,7.77,20.1,9.08,7.31,24.6,8.38,6.12
+Carnell Tate (TEN),Carnell Tate,WR,TEN,Not projected this week,70.9,7,17.0,9.33,8.6,21.6,9.08,6.7,26.5,8.38,5.29,18.7,9.33,7.77,20.2,9.08,7.31,24.4,8.38,6.12
+DJ Moore (BUF),DJ Moore,WR,BUF,Played this week,70.1,7,16.3,9.33,8.6,21.3,9.08,6.7,26.6,8.38,5.29,18.2,9.33,7.77,19.8,9.08,7.31,24.3,8.38,6.12
+Jeremiyah Love (ARI),Jeremiyah Love,RB,ARI,IR / reserve,54.9,6,18.3,9.75,5.87,20.8,10.23,4.39,24.4,9.73,3.14,13.7,9.75,8.36,16.7,10.23,6.33,22.0,9.73,4.15
+C.J. Stroud (HOU),C.J. Stroud,QB,HOU,Played this week,105.2,7,15.9,17.38,10.25,20.4,13.78,10.63,28.3,12.92,8.01,33.3,10.25,8.32,41.5,10.63,4.91,52.9,8.01,3.15
+Tyler Allgeier (ARI),Tyler Allgeier,RB,ARI,Played this week,56.3,6,17.4,9.75,5.87,20.3,10.23,4.39,24.3,9.73,3.14,12.3,9.75,8.36,15.7,10.23,6.33,21.6,9.73,4.15
+Blake Corum (LA),Blake Corum,RB,LA,Played this week,61.4,6,17.2,9.75,5.87,20.1,10.23,4.39,24.1,9.73,3.14,11.9,9.75,8.36,15.4,10.23,6.33,21.4,9.73,4.15
+Emmett Johnson (KC),Emmett Johnson,RB,KC,Played this week,66.8,7,16.3,9.75,5.87,19.6,10.23,4.39,24.0,9.73,3.14,10.6,9.75,8.36,14.4,10.23,6.33,21.0,9.73,4.15
+Sam LaPorta (DET),Sam LaPorta,TE,DET,Played this week,72.8,7,17.0,8.53,8.89,19.4,7.97,8.4,24.7,7.64,6.66,17.0,8.53,8.89,19.4,7.97,8.4,24.7,7.64,6.66
+Cam Skattebo (NYG),Cam Skattebo,RB,NYG,Played this week,70.2,7,16.3,9.75,5.87,19.3,10.23,4.39,23.6,9.73,3.14,10.7,9.75,8.36,14.3,10.23,6.33,20.8,9.73,4.15
+Rachaad White (WAS),Rachaad White,RB,WAS,Played this week,65.4,7,16.2,9.75,5.87,19.3,10.23,4.39,23.5,9.73,3.14,10.7,9.75,8.36,14.4,10.23,6.33,20.6,9.73,4.15
+Mike Evans (SF),Mike Evans,WR,SF,Not projected this week,71.1,7,14.6,9.33,8.6,19.2,9.08,6.7,24.1,8.38,5.29,16.4,9.33,7.77,17.9,9.08,7.31,22.0,8.38,6.12
+Harold Fannin Jr. (CLE),Harold Fannin Jr.,TE,CLE,Played this week,65.9,6,16.8,8.53,8.89,19.0,7.97,8.4,23.9,7.64,6.66,16.8,8.53,8.89,19.0,7.97,8.4,23.9,7.64,6.66
+Jaylen Waddle (DEN),Jaylen Waddle,WR,DEN,Bye this week,65.3,7,14.5,9.33,8.6,19.0,9.08,6.7,23.8,8.38,5.29,16.1,9.33,7.77,17.6,9.08,7.31,21.7,8.38,6.12
+Colston Loveland (CHI),Colston Loveland,TE,CHI,Bye this week,74.3,7,16.6,8.53,8.89,19.0,7.97,8.4,24.1,7.64,6.66,16.6,8.53,8.89,19.0,7.97,8.4,24.1,7.64,6.66
+Omarion Hampton (LAC),Omarion Hampton,RB,LAC,Plays this week,60.6,8,15.7,9.75,5.87,19.0,10.23,4.39,23.3,9.73,3.14,10.4,9.75,8.36,14.0,10.23,6.33,20.3,9.73,4.15
+Jadarian Price (SEA),Jadarian Price,RB,SEA,Played this week,54.3,6,16.3,9.75,5.87,18.9,10.23,4.39,22.4,9.73,3.14,11.8,9.75,8.36,14.8,10.23,6.33,20.0,9.73,4.15
+Emeka Egbuka (TB),Emeka Egbuka,WR,TB,Bye this week,69.0,7,14.0,9.33,8.6,18.8,9.08,6.7,23.8,8.38,5.29,15.8,9.33,7.77,17.3,9.08,7.31,21.6,8.38,6.12
+Davante Adams (LA),Davante Adams,WR,LA,IR / reserve,51.2,6,15.1,9.33,8.6,18.5,9.08,6.7,22.3,8.38,5.29,16.3,9.33,7.77,17.5,9.08,7.31,20.7,8.38,6.12
+Rico Dowdle (PIT),Rico Dowdle,RB,PIT,Played this week,59.8,7,15.3,9.75,5.87,18.3,10.23,4.39,22.3,9.73,3.14,10.2,9.75,8.36,13.6,10.23,6.33,19.5,9.73,4.15
+Braelon Allen (NYJ),Braelon Allen,RB,NYJ,Played this week,58.4,6,15.4,9.75,5.87,18.3,10.23,4.39,22.3,9.73,3.14,10.3,9.75,8.36,13.7,10.23,6.33,19.6,9.73,4.15
+Jayden Daniels (WAS),Jayden Daniels,QB,WAS,Played this week,95.7,7,14.8,17.38,10.25,18.3,13.78,10.63,25.8,12.92,8.01,30.5,10.25,8.32,38.5,10.63,4.91,49.6,8.01,3.15
+Denzel Boston (CLE),Denzel Boston,WR,CLE,Played this week,57.3,6,13.8,9.33,8.6,17.8,9.08,6.7,22.0,8.38,5.29,15.3,9.33,7.77,16.6,9.08,7.31,20.2,8.38,6.12
+Rhamondre Stevenson (NE),Rhamondre Stevenson,RB,NE,Played this week,54.3,6,14.8,9.75,5.87,17.6,10.23,4.39,21.4,9.73,3.14,10.0,9.75,8.36,13.2,10.23,6.33,18.8,9.73,4.15
+Isaiah Likely (NYG),Isaiah Likely,TE,NYG,Played this week,72.1,7,14.7,8.53,8.89,17.1,7.97,8.4,22.3,7.64,6.66,14.7,8.53,8.89,17.1,7.97,8.4,22.3,7.64,6.66
+RJ Harvey (DEN),RJ Harvey,RB,DEN,Not projected this week,51.6,7,14.0,9.75,5.87,16.9,10.23,4.39,20.6,9.73,3.14,9.5,9.75,8.36,12.6,10.23,6.33,18.0,9.73,4.15
+Rome Odunze (CHI),Rome Odunze,WR,CHI,Bye this week,62.6,7,12.4,9.33,8.6,16.8,9.08,6.7,21.6,8.38,5.29,14.1,9.33,7.77,15.5,9.08,7.31,19.5,8.38,6.12
+Stefon Diggs (WAS),Stefon Diggs,WR,WAS,Played this week,64.4,7,12.2,9.33,8.6,16.7,9.08,6.7,21.5,8.38,5.29,13.9,9.33,7.77,15.3,9.08,7.31,19.4,8.38,6.12
+Jordan Mason (MIN),Jordan Mason,RB,MIN,Played this week,56.6,7,13.3,9.75,5.87,16.7,10.23,4.39,20.9,9.73,3.14,8.1,9.75,8.36,11.6,10.23,6.33,17.9,9.73,4.15
+Matthew Stafford (LA),Matthew Stafford,QB,LA,Played this week,85.4,6,13.2,17.38,10.25,16.5,13.78,10.63,23.2,12.92,8.01,27.3,10.25,8.32,34.4,10.63,4.91,44.1,8.01,3.15
+Kenny Gainwell (TB),Kenny Gainwell,RB,TB,Bye this week,54.3,7,13.5,9.75,5.87,16.5,10.23,4.39,20.3,9.73,3.14,8.8,9.75,8.36,12.0,10.23,6.33,17.6,9.73,4.15
+DeVonta Smith (PHI),DeVonta Smith,WR,PHI,Not projected this week,64.2,7,12.2,9.33,8.6,16.5,9.08,6.7,21.1,8.38,5.29,13.8,9.33,7.77,15.2,9.08,7.31,19.1,8.38,6.12
+Dylan Sampson (CLE),Dylan Sampson,RB,CLE,Played this week,50.1,6,13.6,9.75,5.87,16.2,10.23,4.39,19.6,9.73,3.14,9.3,9.75,8.36,12.2,10.23,6.33,17.3,9.73,4.15
+Wan'Dale Robinson (TEN),Wan'Dale Robinson,WR,TEN,Played this week,61.9,7,11.6,9.33,8.6,15.8,9.08,6.7,20.3,8.38,5.29,13.2,9.33,7.77,14.5,9.08,7.31,18.3,8.38,6.12
+Travis Kelce (KC),Travis Kelce,TE,KC,Played this week,69.2,7,13.0,8.53,8.89,15.3,7.97,8.4,20.4,7.64,6.66,13.0,8.53,8.89,15.3,7.97,8.4,20.4,7.64,6.66
+Josh Downs (KC),Josh Downs,WR,KC,Plays this week,61.8,7,11.0,9.33,8.6,15.2,9.08,6.7,19.9,8.38,5.29,12.5,9.33,7.77,13.9,9.08,7.31,17.9,8.38,6.12
+David Montgomery (HOU),David Montgomery,RB,HOU,Not projected this week,57.4,7,12.0,9.75,5.87,15.1,10.23,4.39,18.9,9.73,3.14,7.1,9.75,8.36,10.5,10.23,6.33,16.2,9.73,4.15
+Makai Lemon (PHI),Makai Lemon,WR,PHI,Bye this week,63.6,7,10.8,9.33,8.6,15.1,9.08,6.7,19.7,8.38,5.29,12.4,9.33,7.77,13.8,9.08,7.31,17.7,8.38,6.12
+Kyle Monangai (CHI),Kyle Monangai,RB,CHI,Not projected this week,56.3,7,12.0,9.75,5.87,15.1,10.23,4.39,18.9,9.73,3.14,7.2,9.75,8.36,10.6,10.23,6.33,16.2,9.73,4.15
+Caleb Douglas (MIA),Caleb Douglas,WR,MIA,Played this week,60.6,7,10.8,9.33,8.6,14.9,9.08,6.7,19.4,8.38,5.29,12.4,9.33,7.77,13.7,9.08,7.31,17.4,8.38,6.12
+Aaron Jones (MIN),Aaron Jones,RB,MIN,Played this week,57.4,7,11.6,9.75,5.87,14.8,10.23,4.39,18.8,9.73,3.14,6.6,9.75,8.36,10.1,10.23,6.33,16.0,9.73,4.15
+Germie Bernard (PIT),Germie Bernard,WR,PIT,Played this week,63.5,7,10.3,9.33,8.6,14.7,9.08,6.7,19.5,8.38,5.29,12.0,9.33,7.77,13.4,9.08,7.31,17.4,8.38,6.12
+Audric Estime (NO),Audric Estime,RB,NO,Played this week,50.8,7,11.5,9.75,5.87,14.5,10.23,4.39,18.2,9.73,3.14,7.1,9.75,8.36,10.1,10.23,6.33,15.5,9.73,4.15
+Jakobi Meyers (JAX),Jakobi Meyers,WR,JAX,Played this week,58.7,7,10.3,9.33,8.6,14.4,9.08,6.7,18.9,8.38,5.29,11.8,9.33,7.77,13.1,9.08,7.31,16.9,8.38,6.12
+A.J. Brown (NE),A.J. Brown,WR,NE,Played this week,57.0,6,10.6,9.33,8.6,14.4,9.08,6.7,18.4,8.38,5.29,12.0,9.33,7.77,13.2,9.08,7.31,16.7,8.38,6.12
+Geno Smith (NYJ),Geno Smith,QB,NYJ,Played this week,81.5,6,11.6,17.38,10.25,14.3,13.78,10.63,20.7,12.92,8.01,24.7,10.25,8.32,31.6,10.63,4.91,41.1,8.01,3.15
+Tre Tucker (LV),Tre Tucker,WR,LV,Played this week,55.5,6,10.5,9.33,8.6,14.3,9.08,6.7,18.4,8.38,5.29,11.9,9.33,7.77,13.1,9.08,7.31,16.6,8.38,6.12
+Deebo Samuel Sr. (SF),Deebo Samuel Sr.,WR,SF,Played this week,54.9,7,10.4,9.33,8.6,14.2,9.08,6.7,18.4,8.38,5.29,11.8,9.33,7.77,13.0,9.08,7.31,16.5,8.38,6.12
+Khalil Shakir (BUF),Khalil Shakir,WR,BUF,Played this week,58.2,7,9.8,9.33,8.6,13.8,9.08,6.7,18.1,8.38,5.29,11.2,9.33,7.77,12.5,9.08,7.31,16.2,8.38,6.12
+Kaelon Black (SF),Kaelon Black,RB,SF,Played this week,48.2,7,10.8,9.75,5.87,13.7,10.23,4.39,17.2,9.73,3.14,6.7,9.75,8.36,9.5,10.23,6.33,14.7,9.73,4.15
+Tucker Kraft (GB),Tucker Kraft,TE,GB,Played this week,60.7,6,11.7,8.53,8.89,13.7,7.97,8.4,18.3,7.64,6.66,11.7,8.53,8.89,13.7,7.97,8.4,18.3,7.64,6.66
+Tyler Warren (IND),Tyler Warren,TE,IND,Played this week,61.0,6,11.6,8.53,8.89,13.6,7.97,8.4,17.9,7.64,6.66,11.6,8.53,8.89,13.6,7.97,8.4,17.9,7.64,6.66
+Keenan Allen (SF),Keenan Allen,WR,SF,Not projected this week,53.8,7,10.0,9.33,8.6,13.6,9.08,6.7,17.7,8.38,5.29,11.3,9.33,7.77,12.5,9.08,7.31,15.9,8.38,6.12
+Kirk Cousins (MIN),Kirk Cousins,QB,MIN,Not projected this week,71.8,7,11.1,17.38,10.25,13.2,13.78,10.63,19.1,12.92,8.01,22.4,10.25,8.32,29.9,10.63,4.91,39.6,8.01,3.15
+Jordyn Tyson (NO),Jordyn Tyson,WR,NO,Played this week,61.3,7,8.9,9.33,8.6,13.1,9.08,6.7,17.5,8.38,5.29,10.5,9.33,7.77,11.8,9.08,7.31,15.6,8.38,6.12
+Jordan Addison (MIN),Jordan Addison,WR,MIN,Inactive this week,54.2,7,9.4,9.33,8.6,13.0,9.08,6.7,17.1,8.38,5.29,10.7,9.33,7.77,11.9,9.08,7.31,15.3,8.38,6.12
+Tank Dell (HOU),Tank Dell,WR,HOU,Played this week,54.4,7,9.0,9.33,8.6,12.7,9.08,6.7,16.8,8.38,5.29,10.3,9.33,7.77,11.5,9.08,7.31,14.9,8.38,6.12
+Bryce Young (CAR),Bryce Young,QB,CAR,Played this week,90.5,7,10.5,17.38,10.25,12.7,13.78,10.63,19.9,12.92,8.01,24.3,10.25,8.32,32.3,10.63,4.91,43.1,8.01,3.15
+Aaron Rodgers (PIT),Aaron Rodgers,QB,PIT,Played this week,85.4,7,10.4,17.38,10.25,12.4,13.78,10.63,19.2,12.92,8.01,23.4,10.25,8.32,31.2,10.63,4.91,41.8,8.01,3.15
+Omar Cooper Jr. (NYJ),Omar Cooper Jr.,WR,NYJ,Played this week,51.6,6,8.4,9.33,8.6,11.9,9.08,6.7,15.7,8.38,5.29,9.7,9.33,7.77,10.8,9.08,7.31,14.1,8.38,6.12
+Adonai Mitchell (NYJ),Adonai Mitchell,WR,NYJ,Played this week,48.1,6,8.4,9.33,8.6,11.7,9.08,6.7,15.4,8.38,5.29,9.6,9.33,7.77,10.6,9.08,7.31,13.7,8.38,6.12
+Bo Nix (DEN),Bo Nix,QB,DEN,Bye this week,96.5,7,9.8,17.38,10.25,11.7,13.78,10.63,19.2,12.92,8.01,23.9,10.25,8.32,32.0,10.63,4.91,43.1,8.01,3.15
+J.K. Dobbins (DEN),J.K. Dobbins,RB,DEN,Bye this week,41.1,7,8.6,9.75,5.87,11.2,10.23,4.39,14.6,9.73,3.14,5.1,9.75,8.36,7.5,10.23,6.33,12.1,9.73,4.15
+Courtland Sutton (DEN),Courtland Sutton,WR,DEN,Bye this week,49.5,7,7.8,9.33,8.6,11.1,9.08,6.7,14.9,8.38,5.29,9.0,9.33,7.77,10.0,9.08,7.31,13.1,8.38,6.12
+DeMario Douglas (NE),DeMario Douglas,WR,NE,Played this week,51.3,6,7.2,9.33,8.6,10.8,9.08,6.7,14.9,8.38,5.29,8.5,9.33,7.77,9.7,9.08,7.31,13.1,8.38,6.12
+Michael Pittman (PIT),Michael Pittman,WR,PIT,IR / reserve,38.5,7,8.0,9.33,8.6,10.7,9.08,6.7,13.8,8.38,5.29,9.0,9.33,7.77,9.8,9.08,7.31,12.4,8.38,6.12
+Xavier Worthy (KC),Xavier Worthy,WR,KC,Played this week,50.2,7,7.4,9.33,8.6,10.7,9.08,6.7,14.5,8.38,5.29,8.6,9.33,7.77,9.6,9.08,7.31,12.8,8.38,6.12
+TreVeyon Henderson (NE),TreVeyon Henderson,RB,NE,IR / reserve,34.1,6,8.6,9.75,5.87,10.7,10.23,4.39,13.5,9.73,3.14,5.6,9.75,8.36,7.6,10.23,6.33,11.5,9.73,4.15
+Corey Kiner (NE),Corey Kiner,RB,NE,Played this week,43.0,6,7.8,9.75,5.87,10.6,10.23,4.39,14.0,9.73,3.14,4.1,9.75,8.36,6.7,10.23,6.33,11.5,9.73,4.15
+Kyle Pitts (ATL),Kyle Pitts,TE,ATL,Played this week,53.3,6,8.8,8.53,8.89,10.5,7.97,8.4,14.3,7.64,6.66,8.8,8.53,8.89,10.5,7.97,8.4,14.3,7.64,6.66
+Chris Godwin Jr. (TB),Chris Godwin Jr.,WR,TB,Bye this week,48.3,7,7.3,9.33,8.6,10.5,9.08,6.7,14.2,8.38,5.29,8.5,9.33,7.77,9.4,9.08,7.31,12.5,8.38,6.12
+Ryan Flournoy (DAL),Ryan Flournoy,WR,DAL,Played this week,50.2,6,6.9,9.33,8.6,10.4,9.08,6.7,14.5,8.38,5.29,8.2,9.33,7.77,9.3,9.08,7.31,12.6,8.38,6.12
+Mike Washington Jr. (LV),Mike Washington Jr.,RB,LV,Played this week,44.4,6,7.6,9.75,5.87,10.3,10.23,4.39,13.5,9.73,3.14,3.8,9.75,8.36,6.5,10.23,6.33,11.2,9.73,4.15
+Malik Washington (MIA),Malik Washington,WR,MIA,Played this week,53.2,7,6.6,9.33,8.6,10.1,9.08,6.7,14.1,8.38,5.29,7.8,9.33,7.77,8.9,9.08,7.31,12.3,8.38,6.12
+Ladd McConkey (LAC),Ladd McConkey,WR,LAC,Plays this week,58.4,8,6.2,9.33,8.6,10.0,9.08,6.7,14.3,8.38,5.29,7.5,9.33,7.77,8.7,9.08,7.31,12.3,8.38,6.12
+Antonio Williams (WAS),Antonio Williams,WR,WAS,Played this week,52.9,7,6.3,9.33,8.6,9.8,9.08,6.7,13.8,8.38,5.29,7.6,9.33,7.77,8.7,9.08,7.31,11.9,8.38,6.12
+Jacoby Brissett (BAL),Jacoby Brissett,QB,BAL,Not projected this week,60.7,6,8.2,17.38,10.25,9.7,13.78,10.63,14.7,12.92,8.01,17.4,10.25,8.32,23.7,10.63,4.91,32.1,8.01,3.15
+Devin Singletary (NYG),Devin Singletary,RB,NYG,Played this week,43.2,7,6.5,9.75,5.87,9.3,10.23,4.39,12.6,9.73,3.14,3.1,9.75,8.36,5.5,10.23,6.33,10.1,9.73,4.15
+Jacory Croskey-Merritt (WAS),Jacory Croskey-Merritt,RB,WAS,IR / reserve,30.7,7,7.3,9.75,5.87,9.3,10.23,4.39,12.1,9.73,3.14,4.5,9.75,8.36,6.4,10.23,6.33,10.0,9.73,4.15
+J.J. McCarthy (NYG),J.J. McCarthy,QB,NYG,Played this week,82.3,7,8.0,17.38,10.25,9.2,13.78,10.63,15.7,12.92,8.01,19.6,10.25,8.32,27.4,10.63,4.91,37.8,8.01,3.15
+Keaton Mitchell (LAC),Keaton Mitchell,RB,LAC,Plays this week,33.1,8,6.8,9.75,5.87,9.1,10.23,4.39,12.1,9.73,3.14,4.0,9.75,8.36,5.9,10.23,6.33,9.8,9.73,4.15
+Kimani Vidal (LAC),Kimani Vidal,RB,LAC,Plays this week,36.2,8,6.6,9.75,5.87,9.1,10.23,4.39,12.3,9.73,3.14,3.7,9.75,8.36,5.7,10.23,6.33,9.8,9.73,4.15
+Dalton Kincaid (BUF),Dalton Kincaid,TE,BUF,Played this week,59.7,7,7.2,8.53,8.89,9.1,7.97,8.4,13.4,7.64,6.66,7.2,8.53,8.89,9.1,7.97,8.4,13.4,7.64,6.66
+Chris Rodriguez Jr. (JAX),Chris Rodriguez Jr.,RB,JAX,Played this week,40.2,7,6.2,9.75,5.87,8.9,10.23,4.39,12.1,9.73,3.14,3.1,9.75,8.36,5.3,10.23,6.33,9.7,9.73,4.15
+Alec Pierce (IND),Alec Pierce,WR,IND,IR / reserve,31.6,6,6.7,9.33,8.6,8.9,9.08,6.7,11.4,8.38,5.29,7.5,9.33,7.77,8.2,9.08,7.31,10.3,8.38,6.12
+Dallas Goedert (PHI),Dallas Goedert,TE,PHI,Bye this week,59.4,7,7.0,8.53,8.89,8.8,7.97,8.4,13.0,7.64,6.66,7.0,8.53,8.89,8.8,7.97,8.4,13.0,7.64,6.66
+Kaleb Johnson (GB),Kaleb Johnson,RB,GB,Played this week,38.0,6,6.3,9.75,5.87,8.8,10.23,4.39,11.8,9.73,3.14,3.1,9.75,8.36,5.3,10.23,6.33,9.5,9.73,4.15
+Baker Mayfield (TB),Baker Mayfield,QB,TB,Bye this week,80.0,7,7.6,17.38,10.25,8.7,13.78,10.63,15.0,12.92,8.01,18.7,10.25,8.32,26.4,10.63,4.91,36.7,8.01,3.15
+Devaughn Vele (NO),Devaughn Vele,WR,NO,Played this week,51.2,7,5.1,9.33,8.6,8.4,9.08,6.7,12.3,8.38,5.29,6.3,9.33,7.77,7.3,9.08,7.31,10.5,8.38,6.12
+Austin Ekeler (WAS),Austin Ekeler,RB,WAS,Played this week,29.1,7,6.4,9.75,5.87,8.4,10.23,4.39,11.0,9.73,3.14,3.8,9.75,8.36,5.6,10.23,6.33,9.0,9.73,4.15
+MarShawn Lloyd (GB),MarShawn Lloyd,RB,GB,Played this week,30.4,6,6.2,9.75,5.87,8.2,10.23,4.39,10.8,9.73,3.14,3.7,9.75,8.36,5.4,10.23,6.33,8.9,9.73,4.15
+T.J. Hockenson (MIN),T.J. Hockenson,TE,MIN,Not projected this week,53.6,7,6.5,8.53,8.89,8.0,7.97,8.4,11.6,7.64,6.66,6.5,8.53,8.89,8.0,7.97,8.4,11.6,7.64,6.66
+Bam Knight (ARI),Bam Knight,RB,ARI,Played this week,37.0,6,5.4,9.75,5.87,7.9,10.23,4.39,10.8,9.73,3.14,2.5,9.75,8.36,4.6,10.23,6.33,8.6,9.73,4.15
+Seth McGowan (IND),Seth McGowan,RB,IND,Played this week,39.9,6,5.3,9.75,5.87,7.9,10.23,4.39,10.8,9.73,3.14,2.1,9.75,8.36,4.4,10.23,6.33,8.6,9.73,4.15
+Mack Hollins (NE),Mack Hollins,WR,NE,Played this week,38.6,6,5.3,9.33,8.6,7.8,9.08,6.7,10.8,8.38,5.29,6.2,9.33,7.77,6.9,9.08,7.31,9.3,8.38,6.12
+Romeo Doubs (NE),Romeo Doubs,WR,NE,IR / reserve,32.4,6,5.4,9.33,8.6,7.5,9.08,6.7,10.1,8.38,5.29,6.2,9.33,7.77,6.8,9.08,7.31,8.9,8.38,6.12
+Michael Penix Jr. (ATL),Michael Penix Jr.,QB,ATL,Played this week,68.1,6,6.5,17.38,10.25,7.4,13.78,10.63,12.8,12.92,8.01,15.9,10.25,8.32,22.5,10.63,4.91,31.3,8.01,3.15
+Deshaun Watson (CLE),Deshaun Watson,QB,CLE,Played this week,58.7,6,6.2,17.38,10.25,7.3,13.78,10.63,12.0,12.92,8.01,14.4,10.25,8.32,20.7,10.63,4.91,28.8,8.01,3.15
+Marvin Harrison Jr. (HOU),Marvin Harrison Jr.,WR,HOU,Not projected this week,35.3,7,4.9,9.33,8.6,7.2,9.08,6.7,9.9,8.38,5.29,5.7,9.33,7.77,6.4,9.08,7.31,8.6,8.38,6.12
+Tyjae Spears (TEN),Tyjae Spears,RB,TEN,Not projected this week,30.1,7,5.1,9.75,5.87,7.1,10.23,4.39,9.8,9.73,3.14,2.7,9.75,8.36,4.3,10.23,6.33,7.7,9.73,4.15
+Chris Bell (MIA),Chris Bell,WR,MIA,Inactive this week,37.1,7,4.7,9.33,8.6,7.0,9.08,6.7,9.8,8.38,5.29,5.6,9.33,7.77,6.3,9.08,7.31,8.5,8.38,6.12
+Kyler Murray (MIN),Kyler Murray,QB,MIN,Not projected this week,44.5,7,5.9,17.38,10.25,6.9,13.78,10.63,10.6,12.92,8.01,12.5,10.25,8.32,18.0,10.63,4.91,25.3,8.01,3.15
+Daniel Jones (IND),Daniel Jones,QB,IND,Played this week,49.9,6,5.9,17.38,10.25,6.9,13.78,10.63,10.9,12.92,8.01,12.9,10.25,8.32,18.7,10.63,4.91,26.0,8.01,3.15
+Quentin Johnston (LAC),Quentin Johnston,WR,LAC,Plays this week,51.5,8,3.8,9.33,8.6,6.8,9.08,6.7,10.5,8.38,5.29,4.8,9.33,7.77,5.7,9.08,7.31,8.6,8.38,6.12
+Malik Willis (MIA),Malik Willis,QB,MIA,IR / reserve,49.4,7,5.8,17.38,10.25,6.8,13.78,10.63,10.8,12.92,8.01,12.7,10.25,8.32,18.7,10.63,4.91,26.5,8.01,3.15
+Dontayvion Wicks (PHI),Dontayvion Wicks,WR,PHI,Not projected this week,42.8,7,4.1,9.33,8.6,6.7,9.08,6.7,9.8,8.38,5.29,5.0,9.33,7.77,5.8,9.08,7.31,8.3,8.38,6.12
+Malachi Fields (NYG),Malachi Fields,WR,NYG,Played this week,44.1,7,4.1,9.33,8.6,6.7,9.08,6.7,10.0,8.38,5.29,5.0,9.33,7.77,5.8,9.08,7.31,8.4,8.38,6.12
+Samaje Perine (CIN),Samaje Perine,RB,CIN,Played this week,38.3,7,4.0,9.75,5.87,6.6,10.23,4.39,9.6,9.73,3.14,1.3,9.75,8.36,3.2,10.23,6.33,7.2,9.73,4.15
+Sam Darnold (SEA),Sam Darnold,QB,SEA,Not projected this week,63.8,6,5.8,17.38,10.25,6.6,13.78,10.63,11.7,12.92,8.01,14.4,10.25,8.32,20.8,10.63,4.91,29.4,8.01,3.15
+Cooper Kupp (SEA),Cooper Kupp,WR,SEA,Played this week,32.0,6,4.3,9.33,8.6,6.3,9.08,6.7,8.8,8.38,5.29,5.0,9.33,7.77,5.6,9.08,7.31,7.6,8.38,6.12
+Cam Ward (TEN),Cam Ward,QB,TEN,Played this week,62.9,7,5.2,17.38,10.25,5.9,13.78,10.63,10.8,12.92,8.01,13.0,10.25,8.32,20.0,10.63,4.91,29.0,8.01,3.15
+Xavier Hutchinson (HOU),Xavier Hutchinson,WR,HOU,Played this week,37.3,7,3.6,9.33,8.6,5.8,9.08,6.7,8.5,8.38,5.29,4.4,9.33,7.77,5.0,9.08,7.31,7.2,8.38,6.12
+Brian Robinson (ATL),Brian Robinson,RB,ATL,IR / reserve,26.3,6,3.9,9.75,5.87,5.7,10.23,4.39,7.9,9.73,3.14,1.9,9.75,8.36,3.3,10.23,6.33,6.2,9.73,4.15
+Emanuel Wilson (SEA),Emanuel Wilson,RB,SEA,Not projected this week,26.1,6,3.9,9.75,5.87,5.7,10.23,4.39,8.0,9.73,3.14,1.9,9.75,8.36,3.3,10.23,6.33,6.2,9.73,4.15
+Justice Hill (BAL),Justice Hill,RB,BAL,Plays this week,32.6,7,3.5,9.75,5.87,5.7,10.23,4.39,8.5,9.73,3.14,1.4,9.75,8.36,2.9,10.23,6.33,6.3,9.73,4.15
+Hunter Henry (NE),Hunter Henry,TE,NE,Played this week,50.4,6,4.1,8.53,8.89,5.6,7.97,8.4,9.2,7.64,6.66,4.1,8.53,8.89,5.6,7.97,8.4,9.2,7.64,6.66
+Keon Coleman (BUF),Keon Coleman,WR,BUF,Played this week,42.2,7,3.2,9.33,8.6,5.6,9.08,6.7,8.7,8.38,5.29,4.1,9.33,7.77,4.8,9.08,7.31,7.1,8.38,6.12
+Rashid Shaheed (SEA),Rashid Shaheed,WR,SEA,Plays this week,31.3,6,3.3,9.33,8.6,5.2,9.08,6.7,7.5,8.38,5.29,4.0,9.33,7.77,4.6,9.08,7.31,6.4,8.38,6.12
+Chig Okonkwo (WAS),Chig Okonkwo,TE,WAS,Played this week,53.5,7,3.7,8.53,8.89,5.1,7.97,8.4,8.7,7.64,6.66,3.7,8.53,8.89,5.1,7.97,8.4,8.7,7.64,6.66
+Justin Herbert (LAC),Justin Herbert,QB,LAC,Plays this week,71.0,8,4.6,17.38,10.25,5.1,13.78,10.63,10.3,12.92,8.01,12.5,10.25,8.32,20.6,10.63,4.91,30.6,8.01,3.15
+Fernando Mendoza (LV),Fernando Mendoza,QB,LV,Played this week,65.4,6,4.8,17.38,10.25,5.1,13.78,10.63,10.1,12.92,8.01,12.8,10.25,8.32,19.3,10.63,4.91,28.0,8.01,3.15
+Brenton Strange (JAX),Brenton Strange,TE,JAX,Played this week,55.8,7,3.3,8.53,8.89,4.8,7.97,8.4,8.6,7.64,6.66,3.3,8.53,8.89,4.8,7.97,8.4,8.6,7.64,6.66
+Kayshon Boutte (HOU),Kayshon Boutte,WR,HOU,Played this week,40.3,7,2.5,9.33,8.6,4.7,9.08,6.7,7.5,8.38,5.29,3.2,9.33,7.77,3.9,9.08,7.31,6.0,8.38,6.12
+Michael Mayer (LV),Michael Mayer,TE,LV,Played this week,45.6,6,3.6,8.53,8.89,4.7,7.97,8.4,7.8,7.64,6.66,3.6,8.53,8.89,4.7,7.97,8.4,7.8,7.64,6.66
+Michael Wilson (ARI),Michael Wilson,WR,ARI,IR / reserve,14.7,6,3.3,9.33,8.6,4.6,9.08,6.7,6.2,8.38,5.29,3.8,9.33,7.77,4.2,9.08,7.31,5.5,8.38,6.12
+Darren Waller (CAR),Darren Waller,TE,CAR,Played this week,48.8,7,3.5,8.53,8.89,4.6,7.97,8.4,7.7,7.64,6.66,3.5,8.53,8.89,4.6,7.97,8.4,7.7,7.64,6.66
+Tyrone Tracy Jr. (NYG),Tyrone Tracy Jr.,RB,NYG,IR / reserve,19.1,7,3.1,9.75,5.87,4.6,10.23,4.39,6.6,9.73,3.14,1.5,9.75,8.36,2.6,10.23,6.33,5.1,9.73,4.15
+Jonathon Brooks (CAR),Jonathon Brooks,RB,CAR,IR / reserve,24.6,7,2.9,9.75,5.87,4.6,10.23,4.39,6.8,9.73,3.14,1.2,9.75,8.36,2.4,10.23,6.33,5.1,9.73,4.15
+Terrance Ferguson (LA),Terrance Ferguson,TE,LA,IR / reserve,37.7,6,3.5,8.53,8.89,4.4,7.97,8.4,6.6,7.64,6.66,3.5,8.53,8.89,4.4,7.97,8.4,6.6,7.64,6.66
+Dameon Pierce (PHI),Dameon Pierce,RB,PHI,Not projected this week,11.2,7,3.1,9.75,5.87,4.4,10.23,4.39,6.0,9.73,3.14,1.7,9.75,8.36,2.7,10.23,6.33,4.8,9.73,4.15
+Juwan Johnson (NO),Juwan Johnson,TE,NO,Played this week,50.6,7,3.1,8.53,8.89,4.3,7.97,8.4,7.5,7.64,6.66,3.1,8.53,8.89,4.3,7.97,8.4,7.5,7.64,6.66
+AJ Barner (SEA),AJ Barner,TE,SEA,Played this week,43.8,6,3.2,8.53,8.89,4.2,7.97,8.4,7.0,7.64,6.66,3.2,8.53,8.89,4.2,7.97,8.4,7.0,7.64,6.66
+Carson Beck (ARI),Carson Beck,QB,ARI,Played this week,55.1,6,3.9,17.38,10.25,4.2,13.78,10.63,8.4,12.92,8.01,10.2,10.25,8.32,16.4,10.63,4.91,24.1,8.01,3.15
+Jordan Watkins (SF),Jordan Watkins,WR,SF,Played this week,46.9,7,1.6,9.33,8.6,4.1,9.08,6.7,7.4,8.38,5.29,2.4,9.33,7.77,3.1,9.08,7.31,5.7,8.38,6.12
+Tre Harris (LAC),Tre Harris,WR,LAC,Plays this week,45.2,8,1.8,9.33,8.6,4.0,9.08,6.7,7.0,8.38,5.29,2.5,9.33,7.77,3.2,9.08,7.31,5.4,8.38,6.12
+Tyler Higbee (LA),Tyler Higbee,TE,LA,Played this week,44.4,6,2.8,8.53,8.89,3.9,7.97,8.4,6.8,7.64,6.66,2.8,8.53,8.89,3.9,7.97,8.4,6.8,7.64,6.66
+Pat Freiermuth (PIT),Pat Freiermuth,TE,PIT,Played this week,50.6,7,2.8,8.53,8.89,3.9,7.97,8.4,7.1,7.64,6.66,2.8,8.53,8.89,3.9,7.97,8.4,7.1,7.64,6.66
+Jahan Dotson (ATL),Jahan Dotson,WR,ATL,Played this week,31.2,6,2.1,9.33,8.6,3.8,9.08,6.7,5.9,8.38,5.29,2.7,9.33,7.77,3.2,9.08,7.31,4.8,8.38,6.12
+Kyle McCord (MIA),Kyle McCord,QB,MIA,Played this week,56.1,7,3.4,17.38,10.25,3.7,13.78,10.63,7.6,12.92,8.01,9.1,10.25,8.32,15.8,10.63,4.91,23.9,8.01,3.15
+Treylon Burks (WAS),Treylon Burks,WR,WAS,Played this week,26.8,7,2.2,9.33,8.6,3.7,9.08,6.7,5.6,8.38,5.29,2.7,9.33,7.77,3.1,9.08,7.31,4.6,8.38,6.12
+De'Zhaun Stribling (SF),De'Zhaun Stribling,WR,SF,IR / reserve,29.6,7,2.2,9.33,8.6,3.7,9.08,6.7,5.8,8.38,5.29,2.7,9.33,7.77,3.2,9.08,7.31,4.7,8.38,6.12
+Pat Bryant (DEN),Pat Bryant,WR,DEN,Not projected this week,41.6,7,1.5,9.33,8.6,3.5,9.08,6.7,6.3,8.38,5.29,2.2,9.33,7.77,2.8,9.08,7.31,4.8,8.38,6.12
+Jerry Jeudy (CLE),Jerry Jeudy,WR,CLE,Played this week,29.4,6,2.0,9.33,8.6,3.5,9.08,6.7,5.5,8.38,5.29,2.5,9.33,7.77,3.0,9.08,7.31,4.5,8.38,6.12
+Joe Milton III (PHI),Joe Milton III,QB,PHI,Not projected this week,45.8,7,3.0,17.38,10.25,3.3,13.78,10.63,6.4,12.92,8.01,7.7,10.25,8.32,13.3,10.63,4.91,20.4,8.01,3.15
+Roschon Johnson (CHI),Roschon Johnson,RB,CHI,Bye this week,20.9,7,1.8,9.75,5.87,3.3,10.23,4.39,5.1,9.73,3.14,0.6,9.75,8.36,1.5,10.23,6.33,3.6,9.73,4.15
+Jaylen Wright (MIA),Jaylen Wright,RB,MIA,Played this week,21.1,7,1.8,9.75,5.87,3.2,10.23,4.39,5.1,9.73,3.14,0.6,9.75,8.36,1.4,10.23,6.33,3.6,9.73,4.15
+Dohnte Meyers (CIN),Dohnte Meyers,WR,CIN,Played this week,29.9,7,1.7,9.33,8.6,3.1,9.08,6.7,5.1,8.38,5.29,2.1,9.33,7.77,2.6,9.08,7.31,4.0,8.38,6.12
+Ted Hurst III (TB),Ted Hurst III,WR,TB,Bye this week,30.9,7,1.6,9.33,8.6,3.1,9.08,6.7,5.1,8.38,5.29,2.1,9.33,7.77,2.6,9.08,7.31,4.0,8.38,6.12
+Eli Raridon (NE),Eli Raridon,TE,NE,Played this week,41.2,6,2.3,8.53,8.89,3.1,7.97,8.4,5.6,7.64,6.66,2.3,8.53,8.89,3.1,7.97,8.4,5.6,7.64,6.66
+AJ Dillon (CAR),AJ Dillon,RB,CAR,Not projected this week,9.0,7,1.9,9.75,5.87,3.0,10.23,4.39,4.4,9.73,3.14,0.9,9.75,8.36,1.6,10.23,6.33,3.3,9.73,4.15
+Ty Johnson (BUF),Ty Johnson,RB,BUF,Played this week,22.7,7,1.5,9.75,5.87,3.0,10.23,4.39,4.9,9.73,3.14,0.4,9.75,8.36,1.2,10.23,6.33,3.3,9.73,4.15
+Mason Taylor (NYJ),Mason Taylor,TE,NYJ,Played this week,38.4,6,2.1,8.53,8.89,2.9,7.97,8.4,5.0,7.64,6.66,2.1,8.53,8.89,2.9,7.97,8.4,5.0,7.64,6.66
+Jauan Jennings (MIN),Jauan Jennings,WR,MIN,Not projected this week,27.0,7,1.6,9.33,8.6,2.9,9.08,6.7,4.7,8.38,5.29,2.0,9.33,7.77,2.4,9.08,7.31,3.8,8.38,6.12
+Brian Thomas Jr. (JAX),Brian Thomas Jr.,WR,JAX,Played this week,31.6,7,1.4,9.33,8.6,2.8,9.08,6.7,4.8,8.38,5.29,1.8,9.33,7.77,2.2,9.08,7.31,3.7,8.38,6.12
+Drew Lock (SEA),Drew Lock,QB,SEA,Played this week,34.0,6,2.5,17.38,10.25,2.8,13.78,10.63,5.2,12.92,8.01,6.2,10.25,8.32,10.5,10.63,4.91,16.0,8.01,3.15
+Greg Dulcich (MIA),Greg Dulcich,TE,MIA,Played this week,46.6,7,1.9,8.53,8.89,2.8,7.97,8.4,5.3,7.64,6.66,1.9,8.53,8.89,2.8,7.97,8.4,5.3,7.64,6.66
+Kenyon Sadiq (NYJ),Kenyon Sadiq,TE,NYJ,Played this week,40.5,6,1.9,8.53,8.89,2.7,7.97,8.4,5.0,7.64,6.66,1.9,8.53,8.89,2.7,7.97,8.4,5.0,7.64,6.66
+Kalif Raymond (CHI),Kalif Raymond,WR,CHI,Bye this week,32.5,7,1.2,9.33,8.6,2.5,9.08,6.7,4.5,8.38,5.29,1.6,9.33,7.77,2.0,9.08,7.31,3.5,8.38,6.12
+Kaytron Allen (MIA),Kaytron Allen,RB,MIA,Played this week,19.9,7,1.1,9.75,5.87,2.4,10.23,4.39,4.1,9.73,3.14,0.3,9.75,8.36,0.9,10.23,6.33,2.7,9.73,4.15
+Efton Chism III (NE),Efton Chism III,WR,NE,Played this week,31.1,6,1.1,9.33,8.6,2.4,9.08,6.7,4.4,8.38,5.29,1.5,9.33,7.77,1.9,9.08,7.31,3.3,8.38,6.12
+Mike Gesicki (CIN),Mike Gesicki,TE,CIN,Played this week,46.1,7,1.6,8.53,8.89,2.4,7.97,8.4,4.8,7.64,6.66,1.6,8.53,8.89,2.4,7.97,8.4,4.8,7.64,6.66
+Tory Horton (SEA),Tory Horton,WR,SEA,Played this week,24.0,6,1.3,9.33,8.6,2.4,9.08,6.7,4.0,8.38,5.29,1.7,9.33,7.77,2.0,9.08,7.31,3.2,8.38,6.12
+Dalton Schultz (HOU),Dalton Schultz,TE,HOU,Played this week,47.6,7,1.5,8.53,8.89,2.3,7.97,8.4,4.9,7.64,6.66,1.5,8.53,8.89,2.3,7.97,8.4,4.9,7.64,6.66
+Reggie Virgil (ARI),Reggie Virgil,WR,ARI,Played this week,26.1,6,1.1,9.33,8.6,2.3,9.08,6.7,3.9,8.38,5.29,1.5,9.33,7.77,1.9,9.08,7.31,3.1,8.38,6.12
+Elic Ayomanor (TEN),Elic Ayomanor,WR,TEN,Played this week,29.2,7,1.1,9.33,8.6,2.3,9.08,6.7,4.1,8.38,5.29,1.5,9.33,7.77,1.8,9.08,7.31,3.1,8.38,6.12
+Konata Mumpfield (LA),Konata Mumpfield,WR,LA,Played this week,33.8,6,0.9,9.33,8.6,2.2,9.08,6.7,4.4,8.38,5.29,1.3,9.33,7.77,1.7,9.08,7.31,3.2,8.38,6.12
+Kevin Coleman Jr. (MIA),Kevin Coleman Jr.,WR,MIA,Played this week,26.1,7,1.1,9.33,8.6,2.2,9.08,6.7,3.9,8.38,5.29,1.5,9.33,7.77,1.8,9.08,7.31,3.0,8.38,6.12
+Jalen Nailor (LV),Jalen Nailor,WR,LV,Played this week,28.0,6,1.1,9.33,8.6,2.2,9.08,6.7,4.0,8.38,5.29,1.4,9.33,7.77,1.8,9.08,7.31,3.0,8.38,6.12
+Sean Tucker (TB),Sean Tucker,RB,TB,Bye this week,22.0,7,0.8,9.75,5.87,2.1,10.23,4.39,3.9,9.73,3.14,0.1,9.75,8.36,0.6,10.23,6.33,2.4,9.73,4.15
+Tutu Atwell (LA),Tutu Atwell,WR,LA,Played this week,26.8,6,1.0,9.33,8.6,2.1,9.08,6.7,3.8,8.38,5.29,1.4,9.33,7.77,1.7,9.08,7.31,2.9,8.38,6.12
+Jaylin Noel (HOU),Jaylin Noel,WR,HOU,IR / reserve,12.0,7,1.2,9.33,8.6,2.1,9.08,6.7,3.3,8.38,5.29,1.5,9.33,7.77,1.8,9.08,7.31,2.6,8.38,6.12
+Colby Parkinson (LA),Colby Parkinson,TE,LA,Played this week,39.8,6,1.4,8.53,8.89,2.1,7.97,8.4,4.3,7.64,6.66,1.4,8.53,8.89,2.1,7.97,8.4,4.3,7.64,6.66
+Darnell Mooney (NYG),Darnell Mooney,WR,NYG,Played this week,26.5,7,1.0,9.33,8.6,2.1,9.08,6.7,3.8,8.38,5.29,1.4,9.33,7.77,1.7,9.08,7.31,2.9,8.38,6.12
+Jaydon Blue (PHI),Jaydon Blue,RB,PHI,Bye this week,15.8,7,1.1,9.75,5.87,2.1,10.23,4.39,3.6,9.73,3.14,0.3,9.75,8.36,0.8,10.23,6.33,2.4,9.73,4.15
+CJ Donaldson (NO),CJ Donaldson,RB,NO,Not projected this week,15.0,7,1.0,9.75,5.87,2.0,10.23,4.39,3.4,9.73,3.14,0.3,9.75,8.36,0.8,10.23,6.33,2.3,9.73,4.15
+Josh Palmer (BUF),Josh Palmer,WR,BUF,IR / reserve,19.7,7,1.0,9.33,8.6,2.0,9.08,6.7,3.3,8.38,5.29,1.3,9.33,7.77,1.6,9.08,7.31,2.6,8.38,6.12
+Ray Davis (BUF),Ray Davis,RB,BUF,Played this week,22.1,7,0.8,9.75,5.87,2.0,10.23,4.39,3.8,9.73,3.14,0.1,9.75,8.36,0.5,10.23,6.33,2.2,9.73,4.15
+Emari Demercado (HOU),Emari Demercado,RB,HOU,Played this week,20.1,7,0.8,9.75,5.87,2.0,10.23,4.39,3.6,9.73,3.14,0.1,9.75,8.36,0.6,10.23,6.33,2.2,9.73,4.15
+Ja'Kobi Lane (BAL),Ja'Kobi Lane,WR,BAL,Plays this week,29.8,7,0.8,9.33,8.6,1.9,9.08,6.7,3.7,8.38,5.29,1.2,9.33,7.77,1.5,9.08,7.31,2.7,8.38,6.12
+Gardner Minshew (ARI),Gardner Minshew,QB,ARI,IR / reserve,32.8,6,1.6,17.38,10.25,1.8,13.78,10.63,3.8,12.92,8.01,4.5,10.25,8.32,8.6,10.63,4.91,13.7,8.01,3.15
+Quinn Ewers (JAX),Quinn Ewers,QB,JAX,Not projected this week,19.2,7,1.6,17.38,10.25,1.8,13.78,10.63,3.5,12.92,8.01,4.2,10.25,8.32,7.4,10.63,4.91,11.5,8.01,3.15
+DJ Giddens (IND),DJ Giddens,RB,IND,Played this week,18.6,6,0.8,9.75,5.87,1.8,10.23,4.39,3.3,9.73,3.14,0.1,9.75,8.36,0.5,10.23,6.33,2.1,9.73,4.15
+Marquise Brown (PHI),Marquise Brown,WR,PHI,Bye this week,23.0,7,0.8,9.33,8.6,1.7,9.08,6.7,3.1,8.38,5.29,1.1,9.33,7.77,1.4,9.08,7.31,2.3,8.38,6.12
+Kendrick Bourne (ARI),Kendrick Bourne,WR,ARI,IR / reserve,9.4,6,1.0,9.33,8.6,1.7,9.08,6.7,2.7,8.38,5.29,1.2,9.33,7.77,1.5,9.08,7.31,2.2,8.38,6.12
+Rashod Bateman (BAL),Rashod Bateman,WR,BAL,Plays this week,32.8,7,0.6,9.33,8.6,1.7,9.08,6.7,3.5,8.38,5.29,1.0,9.33,7.77,1.3,9.08,7.31,2.5,8.38,6.12
+Skyler Bell (BUF),Skyler Bell,WR,BUF,Not projected this week,20.0,7,0.7,9.33,8.6,1.6,9.08,6.7,2.8,8.38,5.29,1.0,9.33,7.77,1.3,9.08,7.31,2.1,8.38,6.12
+Bryce Lance (NO),Bryce Lance,WR,NO,Played this week,24.5,7,0.7,9.33,8.6,1.6,9.08,6.7,3.0,8.38,5.29,1.0,9.33,7.77,1.2,9.08,7.31,2.2,8.38,6.12
+Kyle Williams (NE),Kyle Williams,WR,NE,Played this week,26.4,6,0.6,9.33,8.6,1.5,9.08,6.7,3.0,8.38,5.29,0.9,9.33,7.77,1.1,9.08,7.31,2.1,8.38,6.12
+Darnell Washington (PIT),Darnell Washington,TE,PIT,Played this week,42.6,7,1.0,8.53,8.89,1.5,7.97,8.4,3.4,7.64,6.66,1.0,8.53,8.89,1.5,7.97,8.4,3.4,7.64,6.66
+Chimere Dike (TEN),Chimere Dike,WR,TEN,Played this week,28.7,7,0.5,9.33,8.6,1.4,9.08,6.7,2.9,8.38,5.29,0.8,9.33,7.77,1.1,9.08,7.31,2.1,8.38,6.12
+Isaac TeSlaa (DET),Isaac TeSlaa,WR,DET,Played this week,28.4,7,0.5,9.33,8.6,1.4,9.08,6.7,2.9,8.38,5.29,0.8,9.33,7.77,1.1,9.08,7.31,2.1,8.38,6.12
+George Holani (SEA),George Holani,RB,SEA,Not projected this week,16.5,6,0.6,9.75,5.87,1.4,10.23,4.39,2.8,9.73,3.14,0.1,9.75,8.36,0.4,10.23,6.33,1.6,9.73,4.15
+Savion Williams (GB),Savion Williams,WR,GB,Played this week,29.4,6,0.5,9.33,8.6,1.4,9.08,6.7,3.1,8.38,5.29,0.8,9.33,7.77,1.0,9.08,7.31,2.1,8.38,6.12
+Zachariah Branch (ATL),Zachariah Branch,WR,ATL,Not projected this week,22.8,6,0.6,9.33,8.6,1.4,9.08,6.7,2.6,8.38,5.29,0.8,9.33,7.77,1.1,9.08,7.31,1.9,8.38,6.12
+Calvin Ridley (TEN),Calvin Ridley,WR,TEN,Played this week,24.6,7,0.6,9.33,8.6,1.4,9.08,6.7,2.7,8.38,5.29,0.8,9.33,7.77,1.0,9.08,7.31,1.9,8.38,6.12
+Cade Otton (TB),Cade Otton,TE,TB,Bye this week,36.8,7,0.9,8.53,8.89,1.4,7.97,8.4,2.9,7.64,6.66,0.9,8.53,8.89,1.4,7.97,8.4,2.9,7.64,6.66
+Darius Cooper (PHI),Darius Cooper,WR,PHI,Bye this week,28.1,7,0.5,9.33,8.6,1.3,9.08,6.7,2.7,8.38,5.29,0.7,9.33,7.77,1.0,9.08,7.31,1.9,8.38,6.12
+Marvin Mims Jr. (DEN),Marvin Mims Jr.,WR,DEN,Bye this week,25.4,7,0.5,9.33,8.6,1.3,9.08,6.7,2.6,8.38,5.29,0.7,9.33,7.77,1.0,9.08,7.31,1.8,8.38,6.12
+Pierre Strong (GB),Pierre Strong,RB,GB,Inactive this week,13.1,6,0.5,9.75,5.87,1.3,10.23,4.39,2.4,9.73,3.14,0.1,9.75,8.36,0.4,10.23,6.33,1.4,9.73,4.15
+Tez Johnson (TB),Tez Johnson,WR,TB,Bye this week,26.0,7,0.5,9.33,8.6,1.3,9.08,6.7,2.7,8.38,5.29,0.8,9.33,7.77,1.0,9.08,7.31,1.9,8.38,6.12
+Shedeur Sanders (CLE),Shedeur Sanders,QB,CLE,Not projected this week,29.4,6,1.2,17.38,10.25,1.3,13.78,10.63,3.0,12.92,8.01,3.5,10.25,8.32,7.2,10.63,4.91,11.8,8.01,3.15
+Sione Vaki (DET),Sione Vaki,RB,DET,Played this week,22.1,7,0.3,9.75,5.87,1.2,10.23,4.39,2.8,9.73,3.14,0.0,9.75,8.36,0.2,10.23,6.33,1.4,9.73,4.15
+Trevor Etienne (CAR),Trevor Etienne,RB,CAR,Played this week,17.4,7,0.3,9.75,5.87,1.1,10.23,4.39,2.4,9.73,3.14,0.0,9.75,8.36,0.2,10.23,6.33,1.3,9.73,4.15
+Tommy Tremble (CAR),Tommy Tremble,TE,CAR,Played this week,34.6,7,0.7,8.53,8.89,1.1,7.97,8.4,2.4,7.64,6.66,0.7,8.53,8.89,1.1,7.97,8.4,2.4,7.64,6.66
+Theo Wease Jr. (LAC),Theo Wease Jr.,WR,LAC,Not projected this week,12.7,7,0.5,9.33,8.6,1.1,9.08,6.7,2.0,8.38,5.29,0.7,9.33,7.77,0.9,9.08,7.31,1.5,8.38,6.12
+Mark Andrews (BAL),Mark Andrews,TE,BAL,Plays this week,44.7,7,0.6,8.53,8.89,1.1,7.97,8.4,3.1,7.64,6.66,0.6,8.53,8.89,1.1,7.97,8.4,3.1,7.64,6.66
+Jack Bech (LV),Jack Bech,WR,LV,Played this week,22.1,6,0.4,9.33,8.6,1.1,9.08,6.7,2.3,8.38,5.29,0.7,9.33,7.77,0.9,9.08,7.31,1.6,8.38,6.12
+Olamide Zaccheaus (ATL),Olamide Zaccheaus,WR,ATL,Played this week,20.7,6,0.4,9.33,8.6,1.0,9.08,6.7,2.0,8.38,5.29,0.6,9.33,7.77,0.7,9.08,7.31,1.4,8.38,6.12
+Ameer Abdullah (JAX),Ameer Abdullah,RB,JAX,Not projected this week,10.6,7,0.4,9.75,5.87,1.0,10.23,4.39,2.0,9.73,3.14,0.0,9.75,8.36,0.3,10.23,6.33,1.1,9.73,4.15
+Tyler Goodson (DAL),Tyler Goodson,RB,DAL,IR / reserve,15.8,6,0.3,9.75,5.87,1.0,10.23,4.39,2.3,9.73,3.14,0.0,9.75,8.36,0.2,10.23,6.33,1.2,9.73,4.15
+Oronde Gadsden II (LAC),Oronde Gadsden II,TE,LAC,Plays this week,42.8,8,0.6,8.53,8.89,1.0,7.97,8.4,2.4,7.64,6.66,0.6,8.53,8.89,1.0,7.97,8.4,2.4,7.64,6.66
+Jaleel McLaughlin (CLE),Jaleel McLaughlin,RB,CLE,Played this week,14.2,6,0.3,9.75,5.87,0.9,10.23,4.39,1.9,9.73,3.14,0.0,9.75,8.36,0.2,10.23,6.33,1.0,9.73,4.15
+Troy Franklin (DEN),Troy Franklin,WR,DEN,Bye this week,24.3,7,0.3,9.33,8.6,0.9,9.08,6.7,2.0,8.38,5.29,0.5,9.33,7.77,0.7,9.08,7.31,1.4,8.38,6.12
+Van Jefferson (WAS),Van Jefferson,WR,WAS,Played this week,25.3,7,0.3,9.33,8.6,0.9,9.08,6.7,2.0,8.38,5.29,0.4,9.33,7.77,0.6,9.08,7.31,1.3,8.38,6.12
+Anthony Richardson (IND),Anthony Richardson,QB,IND,Not projected this week,28.6,6,0.9,17.38,10.25,0.9,13.78,10.63,2.4,12.92,8.01,2.8,10.25,8.32,6.3,10.63,4.91,10.7,8.01,3.15
+Jeremy McNichols (WAS),Jeremy McNichols,RB,WAS,IR / reserve,8.6,7,0.3,9.75,5.87,0.9,10.23,4.39,1.8,9.73,3.14,0.0,9.75,8.36,0.2,10.23,6.33,1.0,9.73,4.15
+Mac Jones (SF),Mac Jones,QB,SF,Not projected this week,19.4,7,0.8,17.38,10.25,0.8,13.78,10.63,1.9,12.92,8.01,2.3,10.25,8.32,5.1,10.63,4.91,8.7,8.01,3.15
+Malik Benson (LV),Malik Benson,WR,LV,Not projected this week,16.2,6,0.3,9.33,8.6,0.8,9.08,6.7,1.7,8.38,5.29,0.5,9.33,7.77,0.6,9.08,7.31,1.2,8.38,6.12
+Jalen Tolbert (MIA),Jalen Tolbert,WR,MIA,Played this week,16.0,7,0.2,9.33,8.6,0.7,9.08,6.7,1.5,8.38,5.29,0.4,9.33,7.77,0.5,9.08,7.31,1.0,8.38,6.12
+Tua Tagovailoa (ATL),Tua Tagovailoa,QB,ATL,Not projected this week,22.0,6,0.7,17.38,10.25,0.7,13.78,10.63,1.8,12.92,8.01,2.1,10.25,8.32,4.9,10.63,4.91,8.5,8.01,3.15
+Khalil Herbert (ATL),Khalil Herbert,RB,ATL,Played this week,10.5,6,0.2,9.75,5.87,0.7,10.23,4.39,1.6,9.73,3.14,0.0,9.75,8.36,0.1,10.23,6.33,0.8,9.73,4.15
+Jaydn Ott (KC),Jaydn Ott,RB,KC,Inactive this week,7.5,7,0.2,9.75,5.87,0.7,10.23,4.39,1.4,9.73,3.14,0.0,9.75,8.36,0.1,10.23,6.33,0.8,9.73,4.15
+Dyami Brown (WAS),Dyami Brown,WR,WAS,IR / reserve,8.9,7,0.2,9.33,8.6,0.6,9.08,6.7,1.2,8.38,5.29,0.3,9.33,7.77,0.5,9.08,7.31,0.9,8.38,6.12
+Carson Wentz (MIN),Carson Wentz,QB,MIN,Not projected this week,22.3,7,0.6,17.38,10.25,0.6,13.78,10.63,1.6,12.92,8.01,1.9,10.25,8.32,4.7,10.63,4.91,8.4,8.01,3.15
+Anthony Tyus III (CAR),Anthony Tyus III,RB,CAR,Played this week,7.3,7,0.2,9.75,5.87,0.6,10.23,4.39,1.4,9.73,3.14,0.0,9.75,8.36,0.1,10.23,6.33,0.7,9.73,4.15
+Cyrus Allen (KC),Cyrus Allen,WR,KC,Played this week,23.6,7,0.2,9.33,8.6,0.6,9.08,6.7,1.5,8.38,5.29,0.3,9.33,7.77,0.4,9.08,7.31,1.0,8.38,6.12
+Josh Cameron (JAX),Josh Cameron,WR,JAX,Played this week,12.2,7,0.2,9.33,8.6,0.5,9.08,6.7,1.1,8.38,5.29,0.3,9.33,7.77,0.3,9.08,7.31,0.7,8.38,6.12
+Gunnar Helm (TEN),Gunnar Helm,TE,TEN,Played this week,37.4,7,0.3,8.53,8.89,0.5,7.97,8.4,1.5,7.64,6.66,0.3,8.53,8.89,0.5,7.97,8.4,1.5,7.64,6.66
+Jalon Daniels (TB),Jalon Daniels,QB,TB,Bye this week,26.9,7,0.6,17.38,10.25,0.5,13.78,10.63,1.7,12.92,8.01,1.9,10.25,8.32,5.1,10.63,4.91,9.2,8.01,3.15
+John Metchie III (CAR),John Metchie III,WR,CAR,Played this week,13.9,7,0.1,9.33,8.6,0.5,9.08,6.7,1.1,8.38,5.29,0.2,9.33,7.77,0.3,9.08,7.31,0.7,8.38,6.12
+Cody White (LV),Cody White,WR,LV,Not projected this week,9.3,6,0.2,9.33,8.6,0.5,9.08,6.7,1.1,8.38,5.29,0.3,9.33,7.77,0.4,9.08,7.31,0.7,8.38,6.12
+Tyson Bagent (CHI),Tyson Bagent,QB,CHI,Not projected this week,18.8,7,0.4,17.38,10.25,0.4,13.78,10.63,1.2,12.92,8.01,1.4,10.25,8.32,3.8,10.63,4.91,7.0,8.01,3.15
+KeAndre Lambert-Smith (LAC),KeAndre Lambert-Smith,WR,LAC,Plays this week,13.9,8,0.1,9.33,8.6,0.4,9.08,6.7,1.0,8.38,5.29,0.2,9.33,7.77,0.3,9.08,7.31,0.6,8.38,6.12
+Eli Stowers (PHI),Eli Stowers,TE,PHI,Bye this week,28.2,7,0.2,8.53,8.89,0.4,7.97,8.4,1.0,7.64,6.66,0.2,8.53,8.89,0.4,7.97,8.4,1.0,7.64,6.66
+Isaiah Bond (CLE),Isaiah Bond,WR,CLE,Played this week,14.8,6,0.1,9.33,8.6,0.4,9.08,6.7,1.0,8.38,5.29,0.2,9.33,7.77,0.3,9.08,7.31,0.7,8.38,6.12
+Jake Ferguson (DAL),Jake Ferguson,TE,DAL,Not projected this week,28.2,6,0.2,8.53,8.89,0.4,7.97,8.4,1.1,7.64,6.66,0.2,8.53,8.89,0.4,7.97,8.4,1.1,7.64,6.66
+Lan Larison (NE),Lan Larison,RB,NE,Played this week,9.6,6,0.1,9.75,5.87,0.4,10.23,4.39,1.1,9.73,3.14,0.0,9.75,8.36,0.1,10.23,6.33,0.5,9.73,4.15
+Case Keenum (CHI),Case Keenum,QB,CHI,Not projected this week,15.0,7,0.4,17.38,10.25,0.4,13.78,10.63,1.1,12.92,8.01,1.3,10.25,8.32,3.5,10.63,4.91,6.4,8.01,3.15
+Demond Claiborne (MIN),Demond Claiborne,RB,MIN,IR / reserve,14.7,7,0.1,9.75,5.87,0.4,10.23,4.39,1.2,9.73,3.14,0.0,9.75,8.36,0.0,10.23,6.33,0.5,9.73,4.15
+Jordan James (SF),Jordan James,RB,SF,Played this week,12.2,7,0.1,9.75,5.87,0.4,10.23,4.39,1.2,9.73,3.14,0.0,9.75,8.36,0.1,10.23,6.33,0.5,9.73,4.15
+Justin Fields (KC),Justin Fields,QB,KC,Played this week,15.9,7,0.4,17.38,10.25,0.4,13.78,10.63,1.2,12.92,8.01,1.4,10.25,8.32,3.7,10.63,4.91,6.7,8.01,3.15
+Tanner McKee (PHI),Tanner McKee,QB,PHI,Bye this week,22.1,7,0.4,17.38,10.25,0.4,13.78,10.63,1.3,12.92,8.01,1.5,10.25,8.32,4.2,10.63,4.91,7.7,8.01,3.15
+Jameis Winston (NYG),Jameis Winston,QB,NYG,Played this week,25.0,7,0.4,17.38,10.25,0.4,13.78,10.63,1.3,12.92,8.01,1.5,10.25,8.32,4.4,10.63,4.91,8.1,8.01,3.15
+Laquon Treadwell (IND),Laquon Treadwell,WR,IND,Played this week,13.5,6,0.1,9.33,8.6,0.4,9.08,6.7,0.9,8.38,5.29,0.2,9.33,7.77,0.3,9.08,7.31,0.6,8.38,6.12
+Evan Hull (ARI),Evan Hull,RB,ARI,Not projected this week,7.3,6,0.1,9.75,5.87,0.3,10.23,4.39,0.8,9.73,3.14,0.0,9.75,8.36,0.0,10.23,6.33,0.3,9.73,4.15
+Davis Mills (HOU),Davis Mills,QB,HOU,Not projected this week,14.8,7,0.3,17.38,10.25,0.3,13.78,10.63,1.0,12.92,8.01,1.1,10.25,8.32,3.2,10.63,4.91,6.0,8.01,3.15
+Barion Brown (NO),Barion Brown,WR,NO,Played this week,18.8,7,0.0,9.33,8.6,0.3,9.08,6.7,0.8,8.38,5.29,0.1,9.33,7.77,0.2,9.08,7.31,0.5,8.38,6.12
+Elijah Moore (PHI),Elijah Moore,WR,PHI,Bye this week,10.3,7,0.1,9.33,8.6,0.3,9.08,6.7,0.7,8.38,5.29,0.1,9.33,7.77,0.2,9.08,7.31,0.4,8.38,6.12
+Tim Patrick (NYJ),Tim Patrick,WR,NYJ,Not projected this week,9.1,6,0.1,9.33,8.6,0.3,9.08,6.7,0.8,8.38,5.29,0.2,9.33,7.77,0.2,9.08,7.31,0.5,8.38,6.12
+Isaiah Davis (NYJ),Isaiah Davis,RB,NYJ,Played this week,14.7,6,0.0,9.75,5.87,0.3,10.23,4.39,1.2,9.73,3.14,0.0,9.75,8.36,0.0,10.23,6.33,0.4,9.73,4.15
+Evan Engram (DEN),Evan Engram,TE,DEN,Bye this week,30.4,7,0.2,8.53,8.89,0.3,7.97,8.4,0.9,7.64,6.66,0.2,8.53,8.89,0.3,7.97,8.4,0.9,7.64,6.66
+Brandin Cooks (SF),Brandin Cooks,WR,SF,Inactive this week,11.2,7,0.1,9.33,8.6,0.3,9.08,6.7,0.8,8.38,5.29,0.1,9.33,7.77,0.2,9.08,7.31,0.5,8.38,6.12
+DeeJay Dallas (MIN),DeeJay Dallas,RB,MIN,Played this week,8.5,7,0.0,9.75,5.87,0.2,10.23,4.39,0.6,9.73,3.14,0.0,9.75,8.36,0.0,10.23,6.33,0.2,9.73,4.15
+Noah Fant (NO),Noah Fant,TE,NO,Played this week,25.6,7,0.1,8.53,8.89,0.2,7.97,8.4,0.7,7.64,6.66,0.1,8.53,8.89,0.2,7.97,8.4,0.7,7.64,6.66
+Zavion Thomas (CHI),Zavion Thomas,WR,CHI,Bye this week,21.0,7,0.0,9.33,8.6,0.2,9.08,6.7,0.7,8.38,5.29,0.1,9.33,7.77,0.1,9.08,7.31,0.4,8.38,6.12
+Zavier Scott (CHI),Zavier Scott,RB,CHI,Not projected this week,7.3,7,0.0,9.75,5.87,0.2,10.23,4.39,0.7,9.73,3.14,0.0,9.75,8.36,0.0,10.23,6.33,0.3,9.73,4.15
+Demarcus Robinson (SF),Demarcus Robinson,WR,SF,Played this week,14.7,7,0.0,9.33,8.6,0.2,9.08,6.7,0.7,8.38,5.29,0.1,9.33,7.77,0.1,9.08,7.31,0.4,8.38,6.12
+Tyler Huntley (BAL),Tyler Huntley,QB,BAL,IR / reserve,9.9,6,0.2,17.38,10.25,0.2,13.78,10.63,0.7,12.92,8.01,0.8,10.25,8.32,2.4,10.63,4.91,4.6,8.01,3.15
+Brevyn Spann-Ford (DAL),Brevyn Spann-Ford,TE,DAL,Played this week,31.1,6,0.1,8.53,8.89,0.2,7.97,8.4,0.8,7.64,6.66,0.1,8.53,8.89,0.2,7.97,8.4,0.8,7.64,6.66
+Jalen Royals (KC),Jalen Royals,WR,KC,Played this week,20.2,7,0.0,9.33,8.6,0.2,9.08,6.7,0.8,8.38,5.29,0.1,9.33,7.77,0.1,9.08,7.31,0.4,8.38,6.12
+Joe Fagnano (BAL),Joe Fagnano,QB,BAL,Plays this week,17.2,7,0.3,17.38,10.25,0.2,13.78,10.63,0.8,12.92,8.01,0.9,10.25,8.32,3.1,10.63,4.91,5.9,8.01,3.15
+Kyle Allen (BUF),Kyle Allen,QB,BUF,Played this week,4.1,7,0.1,17.38,10.25,0.1,13.78,10.63,0.3,12.92,8.01,0.3,10.25,8.32,1.4,10.63,4.91,2.9,8.01,3.15
+Mason Rudolph (PIT),Mason Rudolph,QB,PIT,Played this week,5.8,7,0.1,17.38,10.25,0.1,13.78,10.63,0.3,12.92,8.01,0.3,10.25,8.32,1.5,10.63,4.91,3.1,8.01,3.15
+Noah Gray (KC),Noah Gray,TE,KC,Played this week,23.2,7,0.1,8.53,8.89,0.1,7.97,8.4,0.4,7.64,6.66,0.1,8.53,8.89,0.1,7.97,8.4,0.4,7.64,6.66
+Luke McCaffrey (WAS),Luke McCaffrey,WR,WAS,Played this week,15.5,7,0.0,9.33,8.6,0.1,9.08,6.7,0.4,8.38,5.29,0.0,9.33,7.77,0.1,9.08,7.31,0.2,8.38,6.12
+Brycen Tremayne (CAR),Brycen Tremayne,WR,CAR,Played this week,17.3,7,0.0,9.33,8.6,0.1,9.08,6.7,0.3,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.1,8.38,6.12
+Tahj Brooks (CIN),Tahj Brooks,RB,CIN,Played this week,11.5,7,0.0,9.75,5.87,0.1,10.23,4.39,0.6,9.73,3.14,0.0,9.75,8.36,0.0,10.23,6.33,0.2,9.73,4.15
+LeQuint Allen Jr. (JAX),LeQuint Allen Jr.,RB,JAX,Played this week,13.6,7,0.0,9.75,5.87,0.1,10.23,4.39,0.5,9.73,3.14,0.0,9.75,8.36,0.0,10.23,6.33,0.1,9.73,4.15
+Simi Fehoko (ARI),Simi Fehoko,WR,ARI,Played this week,17.3,6,0.0,9.33,8.6,0.1,9.08,6.7,0.3,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.1,8.38,6.12
+Dawson Knox (BUF),Dawson Knox,TE,BUF,Played this week,22.7,7,0.1,8.53,8.89,0.1,7.97,8.4,0.4,7.64,6.66,0.1,8.53,8.89,0.1,7.97,8.4,0.4,7.64,6.66
+Tyrod Taylor (GB),Tyrod Taylor,QB,GB,Played this week,11.4,6,0.2,17.38,10.25,0.1,13.78,10.63,0.5,12.92,8.01,0.6,10.25,8.32,2.1,10.63,4.91,4.2,8.01,3.15
+Devin Duvernay (ARI),Devin Duvernay,WR,ARI,Played this week,21.7,6,0.0,9.33,8.6,0.1,9.08,6.7,0.6,8.38,5.29,0.0,9.33,7.77,0.1,9.08,7.31,0.3,8.38,6.12
+Spencer Rattler (NO),Spencer Rattler,QB,NO,Not projected this week,24.8,7,0.1,17.38,10.25,0.1,13.78,10.63,0.5,12.92,8.01,0.5,10.25,8.32,2.7,10.63,4.91,5.8,8.01,3.15
+Joe Flacco (CIN),Joe Flacco,QB,CIN,Not projected this week,21.4,7,0.1,17.38,10.25,0.1,13.78,10.63,0.5,12.92,8.01,0.6,10.25,8.32,2.6,10.63,4.91,5.5,8.01,3.15
+Jonathan Mingo (DAL),Jonathan Mingo,WR,DAL,Not projected this week,7.0,6,0.0,9.33,8.6,0.1,9.08,6.7,0.3,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.1,8.38,6.12
+Dylan Laube (LV),Dylan Laube,RB,LV,Played this week,7.5,6,0.0,9.75,5.87,0.1,10.23,4.39,0.4,9.73,3.14,0.0,9.75,8.36,0.0,10.23,6.33,0.1,9.73,4.15
+Dare Ogunbowale (HOU),Dare Ogunbowale,RB,HOU,Not projected this week,5.8,7,0.0,9.75,5.87,0.1,10.23,4.39,0.4,9.73,3.14,0.0,9.75,8.36,0.0,10.23,6.33,0.1,9.73,4.15
+DJ Uiagalelei (LAC),DJ Uiagalelei,QB,LAC,Plays this week,16.2,8,0.2,17.38,10.25,0.1,13.78,10.63,0.6,12.92,8.01,0.7,10.25,8.32,2.6,10.63,4.91,5.3,8.01,3.15
+Theo Johnson (NYG),Theo Johnson,TE,NYG,Played this week,21.3,7,0.0,8.53,8.89,0.1,7.97,8.4,0.3,7.64,6.66,0.0,8.53,8.89,0.1,7.97,8.4,0.3,7.64,6.66
+Mitchell Tinsley (CIN),Mitchell Tinsley,WR,CIN,Played this week,8.8,7,0.0,9.33,8.6,0.1,9.08,6.7,0.3,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.1,8.38,6.12
+Joshua Dobbs (DET),Joshua Dobbs,QB,DET,Not projected this week,6.5,7,0.1,17.38,10.25,0.1,13.78,10.63,0.4,12.92,8.01,0.4,10.25,8.32,1.7,10.63,4.91,3.5,8.01,3.15
+Nate Boerkircher (JAX),Nate Boerkircher,TE,JAX,Played this week,24.8,7,0.0,8.53,8.89,0.1,7.97,8.4,0.3,7.64,6.66,0.0,8.53,8.89,0.1,7.97,8.4,0.3,7.64,6.66
+Jalen Brooks (ARI),Jalen Brooks,WR,ARI,IR / reserve,6.8,6,0.0,9.33,8.6,0.1,9.08,6.7,0.3,8.38,5.29,0.0,9.33,7.77,0.1,9.08,7.31,0.2,8.38,6.12
+Deion Burks (IND),Deion Burks,WR,IND,Played this week,11.7,6,0.0,9.33,8.6,0.1,9.08,6.7,0.3,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.2,8.38,6.12
+CJ Daniels (LA),CJ Daniels,WR,LA,Played this week,17.6,6,0.0,9.33,8.6,0.1,9.08,6.7,0.5,8.38,5.29,0.0,9.33,7.77,0.1,9.08,7.31,0.2,8.38,6.12
+Josh Cuevas (BAL),Josh Cuevas,TE,BAL,Plays this week,20.9,7,0.0,8.53,8.89,0.1,7.97,8.4,0.2,7.64,6.66,0.0,8.53,8.89,0.1,7.97,8.4,0.2,7.64,6.66
+Isaiah Williams (NYJ),Isaiah Williams,WR,NYJ,Played this week,11.2,6,0.0,9.33,8.6,0.1,9.08,6.7,0.3,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.2,8.38,6.12
+Cole Kmet (CHI),Cole Kmet,TE,CHI,Not projected this week,12.1,7,0.0,8.53,8.89,0.1,7.97,8.4,0.3,7.64,6.66,0.0,8.53,8.89,0.1,7.97,8.4,0.3,7.64,6.66
+Tommy DeVito (NE),Tommy DeVito,QB,NE,Played this week,5.0,6,0.1,17.38,10.25,0.1,13.78,10.63,0.5,12.92,8.01,0.5,10.25,8.32,1.7,10.63,4.91,3.4,8.01,3.15
+Ashton Dulin (IND),Ashton Dulin,WR,IND,Played this week,11.7,6,0.0,9.33,8.6,0.1,9.08,6.7,0.3,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.1,8.38,6.12
+Colbie Young (CIN),Colbie Young,WR,CIN,Played this week,17.0,7,0.0,9.33,8.6,0.1,9.08,6.7,0.4,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.2,8.38,6.12
+Dean Connors (LA),Dean Connors,RB,LA,IR / reserve,4.5,6,0.0,9.75,5.87,0.1,10.23,4.39,0.4,9.73,3.14,0.0,9.75,8.36,0.0,10.23,6.33,0.1,9.73,4.15
+David Sills (TB),David Sills,WR,TB,Bye this week,10.4,7,0.0,9.33,8.6,0.1,9.08,6.7,0.3,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.1,8.38,6.12
+Brandon Smith (PIT),Brandon Smith,WR,PIT,Played this week,7.8,7,0.0,9.33,8.6,0.0,9.08,6.7,0.0,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.0,8.38,6.12
+Travis Homer (PIT),Travis Homer,RB,PIT,Played this week,3.6,7,0.0,9.75,5.87,0.0,10.23,4.39,0.2,9.73,3.14,0.0,9.75,8.36,0.0,10.23,6.33,0.0,9.73,4.15
+Tylan Wallace (CLE),Tylan Wallace,WR,CLE,Played this week,4.8,6,0.0,9.33,8.6,0.0,9.08,6.7,0.0,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.0,8.38,6.12
+Jacob Cowing (SF),Jacob Cowing,WR,SF,Played this week,10.5,7,0.0,9.33,8.6,0.0,9.08,6.7,0.2,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.1,8.38,6.12
+Kene Nwangwu (NYJ),Kene Nwangwu,RB,NYJ,Played this week,4.0,6,0.0,9.75,5.87,0.0,10.23,4.39,0.1,9.73,3.14,0.0,9.75,8.36,0.0,10.23,6.33,0.0,9.73,4.15
+Brock Wright (DET),Brock Wright,TE,DET,Played this week,9.3,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Jacob Saylors (DET),Jacob Saylors,RB,DET,Played this week,3.0,7,0.0,9.75,5.87,0.0,10.23,4.39,0.3,9.73,3.14,0.0,9.75,8.36,0.0,10.23,6.33,0.1,9.73,4.15
+Dareke Young (LV),Dareke Young,WR,LV,Played this week,3.7,6,0.0,9.33,8.6,0.0,9.08,6.7,0.0,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.0,8.38,6.12
+Irvin Charles (SEA),Irvin Charles,WR,SEA,Played this week,3.6,6,0.0,9.33,8.6,0.0,9.08,6.7,0.0,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.0,8.38,6.12
+Davis Allen (LA),Davis Allen,TE,LA,Played this week,12.4,6,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Drew Sample (CIN),Drew Sample,TE,CIN,Played this week,12.0,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Jordan Whittington (LA),Jordan Whittington,WR,LA,IR / reserve,4.2,6,0.0,9.33,8.6,0.0,9.08,6.7,0.0,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.0,8.38,6.12
+Jahdae Walker (CHI),Jahdae Walker,WR,CHI,Bye this week,7.2,7,0.0,9.33,8.6,0.0,9.08,6.7,0.1,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.0,8.38,6.12
+Sam Roush (CHI),Sam Roush,TE,CHI,Bye this week,18.2,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Bauer Sharp (TB),Bauer Sharp,TE,TB,Bye this week,8.9,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Lil'Jordan Humphrey (DEN),Lil'Jordan Humphrey,WR,DEN,Bye this week,9.7,7,0.0,9.33,8.6,0.0,9.08,6.7,0.2,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.1,8.38,6.12
+Will Mallory (IND),Will Mallory,TE,IND,Inactive this week,8.1,6,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Ben Yurosek (MIN),Ben Yurosek,TE,MIN,Played this week,9.7,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Myles Price (MIN),Myles Price,WR,MIN,Played this week,11.1,7,0.0,9.33,8.6,0.0,9.08,6.7,0.1,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.0,8.38,6.12
+Beaux Collins (ATL),Beaux Collins,WR,ATL,Played this week,4.0,6,0.0,9.33,8.6,0.0,9.08,6.7,0.0,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.0,8.38,6.12
+Gavin Bartholomew (MIN),Gavin Bartholomew,TE,MIN,Played this week,10.0,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Keleki Latu (BUF),Keleki Latu,TE,BUF,Played this week,7.2,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Andrew Armstrong (KC),Andrew Armstrong,WR,KC,Played this week,7.9,7,0.0,9.33,8.6,0.0,9.08,6.7,0.1,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.0,8.38,6.12
+Mark Redman (GB),Mark Redman,TE,GB,Played this week,6.9,6,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Camden Brown (DAL),Camden Brown,WR,DAL,Played this week,6.8,6,0.0,9.33,8.6,0.0,9.08,6.7,0.1,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.0,8.38,6.12
+Jackson Hawes (BUF),Jackson Hawes,TE,BUF,Played this week,8.7,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Colson Yankoff (WAS),Colson Yankoff,TE,WAS,Not projected this week,5.0,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Austin Hooper (ATL),Austin Hooper,TE,ATL,Played this week,9.0,6,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+DeAndre Carter (DET),DeAndre Carter,WR,DET,Played this week,3.8,7,0.0,9.33,8.6,0.0,9.08,6.7,0.0,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.0,8.38,6.12
+Jelani Woods (NYJ),Jelani Woods,TE,NYJ,Inactive this week,6.6,6,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Jared Wiley (KC),Jared Wiley,TE,KC,Not projected this week,13.7,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Johnny Mundt (PHI),Johnny Mundt,TE,PHI,Bye this week,7.6,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Mo Alie-Cox (IND),Mo Alie-Cox,TE,IND,IR / reserve,6.0,6,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Robert Tonyan (PIT),Robert Tonyan,TE,PIT,Played this week,4.3,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Thomas Fidone II (NYG),Thomas Fidone II,TE,NYG,Not projected this week,6.3,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Brayden Willis (SF),Brayden Willis,TE,SF,Played this week,5.0,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Feleipe Franks (CAR),Feleipe Franks,TE,CAR,Played this week,2.7,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Ian Thomas (LV),Ian Thomas,TE,LV,Played this week,5.6,6,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Blake Whiteheart (CLE),Blake Whiteheart,TE,CLE,Played this week,6.8,6,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Charlie Jones (NYG),Charlie Jones,WR,NYG,Played this week,4.7,7,0.0,9.33,8.6,0.0,9.08,6.7,0.0,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.0,8.38,6.12
+Lew Nichols III (PIT),Lew Nichols III,RB,PIT,Played this week,3.8,7,0.0,9.75,5.87,0.0,10.23,4.39,0.2,9.73,3.14,0.0,9.75,8.36,0.0,10.23,6.33,0.0,9.73,4.15
+Cade Stover (HOU),Cade Stover,TE,HOU,Played this week,8.5,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Greg Dortch (BUF),Greg Dortch,WR,BUF,Played this week,5.2,7,0.0,9.33,8.6,0.0,9.08,6.7,0.1,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.1,8.38,6.12
+John Bates (WAS),John Bates,TE,WAS,Played this week,14.0,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Bo Melton (GB),Bo Melton,WR,GB,Played this week,8.2,6,0.0,9.33,8.6,0.0,9.08,6.7,0.2,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.1,8.38,6.12
+Chris Blair (ATL),Chris Blair,WR,ATL,Played this week,5.5,6,0.0,9.33,8.6,0.0,9.08,6.7,0.0,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.0,8.38,6.12
+Charlie Woerner (ATL),Charlie Woerner,TE,ATL,Played this week,9.3,6,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Quintin Morris (JAX),Quintin Morris,TE,JAX,Played this week,4.3,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Malik McClain (NYJ),Malik McClain,WR,NYJ,Played this week,3.8,6,0.0,9.33,8.6,0.0,9.08,6.7,0.0,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.0,8.38,6.12
+Jack Endries (CIN),Jack Endries,TE,CIN,Played this week,9.2,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Tanner Koziol (JAX),Tanner Koziol,TE,JAX,Played this week,8.1,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Devontez Walker (BAL),Devontez Walker,WR,BAL,Plays this week,8.5,7,0.0,9.33,8.6,0.0,9.08,6.7,0.1,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.0,8.38,6.12
+Derius Davis (LAC),Derius Davis,WR,LAC,Plays this week,8.6,8,0.0,9.33,8.6,0.0,9.08,6.7,0.0,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.0,8.38,6.12
+LaJohntay Wester (BAL),LaJohntay Wester,WR,BAL,Plays this week,5.9,7,0.0,9.33,8.6,0.0,9.08,6.7,0.0,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.0,8.38,6.12
+Rasheen Ali (BAL),Rasheen Ali,RB,BAL,Plays this week,5.4,7,0.0,9.75,5.87,0.0,10.23,4.39,0.2,9.73,3.14,0.0,9.75,8.36,0.0,10.23,6.33,0.1,9.73,4.15
+Matthew Hibner (BAL),Matthew Hibner,TE,BAL,Plays this week,10.0,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Max Klare (LA),Max Klare,TE,LA,Played this week,13.9,6,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Teagan Quitoriano (ARI),Teagan Quitoriano,TE,ARI,Played this week,7.7,6,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Erick All (CIN),Erick All,TE,CIN,IR / reserve,8.3,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Marlin Klein (HOU),Marlin Klein,TE,HOU,Played this week,14.5,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Ronnie Rivers (LA),Ronnie Rivers,RB,LA,Played this week,5.2,6,0.0,9.75,5.87,0.0,10.23,4.39,0.3,9.73,3.14,0.0,9.75,8.36,0.0,10.23,6.33,0.1,9.73,4.15
+Jeremy Ruckert (NYJ),Jeremy Ruckert,TE,NYJ,Played this week,6.5,6,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Daniel Bellinger (TEN),Daniel Bellinger,TE,TEN,Played this week,20.3,7,0.0,8.53,8.89,0.0,7.97,8.4,0.1,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.1,7.64,6.66
+Tay Martin (DET),Tay Martin,WR,DET,Played this week,4.1,7,0.0,9.33,8.6,0.0,9.08,6.7,0.0,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.0,8.38,6.12
+Julius Chestnut (TEN),Julius Chestnut,RB,TEN,Not projected this week,7.6,7,0.0,9.75,5.87,0.0,10.23,4.39,0.2,9.73,3.14,0.0,9.75,8.36,0.0,10.23,6.33,0.0,9.73,4.15
+Andrew Ogletree (IND),Andrew Ogletree,TE,IND,Played this week,6.1,6,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Elijah Higgins (ARI),Elijah Higgins,TE,ARI,Played this week,13.1,6,0.0,8.53,8.89,0.0,7.97,8.4,0.1,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.1,7.64,6.66
+Will Kacmarek (MIA),Will Kacmarek,TE,MIA,Played this week,15.6,7,0.0,8.53,8.89,0.0,7.97,8.4,0.1,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.1,7.64,6.66
+Foster Moreau (HOU),Foster Moreau,TE,HOU,Played this week,12.2,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Nick Muse (ATL),Nick Muse,TE,ATL,Played this week,4.3,6,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+David Martin-Robinson (TEN),David Martin-Robinson,TE,TEN,Played this week,4.6,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Oscar Delp (NO),Oscar Delp,TE,NO,Played this week,16.6,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Seydou Traore (MIA),Seydou Traore,TE,MIA,Played this week,6.0,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Kaden Wetjen (PIT),Kaden Wetjen,WR,PIT,Played this week,4.9,7,0.0,9.33,8.6,0.0,9.08,6.7,0.0,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.0,8.38,6.12
+Britain Covey (PHI),Britain Covey,WR,PHI,Not projected this week,5.1,7,0.0,9.33,8.6,0.0,9.08,6.7,0.1,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.0,8.38,6.12
+Josh Whyle (GB),Josh Whyle,TE,GB,IR / reserve,13.7,6,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Kylen Granson (TEN),Kylen Granson,TE,TEN,Not projected this week,7.1,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Harrison Wallace III (ARI),Harrison Wallace III,WR,ARI,Played this week,6.0,6,0.0,9.33,8.6,0.0,9.08,6.7,0.1,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.0,8.38,6.12
+Jonnu Smith (GB),Jonnu Smith,TE,GB,Played this week,15.5,6,0.0,8.53,8.89,0.0,7.97,8.4,0.1,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.1,7.64,6.66
+Cameron Latu (NE),Cameron Latu,TE,NE,Played this week,3.6,6,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Tyler Conklin (DET),Tyler Conklin,TE,DET,Played this week,8.4,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Charlie Kolar (LAC),Charlie Kolar,TE,LAC,Plays this week,32.1,8,0.0,8.53,8.89,0.0,7.97,8.4,0.1,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.1,7.64,6.66
+Cam Grandy (CIN),Cam Grandy,TE,CIN,Played this week,4.7,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Ben Sinnott (WAS),Ben Sinnott,TE,WAS,Played this week,14.6,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Malachi Corley (CLE),Malachi Corley,WR,CLE,Played this week,4.9,6,0.0,9.33,8.6,0.0,9.08,6.7,0.1,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.0,8.38,6.12
+Stephen Carlson (CHI),Stephen Carlson,TE,CHI,Bye this week,6.2,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Jake Briningstool (KC),Jake Briningstool,TE,KC,Played this week,8.3,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Jalin Hyatt (NYG),Jalin Hyatt,WR,NYG,Played this week,6.3,7,0.0,9.33,8.6,0.0,9.08,6.7,0.1,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.1,8.38,6.12
+Luke Farrell (SF),Luke Farrell,TE,SF,Played this week,9.4,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Nick Kallerup (SEA),Nick Kallerup,TE,SEA,Played this week,5.2,6,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Eric Saubert (SEA),Eric Saubert,TE,SEA,Played this week,7.4,6,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Anthony Gould (IND),Anthony Gould,WR,IND,Played this week,7.8,6,0.0,9.33,8.6,0.0,9.08,6.7,0.0,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.0,8.38,6.12
+Mitchell Evans (CAR),Mitchell Evans,TE,CAR,Played this week,21.7,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Nate Adkins (DEN),Nate Adkins,TE,DEN,Bye this week,9.8,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Ko Kieft (TB),Ko Kieft,TE,TB,Bye this week,5.8,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Tai Felton (MIN),Tai Felton,WR,MIN,Played this week,16.7,7,0.0,9.33,8.6,0.0,9.08,6.7,0.1,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.0,8.38,6.12
+Adam Trautman (DEN),Adam Trautman,TE,DEN,Bye this week,9.7,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Brevin Jordan (HOU),Brevin Jordan,TE,HOU,Not projected this week,7.5,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Grant Calcaterra (PHI),Grant Calcaterra,TE,PHI,Bye this week,7.4,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+J. Michael Sturdivant (GB),J. Michael Sturdivant,WR,GB,Played this week,5.5,6,0.0,9.33,8.6,0.0,9.08,6.7,0.1,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.0,8.38,6.12
+Jared Wayne (MIA),Jared Wayne,WR,MIA,Not projected this week,8.0,7,0.0,9.33,8.6,0.0,9.08,6.7,0.1,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.1,8.38,6.12
+Nikko Remigio (HOU),Nikko Remigio,WR,HOU,Not projected this week,5.5,7,0.0,9.33,8.6,0.0,9.08,6.7,0.1,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.0,8.38,6.12
+Kameron Johnson (TB),Kameron Johnson,WR,TB,Bye this week,6.9,7,0.0,9.33,8.6,0.0,9.08,6.7,0.0,8.38,5.29,0.0,9.33,7.77,0.0,9.08,7.31,0.0,8.38,6.12
+Luke Schoonmaker (DAL),Luke Schoonmaker,TE,DAL,Not projected this week,6.1,6,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Kenny Pickett (CAR),Kenny Pickett,QB,CAR,Not projected this week,6.6,7,0.1,17.38,10.25,0.0,13.78,10.63,0.3,12.92,8.01,0.3,10.25,8.32,1.4,10.63,4.91,3.0,8.01,3.15
+Payne Durham (TB),Payne Durham,TE,TB,Bye this week,9.0,7,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
+Pharaoh Brown (IND),Pharaoh Brown,TE,IND,Not projected this week,4.7,6,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66,0.0,8.53,8.89,0.0,7.97,8.4,0.0,7.64,6.66
