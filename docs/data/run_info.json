@@ -1,29 +1,29 @@
 {
- "updated": "2026-11-15T23:15:29+00:00",
+ "updated": "2026-11-16T00:18:37+00:00",
  "season": 2026,
  "projection_week": 10,
  "results_week": 10,
  "games_started": true,
- "reason": "schedule_and_lines,injury_news",
+ "reason": "schedule_and_lines,injury_news,inactives",
  "steps": [
   {
    "step": "bash",
-   "seconds": 48,
+   "seconds": 36,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 6,
+   "seconds": 4,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 3,
+   "seconds": 2,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 1,
+   "seconds": 0,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 1,
+   "seconds": 0,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 246,
+   "seconds": 27,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 48,
+   "seconds": 13,
    "ok": true
   }
  ],
@@ -54,9 +54,9 @@
   "inactives": {
    "nflverse_roster": 4,
    "file": "ref/inactives_2026_wk10.csv",
-   "matched": 47,
+   "matched": 50,
    "unmatched": [],
-   "total": 50
+   "total": 53
   },
   "inactive_rows": 0,
   "players": 334,
@@ -82,74 +82,74 @@
   "out_this_week": 113,
   "on_bye": 48,
   "this_week_source": "official",
-  "training_snapshots": 47940,
+  "training_snapshots": 47941,
   "rounds": {
    "QB": 50,
-   "RB": 83,
-   "WR/TE": 64
+   "RB": 100,
+   "WR/TE": 52
   },
   "experts_ros_date": "2026-11-14 00:00:00",
-  "seconds": 46,
+  "seconds": 12,
   "model_cache": {
-   "hit": 0,
-   "miss": 18,
+   "hit": 18,
+   "miss": 0,
    "on": true
   },
   "top": {
    "QB": [
     [
      "Brock Purdy",
-     149.4
+     148.4
     ],
     [
      "Joe Burrow",
-     146.8
+     148.3
     ],
     [
      "Josh Allen",
-     130.0
+     129.5
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     163.4
+     163.2
     ],
     [
      "Christian McCaffrey",
-     132.6
+     133.2
     ],
     [
      "James Cook",
-     124.0
+     123.9
     ]
    ],
    "TE": [
     [
      "George Kittle",
-     105.1
+     104.1
     ],
     [
      "Trey McBride",
-     90.6
+     80.5
     ],
     [
-     "Colston Loveland",
-     74.7
+     "Brock Bowers",
+     74.3
     ]
    ],
    "WR": [
     [
      "Ja'Marr Chase",
-     149.2
-    ],
-    [
-     "Jaxon Smith-Njigba",
-     130.5
+     148.3
     ],
     [
      "CeeDee Lamb",
-     123.9
+     122.9
+    ],
+    [
+     "Amon-Ra St. Brown",
+     118.9
     ]
    ]
   }
@@ -159,12 +159,12 @@
   "nfl_rows": 347,
   "nfl_matched": 347,
   "nfl_unmatched": [],
-  "espn_out": 199,
+  "espn_out": 207,
   "espn_unmatched": [
    "CJ Okoye (NYG)"
   ],
-  "hash": "21fdd8008639",
-  "rows_added": 91,
+  "hash": "73d354ef7485",
+  "rows_added": 98,
   "values_updated": 0
  }
 }
