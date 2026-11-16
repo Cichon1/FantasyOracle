@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-16T19:36:29+00:00",
+ "updated": "2026-11-16T19:40:23+00:00",
  "season": 2026,
  "projection_week": 10,
  "results_week": 10,
  "games_started": true,
- "reason": "play_by_play",
+ "reason": "player_stats,schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 38,
+   "seconds": 47,
    "ok": true
   },
   {
@@ -43,7 +43,7 @@
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 18,
+   "seconds": 19,
    "ok": true
   }
  ],
@@ -79,7 +79,7 @@
   "week": 10,
   "last_week": 17,
   "players": 463,
-  "out_this_week": 101,
+  "out_this_week": 100,
   "on_bye": 48,
   "this_week_source": "official",
   "training_snapshots": 47931,
@@ -89,7 +89,7 @@
    "WR/TE": 71
   },
   "experts_ros_date": "2026-11-14 00:00:00",
-  "seconds": 17,
+  "seconds": 18,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -159,16 +159,12 @@
   "nfl_rows": 347,
   "nfl_matched": 347,
   "nfl_unmatched": [],
-  "espn_out": 150,
+  "espn_out": 147,
   "espn_unmatched": [
    "CJ Okoye (NYG)"
   ],
-  "hash": "f206e884b51f",
-  "manual_out": [
-   "Drake Maye",
-   "Josh Jacobs"
-  ],
-  "rows_added": 46,
-  "values_updated": 1
+  "hash": "3d87f3237a44",
+  "rows_added": 42,
+  "values_updated": 0
  }
 }
