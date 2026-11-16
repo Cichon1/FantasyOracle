@@ -206,6 +206,15 @@ def main():
     ap.add_argument("--info", default=None, help="also write the summary to this JSON file")
     a = ap.parse_args()
     official, news, info = gather(a.data, a.season, a.week)
+    # manual return estimates (model/manual_out.csv): Out for every week through out_through_week
+    import manual_out as MO
+    man = [{"player_id": r["player_id"], "team": r["team"], "position": r["position"], "name": r["player"],
+            "status": "Out", "practice": None, "injury": "Manual: out through Week " + str(int(r["out_through_week"]))}
+           for r in MO.rows(a.season, a.week)]
+    if man:
+        ids = {r["player_id"] for r in man}
+        official = [r for r in official if r["player_id"] not in ids] + man
+        info["manual_out"] = [r["name"] for r in man]
     if not a.dry and (official or news):
         info.update(apply(official, news, a.data, a.season, a.week))
     if a.info:

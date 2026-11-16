@@ -500,11 +500,40 @@ def project_live(df, ctx, season, week, cfg_all, store=None, log=print):
     snap["ros_model"] = cur + fut * snap["ros_games_after"]
     snap["season"], snap["week"] = season, week
     snap["ros_ppr"] = blend_with_experts(snap, "ros_model", cfg["w_model"], group=("position",))
+    # Nov 16, 2026: manual return estimates (manual_out.py): games through out_through_week are missed
+    import manual_out as MO
+    mo = MO.load(season, week + 1)
+    snap["_manual_missed"] = 0
+    snap["_manual_tot0"] = np.nan
     k = cfg["range_k"]
     lo_s = (snap["rate"] - snap["rate_q10"]).clip(lower=0) * snap["ros_games_after"]
     hi_s = (snap["rate_q90"] - snap["rate"]).clip(lower=0) * snap["ros_games_after"]
     snap["ros_low"] = (snap["ros_ppr"] - snap["position"].map({p: v[0] for p, v in k.items()}) * lo_s).clip(lower=0)
     snap["ros_high"] = snap["ros_ppr"] + snap["position"].map({p: v[1] for p, v in k.items()}) * hi_s
+    lw = last_week(season)
+    for i in snap.index[snap["player_id"].isin(list(mo))]:
+        t = snap.at[i, "team"]
+        wks = sorted(ctx.sched.loc[(ctx.sched["season"] == season) & (ctx.sched["team"] == t)
+                                   & (ctx.sched["week"] > week) & (ctx.sched["week"] <= lw), "week"])
+        n, miss = len(wks), sum(w <= mo[snap.at[i, "player_id"]] for w in wks)
+        if not n or not miss:
+            continue
+        keep = (n - miss) / n
+        old = float(snap.at[i, "ros_ppr"])
+        j = snap.index.get_loc(i)
+        new = float(np.asarray(cur)[j]) + float(np.asarray(fut)[j]) * (n - miss)    # his own model's rate, no expert blend
+        snap.at[i, "ros_model"] = new
+        snap.at[i, "ros_ppr"] = new
+        f = new / old if old > 0 else keep
+        snap.at[i, "ros_low"] = float(snap.at[i, "ros_low"]) * f
+        snap.at[i, "ros_high"] = float(snap.at[i, "ros_high"]) * f
+        snap.at[i, "_manual_missed"] = miss
+        snap.at[i, "_manual_tot0"] = old
+        pcv = snap.at[i, "_pcurve"] if "_pcurve" in snap else None
+        if pcv is not None and len(pcv) == n:
+            pcv = np.array(pcv, dtype=float).copy(); pcv[:miss] = 0.0; snap.at[i, "_pcurve"] = pcv
+        log(f"manual out: {snap.at[i, 'player_display_name'] if 'player_display_name' in snap else snap.at[i, 'player_id']} "
+            f"misses {miss} of {n} games after week {week}: ROS {old:.1f} -> {new:.1f}")
     info = {"season": season, "week": week, "last_week": last_week(season), "players": int(len(snap)),
             "out_this_week": int(snap["ros_out_now"].sum()), "on_bye": int(snap["ros_bye_now"].sum()),
             "this_week_source": wk_src, "training_snapshots": int(len(hist_rows)),
@@ -655,13 +684,17 @@ def depth_inputs(s, ctx, season, week, cfg):
             pos, n = s.at[i, "position"], int(n_after.at[i])
             tot = float(s.at[i, "ros_ppr"])
             if outp.at[i]:
-                h = max(tot / max(a.at[i] * G.at[i], 1e-9), float(healthy.at[i]))
+                t0 = float(s.at[i, "_manual_tot0"]) if "_manual_tot0" in s and pd.notna(s.at[i, "_manual_tot0"]) else tot
+                h = max(t0 / max(a.at[i] * G.at[i], 1e-9), float(healthy.at[i]))   # manual: his level before the cut
                 c = _fill_curve(_curve(cv["out"].get(pos, cv["out"]["WR"]), n), tot / h if h > 0 else 0.0)
                 c0 = 0.0
             else:
                 cpop = _curve(cv["active"].get(pos, cv["active"]["WR"]), n)
                 pcv = pcur.at[i]
                 c = pcv if pcv is not None and len(pcv) == n else cpop
+                mm0 = int(s.at[i, "_manual_missed"]) if "_manual_missed" in s else 0
+                if mm0 and len(c):
+                    c = np.array(c, dtype=float).copy(); c[:mm0] = 0.0
                 rest = max(tot - float(this_wk.at[i]), 0.0)
                 # points when playing: his later games' rate is a_weekly x this week's projection + (1 - a_weekly) x
                 # the ROS rate model (trained with missed games as zero: the position curve's average chance). The
@@ -672,6 +705,8 @@ def depth_inputs(s, ctx, season, week, cfg):
                     per = a_w * wk_c + (1 - a_w) * cpop.mean()
                 else:
                     per = cpop.mean() if n > 0 else 1.0
+                if mm0 and n > 0 and c.sum() > 0:
+                    per = float(c.mean())        # manual return estimate: points spread over the games he can play
                 h = rest / (n * per) if n > 0 and per > 0 else float(this_wk.at[i])
                 if bool(open_now.at[i]):
                     if n == 0 or h <= 0:
@@ -680,6 +715,9 @@ def depth_inputs(s, ctx, season, week, cfg):
                     c0 = min(1.0, float(this_wk.at[i]) / h) if h > 0 else 0.0
                 else:
                     c0 = 0.0
+            mm = int(s.at[i, "_manual_missed"]) if "_manual_missed" in s else 0
+            if mm and len(c):          # manual return estimate: no chance to play those games
+                c = np.array(c, dtype=float).copy(); c[:mm] = 0.0
             games = c0 + c.sum()
             rate.append(games / max(int(open_now.at[i]) + n, 1))
             curves.append(";".join(f"{x:.3f}" for x in c))
