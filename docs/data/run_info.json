@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-16T04:07:13+00:00",
+ "updated": "2026-11-16T05:35:59+00:00",
  "season": 2026,
  "projection_week": 10,
  "results_week": 10,
@@ -8,22 +8,22 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 38,
+   "seconds": 41,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 3,
+   "seconds": 6,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 2,
+   "seconds": 3,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 1,
+   "seconds": 31,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 22,
+   "seconds": 40,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 10,
+   "seconds": 19,
    "ok": true
   }
  ],
@@ -89,7 +89,7 @@
    "WR/TE": 52
   },
   "experts_ros_date": "2026-11-14 00:00:00",
-  "seconds": 9,
+  "seconds": 18,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -98,16 +98,16 @@
   "top": {
    "QB": [
     [
-     "Joe Burrow",
-     148.9
-    ],
-    [
      "Josh Allen",
      129.8
     ],
     [
      "Brock Purdy",
      126.9
+    ],
+    [
+     "Joe Burrow",
+     117.6
     ]
    ],
    "RB": [
@@ -120,7 +120,7 @@
      134.2
     ],
     [
-     "James Cook",
+     "Bijan Robinson",
      124.7
     ]
    ],
@@ -141,15 +141,15 @@
    "WR": [
     [
      "Ja'Marr Chase",
-     147.7
+     114.8
     ],
     [
      "Jaxon Smith-Njigba",
-     118.2
+     110.7
     ],
     [
      "Amon-Ra St. Brown",
-     110.7
+     107.3
     ]
    ]
   }
@@ -159,11 +159,11 @@
   "nfl_rows": 347,
   "nfl_matched": 347,
   "nfl_unmatched": [],
-  "espn_out": 200,
+  "espn_out": 199,
   "espn_unmatched": [
    "CJ Okoye (NYG)"
   ],
-  "hash": "7591827ce63c",
+  "hash": "31b9fbb65633",
   "rows_added": 92,
   "values_updated": 0
  }
