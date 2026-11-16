@@ -1,5 +1,5 @@
 {
- "pulled_at": "2026-11-16T15:42-05:00",
+ "pulled_at": "2026-11-16T18:36-05:00",
  "pages": 8,
  "expert_pages": 2,
  "errors": [],
@@ -94,8 +94,8 @@
     "recent": 104,
     "recent_acc": 104
    },
-   "agree_recent": 0.975,
-   "agree_recent_acc": 0.975
+   "agree_recent": 0.976,
+   "agree_recent_acc": 0.976
   },
   "ros|WR": {
    "default": 6,
@@ -128,5 +128,5 @@
    "agree_recent_acc": 0.989
   }
  },
- "stamp": "c0694d807905"
+ "stamp": "8feda8bb3556"
 }
