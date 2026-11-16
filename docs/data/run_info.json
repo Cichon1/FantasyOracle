@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-16T13:36:51+00:00",
+ "updated": "2026-11-16T16:01:32+00:00",
  "season": 2026,
  "projection_week": 10,
  "results_week": 10,
  "games_started": true,
- "reason": "schedule_and_lines,snap_counts,ftn_charting",
+ "reason": "player_stats,play_by_play,schedule_and_lines,expected_points,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 38,
+   "seconds": 43,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 3,
+   "seconds": 30,
    "ok": true
   },
   {
@@ -38,7 +38,7 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 30,
+   "seconds": 29,
    "ok": true
   },
   {
@@ -163,7 +163,7 @@
   "espn_unmatched": [
    "CJ Okoye (NYG)"
   ],
-  "hash": "31b9fbb65633",
+  "hash": "5b0a1269a4fa",
   "rows_added": 92,
   "values_updated": 0
  }
