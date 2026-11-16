@@ -1,7 +1,7 @@
 {
- "pulled_at": "2026-11-16T12:59-05:00",
+ "pulled_at": "2026-11-16T15:42-05:00",
  "pages": 8,
- "expert_pages": 3,
+ "expert_pages": 2,
  "errors": [],
  "expert_pages_waiting": 0,
  "cutoff_ros": "2026-11-15T23:40-05:00",
@@ -68,7 +68,7 @@
    "agree_recent_acc": 0.993
   },
   "ros|QB": {
-   "default": 6,
+   "default": 7,
    "recent": 11,
    "recent_acc": 11,
    "listed": 33,
@@ -79,8 +79,8 @@
     "recent": 43,
     "recent_acc": 43
    },
-   "agree_recent": 0.981,
-   "agree_recent_acc": 0.981
+   "agree_recent": 0.978,
+   "agree_recent_acc": 0.978
   },
   "ros|RB": {
    "default": 6,
@@ -128,5 +128,5 @@
    "agree_recent_acc": 0.989
   }
  },
- "stamp": "af0c7e0fccbe"
+ "stamp": "c0694d807905"
 }
