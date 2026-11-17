@@ -1,5 +1,5 @@
 {
- "pulled_at": "2026-11-17T15:46-05:00",
+ "pulled_at": "2026-11-17T18:43-05:00",
  "pages": 8,
  "expert_pages": 8,
  "errors": [],
@@ -8,25 +8,25 @@
  "cutoff_weekly": "2026-11-16T23:35-05:00",
  "panels": {
   "weekly|QB": {
-   "default": 11,
-   "recent": 16,
-   "recent_acc": 16,
-   "listed": 32,
+   "default": 13,
+   "recent": 14,
+   "recent_acc": 14,
+   "listed": 33,
    "public_pages": 20,
    "recent_rule": "since cutoff",
    "players": {
-    "default": 33,
+    "default": 34,
     "recent": 30,
     "recent_acc": 30
    },
-   "agree_recent": 0.991,
-   "agree_recent_acc": 0.991
+   "agree_recent": 0.992,
+   "agree_recent_acc": 0.992
   },
   "weekly|RB": {
-   "default": 10,
+   "default": 12,
    "recent": 16,
    "recent_acc": 16,
-   "listed": 31,
+   "listed": 32,
    "public_pages": 19,
    "recent_rule": "since cutoff",
    "players": {
@@ -34,38 +34,38 @@
     "recent": 68,
     "recent_acc": 68
    },
-   "agree_recent": 0.981,
-   "agree_recent_acc": 0.981
+   "agree_recent": 0.982,
+   "agree_recent_acc": 0.982
   },
   "weekly|WR": {
-   "default": 10,
+   "default": 12,
    "recent": 16,
    "recent_acc": 16,
-   "listed": 31,
+   "listed": 32,
    "public_pages": 19,
    "recent_rule": "since cutoff",
    "players": {
-    "default": 99,
+    "default": 102,
     "recent": 96,
     "recent_acc": 96
    },
-   "agree_recent": 0.989,
-   "agree_recent_acc": 0.989
+   "agree_recent": 0.985,
+   "agree_recent_acc": 0.985
   },
   "weekly|TE": {
-   "default": 28,
+   "default": 12,
    "recent": 17,
    "recent_acc": 17,
-   "listed": 31,
+   "listed": 32,
    "public_pages": 19,
    "recent_rule": "since cutoff",
    "players": {
-    "default": 69,
+    "default": 50,
     "recent": 40,
     "recent_acc": 40
    },
-   "agree_recent": 0.992,
-   "agree_recent_acc": 0.992
+   "agree_recent": 0.991,
+   "agree_recent_acc": 0.991
   },
   "ros|QB": {
    "default": 5,
@@ -128,5 +128,5 @@
    "agree_recent_acc": 0.981
   }
  },
- "stamp": "6d0c3840ff6b"
+ "stamp": "5ed01e9d03fb"
 }
