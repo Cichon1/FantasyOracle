@@ -1,19 +1,19 @@
 {
- "updated": "2026-11-17T06:09:29+00:00",
+ "updated": "2026-11-17T07:21:12+00:00",
  "season": 2026,
  "projection_week": 11,
  "results_week": 10,
  "games_started": false,
- "reason": "player_stats,play_by_play,schedule_and_lines,injury_news",
+ "reason": "schedule_and_lines,injury_reports,depth_charts,rosters",
  "steps": [
   {
    "step": "bash",
-   "seconds": 40,
+   "seconds": 58,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 6,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 362,
+   "seconds": 312,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 45,
+   "seconds": 18,
    "ok": true
   }
  ],
@@ -56,18 +56,18 @@
    "total": 0
   },
   "inactive_rows": 0,
-  "players": 351,
-  "upcoming": 351,
+  "players": 344,
+  "upcoming": 344,
   "season_scoreboard": {
-   "model": 0.3963,
-   "experts": 0.4064,
-   "official": 0.4063
+   "model": 0.3957,
+   "experts": 0.4063,
+   "official": 0.406
   },
   "latest_week_scoreboard": {
    "week": 10,
-   "model": 0.4455,
-   "experts": 0.4924,
-   "official": 0.4651
+   "model": 0.4398,
+   "experts": 0.4918,
+   "official": 0.4615
   }
  },
  "ros_info": {
@@ -75,8 +75,8 @@
   "season": 2026,
   "week": 11,
   "last_week": 17,
-  "players": 469,
-  "out_this_week": 44,
+  "players": 463,
+  "out_this_week": 45,
   "on_bye": 74,
   "this_week_source": "official",
   "training_snapshots": 47931,
@@ -86,10 +86,10 @@
    "WR/TE": 70
   },
   "experts_ros_date": "2026-11-16 00:00:00",
-  "seconds": 44,
+  "seconds": 17,
   "model_cache": {
-   "hit": 0,
-   "miss": 18,
+   "hit": 18,
+   "miss": 0,
    "on": true
   },
   "top": {
@@ -118,7 +118,7 @@
     ],
     [
      "Christian McCaffrey",
-     129.9
+     130.4
     ]
    ],
    "TE": [
@@ -127,12 +127,12 @@
      85.6
     ],
     [
-     "Colston Loveland",
+     "Trey McBride",
      81.4
     ],
     [
-     "Isaiah Likely",
-     77.5
+     "Brock Bowers",
+     77.1
     ]
    ],
    "WR": [
@@ -142,7 +142,7 @@
     ],
     [
      "Amon-Ra St. Brown",
-     125.8
+     126.4
     ],
     [
      "CeeDee Lamb",
