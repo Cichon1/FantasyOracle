@@ -1,19 +1,19 @@
 {
- "updated": "2026-11-17T14:16:31+00:00",
+ "updated": "2026-11-17T15:31:29+00:00",
  "season": 2026,
  "projection_week": 11,
  "results_week": 10,
  "games_started": false,
- "reason": "schedule_and_lines",
+ "reason": "player_stats,play_by_play,schedule_and_lines,expected_points",
  "steps": [
   {
    "step": "bash",
-   "seconds": 39,
+   "seconds": 37,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 5,
+   "seconds": 6,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 2,
+   "seconds": 1,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 38,
+   "seconds": 374,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 18,
+   "seconds": 19,
    "ok": true
   }
  ],
@@ -86,7 +86,7 @@
    "WR/TE": 70
   },
   "experts_ros_date": "2026-11-16 00:00:00",
-  "seconds": 16,
+  "seconds": 18,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -100,35 +100,35 @@
     ],
     [
      "Joe Burrow",
-     129.2
+     129.7
     ],
     [
      "Trevor Lawrence",
-     122.8
+     122.3
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     141.9
+     135.9
     ],
     [
      "Kenneth Walker III",
-     129.9
+     130.5
     ],
     [
      "Christian McCaffrey",
-     129.5
+     129.0
     ]
    ],
    "TE": [
     [
      "George Kittle",
-     85.6
+     84.5
     ],
     [
      "Brock Bowers",
-     79.7
+     79.2
     ],
     [
      "Colston Loveland",
@@ -138,15 +138,15 @@
    "WR": [
     [
      "Ja'Marr Chase",
-     143.5
+     142.4
     ],
     [
      "Amon-Ra St. Brown",
-     128.2
+     126.5
     ],
     [
      "CeeDee Lamb",
-     111.9
+     111.5
     ]
    ]
   }
