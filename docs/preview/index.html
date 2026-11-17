@@ -866,7 +866,7 @@
 
     <div class="nf-card" id="ros-card">
       <h2 id="ros-title">Rest-of-season rankings</h2>
-      <p class="nf-note"><b>Start %</b>: chance his rest-of-season points finish at or above the 12th QB / 24th RB / 36th WR / 12th TE projection, from his calibrated range. Official ROS PPR points (the model's rank averaged with the FantasyPros ROS rank within each position, with the model's own point totals handed out in that order) and a 10th–90th percentile range. Points are this week's official projection plus the games left after this week times a per-game rate (80% this week's projection, discounted game by game for his chance to play it, and 20% a rest-of-season model that also weighs the remaining schedule and how often players like him miss games). His chance to play falls the further out a game is and depends on his injury report, age, games missed and snap share. Players out this week or on bye use the rest-of-season model alone. Rank is overall (all positions, by ROS PPR); Pos rank is the official rank within the position. Your players (pick the league under the table controls) are shaded with a bar on the left. Per game is ROS points over the games his team has left. Opp. allowed is the remaining opponents' PPR points allowed to the position relative to average (above 1.00 is an easier schedule).</p>
+      <p class="nf-note"><b>Start %</b>: chance his rest-of-season points finish at or above the 12th QB / 24th RB / 36th WR / 12th TE projection, from his calibrated range. Official ROS PPR points (the model's rank averaged with the FantasyPros ROS rank within each position, with the model's own point totals handed out in that order) and a 10th–90th percentile range. Points are this week's official projection plus the games left after this week times a per-game rate (80% this week's projection, discounted game by game for his chance to play it, and 20% a rest-of-season model that also weighs the remaining schedule and how often players like him miss games). His chance to play falls the further out a game is and depends on his injury report, age, games missed and snap share. Players out this week or on bye use the rest-of-season model alone. Rank is overall (all positions, by ROS PPR); Pos rank is the official rank within the position. Your players (pick the league under the table controls) are shaded and in bold; players on no team in that league (free agents / waivers) are shaded green. Per game is ROS points over the games his team has left. Opp. allowed is the remaining opponents' PPR points allowed to the position relative to average (above 1.00 is an easier schedule).</p>
       <div class="nf-controls">
         <div id="ros-pos-chips" role="group" aria-label="Position"></div>
         <div id="ros-status-chips" role="group" aria-label="Availability"></div>
@@ -1098,13 +1098,20 @@ window.nfMine = (() => {
     if (!lg || RO.status !== 'ok') return new Set();
     return new Set(RO.data.filter((p) => String(p.league_id) === String(lg.league_id) && String(p.team_id) === String(lg.my_team) && p.ros_key).map((p) => p.ros_key));
   };
+  // everyone on a team in the selected league; a row not in this set is a free agent / on waivers
+  const owned = () => {
+    const lg = cur(), RO = dash.data('league_rosters');
+    if (!lg || RO.status !== 'ok') return null;
+    return new Set(RO.data.filter((p) => String(p.league_id) === String(lg.league_id) && p.ros_key).map((p) => p.ros_key));
+  };
+  const rowClass = (key) => { const m = keys(); if (m.has(key)) return 'nf-mine'; const o = owned(); return o && !o.has(key) ? 'nf-fa' : ''; };
   const chips = (box) => {
     const ls = leagues();
     const want = ls.map((l) => String(l.league_id)).concat('none').join(',');
     if (box.dataset.sig !== want) {
       box.dataset.sig = want; box.replaceChildren();
       const lab = document.createElement('span'); lab.className = 'nf-note'; lab.style.margin = '0 6px 0 0';
-      lab.innerHTML = '<span class="nf-mine-legend" aria-hidden="true"></span>My players:';
+      lab.innerHTML = '<span class="nf-mine-legend" aria-hidden="true"></span>My players &nbsp;<span class="nf-fa-legend" aria-hidden="true"></span>Free agents / waivers &nbsp;· League:';
       box.append(lab);
       ls.concat([{ league_id: 'none', league: 'Off' }]).forEach((l) => {
         const b = document.createElement('button'); b.className = 'nf-chip'; b.dataset.id = String(l.league_id);
@@ -1116,7 +1123,7 @@ window.nfMine = (() => {
     const c = cur(), id = c ? String(c.league_id) : 'none';
     box.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', b.dataset.id === id));
   };
-  return { keys, cur, chips, onChange: (f) => subs.push(f) };
+  return { keys, owned, rowClass, cur, chips, onChange: (f) => subs.push(f) };
 })();
 // Overall and position ranks, written onto each row (ovr_rank, pos_rank); groupKey splits rows (e.g. by week)
 window.nfRank = (rows, valKey, groupKey) => {
@@ -1124,7 +1131,7 @@ window.nfRank = (rows, valKey, groupKey) => {
   rows.forEach((r) => { const g = groupKey ? groupKey(r) : ''; if (!groups.has(g)) groups.set(g, []); groups.get(g).push(r); });
   groups.forEach((list) => {
     const val = (r) => { const v = nfNum(r[valKey]); return isNaN(v) ? -1 : v; };
-    const sorted = list.slice().sort((a, b) => val(b) - val(a) || String(a.key).localeCompare(String(b.key)));
+    const sorted = list.map((r, i) => [r, i]).sort((a, b) => val(b[0]) - val(a[0]) || a[1] - b[1]).map((x) => x[0]);   // ties keep file order, like the table's sort
     const byPos = {};
     sorted.forEach((r, i) => { r.ovr_rank = i + 1; byPos[r.pos] = (byPos[r.pos] || 0) + 1; r.pos_rank = byPos[r.pos]; });
   });
@@ -1593,7 +1600,7 @@ window.foAvail = (() => {
       && (!state.q || (r.key + ' ' + r.opp).toLowerCase().includes(state.q)),
     context: (all) => d3.max(all.filter((r) => +r.week === nfWeek()), (r) => Math.max(nfNum(r.ppr_high) || 0, nfNum(r.act_ppr) || 0)) || 1,
     ascCols: ['ovr_rank', 'pos_rank'],
-    rowClass: (r) => (mineKeys.has(r.key) ? 'nf-mine' : ''),
+    rowClass: (r) => (mineKeys.has(r.key) ? 'nf-mine' : faOwned && !faOwned.has(r.key) ? 'nf-fa' : ''),
     cols: [['ovr_rank', f0, ''], ['pos_rank', f0, ''], ['key', (v) => v, 'nf-l nf-name', true], ['pos', (v) => v, 'nf-l', true], ['opp', (v) => v, 'nf-l', true],
       ['status', (v) => v, 'nf-l nf-status', true], ['injury', (v) => v, 'nf-l nf-hide-sm', true],
       ['ppr_low', f1, 'nf-hide-sm nf-muted nf-lo'], ['proj_ppr', f1, ''], ['ppr_high', f1, 'nf-hide-sm nf-muted nf-l nf-hi'],
@@ -1646,7 +1653,8 @@ window.foAvail = (() => {
   // ranks: by official projected PPR within each week (inactive / did-not-play rows sit at 0, so they rank last)
   let mineKeys = new Set();
   const mineBox = document.getElementById('proj-mine');
-  const refresh = () => { nfMine.chips(mineBox); mineKeys = nfMine.keys(); draw(); };
+  let faOwned = null;
+  const refresh = () => { nfMine.chips(mineBox); mineKeys = nfMine.keys(); faOwned = nfMine.owned(); draw(); };
   nfMine.onChange(refresh);
   dash.onData(() => {
     const d = dash.data('projections');
@@ -2023,9 +2031,9 @@ window.foAvail = (() => {
     b.addEventListener('click', () => { st[key] = p; box.querySelectorAll('button').forEach((c) => c.setAttribute('aria-pressed', c.textContent === p)); after(); });
     box.appendChild(b); box.appendChild(document.createTextNode(' '));
   });
-  let draw, mineKeys = new Set();
+  let draw, mineKeys = new Set(), faOwned = null;
   const mineBox = document.getElementById('ros-mine');
-  nfMine.onChange(() => { nfMine.chips(mineBox); mineKeys = nfMine.keys(); draw(); });
+  nfMine.onChange(() => { nfMine.chips(mineBox); mineKeys = nfMine.keys(); faOwned = nfMine.owned(); draw(); });
   chipRow(document.getElementById('ros-pos-chips'), ['All', 'QB', 'RB', 'WR', 'TE'], 'pos', () => draw());
   chipRow(document.getElementById('ros-status-chips'), Object.keys(avail), 'avail', () => draw());
   document.getElementById('ros-search').addEventListener('input', (e) => { st.q = e.target.value.toLowerCase(); draw(); });
@@ -2035,7 +2043,7 @@ window.foAvail = (() => {
     filter: (r) => (st.pos === 'All' || r.pos === st.pos) && avail[st.avail](r) && (!st.q || r.key.toLowerCase().includes(st.q)),
     context: (all) => d3.max(all, (r) => nfNum(r.ros_high)) || 1,
     ascCols: ['ovr_rank', 'ros_rank'],
-    rowClass: (r) => (mineKeys.has(r.key) ? 'nf-mine' : ''),
+    rowClass: (r) => (mineKeys.has(r.key) ? 'nf-mine' : faOwned && !faOwned.has(r.key) ? 'nf-fa' : ''),
     cols: [['ovr_rank', f0, ''], ['ros_rank', f0, ''], ['key', (v) => v, 'nf-l nf-name', true], ['pos', (v) => v, 'nf-l', true],
       ['status', (v) => v, 'nf-l nf-status nf-hide-sm', true], ['injury', (v) => v, 'nf-l nf-hide-sm', true],
       ['ros_low', f1, 'nf-hide-sm nf-muted nf-lo'], ['ros_ppr', f1, ''], ['ros_high', f1, 'nf-hide-sm nf-muted nf-l nf-hi'],
@@ -2150,7 +2158,7 @@ window.foAvail = (() => {
       document.getElementById('ros-title').textContent = 'Rest-of-season rankings · Weeks ' + d.data[0].from_week + '–' + d.data[0].through_week;
       nfRank(d.data, 'ros_ppr');
     }
-    nfMine.chips(mineBox); mineKeys = nfMine.keys();
+    nfMine.chips(mineBox); mineKeys = nfMine.keys(); faOwned = nfMine.owned();
     draw(); accDraw(); weekChart();
   });
   document.querySelector('[data-tab="ros"]').addEventListener('click', () => setTimeout(weekChart, 0));

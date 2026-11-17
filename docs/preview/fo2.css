@@ -108,6 +108,9 @@ table.rk .g2 { background-color: var(--blue-sec); }
 table.rk .div { border-left: 4px solid var(--divider) !important; }
 table.rk tbody tr.mine td { background-image: none !important; background-color: var(--gold-row) !important; }
 table.rk tbody tr.mine td.g2 { background-color: #b7b39f !important; }
+/* players on no team in the selected league (free agents / waivers) */
+table.rk tbody tr.fa td { background-image: none !important; background-color: #a9c49a !important; }
+table.rk tbody tr.fa td.g2 { background-color: #97b28c !important; }
 table.rk tbody tr:hover td { background-image: none; box-shadow: inset 0 2px 0 var(--blue), inset 0 -2px 0 var(--blue); }
 table.rk tbody tr:hover td:first-child { box-shadow: inset 2px 0 0 var(--blue), inset 0 2px 0 var(--blue), inset 0 -2px 0 var(--blue); }
 table.rk tbody tr:hover td:last-child { box-shadow: inset -2px 0 0 var(--blue), inset 0 2px 0 var(--blue), inset 0 -2px 0 var(--blue); }
