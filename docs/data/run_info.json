@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-17T00:17:10+00:00",
+ "updated": "2026-11-17T01:52:35+00:00",
  "season": 2026,
  "projection_week": 10,
  "results_week": 10,
  "games_started": true,
- "reason": "schedule_and_lines,fp_rankings,injury_news",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 41,
+   "seconds": 42,
    "ok": true
   },
   {
@@ -23,12 +23,12 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 1,
+   "seconds": 31,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/injuries_live.py --data",
-   "seconds": 1,
+   "seconds": 2,
    "ok": true
   },
   {
@@ -38,7 +38,7 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 38,
+   "seconds": 37,
    "ok": true
   },
   {
@@ -159,13 +159,13 @@
   "nfl_rows": 347,
   "nfl_matched": 347,
   "nfl_unmatched": [],
-  "espn_out": 128,
+  "espn_out": 126,
   "espn_unmatched": [
    "Kyle Monangai (CHI)",
    "Will Shipley (PHI)"
   ],
-  "hash": "32c14f03e137",
-  "rows_added": 20,
+  "hash": "48f7b6f0a361",
+  "rows_added": 21,
   "values_updated": 0
  }
 }
