@@ -1,7 +1,7 @@
 {
- "pulled_at": "2026-11-16T18:36-05:00",
+ "pulled_at": "2026-11-16T21:03-05:00",
  "pages": 8,
- "expert_pages": 2,
+ "expert_pages": 3,
  "errors": [],
  "expert_pages_waiting": 0,
  "cutoff_ros": "2026-11-15T23:40-05:00",
@@ -45,7 +45,7 @@
    "public_pages": 81,
    "recent_rule": "kept last good version",
    "players": {
-    "default": 153,
+    "default": 152,
     "recent": 107,
     "recent_acc": 107
    },
@@ -68,14 +68,14 @@
    "agree_recent_acc": 0.993
   },
   "ros|QB": {
-   "default": 7,
+   "default": 2,
    "recent": 11,
    "recent_acc": 11,
    "listed": 33,
    "public_pages": 16,
    "recent_rule": "fallback: last 7 days",
    "players": {
-    "default": 50,
+    "default": 49,
     "recent": 43,
     "recent_acc": 43
    },
@@ -83,50 +83,50 @@
    "agree_recent_acc": 0.978
   },
   "ros|RB": {
-   "default": 6,
+   "default": 3,
    "recent": 11,
    "recent_acc": 11,
    "listed": 28,
    "public_pages": 14,
    "recent_rule": "fallback: last 7 days",
    "players": {
-    "default": 101,
+    "default": 86,
     "recent": 104,
     "recent_acc": 104
    },
-   "agree_recent": 0.976,
-   "agree_recent_acc": 0.976
+   "agree_recent": 0.962,
+   "agree_recent_acc": 0.962
   },
   "ros|WR": {
-   "default": 6,
+   "default": 3,
    "recent": 12,
    "recent_acc": 12,
    "listed": 28,
    "public_pages": 14,
    "recent_rule": "fallback: last 7 days",
    "players": {
-    "default": 122,
+    "default": 123,
     "recent": 127,
     "recent_acc": 127
    },
-   "agree_recent": 0.962,
-   "agree_recent_acc": 0.962
+   "agree_recent": 0.955,
+   "agree_recent_acc": 0.955
   },
   "ros|TE": {
-   "default": 6,
+   "default": 2,
    "recent": 10,
    "recent_acc": 10,
    "listed": 27,
    "public_pages": 14,
    "recent_rule": "fallback: last 7 days",
    "players": {
-    "default": 66,
+    "default": 48,
     "recent": 60,
     "recent_acc": 60
    },
-   "agree_recent": 0.989,
-   "agree_recent_acc": 0.989
+   "agree_recent": 0.968,
+   "agree_recent_acc": 0.968
   }
  },
- "stamp": "8feda8bb3556"
+ "stamp": "c8cd947fd7a2"
 }
