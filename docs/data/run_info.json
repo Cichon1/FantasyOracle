@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-17T20:32:14+00:00",
+ "updated": "2026-11-17T21:25:32+00:00",
  "season": 2026,
  "projection_week": 11,
  "results_week": 10,
  "games_started": false,
- "reason": "play_by_play,schedule_and_lines,injury_news",
+ "reason": "schedule_and_lines,fp_rankings,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 41,
+   "seconds": 43,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 2,
+   "seconds": 1,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 305,
+   "seconds": 32,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 35,
+   "seconds": 15,
    "ok": true
   }
  ],
@@ -86,10 +86,10 @@
    "WR/TE": 56
   },
   "experts_ros_date": "2026-11-17 00:00:00",
-  "seconds": 34,
+  "seconds": 14,
   "model_cache": {
-   "hit": 0,
-   "miss": 18,
+   "hit": 18,
+   "miss": 0,
    "on": true
   },
   "top": {
@@ -127,11 +127,11 @@
      84.5
     ],
     [
-     "Brock Bowers",
+     "Trey McBride",
      78.2
     ],
     [
-     "Colston Loveland",
+     "Brock Bowers",
      74.4
     ]
    ],
@@ -154,7 +154,7 @@
  "injuries_live": {
   "nfl_week": 10,
   "nfl_rows": 347,
-  "espn_out": 4,
+  "espn_out": 5,
   "espn_unmatched": [
    "Divine Deablo (ATL)",
    "Zachariah Branch (ATL)",
@@ -173,12 +173,12 @@
    "Quenton Nelson (SEA)",
    "Charles Cross (SEA)"
   ],
-  "hash": "e5da1fb17a8d",
+  "hash": "aa2b370cc8d6",
   "manual_out": [
    "Drake Maye",
    "Josh Jacobs"
   ],
-  "rows_added": 6,
+  "rows_added": 7,
   "values_updated": 0
  }
 }
