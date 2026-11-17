@@ -1,24 +1,24 @@
 {
- "updated": "2026-11-16T23:17:33+00:00",
+ "updated": "2026-11-17T00:17:10+00:00",
  "season": 2026,
  "projection_week": 10,
  "results_week": 10,
  "games_started": true,
- "reason": "schedule_and_lines,injury_news",
+ "reason": "schedule_and_lines,fp_rankings,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 40,
+   "seconds": 41,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 5,
+   "seconds": 6,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 2,
+   "seconds": 3,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 30,
+   "seconds": 38,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 14,
+   "seconds": 19,
    "ok": true
   }
  ],
@@ -78,18 +78,18 @@
   "season": 2026,
   "week": 10,
   "last_week": 17,
-  "players": 464,
+  "players": 463,
   "out_this_week": 100,
   "on_bye": 48,
   "this_week_source": "official",
   "training_snapshots": 47931,
   "rounds": {
    "QB": 50,
-   "RB": 81,
-   "WR/TE": 68
+   "RB": 86,
+   "WR/TE": 71
   },
   "experts_ros_date": "2026-11-14 00:00:00",
-  "seconds": 13,
+  "seconds": 18,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -99,57 +99,57 @@
    "QB": [
     [
      "Josh Allen",
-     130.6
-    ],
-    [
-     "Brock Purdy",
-     126.8
+     131.7
     ],
     [
      "Joe Burrow",
-     126.4
+     126.2
+    ],
+    [
+     "Brock Purdy",
+     126.2
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     140.4
+     141.1
     ],
     [
      "Christian McCaffrey",
-     134.8
+     134.2
     ],
     [
      "Bijan Robinson",
-     123.8
+     124.0
     ]
    ],
    "TE": [
     [
      "Brock Bowers",
-     90.4
+     89.5
     ],
     [
      "George Kittle",
-     88.7
+     89.1
     ],
     [
      "Trey McBride",
-     76.6
+     77.7
     ]
    ],
    "WR": [
     [
      "Ja'Marr Chase",
-     129.4
+     129.8
     ],
     [
      "Jaxon Smith-Njigba",
-     110.7
+     111.2
     ],
     [
      "Amon-Ra St. Brown",
-     106.7
+     106.9
     ]
    ]
   }
@@ -159,13 +159,13 @@
   "nfl_rows": 347,
   "nfl_matched": 347,
   "nfl_unmatched": [],
-  "espn_out": 120,
+  "espn_out": 128,
   "espn_unmatched": [
    "Kyle Monangai (CHI)",
    "Will Shipley (PHI)"
   ],
-  "hash": "04807f3dcb48",
-  "rows_added": 15,
+  "hash": "32c14f03e137",
+  "rows_added": 20,
   "values_updated": 0
  }
 }
