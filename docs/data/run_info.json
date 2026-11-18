@@ -1,19 +1,19 @@
 {
- "updated": "2026-11-18T03:53:48+00:00",
+ "updated": "2026-11-18T04:59:01+00:00",
  "season": 2026,
  "projection_week": 11,
  "results_week": 10,
  "games_started": false,
- "reason": "schedule_and_lines",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 37,
+   "seconds": 41,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 3,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 22,
+   "seconds": 31,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 10,
+   "seconds": 14,
    "ok": true
   }
  ],
@@ -86,7 +86,7 @@
    "WR/TE": 56
   },
   "experts_ros_date": "2026-11-17 00:00:00",
-  "seconds": 9,
+  "seconds": 13,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -110,7 +110,7 @@
    "RB": [
     [
      "Jahmyr Gibbs",
-     135.6
+     136.2
     ],
     [
      "Kenneth Walker III",
@@ -142,7 +142,7 @@
     ],
     [
      "Amon-Ra St. Brown",
-     125.9
+     127.0
     ],
     [
      "CeeDee Lamb",
@@ -154,7 +154,7 @@
  "injuries_live": {
   "nfl_week": 10,
   "nfl_rows": 347,
-  "espn_out": 11,
+  "espn_out": 12,
   "espn_unmatched": [
    "Divine Deablo (ATL)",
    "Zachariah Branch (ATL)",
@@ -173,12 +173,12 @@
    "Quenton Nelson (SEA)",
    "Charles Cross (SEA)"
   ],
-  "hash": "1ae4c0b46596",
+  "hash": "5539df48b8bb",
   "manual_out": [
    "Drake Maye",
    "Josh Jacobs"
   ],
-  "rows_added": 13,
+  "rows_added": 14,
   "values_updated": 0
  }
 }
