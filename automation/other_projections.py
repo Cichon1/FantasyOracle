@@ -34,7 +34,7 @@ def fetch(url, headers=None, tries=3):
                 return json.load(r)
         except urllib.error.HTTPError as e:
             if e.code in (400, 401, 403, 404):
-                raise RuntimeError(f"HTTP {e.code}") from None
+                raise RuntimeError(f"HTTP {e.code} {e.read()[:200]!r}") from None
             time.sleep(3 * (k + 1))
         except Exception:
             time.sleep(3 * (k + 1))
@@ -79,15 +79,23 @@ def espn_points(s):
 def espn(season, weeks):
     rows = []
     base = f"https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/seasons/{season}/segments/0/leaguedefaults/3"
+    filters = [   # tried in order until one is accepted (the first is the simplest, as the espn-api package uses)
+        {"players": {"limit": 1000, "sortPercOwned": {"sortAsc": False, "sortPriority": 1}}},
+        {"players": {"filterSlotIds": {"value": [0, 2, 4, 6]}, "limit": 1000,
+                     "sortPercOwned": {"sortAsc": False, "sortPriority": 1}}},
+    ]
     for w in weeks:
-        flt = {"players": {"filterSlotIds": {"value": [0, 2, 4, 6]}, "limit": 600,
-                           "filterStatsForTopScoringPeriodIds": {"value": 2, "additionalValue": [f"11{season}{w}",
-                                                                                                f"10{season}{w}"]}}}
-        try:
-            data = fetch(f"{base}?scoringPeriodId={w}&view=kona_player_info",
-                         headers={"X-Fantasy-Filter": json.dumps(flt), "X-Fantasy-Platform": "kona-PROD"})
-        except Exception as e:
-            rows.append({"_err": f"week {w}: {e}"})
+        data, err = None, None
+        for flt in filters:
+            try:
+                data = fetch(f"{base}?scoringPeriodId={w}&view=kona_player_info",
+                             headers={"X-Fantasy-Filter": json.dumps(flt), "X-Fantasy-Platform": "kona-PROD",
+                                      "X-Fantasy-Source": "kona", "Accept": "application/json"})
+                break
+            except Exception as e:
+                err = str(e)
+        if data is None:
+            rows.append({"_err": f"week {w}: {err}"})
             continue
         for p in data.get("players", []):
             pl = p.get("player") or {}
@@ -108,13 +116,16 @@ def espn(season, weeks):
 
 
 def main():
-    seasons = [int(s) for s in sys.argv[1:]] or [2023, 2024, 2025, 2026]
+    seasons = [int(s) for s in sys.argv[1:] if s.isdigit()] or [2023, 2024, 2025, 2026]
+    only = [s for s in sys.argv[1:] if not s.isdigit()]
     os.makedirs(OUT, exist_ok=True)
     logp = os.path.join(OUT, "pull_log.json")
     log = json.load(open(logp)) if os.path.exists(logp) else {}
     for S in seasons:
         weeks = list(range(1, 18 if S < 2026 else 19))
         for name, fn in [("sleeper", sleeper), ("espn", espn)]:
+            if only and name not in only:
+                continue
             try:
                 rows = fn(S, weeks)
             except Exception as e:

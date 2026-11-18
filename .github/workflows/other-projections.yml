@@ -28,7 +28,7 @@ jobs:
       - name: Pull
         run: |
           pip install -q pandas
-          python automation/other_projections.py $(cat automation/other_proj_request.txt | tr -cd '0-9 \n')
+          python automation/other_projections.py $(cat automation/other_proj_request.txt | tr -cd 'a-z0-9 \n')
       - name: Save
         run: |
           git config user.name "fantasy-oracle-bot"
