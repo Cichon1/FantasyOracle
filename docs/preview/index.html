@@ -3707,20 +3707,29 @@ dash.calc('league_players', {
       const mi = st.findIndex((r) => String(r.team_id) === String(l.my_team)), me = st[mi];
       const m = SC.status === 'ok' && SC.data.find((r) => String(r.league_id) === id && +r.week === wk && (String(r.team1) === String(l.my_team) || String(r.team2) === String(l.my_team)));
       let wkTxt = 'No matchup this week';
-      let share = null;
+      let share = null, wp = null;
       if (m) {
         const mine1 = String(m.team1) === String(l.my_team), opp = mine1 ? m.team2 : m.team1;
         const oppName = (st.find((r) => String(r.team_id) === String(opp)) || {}).team || 'Team ' + opp;
         const live = m.status !== 'upcoming', a = num(mine1 ? (live ? m.points1 : m.proj1) : (live ? m.points2 : m.proj2)), o = num(mine1 ? (live ? m.points2 : m.proj2) : (live ? m.points1 : m.proj1));
         wkTxt = 'Week ' + wk + ' vs <b>' + esc(oppName) + '</b> · ' + (live ? '' : 'Yahoo proj. ') + f1(a) + '–' + f1(o);
         if (!isNaN(a) && !isNaN(o) && a + o > 0) share = a / (a + o);
+        // Win chance: final games are settled; otherwise Yahoo's (live-updated) projections with ~22 pts of weekly noise per team.
+        const pa = num(mine1 ? m.proj1 : m.proj2), po = num(mine1 ? m.proj2 : m.proj1);
+        if (m.status === 'final' && !isNaN(a) && !isNaN(o)) wp = a > o ? 1 : a < o ? 0 : 0.5;
+        else if (!isNaN(pa) && !isNaN(po)) { const z = (pa - po) / (m.status === 'upcoming' ? 31 : 22); wp = 1 / (1 + Math.exp(-1.702 * z)); }
+        if (wp != null) wkTxt += ' · <b class="fo-wp">' + (m.status === 'final' ? (wp === 1 ? 'Won' : wp === 0 ? 'Lost' : 'Tied') : Math.round(wp * 100) + '% to win') + '</b>';
       }
-      b.innerHTML = '<span class="fo-lg-name"></span><span class="fo-lg-team"></span><span class="fo-lg-rec"></span><span class="fo-lg-wk"></span>' + (share != null ? '<span class="fo-bar-meter" title="Your share of the projected points"><span></span></span>' : '');
+      b.innerHTML = '<span class="fo-lg-name"></span><span class="fo-lg-team"></span><span class="fo-lg-rec"></span><span class="fo-lg-wk"></span>' + (wp != null ? '<span class="fo-bar-meter" title="Chance to win this week"><span></span></span>' : '');
       b.children[0].textContent = l.league;
       b.children[1].textContent = l.my_team_name;
       b.children[2].innerHTML = me ? esc(me.wins + '-' + me.losses + (+me.ties ? '-' + me.ties : '')) + '<small>' + ord(mi + 1) + ' of ' + st.length + ' · ' + f1(num(me.points_for)) + ' PF</small>' : '—';
       b.children[3].innerHTML = wkTxt;
-      if (share != null) b.querySelector('.fo-bar-meter span').style.width = (share * 100).toFixed(0) + '%';
+      if (wp != null) {
+        const mt = b.querySelector('.fo-bar-meter'), tone = wp >= 0.55 ? 'good' : wp <= 0.45 ? 'bad' : 'even';
+        mt.classList.add('fo-wp-' + tone); b.querySelector('.fo-wp').classList.add('fo-wp-' + tone);
+        mt.firstChild.style.width = Math.max(3, Math.round(wp * 100)) + '%';
+      }
       b.addEventListener('click', () => { if (window.foLeagueSel) window.foLeagueSel.set(id); });
       strip.appendChild(b);
     });
@@ -3863,6 +3872,121 @@ fetch(window.FO_DATA + 'datasets.json', {cache: 'no-store'}).then((r) => r.json(
   const m = /Week (\d+)/.exec(((c.datasets || {}).defense || {}).title || '');
   if (m) document.querySelectorAll('.nf-mwk').forEach((e) => { e.textContent = m[1]; });
 }).catch(() => {});
+</script>
+<script>
+// ---- Fit wide tables: hide lower-priority columns until the table fits its box; click the player name to see them.
+(function () {
+  const CFG = {
+    'proj-table': { keep: ['Rank', 'Player', 'Pos', 'Proj PPR'], first: ['Act', 'Rec', 'Rec yds', 'Rush yds', 'Pass yds', 'xFP', 'Team pts', 'Model', 'Expert rank', '+/−', 'Low', 'High', 'Game', 'Actual', 'Injury', 'Pos rank', 'Opp', 'Start %'] },
+    'ros-table': { keep: ['Rank', 'Player', 'Pos', 'ROS PPR'], first: ['Opp. allowed', 'Season PPG', 'Model rank', 'Expert rank', 'This wk proj', 'Games', 'Low', 'High', 'Injury', 'This week', 'Per game', 'Pos rank', 'Start %'] },
+    'team-lineup-table': { keep: ['Slot', 'Player', 'Proj'], first: ['Note', 'Vegas line', 'Start %'] },
+    'team-waiver-table': { keep: ['Player', 'Upgrade'], first: ['Adds 24h', 'ROS start %', 'gm', 'This wk', 'Pos', 'ROS'] },
+    'ta-mine-table': { name: 'Player', keep: ['Pick', 'Player', 'Trade'], first: ['Experts', 'Trades', 'Status', 'Slot', 'Actual', 'vs market', 'ROS rank', 'Pts / wk', 'Pos'] },
+    'ta-theirs-table': { name: 'Player', keep: ['Pick', 'Player', 'Trade'], first: ['Experts', 'Trades', 'Status', 'Slot', 'Actual', 'vs market', 'ROS rank', 'Pts / wk', 'Pos'] },
+    'ta-value-table': { keep: ['Player', 'Trade'], first: ['Trades', 'vs trades', 'Experts', 'vs experts', 'Our model', 'Actual', 'Pts / wk'] },
+    'ta-power-table': { name: 'Team', keep: ['Rank', 'Team', 'Score'], first: ['Low', 'High', 'Pts / wk'] },
+    'team-trade-table': { name: 'You give', keep: ['You give', 'You get'] },
+    'team-partner-table': { name: 'Team', keep: ['Team', 'Fit with you'] },
+    'team-needs-table': { name: 'Team', keep: ['Team', 'Needs'] },
+    'mr-table': { name: 'Player', keep: ['My rank', 'Player'] },
+  };
+  const norm = (t) => t.replace(/[↑↓▲▼⇅↕]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
+  const state = new WeakMap(); let uid = 0;
+  function setup(table) {
+    if (state.has(table) || !table.tHead) return;
+    if (!table.id) table.id = 'fo-t' + (++uid);
+    const box = table.closest('.nf-tablebox') || table.parentElement;
+    const st = { box, hidden: [], open: new Set() };
+    const style = document.createElement('style'); document.head.appendChild(style); st.style = style;
+    state.set(table, st);
+    new ResizeObserver(() => schedule(table)).observe(box);
+    new ResizeObserver(() => schedule(table)).observe(table);
+    new MutationObserver((ms) => {
+      if (ms.every((m) => [...m.addedNodes, ...m.removedNodes].every((n) => n.classList && n.classList.contains('fo-xrow')))) return;
+      schedule(table);
+    }).observe(table, { childList: true, subtree: true });
+    table.addEventListener('click', (e) => {
+      const td = e.target.closest('td.fo-xname'); if (!td || e.target.closest('input,button,a,select,label')) return;
+      toggle(table, td.parentElement);
+    });
+    table.addEventListener('keydown', (e) => {
+      const td = e.target.closest('td.fo-xname'); if (!td || (e.key !== 'Enter' && e.key !== ' ')) return;
+      e.preventDefault(); toggle(table, td.parentElement);
+    });
+    fit(table);
+  }
+  const pending = new Set();
+  function schedule(table) {
+    if (pending.has(table)) return; pending.add(table);
+    requestAnimationFrame(() => { pending.delete(table); fit(table); });
+  }
+  function labels(table) {
+    const r = table.tHead.rows[0]; return r ? [...r.cells].map((c) => norm(c.textContent)) : [];
+  }
+  function fit(table) {
+    const st = state.get(table); if (!st) return;
+    const box = st.box, W = box.clientWidth; if (!W) return; // not on screen yet
+    const labs = labels(table), cfg = CFG[table.id] || {};
+    const keep = new Set((cfg.keep || []).map(norm));
+    const nameLab = norm(cfg.name || (cfg.keep || []).find((k) => /player|team|you give|defense|back/i.test(k)) || '');
+    let nameIdx = nameLab ? labs.indexOf(nameLab) : -1;
+    if (nameIdx < 0) nameIdx = labs.findIndex((l) => /^(player|team|defense|back|you give|source|season|test|measure|item|position|week · position|pos)$/.test(l));
+    if (nameIdx < 0) nameIdx = 0;
+    if (!cfg.keep) { keep.add(labs[0]); keep.add(labs[nameIdx]); }
+    // drop order: the listed ones first, then the rest from the right
+    const order = [];
+    (cfg.first || []).map(norm).forEach((l) => labs.forEach((x, i) => { if (x === l && !order.includes(i)) order.push(i); }));
+    for (let i = labs.length - 1; i >= 0; i--) if (!order.includes(i)) order.push(i);
+    const r0 = table.tBodies[0] && table.tBodies[0].rows[0];
+    const ctl = (i) => r0 && r0.cells[i] && r0.cells[i].querySelector('input,button,select'); // controls always stay
+    const drop = order.filter((i) => !keep.has(labs[i]) && i !== nameIdx && !ctl(i));
+    const over = () => Math.max(table.scrollWidth, box.scrollWidth) > box.clientWidth + 1;
+    // reset, then hide one at a time until it fits
+    st.style.textContent = ''; const hidden = []; table.classList.remove('fo-wrap');
+    const css = () => hidden.map((i) => '#' + CSS.escape(table.id) + ' tr:not(.fo-xrow) > :nth-child(' + (i + 1) + ')').join(',') + (hidden.length ? '{display:none}' : '');
+    for (const i of drop) {
+      if (!over()) break;
+      hidden.push(i); st.style.textContent = css();
+    }
+    // last resort (narrow phones, long text): let the remaining cells wrap
+    if (over()) table.classList.add('fo-wrap');
+    st.hidden = hidden.sort((a, b) => a - b); st.labs = [...table.tHead.rows[0].cells].map((c) => c.textContent.replace(/[↑↓▲▼⇅↕]/g, '').replace(/\s+/g, ' ').trim());
+    table.classList.toggle('fo-fitted', hidden.length > 0);
+    // mark the name cells; refresh any open detail rows
+    table.querySelectorAll('tbody tr:not(.fo-xrow)').forEach((tr) => {
+      const td = tr.cells[nameIdx]; if (!td) return;
+      const on = hidden.length > 0;
+      td.classList.toggle('fo-xname', on);
+      if (on) { td.tabIndex = 0; td.setAttribute('aria-expanded', tr.nextElementSibling && tr.nextElementSibling.classList.contains('fo-xrow') ? 'true' : 'false'); }
+      else { td.removeAttribute('tabindex'); td.removeAttribute('aria-expanded'); }
+    });
+    table.querySelectorAll('tr.fo-xrow').forEach((x) => { const tr = x.previousElementSibling; x.remove(); if (tr && hidden.length) open(table, tr); });
+  }
+  function open(table, tr) {
+    const st = state.get(table), x = document.createElement('tr'); x.className = 'fo-xrow';
+    const td = document.createElement('td'); td.colSpan = tr.cells.length - st.hidden.length;
+    const dl = document.createElement('dl');
+    st.hidden.forEach((i) => {
+      const c = tr.cells[i]; if (!c) return;
+      const v = c.textContent.trim(); if (!v && !c.querySelector('svg,input')) return;
+      const dt = document.createElement('dt'); dt.textContent = st.labs[i] || '';
+      const dd = document.createElement('dd'); dd.innerHTML = c.innerHTML; dd.className = c.className;
+      const g = document.createElement('div'); g.append(dt, dd); dl.appendChild(g);
+    });
+    td.appendChild(dl); x.appendChild(td); tr.after(x);
+    const nm = tr.querySelector('td.fo-xname'); if (nm) nm.setAttribute('aria-expanded', 'true');
+  }
+  function toggle(table, tr) {
+    const nx = tr.nextElementSibling, nm = tr.querySelector('td.fo-xname');
+    if (nx && nx.classList.contains('fo-xrow')) { nx.remove(); if (nm) nm.setAttribute('aria-expanded', 'false'); }
+    else open(table, tr);
+  }
+  const scan = () => document.querySelectorAll('table.nf-table').forEach(setup);
+  scan();
+  if (window.dash && dash.onData) dash.onData(() => scan());
+  window.addEventListener('load', scan);
+  window.foFitTables = () => document.querySelectorAll('table.nf-table').forEach(fit);
+})();
 </script>
 
 <script src="fo.js?v=1"></script>
