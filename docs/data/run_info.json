@@ -1,24 +1,24 @@
 {
- "updated": "2026-11-18T18:24:16+00:00",
+ "updated": "2026-11-18T19:37:41+00:00",
  "season": 2026,
  "projection_week": 11,
  "results_week": 10,
  "games_started": false,
- "reason": "play_by_play,schedule_and_lines,ftn_charting,fp_rankings,injury_news",
+ "reason": "player_stats,schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 36,
+   "seconds": 38,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 4,
+   "seconds": 6,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 2,
+   "seconds": 3,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 258,
+   "seconds": 371,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 13,
+   "seconds": 20,
    "ok": true
   }
  ],
@@ -56,8 +56,8 @@
    "total": 0
   },
   "inactive_rows": 0,
-  "players": 338,
-  "upcoming": 338,
+  "players": 337,
+  "upcoming": 337,
   "season_scoreboard": {
    "model": 0.3957,
    "experts": 0.4063,
@@ -76,17 +76,17 @@
   "week": 11,
   "last_week": 17,
   "players": 463,
-  "out_this_week": 51,
+  "out_this_week": 52,
   "on_bye": 74,
   "this_week_source": "official",
   "training_snapshots": 47931,
   "rounds": {
    "QB": 50,
-   "RB": 88,
-   "WR/TE": 52
+   "RB": 91,
+   "WR/TE": 55
   },
   "experts_ros_date": "2026-11-18 00:00:00",
-  "seconds": 12,
+  "seconds": 19,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -96,57 +96,57 @@
    "QB": [
     [
      "Josh Allen",
-     139.2
+     138.7
     ],
     [
      "Joe Burrow",
-     132.3
+     132.1
     ],
     [
      "Trevor Lawrence",
-     122.6
+     122.0
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     137.7
+     135.9
     ],
     [
      "Christian McCaffrey",
-     130.8
+     129.7
     ],
     [
      "Bijan Robinson",
-     130.8
+     128.9
     ]
    ],
    "TE": [
     [
      "George Kittle",
-     86.0
+     86.7
     ],
     [
      "Trey McBride",
-     83.8
+     83.5
     ],
     [
      "Isaiah Likely",
-     75.3
+     76.8
     ]
    ],
    "WR": [
     [
      "Ja'Marr Chase",
-     139.5
+     136.3
     ],
     [
      "Amon-Ra St. Brown",
-     126.8
+     126.7
     ],
     [
      "CeeDee Lamb",
-     112.1
+     110.1
     ]
    ]
   }
@@ -156,7 +156,7 @@
   "nfl_rows": 26,
   "nfl_matched": 26,
   "nfl_unmatched": [],
-  "espn_out": 16,
+  "espn_out": 23,
   "espn_unmatched": [
    "Divine Deablo (ATL)",
    "Zachariah Branch (ATL)",
@@ -175,12 +175,12 @@
    "Quenton Nelson (SEA)",
    "Charles Cross (SEA)"
   ],
-  "hash": "8226649cb1bc",
+  "hash": "4cacb2cfc170",
   "manual_out": [
    "Drake Maye",
    "Josh Jacobs"
   ],
-  "rows_added": 16,
+  "rows_added": 18,
   "values_updated": 0
  }
 }
