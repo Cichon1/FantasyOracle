@@ -1,0 +1,167 @@
+{
+ "leagues_per_week": 500,
+ "results": [
+  {
+   "setting": "inactives known",
+   "weeks": 61,
+   "pts_model": 101.43,
+   "win_model": 0.5064,
+   "pts_official": 101.62,
+   "win_official": 0.5087,
+   "pts_fp": 100.93,
+   "win_fp": 0.5,
+   "pts_perfect": 117.34,
+   "win_perfect": 0.7087,
+   "model_minus_fp_pts": [
+    0.499,
+    0.29
+   ],
+   "model_minus_fp_win": [
+    0.0064,
+    0.0037
+   ],
+   "model_weeks_better": 30,
+   "model_minus_fp_by_pos": {
+    "QB": 0.074,
+    "RB": -0.405,
+    "WR": 0.663,
+    "TE": 0.167
+   },
+   "official_minus_fp_pts": [
+    0.683,
+    0.264
+   ],
+   "official_minus_fp_win": [
+    0.0087,
+    0.0034
+   ],
+   "official_weeks_better": 32,
+   "official_minus_fp_by_pos": {
+    "QB": 0.093,
+    "RB": -0.437,
+    "WR": 0.846,
+    "TE": 0.181
+   },
+   "perfect_minus_fp_pts": [
+    16.41,
+    0.386
+   ],
+   "perfect_minus_fp_win": [
+    0.2087,
+    0.0051
+   ],
+   "perfect_weeks_better": 61,
+   "perfect_minus_fp_by_pos": {
+    "QB": 2.626,
+    "RB": 3.842,
+    "WR": 6.662,
+    "TE": 3.28
+   },
+   "season_2023": {
+    "model": 0.891,
+    "official": 1.039,
+    "weeks": 17,
+    "win_model_minus_fp": 0.0115
+   },
+   "season_2024": {
+    "model": -0.142,
+    "official": 0.146,
+    "weeks": 17,
+    "win_model_minus_fp": -0.0033
+   },
+   "season_2025": {
+    "model": 0.718,
+    "official": 0.847,
+    "weeks": 17,
+    "win_model_minus_fp": 0.0098
+   },
+   "season_2026": {
+    "model": 0.551,
+    "official": 0.714,
+    "weeks": 10,
+    "win_model_minus_fp": 0.0084
+   }
+  },
+  {
+   "setting": "set midweek",
+   "weeks": 61,
+   "pts_model": 101.04,
+   "win_model": 0.5144,
+   "pts_official": 101.09,
+   "win_official": 0.5151,
+   "pts_fp": 99.9,
+   "win_fp": 0.5,
+   "pts_perfect": 117.34,
+   "win_perfect": 0.7187,
+   "model_minus_fp_pts": [
+    1.135,
+    0.315
+   ],
+   "model_minus_fp_win": [
+    0.0144,
+    0.0041
+   ],
+   "model_weeks_better": 43,
+   "model_minus_fp_by_pos": {
+    "QB": 0.172,
+    "RB": -0.166,
+    "WR": 0.907,
+    "TE": 0.222
+   },
+   "official_minus_fp_pts": [
+    1.182,
+    0.297
+   ],
+   "official_minus_fp_win": [
+    0.0151,
+    0.0038
+   ],
+   "official_weeks_better": 42,
+   "official_minus_fp_by_pos": {
+    "QB": 0.168,
+    "RB": -0.246,
+    "WR": 1.04,
+    "TE": 0.22
+   },
+   "perfect_minus_fp_pts": [
+    17.433,
+    0.414
+   ],
+   "perfect_minus_fp_win": [
+    0.2187,
+    0.005
+   ],
+   "perfect_weeks_better": 61,
+   "perfect_minus_fp_by_pos": {
+    "QB": 2.729,
+    "RB": 4.241,
+    "WR": 7.049,
+    "TE": 3.414
+   },
+   "season_2023": {
+    "model": 1.72,
+    "official": 1.596,
+    "weeks": 17,
+    "win_model_minus_fp": 0.0222
+   },
+   "season_2024": {
+    "model": 0.765,
+    "official": 0.912,
+    "weeks": 17,
+    "win_model_minus_fp": 0.0076
+   },
+   "season_2025": {
+    "model": 1.053,
+    "official": 1.121,
+    "weeks": 17,
+    "win_model_minus_fp": 0.0145
+   },
+   "season_2026": {
+    "model": 0.907,
+    "official": 1.043,
+    "weeks": 10,
+    "win_model_minus_fp": 0.0122
+   }
+  }
+ ]
+}
