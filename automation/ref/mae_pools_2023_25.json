@@ -1,0 +1,26 @@
+{
+ "2023": {
+  "official_mae_all": 3.9227,
+  "games": 5954,
+  "official_mae_played": 4.0275,
+  "played_games": 5435,
+  "official_mae_relevant": 5.6227,
+  "relevant_games": 2598
+ },
+ "2024": {
+  "official_mae_all": 3.9444,
+  "games": 5931,
+  "official_mae_played": 4.0763,
+  "played_games": 5400,
+  "official_mae_relevant": 5.628,
+  "relevant_games": 2611
+ },
+ "2025": {
+  "official_mae_all": 3.9076,
+  "games": 6133,
+  "official_mae_played": 4.0638,
+  "played_games": 5609,
+  "official_mae_relevant": 5.7356,
+  "relevant_games": 2621
+ }
+}

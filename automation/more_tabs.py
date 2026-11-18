@@ -205,11 +205,25 @@ def model_tables(store, season):
            "r2_played": round(r2(played["y"], played["proj_model"]), 4), "mae": round(np.mean(np.abs(d["y"] - d["proj_model"])), 4),
            "official_mae": round(np.mean(np.abs(d["y"] - d["proj_ppr"])), 4),
            "below_q10": round(float((d["y"] < d["ppr_low"]).mean()), 4), "above_q90": round(float((d["y"] > d["ppr_high"]).mean()), 4)}
+    # Nov 18, 2026: typical miss on fair pools - players who actually played (no inactive / did-not-play zeros),
+    # and fantasy-relevant players who played (each week's top QB24 / RB48 / WR60 / TE24 by projection)
+    top = {"QB": 24, "RB": 48, "WR": 60, "TE": 24}
+    rk = d.groupby(["week", "pos"])["proj_ppr"].rank(ascending=False, method="first")
+    rel = played[rk.loc[played.index] <= played["pos"].map(top).fillna(0)]
+    cur.update(official_mae_played=round(np.mean(np.abs(played["y"] - played["proj_ppr"])), 4), played_games=len(played),
+               official_mae_relevant=round(np.mean(np.abs(rel["y"] - rel["proj_ppr"])), 4), relevant_games=len(rel))
+    pools = json.load(open(os.path.join(REF, "mae_pools_2023_25.json")))   # 2023-25 walk-forward (lab proxy, official blend)
+    for k in ["official_mae_played", "played_games", "official_mae_relevant", "relevant_games"]:
+        acc[k] = acc["season"].astype(str).map(lambda s: pools.get(s, {}).get(k, np.nan))
     acc = pd.concat([acc, pd.DataFrame([cur])], ignore_index=True)
     w = acc["games"].astype(float)
     allr = {"season": "All", "games": int(w.sum())}
     for c in ["r2_expected", "r2_played", "mae", "official_mae", "below_q10", "above_q90"]:
         allr[c] = round(float((acc[c].astype(float) * w).sum() / w.sum()), 4)
+    for c, wc in [("official_mae_played", "played_games"), ("official_mae_relevant", "relevant_games")]:
+        ww = acc[wc].astype(float)
+        allr[c] = round(float((acc[c].astype(float) * ww).sum() / ww.sum()), 4)
+        allr[wc] = int(ww.sum())
     out["accuracy_v5.csv"] = pd.concat([acc, pd.DataFrame([allr])], ignore_index=True)
     # calibration: fixed 2023-25 sums + this season
     cal = pd.read_csv(os.path.join(REF, "calibration_2023_25.csv"))

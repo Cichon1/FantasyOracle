@@ -549,13 +549,15 @@
     <section class="page more" data-page="model" data-title="The Model"><div class="mp-frame tall pn"><div class="sc mp-scroll"><div class="mp"><div class="nf-panel" id="model">
     <div class="nf-card" id="acc-card">
       <h2>Accuracy by season (honest walk-forward)</h2>
-      <p class="nf-note">Each season is predicted by models trained only on earlier seasons, using only data that existed at the time (coverage and personnel charting from the previous season, since it's published after a season ends), over every player expected to play: games where a player was on the field without a stat, and players who sat while expected to play, count as zeros. R² is the share of week-to-week variation explained; "played games" leaves out the players who sat. Typical miss is the average absolute error in PPR points.</p>
+      <p class="nf-note">Each season is predicted by models trained only on earlier seasons, using only data that existed at the time (coverage and personnel charting from the previous season, since it's published after a season ends), over every player expected to play: games where a player was on the field without a stat, and players who sat while expected to play, count as zeros. R² is the share of week-to-week variation explained; "played games" leaves out the players who sat. Typical miss is the average absolute error in PPR points: "relevant players" counts only players who played and were in their position's top QB24 / RB48 / WR60 / TE24 by projection that week (the players you'd actually start or consider); "all who played" leaves out players who sat; the last column keeps every expected player, including zeros for those who sat, which flatters the number. 2023–25 relevant / played figures come from the lab's walk-forward re-creation of the official blend.</p>
       <table class="nf-table" id="acc-table" data-source="accuracy" data-row-key="season">
         <thead><tr>
           <th data-field="season" class="nf-l">Season</th>
           <th data-field="r2_expected">R² · expected to play</th>
           <th data-field="r2_played">R² · played games</th>
-          <th data-field="official_mae">Typical miss (official)</th>
+          <th data-field="official_mae_relevant">Typical miss · relevant players</th>
+          <th data-field="official_mae_played" class="nf-hide-sm">Typical miss · all who played</th>
+          <th data-field="official_mae" class="nf-hide-sm">Typical miss (official, incl. zeros)</th>
           <th data-field="mae" class="nf-hide-sm">Typical miss (model)</th>
           <th data-field="below_q10" class="nf-hide-sm">Below range</th>
           <th data-field="above_q90" class="nf-hide-sm">Above range</th>
@@ -856,12 +858,12 @@
       <div class="nf-card nf-tile">
         <div class="nf-label">Typical miss so far · this week</div>
         <div class="nf-big dash-skeleton" data-source="proj_counts" data-field="typical_miss" data-where="week=5">—</div>
-        <div class="nf-sub">Average absolute error on finished games, PPR points</div>
+        <div class="nf-sub">PPR points, fantasy-relevant players who played (top QB24 / RB48 / WR60 / TE24 by projection) · all who played: <span data-source="proj_counts" data-field="typical_miss_played" data-where="week=5">—</span></div>
       </div>
       <div class="nf-card nf-tile">
         <div class="nf-label">Typical miss · backtest</div>
-        <div class="nf-big dash-skeleton" data-source="accuracy" data-field="official_mae" data-where="season=All">—</div>
-        <div class="nf-sub">PPR points, 2023–2026 walk-forward</div>
+        <div class="nf-big dash-skeleton" data-source="accuracy" data-field="official_mae_relevant" data-where="season=All">—</div>
+        <div class="nf-sub">PPR points, 2023–2026 walk-forward, fantasy-relevant players who played · all who played: <span data-source="accuracy" data-field="official_mae_played" data-where="season=All">—</span></div>
       </div>
     </div>
 
@@ -1282,14 +1284,22 @@ dash.calc('top_proj', {
 });
 dash.calc('proj_counts', {
   inputs: ['projections'], title: 'Players and typical miss by week',
-  description: 'Players projected per week (finished and upcoming games), and the average absolute error of the official projection on finished games.',
+  description: 'Players projected per week (finished and upcoming games), and the average absolute error of the official projection on finished games: fantasy-relevant players who played (top QB24 / RB48 / WR60 / TE24 by projection) and all players who played.',
   fn: (projections) => {
     const weeks = [...new Set(projections.map((r) => +r.week))].sort((a, b) => a - b);
     return weeks.map((w) => {
       const rows = projections.filter((r) => +r.week === w);
       const fin = rows.filter((r) => r.status !== 'Upcoming' && r.status !== 'Inactive' && r.act_ppr !== '' && r.act_ppr != null);
-      const miss = fin.length ? fin.reduce((a, r) => a + Math.abs(+r.act_ppr - +r.proj_ppr), 0) / fin.length : null;
-      return { week: w, final: fin.length, upcoming: rows.filter((r) => r.status === 'Upcoming').length, typical_miss: miss };
+      // fair pools (Nov 18, 2026): only players who actually played - inactive / did-not-play zeros are left out -
+      // and the fantasy-relevant ones among them (each position's top QB24 / RB48 / WR60 / TE24 by projection)
+      const top = { QB: 24, RB: 48, WR: 60, TE: 24 };
+      const rank = new Map();
+      d3.groups(fin, (r) => r.pos).forEach(([p, g]) => g.slice().sort((a, b) => +b.proj_ppr - +a.proj_ppr).forEach((r, i) => rank.set(r, i + 1)));
+      const played = fin.filter((r) => r.status === 'Final');
+      const rel = played.filter((r) => rank.get(r) <= (top[r.pos] || 0));
+      const mae = (xs) => xs.length ? xs.reduce((a, r) => a + Math.abs(+r.act_ppr - +r.proj_ppr), 0) / xs.length : null;
+      return { week: w, final: fin.length, upcoming: rows.filter((r) => r.status === 'Upcoming').length,
+        typical_miss: mae(rel), typical_miss_played: mae(played), relevant: rel.length };
     });
   }
 });
@@ -1304,8 +1314,8 @@ dash.onData(() => {
   nfFill('#projections [data-source="top_proj"][data-field="proj_ppr"]', (v) => f1(+v));
   nfFill('#projections [data-source="top_proj"][data-field="player"]', (v) => String(v));
   nfFill('#projections [data-source="proj_counts"][data-field="final"], #projections [data-source="proj_counts"][data-field="upcoming"]', (v) => fint(+v));
-  nfFill('#projections [data-source="proj_counts"][data-field="typical_miss"]', (v) => f1(+v));
-  nfFill('#projections [data-field="official_mae"]', (v) => f1(+v));
+  nfFill('#projections [data-source="proj_counts"][data-field="typical_miss"], #projections [data-source="proj_counts"][data-field="typical_miss_played"]', (v) => f1(+v));
+  nfFill('#projections [data-field="official_mae"], #projections [data-field="official_mae_relevant"], #projections [data-field="official_mae_played"]', (v) => f1(+v));
   nfFill('#weather .nf-take [data-source="weather_games"]', (v) => d3.format('+.1f')(+v));
   nfFill('#weather .nf-take [data-source="weather_stats"]', (v) => d3.format('+.1f')(+v));
 });
@@ -1915,7 +1925,7 @@ window.foAvail = (() => {
   const f3 = d3.format('.3f'), f2 = d3.format('.2f'), pct = d3.format('.1%'), sg3 = d3.format('+.4f');
   const accDraw = nfTable({
     table: 'acc-table', source: 'accuracy', sortCol: 'season', sortDir: 1,
-    cols: [['season', (v) => v, 'nf-l', true], ['r2_expected', f3, ''], ['r2_played', f3, ''], ['official_mae', f2, ''], ['mae', f2, 'nf-hide-sm'],
+    cols: [['season', (v) => v, 'nf-l', true], ['r2_expected', f3, ''], ['r2_played', f3, ''], ['official_mae_relevant', f2, ''], ['official_mae_played', f2, 'nf-hide-sm'], ['official_mae', f2, 'nf-hide-sm'], ['mae', f2, 'nf-hide-sm'],
       ['below_q10', pct, 'nf-hide-sm'], ['above_q90', pct, 'nf-hide-sm'], ['games', d3.format(','), 'nf-hide-sm']],
     cell: (f, r, td) => { if (f === 'r2_expected') { td.textContent = f3(+r.r2_expected); td.style.fontWeight = 'var(--cds-font-weight-medium)'; return true; } return false; }
   });
