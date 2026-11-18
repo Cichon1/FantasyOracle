@@ -1,0 +1,891 @@
+{
+ "leagues_per_season": 2000,
+ "checks": {
+  "2023": {
+   "draft_snapshot": "2023-09-01",
+   "board": 463,
+   "players": 599,
+   "last_week": 17,
+   "example_first_round": [
+    "Justin Jefferson",
+    "Christian McCaffrey",
+    "Ja'Marr Chase",
+    "Tyreek Hill",
+    "Cooper Kupp",
+    "Austin Ekeler",
+    "Travis Kelce",
+    "Stefon Diggs",
+    "Amon-Ra St. Brown",
+    "Bijan Robinson",
+    "A.J. Brown",
+    "Davante Adams"
+   ]
+  },
+  "2024": {
+   "draft_snapshot": "2024-08-30",
+   "board": 522,
+   "players": 601,
+   "last_week": 17,
+   "example_first_round": [
+    "CeeDee Lamb",
+    "Christian McCaffrey",
+    "Ja'Marr Chase",
+    "Tyreek Hill",
+    "Puka Nacua",
+    "Amon-Ra St. Brown",
+    "Justin Jefferson",
+    "Breece Hall",
+    "Bijan Robinson",
+    "Garrett Wilson",
+    "A.J. Brown",
+    "Jahmyr Gibbs"
+   ]
+  },
+  "2025": {
+   "draft_snapshot": "2025-08-29",
+   "board": 443,
+   "players": 618,
+   "last_week": 17,
+   "example_first_round": [
+    "Ja'Marr Chase",
+    "CeeDee Lamb",
+    "Jahmyr Gibbs",
+    "Bijan Robinson",
+    "Justin Jefferson",
+    "Saquon Barkley",
+    "Amon-Ra St. Brown",
+    "Nico Collins",
+    "Brian Thomas Jr.",
+    "Christian McCaffrey",
+    "Malik Nabers",
+    "Tee Higgins"
+   ]
+  },
+  "2026": {
+   "draft_snapshot": "2026-09-04",
+   "board": 455,
+   "players": 589,
+   "last_week": 10,
+   "example_first_round": [
+    "Jahmyr Gibbs",
+    "Ja'Marr Chase",
+    "Puka Nacua",
+    "Bijan Robinson",
+    "Jaxon Smith-Njigba",
+    "Justin Jefferson",
+    "James Cook",
+    "De'Von Achane",
+    "Amon-Ra St. Brown",
+    "CeeDee Lamb",
+    "Christian McCaffrey",
+    "Drake London"
+   ]
+  }
+ },
+ "summary": {
+  "2023-2025": {
+   "model": {
+    "wins": [
+     0.1226,
+     0.0151
+    ],
+    "pf_week": [
+     0.6921,
+     0.044
+    ],
+    "pts_week_all": [
+     0.5611,
+     0.0433
+    ],
+    "playoffs": [
+     0.0382,
+     0.0043
+    ],
+    "title": [
+     -0.0003,
+     0.0031
+    ],
+    "moves": [
+     2.3248,
+     0.0321
+    ],
+    "control_rates": {
+     "wins": 7.0048,
+     "playoffs": 0.6637,
+     "title": 0.0855,
+     "pf_week": 98.2502,
+     "moves": 14.3028
+    }
+   },
+   "official": {
+    "wins": [
+     0.204,
+     0.0144
+    ],
+    "pf_week": [
+     1.1004,
+     0.0402
+    ],
+    "pts_week_all": [
+     1.0222,
+     0.0391
+    ],
+    "playoffs": [
+     0.0469,
+     0.0041
+    ],
+    "title": [
+     0.0078,
+     0.0031
+    ],
+    "moves": [
+     1.2002,
+     0.0309
+    ],
+    "control_rates": {
+     "wins": 7.0048,
+     "playoffs": 0.6637,
+     "title": 0.0855,
+     "pf_week": 98.2502,
+     "moves": 14.3028
+    }
+   },
+   "model_lineups_only": {
+    "wins": [
+     -0.0062,
+     0.0122
+    ],
+    "pf_week": [
+     0.0836,
+     0.0318
+    ],
+    "pts_week_all": [
+     0.011,
+     0.032
+    ],
+    "playoffs": [
+     -0.0008,
+     0.0038
+    ],
+    "title": [
+     0.0022,
+     0.003
+    ],
+    "moves": [
+     -0.0332,
+     0.0238
+    ],
+    "control_rates": {
+     "wins": 7.0048,
+     "playoffs": 0.6637,
+     "title": 0.0855,
+     "pf_week": 98.2502,
+     "moves": 14.3028
+    }
+   },
+   "model_waivers_only": {
+    "wins": [
+     0.079,
+     0.0143
+    ],
+    "pf_week": [
+     0.2642,
+     0.0409
+    ],
+    "pts_week_all": [
+     0.1669,
+     0.0424
+    ],
+    "playoffs": [
+     0.0209,
+     0.0042
+    ],
+    "title": [
+     -0.0032,
+     0.0031
+    ],
+    "moves": [
+     2.3189,
+     0.032
+    ],
+    "control_rates": {
+     "wins": 7.0048,
+     "playoffs": 0.6637,
+     "title": 0.0855,
+     "pf_week": 98.2502,
+     "moves": 14.3028
+    }
+   }
+  },
+  "2026 wk1-10": {
+   "model": {
+    "wins": [
+     0.0645,
+     0.02
+    ],
+    "pf_week": [
+     0.324,
+     0.0776
+    ],
+    "pts_week_all": [
+     0.324,
+     0.0776
+    ],
+    "playoffs": [
+     0.0,
+     0.0
+    ],
+    "title": [
+     0.0,
+     0.0
+    ],
+    "moves": [
+     1.37,
+     0.0353
+    ],
+    "control_rates": {
+     "wins": 4.9852,
+     "playoffs": 0.0,
+     "title": 0.0,
+     "pf_week": 100.499,
+     "moves": 8.5478
+    }
+   },
+   "official": {
+    "wins": [
+     0.2929,
+     0.018
+    ],
+    "pf_week": [
+     1.9971,
+     0.0613
+    ],
+    "pts_week_all": [
+     1.9971,
+     0.0613
+    ],
+    "playoffs": [
+     0.0,
+     0.0
+    ],
+    "title": [
+     0.0,
+     0.0
+    ],
+    "moves": [
+     0.6508,
+     0.0341
+    ],
+    "control_rates": {
+     "wins": 4.9852,
+     "playoffs": 0.0,
+     "title": 0.0,
+     "pf_week": 100.499,
+     "moves": 8.5478
+    }
+   },
+   "model_lineups_only": {
+    "wins": [
+     0.054,
+     0.0155
+    ],
+    "pf_week": [
+     0.4094,
+     0.0533
+    ],
+    "pts_week_all": [
+     0.4094,
+     0.0533
+    ],
+    "playoffs": [
+     0.0,
+     0.0
+    ],
+    "title": [
+     0.0,
+     0.0
+    ],
+    "moves": [
+     -0.0305,
+     0.0243
+    ],
+    "control_rates": {
+     "wins": 4.9852,
+     "playoffs": 0.0,
+     "title": 0.0,
+     "pf_week": 100.499,
+     "moves": 8.5478
+    }
+   },
+   "model_waivers_only": {
+    "wins": [
+     0.0634,
+     0.0177
+    ],
+    "pf_week": [
+     0.3629,
+     0.0667
+    ],
+    "pts_week_all": [
+     0.3629,
+     0.0667
+    ],
+    "playoffs": [
+     0.0,
+     0.0
+    ],
+    "title": [
+     0.0,
+     0.0
+    ],
+    "moves": [
+     1.3862,
+     0.0352
+    ],
+    "control_rates": {
+     "wins": 4.9852,
+     "playoffs": 0.0,
+     "title": 0.0,
+     "pf_week": 100.499,
+     "moves": 8.5478
+    }
+   }
+  },
+  "2023": {
+   "model": {
+    "wins": [
+     0.2722,
+     0.0264
+    ],
+    "pf_week": [
+     1.4714,
+     0.0771
+    ],
+    "pts_week_all": [
+     0.8694,
+     0.0786
+    ],
+    "playoffs": [
+     0.0578,
+     0.0077
+    ],
+    "title": [
+     -0.005,
+     0.0055
+    ],
+    "moves": [
+     0.9795,
+     0.051
+    ],
+    "control_rates": {
+     "wins": 7.0012,
+     "playoffs": 0.6657,
+     "title": 0.0872,
+     "pf_week": 97.9108,
+     "moves": 15.5522
+    }
+   },
+   "official": {
+    "wins": [
+     0.2924,
+     0.0255
+    ],
+    "pf_week": [
+     1.4762,
+     0.0711
+    ],
+    "pts_week_all": [
+     0.7288,
+     0.0675
+    ],
+    "playoffs": [
+     0.0588,
+     0.0074
+    ],
+    "title": [
+     -0.0045,
+     0.0054
+    ],
+    "moves": [
+     -0.057,
+     0.0488
+    ],
+    "control_rates": {
+     "wins": 7.0012,
+     "playoffs": 0.6657,
+     "title": 0.0872,
+     "pf_week": 97.9108,
+     "moves": 15.5522
+    }
+   },
+   "model_lineups_only": {
+    "wins": [
+     0.1161,
+     0.0217
+    ],
+    "pf_week": [
+     0.8992,
+     0.0585
+    ],
+    "pts_week_all": [
+     0.5968,
+     0.0573
+    ],
+    "playoffs": [
+     0.0232,
+     0.0069
+    ],
+    "title": [
+     0.0062,
+     0.0055
+    ],
+    "moves": [
+     -0.09,
+     0.0419
+    ],
+    "control_rates": {
+     "wins": 7.0012,
+     "playoffs": 0.6657,
+     "title": 0.0872,
+     "pf_week": 97.9108,
+     "moves": 15.5522
+    }
+   },
+   "model_waivers_only": {
+    "wins": [
+     0.1109,
+     0.0253
+    ],
+    "pf_week": [
+     0.3421,
+     0.0742
+    ],
+    "pts_week_all": [
+     -0.0329,
+     0.0783
+    ],
+    "playoffs": [
+     0.0155,
+     0.0075
+    ],
+    "title": [
+     -0.009,
+     0.0054
+    ],
+    "moves": [
+     0.9452,
+     0.0508
+    ],
+    "control_rates": {
+     "wins": 7.0012,
+     "playoffs": 0.6657,
+     "title": 0.0872,
+     "pf_week": 97.9108,
+     "moves": 15.5522
+    }
+   }
+  },
+  "2024": {
+   "model": {
+    "wins": [
+     -0.1395,
+     0.0253
+    ],
+    "pf_week": [
+     -0.6619,
+     0.0734
+    ],
+    "pts_week_all": [
+     -0.4778,
+     0.0738
+    ],
+    "playoffs": [
+     -0.0058,
+     0.0075
+    ],
+    "title": [
+     -0.0038,
+     0.0054
+    ],
+    "moves": [
+     3.181,
+     0.0491
+    ],
+    "control_rates": {
+     "wins": 7.0138,
+     "playoffs": 0.6595,
+     "title": 0.0812,
+     "pf_week": 99.2049,
+     "moves": 13.6545
+    }
+   },
+   "official": {
+    "wins": [
+     0.0734,
+     0.0246
+    ],
+    "pf_week": [
+     0.4237,
+     0.0686
+    ],
+    "pts_week_all": [
+     0.7066,
+     0.069
+    ],
+    "playoffs": [
+     0.035,
+     0.007
+    ],
+    "title": [
+     0.0098,
+     0.0053
+    ],
+    "moves": [
+     1.905,
+     0.0488
+    ],
+    "control_rates": {
+     "wins": 7.0138,
+     "playoffs": 0.6595,
+     "title": 0.0812,
+     "pf_week": 99.2049,
+     "moves": 13.6545
+    }
+   },
+   "model_lineups_only": {
+    "wins": [
+     -0.1045,
+     0.0211
+    ],
+    "pf_week": [
+     -0.5127,
+     0.0524
+    ],
+    "pts_week_all": [
+     -0.6166,
+     0.055
+    ],
+    "playoffs": [
+     -0.0142,
+     0.0066
+    ],
+    "title": [
+     0.0038,
+     0.0051
+    ],
+    "moves": [
+     -0.0262,
+     0.0405
+    ],
+    "control_rates": {
+     "wins": 7.0138,
+     "playoffs": 0.6595,
+     "title": 0.0812,
+     "pf_week": 99.2049,
+     "moves": 13.6545
+    }
+   },
+   "model_waivers_only": {
+    "wins": [
+     -0.0985,
+     0.0241
+    ],
+    "pf_week": [
+     -0.6947,
+     0.0694
+    ],
+    "pts_week_all": [
+     -0.5454,
+     0.0728
+    ],
+    "playoffs": [
+     -0.0045,
+     0.0074
+    ],
+    "title": [
+     -0.007,
+     0.0052
+    ],
+    "moves": [
+     3.1848,
+     0.0488
+    ],
+    "control_rates": {
+     "wins": 7.0138,
+     "playoffs": 0.6595,
+     "title": 0.0812,
+     "pf_week": 99.2049,
+     "moves": 13.6545
+    }
+   }
+  },
+  "2025": {
+   "model": {
+    "wins": [
+     0.2351,
+     0.0255
+    ],
+    "pf_week": [
+     1.2668,
+     0.0687
+    ],
+    "pts_week_all": [
+     1.2916,
+     0.0663
+    ],
+    "playoffs": [
+     0.0625,
+     0.0071
+    ],
+    "title": [
+     0.0078,
+     0.0053
+    ],
+    "moves": [
+     2.814,
+     0.0534
+    ],
+    "control_rates": {
+     "wins": 6.9995,
+     "playoffs": 0.6657,
+     "title": 0.088,
+     "pf_week": 97.6349,
+     "moves": 13.7018
+    }
+   },
+   "official": {
+    "wins": [
+     0.2462,
+     0.0243
+    ],
+    "pf_week": [
+     1.4013,
+     0.0666
+    ],
+    "pts_week_all": [
+     1.6311,
+     0.0648
+    ],
+    "playoffs": [
+     0.047,
+     0.0069
+    ],
+    "title": [
+     0.018,
+     0.0054
+    ],
+    "moves": [
+     1.7528,
+     0.0514
+    ],
+    "control_rates": {
+     "wins": 6.9995,
+     "playoffs": 0.6657,
+     "title": 0.088,
+     "pf_week": 97.6349,
+     "moves": 13.7018
+    }
+   },
+   "model_lineups_only": {
+    "wins": [
+     -0.0302,
+     0.0203
+    ],
+    "pf_week": [
+     -0.1358,
+     0.049
+    ],
+    "pts_week_all": [
+     0.0527,
+     0.0506
+    ],
+    "playoffs": [
+     -0.0115,
+     0.0063
+    ],
+    "title": [
+     -0.0032,
+     0.0049
+    ],
+    "moves": [
+     0.0168,
+     0.041
+    ],
+    "control_rates": {
+     "wins": 6.9995,
+     "playoffs": 0.6657,
+     "title": 0.088,
+     "pf_week": 97.6349,
+     "moves": 13.7018
+    }
+   },
+   "model_waivers_only": {
+    "wins": [
+     0.2248,
+     0.0241
+    ],
+    "pf_week": [
+     1.1452,
+     0.0626
+    ],
+    "pts_week_all": [
+     1.0789,
+     0.0634
+    ],
+    "playoffs": [
+     0.0518,
+     0.0069
+    ],
+    "title": [
+     0.0062,
+     0.0054
+    ],
+    "moves": [
+     2.8268,
+     0.0529
+    ],
+    "control_rates": {
+     "wins": 6.9995,
+     "playoffs": 0.6657,
+     "title": 0.088,
+     "pf_week": 97.6349,
+     "moves": 13.7018
+    }
+   }
+  },
+  "2026": {
+   "model": {
+    "wins": [
+     0.0645,
+     0.02
+    ],
+    "pf_week": [
+     0.324,
+     0.0776
+    ],
+    "pts_week_all": [
+     0.324,
+     0.0776
+    ],
+    "playoffs": [
+     0.0,
+     0.0
+    ],
+    "title": [
+     0.0,
+     0.0
+    ],
+    "moves": [
+     1.37,
+     0.0353
+    ],
+    "control_rates": {
+     "wins": 4.9852,
+     "playoffs": 0.0,
+     "title": 0.0,
+     "pf_week": 100.499,
+     "moves": 8.5478
+    }
+   },
+   "official": {
+    "wins": [
+     0.2929,
+     0.018
+    ],
+    "pf_week": [
+     1.9971,
+     0.0613
+    ],
+    "pts_week_all": [
+     1.9971,
+     0.0613
+    ],
+    "playoffs": [
+     0.0,
+     0.0
+    ],
+    "title": [
+     0.0,
+     0.0
+    ],
+    "moves": [
+     0.6508,
+     0.0341
+    ],
+    "control_rates": {
+     "wins": 4.9852,
+     "playoffs": 0.0,
+     "title": 0.0,
+     "pf_week": 100.499,
+     "moves": 8.5478
+    }
+   },
+   "model_lineups_only": {
+    "wins": [
+     0.054,
+     0.0155
+    ],
+    "pf_week": [
+     0.4094,
+     0.0533
+    ],
+    "pts_week_all": [
+     0.4094,
+     0.0533
+    ],
+    "playoffs": [
+     0.0,
+     0.0
+    ],
+    "title": [
+     0.0,
+     0.0
+    ],
+    "moves": [
+     -0.0305,
+     0.0243
+    ],
+    "control_rates": {
+     "wins": 4.9852,
+     "playoffs": 0.0,
+     "title": 0.0,
+     "pf_week": 100.499,
+     "moves": 8.5478
+    }
+   },
+   "model_waivers_only": {
+    "wins": [
+     0.0634,
+     0.0177
+    ],
+    "pf_week": [
+     0.3629,
+     0.0667
+    ],
+    "pts_week_all": [
+     0.3629,
+     0.0667
+    ],
+    "playoffs": [
+     0.0,
+     0.0
+    ],
+    "title": [
+     0.0,
+     0.0
+    ],
+    "moves": [
+     1.3862,
+     0.0352
+    ],
+    "control_rates": {
+     "wins": 4.9852,
+     "playoffs": 0.0,
+     "title": 0.0,
+     "pf_week": 100.499,
+     "moves": 8.5478
+    }
+   }
+  }
+ }
+}
