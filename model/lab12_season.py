@@ -83,18 +83,24 @@ def draft_board(season, games, ids):
 class Season:
     """Player x week arrays for one season (weeks 1..LAST, index 0 unused)."""
 
-    def __init__(self, d, season, board, games, last_week):
+    def __init__(self, d, season, board, games, last_week, extra=None, extra_info=None):
         rows = d[d["season"] == season]
         self.W = last_week
-        pids = list(dict.fromkeys(list(rows["player_id"]) + list(board["player_id"].head(250))))
+        pids = list(dict.fromkeys(list(rows["player_id"]) + list(board["player_id"].head(250)) + list(extra or [])))
         self.pid = np.array(pids)
         ix = {p: i for i, p in enumerate(pids)}
         P, W = len(pids), LAST + 1
         info = rows.drop_duplicates("player_id", keep="last").set_index("player_id")
         bi = board.set_index("player_id")
-        self.name = np.array([info["player_display_name"].get(p, bi["player"].get(p, p) if p in bi.index else p)
-                              for p in pids])
-        pos = [info["position"].get(p, bi["pos"].get(p) if p in bi.index else None) for p in pids]
+        ei = extra_info if extra_info is not None else pd.DataFrame(columns=["name", "pos", "team"])
+        def look(p, a, b, c):
+            if p in info.index:
+                return info[a].get(p)
+            if p in bi.index:
+                return bi[b].get(p)
+            return ei[c].get(p) if p in ei.index else None
+        self.name = np.array([look(p, "player_display_name", "player", "name") or p for p in pids])
+        pos = [look(p, "position", "pos", "pos") for p in pids]
         self.pos = np.array([PC.get(p, -1) for p in pos])
         z = lambda: np.zeros((P, W))
         self.has, self.act, self.sat, self.exp = z().astype(bool), z(), z().astype(bool), z().astype(bool)
@@ -115,7 +121,7 @@ class Season:
         team[pi, wi] = r["team"].values
         # team for weeks without a row: last known, else the draft board's
         for i, p in enumerate(pids):
-            last = bi["team"].get(p, "") if p in bi.index else ""
+            last = bi["team"].get(p, "") if p in bi.index else (ei["team"].get(p, "") if p in ei.index else "")
             first = next((t for t in team[i, 1:] if t), last)
             cur = first
             for w in range(1, W):
