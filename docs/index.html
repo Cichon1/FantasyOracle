@@ -2830,7 +2830,7 @@ window.taDraft = (() => {
       const weights = {}; alive.forEach((a, w) => { weights[w] = a[i] / SIMS; });
       res.set(t, { finish: Array.from(finish[i], (c) => c / SIMS), seed: Array.from(seedP[i], (c) => c / SIMS), playoff: playoff[i] / SIMS,
         bye: bye[i] / SIMS, title: title[i] / SIMS, weights, wins: winSum[i] / SIMS, winsLo: q(winHist[i], 0.1), winsHi: q(winHist[i], 0.9),
-        games: g0[i] + left[i] });
+        games: g0[i] + left[i], last: finish[i][n] / SIMS });   // last = worst regular-season record (Nov 18, 2026)
     });
     return res;
   }
@@ -3672,8 +3672,8 @@ dash.calc('league_players', {
     const th = (text, cls) => { const c = document.createElement('th'); if (cls) c.className = cls; c.textContent = text; return c; };
     phead.append(th('Team', 'nf-l'), th('Record'), th('Proj. final'), th('Wins range', 'nf-hide-sm'), th('Playoffs'));
     if (anyBye) phead.append(th('Bye', 'nf-hide-sm'));
-    phead.append(th('Title'));
-    if (activeT) phead.append(th('Playoffs after trade'));
+    phead.append(th('Title'), th('Last place'));
+    if (activeT) phead.append(th('Playoffs after trade'), th('Last place after trade'));
     const wl = (r) => num(r.wins) + '–' + num(r.losses) + (num(r.ties) ? '–' + num(r.ties) : '');
     teams.slice().sort((a, b) => ss.simB.get(b.id).playoff - ss.simB.get(a.id).playoff || ss.simB.get(b.id).wins - ss.simB.get(a.id).wins).forEach((t) => {
       const sb = ss.simB.get(t.id), sa = ss.simA.get(t.id), r0 = rec0.get(t.id) || {}, tr = document.createElement('tr');
@@ -3685,8 +3685,9 @@ dash.calc('league_players', {
         td(sb.winsLo === sb.winsHi ? f0(sb.winsLo) + ' wins' : f0(sb.winsLo) + '–' + f0(sb.winsHi) + ' wins', 'nf-hide-sm nf-muted'),
         (() => { const c = td(pct(sb.playoff), 'nf-heat'); c.style.setProperty('--s', Math.round(sb.playoff * 100)); return c; })());
       if (anyBye) tr.append(td(pct(sb.bye), 'nf-hide-sm'));
-      tr.append(td(pct(sb.title)));
+      tr.append(td(pct(sb.title)), td(pct(sb.last), sb.last >= 0.25 ? 'nf-bad' : ''));
       if (activeT) { const dd = sa.playoff - sb.playoff; tr.append(td(Math.abs(dd) >= 0.005 ? pct(sa.playoff) + ' (' + (dd > 0 ? '+' : '−') + f0(Math.abs(dd) * 100) + ')' : '—', dd >= 0.005 ? 'nf-good' : dd <= -0.005 ? 'nf-bad' : 'nf-muted')); }
+      if (activeT) { const dl = sa.last - sb.last; tr.append(td(Math.abs(dl) >= 0.005 ? pct(sa.last) + ' (' + (dl > 0 ? '+' : '−') + f0(Math.abs(dl) * 100) + ')' : '—', dl <= -0.005 ? 'nf-good' : dl >= 0.005 ? 'nf-bad' : 'nf-muted')); }
       pbody.appendChild(tr);
     });
     const pulled = S0[0] && S0[0].pulled_at ? d3.timeFormat('%b %-d')(new Date(S0[0].pulled_at)) : '';
@@ -3695,7 +3696,8 @@ dash.calc('league_players', {
       + (left.length ? ' (weeks ' + left[0] + '–' + left[left.length - 1] + ')' : '') + ', then the ' + ss.D.po + '-team playoff'
       + (anyBye ? ' (top 2 seeds get a bye)' : '') + ': each week a team scores its lineup’s points per week above plus its own weekly swing (the Low / High range), plus a season-long error in our projection; seeds by record, then points for. '
       + 'Proj. final = average final record, rounded; wins range = 10th to 90th percentile. Standings and schedule from Yahoo' + (pulled ? ' (' + pulled + ')' : '') + '; ask Claude to update your teams to refresh them.'
-      + (activeT ? ' Playoffs after trade = the same simulation with both lineups after the checked trade.' : '');
+      + ' Last place = finishing with the worst regular-season record (fewest wins, then fewest points for).'
+      + (activeT ? ' Playoffs / last place after trade = the same simulation with both lineups after the checked trade.' : '');
   }
   dash.onData(render);
 })();
