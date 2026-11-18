@@ -186,6 +186,19 @@ def sync():
     import yahoo_standings as YS
     tok = access_token()
     teams, rosters, settings, stand = pull(tok)
+    try:        # Yahoo's weekly player projections, saved with timestamps (automation/yahoo_proj.py)
+        import yahoo_proj as YP
+        gk = t(get(tok, "game/nfl"), ".//game_key")
+        season = int(t(get(tok, "game/nfl"), ".//season", "0") or 0)
+        print(json.dumps(YP.capture(lambda p: get(tok, p), t, gk, season)))
+    except Exception as e:
+        print(json.dumps({"yahoo_proj": "failed", "error": str(e)[:300]}))
+        os.makedirs(STATE, exist_ok=True)
+        ep = os.path.join(STATE, "yahoo_proj_error.json")
+        prev = json.load(open(ep)) if os.path.exists(ep) else {}
+        if prev.get("error") != str(e)[:1000]:      # rewrite only when the error changes
+            json.dump({"at": datetime.now(timezone.utc).isoformat(timespec="seconds"), "error": str(e)[:1000]},
+                      open(ep, "w"), indent=1)
     work = os.path.join(ROOT, "model", "yahoo")
     os.makedirs(work, exist_ok=True)
     raw = os.path.join(work, "rosters_raw.txt")
