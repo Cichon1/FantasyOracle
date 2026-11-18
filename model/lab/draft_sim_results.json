@@ -1,0 +1,924 @@
+{
+ "leagues_per_season": 1000,
+ "checks": {
+  "2023": {
+   "draft_snapshot": "2023-09-01",
+   "candidates": 426,
+   "model_top12": [
+    "Christian McCaffrey",
+    "Justin Jefferson",
+    "Najee Harris",
+    "Josh Jacobs",
+    "Tyreek Hill",
+    "Joe Mixon",
+    "Cooper Kupp",
+    "Jaylen Waddle",
+    "Austin Ekeler",
+    "Mark Andrews",
+    "Nick Chubb",
+    "Travis Kelce"
+   ]
+  },
+  "2024": {
+   "draft_snapshot": "2024-08-30",
+   "candidates": 417,
+   "model_top12": [
+    "Tyreek Hill",
+    "Jahmyr Gibbs",
+    "Breece Hall",
+    "Amon-Ra St. Brown",
+    "CeeDee Lamb",
+    "Travis Kelce",
+    "Sam LaPorta",
+    "Travis Etienne",
+    "Patrick Mahomes",
+    "De'Von Achane",
+    "Bijan Robinson",
+    "Ja'Marr Chase"
+   ]
+  },
+  "2025": {
+   "draft_snapshot": "2025-08-29",
+   "candidates": 409,
+   "model_top12": [
+    "Jahmyr Gibbs",
+    "Amon-Ra St. Brown",
+    "Ja'Marr Chase",
+    "De'Von Achane",
+    "Justin Jefferson",
+    "Malik Nabers",
+    "Bijan Robinson",
+    "Brock Bowers",
+    "CeeDee Lamb",
+    "Ashton Jeanty",
+    "Brian Thomas Jr.",
+    "Lamar Jackson"
+   ]
+  },
+  "2026": {
+   "draft_snapshot": "2026-09-04",
+   "candidates": 408,
+   "model_top12": [
+    "Puka Nacua",
+    "Ja'Marr Chase",
+    "Amon-Ra St. Brown",
+    "Jaxon Smith-Njigba",
+    "Trey McBride",
+    "Ashton Jeanty",
+    "De'Von Achane",
+    "Bijan Robinson",
+    "George Pickens",
+    "Christian McCaffrey",
+    "Jeremiyah Love",
+    "Derrick Henry"
+   ]
+  }
+ },
+ "summary": {
+  "2023-2025": {
+   "model_draft": {
+    "wins": [
+     -1.0694,
+     0.0304
+    ],
+    "playoffs": [
+     -0.2238,
+     0.0079
+    ],
+    "title": [
+     -0.0443,
+     0.0042
+    ],
+    "pf_week": [
+     -5.2534,
+     0.1065
+    ],
+    "pts_week_all": [
+     -4.941,
+     0.103
+    ],
+    "drafted_pts": [
+     -177.2624,
+     4.3642
+    ],
+    "moves": [
+     1.3402,
+     0.0514
+    ],
+    "by_season_wins": {
+     "2023": -1.154,
+     "2024": -1.068,
+     "2025": -0.986
+    }
+   },
+   "official_draft": {
+    "wins": [
+     -0.5154,
+     0.0296
+    ],
+    "playoffs": [
+     -0.0983,
+     0.0076
+    ],
+    "title": [
+     -0.0278,
+     0.0044
+    ],
+    "pf_week": [
+     -2.4235,
+     0.104
+    ],
+    "pts_week_all": [
+     -2.3857,
+     0.1021
+    ],
+    "drafted_pts": [
+     -39.1208,
+     3.5737
+    ],
+    "moves": [
+     0.265,
+     0.052
+    ],
+    "by_season_wins": {
+     "2023": -0.649,
+     "2024": -0.493,
+     "2025": -0.404
+    }
+   },
+   "vor_draft": {
+    "wins": [
+     -0.8912,
+     0.0318
+    ],
+    "playoffs": [
+     -0.1898,
+     0.0082
+    ],
+    "title": [
+     -0.0525,
+     0.0039
+    ],
+    "pf_week": [
+     -4.58,
+     0.1135
+    ],
+    "pts_week_all": [
+     -4.73,
+     0.1069
+    ],
+    "drafted_pts": [
+     -184.5872,
+     4.9614
+    ],
+    "moves": [
+     1.0593,
+     0.0507
+    ],
+    "by_season_wins": {
+     "2023": -1.363,
+     "2024": -0.724,
+     "2025": -0.586
+    }
+   },
+   "model_full": {
+    "wins": [
+     -1.0226,
+     0.0313
+    ],
+    "playoffs": [
+     -0.2057,
+     0.008
+    ],
+    "title": [
+     -0.0457,
+     0.0041
+    ],
+    "pf_week": [
+     -4.9873,
+     0.1108
+    ],
+    "pts_week_all": [
+     -4.674,
+     0.1076
+    ],
+    "drafted_pts": [
+     -177.2624,
+     4.3642
+    ],
+    "moves": [
+     2.5298,
+     0.0462
+    ],
+    "by_season_wins": {
+     "2023": -1.258,
+     "2024": -1.064,
+     "2025": -0.746
+    }
+   },
+   "official_full": {
+    "wins": [
+     -0.3769,
+     0.0303
+    ],
+    "playoffs": [
+     -0.0647,
+     0.0077
+    ],
+    "title": [
+     -0.0233,
+     0.0044
+    ],
+    "pf_week": [
+     -1.5971,
+     0.1065
+    ],
+    "pts_week_all": [
+     -1.5866,
+     0.1042
+    ],
+    "drafted_pts": [
+     -39.1208,
+     3.5737
+    ],
+    "moves": [
+     1.4862,
+     0.0488
+    ],
+    "by_season_wins": {
+     "2023": -0.526,
+     "2024": -0.548,
+     "2025": -0.058
+    }
+   }
+  },
+  "2023": {
+   "model_draft": {
+    "wins": [
+     -1.154,
+     0.0487
+    ],
+    "playoffs": [
+     -0.264,
+     0.0135
+    ],
+    "title": [
+     -0.031,
+     0.0072
+    ],
+    "pf_week": [
+     -5.7839,
+     0.1728
+    ],
+    "pts_week_all": [
+     -4.6315,
+     0.1565
+    ],
+    "drafted_pts": [
+     -381.5071,
+     5.9217
+    ],
+    "moves": [
+     1.3565,
+     0.0823
+    ],
+    "by_season_wins": {
+     "2023": -1.154
+    }
+   },
+   "official_draft": {
+    "wins": [
+     -0.6488,
+     0.0481
+    ],
+    "playoffs": [
+     -0.156,
+     0.0131
+    ],
+    "title": [
+     -0.009,
+     0.0078
+    ],
+    "pf_week": [
+     -3.0018,
+     0.1624
+    ],
+    "pts_week_all": [
+     -2.1993,
+     0.152
+    ],
+    "drafted_pts": [
+     -144.0724,
+     5.3982
+    ],
+    "moves": [
+     0.274,
+     0.0869
+    ],
+    "by_season_wins": {
+     "2023": -0.649
+    }
+   },
+   "vor_draft": {
+    "wins": [
+     -1.363,
+     0.0509
+    ],
+    "playoffs": [
+     -0.315,
+     0.0137
+    ],
+    "title": [
+     -0.0415,
+     0.0067
+    ],
+    "pf_week": [
+     -7.0729,
+     0.1752
+    ],
+    "pts_week_all": [
+     -5.9708,
+     0.1607
+    ],
+    "drafted_pts": [
+     -450.8081,
+     5.9804
+    ],
+    "moves": [
+     0.97,
+     0.0831
+    ],
+    "by_season_wins": {
+     "2023": -1.363
+    }
+   },
+   "model_full": {
+    "wins": [
+     -1.258,
+     0.0511
+    ],
+    "playoffs": [
+     -0.2975,
+     0.0139
+    ],
+    "title": [
+     -0.0405,
+     0.0068
+    ],
+    "pf_week": [
+     -6.2472,
+     0.1757
+    ],
+    "pts_week_all": [
+     -5.8319,
+     0.1636
+    ],
+    "drafted_pts": [
+     -381.5071,
+     5.9217
+    ],
+    "moves": [
+     1.6085,
+     0.0729
+    ],
+    "by_season_wins": {
+     "2023": -1.258
+    }
+   },
+   "official_full": {
+    "wins": [
+     -0.5255,
+     0.0484
+    ],
+    "playoffs": [
+     -0.108,
+     0.0133
+    ],
+    "title": [
+     -0.0135,
+     0.0074
+    ],
+    "pf_week": [
+     -2.3057,
+     0.1659
+    ],
+    "pts_week_all": [
+     -2.3314,
+     0.1526
+    ],
+    "drafted_pts": [
+     -144.0724,
+     5.3982
+    ],
+    "moves": [
+     0.6215,
+     0.0796
+    ],
+    "by_season_wins": {
+     "2023": -0.526
+    }
+   }
+  },
+  "2024": {
+   "model_draft": {
+    "wins": [
+     -1.0685,
+     0.054
+    ],
+    "playoffs": [
+     -0.216,
+     0.0137
+    ],
+    "title": [
+     -0.041,
+     0.0077
+    ],
+    "pf_week": [
+     -5.2193,
+     0.1873
+    ],
+    "pts_week_all": [
+     -5.1448,
+     0.1803
+    ],
+    "drafted_pts": [
+     -77.4968,
+     5.7732
+    ],
+    "moves": [
+     1.575,
+     0.0873
+    ],
+    "by_season_wins": {
+     "2024": -1.068
+    }
+   },
+   "official_draft": {
+    "wins": [
+     -0.4932,
+     0.0531
+    ],
+    "playoffs": [
+     -0.0895,
+     0.0132
+    ],
+    "title": [
+     -0.034,
+     0.0076
+    ],
+    "pf_week": [
+     -2.2087,
+     0.1846
+    ],
+    "pts_week_all": [
+     -2.8011,
+     0.1815
+    ],
+    "drafted_pts": [
+     3.3871,
+     5.7166
+    ],
+    "moves": [
+     0.2795,
+     0.0865
+    ],
+    "by_season_wins": {
+     "2024": -0.493
+    }
+   },
+   "vor_draft": {
+    "wins": [
+     -0.724,
+     0.0542
+    ],
+    "playoffs": [
+     -0.1415,
+     0.0141
+    ],
+    "title": [
+     -0.046,
+     0.0074
+    ],
+    "pf_week": [
+     -3.8747,
+     0.1876
+    ],
+    "pts_week_all": [
+     -4.1886,
+     0.1842
+    ],
+    "drafted_pts": [
+     -85.7004,
+     5.7942
+    ],
+    "moves": [
+     1.166,
+     0.0851
+    ],
+    "by_season_wins": {
+     "2024": -0.724
+    }
+   },
+   "model_full": {
+    "wins": [
+     -1.0642,
+     0.0544
+    ],
+    "playoffs": [
+     -0.204,
+     0.0136
+    ],
+    "title": [
+     -0.041,
+     0.0075
+    ],
+    "pf_week": [
+     -5.1297,
+     0.1937
+    ],
+    "pts_week_all": [
+     -4.4704,
+     0.1864
+    ],
+    "drafted_pts": [
+     -77.4968,
+     5.7732
+    ],
+    "moves": [
+     3.389,
+     0.0746
+    ],
+    "by_season_wins": {
+     "2024": -1.064
+    }
+   },
+   "official_full": {
+    "wins": [
+     -0.5478,
+     0.0528
+    ],
+    "playoffs": [
+     -0.0855,
+     0.0136
+    ],
+    "title": [
+     -0.029,
+     0.0075
+    ],
+    "pf_week": [
+     -2.3378,
+     0.1841
+    ],
+    "pts_week_all": [
+     -2.5173,
+     0.1809
+    ],
+    "drafted_pts": [
+     3.3871,
+     5.7166
+    ],
+    "moves": [
+     2.1215,
+     0.0774
+    ],
+    "by_season_wins": {
+     "2024": -0.548
+    }
+   }
+  },
+  "2025": {
+   "model_draft": {
+    "wins": [
+     -0.9858,
+     0.0548
+    ],
+    "playoffs": [
+     -0.1915,
+     0.0136
+    ],
+    "title": [
+     -0.061,
+     0.0068
+    ],
+    "pf_week": [
+     -4.7571,
+     0.1917
+    ],
+    "pts_week_all": [
+     -5.0466,
+     0.196
+    ],
+    "drafted_pts": [
+     -72.7831,
+     6.3627
+    ],
+    "moves": [
+     1.089,
+     0.0962
+    ],
+    "by_season_wins": {
+     "2025": -0.986
+    }
+   },
+   "official_draft": {
+    "wins": [
+     -0.4042,
+     0.0525
+    ],
+    "playoffs": [
+     -0.0495,
+     0.0129
+    ],
+    "title": [
+     -0.0405,
+     0.0073
+    ],
+    "pf_week": [
+     -2.0599,
+     0.1911
+    ],
+    "pts_week_all": [
+     -2.1567,
+     0.1936
+    ],
+    "drafted_pts": [
+     23.3228,
+     6.0384
+    ],
+    "moves": [
+     0.2415,
+     0.0967
+    ],
+    "by_season_wins": {
+     "2025": -0.404
+    }
+   },
+   "vor_draft": {
+    "wins": [
+     -0.5865,
+     0.057
+    ],
+    "playoffs": [
+     -0.113,
+     0.014
+    ],
+    "title": [
+     -0.07,
+     0.0063
+    ],
+    "pf_week": [
+     -2.7923,
+     0.2007
+    ],
+    "pts_week_all": [
+     -4.0308,
+     0.202
+    ],
+    "drafted_pts": [
+     -17.253,
+     6.6024
+    ],
+    "moves": [
+     1.042,
+     0.0946
+    ],
+    "by_season_wins": {
+     "2025": -0.586
+    }
+   },
+   "model_full": {
+    "wins": [
+     -0.7455,
+     0.0556
+    ],
+    "playoffs": [
+     -0.1155,
+     0.0134
+    ],
+    "title": [
+     -0.0555,
+     0.0068
+    ],
+    "pf_week": [
+     -3.585,
+     0.1965
+    ],
+    "pts_week_all": [
+     -3.7197,
+     0.2012
+    ],
+    "drafted_pts": [
+     -72.7831,
+     6.3627
+    ],
+    "moves": [
+     2.592,
+     0.0821
+    ],
+    "by_season_wins": {
+     "2025": -0.746
+    }
+   },
+   "official_full": {
+    "wins": [
+     -0.0575,
+     0.0546
+    ],
+    "playoffs": [
+     -0.0005,
+     0.0129
+    ],
+    "title": [
+     -0.0275,
+     0.0077
+    ],
+    "pf_week": [
+     -0.1477,
+     0.1937
+    ],
+    "pts_week_all": [
+     0.0889,
+     0.1936
+    ],
+    "drafted_pts": [
+     23.3228,
+     6.0384
+    ],
+    "moves": [
+     1.7155,
+     0.0892
+    ],
+    "by_season_wins": {
+     "2025": -0.058
+    }
+   }
+  },
+  "2026": {
+   "model_draft": {
+    "wins": [
+     -2.1025,
+     0.0442
+    ],
+    "playoffs": [
+     0.0,
+     0.0
+    ],
+    "title": [
+     0.0,
+     0.0
+    ],
+    "pf_week": [
+     -16.4802,
+     0.2268
+    ],
+    "pts_week_all": [
+     -16.4802,
+     0.2268
+    ],
+    "drafted_pts": [
+     -324.1304,
+     3.7088
+    ],
+    "moves": [
+     1.9285,
+     0.0582
+    ],
+    "by_season_wins": {
+     "2026": -2.102
+    }
+   },
+   "official_draft": {
+    "wins": [
+     -0.84,
+     0.0428
+    ],
+    "playoffs": [
+     0.0,
+     0.0
+    ],
+    "title": [
+     0.0,
+     0.0
+    ],
+    "pf_week": [
+     -5.98,
+     0.2234
+    ],
+    "pts_week_all": [
+     -5.98,
+     0.2234
+    ],
+    "drafted_pts": [
+     -108.8173,
+     3.5701
+    ],
+    "moves": [
+     1.04,
+     0.062
+    ],
+    "by_season_wins": {
+     "2026": -0.84
+    }
+   },
+   "vor_draft": {
+    "wins": [
+     -1.3748,
+     0.0452
+    ],
+    "playoffs": [
+     0.0,
+     0.0
+    ],
+    "title": [
+     0.0,
+     0.0
+    ],
+    "pf_week": [
+     -10.2176,
+     0.2285
+    ],
+    "pts_week_all": [
+     -10.2176,
+     0.2285
+    ],
+    "drafted_pts": [
+     -206.2872,
+     3.9172
+    ],
+    "moves": [
+     1.235,
+     0.0606
+    ],
+    "by_season_wins": {
+     "2026": -1.375
+    }
+   },
+   "model_full": {
+    "wins": [
+     -2.0488,
+     0.0442
+    ],
+    "playoffs": [
+     0.0,
+     0.0
+    ],
+    "title": [
+     0.0,
+     0.0
+    ],
+    "pf_week": [
+     -15.8988,
+     0.2253
+    ],
+    "pts_week_all": [
+     -15.8988,
+     0.2253
+    ],
+    "drafted_pts": [
+     -324.1304,
+     3.7088
+    ],
+    "moves": [
+     1.5795,
+     0.0554
+    ],
+    "by_season_wins": {
+     "2026": -2.049
+    }
+   },
+   "official_full": {
+    "wins": [
+     -0.5782,
+     0.0441
+    ],
+    "playoffs": [
+     0.0,
+     0.0
+    ],
+    "title": [
+     0.0,
+     0.0
+    ],
+    "pf_week": [
+     -4.0876,
+     0.224
+    ],
+    "pts_week_all": [
+     -4.0876,
+     0.224
+    ],
+    "drafted_pts": [
+     -108.8173,
+     3.5701
+    ],
+    "moves": [
+     1.0385,
+     0.0556
+    ],
+    "by_season_wins": {
+     "2026": -0.578
+    }
+   }
+  }
+ }
+}

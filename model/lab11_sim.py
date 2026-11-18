@@ -45,7 +45,7 @@ START = {"QB": 1, "RB": 2, "WR": 2, "TE": 1}
 FLEX = ("RB", "WR", "TE")
 LAST_WEEK = 17
 JITTER = 2.0          # points of noise on each player's draft value, per league
-SOURCES = ["model", "official", "fp", "sleeper", "naive", "perfect"]
+SOURCES = ["model", "official", "fp", "sleeper", "espn", "naive", "perfect"]
 OTHER = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "automation", "history", "other_proj")
 rng = np.random.default_rng(20261117)
 
@@ -102,17 +102,23 @@ def prepare(rows, cv):
         pts = np.sort(g["model"].values)[::-1]
         d.loc[g.index, "official"] = pts[order]
     d["perfect"] = d[L.TARGET]
-    # Sleeper's weekly PPR projection (pulled by automation/other_projections.py; their last pre-game number)
+    # other sites' weekly PPR projections (automation/other_projections.py): Sleeper's and ESPN's archived number
+    # for each week (their last pre-game value)
     import glob
-    ids = pd.read_csv("fpdata/db_playerids.csv", usecols=["sleeper_id", "gsis_id"], low_memory=False).dropna()
-    ids["sleeper_id"] = ids["sleeper_id"].astype(str).str.replace(r"\.0$", "", regex=True)
-    ids = ids.drop_duplicates("sleeper_id").set_index("sleeper_id")["gsis_id"]
-    sl = pd.concat([pd.read_csv(f, dtype={"source_id": str}) for f in glob.glob(os.path.join(OTHER, "sleeper_*.csv"))])
-    sl["player_id"] = sl["source_id"].map(ids)
-    sl = sl.dropna(subset=["player_id"]).drop_duplicates(["player_id", "season", "week"])
-    d = d.merge(sl[["player_id", "season", "week", "proj_ppr"]].rename(columns={"proj_ppr": "sleeper"}),
-                on=["player_id", "season", "week"], how="left").set_index(d.index)
-    d["sleeper"] = d["sleeper"].fillna(0.0)
+    for src, col in [("sleeper", "sleeper_id"), ("espn", "espn_id")]:
+        ids = pd.read_csv("fpdata/db_playerids.csv", usecols=[col, "gsis_id"], low_memory=False).dropna()
+        ids[col] = ids[col].astype(str).str.replace(r"\.0$", "", regex=True)
+        ids = ids.drop_duplicates(col).set_index(col)["gsis_id"]
+        files = glob.glob(os.path.join(OTHER, f"{src}_*.csv"))
+        if not files:
+            d[src] = 0.0
+            continue
+        sl = pd.concat([pd.read_csv(f, dtype={"source_id": str}) for f in files])
+        sl["player_id"] = sl["source_id"].map(ids)
+        sl = sl.dropna(subset=["player_id"]).drop_duplicates(["player_id", "season", "week"])
+        d = d.merge(sl[["player_id", "season", "week", "proj_ppr"]].rename(columns={"proj_ppr": src}),
+                    on=["player_id", "season", "week"], how="left").set_index(d.index)
+        d[src] = d[src].fillna(0.0)
     # naive baseline: average PPR over the player's last 4 games played (any season), if expected to play
     played = d[~d["sat"]].sort_values(["player_id", "season", "week"])
     roll = played.groupby("player_id")[L.TARGET].transform(lambda x: x.shift(1).rolling(4, min_periods=1).mean())
@@ -190,7 +196,7 @@ def summarize(wk, label):
     for s in SOURCES:
         out[f"pts_{s}"] = round(wk[f"pts_{s}"].mean(), 2)
         out[f"win_{s}"] = round(wk[f"win_{s}"].mean(), 4)
-    for a in ["model", "official", "sleeper", "naive", "perfect"]:
+    for a in ["model", "official", "sleeper", "espn", "naive", "perfect"]:
         dp = wk[f"pts_{a}"] - wk["pts_fp"]
         dw = wk[f"win_{a}"] - wk["win_fp"]
         out[f"{a}_minus_fp_pts"] = [round(dp.mean(), 3), round(dp.std(ddof=1) / np.sqrt(len(dp)), 3)]
@@ -198,7 +204,7 @@ def summarize(wk, label):
         out[f"{a}_weeks_better"] = int((dp > 0).sum())
         out[f"{a}_minus_fp_by_pos"] = {p: round((wk[f"pos_{p}_{a}"] - wk[f"pos_{p}_fp"]).mean(), 3) for p in QUOTA}
     for S, g in wk.groupby("season"):
-        out[f"season_{S}"] = {a: round((g[f"pts_{a}"] - g["pts_fp"]).mean(), 3) for a in ["model", "official", "sleeper", "naive"]}
+        out[f"season_{S}"] = {a: round((g[f"pts_{a}"] - g["pts_fp"]).mean(), 3) for a in ["model", "official", "sleeper", "espn", "naive"]}
         out[f"season_{S}"]["weeks"] = int(len(g))
         out[f"season_{S}"]["win_model_minus_fp"] = round((g["win_model"] - g["win_fp"]).mean(), 4)
     return out
