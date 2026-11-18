@@ -7,17 +7,11 @@
   "errors": []
  },
  "espn_2023": {
-  "at": "2026-11-18T04:28:30+00:00",
-  "rows": 0,
-  "nonzero": 0,
-  "weeks": 0,
-  "errors": [
-   "week 1: HTTP 400",
-   "week 2: HTTP 400",
-   "week 3: HTTP 400",
-   "week 4: HTTP 400",
-   "week 5: HTTP 400"
-  ]
+  "at": "2026-11-18T04:36:23+00:00",
+  "rows": 15196,
+  "nonzero": 5291,
+  "weeks": 17,
+  "errors": []
  },
  "sleeper_2024": {
   "at": "2026-11-18T04:28:48+00:00",
@@ -27,17 +21,11 @@
   "errors": []
  },
  "espn_2024": {
-  "at": "2026-11-18T04:28:51+00:00",
-  "rows": 0,
-  "nonzero": 0,
-  "weeks": 0,
-  "errors": [
-   "week 1: HTTP 400",
-   "week 2: HTTP 400",
-   "week 3: HTTP 400",
-   "week 4: HTTP 400",
-   "week 5: HTTP 400"
-  ]
+  "at": "2026-11-18T04:36:45+00:00",
+  "rows": 15171,
+  "nonzero": 5422,
+  "weeks": 17,
+  "errors": []
  },
  "sleeper_2025": {
   "at": "2026-11-18T04:29:08+00:00",
@@ -47,17 +35,11 @@
   "errors": []
  },
  "espn_2025": {
-  "at": "2026-11-18T04:29:11+00:00",
-  "rows": 0,
-  "nonzero": 0,
-  "weeks": 0,
-  "errors": [
-   "week 1: HTTP 400",
-   "week 2: HTTP 400",
-   "week 3: HTTP 400",
-   "week 4: HTTP 400",
-   "week 5: HTTP 400"
-  ]
+  "at": "2026-11-18T04:37:06+00:00",
+  "rows": 10566,
+  "nonzero": 5449,
+  "weeks": 17,
+  "errors": []
  },
  "sleeper_2026": {
   "at": "2026-11-18T04:29:28+00:00",
@@ -67,16 +49,10 @@
   "errors": []
  },
  "espn_2026": {
-  "at": "2026-11-18T04:29:31+00:00",
-  "rows": 0,
-  "nonzero": 0,
-  "weeks": 0,
-  "errors": [
-   "week 1: HTTP 400",
-   "week 2: HTTP 400",
-   "week 3: HTTP 400",
-   "week 4: HTTP 400",
-   "week 5: HTTP 400"
-  ]
+  "at": "2026-11-18T04:37:36+00:00",
+  "rows": 10611,
+  "nonzero": 5773,
+  "weeks": 18,
+  "errors": []
  }
 }
