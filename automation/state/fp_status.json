@@ -1,7 +1,7 @@
 {
- "pulled_at": "2026-11-18T12:50-05:00",
+ "pulled_at": "2026-11-18T15:46-05:00",
  "pages": 8,
- "expert_pages": 23,
+ "expert_pages": 10,
  "errors": [],
  "expert_pages_waiting": 0,
  "cutoff_ros": "2026-11-16T23:35-05:00",
@@ -9,62 +9,62 @@
  "panels": {
   "weekly|QB": {
    "default": 14,
-   "recent": 24,
+   "recent": 29,
    "recent_acc": 20,
-   "listed": 55,
-   "public_pages": 30,
+   "listed": 61,
+   "public_pages": 33,
    "recent_rule": "since cutoff",
    "players": {
     "default": 65,
     "recent": 31,
     "recent_acc": 31
    },
-   "agree_recent": 0.994,
-   "agree_recent_acc": 0.994
+   "agree_recent": 0.998,
+   "agree_recent_acc": 0.996
   },
   "weekly|RB": {
    "default": 14,
-   "recent": 27,
+   "recent": 30,
    "recent_acc": 20,
-   "listed": 53,
-   "public_pages": 29,
+   "listed": 59,
+   "public_pages": 32,
    "recent_rule": "since cutoff",
    "players": {
     "default": 80,
     "recent": 71,
-    "recent_acc": 70
+    "recent_acc": 71
    },
-   "agree_recent": 0.979,
-   "agree_recent_acc": 0.975
+   "agree_recent": 0.985,
+   "agree_recent_acc": 0.987
   },
   "weekly|WR": {
    "default": 14,
-   "recent": 28,
+   "recent": 31,
    "recent_acc": 20,
-   "listed": 53,
-   "public_pages": 29,
+   "listed": 59,
+   "public_pages": 32,
    "recent_rule": "since cutoff",
    "players": {
-    "default": 117,
-    "recent": 97,
+    "default": 116,
+    "recent": 100,
     "recent_acc": 100
    },
-   "agree_recent": 0.994,
-   "agree_recent_acc": 0.991
+   "agree_recent": 0.99,
+   "agree_recent_acc": 0.989
   },
   "weekly|TE": {
    "default": 14,
-   "recent": 27,
+   "recent": 30,
    "recent_acc": 20,
-   "listed": 53,
-   "public_pages": 29,
+   "listed": 59,
+   "public_pages": 32,
    "recent_rule": "since cutoff",
    "players": {
     "default": 58,
     "recent": 36,
     "recent_acc": 36
    },
-   "agree_recent": 0.99,
+   "agree_recent": 0.992,
    "agree_recent_acc": 0.99
   },
   "ros|QB": {
@@ -128,5 +128,5 @@
    "agree_recent_acc": 0.983
   }
  },
- "stamp": "fab1af714f22"
+ "stamp": "a7c772ec51ed"
 }
