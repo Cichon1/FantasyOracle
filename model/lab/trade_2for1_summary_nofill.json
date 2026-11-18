@@ -1,0 +1,150 @@
+{
+ "runs_2for1": 6480,
+ "runs_1for1": 32940,
+ "bias": {
+  "official_hub": {
+   "1-for-1": {
+    "slope": 0.435,
+    "pts_gained_at_even": -4.08,
+    "near_even_trades": 6387,
+    "near_even_mean_pts": 0.1,
+    "near_even_mean_wins": 0.052,
+    "near_even_mean_playoffs": 0.0186
+   },
+   "2-for-1": {
+    "slope": 1.151,
+    "pts_gained_at_even": 4.84,
+    "near_even_trades": 6344,
+    "near_even_mean_pts": 4.92,
+    "near_even_mean_wins": -0.071,
+    "near_even_mean_playoffs": -0.0399
+   }
+  },
+  "official_starter": {
+   "1-for-1": {
+    "slope": 0.257,
+    "pts_gained_at_even": -1.27,
+    "near_even_trades": 3481,
+    "near_even_mean_pts": -1.79,
+    "near_even_mean_wins": 0.009,
+    "near_even_mean_playoffs": 0.0158
+   },
+   "2-for-1": {
+    "slope": -0.164,
+    "pts_gained_at_even": 8.96,
+    "near_even_trades": 1525,
+    "near_even_mean_pts": 8.75,
+    "near_even_mean_wins": -0.007,
+    "near_even_mean_playoffs": -0.0249
+   }
+  },
+  "official_waiver": {
+   "1-for-1": {
+    "slope": 0.313,
+    "pts_gained_at_even": -3.66,
+    "near_even_trades": 4065,
+    "near_even_mean_pts": 0.53,
+    "near_even_mean_wins": 0.05,
+    "near_even_mean_playoffs": 0.013
+   },
+   "2-for-1": {
+    "slope": 0.205,
+    "pts_gained_at_even": 7.91,
+    "near_even_trades": 2601,
+    "near_even_mean_pts": 7.03,
+    "near_even_mean_wins": -0.022,
+    "near_even_mean_playoffs": -0.0265
+   }
+  },
+  "fp_hub": {
+   "1-for-1": {
+    "slope": 0.416,
+    "pts_gained_at_even": -5.91,
+    "near_even_trades": 4461,
+    "near_even_mean_pts": 0.64,
+    "near_even_mean_wins": 0.06,
+    "near_even_mean_playoffs": 0.0168
+   },
+   "2-for-1": {
+    "slope": 0.225,
+    "pts_gained_at_even": 6.89,
+    "near_even_trades": 2011,
+    "near_even_mean_pts": 5.23,
+    "near_even_mean_wins": -0.088,
+    "near_even_mean_playoffs": -0.0323
+   }
+  },
+  "fp_starter": {
+   "1-for-1": {
+    "slope": 0.316,
+    "pts_gained_at_even": -7.12,
+    "near_even_trades": 2620,
+    "near_even_mean_pts": -0.21,
+    "near_even_mean_wins": 0.027,
+    "near_even_mean_playoffs": 0.0042
+   },
+   "2-for-1": {
+    "slope": 0.115,
+    "pts_gained_at_even": 3.22,
+    "near_even_trades": 1387,
+    "near_even_mean_pts": 1.3,
+    "near_even_mean_wins": -0.061,
+    "near_even_mean_playoffs": -0.0562
+   }
+  },
+  "model_hub": {
+   "1-for-1": {
+    "slope": 0.38,
+    "pts_gained_at_even": -0.98,
+    "near_even_trades": 7153,
+    "near_even_mean_pts": 0.82,
+    "near_even_mean_wins": 0.061,
+    "near_even_mean_playoffs": 0.0229
+   },
+   "2-for-1": {
+    "slope": -0.14,
+    "pts_gained_at_even": 5.56,
+    "near_even_trades": 2987,
+    "near_even_mean_pts": 5.01,
+    "near_even_mean_wins": -0.066,
+    "near_even_mean_playoffs": -0.0355
+   }
+  },
+  "cons_free_hub": {
+   "1-for-1": {
+    "slope": 0.402,
+    "pts_gained_at_even": -1.77,
+    "near_even_trades": 7404,
+    "near_even_mean_pts": 1.12,
+    "near_even_mean_wins": 0.067,
+    "near_even_mean_playoffs": 0.0226
+   },
+   "2-for-1": {
+    "slope": 0.438,
+    "pts_gained_at_even": 4.26,
+    "near_even_trades": 2478,
+    "near_even_mean_pts": 2.85,
+    "near_even_mean_wins": -0.105,
+    "near_even_mean_playoffs": -0.0436
+   }
+  },
+  "cons_free_starter": {
+   "1-for-1": {
+    "slope": 0.185,
+    "pts_gained_at_even": 2.78,
+    "near_even_trades": 3740,
+    "near_even_mean_pts": -0.53,
+    "near_even_mean_wins": 0.034,
+    "near_even_mean_playoffs": 0.0273
+   },
+   "2-for-1": {
+    "slope": 0.098,
+    "pts_gained_at_even": 2.87,
+    "near_even_trades": 1471,
+    "near_even_mean_pts": 3.61,
+    "near_even_mean_wins": -0.043,
+    "near_even_mean_playoffs": -0.0415
+   }
+  }
+ }
+}

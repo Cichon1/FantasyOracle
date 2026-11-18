@@ -170,7 +170,14 @@ class Season:
                                   for p in pids], dtype=float)
 
     def ros(self, w, curve):
-        """Rest-of-season values (points) for each source, before week w."""
+        """Rest-of-season values (points over replacement) for each source, before week w (cached)."""
+        if not hasattr(self, "_ros_cache"):
+            self._ros_cache = {}
+        if w not in self._ros_cache:
+            self._ros_cache[w] = self._ros(w, curve)
+        return self._ros_cache[w]
+
+    def _ros(self, w, curve):
         out_now = self.plays[:, w] & ~(self.has[:, w] & self.exp[:, w])
         k = np.where(out_now, self.missed[:, w] + 1, 0)
         exp_games = np.maximum(0, self.games_left[:, w] - np.where(out_now, k, 0))
@@ -316,7 +323,11 @@ def schedule(rng):
     return rr + rr[: REG_WEEKS - (TEAMS - 1)]
 
 
-def play_season(se, curves_prev, rosters0, sched, seats, variant):
+def play_season(se, curves_prev, rosters0, sched, seats, variant, trade=None, snap=None):
+    """trade (trade test): {"week": W, "team": T, "add": [player idx], "drop": [player idx] or None}. Before week W's
+    waivers, team T gets the added players (from whichever team rosters them, which gets T's dropped players back;
+    free agents just join) and drops the given players, or else its lowest rest-of-season-value players that keep
+    its roster legal."""
     lsrc, wsrc = VARIANTS[variant]
     src_l = ["fp"] * TEAMS
     src_w = ["fp"] * TEAMS
@@ -333,6 +344,62 @@ def play_season(se, curves_prev, rosters0, sched, seats, variant):
     playoff = last >= LAST
     alive, seeds = None, None
     for w in range(1, last + 1):
+        if snap is not None and w in snap:              # rosters at the start of week w (before trades and waivers)
+            snap[w] = [list(r) for r in rosters]
+        if trade is not None and w == trade["week"]:
+            T = trade["team"]
+            drops = list(trade.get("drop") or [])
+            if not drops:
+                vr = se.ros(w, curves_prev)["fp"]
+                cur = list(rosters[T])
+                for a in trade["add"]:
+                    if a in cur:
+                        continue
+                    for dj in sorted(cur, key=lambda j: vr[j]):
+                        if dj not in trade["add"] and can_swap(cur, se.pos, a, dj):
+                            drops.append(dj)
+                            cur.remove(dj)
+                            cur.append(a)
+                            break
+            trade["_dropped"] = drops[0] if drops else None
+            gave = list(drops)
+            for a in trade["add"]:
+                if a in rosters[T]:
+                    continue
+                owner = next((u for u in range(TEAMS) if a in rosters[u]), None)
+                if owner is not None:
+                    rosters[owner].remove(a)
+                    rosters[owner].extend(gave)              # the other side gets everything T sends
+                    for back in gave:
+                        rostered[back] = True
+                    gave = []
+                    vr0 = se.ros(w, curves_prev)["fp"]
+                    while len(rosters[owner]) > ROUNDS:      # over the roster limit: cut the least valuable legal one
+                        c = counts(rosters[owner], se.pos)
+                        cut = next((j for j in sorted(rosters[owner], key=lambda j: vr0[j])
+                                    if c[se.pos[j]] - 1 >= MIN[POS[se.pos[j]]]), None)
+                        if cut is None:
+                            break
+                        rosters[owner].remove(cut)
+                        rostered[cut] = False
+                rosters[T].append(a)
+                rostered[a] = True
+            for dj in drops:
+                if dj in rosters[T]:
+                    rosters[T].remove(dj)
+            for dj in gave:                      # not sent to a team: back to free agency
+                rostered[dj] = False
+            vr0 = se.ros(w, curves_prev)["fp"]
+            while len(rosters[T]) < ROUNDS and not trade.get("no_fill"):   # open spots: best legal free agent
+                c = counts(rosters[T], se.pos)
+                need = [p for p in range(4) if c[p] < MIN[POS[p]]]
+                fa = [j for j in np.where(~rostered & (se.pos >= 0))[0] if c[se.pos[j]] < CAP[POS[se.pos[j]]]
+                      and (not need or se.pos[j] in need)]
+                if not fa:
+                    break
+                j = max(fa, key=lambda j: vr0[j])
+                rosters[T].append(int(j))
+                rostered[j] = True
         if w >= 2:
             ros = se.ros(w, curves_prev)
             wk = {s: se.weekly(w, s) for s in set(src_l + src_w)}
@@ -406,7 +473,7 @@ def play_season(se, curves_prev, rosters0, sched, seats, variant):
         last_place[np.lexsort((pf, wins))[0]] = True       # fewest wins, then fewest points
     return {"wins": wins, "pf_week": weekly_pts[:, 1:min(last, REG_WEEKS) + 1].mean(1), "playoffs": made,
             "title": np.array([t == champ for t in range(TEAMS)]), "moves": moves, "last": last_place,
-            "pts_week_all": weekly_pts[:, 1:last + 1].mean(1)}
+            "pts_week_all": weekly_pts[:, 1:last + 1].mean(1), "weekly_pts": weekly_pts}
 
 
 # --------------------------------------------------------------------------------------------------------- run
