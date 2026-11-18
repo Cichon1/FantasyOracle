@@ -1,13 +1,14 @@
 /* Design tokens the dashboard page expects (claude.ai's Dashboard type provides these there). */
 :root {
   color-scheme: light dark;
-  --font-anthropic-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-anthropic-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-anthropic-serif: ui-serif, Georgia, "Times New Roman", serif;
-  --color-fg: #1f1e1b;
-  --color-fg-muted: #6b6860;
-  --color-bg: #faf9f6;
+  --color-fg: #101828;
+  --color-fg-muted: #667085;
+  --color-bg: #f5f6f8;
   --color-panel: #ffffff;
-  --color-border-line: #e3e0d8;
+  --color-border-line: #e4e7ec;
+  --fo-accent: #c8372d;
   --color-ok: #2f7d4f;
   --color-warn: #b7791f;
   --color-bad: #c0392b;
@@ -35,11 +36,12 @@
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-fg: #ecebe6;
-    --color-fg-muted: #a5a29a;
-    --color-bg: #1c1b19;
-    --color-panel: #252421;
-    --color-border-line: #3a3833;
+    --color-fg: #e7e9ee;
+    --color-fg-muted: #98a2b3;
+    --color-bg: #0f1115;
+    --color-panel: #171a21;
+    --color-border-line: #2a2f3a;
+    --fo-accent: #f0705f;
     --color-ok: #5cbf86;
     --color-warn: #e0a548;
     --color-bad: #e8695a;
