@@ -60,6 +60,8 @@ VARIANTS = {             # (lineup source, waiver source) for the two tested sea
     "official": ("official", "official"),
     "model_lineups_only": ("model", "fp"),
     "model_waivers_only": ("fp", "model"),
+    "sleeper": ("sleeper", "sleeper"),
+    "naive": ("naive", "naive"),
     "control": ("fp", "fp"),
 }
 
@@ -105,6 +107,7 @@ class Season:
         z = lambda: np.zeros((P, W))
         self.has, self.act, self.sat, self.exp = z().astype(bool), z(), z().astype(bool), z().astype(bool)
         self.w_model, self.w_fp, self.w_off, self.ros_rank = z(), z(), z(), np.full((P, W), np.nan)
+        self.w_sleeper, self.w_naive = z(), z()
         self.wk_rank = np.full((P, W), np.nan)
         team = np.full((P, W), "", dtype=object)
         r = rows[rows["week"] <= LAST]
@@ -116,6 +119,8 @@ class Season:
         self.w_model[pi, wi] = r["model"].values
         self.w_fp[pi, wi] = r["fp"].values
         self.w_off[pi, wi] = r["official"].values
+        self.w_sleeper[pi, wi] = r["sleeper"].values
+        self.w_naive[pi, wi] = r["naive"].values
         self.ros_rank[pi, wi] = r["ecr_ros_pos_rank"].values
         self.wk_rank[pi, wi] = r["fp_rank"].values
         team[pi, wi] = r["team"].values
@@ -133,16 +138,22 @@ class Season:
         self.games_left = np.zeros((P, W))
         for w in range(1, W):
             self.games_left[:, w] = self.plays[:, w:LAST + 1].sum(1)
-        # model rate: latest expected projection; games in a row missed so far (team games only)
-        self.rate, self.missed = z(), z()
-        last_rate, run = np.zeros(P), np.zeros(P)
+        # projection-based ROS (model, Sleeper, naive): rate = latest weekly projection when expected to play;
+        # games in a row missed so far (team games only)
+        self.rates = {k: z() for k in ["model", "sleeper", "naive"]}
+        self.missed = z()
+        src = {"model": self.w_model, "sleeper": self.w_sleeper, "naive": self.w_naive}
+        last = {k: np.zeros(P) for k in src}
+        run = np.zeros(P)
         for w in range(1, W):
             avail = self.has[:, w] & self.exp[:, w]
             self.missed[:, w] = run
-            self.rate[:, w] = np.where(avail, self.w_model[:, w], last_rate)
-            last_rate = np.where(avail, self.w_model[:, w], last_rate)
+            for k, arr in src.items():
+                self.rates[k][:, w] = np.where(avail, arr[:, w], last[k])
+                last[k] = np.where(avail, arr[:, w], last[k])
             played = self.has[:, w] & ~self.sat[:, w]
             run = np.where(self.plays[:, w], np.where(played, 0, run + 1), run)
+        self.rate = self.rates["model"]
         self.board = board
         self.ix = ix
         pre = rows.groupby("player_id")["ecr_preseason_pos_rank"].first()
@@ -154,7 +165,10 @@ class Season:
         """Rest-of-season values (points) for each source, before week w."""
         out_now = self.plays[:, w] & ~(self.has[:, w] & self.exp[:, w])
         k = np.where(out_now, self.missed[:, w] + 1, 0)
-        model = self.rate[:, w] * np.maximum(0, self.games_left[:, w] - np.where(out_now, k, 0))
+        exp_games = np.maximum(0, self.games_left[:, w] - np.where(out_now, k, 0))
+        model = self.rates["model"][:, w] * exp_games
+        sleeper = self.rates["sleeper"][:, w] * exp_games
+        naive = self.rates["naive"][:, w] * exp_games
         rk = np.where(np.isnan(self.ros_rank[:, w]), self.wk_rank[:, w], self.ros_rank[:, w])
         rk = np.where(np.isnan(rk), self.pre_rank, rk)
         # players with no row this week (bye, IR): their latest ranks
@@ -175,7 +189,7 @@ class Season:
             order = pd.Series(mr + er + mr * 1e-6).rank(method="first").values.astype(int) - 1
             off[sel] = np.sort(model[sel])[::-1][order]
         out = {}
-        for k, v in {"model": model, "fp": fp, "official": off}.items():
+        for k, v in {"model": model, "fp": fp, "official": off, "sleeper": sleeper, "naive": naive}.items():
             vor = v.copy()
             for p in range(4):
                 sel = self.pos == p
@@ -196,7 +210,8 @@ class Season:
         return self._lr[:, w]
 
     def weekly(self, w, src):
-        v = {"model": self.w_model, "fp": self.w_fp, "official": self.w_off}[src][:, w].copy()
+        v = {"model": self.w_model, "fp": self.w_fp, "official": self.w_off, "sleeper": self.w_sleeper,
+             "naive": self.w_naive}[src][:, w].copy()
         startable = self.has[:, w] & ~self.sat[:, w]       # inactives are known before lock
         return np.where(startable, v, -1e9)
 
@@ -405,10 +420,10 @@ def main():
             if lg % 50 == 0:
                 print(S, lg, round((time.time() - t0) / 60, 1), "min", flush=True)
     df = pd.DataFrame(recs)
-    df.to_csv(os.path.join(L.LAB_DIR, "season_sim_seats.csv"), index=False)
+    df.to_csv(os.path.join(L.LAB_DIR, f"season_sim_seats{os.environ.get('SIM_TAG', '')}.csv"), index=False)
     summary = summarize(df)
     json.dump({"leagues_per_season": N_LEAGUES, "checks": checks, "summary": summary},
-              open(os.path.join(L.LAB_DIR, "season_sim_results.json"), "w"), indent=1, default=str)
+              open(os.path.join(L.LAB_DIR, f"season_sim_results{os.environ.get('SIM_TAG', '')}.json"), "w"), indent=1, default=str)
     print(json.dumps(summary, indent=1))
 
 
