@@ -1,0 +1,419 @@
+{
+ "leagues_per_week": 500,
+ "results": [
+  {
+   "setting": "inactives known",
+   "weeks": 61,
+   "pts_model": 101.43,
+   "win_model": 0.5064,
+   "pts_official": 101.62,
+   "win_official": 0.5087,
+   "pts_fp": 100.93,
+   "win_fp": 0.5,
+   "pts_sleeper": 101.94,
+   "win_sleeper": 0.5131,
+   "pts_espn": 102.07,
+   "win_espn": 0.5144,
+   "pts_naive": 98.46,
+   "win_naive": 0.4671,
+   "pts_cons_all": 101.56,
+   "win_cons_all": 0.5077,
+   "pts_cons_free": 101.95,
+   "win_cons_free": 0.5132,
+   "pts_market": 101.31,
+   "win_market": 0.5043,
+   "pts_perfect": 117.34,
+   "win_perfect": 0.7087,
+   "model_minus_fp_pts": [
+    0.499,
+    0.29
+   ],
+   "model_minus_fp_win": [
+    0.0064,
+    0.0037
+   ],
+   "model_weeks_better": 30,
+   "model_minus_fp_by_pos": {
+    "QB": 0.074,
+    "RB": -0.405,
+    "WR": 0.663,
+    "TE": 0.167
+   },
+   "official_minus_fp_pts": [
+    0.683,
+    0.264
+   ],
+   "official_minus_fp_win": [
+    0.0087,
+    0.0034
+   ],
+   "official_weeks_better": 32,
+   "official_minus_fp_by_pos": {
+    "QB": 0.093,
+    "RB": -0.437,
+    "WR": 0.846,
+    "TE": 0.181
+   },
+   "sleeper_minus_fp_pts": [
+    1.008,
+    0.259
+   ],
+   "sleeper_minus_fp_win": [
+    0.0131,
+    0.0033
+   ],
+   "sleeper_weeks_better": 41,
+   "sleeper_minus_fp_by_pos": {
+    "QB": -0.066,
+    "RB": -0.303,
+    "WR": 1.3,
+    "TE": 0.078
+   },
+   "espn_minus_fp_pts": [
+    1.138,
+    0.283
+   ],
+   "espn_minus_fp_win": [
+    0.0144,
+    0.0037
+   ],
+   "espn_weeks_better": 43,
+   "espn_minus_fp_by_pos": {
+    "QB": -0.07,
+    "RB": 0.534,
+    "WR": 0.697,
+    "TE": -0.024
+   },
+   "naive_minus_fp_pts": [
+    -2.472,
+    0.329
+   ],
+   "naive_minus_fp_win": [
+    -0.0329,
+    0.0041
+   ],
+   "naive_weeks_better": 7,
+   "naive_minus_fp_by_pos": {
+    "QB": -0.372,
+    "RB": -0.997,
+    "WR": -1.291,
+    "TE": 0.189
+   },
+   "cons_all_minus_fp_pts": [
+    0.621,
+    0.21
+   ],
+   "cons_all_minus_fp_win": [
+    0.0077,
+    0.0027
+   ],
+   "cons_all_weeks_better": 38,
+   "cons_all_minus_fp_by_pos": {
+    "QB": 0.08,
+    "RB": -0.115,
+    "WR": 0.66,
+    "TE": -0.003
+   },
+   "cons_free_minus_fp_pts": [
+    1.012,
+    0.272
+   ],
+   "cons_free_minus_fp_win": [
+    0.0132,
+    0.0035
+   ],
+   "cons_free_weeks_better": 38,
+   "cons_free_minus_fp_by_pos": {
+    "QB": 0.072,
+    "RB": -0.042,
+    "WR": 0.905,
+    "TE": 0.077
+   },
+   "market_minus_fp_pts": [
+    0.37,
+    0.178
+   ],
+   "market_minus_fp_win": [
+    0.0043,
+    0.0023
+   ],
+   "market_weeks_better": 35,
+   "market_minus_fp_by_pos": {
+    "QB": 0.052,
+    "RB": -0.094,
+    "WR": 0.446,
+    "TE": -0.033
+   },
+   "perfect_minus_fp_pts": [
+    16.41,
+    0.386
+   ],
+   "perfect_minus_fp_win": [
+    0.2087,
+    0.0051
+   ],
+   "perfect_weeks_better": 61,
+   "perfect_minus_fp_by_pos": {
+    "QB": 2.626,
+    "RB": 3.842,
+    "WR": 6.662,
+    "TE": 3.28
+   },
+   "season_2023": {
+    "model": 0.891,
+    "official": 1.039,
+    "sleeper": 0.952,
+    "espn": 1.024,
+    "naive": -2.42,
+    "cons_all": 0.598,
+    "cons_free": 1.128,
+    "market": 0.213,
+    "weeks": 17,
+    "win_model_minus_fp": 0.0115
+   },
+   "season_2024": {
+    "model": -0.142,
+    "official": 0.146,
+    "sleeper": 1.386,
+    "espn": 1.786,
+    "naive": -2.505,
+    "cons_all": 0.097,
+    "cons_free": 0.531,
+    "market": -0.171,
+    "weeks": 17,
+    "win_model_minus_fp": -0.0033
+   },
+   "season_2025": {
+    "model": 0.718,
+    "official": 0.847,
+    "sleeper": 0.896,
+    "espn": 1.186,
+    "naive": -1.955,
+    "cons_all": 0.851,
+    "cons_free": 1.216,
+    "market": 0.715,
+    "weeks": 17,
+    "win_model_minus_fp": 0.0098
+   },
+   "season_2026": {
+    "model": 0.551,
+    "official": 0.714,
+    "sleeper": 0.654,
+    "espn": 0.146,
+    "naive": -3.38,
+    "cons_all": 1.157,
+    "cons_free": 1.288,
+    "market": 0.972,
+    "weeks": 10,
+    "win_model_minus_fp": 0.0084
+   }
+  },
+  {
+   "setting": "set midweek",
+   "weeks": 61,
+   "pts_model": 101.04,
+   "win_model": 0.5144,
+   "pts_official": 101.09,
+   "win_official": 0.5151,
+   "pts_fp": 99.9,
+   "win_fp": 0.5,
+   "pts_sleeper": 101.93,
+   "win_sleeper": 0.5264,
+   "pts_espn": 102.07,
+   "win_espn": 0.5279,
+   "pts_naive": 96.85,
+   "win_naive": 0.4606,
+   "pts_cons_all": 101.51,
+   "win_cons_all": 0.5204,
+   "pts_cons_free": 101.9,
+   "win_cons_free": 0.5253,
+   "pts_market": 101.25,
+   "win_market": 0.517,
+   "pts_perfect": 117.34,
+   "win_perfect": 0.7187,
+   "model_minus_fp_pts": [
+    1.135,
+    0.315
+   ],
+   "model_minus_fp_win": [
+    0.0144,
+    0.0041
+   ],
+   "model_weeks_better": 43,
+   "model_minus_fp_by_pos": {
+    "QB": 0.172,
+    "RB": -0.166,
+    "WR": 0.907,
+    "TE": 0.222
+   },
+   "official_minus_fp_pts": [
+    1.182,
+    0.297
+   ],
+   "official_minus_fp_win": [
+    0.0151,
+    0.0038
+   ],
+   "official_weeks_better": 42,
+   "official_minus_fp_by_pos": {
+    "QB": 0.168,
+    "RB": -0.246,
+    "WR": 1.04,
+    "TE": 0.22
+   },
+   "sleeper_minus_fp_pts": [
+    2.031,
+    0.309
+   ],
+   "sleeper_minus_fp_win": [
+    0.0264,
+    0.0039
+   ],
+   "sleeper_weeks_better": 51,
+   "sleeper_minus_fp_by_pos": {
+    "QB": 0.045,
+    "RB": 0.091,
+    "WR": 1.685,
+    "TE": 0.21
+   },
+   "espn_minus_fp_pts": [
+    2.17,
+    0.335
+   ],
+   "espn_minus_fp_win": [
+    0.0279,
+    0.0043
+   ],
+   "espn_weeks_better": 52,
+   "espn_minus_fp_by_pos": {
+    "QB": 0.049,
+    "RB": 0.95,
+    "WR": 1.061,
+    "TE": 0.11
+   },
+   "naive_minus_fp_pts": [
+    -3.057,
+    0.35
+   ],
+   "naive_minus_fp_win": [
+    -0.0394,
+    0.0044
+   ],
+   "naive_weeks_better": 5,
+   "naive_minus_fp_by_pos": {
+    "QB": -0.478,
+    "RB": -1.127,
+    "WR": -1.56,
+    "TE": 0.109
+   },
+   "cons_all_minus_fp_pts": [
+    1.609,
+    0.254
+   ],
+   "cons_all_minus_fp_win": [
+    0.0204,
+    0.0032
+   ],
+   "cons_all_weeks_better": 53,
+   "cons_all_minus_fp_by_pos": {
+    "QB": 0.182,
+    "RB": 0.257,
+    "WR": 1.042,
+    "TE": 0.128
+   },
+   "cons_free_minus_fp_pts": [
+    1.997,
+    0.309
+   ],
+   "cons_free_minus_fp_win": [
+    0.0253,
+    0.0039
+   ],
+   "cons_free_weeks_better": 52,
+   "cons_free_minus_fp_by_pos": {
+    "QB": 0.17,
+    "RB": 0.347,
+    "WR": 1.276,
+    "TE": 0.205
+   },
+   "market_minus_fp_pts": [
+    1.352,
+    0.223
+   ],
+   "market_minus_fp_win": [
+    0.017,
+    0.0028
+   ],
+   "market_weeks_better": 47,
+   "market_minus_fp_by_pos": {
+    "QB": 0.157,
+    "RB": 0.296,
+    "WR": 0.807,
+    "TE": 0.092
+   },
+   "perfect_minus_fp_pts": [
+    17.433,
+    0.414
+   ],
+   "perfect_minus_fp_win": [
+    0.2187,
+    0.005
+   ],
+   "perfect_weeks_better": 61,
+   "perfect_minus_fp_by_pos": {
+    "QB": 2.729,
+    "RB": 4.241,
+    "WR": 7.049,
+    "TE": 3.414
+   },
+   "season_2023": {
+    "model": 1.72,
+    "official": 1.596,
+    "sleeper": 2.164,
+    "espn": 2.22,
+    "naive": -2.751,
+    "cons_all": 1.737,
+    "cons_free": 2.286,
+    "market": 1.335,
+    "weeks": 17,
+    "win_model_minus_fp": 0.0222
+   },
+   "season_2024": {
+    "model": 0.765,
+    "official": 0.912,
+    "sleeper": 2.757,
+    "espn": 3.189,
+    "naive": -3.403,
+    "cons_all": 1.44,
+    "cons_free": 1.844,
+    "market": 1.153,
+    "weeks": 17,
+    "win_model_minus_fp": 0.0076
+   },
+   "season_2025": {
+    "model": 1.053,
+    "official": 1.121,
+    "sleeper": 1.432,
+    "espn": 1.733,
+    "naive": -2.588,
+    "cons_all": 1.39,
+    "cons_free": 1.734,
+    "market": 1.266,
+    "weeks": 17,
+    "win_model_minus_fp": 0.0145
+   },
+   "season_2026": {
+    "model": 0.907,
+    "official": 1.043,
+    "sleeper": 1.589,
+    "espn": 1.097,
+    "naive": -3.783,
+    "cons_all": 2.051,
+    "cons_free": 2.211,
+    "market": 1.865,
+    "weeks": 10,
+    "win_model_minus_fp": 0.0122
+   }
+  }
+ ]
+}

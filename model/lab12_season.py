@@ -62,6 +62,9 @@ VARIANTS = {             # (lineup source, waiver source) for the two tested sea
     "model_waivers_only": ("fp", "model"),
     "sleeper": ("sleeper", "sleeper"),
     "espn": ("espn", "espn"),
+    "cons_all": ("cons_all", "cons_all"),
+    "cons_free": ("cons_free", "cons_free"),
+    "market": ("market", "market"),
     "naive": ("naive", "naive"),
     "control": ("fp", "fp"),
 }
@@ -109,6 +112,7 @@ class Season:
         self.has, self.act, self.sat, self.exp = z().astype(bool), z(), z().astype(bool), z().astype(bool)
         self.w_model, self.w_fp, self.w_off, self.ros_rank = z(), z(), z(), np.full((P, W), np.nan)
         self.w_sleeper, self.w_naive, self.w_espn = z(), z(), z()
+        self.w_cons = {k: z() for k in S11.CONSENSUS}
         self.wk_rank = np.full((P, W), np.nan)
         team = np.full((P, W), "", dtype=object)
         r = rows[rows["week"] <= LAST]
@@ -123,6 +127,8 @@ class Season:
         self.w_sleeper[pi, wi] = r["sleeper"].values
         self.w_naive[pi, wi] = r["naive"].values
         self.w_espn[pi, wi] = r["espn"].values
+        for k in S11.CONSENSUS:
+            self.w_cons[k][pi, wi] = r[k].values
         self.ros_rank[pi, wi] = r["ecr_ros_pos_rank"].values
         self.wk_rank[pi, wi] = r["fp_rank"].values
         team[pi, wi] = r["team"].values
@@ -192,7 +198,19 @@ class Season:
             order = pd.Series(mr + er + mr * 1e-6).rank(method="first").values.astype(int) - 1
             off[sel] = np.sort(model[sel])[::-1][order]
         out = {}
-        for k, v in {"model": model, "fp": fp, "official": off, "sleeper": sleeper, "espn": espn, "naive": naive}.items():
+        vals = {"model": model, "fp": fp, "official": off, "sleeper": sleeper, "espn": espn, "naive": naive}
+        for name, members in S11.CONSENSUS.items():       # same rank-average rule on the ROS values
+            c = np.zeros(len(model))
+            for p in range(4):
+                sel = np.where(self.pos == p)[0]
+                if len(sel) < 2:
+                    continue
+                rk = sum(pd.Series(-vals[m][sel]).rank(method="first").values for m in members) / len(members)
+                rk = rk + pd.Series(-vals[members[0]][sel]).rank(method="first").values * 1e-6
+                pool = np.mean([np.sort(vals[m][sel])[::-1] for m in members], axis=0)
+                c[sel] = pool[pd.Series(rk).rank(method="first").values.astype(int) - 1]
+            vals[name] = c
+        for k, v in vals.items():
             vor = v.copy()
             for p in range(4):
                 sel = self.pos == p
@@ -214,7 +232,7 @@ class Season:
 
     def weekly(self, w, src):
         v = {"model": self.w_model, "fp": self.w_fp, "official": self.w_off, "sleeper": self.w_sleeper,
-             "espn": self.w_espn, "naive": self.w_naive}[src][:, w].copy()
+             "espn": self.w_espn, "naive": self.w_naive, **self.w_cons}[src][:, w].copy()
         startable = self.has[:, w] & ~self.sat[:, w]       # inactives are known before lock
         return np.where(startable, v, -1e9)
 
@@ -383,8 +401,11 @@ def play_season(se, curves_prev, rosters0, sched, seats, variant):
     made = np.zeros(TEAMS, bool)
     if seeds is not None:
         made[seeds] = True
+    last_place = np.zeros(TEAMS, bool)
+    if last >= REG_WEEKS:
+        last_place[np.lexsort((pf, wins))[0]] = True       # fewest wins, then fewest points
     return {"wins": wins, "pf_week": weekly_pts[:, 1:min(last, REG_WEEKS) + 1].mean(1), "playoffs": made,
-            "title": np.array([t == champ for t in range(TEAMS)]), "moves": moves,
+            "title": np.array([t == champ for t in range(TEAMS)]), "moves": moves, "last": last_place,
             "pts_week_all": weekly_pts[:, 1:last + 1].mean(1)}
 
 
@@ -419,7 +440,7 @@ def main():
                 for s in seats:
                     recs.append({"season": S, "league": lg, "seat": int(s), "variant": v,
                                  **{k: float(r[k][s]) for k in ["wins", "pf_week", "playoffs", "title", "moves",
-                                                                 "pts_week_all"]}})
+                                                                 "pts_week_all", "last"]}})
             if lg % 50 == 0:
                 print(S, lg, round((time.time() - t0) / 60, 1), "min", flush=True)
     df = pd.DataFrame(recs)
@@ -444,10 +465,10 @@ def summarize(df):
             a = sub[sub["variant"] == v].set_index(["season", "league", "seat"])
             c = ctrl.loc[a.index]
             r = {}
-            for k in ["wins", "pf_week", "pts_week_all", "playoffs", "title", "moves"]:
+            for k in ["wins", "pf_week", "pts_week_all", "playoffs", "title", "moves", "last"]:
                 diff = (a[k] - c[k]).groupby(level=[0, 1]).mean()       # one observation per league
                 r[k] = [round(diff.mean(), 4), round(diff.std(ddof=1) / np.sqrt(len(diff)), 4)]
-            r["control_rates"] = {k: round(c[k].mean(), 4) for k in ["wins", "playoffs", "title", "pf_week", "moves"]}
+            r["control_rates"] = {k: round(c[k].mean(), 4) for k in ["wins", "playoffs", "title", "pf_week", "moves", "last"]}
             o[v] = r
         out[scope] = o
     return out

@@ -45,7 +45,10 @@ START = {"QB": 1, "RB": 2, "WR": 2, "TE": 1}
 FLEX = ("RB", "WR", "TE")
 LAST_WEEK = 17
 JITTER = 2.0          # points of noise on each player's draft value, per league
-SOURCES = ["model", "official", "fp", "sleeper", "espn", "naive", "perfect"]
+CONSENSUS = {"cons_all": ["model", "fp", "sleeper", "espn"],      # model + the three sites
+             "cons_free": ["model", "sleeper", "espn"],         # without FantasyPros
+             "market": ["fp", "sleeper", "espn"]}               # the three sites, no model
+SOURCES = ["model", "official", "fp", "sleeper", "espn", "naive", "cons_all", "cons_free", "market", "perfect"]
 OTHER = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "automation", "history", "other_proj")
 rng = np.random.default_rng(20261117)
 
@@ -126,7 +129,23 @@ def prepare(rows, cv):
     d = d.sort_values(["player_id", "season", "week"])
     d["naive_raw"] = d.groupby("player_id")["naive_raw"].transform(lambda x: x.ffill())
     d["naive"] = np.where(d["expected"], d["naive_raw"].fillna(0.0), 0.0)
+    # consensus blends: within position-week (players expected to play), average the sources' ranks and hand out
+    # the sources' average point curve in that order
+    for name, members in CONSENSUS.items():
+        d[name] = consensus(d, members, ["season", "week", "position"], d["expected"])
     return d
+
+
+def consensus(d, members, group, mask):
+    out = pd.Series(0.0, index=d.index)
+    sub = d[mask]
+    ranks = sum(sub.groupby(group)[m].rank(ascending=False, method="first") for m in members) / len(members)
+    ranks = ranks + sub.groupby(group)[members[0]].rank(ascending=False, method="first") * 1e-6
+    for _, g in sub.groupby(group):
+        pool = np.mean([np.sort(g[m].values)[::-1] for m in members], axis=0)
+        order = ranks.loc[g.index].rank(method="first").astype(int).values - 1
+        out.loc[g.index] = pool[order]
+    return out.values
 
 
 def lineup_points(pos_idx, score, act):
@@ -196,7 +215,7 @@ def summarize(wk, label):
     for s in SOURCES:
         out[f"pts_{s}"] = round(wk[f"pts_{s}"].mean(), 2)
         out[f"win_{s}"] = round(wk[f"win_{s}"].mean(), 4)
-    for a in ["model", "official", "sleeper", "espn", "naive", "perfect"]:
+    for a in [x for x in SOURCES if x != "fp"]:
         dp = wk[f"pts_{a}"] - wk["pts_fp"]
         dw = wk[f"win_{a}"] - wk["win_fp"]
         out[f"{a}_minus_fp_pts"] = [round(dp.mean(), 3), round(dp.std(ddof=1) / np.sqrt(len(dp)), 3)]
@@ -204,7 +223,7 @@ def summarize(wk, label):
         out[f"{a}_weeks_better"] = int((dp > 0).sum())
         out[f"{a}_minus_fp_by_pos"] = {p: round((wk[f"pos_{p}_{a}"] - wk[f"pos_{p}_fp"]).mean(), 3) for p in QUOTA}
     for S, g in wk.groupby("season"):
-        out[f"season_{S}"] = {a: round((g[f"pts_{a}"] - g["pts_fp"]).mean(), 3) for a in ["model", "official", "sleeper", "espn", "naive"]}
+        out[f"season_{S}"] = {a: round((g[f"pts_{a}"] - g["pts_fp"]).mean(), 3) for a in [x for x in SOURCES if x not in ("fp", "perfect")]}
         out[f"season_{S}"]["weeks"] = int(len(g))
         out[f"season_{S}"]["win_model_minus_fp"] = round((g["win_model"] - g["win_fp"]).mean(), 4)
     return out
