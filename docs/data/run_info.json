@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-18T04:59:01+00:00",
+ "updated": "2026-11-18T06:05:05+00:00",
  "season": 2026,
  "projection_week": 11,
  "results_week": 10,
@@ -8,12 +8,12 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 41,
+   "seconds": 40,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 5,
+   "seconds": 4,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 2,
+   "seconds": 271,
    "ok": true
   },
   {
@@ -38,7 +38,7 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 31,
+   "seconds": 30,
    "ok": true
   },
   {
@@ -96,25 +96,25 @@
    "QB": [
     [
      "Josh Allen",
-     137.2
+     142.3
     ],
     [
      "Joe Burrow",
-     129.2
+     133.2
     ],
     [
      "Trevor Lawrence",
-     123.7
+     124.2
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     136.2
+     135.6
     ],
     [
      "Kenneth Walker III",
-     131.2
+     132.8
     ],
     [
      "Christian McCaffrey",
@@ -124,25 +124,25 @@
    "TE": [
     [
      "George Kittle",
-     84.5
+     85.0
     ],
     [
      "Trey McBride",
-     78.2
+     81.0
     ],
     [
      "Brock Bowers",
-     74.9
+     77.1
     ]
    ],
    "WR": [
     [
      "Ja'Marr Chase",
-     137.5
+     141.9
     ],
     [
      "Amon-Ra St. Brown",
-     127.0
+     125.9
     ],
     [
      "CeeDee Lamb",
@@ -152,8 +152,10 @@
   }
  },
  "injuries_live": {
-  "nfl_week": 10,
-  "nfl_rows": 347,
+  "nfl_week": 11,
+  "nfl_rows": 26,
+  "nfl_matched": 26,
+  "nfl_unmatched": [],
   "espn_out": 12,
   "espn_unmatched": [
    "Divine Deablo (ATL)",
@@ -173,12 +175,12 @@
    "Quenton Nelson (SEA)",
    "Charles Cross (SEA)"
   ],
-  "hash": "5539df48b8bb",
+  "hash": "47ff6038acf8",
   "manual_out": [
    "Drake Maye",
    "Josh Jacobs"
   ],
-  "rows_added": 14,
+  "rows_added": 38,
   "values_updated": 0
  }
 }
