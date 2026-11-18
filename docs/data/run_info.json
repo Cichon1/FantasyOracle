@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-18T17:30:53+00:00",
+ "updated": "2026-11-18T18:24:16+00:00",
  "season": 2026,
  "projection_week": 11,
  "results_week": 10,
  "games_started": false,
- "reason": "schedule_and_lines,injury_reports",
+ "reason": "play_by_play,schedule_and_lines,ftn_charting,fp_rankings,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 40,
+   "seconds": 36,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 2,
+   "seconds": 1,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 25,
+   "seconds": 258,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 11,
+   "seconds": 13,
    "ok": true
   }
  ],
@@ -85,8 +85,8 @@
    "RB": 88,
    "WR/TE": 52
   },
-  "experts_ros_date": "2026-11-17 00:00:00",
-  "seconds": 10,
+  "experts_ros_date": "2026-11-18 00:00:00",
+  "seconds": 12,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -96,57 +96,57 @@
    "QB": [
     [
      "Josh Allen",
-     137.7
+     139.2
     ],
     [
      "Joe Burrow",
-     130.3
+     132.3
     ],
     [
      "Trevor Lawrence",
-     123.6
+     122.6
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     136.1
-    ],
-    [
-     "Kenneth Walker III",
-     130.9
+     137.7
     ],
     [
      "Christian McCaffrey",
-     126.7
+     130.8
+    ],
+    [
+     "Bijan Robinson",
+     130.8
     ]
    ],
    "TE": [
     [
      "George Kittle",
-     83.8
+     86.0
     ],
     [
      "Trey McBride",
-     78.5
+     83.8
     ],
     [
-     "Brock Bowers",
-     76.2
+     "Isaiah Likely",
+     75.3
     ]
    ],
    "WR": [
     [
      "Ja'Marr Chase",
-     137.3
+     139.5
     ],
     [
      "Amon-Ra St. Brown",
-     127.4
+     126.8
     ],
     [
      "CeeDee Lamb",
-     109.3
+     112.1
     ]
    ]
   }
@@ -156,7 +156,7 @@
   "nfl_rows": 26,
   "nfl_matched": 26,
   "nfl_unmatched": [],
-  "espn_out": 15,
+  "espn_out": 16,
   "espn_unmatched": [
    "Divine Deablo (ATL)",
    "Zachariah Branch (ATL)",
@@ -175,12 +175,12 @@
    "Quenton Nelson (SEA)",
    "Charles Cross (SEA)"
   ],
-  "hash": "980a5505da63",
+  "hash": "8226649cb1bc",
   "manual_out": [
    "Drake Maye",
    "Josh Jacobs"
   ],
-  "rows_added": 15,
+  "rows_added": 16,
   "values_updated": 0
  }
 }
