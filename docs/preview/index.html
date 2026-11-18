@@ -682,6 +682,7 @@
     <div class="nf-grid">
       <div class="nf-card" id="ta-mine-card">
         <div class="nf-ta-head"><h2>Trade away</h2><select class="nf-select" id="ta-mine" aria-label="Your team"></select><button class="nf-chip" id="ta-clear-mine">Clear</button></div>
+        <p class="fo-ta-info" id="ta-mine-info"></p>
         <div class="nf-tablebox nf-roster">
           <table class="nf-table" id="ta-mine-table" data-source="league_rosters" data-row-key="key">
             <thead><tr>
@@ -701,7 +702,8 @@
             <tbody></tbody>
           </table>
         </div>
-        <div class="nf-tablebox nf-picks" id="ta-mine-picks-box" hidden>
+        <details class="fo-picks" id="ta-mine-picks-det" hidden><summary><span>2027 draft picks</span><span class="fo-picks-n" id="ta-mine-picks-n"></span></summary>
+        <div class="nf-tablebox nf-picks" id="ta-mine-picks-box">
           <table class="nf-table" id="ta-mine-picks" data-source="league_picks" data-row-key="key">
             <thead><tr>
               <th class="nf-l"><span class="nf-sr">Pick</span></th>
@@ -713,9 +715,11 @@
             <tbody></tbody>
           </table>
         </div>
+        </details>
       </div>
       <div class="nf-card" id="ta-theirs-card">
         <div class="nf-ta-head"><h2>Trade for</h2><select class="nf-select" id="ta-theirs" aria-label="Trade partner"></select><button class="nf-chip" id="ta-clear-theirs">Clear</button></div>
+        <p class="fo-ta-info" id="ta-theirs-info"></p>
         <div class="nf-tablebox nf-roster">
           <table class="nf-table" id="ta-theirs-table" data-source="league_rosters" data-row-key="key">
             <thead><tr>
@@ -735,7 +739,8 @@
             <tbody></tbody>
           </table>
         </div>
-        <div class="nf-tablebox nf-picks" id="ta-theirs-picks-box" hidden>
+        <details class="fo-picks" id="ta-theirs-picks-det" hidden><summary><span>2027 draft picks</span><span class="fo-picks-n" id="ta-theirs-picks-n"></span></summary>
+        <div class="nf-tablebox nf-picks" id="ta-theirs-picks-box">
           <table class="nf-table" id="ta-theirs-picks" data-source="league_picks" data-row-key="key">
             <thead><tr>
               <th class="nf-l"><span class="nf-sr">Pick</span></th>
@@ -747,6 +752,7 @@
             <tbody></tbody>
           </table>
         </div>
+        </details>
       </div>
     </div>
     <p class="nf-note" style="margin:0">Pts / wk: rest-of-season points per week in this league's scoring (games he's expected to miss count as zero). Two values, in value points over the rest of the season. <b>Actual</b>: what he's worth by our projections — points per week above a waiver pickup plus points per week above the league's last starter (the star premium), averaged over his low-to-high range so a bench player keeps value for his upside, beyond what the best free agents at his position already offer, times the weeks left that count (0 = no more than a free agent). <b>Trade</b>: what the market pays for him on the same scale — the player the FantasyPros trade market ranks Nth across all positions (real trades, last 10 days) gets the Nth-highest actual value; grey = no trade-market price, so the experts' rank is used. Trade in <span class="nf-good">green</span> = worth 10+ more than the market pays (buy low), <span class="nf-bad">red</span> = the market pays 10+ more than he's worth (sell high). ROS rank: our rest-of-season rank. Experts / Trades: his FantasyPros expert consensus and trade-market ranks. vs market: <span class="nf-val nf-good">Undervalued</span> = at least 1 point per game more than his expert rank is worth (buy), <span class="nf-val nf-bad">Overvalued</span> = at least 1 point per game less (sell), <span class="nf-val nf-muted">At value</span> = in between; beside it, "both agree" when the trade market gives the same label, or what it says instead. Hover a label for the numbers.</p>
@@ -755,6 +761,8 @@
       <h2>Verdict</h2>
       <p class="nf-verdict" id="ta-headline">Check players on both sides.</p>
       <p class="nf-note" id="ta-headline-sub" style="margin:0"></p>
+      <div class="fo-accept" id="ta-accept" hidden><div class="fo-accept-top"><span class="fo-accept-lab">Chance they accept</span><b class="fo-accept-pct" id="ta-accept-pct"></b></div>
+        <span class="fo-bar-meter"><span id="ta-accept-bar"></span></span><p class="nf-note" id="ta-accept-why" style="margin:0"></p></div>
       <div class="nf-draft-sides" style="margin-top:var(--cds-gap-md)">
         <div>
           <h3 class="nf-draft-h">Does it help you?</h3>
@@ -2810,6 +2818,93 @@ dash.calc('league_players', {
   const td = (text, cls) => { const c = document.createElement('td'); if (cls) c.className = cls; c.textContent = text; return c; };
   const tone = (x, thr) => (x > thr ? 'nf-good' : x < -thr ? 'nf-bad' : 'nf-muted');
   const VAL_CLS = { Undervalued: 'nf-good', Overvalued: 'nf-bad', 'At value': 'nf-muted' };
+  // ---------------------------------------------------------------- team needs and trade-candidate score
+  // Needs: a position whose fixed starters rank in the bottom third of the league (ROS pts / wk, this league's scoring).
+  // Spare: a bench player at least as good as the league's typical last starter at his position.
+  let finder = null; // the trade finder's best win-win per partner (from My team), when it's for this league
+  window.addEventListener('fo:trades', (ev) => { finder = ev.detail; if (ctxCache.ctx) render(); });
+  function teamFit(ctx, before) {
+    const fixed = [...new Set(ctx.slots.filter((sl) => sl.pos.length === 1).map((sl) => sl.pos[0]))];
+    const T = new Map();
+    ctx.teams.forEach((t) => {
+      const lu = before.get(t.id), start = new Set(lu.slots.filter((x) => x.p).map((x) => x.p.key));
+      const at = {}, last = {};
+      lu.slots.forEach((x, i) => {
+        const sl = ctx.slots[i]; if (!x.p || sl.pos.length !== 1) return;
+        const k = sl.pos[0]; at[k] = (at[k] || 0) + x.p.exp; last[k] = Math.min(last[k] ?? Infinity, x.p.exp);
+      });
+      const bench = ctx.players.filter((p) => p.team_id === t.id && p.kind === 'skill' && p.rosKey && p.slot !== 'IR' && !start.has(p.key));
+      T.set(t.id, { t, at, last, bench });
+    });
+    const n = T.size, needCut = Math.ceil(n * 2 / 3);
+    const med = (a) => { const b = a.slice().sort((x, y) => x - y); return b.length ? (b[(b.length - 1) >> 1] + b[b.length >> 1]) / 2 : 0; };
+    fixed.forEach((pos) => {
+      const all = [...T.values()];
+      all.slice().sort((a, b) => (b.at[pos] || 0) - (a.at[pos] || 0)).forEach((x, i) => { (x.rk = x.rk || {})[pos] = i + 1; });
+      const bar = med(all.filter((x) => x.last[pos] != null && isFinite(x.last[pos])).map((x) => x.last[pos]));
+      all.forEach((x) => { (x.bar = x.bar || {})[pos] = bar; });
+    });
+    T.forEach((x) => {
+      x.need = fixed.filter((pos) => x.rk[pos] > needCut).sort((a, b) => x.rk[b] - x.rk[a]);
+      x.spare = x.bench.filter((p) => fixed.includes(p.pos) && p.exp >= x.bar[p.pos]).sort((a, b) => b.exp - a.exp);
+    });
+    return T;
+  }
+  // 0-100: how much their bench could upgrade your weakest starters (pts / wk), how much your bench could upgrade
+  // theirs, both at once (a trade needs both), and whether the trade finder found a trade that helps both lineups
+  function upgrades(from, to) {
+    const out = [];
+    Object.keys(to.last).forEach((pos) => {
+      const lo = to.last[pos];
+      const fromBest = from.bench.filter((p) => p.pos === pos).sort((x, y) => y.exp - x.exp)[0];
+      if (fromBest && isFinite(lo) && fromBest.exp - lo > 0.3) out.push({ p: fromBest, pos, g: fromBest.exp - lo, need: to.need.includes(pos) });
+    });
+    return out.sort((x, y) => (y.need - x.need) || y.g - x.g);
+  }
+  function candidate(F, mine, tid) {
+    const M = F.get(mine), P = F.get(tid);
+    const forMe = upgrades(P, M), forThem = upgrades(M, P);
+    const gMe = forMe.reduce((t, x) => t + x.g * (x.need ? 1.5 : 1), 0), gThem = forThem.reduce((t, x) => t + x.g * (x.need ? 1.5 : 1), 0);
+    let ww = null;
+    if (finder && String(finder.league) === ctxCache.ctx.lid && M.t.me) { const x = (finder.parts || []).find((q) => q.team === P.t.name); ww = x && x.best; }
+    const s1 = 1 - Math.exp(-gMe / 1.5), s2 = 1 - Math.exp(-gThem / 1.5), bench = (0.25 * s1 + 0.25 * s2 + 0.35 * Math.sqrt(s1 * s2)) / 0.85;
+    // swap fit: a position where you're deeper than them paired with one where they're deeper than you (league ranks)
+    const n1 = Math.max(1, F.size - 1); let swap = null, sw = 0;
+    Object.keys(M.rk || {}).forEach((A) => Object.keys(M.rk).forEach((B) => {
+      if (A === B) return;
+      const x = (P.rk[A] - M.rk[A]) / n1, y = (M.rk[B] - P.rk[B]) / n1;
+      if (x > 0 && y > 0 && Math.sqrt(x * y) > sw) { sw = Math.sqrt(x * y); swap = { A, B }; }
+    }));
+    const score = Math.round(100 * (0.55 * sw + 0.30 * bench + (ww ? 0.15 * Math.min(1, Math.max(0.4, (ww.me + ww.them) / 2)) : 0)));
+    const label = score >= 70 ? 'Great' : score >= 45 ? 'Good' : score >= 25 ? 'Fair' : 'Poor';
+    return { score, label, tone: score >= 45 ? 'good' : score >= 25 ? 'even' : 'bad', forMe: forMe.map((x) => x.p), forThem: forThem.map((x) => x.p), ww, swap, need: P.need };
+  }
+  function drawFit(ctx, res) {
+    const F = teamFit(ctx, res.before), M = F.get(st.mine);
+    const esc = (x) => String(x).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+    const list = (a) => a.slice(0, 3).map((p) => esc(p.name) + ' (' + p.pos + ')').join(', ');
+    const rk = (x, pos) => pos + ' ' + x.rk[pos] + nth(x.rk[pos]);
+    document.getElementById('ta-mine-info').innerHTML = (M.t.me ? 'Your needs: ' : 'Needs: ')
+      + (M.need.length ? M.need.map((pos) => '<span class="fo-need">' + rk(M, pos) + '</span>').join(', ') : '<b>none</b>')
+      + (M.spare.length ? ' · Spare: ' + list(M.spare) : '');
+    const c = candidate(F, st.mine, st.theirs), P = F.get(st.theirs);
+    const bits = [];
+    if (c.swap) bits.push('swap fit: you\u2019re deeper at <b>' + c.swap.A + '</b> (' + rk(M, c.swap.A) + ' vs ' + rk(P, c.swap.A) + '), they\u2019re deeper at <b>' + c.swap.B + '</b> (' + rk(P, c.swap.B) + ' vs ' + rk(M, c.swap.B) + ')');
+    if (c.forMe.length) bits.push('their bench upgrades you: ' + list(c.forMe));
+    if (c.forThem.length) bits.push('your bench upgrades them: ' + list(c.forThem));
+    if (c.ww) bits.push('best win-win: ' + c.ww.give.map((x) => esc(x.name)).join(' + ') + ' for ' + c.ww.get.map((x) => esc(x.name)).join(' + '));
+    document.getElementById('ta-theirs-info').innerHTML = 'Needs: ' + (P.need.length ? P.need.map((pos) => '<span class="fo-need">' + rk(P, pos) + '</span>').join(', ') : '<b>none</b>')
+      + ' · Trade candidate score <span class="fo-score ' + c.tone + '" title="0–100. Swap fit (55): a position where you rank well above them paired with one where they rank well above you. Bench fit (30): how much their bench would upgrade your weakest starters and yours theirs (needs count 1.5×). Win-win (15): the trade finder has a trade that helps both lineups.">' + c.score + ' · ' + c.label + '</span>'
+      + (bits.length ? '<br>' + bits.join(' · ') : '');
+    // the partner list shows each team's needs and score
+    [...selTheirs.options].forEach((o) => {
+      const x = candidate(F, st.mine, o.value), N = F.get(o.value);
+      o.textContent = N.t.name + ' — ' + (N.need.length ? 'needs ' + N.need.join('/') : 'no needs') + ' · score ' + x.score;
+    });
+    return F;
+  }
+  const nth = (k) => (['th', 'st', 'nd', 'rd'][(k % 100 - 20) % 10] || ['th', 'st', 'nd', 'rd'][k % 100] || 'th');
+
   // trade value: green when he's worth 10+ more than the market pays (buy low), red when the market pays 10+ more than
   // he's worth (sell high), like the value labels; muted when the market has no price for him
   const tradeCell = (p) => {
@@ -2969,7 +3064,7 @@ dash.calc('league_players', {
 
   function drawDraft(ctx, res, ds, name) {
     const card = document.getElementById('ta-draft-card');
-    ['mine', 'theirs'].forEach((sd) => { document.getElementById('ta-' + sd + '-picks-box').hidden = !ds; });
+    ['mine', 'theirs'].forEach((sd) => { document.getElementById('ta-' + sd + '-picks-det').hidden = !ds; });
     card.hidden = !ds;
     if (!ds) return;
     const { D, simB, simA, giveK, getK } = ds;
@@ -3002,6 +3097,11 @@ dash.calc('league_players', {
     };
     drawPicks('ta-mine-picks', st.mine, st.give);
     drawPicks('ta-theirs-picks', st.theirs, st.get);
+    [['mine', st.mine, giveK], ['theirs', st.theirs, getK]].forEach(([sd, tid, sel]) => {
+      const n = D.picks.filter((p) => p.owner === tid).length;
+      document.getElementById('ta-' + sd + '-picks-n').textContent = n + ' pick' + (n === 1 ? '' : 's') + (sel.length ? ' · ' + sel.length + ' in this trade' : '');
+      if (sel.length) document.getElementById('ta-' + sd + '-picks-det').open = true;
+    });
 
     const rule = document.getElementById('ta-draft-rule');
     if (!D.rules.pickForPick) {
@@ -3081,6 +3181,7 @@ dash.calc('league_players', {
       + (ds ? '). Next season = change in the value of the 2027 picks each team owns, including how the trade moves its own finish.' : ').')
       + (empty.length ? ' No one left to start at ' + empty.map(([tid, e]) => e.join(', ') + ' for ' + name(tid)).join('; ') + '.' : '');
 
+    document.getElementById('ta-accept').hidden = !active;
     if (!active) {
       head.textContent = 'Check players on both sides.';
       sub.textContent = 'Lineups, power ranks and the weeks that still count for each team are shown below; the price fills in once players are checked.';
@@ -3128,6 +3229,28 @@ dash.calc('league_players', {
     const s2 = T.fair ? 'Fair by trade value' + (aHi ? '; by our projections you come out ' + byA + ' ahead — a buy-low.' : aLo ? '; by our projections you give up ' + byA + ' — selling low.' : ', and about even by our projections.')
       : T.edge > 0 ? 'By trade value it favors you by ' + f0(T.edge) + ', so ' + them + ' may say no' + (Hp >= THR ? ' (though it helps their lineup)' : '') + (aLo ? '; our projections actually favor them by ' + byA + '.' : '.')
         : 'By trade value you’d overpay by ' + f0(-T.edge) + (aHi ? ', but by our projections you still come out ' + byA + ' ahead.' : aLo ? ', and our projections agree you lose ' + byA + '.' : '.');
+    // chance they accept: a rough logistic guess from what they see. Market price from their side (net trade value
+    // they get, scaled to the trade's size), how much it helps their lineup, whether it fills a need, and a baseline
+    // reluctance (most offers get turned down). Pick-for-pick rule breaks make it a non-starter.
+    {
+      const size = Math.max(T.youGet, T.theyGet), sc = Math.max(8, 0.15 * size);
+      const P = st.fit && st.fit.get(st.theirs), fills = P ? res.giveP.filter((p) => P.need.includes(p.pos)) : [];
+      const losesNeed = P ? res.getP.filter((p) => P.need.includes(p.pos)) : [];
+      const z = -0.6 + 1.4 * Math.max(-3, Math.min(3, T.netTheirs / sc)) + 0.7 * Math.max(-3, Math.min(3, Hp / Math.max(10, sc)))
+        + (fills.length ? 0.4 : 0) - (losesNeed.length ? 0.4 : 0);
+      const broke = ds && ds.D.rules.pickForPick && ds.giveK.length !== ds.getK.length;
+      let pa = broke ? 0.02 : 1 / (1 + Math.exp(-z)); pa = Math.max(0.02, Math.min(0.95, pa));
+      const tn = pa >= 0.55 ? 'fo-wp-good' : pa <= 0.35 ? 'fo-wp-bad' : '';
+      const pe = document.getElementById('ta-accept-pct'); pe.textContent = '~' + Math.round(pa * 100) + '%'; pe.className = 'fo-accept-pct ' + tn;
+      const bar = document.getElementById('ta-accept-bar'); bar.style.width = Math.max(3, Math.round(pa * 100)) + '%'; bar.parentElement.className = 'fo-bar-meter ' + tn;
+      const why = [];
+      if (broke) why.push('breaks the league’s pick-for-pick rule');
+      why.push(Math.abs(T.netTheirs) <= T.band ? 'fair by trade value' : T.netTheirs > 0 ? them + ' gets ' + f0(T.netTheirs) + ' more by trade value' : them + ' gives up ' + f0(-T.netTheirs) + ' by trade value');
+      why.push(Hp >= 3 ? 'helps their lineup (' + sg0(Hp) + ')' : Hp <= -3 ? 'weakens their lineup (' + sg0(Hp) + ')' : 'barely changes their lineup');
+      if (fills.length) why.push('fills their ' + [...new Set(fills.map((p) => p.pos))].join('/') + ' need');
+      if (losesNeed.length) why.push('takes from a position they’re already thin at (' + [...new Set(losesNeed.map((p) => p.pos))].join('/') + ')');
+      document.getElementById('ta-accept-why').textContent = 'Rough estimate, not tested on real offers: ' + why.join(' · ') + '. Managers differ — some never trade, some chase names.';
+    }
     head.textContent = s1 + ' ' + s2;
     sub.textContent = 'Helps you ' + sg0(H) + ' value points' + (ds ? ' (this season ' + sg0(help[st.mine].thisS) + ', picks ' + sg0(help[st.mine].next) + ')' : '')
       + '; ' + them + ' ' + sg0(Hp) + '. Net for you: ' + sg0(T.netMine) + ' by trade value, ' + sg0(A.netMine) + ' by actual value.'
@@ -3208,6 +3331,7 @@ dash.calc('league_players', {
     drawRoster('ta-mine-table', st.mine, st.give);
     drawRoster('ta-theirs-table', st.theirs, st.get);
 
+    st.fit = drawFit(ctx, res);
     drawVerdict(ctx, res, ds, name, ss);
 
     // value check: every player in the trade, priced against the market
