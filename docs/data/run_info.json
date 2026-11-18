@@ -1,29 +1,29 @@
 {
- "updated": "2026-11-18T22:24:26+00:00",
+ "updated": "2026-11-18T23:24:03+00:00",
  "season": 2026,
  "projection_week": 11,
  "results_week": 10,
  "games_started": false,
- "reason": "schedule_and_lines,injury_news",
+ "reason": "schedule_and_lines",
  "steps": [
   {
    "step": "bash",
-   "seconds": 36,
+   "seconds": 40,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 4,
+   "seconds": 5,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 2,
+   "seconds": 3,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 1,
+   "seconds": 2,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 29,
+   "seconds": 34,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 13,
+   "seconds": 16,
    "ok": true
   }
  ],
@@ -56,8 +56,8 @@
    "total": 0
   },
   "inactive_rows": 0,
-  "players": 336,
-  "upcoming": 336,
+  "players": 335,
+  "upcoming": 335,
   "season_scoreboard": {
    "model": 0.3957,
    "experts": 0.4063,
@@ -76,7 +76,7 @@
   "week": 11,
   "last_week": 17,
   "players": 463,
-  "out_this_week": 53,
+  "out_this_week": 54,
   "on_bye": 74,
   "this_week_source": "official",
   "training_snapshots": 47931,
@@ -86,7 +86,7 @@
    "WR/TE": 52
   },
   "experts_ros_date": "2026-11-18 00:00:00",
-  "seconds": 12,
+  "seconds": 15,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -156,7 +156,7 @@
   "nfl_rows": 26,
   "nfl_matched": 26,
   "nfl_unmatched": [],
-  "espn_out": 38,
+  "espn_out": 39,
   "espn_unmatched": [
    "Divine Deablo (ATL)",
    "Zachariah Branch (ATL)",
@@ -175,12 +175,12 @@
    "Quenton Nelson (SEA)",
    "Charles Cross (SEA)"
   ],
-  "hash": "5b71a4dfb6df",
+  "hash": "51504e80456d",
   "manual_out": [
    "Drake Maye",
    "Josh Jacobs"
   ],
-  "rows_added": 29,
+  "rows_added": 30,
   "values_updated": 0
  }
 }
