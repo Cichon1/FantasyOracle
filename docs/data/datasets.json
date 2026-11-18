@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-18T07:19:02+00:00",
+ "updated": "2026-11-18T08:38:59+00:00",
  "datasets": {
   "accuracy": {
    "file": "accuracy_v5.csv",
@@ -77,7 +77,7 @@
    "file": "league_schedule_v5.csv",
    "title": "League schedules",
    "description": "Each of Jackson's three Yahoo leagues: regular-season matchups, weeks 1-14, both teams, points and Yahoo's projection for each, and whether the week is final, under way or upcoming. Read from Yahoo on request.",
-   "updated": "2026-11-18T07:19:02+00:00"
+   "updated": "2026-11-18T08:38:59+00:00"
   },
   "league_standings": {
    "file": "league_standings_v5.csv",
