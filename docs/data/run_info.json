@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-18T07:18:26+00:00",
+ "updated": "2026-11-18T10:07:21+00:00",
  "season": 2026,
  "projection_week": 11,
  "results_week": 10,
  "games_started": false,
- "reason": "schedule_and_lines,injury_reports,depth_charts,rosters,ftn_charting",
+ "reason": "schedule_and_lines",
  "steps": [
   {
    "step": "bash",
@@ -13,17 +13,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 4,
+   "seconds": 6,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 2,
+   "seconds": 3,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 241,
+   "seconds": 271,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 0,
+   "seconds": 1,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 221,
+   "seconds": 231,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 35,
+   "seconds": 19,
    "ok": true
   }
  ],
@@ -82,71 +82,71 @@
   "training_snapshots": 47931,
   "rounds": {
    "QB": 50,
-   "RB": 88,
-   "WR/TE": 52
+   "RB": 91,
+   "WR/TE": 55
   },
   "experts_ros_date": "2026-11-17 00:00:00",
-  "seconds": 34,
+  "seconds": 18,
   "model_cache": {
-   "hit": 0,
-   "miss": 18,
+   "hit": 18,
+   "miss": 0,
    "on": true
   },
   "top": {
    "QB": [
     [
      "Josh Allen",
-     138.7
+     143.3
     ],
     [
      "Joe Burrow",
-     133.8
+     132.7
     ],
     [
      "Trevor Lawrence",
-     125.8
+     124.1
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     136.1
+     135.9
     ],
     [
      "Kenneth Walker III",
-     133.0
+     132.2
     ],
     [
      "Christian McCaffrey",
-     126.7
+     125.5
     ]
    ],
    "TE": [
     [
      "George Kittle",
-     84.3
+     84.6
     ],
     [
      "Trey McBride",
      81.8
     ],
     [
-     "Colston Loveland",
-     76.7
+     "Brock Bowers",
+     77.5
     ]
    ],
    "WR": [
     [
      "Ja'Marr Chase",
-     138.4
+     142.9
     ],
     [
      "Amon-Ra St. Brown",
-     127.4
+     125.6
     ],
     [
      "CeeDee Lamb",
-     110.2
+     111.6
     ]
    ]
   }
