@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-18T21:26:05+00:00",
+ "updated": "2026-11-18T22:24:26+00:00",
  "season": 2026,
  "projection_week": 11,
  "results_week": 10,
  "games_started": false,
- "reason": "schedule_and_lines,fp_rankings,injury_news",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 40,
+   "seconds": 36,
    "ok": true
   },
   {
@@ -56,8 +56,8 @@
    "total": 0
   },
   "inactive_rows": 0,
-  "players": 337,
-  "upcoming": 337,
+  "players": 336,
+  "upcoming": 336,
   "season_scoreboard": {
    "model": 0.3957,
    "experts": 0.4063,
@@ -76,7 +76,7 @@
   "week": 11,
   "last_week": 17,
   "players": 463,
-  "out_this_week": 52,
+  "out_this_week": 53,
   "on_bye": 74,
   "this_week_source": "official",
   "training_snapshots": 47931,
@@ -86,7 +86,7 @@
    "WR/TE": 52
   },
   "experts_ros_date": "2026-11-18 00:00:00",
-  "seconds": 13,
+  "seconds": 12,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -104,7 +104,7 @@
     ],
     [
      "Trevor Lawrence",
-     122.6
+     122.0
     ]
    ],
    "RB": [
@@ -156,7 +156,7 @@
   "nfl_rows": 26,
   "nfl_matched": 26,
   "nfl_unmatched": [],
-  "espn_out": 36,
+  "espn_out": 38,
   "espn_unmatched": [
    "Divine Deablo (ATL)",
    "Zachariah Branch (ATL)",
@@ -175,12 +175,12 @@
    "Quenton Nelson (SEA)",
    "Charles Cross (SEA)"
   ],
-  "hash": "0fe8a2147fa6",
+  "hash": "5b71a4dfb6df",
   "manual_out": [
    "Drake Maye",
    "Josh Jacobs"
   ],
-  "rows_added": 27,
+  "rows_added": 29,
   "values_updated": 0
  }
 }
