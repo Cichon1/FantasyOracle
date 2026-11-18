@@ -739,7 +739,9 @@
       <h2 id="mr-title">My weekly rankings</h2>
       <p class="nf-note">Rank the players yourself before the games, then see how your order did against the model, the
       FantasyPros experts' consensus and the hub's official ranking once the games are played. Pick a week and a position,
-      reorder by dragging a row, with the arrows, or by typing a rank, and press Save. A player is locked once his game
+      reorder by dragging a row, with the arrows, or by typing a rank, and press Save. <b>Def vs pos</b>: PPR points the
+      opponent's defense has allowed per game to that position in the weeks before (from every projected player's actual
+      points), ranked among the defenses — 1st allows the most (easiest matchup, green), the last few allow the least (red). A player is locked once his game
       starts: his rank is frozen at your last save before kickoff, and players you hadn't ranked before kickoff don't count.
       Scored the same way the hub scores itself: rank correlation with the actual PPR points of the players who suited up
       (1 = perfect order, 0 = no better than random), plus how many places your ranks missed by on average. Your rankings
@@ -761,7 +763,7 @@
       <div class="nf-tiles" id="mr-score"></div>
       <div class="nf-tablebox">
         <table class="nf-table" id="mr-table">
-          <thead><tr><th>My rank</th><th class="nf-l">Player</th><th class="nf-l">Opp</th><th class="nf-l">Game</th><th></th><th class="mr-peek">Experts</th><th class="mr-peek">Model</th><th>Actual PPR</th><th>Actual rank</th></tr></thead>
+          <thead><tr><th>My rank</th><th class="nf-l">Player</th><th class="nf-l">Opp</th><th id="mr-def-h" title="PPR points the opponent's defense has allowed per game to this position before this week, and where that ranks among the 32 defenses (1st = allows the most, the easiest matchup)">Def vs pos</th><th class="nf-l">Game</th><th></th><th class="mr-peek">Experts</th><th class="mr-peek">Model</th><th>Actual PPR</th><th>Actual rank</th></tr></thead>
           <tbody></tbody>
         </table>
       </div>
@@ -3426,6 +3428,27 @@ dash.calc('league_players', {
   const spearman = (a, b) => pearson(avgRanks(a), avgRanks(b));
 
   const rowsFor = (P, week, pos) => P.data.filter((r) => +r.week === +week && r.pos === pos);
+  const ord = (k) => k + (['th', 'st', 'nd', 'rd'][(k % 100 - 20) % 10] || ['th', 'st', 'nd', 'rd'][k % 100] || 'th');
+  // PPR allowed per game to a position by each defense (opp) in weeks before `week`: sum of the position's actual
+  // points in each game, averaged over the defense's games; rank 1 = allows the most
+  const defCache = new Map();
+  function defVs(P, week, pos) {
+    const ck = week + '|' + pos + '|' + P.data.length;
+    if (defCache.has(ck)) return defCache.get(ck);
+    const games = new Map(), pts = new Map();
+    P.data.forEach((r) => {
+      if (+r.week >= +week || r.status !== 'Final' || !r.opp) return;
+      const g = r.opp + '|' + r.game_id;
+      if (!games.has(r.opp)) games.set(r.opp, new Set());
+      games.get(r.opp).add(r.game_id);
+      if (r.pos === pos && !isNaN(num(r.act_ppr))) pts.set(g, (pts.get(g) || 0) + num(r.act_ppr));
+    });
+    const list = [...games.entries()].map(([d, gs]) => ({ d, ppg: d3.mean([...gs], (gid) => pts.get(d + '|' + gid) || 0), n: gs.size }));
+    list.sort((a, b) => b.ppg - a.ppg).forEach((x, i) => { x.rank = i + 1; });
+    const out = new Map(list.map((x) => [x.d, x]));
+    defCache.set(ck, out);
+    return out;
+  }
   // experts' weekly ranks arrive during the week; until most players have one, the pool and default order use the official ranking
   const expReady = (rows) => rows.filter((r) => !isNaN(num(r.expert_rank))).length >= 0.6 * Math.min(rows.length, POOL[st.pos]);
   function poolFor(rows) {
@@ -3483,6 +3506,8 @@ dash.calc('league_players', {
     weekBox.replaceChildren(); weeks.forEach((w) => chip(weekBox, 'Week ' + w, w === st.week, () => { if (st.dirty && !confirmLeave()) return; st.week = w; st.order = null; draw(); }));
     posBox.replaceChildren(); POS.forEach((p) => chip(posBox, p, p === st.pos, () => { if (st.dirty && !confirmLeave()) return; st.pos = p; st.order = null; draw(); }));
     const rows = rowsFor(P, st.week, st.pos), rowBy = new Map(rows.map((r) => [r.key, r]));
+    const dv = defVs(P, st.week, st.pos);
+    document.getElementById('mr-def-h').textContent = 'Def vs ' + st.pos;
     let e = all[ek()];
     if (e && freeze(e, rowBy)) store(all);
     if (!st.order) { st.order = e ? e.order.filter((k) => rowBy.has(k)) : startOrder(poolFor(rows), expReady(rows) ? 'pros' : 'official', rowBy); st.dirty = false; }
@@ -3520,6 +3545,8 @@ dash.calc('league_players', {
       td(tr, inp);
       td(tr, (r ? r.player + ' (' + r.team + ')' : k) + (late.has(k) ? ' · not counted' : ''), 'nf-l nf-name');
       td(tr, r ? (r.venue === 'Home' ? 'vs ' : '@ ') + r.opp : '', 'nf-l nf-muted');
+      const d = r && dv.get(r.opp);
+      td(tr, d ? f1(d.ppg) + ' · ' + ord(d.rank) : '—', !d ? 'nf-muted' : d.rank <= 8 ? 'nf-good' : d.rank > dv.size - 8 ? 'nf-bad' : '');
       td(tr, (r && r.status) || '', 'nf-l nf-muted');
       const mv = td(tr, '');
       if (!lock) [['▲', -1], ['▼', 1]].forEach(([t, d]) => { const b = document.createElement('button'); b.className = 'mr-mv'; b.textContent = t; b.setAttribute('aria-label', d < 0 ? 'Move up' : 'Move down'); b.addEventListener('click', () => move(k, st.order.indexOf(k) + d)); mv.appendChild(b); });
