@@ -1,29 +1,29 @@
 {
- "updated": "2026-11-18T10:07:21+00:00",
+ "updated": "2026-11-18T11:08:46+00:00",
  "season": 2026,
  "projection_week": 11,
  "results_week": 10,
  "games_started": false,
- "reason": "schedule_and_lines",
+ "reason": "player_stats,play_by_play,schedule_and_lines",
  "steps": [
   {
    "step": "bash",
-   "seconds": 42,
+   "seconds": 41,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 6,
+   "seconds": 4,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 3,
+   "seconds": 2,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 271,
+   "seconds": 242,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 231,
+   "seconds": 268,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 19,
+   "seconds": 14,
    "ok": true
   }
  ],
@@ -82,11 +82,11 @@
   "training_snapshots": 47931,
   "rounds": {
    "QB": 50,
-   "RB": 91,
-   "WR/TE": 55
+   "RB": 88,
+   "WR/TE": 52
   },
   "experts_ros_date": "2026-11-17 00:00:00",
-  "seconds": 18,
+  "seconds": 13,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -96,57 +96,57 @@
    "QB": [
     [
      "Josh Allen",
-     143.3
+     137.7
     ],
     [
      "Joe Burrow",
-     132.7
+     133.8
     ],
     [
      "Trevor Lawrence",
-     124.1
+     125.8
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     135.9
+     136.1
     ],
     [
      "Kenneth Walker III",
-     132.2
+     133.0
     ],
     [
      "Christian McCaffrey",
-     125.5
+     126.7
     ]
    ],
    "TE": [
     [
      "George Kittle",
-     84.6
+     84.3
     ],
     [
      "Trey McBride",
      81.8
     ],
     [
-     "Brock Bowers",
-     77.5
+     "Colston Loveland",
+     77.3
     ]
    ],
    "WR": [
     [
      "Ja'Marr Chase",
-     142.9
+     137.3
     ],
     [
      "Amon-Ra St. Brown",
-     125.6
+     127.4
     ],
     [
      "CeeDee Lamb",
-     111.6
+     109.3
     ]
    ]
   }
