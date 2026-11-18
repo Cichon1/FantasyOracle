@@ -285,7 +285,7 @@
   });
 
   // ================================================================ pages and transitions
-  const ORDER = ['home', 'team', 'projections', 'ros', 'trade', 'league', 'matchups', 'style', 'weather', 'experts', 'model', 'lineup', 'tradedetails', 'weekly', 'rosdetails', 'history'];
+  const ORDER = ['home', 'team', 'projections', 'ros', 'trade', 'league', 'myranks', 'matchups', 'style', 'weather', 'experts', 'model', 'lineup', 'tradedetails', 'weekly', 'rosdetails', 'history'];
   const PAGES = {
     home: { title: '' }, team: { title: 'My Team', league: true }, projections: { title: 'Weekly Rankings', league: true },
     ros: { title: 'Rest of Season Rankings', league: true, long: true }, trade: { title: 'Trade Analyzer', league: true },
@@ -1116,4 +1116,5 @@
 
   // ================================================================ More pages: redraw charts when shown
   ['matchups', 'style', 'weather', 'experts', 'model', 'lineup', 'tradedetails', 'weekly', 'rosdetails'].forEach((k) => { RENDER[k] = () => {}; });
+  RENDER.myranks = () => { if (window.foMyRanks) window.foMyRanks.draw(); };
 })();

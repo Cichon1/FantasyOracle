@@ -44,6 +44,7 @@
     <div class="rib">
       <ul id="more-list">
         <li><a data-go="league">League View</a></li>
+        <li><a data-go="myranks">My Rankings</a></li>
         <li><a data-go="matchups">Matchups</a></li>
         <li><a data-go="style">Run game &amp; Style</a></li>
         <li><a data-go="weather">Weather</a></li>
@@ -234,6 +235,28 @@
           <tbody></tbody>
         </table>
       </div>
+    </div><div class="nf-card" id="team-needs-card">
+      <h2>Team needs &amp; trade partners</h2>
+      <p class="nf-note">Each team's best lineup from rest-of-season points per week in this league's scoring (missed games
+      filled by a waiver-level player, same as the trade analyzer). <b>Starters</b>: points per week from the team's
+      QB / RB / WR / TE slots, ranked across the league (FLEX is whoever fills it). <b>Need</b>: bottom third of the league at
+      that spot. <b>Spare</b>: bench players who score at least what a typical team's last starter there does — the
+      ones another team would actually start. <b>Trade partners</b> pair your needs with their spares and theirs with yours;
+      "Best win-win" is the top trade from the trade finder with that team (both best lineups get better).</p>
+      <h3 class="nf-h3">Best trade partners for you</h3>
+      <div class="nf-tablebox">
+        <table class="nf-table" id="team-partner-table">
+          <thead><tr><th class="nf-l">Team</th><th class="nf-l">They need</th><th class="nf-l">Fit with you</th><th>Win-win trades</th><th class="nf-l">Best win-win</th><th>You / wk</th><th>Them / wk</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <h3 class="nf-h3">Position strength by team</h3>
+      <div class="nf-tablebox">
+        <table class="nf-table" id="team-needs-table">
+          <thead><tr><th class="nf-l">Team</th><th>QB</th><th>RB</th><th>WR</th><th>TE</th><th>FLEX</th><th>Lineup</th><th class="nf-l">Needs</th><th class="nf-l">Spare</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
     </div></div></div></div>
         </div>
       </div>
@@ -241,6 +264,50 @@
     </section>
 
     <!-- MORE pages: the full dashboard sections in the same dress -->
+    <section class="page more" data-page="myranks" data-title="My Rankings"><div class="mp-frame tall pn"><div class="sc mp-scroll"><div class="mp"><div class="nf-panel" id="myranks">
+    <div class="nf-card">
+      <h2 id="mr-title">My weekly rankings</h2>
+      <p class="nf-note">Rank the players yourself before the games, then see how your order did against the model, the
+      FantasyPros experts' consensus and the hub's official ranking once the games are played. Pick a week and a position,
+      reorder by dragging a row, with the arrows, or by typing a rank, and press Save. A player is locked once his game
+      starts: his rank is frozen at your last save before kickoff, and players you hadn't ranked before kickoff don't count.
+      Scored the same way the hub scores itself: rank correlation with the actual PPR points of the players who suited up
+      (1 = perfect order, 0 = no better than random), plus how many places your ranks missed by on average. Your rankings
+      are kept in this browser; use Export to keep a copy or move them to another device.</p>
+      <div class="nf-controls" id="mr-weeks" role="group" aria-label="Week"></div>
+      <div class="nf-controls" id="mr-pos" role="group" aria-label="Position"></div>
+      <div class="nf-controls" id="mr-actions">
+        <button class="nf-chip" id="mr-save">Save</button>
+        <span class="nf-note" style="margin:0 6px">Start from:</span>
+        <button class="nf-chip" data-start="pros">Experts</button>
+        <button class="nf-chip" data-start="official">Official</button>
+        <button class="nf-chip" data-start="model">Model</button>
+        <button class="nf-chip" data-start="abc">A–Z</button>
+        <label class="nf-note" style="margin-left:10px"><input type="checkbox" id="mr-peek"> Show model &amp; expert ranks</label>
+        <button class="nf-chip" id="mr-export">Export</button>
+        <label class="nf-chip" style="cursor:pointer">Import<input type="file" id="mr-import" accept="application/json" hidden></label>
+      </div>
+      <p class="nf-note" id="mr-status"></p>
+      <div class="nf-tiles" id="mr-score"></div>
+      <div class="nf-tablebox">
+        <table class="nf-table" id="mr-table">
+          <thead><tr><th>My rank</th><th class="nf-l">Player</th><th class="nf-l">Opp</th><th class="nf-l">Game</th><th></th><th class="mr-peek">Experts</th><th class="mr-peek">Model</th><th>Actual PPR</th><th>Actual rank</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="nf-card">
+      <h2>My record</h2>
+      <p class="nf-note">Every week and position you saved, once at least half the ranked players' games are final.
+      Higher is better; the best of the four in each row is marked.</p>
+      <div class="nf-tablebox">
+        <table class="nf-table" id="mr-record">
+          <thead><tr><th>Week</th><th class="nf-l">Pos</th><th>Players scored</th><th>You</th><th>Model</th><th>Experts</th><th>Official</th><th class="nf-l">Best</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div></div></div><div class="arrowbar"></div></div></section>
     <section class="page more" data-page="matchups" data-title="Matchups"><div class="mp-frame tall pn"><div class="sc mp-scroll"><div class="mp"><div class="nf-panel" id="matchups">
     <div class="nf-card" id="def-card">
       <h2>Defensive scheme profiles · Week <span class="nf-mwk">5</span> defenses</h2>
@@ -1481,6 +1548,93 @@ window.foAvail = (() => {
       tb.appendChild(tr);
     });
   }
+  // ---------------------------------------------------------------- team needs and trade partners
+  function drawNeeds() {
+    const nb = document.querySelector('#team-needs-table tbody'), pb = document.querySelector('#team-partner-table tbody');
+    nb.replaceChildren(); pb.replaceChildren();
+    const L = dash.data('leagues'), RO = dash.data('league_rosters'), R = dash.data('ros');
+    if ([L, RO, R].some((d) => d.status !== 'ok') || !st.league) { message(nb, 9, '—'); message(pb, 7, '—'); return; }
+    const lg = L.data.find((l) => String(l.league_id) === st.league);
+    const ros = new Map(R.data.map((r) => [r.key, r]));
+    const onTeam = new Set(RO.data.filter((p) => String(p.league_id) === st.league && p.ros_key).map((p) => p.ros_key));
+    const lw = window.foAvail.waiver(lg, R.data, onTeam);
+    const teams = new Map();
+    RO.data.filter((p) => String(p.league_id) === st.league).forEach((p) => {
+      if (!teams.has(p.team_id)) teams.set(p.team_id, { id: p.team_id, name: p.team, me: String(p.is_me) === '1', players: [] });
+      if (p.kind === 'skill' && p.slot !== 'IR' && p.ros_key && ros.has(p.ros_key)) teams.get(p.team_id).players.push({ name: p.player, pos: p.pos, v: window.foAvail.weekly(ros.get(p.ros_key), lg, lw) });
+    });
+    const slots = String(lg.lineup || '').split(' ').filter((x) => elig(x).length);
+    const order = slots.slice().sort((a, b) => elig(a).length - elig(b).length);
+    const cols = ['QB', 'RB', 'WR', 'TE', 'FLEX'];
+    // best lineup; points per week at each spot (fixed slots by position, flex slots together) and the last fixed starter
+    teams.forEach((t) => {
+      const pool = t.players.slice().sort((a, b) => b.v - a.v), used = new Set();
+      t.at = { QB: 0, RB: 0, WR: 0, TE: 0, FLEX: 0 }; t.last = {}; t.total = 0;
+      order.forEach((sl) => {
+        const e = elig(sl), x = pool.find((y) => !used.has(y) && e.includes(y.pos));
+        if (!x) return;
+        used.add(x); t.total += x.v;
+        const k = e.length === 1 ? e[0] : 'FLEX';
+        t.at[k] += x.v;
+        if (e.length === 1) t.last[k] = Math.min(t.last[k] == null ? Infinity : t.last[k], x.v);
+      });
+      t.bench = pool.filter((x) => !used.has(x));
+    });
+    const T = [...teams.values()], n = T.length;
+    const rk = {};
+    cols.forEach((c) => { T.slice().sort((a, b) => b.at[c] - a.at[c]).forEach((t, i) => { (rk[t.id] = rk[t.id] || {})[c] = i + 1; }); });
+    const med = (a) => { const b = a.slice().sort((x, y) => x - y); return b.length ? (b[(b.length - 1) >> 1] + b[b.length >> 1]) / 2 : 0; };
+    const bar = {}; SKILL.forEach((pos) => { bar[pos] = med(T.filter((t) => t.last[pos] != null).map((t) => t.last[pos])); });
+    const needCut = Math.ceil(n * 2 / 3), strongCut = Math.floor(n / 3);
+    T.forEach((t) => {
+      t.need = SKILL.filter((pos) => slots.some((sl) => elig(sl).length === 1 && elig(sl)[0] === pos) && rk[t.id][pos] > needCut);
+      t.spare = SKILL.flatMap((pos) => t.bench.filter((x) => x.pos === pos && x.v >= bar[pos]).map((x) => x));
+    });
+    const ord = (k) => k + (['th', 'st', 'nd', 'rd'][(k % 100 - 20) % 10] || ['th', 'st', 'nd', 'rd'][k % 100] || 'th');
+    T.slice().sort((a, b) => b.me - a.me || b.total - a.total).forEach((t) => {
+      const tr = document.createElement('tr'); if (t.me) tr.className = 'nf-mine';
+      cell(tr, t.name + (t.me ? ' (you)' : ''), 'nf-l nf-name');
+      cols.forEach((c) => {
+        const r = rk[t.id][c], has = c === 'FLEX' ? slots.some((sl) => elig(sl).length > 1) : slots.some((sl) => elig(sl).length === 1 && elig(sl)[0] === c);
+        if (!has) { cell(tr, '—', 'nf-muted'); return; }
+        cell(tr, f1(t.at[c]) + ' · ' + ord(r), r > needCut ? 'nf-need' : r <= strongCut ? 'nf-strong' : '');
+      });
+      cell(tr, f1(t.total) + ' · ' + ord(T.slice().sort((a, b) => b.total - a.total).indexOf(t) + 1));
+      cell(tr, t.need.join(', ') || '—', 'nf-l' + (t.need.length ? ' nf-bad' : ' nf-muted'));
+      cell(tr, t.spare.map((x) => x.name + ' (' + x.pos + ')').join(', ') || '—', 'nf-l' + (t.spare.length ? '' : ' nf-muted'));
+      nb.appendChild(tr);
+    });
+    // partners: their spares at your needs, your spares at their needs, plus the trade finder's best win-win with them
+    const me = T.find((t) => t.me);
+    if (!me) { message(pb, 7, 'Your team isn\u2019t in this league\u2019s rosters.'); return; }
+    const TM = dash.data('trade_market');
+    const key = st.league + '|' + RO.data.length + '|' + R.data.length + '|' + d3.max(RO.data, (p) => p.pulled_at);
+    if (tradeCache.key !== key) tradeCache = { key, rows: findTrades(lg, RO.data, R.data, TM.status === 'ok' ? TM.data : []) };
+    const ww = (tradeCache.rows['Win-win'] || []);
+    const all = (tradeCache.rows.all || []);
+    const parts = T.filter((t) => !t.me).map((t) => {
+      const forMe = t.spare.filter((x) => me.need.includes(x.pos)), forThem = me.spare.filter((x) => t.need.includes(x.pos));
+      const trades = all.filter((x) => x.team === t.name), best = ww.find((x) => x.team === t.name) || trades[0] || null;
+      return { t, forMe, forThem, n: trades.length, best, fit: forMe.length + forThem.length + (forMe.length && forThem.length ? 2 : 0) };
+    });
+    parts.sort((a, b) => (b.best ? b.best.me + b.best.them : -99) - (a.best ? a.best.me + a.best.them : -99) || b.fit - a.fit);
+    parts.forEach(({ t, forMe, forThem, n: nt, best }) => {
+      const tr = document.createElement('tr');
+      cell(tr, t.name, 'nf-l nf-name');
+      cell(tr, t.need.join(', ') || '—', 'nf-l' + (t.need.length ? '' : ' nf-muted'));
+      const fit = [];
+      if (forMe.length) fit.push('has ' + forMe.map((x) => x.name + ' (' + x.pos + ')').join(', ') + ' for your ' + [...new Set(forMe.map((x) => x.pos))].join('/'));
+      if (forThem.length) fit.push('wants your ' + forThem.map((x) => x.name + ' (' + x.pos + ')').join(', '));
+      cell(tr, fit.join('; ') || 'No clear match', 'nf-l' + (fit.length ? '' : ' nf-muted'));
+      cell(tr, nt ? String(nt) : '0', nt ? '' : 'nf-muted');
+      if (!best) { cell(tr, 'None found', 'nf-l nf-muted'); cell(tr, '—', 'nf-muted'); cell(tr, '—', 'nf-muted'); }
+      else {
+        cell(tr, best.give.map((x) => x.name).join(' + ') + ' for ' + best.get.map((x) => x.name).join(' + '), 'nf-l');
+        cell(tr, sg(best.me), 'nf-good'); cell(tr, sg(best.them), best.them >= 0.25 ? 'nf-good' : 'nf-muted');
+      }
+      pb.appendChild(tr);
+    });
+  }
   function findTrades(lg, rosters, rosRows, market) {
     const ros = new Map(rosRows.map((r) => [r.key, r]));
     const slots = String(lg.lineup || '').split(' ').filter((x) => elig(x).length);
@@ -1551,12 +1705,14 @@ window.foAvail = (() => {
       }
       res[mode] = kept;
     }
+    res.all = out['Win-win'];      // every win-win (all sizes), for the trade partners table
     return res;
   }
   dash.onData(draw);
   dash.onData(drawTrades);
+  dash.onData(drawNeeds);
   const _draw = draw;
-  draw = () => { _draw(); drawTrades(); };
+  draw = () => { _draw(); drawTrades(); drawNeeds(); };
 })();
 </script>
 
@@ -3195,6 +3351,212 @@ dash.calc('league_players', {
 })();
 </script>
 
+<script>
+// My rankings (Nov 17, 2026): rank a week's players yourself, then score your order against the model, the experts
+// (FantasyPros consensus) and the official ranking - rank correlation with actual PPR among players who suited up
+(() => {
+  const KEY = 'fo-myranks-v1', POOL = { QB: 24, RB: 40, WR: 50, TE: 24 }, POS = ['QB', 'RB', 'WR', 'TE'];
+  const f1 = d3.format('.1f'), f3 = d3.format('.3f');
+  const num = (v, d = NaN) => (v === '' || v == null || isNaN(+v) ? d : +v);
+  const load = () => { try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; } };
+  const store = (o) => { try { localStorage.setItem(KEY, JSON.stringify(o)); return true; } catch (e) { return false; } };
+  let all = load();
+  const st = { week: null, pos: 'WR', order: null, dirty: false, peek: false };
+  const ek = () => '2026|' + st.week + '|' + st.pos;
+  const status = (r) => (r ? r.status : '');
+  const started = (r) => status(r) && status(r) !== 'Upcoming';
+  const suited = (r) => r && r.status === 'Final' && !isNaN(num(r.act_ppr));
+  // ranks (1 = best) of `keys` by a value, higher first; missing values rank last
+  const rankBy = (keys, val) => { const o = keys.slice().sort((a, b) => (val(b) ?? -1e9) - (val(a) ?? -1e9)); return new Map(o.map((k, i) => [k, i + 1])); };
+  // Spearman: Pearson correlation of average ranks
+  const avgRanks = (v) => { const ix = v.map((x, i) => [x, i]).sort((a, b) => a[0] - b[0]), r = new Array(v.length);
+    for (let i = 0; i < ix.length;) { let j = i; while (j + 1 < ix.length && ix[j + 1][0] === ix[i][0]) j++; for (let k = i; k <= j; k++) r[ix[k][1]] = (i + j) / 2 + 1; i = j + 1; } return r; };
+  const pearson = (a, b) => { const n = a.length; if (n < 3) return NaN; const ma = d3.mean(a), mb = d3.mean(b); let sab = 0, sa = 0, sb = 0;
+    for (let i = 0; i < n; i++) { sab += (a[i] - ma) * (b[i] - mb); sa += (a[i] - ma) ** 2; sb += (b[i] - mb) ** 2; } return sa && sb ? sab / Math.sqrt(sa * sb) : NaN; };
+  const spearman = (a, b) => pearson(avgRanks(a), avgRanks(b));
+
+  const rowsFor = (P, week, pos) => P.data.filter((r) => +r.week === +week && r.pos === pos);
+  // experts' weekly ranks arrive during the week; until most players have one, the pool and default order use the official ranking
+  const expReady = (rows) => rows.filter((r) => !isNaN(num(r.expert_rank))).length >= 0.6 * Math.min(rows.length, POOL[st.pos]);
+  function poolFor(rows) {
+    const hasExp = expReady(rows);
+    return rows.slice().sort((a, b) => (hasExp ? num(a.expert_rank, 999) - num(b.expert_rank, 999) : 0) || num(b.proj_ppr, 0) - num(a.proj_ppr, 0))
+      .slice(0, POOL[st.pos]).map((r) => r.key);
+  }
+  const startOrder = (keys, by, rowBy) => {
+    const v = { pros: (k) => -num(rowBy.get(k)?.expert_rank, 999), official: (k) => num(rowBy.get(k)?.proj_ppr, -1), model: (k) => num(rowBy.get(k)?.proj_model, -1) }[by];
+    return by === 'abc' ? keys.slice().sort((a, b) => a.localeCompare(b)) : keys.slice().sort((a, b) => v(b) - v(a));
+  };
+  // freeze each started player's rank at the last save before we saw his game start (never moves after)
+  function freeze(e, rowBy) {
+    if (!e || !e.order) return false;
+    let ch = false; e.frozen = e.frozen || {};
+    e.order.forEach((k, i) => { if (started(rowBy.get(k)) && !(k in e.frozen) && !(e.late || []).includes(k)) { e.frozen[k] = i + 1; ch = true; } });
+    return ch;
+  }
+  // the four orders as rank maps over the scored players (ranked before kickoff, suited up, final)
+  function score(e, rowBy) {
+    if (!e || !e.order) return null;
+    const late = new Set(e.late || []), fz = e.frozen || {};
+    const keys = e.order.filter((k) => !late.has(k));
+    const done = keys.filter((k) => suited(rowBy.get(k)));
+    const final = keys.filter((k) => started(rowBy.get(k))).length;
+    const my = new Map(keys.map((k) => [k, k in fz ? fz[k] : e.order.indexOf(k) + 1]));
+    const act = rankBy(done, (k) => num(rowBy.get(k).act_ppr));
+    const src = {
+      You: (k) => -my.get(k),
+      Model: (k) => num(rowBy.get(k).proj_model, num(rowBy.get(k).proj_ppr)),
+      Experts: (k) => (isNaN(num(rowBy.get(k).expert_rank)) ? null : -num(rowBy.get(k).expert_rank)),
+      Official: (k) => num(rowBy.get(k).proj_ppr),
+    };
+    const res = {};
+    Object.entries(src).forEach(([nm, f]) => {
+      const ok = done.filter((k) => f(k) != null && !isNaN(f(k)));
+      if (ok.length < 5) { res[nm] = { rho: NaN, miss: NaN, n: ok.length }; return; }
+      const rk = rankBy(ok, f), ar = rankBy(ok, (k) => num(rowBy.get(k).act_ppr));
+      res[nm] = { rho: spearman(ok.map((k) => -rk.get(k)), ok.map((k) => num(rowBy.get(k).act_ppr))),
+        miss: d3.mean(ok, (k) => Math.abs(rk.get(k) - ar.get(k))), n: ok.length };
+    });
+    return { res, done: done.length, total: keys.length, final, act };
+  }
+
+  const weekBox = document.getElementById('mr-weeks'), posBox = document.getElementById('mr-pos');
+  const tbody = document.querySelector('#mr-table tbody'), stat = document.getElementById('mr-status');
+  const chip = (box, label, on, fn) => { const b = document.createElement('button'); b.className = 'nf-chip'; b.textContent = label; b.setAttribute('aria-pressed', on); b.addEventListener('click', fn); box.append(b, ' '); };
+  const td = (tr, text, cls) => { const c = document.createElement('td'); if (cls) c.className = cls; if (text instanceof Node) c.append(text); else c.textContent = text; tr.appendChild(c); return c; };
+
+  function draw() {
+    const P = dash.data('projections');
+    if (P.status !== 'ok') { tbody.replaceChildren(); return; }
+    const weeks = [...new Set(P.data.map((r) => +r.week))].sort((a, b) => a - b);
+    if (st.week == null || !weeks.includes(st.week)) st.week = weeks[weeks.length - 1];
+    weekBox.replaceChildren(); weeks.forEach((w) => chip(weekBox, 'Week ' + w, w === st.week, () => { if (st.dirty && !confirmLeave()) return; st.week = w; st.order = null; draw(); }));
+    posBox.replaceChildren(); POS.forEach((p) => chip(posBox, p, p === st.pos, () => { if (st.dirty && !confirmLeave()) return; st.pos = p; st.order = null; draw(); }));
+    const rows = rowsFor(P, st.week, st.pos), rowBy = new Map(rows.map((r) => [r.key, r]));
+    let e = all[ek()];
+    if (e && freeze(e, rowBy)) store(all);
+    if (!st.order) { st.order = e ? e.order.filter((k) => rowBy.has(k)) : startOrder(poolFor(rows), expReady(rows) ? 'pros' : 'official', rowBy); st.dirty = false; }
+    document.getElementById('mr-title').textContent = 'My Week ' + st.week + ' ' + st.pos + ' rankings';
+    const nStarted = st.order.filter((k) => started(rowBy.get(k))).length;
+    stat.textContent = (e ? 'Saved ' + d3.timeFormat('%a %b %-d, %-I:%M %p')(new Date(e.saved)) + '.' : 'Not saved yet — the starting order is the ' + (expReady(rows) ? 'experts\u2019' : 'official ranking (the experts\u2019 weekly ranks aren\u2019t in yet)') + '.')
+      + (st.dirty ? ' Unsaved changes.' : '') + (nStarted ? ' ' + nStarted + ' of ' + st.order.length + ' games have started.' : '')
+      + (e && (e.late || []).length ? ' ' + e.late.length + ' players weren’t ranked before kickoff and don’t count.' : '');
+    document.getElementById('mr-table').classList.toggle('mr-peeking', st.peek);
+    // score tiles
+    const sc = score(e, rowBy), box = document.getElementById('mr-score'); box.replaceChildren();
+    if (sc && sc.done >= 5) {
+      const best = d3.max(Object.values(sc.res), (x) => x.rho);
+      Object.entries(sc.res).forEach(([nm, x]) => {
+        const t = document.createElement('div'); t.className = 'nf-card nf-tile' + (x.rho === best ? ' mr-best' : '');
+        t.innerHTML = '<div class="nf-label"></div><div class="nf-big"></div><div class="nf-sub"></div>';
+        t.children[0].textContent = nm + (x.rho === best ? ' · best' : '');
+        t.children[1].textContent = isNaN(x.rho) ? '—' : f3(x.rho);
+        t.children[2].textContent = (isNaN(x.miss) ? '' : 'Off by ' + f1(x.miss) + ' places on average · ') + x.n + ' of ' + sc.total + ' players scored';
+        box.appendChild(t);
+      });
+    }
+    // table
+    const fz = (e && e.frozen) || {}, late = new Set((e && e.late) || []);
+    const expR = rankBy(st.order, (k) => (isNaN(num(rowBy.get(k)?.expert_rank)) ? null : -num(rowBy.get(k).expert_rank)));
+    const modR = rankBy(st.order, (k) => num(rowBy.get(k)?.proj_model, num(rowBy.get(k)?.proj_ppr)));
+    const actR = rankBy(st.order.filter((k) => suited(rowBy.get(k))), (k) => num(rowBy.get(k).act_ppr));
+    tbody.replaceChildren();
+    st.order.forEach((k, i) => {
+      const r = rowBy.get(k), lock = started(r) && !!e, tr = document.createElement('tr');
+      tr.dataset.key = k; tr.dataset.pos = st.pos;
+      if (lock) tr.classList.add('mr-locked'); else { tr.draggable = true; }
+      const inp = document.createElement('input'); inp.type = 'number'; inp.min = 1; inp.max = st.order.length; inp.value = k in fz ? fz[k] : i + 1; inp.className = 'mr-rank';
+      inp.disabled = lock; inp.addEventListener('change', () => move(k, Math.max(1, Math.min(st.order.length, +inp.value || i + 1)) - 1));
+      td(tr, inp);
+      td(tr, (r ? r.player + ' (' + r.team + ')' : k) + (late.has(k) ? ' · not counted' : ''), 'nf-l nf-name');
+      td(tr, r ? (r.venue === 'Home' ? 'vs ' : '@ ') + r.opp : '', 'nf-l nf-muted');
+      td(tr, (r && r.status) || '', 'nf-l nf-muted');
+      const mv = td(tr, '');
+      if (!lock) [['▲', -1], ['▼', 1]].forEach(([t, d]) => { const b = document.createElement('button'); b.className = 'mr-mv'; b.textContent = t; b.setAttribute('aria-label', d < 0 ? 'Move up' : 'Move down'); b.addEventListener('click', () => move(k, st.order.indexOf(k) + d)); mv.appendChild(b); });
+      else mv.textContent = '🔒';
+      td(tr, expR.get(k) && !isNaN(num(r?.expert_rank)) ? String(expR.get(k)) : '—', 'mr-peek');
+      td(tr, String(modR.get(k) || '—'), 'mr-peek');
+      td(tr, suited(r) ? f1(num(r.act_ppr)) : (r && /Inactive|Did not play/.test(r.status) ? 'DNP' : '—'), suited(r) ? '' : 'nf-muted');
+      td(tr, actR.get(k) ? String(actR.get(k)) : '—', actR.get(k) ? '' : 'nf-muted');
+      tr.addEventListener('dragstart', (ev) => { tr.classList.add('mr-drag'); ev.dataTransfer.setData('text/plain', k); ev.dataTransfer.effectAllowed = 'move'; });
+      tr.addEventListener('dragend', () => tr.classList.remove('mr-drag'));
+      tr.addEventListener('dragover', (ev) => { ev.preventDefault(); tr.classList.add('mr-over'); });
+      tr.addEventListener('dragleave', () => tr.classList.remove('mr-over'));
+      tr.addEventListener('drop', (ev) => { ev.preventDefault(); tr.classList.remove('mr-over'); const from = ev.dataTransfer.getData('text/plain'); if (from && from !== k) move(from, st.order.indexOf(k)); });
+      tbody.appendChild(tr);
+    });
+    drawRecord(P);
+  }
+  function move(k, to) {
+    const i = st.order.indexOf(k); if (i < 0 || to < 0 || to >= st.order.length || to === i) { draw(); return; }
+    st.order.splice(i, 1); st.order.splice(to, 0, k); st.dirty = true; draw();
+  }
+  function save() {
+    const P = dash.data('projections'); if (P.status !== 'ok') return;
+    const rowBy = new Map(rowsFor(P, st.week, st.pos).map((r) => [r.key, r]));
+    const prev = all[ek()], e = { order: st.order.slice(), saved: Date.now(), frozen: (prev && prev.frozen) || {}, late: (prev && prev.late) || [] };
+    if (prev) freeze(prev, rowBy), Object.assign(e.frozen, prev.frozen);
+    // players whose game had already started when they were first saved don't count
+    st.order.forEach((k) => { if (started(rowBy.get(k)) && !(k in e.frozen) && !e.late.includes(k)) e.late.push(k); });
+    all[ek()] = e; st.dirty = false;
+    if (!store(all)) stat.textContent = 'Couldn’t save in this browser (storage is off). Use Export to keep a copy.';
+    draw();
+  }
+  let resetArm = null;
+  function confirmLeave() { return window.confirm('You have unsaved changes to this ranking. Leave without saving?'); }
+  function drawRecord(P) {
+    const tb = document.querySelector('#mr-record tbody'); tb.replaceChildren();
+    const rows = Object.entries(all).map(([k, e]) => { const [, w, pos] = k.split('|'); return { w: +w, pos, e }; }).sort((a, b) => b.w - a.w || POS.indexOf(a.pos) - POS.indexOf(b.pos));
+    const tot = { You: [], Model: [], Experts: [], Official: [] };
+    rows.forEach(({ w, pos, e }) => {
+      const rowBy = new Map(rowsFor(P, w, pos).map((r) => [r.key, r])), sc = score(e, rowBy);
+      if (!sc || sc.done < Math.max(5, sc.total / 2)) return;
+      const tr = document.createElement('tr');
+      td(tr, String(w)); td(tr, pos, 'nf-l'); td(tr, sc.done + ' of ' + sc.total);
+      const best = d3.max(Object.values(sc.res), (x) => x.rho);
+      Object.keys(tot).forEach((nm) => { const x = sc.res[nm]; if (!isNaN(x.rho)) tot[nm].push(x.rho); td(tr, isNaN(x.rho) ? '—' : f3(x.rho), x.rho === best ? 'nf-good' : ''); });
+      td(tr, Object.keys(tot).filter((nm) => sc.res[nm].rho === best).join(', '), 'nf-l');
+      tb.appendChild(tr);
+    });
+    if (!tb.childElementCount) { const tr = document.createElement('tr'); const c = td(tr, 'Nothing scored yet — save a ranking, and it shows here once the games are played.', 'nf-l nf-muted'); c.colSpan = 8; tb.appendChild(tr); return; }
+    const tr = document.createElement('tr'); tr.className = 'nf-total-row';
+    td(tr, 'Average'); td(tr, '', 'nf-l'); td(tr, '');
+    const avg = Object.fromEntries(Object.entries(tot).map(([k, v]) => [k, v.length ? d3.mean(v) : NaN])), best = d3.max(Object.values(avg));
+    Object.keys(tot).forEach((nm) => td(tr, isNaN(avg[nm]) ? '—' : f3(avg[nm]), avg[nm] === best ? 'nf-good' : ''));
+    td(tr, Object.keys(avg).filter((k) => avg[k] === best).join(', '), 'nf-l');
+    tb.appendChild(tr);
+  }
+  document.getElementById('mr-save').addEventListener('click', save);
+  document.querySelectorAll('#mr-actions [data-start]').forEach((b) => b.addEventListener('click', () => {
+    const P = dash.data('projections'); if (P.status !== 'ok') return;
+    if (resetArm !== b) { resetArm = b; const t = b.textContent; b.textContent = 'Reorder by ' + t + '?'; setTimeout(() => { if (resetArm === b) { resetArm = null; b.textContent = t; } }, 3000); return; }
+    resetArm = null; b.textContent = { pros: 'Experts', official: 'Official', model: 'Model', abc: 'A–Z' }[b.dataset.start];
+    const rows = rowsFor(P, st.week, st.pos), rowBy = new Map(rows.map((r) => [r.key, r])), e = all[ek()];
+    const keys = st.order || poolFor(rows);
+    // locked players keep their spots; the rest are reordered around them
+    const lockedAt = new Map(keys.map((k, i) => [k, i]).filter(([k]) => e && started(rowBy.get(k))));
+    const free = startOrder(keys.filter((k) => !lockedAt.has(k)), b.dataset.start, rowBy), out = new Array(keys.length);
+    lockedAt.forEach((i, k) => { out[i] = k; });
+    let j = 0; for (let i = 0; i < out.length; i++) if (!out[i]) out[i] = free[j++];
+    st.order = out; st.dirty = true; draw();
+  }));
+  document.getElementById('mr-peek').addEventListener('change', (ev) => { st.peek = ev.target.checked; draw(); });
+  document.getElementById('mr-export').addEventListener('click', () => {
+    const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([JSON.stringify(all, null, 1)], { type: 'application/json' }));
+    a.download = 'fantasy-oracle-my-rankings.json'; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+  });
+  document.getElementById('mr-import').addEventListener('change', async (ev) => {
+    const f = ev.target.files[0]; if (!f) return;
+    try { const o = JSON.parse(await f.text()); Object.entries(o).forEach(([k, v]) => { if (/^\d{4}\|\d+\|(QB|RB|WR|TE)$/.test(k) && v && Array.isArray(v.order)) { const cur = all[k]; if (!cur || (v.saved || 0) >= (cur.saved || 0)) all[k] = v; } });
+      store(all); st.order = null; stat.textContent = 'Imported.'; draw(); } catch (e) { stat.textContent = 'That file isn’t a rankings export.'; }
+    ev.target.value = '';
+  });
+  window.addEventListener('beforeunload', (ev) => { if (st.dirty) { ev.preventDefault(); ev.returnValue = ''; } });
+  dash.onData(() => { if (!st.dirty) st.order = null; draw(); });
+  draw();
+  window.foMyRanks = { draw };
+})();
+</script>
 <script>
 // Readability layer: position colors from the dashboard's series colors (the same ones the projection bars use),
 // long explanations folded into "How to read this", position chips and row stripes, sticky name columns on phones.

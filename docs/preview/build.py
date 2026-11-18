@@ -37,7 +37,7 @@ def card(html, cid):
     sys.exit("unbalanced " + cid)
 
 
-S = {k: section(k) for k in ["team", "projections", "ros", "trade", "matchups", "style", "weather", "experts", "model"]}
+S = {k: section(k) for k in ["team", "projections", "ros", "trade", "myranks", "matchups", "style", "weather", "experts", "model"]}
 
 # --------------------------------------------------------------- scripts (everything after the page markup)
 scripts = src[src.index("<script>", src.index('<div class="nf-page">')):src.rindex("</body>")]
@@ -108,7 +108,7 @@ more["lineup"] = ('<div class="nf-controls hide-here" id="team-leagues" role="gr
                   '<p class="mp-intro">The full start / sit and waiver tables behind the My Team page: the Vegas line, '
                   'notes where your Yahoo lineup differs from the best one, close calls, and each free agent\'s upgrade over your weakest player.</p>'
                   + card(team, "team-lineup-card") + card(team, "team-waiver-card"))
-more["finder"] = card(team, "team-trades-card")
+more["finder"] = card(team, "team-trades-card") + card(team, "team-needs-card")
 proj_inner = strip_section(proj)
 more["weekly"] = ('<p class="mp-intro">Everything on the old weekly page: the full sortable projection table with search and game '
                   'status filters, this week\'s tiles and receiver usage. Weeks here follow the week buttons below.</p>' + proj_inner)
@@ -117,7 +117,7 @@ trade_inner = strip_section(trade).replace('<div id="ta-leagues"', '<div class="
 more["tradedetails"] = ('<p class="mp-intro">The complete trade analysis for the trade checked on the Trade Analyzer page (same league, '
                         'same teams and players): the price in trade and actual value, the value check, draft picks (The League, BDSM League), '
                         'both lineups, the league power rankings and the playoff predictor.</p>' + trade_inner)
-for k in ["matchups", "style", "weather", "experts", "model"]:
+for k in ["myranks", "matchups", "style", "weather", "experts", "model"]:
     more[k] = strip_section(S[k])
 more["history"] = open(os.path.join(HERE, "history.html"), encoding="utf-8").read()
 
