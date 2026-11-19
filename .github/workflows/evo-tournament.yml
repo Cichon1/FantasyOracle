@@ -1,0 +1,129 @@
+# Evolutionary strategy tournament (model/lab18_evo.py): draft, lineups, waivers, K / DEF streaming and trades.
+# Start it by editing automation/evo_request.txt (KEY=VALUE lines become environment variables) or by hand.
+# prep builds the inputs once; ISLANDS independent populations evolve in parallel; final scores every island's best on
+# 2025 and 2026 (never trained on) and commits the results to automation/history/evo/.
+name: Evolution tournament
+
+on:
+  push:
+    paths: ["automation/evo_request.txt"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  prep:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    outputs:
+      islands: ${{ steps.cfg.outputs.islands }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - id: cfg
+        run: |
+          n=$(grep -E '^ISLANDS=' automation/evo_request.txt | cut -d= -f2 || true); n=${n:-16}
+          echo "islands=$(python -c "print(list(range(1, $n + 1)))")" >> "$GITHUB_OUTPUT"
+      - name: Build inputs
+        working-directory: model
+        run: |
+          pip install -q pandas pyarrow lightgbm scipy
+          bash download_data.sh 2026
+          NFL_AS_AVAILABLE=1 FP_DATA=fpdata python build_frame_cache.py 2026 11 frame.parquet
+          python lab11_preds.py frame.parquet
+          python lab13_preseason.py
+          python lab17_kdef.py
+          python -c "import pandas as pd, lab5 as L; pd.read_parquet('frame.parquet', columns=['season','week','season_type','position','expected','ecr_week_pos_rank', L.TARGET]).to_parquet('frame_small.parquet')"
+          mkdir -p ../evo_inputs/lab ../evo_inputs/data ../evo_inputs/fpdata
+          cp lab/sim_rows.parquet lab/preseason_proj.parquet lab/kdef_weekly.parquet ../evo_inputs/lab/
+          cp frame_small.parquet ../evo_inputs/
+          cp data/games.parquet ../evo_inputs/data/
+          cp fpdata/db_fpecr.parquet fpdata/db_playerids.csv ../evo_inputs/fpdata/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: evo-inputs
+          path: evo_inputs
+          retention-days: 7
+
+  island:
+    needs: prep
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    strategy:
+      fail-fast: false
+      matrix:
+        island: ${{ fromJson(needs.prep.outputs.islands) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/download-artifact@v4
+        with:
+          name: evo-inputs
+          path: evo_inputs
+      - name: Evolve
+        working-directory: model
+        run: |
+          pip install -q pandas pyarrow scipy
+          mkdir -p lab data fpdata
+          cp ../evo_inputs/lab/* lab/ && cp ../evo_inputs/data/* data/ && cp ../evo_inputs/fpdata/* fpdata/
+          grep -E '^[A-Z_]+=' ../automation/evo_request.txt | grep -v '^ISLANDS=' >> "$GITHUB_ENV" || true
+      - name: Run
+        working-directory: model
+        run: |
+          export EVO_SEED=${{ matrix.island }}
+          export EVO_MINUTES=${EVO_MINUTES:-320}
+          export EVO_GENERATIONS=${EVO_GENERATIONS:-100000}
+          python lab18_evo.py ../evo_inputs/frame_small.parquet ../island_out/island_${{ matrix.island }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: island-${{ matrix.island }}
+          path: island_out
+          retention-days: 14
+
+  final:
+    needs: island
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/download-artifact@v4
+        with:
+          name: evo-inputs
+          path: evo_inputs
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: island-*
+          path: islands
+          merge-multiple: true
+      - name: Final scoring
+        working-directory: model
+        run: |
+          pip install -q pandas pyarrow scipy
+          mkdir -p lab data fpdata
+          cp ../evo_inputs/lab/* lab/ && cp ../evo_inputs/data/* data/ && cp ../evo_inputs/fpdata/* fpdata/
+          grep -E '^FINAL_[A-Z_]+=' ../automation/evo_request.txt >> "$GITHUB_ENV" || true
+      - name: Score
+        working-directory: model
+        run: |
+          OUT=../automation/history/evo/$(date -u +%Y-%m-%d_%H%M)
+          mkdir -p "$OUT/islands"
+          python lab18_final.py ../evo_inputs/frame_small.parquet "$OUT" ../islands/island_*
+          for d in ../islands/island_*; do n=$(basename $d); mkdir -p "$OUT/islands/$n"; cp $d/*.json "$OUT/islands/$n/" 2>/dev/null || true; done
+      - name: Save
+        run: |
+          git config user.name "fantasy-oracle-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add automation/history/evo
+          git diff --cached --quiet && exit 0
+          git commit -m "Evolution tournament results"
+          for i in 1 2 3; do git pull --rebase -X theirs origin ${{ github.ref_name }} && git push && break; sleep 10; done
