@@ -446,7 +446,11 @@ html, body { overflow-x: clip; }
       <b>Fleece</b>: trades that help you and actually hurt them, but look good to them going by market value (the
       experts' rest-of-season ranks and, where available, what real fantasy trades pay). <b>Long shots</b>: trades that
       hurt them a lot but look roughly fair on market value — the ones a manager who doesn't dig into the numbers
-      might accept. "Looks like" is their change going by market value; "Them / wk" is what our model says it really does. Values are rest-of-season points per week in this
+      might accept. <b>Escape last place</b>: the trades that most lower your chance of finishing with the league's worst
+      regular-season record, each checked in the trade analyzer's season simulation with both lineups after the trade (a
+      trade that helps a team also near the bottom counts against you; their odds are shown when they're 10%+). Only trades
+      that look roughly fair or better to them by market value (within 1 point per week) are listed. It uses one league-wide
+      weekly swing for every team, so its odds can differ by a few points from the Playoff predictor's, which gives each team its own. "Looks like" is their change going by market value; "Them / wk" is what our model says it really does. Values are rest-of-season points per week in this
       league's scoring (missed games count as zero), filled into each team's lineup slots before and after the trade.
       One-for-one, two-for-one and one-for-two; for uneven trades the side getting two players has to drop someone, which
       isn't counted. Open the Trade analyzer to check a trade in full.</p>
@@ -454,7 +458,7 @@ html, body { overflow-x: clip; }
       <div class="nf-controls" id="team-trade-kind" role="group" aria-label="Trade size"></div>
       <div class="nf-tablebox">
         <table class="nf-table" id="team-trade-table">
-          <thead><tr><th class="nf-l">You give</th><th class="nf-l">You get</th><th class="nf-l">With</th><th>You / wk</th><th>Them / wk</th><th>Looks like to them</th></tr></thead>
+          <thead><tr><th class="nf-l">You give</th><th class="nf-l">You get</th><th class="nf-l">With</th><th>You / wk</th><th>Them / wk</th><th id="tt-look-th">Looks like to them</th><th id="tt-last-th" hidden>Your last place</th></tr></thead>
           <tbody></tbody>
         </table>
       </div>
@@ -1756,7 +1760,7 @@ window.foAvail = (() => {
   }
   // ---------------------------------------------------------------- trade finder
   const tst = { kind: 'All', mode: 'Win-win' }, kindBox = document.getElementById('team-trade-kind'), modeBox = document.getElementById('team-trade-mode');
-  ['Win-win', 'Fleece', 'Long shots'].forEach((k) => {
+  ['Win-win', 'Fleece', 'Long shots', 'Escape last place'].forEach((k) => {
     const b = document.createElement('button'); b.className = 'nf-chip'; b.textContent = k; b.setAttribute('aria-pressed', k === tst.mode);
     b.addEventListener('click', () => { tst.mode = k; modeBox.querySelectorAll('button').forEach((c) => c.setAttribute('aria-pressed', c.textContent === k)); drawTrades(); });
     modeBox.append(b, ' ');
@@ -1775,6 +1779,9 @@ window.foAvail = (() => {
     const lg = L.data.find((l) => String(l.league_id) === st.league);
     const key = st.league + '|' + RO.data.length + '|' + R.data.length + '|' + d3.max(RO.data, (p) => p.pulled_at);
     if (tradeCache.key !== key) tradeCache = { key, rows: findTrades(lg, RO.data, R.data, TM.status === 'ok' ? TM.data : []) };
+    const lastTh = document.getElementById('tt-last-th'), lookTh = document.getElementById('tt-look-th');
+    if (lastTh) lastTh.hidden = tst.mode !== 'Escape last place';
+    if (tst.mode === 'Escape last place') { drawEscape(tb, lg); return; }
     const rows = (tradeCache.rows[tst.mode] || []).filter((t) => tst.kind === 'All' || t.kind === tst.kind).slice(0, 20);
     if (!rows.length) { message(tb, 6, 'None found for this league right now. Try another size or check back after the next roster pull.'); return; }
     rows.forEach((t) => {
@@ -1785,6 +1792,58 @@ window.foAvail = (() => {
       cell(tr, sg(t.me), 'nf-good');
       cell(tr, sg(t.them), t.them >= 0.25 ? 'nf-good' : t.them < 0 ? 'nf-bad' : 'nf-muted');
       cell(tr, sg(t.look), t.look >= 0 ? 'nf-good' : 'nf-muted');
+      tb.appendChild(tr);
+    });
+  }
+  // "Escape last place" (Nov 19, 2026): the candidate trades that most improve your lineup, each run through the
+  // trade analyzer's season simulation (remaining Yahoo schedule, 4,000 seasons, same random draws) with your and your
+  // partner's lineups after the trade; ranked by your chance of finishing last (worst regular-season record).
+  let escCache = { key: null, base: null, rows: [] };
+  function drawEscape(tb, lg) {
+    const S = dash.data('league_standings'), SC = dash.data('league_schedule'), Dr = window.taDraft;
+    if (!Dr || S.status !== 'ok' || SC.status !== 'ok' || !S.data.some((r) => String(r.league_id) === st.league)) {
+      message(tb, 7, 'Needs this league\'s standings and schedule (ask Claude to update your teams).'); return;
+    }
+    const tr0 = tradeCache.rows;
+    if (!tr0 || !tr0.baseStr) { message(tb, 7, '—'); return; }
+    const ekey = tradeCache.key + '|' + S.data.length + '|' + SC.data.length + '|' + (S.data[0] && S.data[0].pulled_at);
+    if (escCache.key !== ekey) {
+      const D = Dr.setup(st.league, S.data, SC.data, [], []);
+      if (!D || !D.sched.length) { message(tb, 7, 'The regular season is over: no games left that decide last place.'); return; }
+      const m = String(lg.playoffs || '').match(/(\d+)\s*teams/i); D.po = m ? +m[1] : 6;
+      const from = D.sched[0].week;
+      // the league's weekly swing (actual scores around Yahoo's projections so far), as the trade analyzer uses
+      const res = SC.data.filter((m) => String(m.league_id) === st.league && m.status === 'final')
+        .flatMap((m) => [num(m.points1) - num(m.proj1), num(m.points2) - num(m.proj2)]);
+      const mu0 = res.reduce((t, x) => t + x, 0) / Math.max(1, res.length);
+      const emp = res.length >= 12 ? Math.sqrt(res.reduce((t, x) => t + (x - mu0) ** 2, 0) / (res.length - 1)) : 22;
+      const sdMap = new Map(D.teams.map((t) => [t, emp]));
+      const lastOf = (sim, id) => (sim.has(id) ? sim.get(id).last : NaN);
+      const base = Dr.simulate(D, tr0.baseStr, from, sdMap);
+      const rows = (tr0['Escape last place'] || []).map((t) => {
+        const str = new Map(tr0.baseStr);
+        str.set(tr0.meId, tr0.baseStr.get(tr0.meId) + t.me); str.set(t.tid, tr0.baseStr.get(t.tid) + t.them);
+        const sim = Dr.simulate(D, str, from, sdMap);
+        return Object.assign({}, t, { last0: lastOf(base, tr0.meId), last1: lastOf(sim, tr0.meId),
+          plast0: lastOf(base, t.tid), plast1: lastOf(sim, t.tid) });
+      });
+      rows.sort((a, b) => a.last1 - b.last1 || b.me - a.me);
+      escCache = { key: ekey, base: base.has(tr0.meId) ? base.get(tr0.meId).last : null, rows };
+    }
+    const pct = (p) => (p < 0.005 ? '<1%' : p > 0.995 ? '>99%' : d3.format('.0%')(p));
+    const rows = escCache.rows.filter((t) => tst.kind === 'All' || t.kind === tst.kind).slice(0, 20);
+    if (escCache.base != null && escCache.base < 0.02) { message(tb, 7, 'Your chance of finishing last is ' + pct(escCache.base) + ' already — no trade needed for that.'); return; }
+    if (!rows.length) { message(tb, 7, 'None found that improve your lineup. Try another size or check back after the next roster pull.'); return; }
+    rows.forEach((t) => {
+      const tr = document.createElement('tr');
+      cell(tr, t.give.map((x) => x.name + ' (' + x.pos + ')').join(' + '), 'nf-l');
+      cell(tr, t.get.map((x) => x.name + ' (' + x.pos + ')').join(' + '), 'nf-l');
+      cell(tr, t.team + (t.plast0 >= 0.1 ? ' · their last place ' + pct(t.plast0) + ' → ' + pct(t.plast1) : ''), 'nf-l nf-muted');
+      cell(tr, sg(t.me), 'nf-good');
+      cell(tr, sg(t.them), t.them >= 0.25 ? 'nf-good' : t.them < 0 ? 'nf-bad' : 'nf-muted');
+      cell(tr, sg(t.look), t.look >= 0 ? 'nf-good' : 'nf-muted');
+      const d = t.last1 - t.last0;
+      cell(tr, pct(t.last0) + ' → ' + pct(t.last1) + ' (' + (d <= 0 ? '−' : '+') + d3.format('.0f')(Math.abs(d) * 100) + ')', d <= -0.005 ? 'nf-good' : d >= 0.005 ? 'nf-bad' : 'nf-muted');
       tb.appendChild(tr);
     });
   }
@@ -1912,10 +1971,13 @@ window.foAvail = (() => {
     };
     const me = [...teams.values()].find((t) => t.me);
     if (!me) return [];
-    const base = lineup(me.players), out = { 'Win-win': [], 'Fleece': [], 'Long shots': [] };
+    const base = lineup(me.players), out = { 'Win-win': [], 'Fleece': [], 'Long shots': [], 'Escape last place': [] };
+    // every team's best-lineup points per week now (for the season simulation behind "Escape last place")
+    const baseStr = new Map([...teams].map(([id, t]) => [String(id), lineup(t.players)]));
+    const meId = String([...teams].find(([, t]) => t.me)[0]);
     const mine = me.players.slice().sort((a, b) => b.v - a.v);
     const combos = (arr, k) => (k === 1 ? arr.map((x) => [x]) : arr.flatMap((x, i) => arr.slice(i + 1).map((y) => [x, y])));
-    for (const t of teams.values()) {
+    for (const [tid, t] of teams) {
       if (t.me) continue;
       const tb0 = lineup(t.players), tm0 = lineup(t.players, 'm'), theirs = t.players.slice().sort((a, b) => b.v - a.v);
       for (const [ng, nr, kind] of [[1, 1, '1 for 1'], [2, 1, '2 for 1'], [1, 2, '1 for 2']]) {
@@ -1924,7 +1986,8 @@ window.foAvail = (() => {
           const m2 = me.players.filter((x) => !g.includes(x)).concat(r), t2 = t.players.filter((x) => !r.includes(x)).concat(g);
           const dm = lineup(m2) - base;
           if (dm < 0.5) continue;
-          const dt = lineup(t2) - tb0, look = lineup(t2, 'm') - tm0, row = { give: g, get: r, team: t.name, me: dm, them: dt, look, kind };
+          const dt = lineup(t2) - tb0, look = lineup(t2, 'm') - tm0, row = { give: g, get: r, team: t.name, tid: String(tid), me: dm, them: dt, look, kind };
+          if (look >= -1) out['Escape last place'].push(row);   // only trades that look roughly fair or better to them
           if (dt >= 0.25) out['Win-win'].push(row);
           else if (dt < 0 && look >= 0.25) out['Fleece'].push(row);
           else if (dm >= 1 && dt <= -1 && look >= -0.75) out['Long shots'].push(row);
@@ -1933,7 +1996,8 @@ window.foAvail = (() => {
     }
     // best first by what the trade adds for both sides together (both must gain); at most two per trade partner and
     // per player you'd get, so the list shows different ideas instead of one deal in ten versions
-    const rank = { 'Win-win': (t) => t.me + t.them, 'Fleece': (t) => t.me + t.look, 'Long shots': (t) => t.me + t.look };
+    const rank = { 'Win-win': (t) => t.me + t.them, 'Fleece': (t) => t.me + t.look, 'Long shots': (t) => t.me + t.look,
+      'Escape last place': (t) => t.me };
     const res = {};
     for (const [mode, list] of Object.entries(out)) {
       list.sort((a, b) => rank[mode](b) - rank[mode](a));
@@ -1943,11 +2007,12 @@ window.foAvail = (() => {
         if ((perTeam.get(t.team + t.kind) || 0) >= 2 || (perGet.get(gk + t.kind) || 0) >= 2) continue;
         perTeam.set(t.team + t.kind, (perTeam.get(t.team + t.kind) || 0) + 1); perGet.set(gk + t.kind, (perGet.get(gk + t.kind) || 0) + 1);
         kept.push(t);
-        if (kept.length >= 60) break;
+        if (kept.length >= (mode === 'Escape last place' ? 80 : 60)) break;
       }
       res[mode] = kept;
     }
     res.all = out['Win-win'];      // every win-win (all sizes), for the trade partners table
+    res.baseStr = baseStr; res.meId = meId;
     return res;
   }
   dash.onData(draw);
