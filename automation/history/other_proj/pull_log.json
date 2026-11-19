@@ -54,5 +54,61 @@
   "nonzero": 5773,
   "weeks": 18,
   "errors": []
+ },
+ "sleeper_kdef_2023": {
+  "at": "2026-11-19T18:58:01+00:00",
+  "rows": 1019,
+  "nonzero": 1019,
+  "weeks": 17,
+  "errors": []
+ },
+ "espn_kdef_2023": {
+  "at": "2026-11-19T18:58:20+00:00",
+  "rows": 1661,
+  "nonzero": 987,
+  "weeks": 17,
+  "errors": []
+ },
+ "sleeper_kdef_2024": {
+  "at": "2026-11-19T18:58:32+00:00",
+  "rows": 1015,
+  "nonzero": 1015,
+  "weeks": 17,
+  "errors": []
+ },
+ "espn_kdef_2024": {
+  "at": "2026-11-19T18:58:52+00:00",
+  "rows": 1631,
+  "nonzero": 1024,
+  "weeks": 17,
+  "errors": []
+ },
+ "sleeper_kdef_2025": {
+  "at": "2026-11-19T18:59:03+00:00",
+  "rows": 1016,
+  "nonzero": 1016,
+  "weeks": 17,
+  "errors": []
+ },
+ "espn_kdef_2025": {
+  "at": "2026-11-19T18:59:22+00:00",
+  "rows": 1305,
+  "nonzero": 1021,
+  "weeks": 17,
+  "errors": []
+ },
+ "sleeper_kdef_2026": {
+  "at": "2026-11-19T18:59:35+00:00",
+  "rows": 1086,
+  "nonzero": 1086,
+  "weeks": 18,
+  "errors": []
+ },
+ "espn_kdef_2026": {
+  "at": "2026-11-19T19:00:00+00:00",
+  "rows": 1368,
+  "nonzero": 1088,
+  "weeks": 18,
+  "errors": []
  }
 }
