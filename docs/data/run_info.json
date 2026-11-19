@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-19T06:03:21+00:00",
+ "updated": "2026-11-19T07:13:20+00:00",
  "season": 2026,
  "projection_week": 11,
  "results_week": 10,
@@ -8,7 +8,7 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 42,
+   "seconds": 41,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 32,
+   "seconds": 29,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 15,
+   "seconds": 13,
    "ok": true
   }
  ],
@@ -86,7 +86,7 @@
    "WR/TE": 52
   },
   "experts_ros_date": "2026-11-18 00:00:00",
-  "seconds": 14,
+  "seconds": 12,
   "model_cache": {
    "hit": 18,
    "miss": 0,
