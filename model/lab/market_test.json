@@ -1,0 +1,250 @@
+{
+ "players_by_week": {
+  "7": 144,
+  "8": 147,
+  "9": 150,
+  "10": 125
+ },
+ "rank_corr": {
+  "cells": [
+   {
+    "week": 7,
+    "pos": "QB",
+    "n": 20,
+    "ours": 0.253,
+    "model": 0.31,
+    "experts": 0.206,
+    "market": 0.2
+   },
+   {
+    "week": 7,
+    "pos": "RB",
+    "n": 42,
+    "ours": 0.612,
+    "model": 0.605,
+    "experts": 0.649,
+    "market": 0.647
+   },
+   {
+    "week": 7,
+    "pos": "TE",
+    "n": 20,
+    "ours": 0.585,
+    "model": 0.585,
+    "experts": 0.618,
+    "market": 0.556
+   },
+   {
+    "week": 7,
+    "pos": "WR",
+    "n": 62,
+    "ours": 0.612,
+    "model": 0.625,
+    "experts": 0.579,
+    "market": 0.578
+   },
+   {
+    "week": 8,
+    "pos": "QB",
+    "n": 21,
+    "ours": 0.348,
+    "model": 0.343,
+    "experts": 0.371,
+    "market": 0.414
+   },
+   {
+    "week": 8,
+    "pos": "RB",
+    "n": 41,
+    "ours": 0.657,
+    "model": 0.657,
+    "experts": 0.66,
+    "market": 0.646
+   },
+   {
+    "week": 8,
+    "pos": "TE",
+    "n": 21,
+    "ours": 0.365,
+    "model": 0.352,
+    "experts": 0.483,
+    "market": 0.412
+   },
+   {
+    "week": 8,
+    "pos": "WR",
+    "n": 64,
+    "ours": 0.56,
+    "model": 0.588,
+    "experts": 0.52,
+    "market": 0.524
+   },
+   {
+    "week": 9,
+    "pos": "QB",
+    "n": 24,
+    "ours": 0.571,
+    "model": 0.614,
+    "experts": 0.585,
+    "market": 0.569
+   },
+   {
+    "week": 9,
+    "pos": "RB",
+    "n": 42,
+    "ours": 0.627,
+    "model": 0.62,
+    "experts": 0.682,
+    "market": 0.666
+   },
+   {
+    "week": 9,
+    "pos": "TE",
+    "n": 21,
+    "ours": 0.435,
+    "model": 0.399,
+    "experts": 0.397,
+    "market": 0.364
+   },
+   {
+    "week": 9,
+    "pos": "WR",
+    "n": 63,
+    "ours": 0.57,
+    "model": 0.555,
+    "experts": 0.55,
+    "market": 0.53
+   },
+   {
+    "week": 10,
+    "pos": "QB",
+    "n": 20,
+    "ours": 0.704,
+    "model": 0.741,
+    "experts": 0.529,
+    "market": 0.538
+   },
+   {
+    "week": 10,
+    "pos": "RB",
+    "n": 36,
+    "ours": 0.537,
+    "model": 0.56,
+    "experts": 0.466,
+    "market": 0.449
+   },
+   {
+    "week": 10,
+    "pos": "TE",
+    "n": 17,
+    "ours": 0.342,
+    "model": 0.265,
+    "experts": 0.296,
+    "market": 0.285
+   },
+   {
+    "week": 10,
+    "pos": "WR",
+    "n": 52,
+    "ours": 0.441,
+    "model": 0.413,
+    "experts": 0.461,
+    "market": 0.395
+   }
+  ],
+  "ours": 0.5136,
+  "model": 0.5145,
+  "experts": 0.5032,
+  "market": 0.4859,
+  "ours_minus_market": [
+   0.0277,
+   0.0145,
+   12,
+   16
+  ],
+  "model_minus_market": [
+   0.0286,
+   0.0179,
+   11,
+   16
+  ],
+  "experts_minus_market": [
+   0.0173,
+   0.0074,
+   13,
+   16
+  ],
+  "by_pos": {
+   "QB": {
+    "ours": 0.469,
+    "experts": 0.423,
+    "market": 0.43
+   },
+   "RB": {
+    "ours": 0.608,
+    "experts": 0.614,
+    "market": 0.602
+   },
+   "TE": {
+    "ours": 0.432,
+    "experts": 0.449,
+    "market": 0.404
+   },
+   "WR": {
+    "ours": 0.546,
+    "experts": 0.527,
+    "market": 0.507
+   }
+  }
+ },
+ "labels": {
+  "market": {
+   "at value": {
+    "players": 387,
+    "beat_price_ppg": 0.294,
+    "share_beat": 0.463,
+    "ours_minus_actual": 0.264,
+    "se": 0.341
+   },
+   "overvalued": {
+    "players": 86,
+    "beat_price_ppg": -2.576,
+    "share_beat": 0.407,
+    "ours_minus_actual": -0.479,
+    "se": 0.814
+   },
+   "undervalued": {
+    "players": 93,
+    "beat_price_ppg": 1.147,
+    "share_beat": 0.495,
+    "ours_minus_actual": -0.695,
+    "se": 0.708
+   },
+   "gap_vs_beat_rank_corr": 0.182
+  },
+  "experts": {
+   "at value": {
+    "players": 422,
+    "beat_price_ppg": 0.136,
+    "share_beat": 0.453,
+    "ours_minus_actual": 0.091,
+    "se": 0.321
+   },
+   "overvalued": {
+    "players": 66,
+    "beat_price_ppg": -1.988,
+    "share_beat": 0.47,
+    "ours_minus_actual": 0.032,
+    "se": 0.942
+   },
+   "undervalued": {
+    "players": 78,
+    "beat_price_ppg": 1.027,
+    "share_beat": 0.474,
+    "ours_minus_actual": -0.568,
+    "se": 0.817
+   },
+   "gap_vs_beat_rank_corr": 0.061
+  }
+ }
+}
