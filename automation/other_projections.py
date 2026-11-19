@@ -42,11 +42,11 @@ def fetch(url, headers=None, tries=3):
 
 
 # ---------------------------------------------------------------------------------------------------- Sleeper
-def sleeper(season, weeks):
+def sleeper(season, weeks, positions=POS):
     rows = []
     for w in weeks:
         url = (f"https://api.sleeper.app/projections/nfl/{season}/{w}?season_type=regular"
-               + "".join(f"&position[]={p}" for p in POS))
+               + "".join(f"&position[]={p}" for p in positions))
         try:
             data = fetch(url)
         except Exception as e:
@@ -59,13 +59,15 @@ def sleeper(season, weeks):
                 continue
             rows.append({"season": season, "week": w, "source_id": str(d.get("player_id")),
                          "player": f"{pl.get('first_name', '')} {pl.get('last_name', '')}".strip(),
-                         "pos": pl.get("position"), "team": d.get("team") or pl.get("team"), "proj_ppr": float(pts)})
+                         "pos": pl.get("position"), "team": d.get("team") or pl.get("team"), "proj_ppr": float(pts),
+                         "proj_std": st.get("pts_std")})
         time.sleep(0.5)
     return rows
 
 
 # ------------------------------------------------------------------------------------------------------- ESPN
-ESPN_POS = {1: "QB", 2: "RB", 3: "WR", 4: "TE"}
+ESPN_POS = {1: "QB", 2: "RB", 3: "WR", 4: "TE", 5: "K", 16: "DEF"}
+ESPN_SLOTS = {"skill": [0, 2, 4, 6], "kdef": [17, 16]}
 
 
 def espn_points(s):
@@ -76,12 +78,12 @@ def espn_points(s):
             - 2 * g(72) + 2 * (g(19) + g(26) + g(44)))
 
 
-def espn(season, weeks):
+def espn(season, weeks, group="skill"):
     rows = []
     base = f"https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/seasons/{season}/segments/0/leaguedefaults/3"
     filters = [   # tried in order until one is accepted (the first is the simplest, as the espn-api package uses)
         {"players": {"limit": 1000, "sortPercOwned": {"sortAsc": False, "sortPriority": 1}}},
-        {"players": {"filterSlotIds": {"value": [0, 2, 4, 6]}, "limit": 1000,
+        {"players": {"filterSlotIds": {"value": ESPN_SLOTS[group]}, "limit": 1000,
                      "sortPercOwned": {"sortAsc": False, "sortPriority": 1}}},
     ]
     for w in weeks:
@@ -100,7 +102,7 @@ def espn(season, weeks):
         for p in data.get("players", []):
             pl = p.get("player") or {}
             pos = ESPN_POS.get(pl.get("defaultPositionId"))
-            if not pos:
+            if not pos or (group == "kdef") != (pos in ("K", "DEF")):
                 continue
             for st in pl.get("stats") or []:
                 # statSourceId 1 = projection, statSplitTypeId 1 = single scoring period
@@ -108,7 +110,8 @@ def espn(season, weeks):
                         and st.get("statSplitTypeId") == 1:
                     rows.append({"season": season, "week": w, "source_id": str(pl.get("id")),
                                  "player": pl.get("fullName"), "pos": pos, "team": pl.get("proTeamId"),
-                                 "proj_ppr": round(espn_points(st.get("stats") or {}), 2),
+                                 "proj_ppr": round(espn_points(st.get("stats") or {}), 2) if group == "skill"
+                                 else st.get("appliedTotal"),
                                  "espn_applied": st.get("appliedTotal")})
                     break
         time.sleep(0.5)
@@ -123,8 +126,10 @@ def main():
     log = json.load(open(logp)) if os.path.exists(logp) else {}
     for S in seasons:
         weeks = list(range(1, 18 if S < 2026 else 19))
-        for name, fn in [("sleeper", sleeper), ("espn", espn)]:
-            if only and name not in only:
+        for name, fn in [("sleeper", sleeper), ("espn", espn),
+                         ("sleeper_kdef", lambda S_, w_: sleeper(S_, w_, ["K", "DEF"])),
+                         ("espn_kdef", lambda S_, w_: espn(S_, w_, "kdef"))]:
+            if only and name not in only and not (name.endswith("_kdef") and "kdef" in only):
                 continue
             try:
                 rows = fn(S, weeks)
