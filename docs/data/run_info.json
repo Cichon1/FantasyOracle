@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-19T03:56:09+00:00",
+ "updated": "2026-11-19T05:03:22+00:00",
  "season": 2026,
  "projection_week": 11,
  "results_week": 10,
@@ -8,7 +8,7 @@
  "steps": [
   {
    "step": "bash",
-   "seconds": 40,
+   "seconds": 42,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 1,
+   "seconds": 92,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 1,
+   "seconds": 0,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 28,
+   "seconds": 31,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 13,
+   "seconds": 14,
    "ok": true
   }
  ],
@@ -86,7 +86,7 @@
    "WR/TE": 52
   },
   "experts_ros_date": "2026-11-18 00:00:00",
-  "seconds": 12,
+  "seconds": 13,
   "model_cache": {
    "hit": 18,
    "miss": 0,
@@ -100,7 +100,7 @@
     ],
     [
      "Joe Burrow",
-     132.3
+     133.8
     ],
     [
      "Trevor Lawrence",
@@ -114,7 +114,7 @@
     ],
     [
      "Bijan Robinson",
-     123.8
+     124.3
     ],
     [
      "James Cook",
@@ -128,7 +128,7 @@
     ],
     [
      "Trey McBride",
-     76.3
+     80.2
     ],
     [
      "Colston Loveland",
