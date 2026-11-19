@@ -1,19 +1,19 @@
 {
- "updated": "2026-11-19T07:13:20+00:00",
+ "updated": "2026-11-19T08:47:30+00:00",
  "season": 2026,
  "projection_week": 11,
  "results_week": 10,
  "games_started": false,
- "reason": "schedule_and_lines",
+ "reason": "injury_reports,depth_charts,rosters",
  "steps": [
   {
    "step": "bash",
-   "seconds": 41,
+   "seconds": 42,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 4,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 151,
+   "seconds": 2,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 29,
+   "seconds": 250,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 13,
+   "seconds": 40,
    "ok": true
   }
  ],
@@ -56,8 +56,8 @@
    "total": 0
   },
   "inactive_rows": 0,
-  "players": 334,
-  "upcoming": 334,
+  "players": 335,
+  "upcoming": 335,
   "season_scoreboard": {
    "model": 0.3957,
    "experts": 0.4063,
@@ -75,78 +75,78 @@
   "season": 2026,
   "week": 11,
   "last_week": 17,
-  "players": 462,
+  "players": 463,
   "out_this_week": 54,
   "on_bye": 74,
   "this_week_source": "official",
   "training_snapshots": 47931,
   "rounds": {
    "QB": 50,
-   "RB": 88,
-   "WR/TE": 52
+   "RB": 81,
+   "WR/TE": 72
   },
   "experts_ros_date": "2026-11-18 00:00:00",
-  "seconds": 12,
+  "seconds": 39,
   "model_cache": {
-   "hit": 18,
-   "miss": 0,
+   "hit": 0,
+   "miss": 18,
    "on": true
   },
   "top": {
    "QB": [
     [
      "Josh Allen",
-     138.2
+     136.3
     ],
     [
      "Joe Burrow",
-     133.8
+     131.2
     ],
     [
      "Trevor Lawrence",
-     124.0
+     121.6
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     135.5
+     135.8
     ],
     [
      "Bijan Robinson",
-     124.3
+     123.2
     ],
     [
      "James Cook",
-     113.0
+     115.5
     ]
    ],
    "TE": [
     [
      "George Kittle",
-     86.5
+     87.0
+    ],
+    [
+     "Isaiah Likely",
+     77.3
     ],
     [
      "Trey McBride",
-     80.2
-    ],
-    [
-     "Colston Loveland",
-     77.8
+     76.7
     ]
    ],
    "WR": [
     [
      "Ja'Marr Chase",
-     139.0
+     138.4
     ],
     [
      "Amon-Ra St. Brown",
-     126.8
+     127.0
     ],
     [
      "CeeDee Lamb",
-     112.1
+     112.0
     ]
    ]
   }
@@ -180,7 +180,7 @@
    "Drake Maye",
    "Josh Jacobs"
   ],
-  "rows_added": 246,
-  "values_updated": 19
+  "rows_added": 19,
+  "values_updated": 0
  }
 }
