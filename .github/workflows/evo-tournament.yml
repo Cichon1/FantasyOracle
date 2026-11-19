@@ -68,7 +68,7 @@ jobs:
       - name: Evolve
         working-directory: model
         run: |
-          pip install -q pandas pyarrow scipy
+          pip install -q pandas pyarrow scipy lightgbm
           mkdir -p lab data fpdata
           cp ../evo_inputs/lab/* lab/ && cp ../evo_inputs/data/* data/ && cp ../evo_inputs/fpdata/* fpdata/
           grep -E '^[A-Z_]+=' ../automation/evo_request.txt | grep -v '^ISLANDS=' >> "$GITHUB_ENV" || true
@@ -108,7 +108,7 @@ jobs:
       - name: Final scoring
         working-directory: model
         run: |
-          pip install -q pandas pyarrow scipy
+          pip install -q pandas pyarrow scipy lightgbm
           mkdir -p lab data fpdata
           cp ../evo_inputs/lab/* lab/ && cp ../evo_inputs/data/* data/ && cp ../evo_inputs/fpdata/* fpdata/
           grep -E '^FINAL_[A-Z_]+=' ../automation/evo_request.txt >> "$GITHUB_ENV" || true
