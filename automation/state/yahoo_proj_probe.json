@@ -1,5 +1,5 @@
 {
- "at": "2026-11-19T05:04:00+00:00",
+ "at": "2026-11-20T09:08:33+00:00",
  "week": 11,
  "candidates": {
   "api|league/{lk}/players;player_keys={keys};out=stats;stats.type=projected_week;stats.week={w}": {
@@ -21,7 +21,7 @@
   "pub|league/{gk}.l.public/players;player_keys={keys};out=stats;stats.type=week;stats.week={w}": {
    "ok": true,
    "players": 25,
-   "nonzero": 0,
+   "nonzero": 1,
    "coverage": [
     "week"
    ],
@@ -41,7 +41,7 @@
     ],
     [
      "Tank Dell",
-     0.0
+     4.2
     ],
     [
      "Jaylen Waddle",
