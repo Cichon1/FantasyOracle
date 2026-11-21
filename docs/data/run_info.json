@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-21T06:47:07+00:00",
+ "updated": "2026-11-21T15:18:01+00:00",
  "season": 2026,
  "projection_week": 11,
  "results_week": 11,
  "games_started": true,
- "reason": "schedule_and_lines,injury_news",
+ "reason": "player_stats,play_by_play,schedule_and_lines,injury_reports,depth_charts,rosters,ftn_charting",
  "steps": [
   {
    "step": "bash",
-   "seconds": 41,
+   "seconds": 44,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 196,
+   "seconds": 153,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 16,
+   "seconds": 35,
    "ok": true
   }
  ],
@@ -82,49 +82,49 @@
   "training_snapshots": 47931,
   "rounds": {
    "QB": 50,
-   "RB": 106,
-   "WR/TE": 81
+   "RB": 100,
+   "WR/TE": 59
   },
   "experts_ros_date": "2026-11-20 00:00:00",
-  "seconds": 15,
+  "seconds": 34,
   "model_cache": {
-   "hit": 18,
-   "miss": 0,
+   "hit": 0,
+   "miss": 18,
    "on": true
   },
   "top": {
    "QB": [
     [
-     "Joe Burrow",
-     139.9
+     "Josh Allen",
+     140.7
     ],
     [
-     "Josh Allen",
-     132.2
+     "Joe Burrow",
+     130.6
     ],
     [
      "Trevor Lawrence",
-     119.9
+     119.6
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     139.8
+     139.5
     ],
     [
      "Christian McCaffrey",
-     133.4
+     133.5
     ],
     [
      "James Cook",
-     125.9
+     124.9
     ]
    ],
    "TE": [
     [
      "George Kittle",
-     86.5
+     86.3
     ],
     [
      "Trey McBride",
@@ -132,21 +132,21 @@
     ],
     [
      "Colston Loveland",
-     74.8
+     75.4
     ]
    ],
    "WR": [
     [
      "Ja'Marr Chase",
-     140.4
+     137.3
     ],
     [
      "Amon-Ra St. Brown",
-     129.1
+     126.7
     ],
     [
      "CeeDee Lamb",
-     110.3
+     110.1
     ]
    ]
   }
@@ -184,7 +184,7 @@
    "Drake Maye",
    "Josh Jacobs"
   ],
-  "rows_added": 41,
-  "values_updated": 170
+  "rows_added": 24,
+  "values_updated": 0
  }
 }
