@@ -111,7 +111,7 @@ jobs:
           pip install -q pandas pyarrow scipy lightgbm
           mkdir -p lab data fpdata
           cp ../evo_inputs/lab/* lab/ && cp ../evo_inputs/data/* data/ && cp ../evo_inputs/fpdata/* fpdata/
-          grep -E '^FINAL_[A-Z_]+=' ../automation/evo_request.txt >> "$GITHUB_ENV" || true
+          grep -E '^(FINAL_[A-Z_]+|EVO_V2|EVO_WAIVER|EVO_HUMAN_[A-Z]+|EVO_TYPICAL)=' ../automation/evo_request.txt >> "$GITHUB_ENV" || true
       - name: Score
         working-directory: model
         run: |

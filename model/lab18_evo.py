@@ -11,6 +11,11 @@ rest-of-season value, how aggressive it is on waivers, whether it streams K and 
 trades. Trades are 1-for-1 between teams, each side judging with its own valuation, so a team with better values can
 win trades against teams that accept on worse ones - and a strategy that accepts too easily gets fleeced.
 
+v2 (Nov 22, EVO_V2=1): trades can also be 2-for-1 / 1-for-2 (gene pkg_p); waivers are FAAB (100 budget, blind bids,
+genes faab_aggr / faab_reserve; EVO_WAIVER=rolling keeps reverse-standings order); and the typical managers act more
+like people: they answer only EVO_HUMAN_RESPONSE of offers, value their own players EVO_HUMAN_ENDOW higher, and turn
+down deals whose market (FantasyPros) value in is under EVO_HUMAN_LOOKS of the value out.
+
 Each league seats N_TYPICAL fixed "typical manager" teams (FantasyPros board and rankings, moderate waivers, rarely
 proposes, accepts trades that look good by FantasyPros) plus strategies from the population. Fitness = wins / 14 +
 playoffs + 2 x title, averaged over every league a strategy has played (survivors keep their history). Each
@@ -42,6 +47,14 @@ CAP = [3, 7, 7, 3, 2, 2]
 SLOTS = [[0], [1], [1], [2], [2], [3], [1, 2, 3], [4], [5]]      # lineup order: fixed slots first, flex, K, DEF
 SRC = ["model", "fp", "sleeper", "espn"]
 N_TYPICAL = int(os.environ.get("EVO_TYPICAL", "4"))
+# v2 (Nov 22): 2-for-1 / 1-for-2 trades, FAAB waivers, and "human" typical managers who ignore some offers, overvalue
+# their own players and won't take a deal that looks bad by market value
+V2 = os.environ.get("EVO_V2", "0") == "1"
+WAIVER = os.environ.get("EVO_WAIVER", "faab" if V2 else "rolling")      # "faab" or "rolling" (reverse standings)
+FAAB_BUDGET = 100.0
+HUMAN_RESPONSE = float(os.environ.get("EVO_HUMAN_RESPONSE", "0.5"))     # chance a typical manager answers an offer
+HUMAN_ENDOW = float(os.environ.get("EVO_HUMAN_ENDOW", "0.10"))         # they value their own players this much higher
+HUMAN_LOOKS = float(os.environ.get("EVO_HUMAN_LOOKS", "0.9"))          # market value in / out they need at least
 
 # gene: (low, high, kind)  kind: f = float, i = int
 GENES = {
@@ -57,12 +70,16 @@ GENES = {
     "trade_p": (0.0, 1.0, "f"),          # chance per week of proposing a trade (weeks 3-12)
     "trade_min_gain": (0.0, 3.0, "f"),   # own lineup gain (points per week, own values) required to propose
     "accept_thr": (-0.5, 3.0, "f"),      # own lineup gain required to accept an offer
+    "pkg_p": (0.0, 1.0, "f"),            # v2: chance a proposal also looks at 2-for-1 and 1-for-2 packages
+    "faab_aggr": (0.0, 2.0, "f"),        # v2: FAAB bid = faab_aggr x rest-of-season gain (points), capped by budget
+    "faab_reserve": (0.0, 60.0, "f"),    # v2: budget kept back for later
 }
 TYPICAL = {"draft_model_w": 0.0, "bias_QB": 0, "bias_RB": 0, "bias_WR": 0, "bias_TE": 0, "qb_min_round": 4,
            "te_min_round": 4, "k_min_round": 14, "def_min_round": 13, "lw_model": 0, "lw_fp": 1, "lw_sleeper": 0,
            "lw_espn": 0, "rw_model": 0, "rw_fp": 1, "rw_sleeper": 0, "rw_espn": 0, "kd_lab": 1, "kd_sleeper": 0,
            "kd_espn": 0, "waiver_margin": 10, "max_moves": 1, "stream_k": 0.2, "stream_def": 0.3, "stream_margin": 2,
-           "trade_p": 0.1, "trade_min_gain": 1.0, "accept_thr": 0.5}
+           "trade_p": 0.1, "trade_min_gain": 1.0, "accept_thr": 0.5, "pkg_p": 0.3, "faab_aggr": 0.5,
+           "faab_reserve": 15}
 BASELINES = {   # fixed reference strategies, scored alongside the evolved ones
     "typical (FantasyPros)": TYPICAL,
     "official (model+FP)": {**TYPICAL, "lw_model": 1, "lw_fp": 1, "rw_model": 1, "rw_fp": 1},
@@ -276,6 +293,55 @@ def legal_swap(roster, pos, add, drop):
     return all(MIN[q] <= c[q] <= CAP[q] for q in range(6))
 
 
+def legal_move(roster, pos, out, inn):
+    """Roster after removing `out` and adding `inn` (lists) stays within the position minimums / caps."""
+    c = counts(roster, pos)
+    for j in out:
+        c[pos[j]] -= 1
+    for j in inn:
+        c[pos[j]] += 1
+    return all(MIN[q] <= c[q] <= CAP[q] for q in range(6))
+
+
+def settle(roster, out, inn, ros, pos, rostered, taken=()):
+    """Roster after a trade: remove `out`, add `inn`; if it's now too big, drop the lowest-value players not just
+    received; if too small, add the best free agents (skill players). Returns (new roster, dropped to FA, added
+    from FA) or None if the position limits can't be met."""
+    n = len(roster)
+    new = [j for j in roster if j not in out] + list(inn)
+    dropped, added = [], []
+    while len(new) > n:
+        cut = None
+        for j in sorted(new, key=lambda j: ros[j]):
+            if j in inn:
+                continue
+            c = counts([x for x in new if x != j], pos)
+            if all(MIN[q] <= c[q] for q in range(6)):
+                cut = j
+                break
+        if cut is None:
+            return None
+        new.remove(cut); dropped.append(cut)
+    if len(new) < n:
+        fa = np.where(~rostered & (pos < 4))[0]
+        fa = [j for j in fa[np.argsort(-ros[fa])] if j not in taken]
+        for j in fa:
+            if len(new) >= n:
+                break
+            c = counts(new + [j], pos)
+            if c[pos[j]] <= CAP[pos[j]]:
+                new.append(int(j)); added.append(int(j))
+    c = counts(new, pos)
+    if len(new) != n or not all(MIN[q] <= c[q] <= CAP[q] for q in range(6)):
+        return None
+    return new, dropped, added
+
+
+def market(sd, w):
+    """Market view of rest-of-season value (FantasyPros), for the typical managers' "does this look fair" check."""
+    return sd.rate["fp"][:, w] * sd.exp_games[:, w]
+
+
 def run_league(sd, strategies, rng, last_week=None):
     """One league-season. strategies: list of 12 gene dicts. Returns per-team wins, playoffs, title, points, trades."""
     last_week = last_week or sd.W
@@ -323,14 +389,61 @@ def run_league(sd, strategies, rng, last_week=None):
     trades, moves = np.zeros(TEAMS), np.zeros(TEAMS)
     alive, seeds = None, None
     playoff = last_week >= LAST
+    budget = np.full(TEAMS, FAAB_BUDGET)
+    faab_spent = np.zeros(TEAMS)
+
+    def best_claim(t, w):
+        """Team t's best rest-of-season upgrade from free agents (skill players): (gain, add, drop) or None."""
+        ros = brains[t].ros[:, w]
+        fa = np.where(~rostered & (pos < 4))[0]
+        best = None
+        for q in range(4):
+            fq = fa[pos[fa] == q]
+            if not len(fq):
+                continue
+            add = fq[np.argmax(ros[fq])]
+            for dj in sorted(rosters[t], key=lambda j: ros[j]):
+                if pos[dj] < 4 and legal_swap(rosters[t], pos, add, dj):
+                    g = ros[add] - ros[dj]
+                    if g > strategies[t]["waiver_margin"] and (best is None or g > best[0]):
+                        best = (g, int(add), int(dj))
+                    break
+        return best
     for w in range(1, min(last_week, LAST) + 1):
         if w >= 2:
             order = np.lexsort((pf, wins))
             fa = np.where(~rostered)[0]
+            if WAIVER == "faab":
+                # 1') FAAB: every team claims its best upgrade with a blind bid; the highest bid wins each player (ties
+                # to the worse record); up to max_moves rounds
+                n_done = np.zeros(TEAMS, int)
+                rank_of = {int(t): i for i, t in enumerate(order)}
+                for _rd in range(3):
+                    claims = {}
+                    for t in order:
+                        s = strategies[t]
+                        if n_done[t] >= s["max_moves"]:
+                            continue
+                        c = best_claim(t, w)
+                        if not c:
+                            continue
+                        spare = max(0.0, budget[t] - s["faab_reserve"])
+                        bid = float(min(spare, round(s["faab_aggr"] * c[0])))
+                        claims.setdefault(c[1], []).append((bid, -rank_of[int(t)], int(t), c[2]))
+                    if not claims:
+                        break
+                    for add, cl in claims.items():
+                        bid, _, t, dj = max(cl)
+                        if rostered[add] or dj not in rosters[t]:
+                            continue
+                        rosters[t].remove(dj); rosters[t].append(int(add))
+                        rostered[dj], rostered[add] = False, True
+                        budget[t] -= bid; faab_spent[t] += bid
+                        n_done[t] += 1; moves[t] += 1
             for t in order:
                 b, s = brains[t], strategies[t]
                 ros = b.ros[:, w]
-                n_mv = 0
+                n_mv = 0 if WAIVER != "faab" else s["max_moves"]       # FAAB handled the upgrades above
                 # 1) rest-of-season upgrade (skill players)
                 while n_mv < s["max_moves"]:
                     fa = np.where(~rostered & (pos < 4))[0]
@@ -395,8 +508,12 @@ def run_league(sd, strategies, rng, last_week=None):
                         rostered[dj], rostered[add] = False, True
                         moves[t] += 1
                         break
-            # 4) trades (weeks 3 to the deadline): 1-for-1, each side by its own rest-of-season values
+            # 4) trades (weeks 3 to the deadline), each side by its own rest-of-season values. v1: 1-for-1 only.
+            # v2: also 2-for-1 / 1-for-2 (the side getting more drops its weakest player, the other adds its best free
+            # agent), and typical managers answer only some offers, overvalue their own players and need the deal to
+            # look fair by market value.
             if 3 <= w <= TRADE_DEADLINE:
+                mk = market(sd, w) if V2 else None
                 for t in rng.permutation(TEAMS):
                     s = strategies[t]
                     if rng.random() >= s["trade_p"]:
@@ -406,25 +523,43 @@ def run_league(sd, strategies, rng, last_week=None):
                     rt, ru = bt.rate[:, w], bu.rate[:, w]
                     base_t, _ = best_lineup(rosters[t], pos, rt)
                     base_u, _ = best_lineup(rosters[u], pos, ru)
-                    mine = [j for j in rosters[t] if pos[j] < 4]
+                    mine = sorted([j for j in rosters[t] if pos[j] < 4], key=lambda j: -rt[j])
                     theirs = sorted([j for j in rosters[u] if pos[j] < 4], key=lambda j: -rt[j])[:8]
+                    cands = [([g_], [r_]) for g_ in mine for r_ in theirs]
+                    if V2 and rng.random() < s.get("pkg_p", 0):
+                        m7, t6 = mine[:7], theirs[:6]
+                        cands += [([m7[i], m7[k]], [r_]) for i in range(len(m7)) for k in range(i + 1, len(m7)) for r_ in theirs]
+                        cands += [([g_], [t6[i], t6[k]]) for g_ in mine for i in range(len(t6)) for k in range(i + 1, len(t6))]
+                    typical_u = strategies[u] is TYPICAL
                     best = None
-                    for g_ in mine:
-                        for r_ in theirs:
-                            if pos[g_] != pos[r_] and not (legal_swap(rosters[t], pos, r_, g_) and legal_swap(rosters[u], pos, g_, r_)):
+                    for give, get in cands:
+                        nt = settle(rosters[t], give, get, bt.ros[:, w], pos, rostered)
+                        if nt is None:
+                            continue
+                        gt = best_lineup(nt[0], pos, rt)[0] - base_t
+                        if gt < s["trade_min_gain"] or (best and gt <= best[0]):
+                            continue
+                        nu = settle(rosters[u], get, give, bu.ros[:, w], pos, rostered, taken=nt[2])
+                        if nu is None:
+                            continue
+                        gu = best_lineup(nu[0], pos, ru)[0] - base_u
+                        need = strategies[u]["accept_thr"]
+                        if V2 and typical_u:
+                            need += HUMAN_ENDOW * sum(ru[j] for j in get)
+                            if mk[give].sum() < HUMAN_LOOKS * mk[get].sum():
                                 continue
-                            nt = [x for x in rosters[t] if x != g_] + [r_]
-                            gt = best_lineup(nt, pos, rt)[0] - base_t
-                            if gt < s["trade_min_gain"] or (best and gt <= best[0]):
-                                continue
-                            nu = [x for x in rosters[u] if x != r_] + [g_]
-                            gu = best_lineup(nu, pos, ru)[0] - base_u
-                            if gu >= strategies[u]["accept_thr"]:
-                                best = (gt, g_, r_)
+                        if gu >= need:
+                            best = (gt, give, get, nt, nu)
+                    if best and V2 and typical_u and rng.random() >= HUMAN_RESPONSE:
+                        best = None                               # they never answered
                     if best:
-                        _, g_, r_ = best
-                        rosters[t].remove(g_); rosters[t].append(r_)
-                        rosters[u].remove(r_); rosters[u].append(g_)
+                        _, give, get, nt, nu = best
+                        for team, (new, dropped, added) in [(t, nt), (u, nu)]:
+                            rosters[team] = new
+                            for j in dropped:
+                                rostered[j] = False
+                            for j in added:
+                                rostered[j] = True
                         trades[t] += 1; trades[u] += 1
         # ---- lineups and scores
         pts = np.zeros(TEAMS)
@@ -456,7 +591,7 @@ def run_league(sd, strategies, rng, last_week=None):
     last[np.lexsort((pf, wins))[0]] = 1
     weeks = min(last_week, REG)
     return {"wins": wins, "win_rate": wins / weeks, "playoffs": made, "title": title, "last": last,
-            "ppw": pts_all[:, 1:min(last_week, LAST) + 1].mean(1), "trades": trades, "moves": moves, "rosters": rosters}
+            "ppw": pts_all[:, 1:min(last_week, LAST) + 1].mean(1), "trades": trades, "moves": moves, "faab": faab_spent, "rosters": rosters}
 
 
 def fitness(r, t, full):
