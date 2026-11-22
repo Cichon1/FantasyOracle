@@ -216,6 +216,12 @@
    "title": "ROS rankings by week",
    "description": "Rest-of-season rankings as they stood each week of the season: rank within the position, ROS PPR points and range, model and expert ranks. Weeks from 9 on are the live ranking (the last run of that week); earlier weeks were re-created after the fact by the same ROS model as of that week (models trained on earlier seasons, that date's expert ROS ranking and that week's pre-kickoff projection).",
    "updated": "2026-11-22T16:10:43+00:00"
+  },
+  "kdef": {
+   "file": "kdef_v5.csv",
+   "title": "Kicker and defense projections, Weeks 11-13",
+   "description": "Team kicker and team defense projected Yahoo-default fantasy points by week, from Vegas lines (implied points, spread), dome, home and recent scoring; weeks without lines yet fall back to season averages.",
+   "updated": "2026-11-22T20:55:33+00:00"
   }
  },
  "note": "Week 11 projections"

@@ -542,6 +542,25 @@ html, body { overflow-x: clip; }
           </table>
         </div>
       </div>
+      <div class="nf-card" id="team-kdef-card">
+        <h2>Kicker &amp; defense streamers</h2>
+        <p class="nf-note">Every team's kicker and defense projected from the Vegas lines: a defense scores when the
+        opponent is expected to score little and its team is favored; a kicker when his team is expected to score a lot
+        (plus dome and recent form). <b>Available</b> means nobody in this league rosters that team's kicker / defense.
+        Yahoo default scoring. Weeks without betting lines yet use season averages, so treat them as a rough look ahead.
+        Defense projections ranked weekly defenses as well as Sleeper's and ESPN's in our back-tests; kickers are close to
+        a coin flip for everyone, so don't overthink them.</p>
+        <div class="nf-controls" id="team-kdef-week" role="group" aria-label="Week"></div>
+        <p class="nf-team-meta" id="team-kdef-meta"></p>
+        <div class="nf-draft-sides">
+          <div class="nf-tablebox nf-short"><table class="nf-table" id="team-kdef-def">
+            <thead><tr><th class="nf-l">Defense</th><th class="nf-l">Opp</th><th>Proj</th><th>Rank</th><th class="nf-hide-sm">Opp pts</th></tr></thead>
+            <tbody></tbody></table></div>
+          <div class="nf-tablebox nf-short"><table class="nf-table" id="team-kdef-k">
+            <thead><tr><th class="nf-l">Kicker</th><th class="nf-l">Opp</th><th>Proj</th><th>Rank</th><th class="nf-hide-sm">Team pts</th></tr></thead>
+            <tbody></tbody></table></div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1652,6 +1671,61 @@ window.foAvail = (() => {
   const cell = (tr, text, cls) => { const td = document.createElement('td'); if (cls) td.className = cls; td.textContent = text; tr.appendChild(td); return td; };
   const message = (tbody, cols, text) => { const tr = document.createElement('tr'); const td = cell(tr, text, 'nf-l nf-muted'); td.colSpan = cols; tbody.appendChild(tr); };
 
+  // ---------------------------------------------------------------- kicker / defense streamers (Nov 22)
+  const kst = { week: null };
+  function drawKdef(roster) {
+    const KD = dash.data('kdef'), db = document.querySelector('#team-kdef-def tbody'), kb = document.querySelector('#team-kdef-k tbody');
+    const wkBox = document.getElementById('team-kdef-week'), meta = document.getElementById('team-kdef-meta');
+    db.replaceChildren(); kb.replaceChildren();
+    if (KD.status !== 'ok' || !KD.data.length) { const t = KD.status === 'error' ? 'Failed to load' : '—'; message(db, 5, t); message(kb, 5, t); return; }
+    const weeks = [...new Set(KD.data.map((r) => +r.week))].sort((a, b) => a - b);
+    if (!weeks.includes(kst.week)) kst.week = weeks[0];
+    if (wkBox.dataset.sig !== weeks.join(',')) {
+      wkBox.dataset.sig = weeks.join(','); wkBox.replaceChildren();
+      weeks.forEach((w) => {
+        const b = document.createElement('button'); b.className = 'nf-chip'; b.textContent = 'Week ' + w; b.dataset.w = w;
+        b.addEventListener('click', () => { kst.week = w; drawKdef(roster); });
+        wkBox.append(b, ' ');
+      });
+    }
+    wkBox.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', +b.dataset.w === kst.week));
+    const rows = KD.data.filter((r) => +r.week === kst.week);
+    const noLines = rows.every((r) => r.implied === '' || r.implied == null);
+    const parts = [];
+    [['DEF', db, 'opp_implied'], ['K', kb, 'implied']].forEach(([unit, tb, ptsCol]) => {
+      const u = rows.filter((r) => r.unit === unit).sort((a, b) => num(a.rank) - num(b.rank));
+      const byTeam = new Map(u.map((r) => [r.team, r]));
+      const held = new Set(roster.filter((p) => p.kind === unit).map((p) => p.nfl));
+      const mineU = roster.filter((p) => p.kind === unit && String(p.is_me) === '1');
+      const avail = u.filter((r) => !held.has(r.team));
+      if (!held.size && roster.length) { message(tb, 5, unit === 'K' ? 'This league has no kickers.' : 'This league has no team defenses (IDP or none).'); return; }
+      const row = (r, label, cls) => {
+        const tr = document.createElement('tr'); if (cls) tr.className = cls;
+        cell(tr, label, 'nf-l');
+        if (!r) { cell(tr, 'Bye', 'nf-l nf-muted'); cell(tr, '—', 'nf-muted'); cell(tr, '—', 'nf-muted'); cell(tr, '—', 'nf-hide-sm nf-muted'); tb.appendChild(tr); return; }
+        cell(tr, (+r.home === 1 ? 'vs ' : '@ ') + r.opp, 'nf-l');
+        cell(tr, f1(num(r.proj)));
+        cell(tr, '#' + r.rank);
+        cell(tr, r[ptsCol] === '' || r[ptsCol] == null ? '—' : f1(num(r[ptsCol])), 'nf-hide-sm');
+        tb.appendChild(tr);
+      };
+      const best = avail[0];
+      mineU.forEach((p) => row(byTeam.get(p.nfl), 'Yours: ' + p.player + (p.slot === 'BN' ? ' (bench)' : ''), 'nf-mine'));
+      if (!mineU.length) { const tr = document.createElement('tr'); cell(tr, 'You have no ' + (unit === 'K' ? 'kicker' : 'defense') + ' rostered', 'nf-l nf-muted').colSpan = 5; tb.appendChild(tr); }
+      if (!avail.length) message(tb, 5, 'Every team is rostered in this league.');
+      avail.slice(0, 6).forEach((r) => row(r, r.team + (unit === 'K' ? ' kicker' : ' D/ST') + ' · available'));
+      const yours = mineU.map((p) => byTeam.get(p.nfl)).filter(Boolean).sort((a, b) => num(b.proj) - num(a.proj))[0];
+      if (best) {
+        const g = num(best.proj) - (yours ? num(yours.proj) : 0);
+        const word = unit === 'K' ? 'kicker' : 'defense';
+        if (!yours) parts.push('Best available ' + word + ': ' + best.team + ' (' + f1(num(best.proj)) + ')');
+        else if (g >= (unit === 'K' ? 1.5 : 1.0)) parts.push('Stream the ' + best.team + ' ' + word + ': ' + sg(g) + ' over yours');
+        else parts.push('Keep your ' + word + ' (best available ' + best.team + ' ' + sg(g) + ')');
+      }
+    });
+    meta.textContent = 'Week ' + kst.week + (noLines ? ' · no betting lines yet' : '') + (parts.length ? ' · ' + parts.join(' · ') : '');
+  }
+
   function draw() {
     const L = dash.data('leagues'), RO = dash.data('league_rosters'), P = dash.data('projections'), R = dash.data('ros');
     const lb = document.querySelector('#team-lineup-table tbody'), wb = document.querySelector('#team-waiver-table tbody');
@@ -1743,6 +1817,7 @@ window.foAvail = (() => {
       bench.forEach((x) => row(x.p.slot === 'IR' ? 'IR' : 'BN', x, true));
     }
 
+    drawKdef(roster);
     // ---------------------------------------------------------------- waiver wire
     const owned = new Set(roster.map((p) => p.ros_key).filter(Boolean));
     const TR = dash.data('trending'), adds = new Map(TR.status === 'ok' ? TR.data.map((t) => [t.key, num(t.adds_24h)]) : []);
@@ -4368,6 +4443,8 @@ fetch('data/datasets.json', {cache: 'no-store'}).then((r) => r.json()).then((c) 
     'proj-table': { keep: ['Rank', 'Player', 'Pos', 'Proj PPR'], first: ['Act', 'Rec', 'Rec yds', 'Rush yds', 'Pass yds', 'xFP', 'Team pts', 'Model', 'Expert rank', '+/−', 'Low', 'High', 'Game', 'Actual', 'Injury', 'Pos rank', 'Opp', 'Start %'] },
     'ros-table': { keep: ['Rank', 'Player', 'Pos', 'ROS PPR'], first: ['Opp. allowed', 'Season PPG', 'Model rank', 'Expert rank', 'This wk proj', 'Games', 'Low', 'High', 'Injury', 'This week', 'Per game', 'Pos rank', 'Start %'] },
     'team-lineup-table': { keep: ['Slot', 'Player', 'Proj'], first: ['Note', 'Vegas line', 'Start %'] },
+    'team-kdef-def': { name: 'Defense', keep: ['Defense', 'Proj'], first: ['Opp pts', 'Rank', 'Opp'] },
+    'team-kdef-k': { name: 'Kicker', keep: ['Kicker', 'Proj'], first: ['Team pts', 'Rank', 'Opp'] },
     'team-waiver-table': { keep: ['Player', 'Upgrade'], first: ['Adds 24h', 'ROS start %', 'gm', 'This wk', 'Pos', 'ROS'] },
     'ta-mine-table': { name: 'Player', keep: ['Pick', 'Player', 'Trade'], first: ['Experts', 'Trades', 'Status', 'Slot', 'Actual', 'vs market', 'ROS rank', 'Pts / wk', 'Pos'] },
     'ta-theirs-table': { name: 'Player', keep: ['Pick', 'Player', 'Trade'], first: ['Experts', 'Trades', 'Status', 'Slot', 'Actual', 'vs market', 'ROS rank', 'Pts / wk', 'Pos'] },

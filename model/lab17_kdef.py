@@ -63,9 +63,13 @@ def season_units(S, games):
     return pd.DataFrame(rows)
 
 
-def main():
+def build(last_season=2026, data=None):
+    """All team-weeks 2018..last_season with K / DEF points (played games) and walk-forward projections."""
+    global DATA
+    if data:
+        DATA = data
     games = pd.read_parquet(f"{DATA}/games.parquet")
-    u = pd.concat([season_units(S, games) for S in range(2018, 2027)], ignore_index=True)
+    u = pd.concat([season_units(S, games) for S in range(2018, last_season + 1)], ignore_index=True)
     u = u.sort_values(["team", "season", "week"])
     for col, src in [("k_avg", "k_pts"), ("def_avg", "def_pts"), ("pf_avg", "pf")]:
         u[col] = u.groupby("team")[src].transform(lambda x: x.shift(1).ewm(halflife=6, min_periods=1).mean())
@@ -74,7 +78,7 @@ def main():
     XK = ["implied", "dome", "k_avg"]
     XD = ["opp_implied", "spread", "home", "def_avg", "opp_pf_avg"]
     u["k_proj"], u["def_proj"] = np.nan, np.nan
-    for S in range(2020, 2027):
+    for S in range(2020, last_season + 1):
         tr = u[(u["season"] < S) & u["played"]].dropna(subset=XK + XD + ["k_pts", "def_pts"])
         te = u["season"] == S
         for X, y, out in [(XK, "k_pts", "k_proj"), (XD, "def_pts", "def_proj")]:
@@ -82,6 +86,11 @@ def main():
             beta = np.linalg.lstsq(A, tr[y].values, rcond=None)[0]
             Xt = u.loc[te, X].fillna(u.loc[te, X].mean())
             u.loc[te, out] = np.c_[np.ones(te.sum()), Xt.values] @ beta
+    return u
+
+
+def main():
+    u = build()
     u.to_parquet(os.path.join("lab", "kdef_weekly.parquet"))
     v = u[(u["season"] >= 2023) & u["played"]]
     from scipy.stats import spearmanr
