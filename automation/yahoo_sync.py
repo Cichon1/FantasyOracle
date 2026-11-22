@@ -96,6 +96,9 @@ def t(e, path, default=""):
     return x.text.strip() if x is not None and x.text else default
 
 
+SCORING = []          # every scoring rule of every league (incl. K / DEF), saved to docs/data/league_scoring_v5.csv
+
+
 def pull(tok):
     for probe in ["users;use_login=1/games;game_codes=nfl", "game/nfl"]:
         try:
@@ -119,6 +122,9 @@ def pull(tok):
             sid = t(m, "stat_id")
             bon = [(float(t(b, "target", "0")), float(t(b, "points", "0"))) for b in m.findall(".//bonuses/bonus")]
             mods[names.get(sid, sid)] = (float(t(m, "value", "0")), bon)
+            SCORING.append({"league_id": lid, "stat_id": sid, "stat": names.get(sid, sid),
+                            "points": float(t(m, "value", "0")),
+                            "bonuses": "; ".join(f"{p:g} at {tg:g}" for tg, p in bon)})
 
         def per_pt(name):
             v, bon = mods.get(name, (0, []))
@@ -174,6 +180,13 @@ def pull(tok):
                     vals += [t(x, "team_id"), t(x, "team_points/total", "0") or "0",
                              t(x, "team_projected_points/total", "0") or "0"]
                 stand_lines.append(f"{w} {vals[0]} {vals[3]} {vals[1]} {vals[2]} {vals[4]} {vals[5]}")
+    try:      # Nov 22, 2026: full scoring rules (the K / DEF ones aren't in leagues_v5.csv)
+        sc = pd.DataFrame(SCORING)
+        p = os.path.join(SITE, "league_scoring_v5.csv")
+        if len(sc) and (not os.path.exists(p) or not pd.read_csv(p, dtype=str, keep_default_na=False).equals(sc.astype(str))):
+            sc.to_csv(p, index=False)
+    except Exception as e:
+        print("scoring save failed:", e)
     return teams_lines, roster_lines, settings_lines, stand_lines
 
 
