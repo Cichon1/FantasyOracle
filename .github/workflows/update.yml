@@ -21,6 +21,7 @@ permissions:
   contents: write
   pages: write
   id-token: write
+  actions: write     # start the game-day clock (automation/clock.py)
 
 concurrency:
   group: update
@@ -103,6 +104,13 @@ jobs:
           git commit -m "Update: ${{ steps.watch.outputs.what }}${{ steps.yahoo.outputs.changed == 'true' && ' yahoo' || '' }}"
           git pull --rebase -X theirs origin ${{ github.ref_name }}
           git push
+
+      - name: Start the game-day clock
+        if: always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python automation/clock.py --kick --ref ${{ github.ref_name }}
 
       - name: Package website
         if: steps.done.outputs.changed == 'true'

@@ -51,18 +51,34 @@ def stamp(url):
         return r.headers.get("Last-Modified") or r.headers.get("ETag")
 
 
-def current_week(season):
-    """Earliest regular-season week with an unplayed game, from the schedule file (fetched if not downloaded)."""
+_GAMES = []
+
+
+def _games():
     import io
     import pandas as pd
-    p = os.path.join(os.path.dirname(STATE), "..", "model", "data", "games.parquet")
-    if os.path.exists(p):
-        g = pd.read_parquet(p)
-    else:
-        with urllib.request.urlopen(f"{NV}/schedules/games.parquet", timeout=60) as r:
-            g = pd.read_parquet(io.BytesIO(r.read()))
+    if not _GAMES:
+        p = os.path.join(os.path.dirname(STATE), "..", "model", "data", "games.parquet")
+        if os.path.exists(p):
+            _GAMES.append(pd.read_parquet(p))
+        else:
+            with urllib.request.urlopen(f"{NV}/schedules/games.parquet", timeout=60) as r:
+                _GAMES.append(pd.read_parquet(io.BytesIO(r.read())))
+    return _GAMES[0]
+
+
+def current_week(season):
+    """Earliest regular-season week with an unplayed game, from the schedule file (fetched if not downloaded)."""
+    g = _games()
     g = g[(g["season"] == season) & (g["game_type"] == "REG") & g["home_score"].isna()]
     return int(g["week"].min())
+
+
+def game_day(season, today):
+    """True when a regular-season game is scheduled on `today` (US Eastern date): Thursday / Sunday / Monday, and also
+    the Wednesday, Friday and Saturday games (Thanksgiving week, Christmas, December Saturdays)."""
+    g = _games()
+    return bool(((g["season"] == season) & (g["game_type"] == "REG") & (g["gameday"] == today.isoformat())).any())
 
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -104,9 +120,13 @@ def main():
             changed.append("injury_news")
     except Exception as e:
         print(f"injury news: no answer ({e})")
-    # game days (Thursday, Sunday, Monday, US Eastern): NFL.com's inactives articles, as a hash of the list
+    # game days (US Eastern date with a game on the schedule): NFL.com's inactives articles, as a hash of the list
     now = datetime.datetime.now(ZoneInfo("America/New_York"))
-    if now.weekday() in (3, 6, 0):
+    try:
+        gday = game_day(a.season, now.date())
+    except Exception:
+        gday = now.weekday() in (3, 6, 0)
+    if gday:
         try:
             import inactives_nfl as IN
             wk = current_week(a.season)
