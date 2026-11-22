@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-22T16:10:41+00:00",
+ "updated": "2026-11-22T21:04:18+00:00",
  "season": 2026,
  "projection_week": 11,
  "results_week": 11,
  "games_started": true,
- "reason": "player_stats,play_by_play,schedule_and_lines,injury_reports,depth_charts,rosters,injury_news",
+ "reason": "player_stats,play_by_play,schedule_and_lines,injury_news,inactives",
  "steps": [
   {
    "step": "bash",
-   "seconds": 40,
+   "seconds": 39,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 1,
+   "seconds": 2,
    "ok": true
   },
   {
@@ -33,17 +33,17 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/inactives_nfl.py --season",
-   "seconds": 0,
+   "seconds": 1,
    "ok": true
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 58,
+   "seconds": 24,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 34,
+   "seconds": 11,
    "ok": true
   }
  ],
@@ -53,11 +53,24 @@
   "week": 11,
   "inactives": {
    "nflverse_roster": 5,
-   "total": 5
+   "file": "ref/inactives_2026_wk11.csv",
+   "matched": 37,
+   "unmatched": [
+    "Kedon Solvis (BAL)",
+    "Garrett Nusssmeier (KC)"
+   ],
+   "total": 42
   },
-  "inactive_rows": 0,
+  "weekly_blend": {
+   "blend": "model+Sleeper+ESPN",
+   "coverage": {
+    "sleeper": 0.973,
+    "espn": 0.995
+   }
+  },
+  "inactive_rows": 4,
   "players": 327,
-  "upcoming": 302,
+  "upcoming": 298,
   "season_scoreboard": {
    "model": 0.4013,
    "experts": 0.4097,
@@ -76,7 +89,7 @@
   "week": 11,
   "last_week": 17,
   "players": 463,
-  "out_this_week": 64,
+  "out_this_week": 74,
   "on_bye": 74,
   "this_week_source": "official",
   "training_snapshots": 47931,
@@ -86,25 +99,25 @@
    "WR/TE": 60
   },
   "experts_ros_date": "2026-11-20 00:00:00",
-  "seconds": 33,
+  "seconds": 11,
   "model_cache": {
-   "hit": 0,
-   "miss": 18,
+   "hit": 18,
+   "miss": 0,
    "on": true
   },
   "top": {
    "QB": [
     [
      "Joe Burrow",
-     134.9
+     135.9
     ],
     [
      "Josh Allen",
      130.5
     ],
     [
-     "Caleb Williams",
-     118.0
+     "Trevor Lawrence",
+     121.7
     ]
    ],
    "RB": [
@@ -114,7 +127,7 @@
     ],
     [
      "Christian McCaffrey",
-     134.7
+     128.4
     ],
     [
      "Bijan Robinson",
@@ -123,12 +136,12 @@
    ],
    "TE": [
     [
-     "George Kittle",
-     87.1
+     "Isaiah Likely",
+     81.5
     ],
     [
-     "Trey McBride",
-     76.3
+     "George Kittle",
+     81.2
     ],
     [
      "Colston Loveland",
@@ -138,7 +151,7 @@
    "WR": [
     [
      "Ja'Marr Chase",
-     137.4
+     146.7
     ],
     [
      "Amon-Ra St. Brown",
@@ -146,7 +159,7 @@
     ],
     [
      "CeeDee Lamb",
-     109.6
+     111.6
     ]
    ]
   }
@@ -156,15 +169,15 @@
   "nfl_rows": 313,
   "nfl_matched": 313,
   "nfl_unmatched": [],
-  "espn_out": 89,
+  "espn_out": 186,
   "espn_unmatched": [
    "Divine Deablo (ATL)",
    "Zachariah Branch (ATL)",
    "Ronnie Hickman (CLE)",
+   "Josh Jacobs (GB)",
    "Micah Parsons (GB)",
    "Luke Musgrave (GB)",
    "Zaire Franklin (GB)",
-   "Josh Jacobs (GB)",
    "Kevin Zeitler (GB)",
    "Sean Rhyan (GB)",
    "Davante Adams (LA)",
@@ -179,12 +192,12 @@
    "Walter Rouse (NE)",
    "Ben Brown (NE)"
   ],
-  "hash": "f6b51527385d",
+  "hash": "f2a6f7930195",
   "manual_out": [
    "Drake Maye",
    "Josh Jacobs"
   ],
-  "rows_added": 26,
+  "rows_added": 102,
   "values_updated": 0
  }
 }
