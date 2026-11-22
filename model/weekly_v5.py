@@ -137,9 +137,11 @@ def attach_sites(up, season, week, ids_path=None):
     return up, cover
 
 
-def blend_sites(up):
+def blend_sites(up, with_experts=False):
     """Official weekly = model + Sleeper + ESPN: within each position-week, the three sources' ranks averaged and their
-    average point curve handed out in that order. A player a site doesn't list takes the model's number for it."""
+    average point curve handed out in that order. A player a site doesn't list takes the model's number for it.
+    with_experts (Nov 22, 2026 audit): the FantasyPros weekly rank is a fourth vote in the rank average (players it
+    doesn't rank get the average of the other three votes); the point curve stays the three sources'."""
     up = up.copy()
     up["pred_ppr_official"] = up["pred_ppr_model"]
     up["blend_rank"] = np.nan
@@ -151,6 +153,9 @@ def blend_sites(up):
     for _, g in up.groupby(grp):
         v = vals.loc[g.index]
         rk = sum(v[m].rank(ascending=False, method="first") for m in members) / len(members)
+        if with_experts:
+            er = up.loc[g.index, "ecr_week_ecr"].rank(method="first")
+            rk = (rk * len(members) + er.fillna(rk)) / (len(members) + 1)
         rk = rk + v["pred_ppr_model"].rank(ascending=False, method="first") * 1e-6
         pool = np.mean([np.sort(v[m].values)[::-1] for m in members], axis=0)
         order = rk.rank(method="first").astype(int).values - 1
@@ -160,12 +165,14 @@ def blend_sites(up):
 
 
 def official_blend(rows, cfg, season, week):
-    """cfg["weekly_blend"] == "sites": model + Sleeper + ESPN when both sites cover this week; otherwise (or when set to
-    "experts") the FantasyPros rank blend. Keeps the FantasyPros blend as pred_ppr_fp_blend for comparison."""
+    """cfg["weekly_blend"] == "sites": model + Sleeper + ESPN when both sites cover this week; "sites+experts": the same
+    plus the FantasyPros weekly rank as a fourth vote; otherwise (or when set to "experts", or a site is missing) the
+    FantasyPros rank blend. Keeps the FantasyPros blend as pred_ppr_fp_blend for comparison."""
     fp = blend_with_experts(rows)
     fp["pred_ppr_fp_blend"] = fp["pred_ppr_official"]
     fp["blend_source"] = "model+FantasyPros"
-    if cfg.get("weekly_blend") != "sites":
+    mode = cfg.get("weekly_blend")
+    if mode not in ("sites", "sites+experts"):
         return fp, {"blend": "model+FantasyPros", "reason": "config"}
     try:
         up, cover = attach_sites(fp, season, week)
@@ -173,9 +180,11 @@ def official_blend(rows, cfg, season, week):
         return fp, {"blend": "model+FantasyPros", "reason": f"site files: {e}"[:200]}
     if min(cover.values()) < SITE_MIN_COVER:
         return fp, {"blend": "model+FantasyPros", "reason": "site coverage", "coverage": cover}
-    out = blend_sites(up)
-    out["blend_source"] = "model+Sleeper+ESPN"
-    return out, {"blend": "model+Sleeper+ESPN", "coverage": {k: round(v, 3) for k, v in cover.items()}}
+    both = mode == "sites+experts"
+    out = blend_sites(up, with_experts=both)
+    name = "model+FantasyPros+Sleeper+ESPN" if both else "model+Sleeper+ESPN"
+    out["blend_source"] = name
+    return out, {"blend": name, "coverage": {k: round(v, 3) for k, v in cover.items()}}
 
 
 def features_for(cfg, hist, key):
@@ -294,13 +303,19 @@ def main():
     weeks = [a.week] + (list(range(a.backfill[0], a.backfill[1] + 1)) if a.backfill else [])
     for w in weeks:
         rows = week_rows(df, hist, a.season, w)
-        if a.upcoming_only and w == a.week:
-            rows = rows[rows["status"] == "Upcoming"]
-        if not len(rows):
+        only_up = a.upcoming_only and w == a.week
+        if not len(rows) or (only_up and not (rows["status"] == "Upcoming").any()):
             print(f"week {w}: nothing to project", flush=True)
             continue
         t1 = time.time()
+        # Nov 22, 2026 audit: the expert blend and the QB market step hand out the model's points within each
+        # position-week, so they need the whole week. A late run used to pass only the games not yet played, and for
+        # the Sunday-night / Monday games (2-4 teams left) the blend could barely move anyone: 79% of Monday and 46%
+        # of Sunday-night official projections in weeks 7-10 were just the model's number. Now every game of the week
+        # is projected (same training rows, so the cached models are reused) and the played ones are dropped after.
         res = project(hist, rows, cfg, a.season, w)
+        if only_up:
+            res = res[res["status"] == "Upcoming"]
         t_train = time.time() - t1
         act = res[ACTUAL].where(res["status"] != "Upcoming")
         act.columns = ["actual_" + c for c in ACTUAL]
