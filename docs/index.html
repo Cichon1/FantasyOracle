@@ -339,6 +339,19 @@ html, body { overflow-x: clip; }
 .fo-picks > summary > span:first-of-type { margin-right: auto; }
 .fo-picks .fo-picks-n { font-weight: 500; color: var(--color-fg-muted); font-size: 0.8rem; }
 .fo-picks .nf-picks { margin: 0; border: 0; border-top: 1px solid var(--color-border-line); border-radius: 0 0 10px 10px; }
+.fo-tf { display: grid; gap: 8px; margin: 4px 0 12px; }
+.fo-tf-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
+.fo-tf-lab { font-size: 0.8rem; font-weight: 600; color: var(--color-fg-muted); min-width: 6.5rem; text-transform: uppercase; letter-spacing: .04em; }
+.fo-tf-players { border: 1px solid var(--color-border-line); border-radius: 10px; max-width: 60rem; }
+.fo-tf-players > summary { cursor: pointer; display: flex; justify-content: space-between; gap: 10px; padding: 8px 12px; font-weight: 600; font-size: 0.875rem; list-style: none; }
+.fo-tf-players > summary::-webkit-details-marker { display: none; }
+.fo-tf-players > summary::before { content: '▸'; color: var(--color-fg-muted); transition: transform .15s; }
+.fo-tf-players[open] > summary::before { transform: rotate(90deg); }
+.fo-tf-players > summary > span:first-of-type { margin-right: auto; }
+#tf-player-list { display: grid; gap: 6px; padding: 4px 12px 12px; }
+#tf-player-list .fo-tf-row .nf-chip { font-size: 0.8rem; }
+#tf-reset { justify-self: start; }
+@media (max-width: 860px) { #tf-player-list .fo-tf-lab { flex-basis: 100%; } .fo-tf-players > summary { flex-wrap: wrap; } }
 .fo-ta-info { margin: -4px 0 12px; font-size: 0.85rem; color: var(--color-fg-muted); line-height: 1.5; }
 .fo-ta-info b { color: var(--color-fg); font-weight: 600; }
 .fo-ta-info .fo-need { color: var(--color-bad); font-weight: 600; }
@@ -456,6 +469,13 @@ html, body { overflow-x: clip; }
       isn't counted. Open the Trade analyzer to check a trade in full.</p>
       <div class="nf-controls" id="team-trade-mode" role="group" aria-label="Trade type"></div>
       <div class="nf-controls" id="team-trade-kind" role="group" aria-label="Trade size"></div>
+      <div class="fo-tf" id="team-trade-filters">
+        <div class="fo-tf-row"><span class="fo-tf-lab">Trade for</span><span class="nf-controls" id="tf-get" role="group" aria-label="Positions to trade for"></span></div>
+        <div class="fo-tf-row"><span class="fo-tf-lab">Trade away</span><span class="nf-controls" id="tf-give" role="group" aria-label="Positions to trade away"></span></div>
+        <details class="fo-tf-players" id="tf-players"><summary><span>Players to trade away</span><span class="fo-picks-n" id="tf-players-n">any</span></summary>
+          <div id="tf-player-list"></div></details>
+        <button class="nf-chip" id="tf-reset" hidden>Clear filters</button>
+      </div>
       <div class="nf-tablebox">
         <table class="nf-table" id="team-trade-table">
           <thead><tr><th class="nf-l">You give</th><th class="nf-l">You get</th><th class="nf-l">With</th><th>You / wk</th><th>Them / wk</th><th id="tt-look-th">Looks like to them</th><th id="tt-last-th" hidden>Your last place</th></tr></thead>
@@ -1770,20 +1790,66 @@ window.foAvail = (() => {
     b.addEventListener('click', () => { tst.kind = k; kindBox.querySelectorAll('button').forEach((c) => c.setAttribute('aria-pressed', c.textContent === k)); drawTrades(); });
     kindBox.append(b, ' ');
   });
-  let tradeCache = { key: null, rows: [] };
+  // filters: positions you want back, positions you'd give, specific players you want to move
+  const tf = { get: new Set(), give: new Set(), players: new Set(), league: null };
+  const POS4 = ['QB', 'RB', 'WR', 'TE'];
+  const tfChips = (box, set) => {
+    const draw = () => box.querySelectorAll('button').forEach((c) => c.setAttribute('aria-pressed', c.dataset.v === 'Any' ? !set.size : set.has(c.dataset.v)));
+    ['Any'].concat(POS4).forEach((v) => {
+      const b = document.createElement('button'); b.className = 'nf-chip'; b.textContent = v; b.dataset.v = v;
+      b.addEventListener('click', () => { if (v === 'Any') set.clear(); else if (set.has(v)) set.delete(v); else set.add(v); if (set.size === POS4.length) set.clear(); draw(); drawTrades(); });
+      box.append(b, ' ');
+    });
+    draw(); return draw;
+  };
+  const tfGetDraw = tfChips(document.getElementById('tf-get'), tf.get), tfGiveDraw = tfChips(document.getElementById('tf-give'), tf.give);
+  document.getElementById('tf-reset').addEventListener('click', () => { tf.get.clear(); tf.give.clear(); tf.players.clear(); tfGetDraw(); tfGiveDraw(); drawTrades(); });
+  function drawTfPlayers(RO) {
+    const box = document.getElementById('tf-player-list');
+    if (tf.league !== st.league) { tf.league = st.league; tf.players.clear(); box.dataset.sig = ''; }
+    const mine = RO.data.filter((p) => String(p.league_id) === st.league && String(p.is_me) === '1' && p.kind === 'skill' && p.slot !== 'IR' && p.ros_key);
+    const sig = st.league + '|' + mine.map((p) => p.ros_key).join(',');
+    if (box.dataset.sig !== sig) {
+      box.dataset.sig = sig; box.replaceChildren();
+      POS4.forEach((pos) => {
+        const ps = mine.filter((p) => p.pos === pos); if (!ps.length) return;
+        const row = document.createElement('div'); row.className = 'fo-tf-row';
+        const l = document.createElement('span'); l.className = 'fo-tf-lab'; l.textContent = pos; row.appendChild(l);
+        ps.forEach((p) => {
+          const b = document.createElement('button'); b.className = 'nf-chip'; b.textContent = p.player; b.dataset.k = p.ros_key;
+          b.addEventListener('click', () => { if (tf.players.has(p.ros_key)) tf.players.delete(p.ros_key); else tf.players.add(p.ros_key); drawTrades(); });
+          row.append(b, ' ');
+        });
+        box.appendChild(row);
+      });
+    }
+    box.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', tf.players.has(b.dataset.k)));
+    const names = mine.filter((p) => tf.players.has(p.ros_key)).map((p) => p.player);
+    document.getElementById('tf-players-n').textContent = names.length ? names.length + ' selected: ' + names.slice(0, 3).join(', ') + (names.length > 3 ? '…' : '') : 'any';
+    document.getElementById('tf-reset').hidden = !(tf.get.size || tf.give.size || tf.players.size);
+  }
+  let tradeCache = { key: null, rows: [] }, allCache = { key: null, rows: [] };
   function drawTrades() {
     const tb = document.querySelector('#team-trade-table tbody'); tb.replaceChildren();
     const L = dash.data('leagues'), RO = dash.data('league_rosters'), R = dash.data('ros');
     if ([L, RO, R].some((d) => d.status !== 'ok') || !st.league) { message(tb, 6, '—'); return; }
     const TM = dash.data('trade_market');
     const lg = L.data.find((l) => String(l.league_id) === st.league);
-    const key = st.league + '|' + RO.data.length + '|' + R.data.length + '|' + d3.max(RO.data, (p) => p.pulled_at);
-    if (tradeCache.key !== key) tradeCache = { key, rows: findTrades(lg, RO.data, R.data, TM.status === 'ok' ? TM.data : []) };
+    drawTfPlayers(RO);
+    const flt = { get: [...tf.get], give: [...tf.give], players: [...tf.players] };
+    const key = st.league + '|' + RO.data.length + '|' + R.data.length + '|' + d3.max(RO.data, (p) => p.pulled_at) + '|' + JSON.stringify(flt);
+    if (tradeCache.key !== key) tradeCache = { key, rows: findTrades(lg, RO.data, R.data, TM.status === 'ok' ? TM.data : [], flt) };
     const lastTh = document.getElementById('tt-last-th'), lookTh = document.getElementById('tt-look-th');
     if (lastTh) lastTh.hidden = tst.mode !== 'Escape last place';
     if (tst.mode === 'Escape last place') { drawEscape(tb, lg); return; }
     const rows = (tradeCache.rows[tst.mode] || []).filter((t) => tst.kind === 'All' || t.kind === tst.kind).slice(0, 20);
-    if (!rows.length) { message(tb, 6, 'None found for this league right now. Try another size or check back after the next roster pull.'); return; }
+    if (!rows.length) {
+      const other = ['Win-win', 'Fleece', 'Long shots'].filter((m) => m !== tst.mode)
+        .map((m) => [m, (tradeCache.rows[m] || []).filter((t) => tst.kind === 'All' || t.kind === tst.kind).length]).filter(([, n]) => n);
+      const hint = other.length ? ' Try ' + other.map(([m, n]) => m + ' (' + (n >= 20 ? '20+' : n) + ')').join(' or ') + '.' : '';
+      message(tb, 6, (flt.get.length || flt.give.length || flt.players.length ? 'No ' + tst.mode.toLowerCase() + ' trades with these filters.' + (hint || ' Try more positions or another size.') : 'None found for this league right now. Try another size or check back after the next roster pull.'));
+      return;
+    }
     rows.forEach((t) => {
       const tr = document.createElement('tr');
       cell(tr, t.give.map((x) => x.name + ' (' + x.pos + ')').join(' + '), 'nf-l');
@@ -1908,9 +1974,10 @@ window.foAvail = (() => {
     if (!me) { message(pb, 7, 'Your team isn\u2019t in this league\u2019s rosters.'); return; }
     const TM = dash.data('trade_market');
     const key = st.league + '|' + RO.data.length + '|' + R.data.length + '|' + d3.max(RO.data, (p) => p.pulled_at);
-    if (tradeCache.key !== key) tradeCache = { key, rows: findTrades(lg, RO.data, R.data, TM.status === 'ok' ? TM.data : []) };
-    const ww = (tradeCache.rows['Win-win'] || []);
-    const all = (tradeCache.rows.all || []);
+    // the partners table and Home's trade ideas always use the unfiltered search (its own cache)
+    if (allCache.key !== key) allCache = { key, rows: findTrades(lg, RO.data, R.data, TM.status === 'ok' ? TM.data : []) };
+    const ww = (allCache.rows['Win-win'] || []);
+    const all = (allCache.rows.all || []);
     const parts = T.filter((t) => !t.me).map((t) => {
       const forMe = t.spare.filter((x) => me.need.includes(x.pos)), forThem = me.spare.filter((x) => t.need.includes(x.pos));
       const trades = all.filter((x) => x.team === t.name), best = ww.find((x) => x.team === t.name) || trades[0] || null;
@@ -1936,7 +2003,9 @@ window.foAvail = (() => {
       pb.appendChild(tr);
     });
   }
-  function findTrades(lg, rosters, rosRows, market) {
+  function findTrades(lg, rosters, rosRows, market, flt) {
+    flt = flt || { get: [], give: [], players: [] };
+    const wantPl = new Set(flt.players), givePos = new Set(flt.give), getPos = new Set(flt.get);
     const ros = new Map(rosRows.map((r) => [r.key, r]));
     const slots = String(lg.lineup || '').split(' ').filter((x) => elig(x).length);
     const order = slots.slice().sort((a, b) => elig(a).length - elig(b).length);
@@ -1975,13 +2044,18 @@ window.foAvail = (() => {
     // every team's best-lineup points per week now (for the season simulation behind "Escape last place")
     const baseStr = new Map([...teams].map(([id, t]) => [String(id), lineup(t.players)]));
     const meId = String([...teams].find(([, t]) => t.me)[0]);
-    const mine = me.players.slice().sort((a, b) => b.v - a.v);
+    // filters: you only give players at the positions you picked (or the players you picked), a trade has to include
+    // at least one of the players you picked, and at least one player you get has to be at a position you picked
+    const mine = me.players.slice().sort((a, b) => b.v - a.v)
+      .filter((x) => !givePos.size || givePos.has(x.pos) || wantPl.has(x.key));
+    const mine2 = mine.slice(0, 10).concat(mine.slice(10).filter((x) => wantPl.has(x.key)));
+    const okGive = (g) => !wantPl.size || g.some((x) => wantPl.has(x.key)), okGet = (r) => !getPos.size || r.some((x) => getPos.has(x.pos));
     const combos = (arr, k) => (k === 1 ? arr.map((x) => [x]) : arr.flatMap((x, i) => arr.slice(i + 1).map((y) => [x, y])));
     for (const [tid, t] of teams) {
       if (t.me) continue;
       const tb0 = lineup(t.players), tm0 = lineup(t.players, 'm'), theirs = t.players.slice().sort((a, b) => b.v - a.v);
       for (const [ng, nr, kind] of [[1, 1, '1 for 1'], [2, 1, '2 for 1'], [1, 2, '1 for 2']]) {
-        const gives = combos(ng === 2 ? mine.slice(0, 10) : mine, ng), gets = combos(nr === 2 ? theirs.slice(0, 10) : theirs, nr);
+        const gives = combos(ng === 2 ? mine2 : mine, ng).filter(okGive), gets = combos(nr === 2 ? theirs.slice(0, 10) : theirs, nr).filter(okGet);
         for (const g of gives) for (const r of gets) {
           const m2 = me.players.filter((x) => !g.includes(x)).concat(r), t2 = t.players.filter((x) => !r.includes(x)).concat(g);
           const dm = lineup(m2) - base;
@@ -4368,7 +4442,7 @@ fetch('data/datasets.json', {cache: 'no-store'}).then((r) => r.json()).then((c) 
     // mark the name cells; refresh any open detail rows
     table.querySelectorAll('tbody tr:not(.fo-xrow)').forEach((tr) => {
       const td = tr.cells[nameIdx]; if (!td) return;
-      const on = hidden.length > 0;
+      const on = hidden.length > 0 && tr.cells.length > 1;   // not on one-cell message rows
       td.classList.toggle('fo-xname', on);
       if (on) { td.tabIndex = 0; td.setAttribute('aria-expanded', tr.nextElementSibling && tr.nextElementSibling.classList.contains('fo-xrow') ? 'true' : 'false'); }
       else { td.removeAttribute('tabindex'); td.removeAttribute('aria-expanded'); }
