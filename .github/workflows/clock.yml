@@ -1,0 +1,33 @@
+# Game-day clock: starts "Update projections" every 10 minutes in the 2 hours before each game day's kickoffs (when
+# the inactives post) and every 30 minutes in the 8 hours before that, because GitHub skips most scheduled runs.
+# Exits at once away from game days. See automation/clock.py.
+name: Update clock
+
+on:
+  schedule:
+    - cron: "23 * * * *"        # tries to start the clock every hour; it exits at once when no game is near
+  workflow_dispatch:
+
+permissions:
+  actions: write                # start the update workflow and the next clock run
+  contents: read
+
+concurrency:
+  group: clock
+  cancel-in-progress: false
+
+jobs:
+  clock:
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Start updates on time
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          pip install -q pandas pyarrow
+          python automation/clock.py --minutes 345 --ref ${{ github.ref_name }}
