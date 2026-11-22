@@ -768,7 +768,7 @@
         </details>
       </div>
     </div>
-    <p class="nf-note" style="margin:0">Pts / wk: rest-of-season points per week in this league's scoring (games he's expected to miss count as zero). Two values, in value points over the rest of the season. <b>Actual</b>: what he's worth by our projections — points per week above a waiver pickup plus points per week above the league's last starter (the star premium), averaged over his low-to-high range so a bench player keeps value for his upside, beyond what the best free agents at his position already offer, times the weeks left that count (0 = no more than a free agent). <b>Trade</b>: what the market pays for him on the same scale — the player the FantasyPros trade market ranks Nth across all positions (real trades, last 10 days) gets the Nth-highest actual value; grey = no trade-market price, so the experts' rank is used. Trade in <span class="nf-good">green</span> = worth 10+ more than the market pays (buy low), <span class="nf-bad">red</span> = the market pays 10+ more than he's worth (sell high). ROS rank: our rest-of-season rank. Experts / Trades: his FantasyPros expert consensus and trade-market ranks. vs market: <span class="nf-val nf-good">Undervalued</span> = at least 1 point per game more than his expert rank is worth (buy), <span class="nf-val nf-bad">Overvalued</span> = at least 1 point per game less (sell), <span class="nf-val nf-muted">At value</span> = in between; beside it, "both agree" when the trade market gives the same label, or what it says instead. Hover a label for the numbers.</p>
+    <p class="nf-note" style="margin:0">Pts / wk: rest-of-season points per week in this league's scoring (games he's expected to miss count as zero). Two values, in value points over the rest of the season. <b>Actual</b>: what he's worth by our projections — points per week above a waiver pickup plus points per week above the league's last starter (the star premium), averaged over his low-to-high range so a bench player keeps value for his upside, beyond what the best free agents at his position already offer, times the weeks left that count (0 = no more than a free agent). <b>Trade</b>: what the market pays for him on the same scale — the player the FantasyPros trade market ranks Nth across all positions (real trades, last 10 days) gets the Nth-highest actual value; grey = no trade-market price, so the experts' rank is used. Trade in <span class="nf-good">green</span> = worth 10+ more than the market pays (buy low), <span class="nf-bad">red</span> = the market pays 10+ more than he's worth (sell high). ROS rank: our rest-of-season rank. Experts / Trades: his FantasyPros expert consensus and trade-market ranks. vs market: <span class="nf-val nf-good">Undervalued</span> = at least 1 point per game more than his FantasyPros trade-market rank is worth (buy), <span class="nf-val nf-bad">Overvalued</span> = at least 1 point per game less (sell), <span class="nf-val nf-muted">At value</span> = in between (the expert rank when the trade market doesn't price him); beside it, "★ both agree" when the experts' rank gives the same label (the strongest calls), or what the experts say instead. In a live test (2026 Weeks 7-10) overvalued players scored 2.6 PPR per game below their market price and undervalued ones 1.2 above. Hover a label for the numbers.</p>
 
     <div class="nf-card" id="ta-verdict-card">
       <h2>Verdict</h2>
@@ -2817,7 +2817,7 @@ dash.calc('trade_levels', {
 });
 dash.calc('league_players', {
   inputs: ['league_rosters', 'ros', 'leagues', 'trade_market', 'trade_levels', 'trade_weeks'], title: 'Players: league points, actual and trade value, labels',
-  description: 'Each Yahoo-rostered QB, RB, WR and TE (plus each league\'s 15 most valuable free agents) in his league\'s scoring. Pts / wk: ROS points per game left (his chance to play each game x his points when playing, missed games as zero; passing TDs, interceptions, passing yards per point, fumbles lost, points per catch and yardage bonuses from his per-game rates). Trade value (what the market pays, on the actual-value scale): the player the FantasyPros trade market ranks k-th across all positions (20+ trades in 10 days) gets the k-th highest actual value among the players it prices, ties averaged; players it doesn\'t price get the actual value of the player at their FantasyPros expert rank (same position), else their own actual value; free agents their actual value. Actual value: per game he plays, the expected points above the league\'s waiver level plus the expected points above its last starter (each counted only when positive, over a two-piece normal with his points when playing as the mean and the spread of his ROS range), less what the 3 best free agents at his position offer on the same terms (a free agent costs nothing), never below 0; times the weeks left that count, each weighted by his chance to play it (his bye 0; the chance falls the further out the week is). A game he misses is filled by a waiver-level player, so it costs his edge over that player, not his whole score. Labels: our model\'s ROS points in league scoring minus the model points of the player at his FantasyPros expert rank (same position), per game left; Undervalued at +1.0 or more, Overvalued at -1.0 or less, for the experts\' top QB32 / RB60 / WR80 / TE32 (tested 2020-2025); Trades: the same with his FantasyPros trade-market rank (20+ trades in 10 days; not yet tested).',
+  description: 'Each Yahoo-rostered QB, RB, WR and TE (plus each league\'s 15 most valuable free agents) in his league\'s scoring. Pts / wk: ROS points per game left (his chance to play each game x his points when playing, missed games as zero; passing TDs, interceptions, passing yards per point, fumbles lost, points per catch and yardage bonuses from his per-game rates). Trade value (what the market pays, on the actual-value scale): the player the FantasyPros trade market ranks k-th across all positions (20+ trades in 10 days) gets the k-th highest actual value among the players it prices, ties averaged; players it doesn\'t price get the actual value of the player at their FantasyPros expert rank (same position), else their own actual value; free agents their actual value. Actual value: per game he plays, the expected points above the league\'s waiver level plus the expected points above its last starter (each counted only when positive, over a two-piece normal with his points when playing as the mean and the spread of his ROS range), less what the 3 best free agents at his position offer on the same terms (a free agent costs nothing), never below 0; times the weeks left that count, each weighted by his chance to play it (his bye 0; the chance falls the further out the week is). A game he misses is filled by a waiver-level player, so it costs his edge over that player, not his whole score. Labels: our model\'s ROS points in league scoring minus the model points of the player at his FantasyPros expert rank (same position), per game left; Undervalued at +1.0 or more, Overvalued at -1.0 or less, for the experts\' top QB32 / RB60 / WR80 / TE32 (tested 2020-2025); Trades: the same with his FantasyPros trade-market rank (20+ trades in 10 days); since Nov 22, 2026 the shown label (tested live 2026 Weeks 7-10: overvalued -2.6, undervalued +1.2 PPR per game vs price), the experts\' label beside it.',
   fn: (league_rosters, ros, leagues, trade_market, trade_levels, trade_weeks) => {
     const num = (v, d = 0) => (v === '' || v == null || isNaN(+v) ? d : +v);
     const POOL = { QB: 32, RB: 60, WR: 80, TE: 32 }, T = 1.0, MIN_TRADES = 20, N_FA = 15, A = window.foAvail;
@@ -3050,10 +3050,11 @@ dash.calc('league_players', {
       : p.tsrc === 'experts' ? 'No trade-market price: value of the player at his FantasyPros expert rank' : 'No market or expert price: our actual value';
     return c;
   };
-  // the experts' label (tested) as the chip; the trade market's label (untested) as a second opinion beside it
+  // Nov 22, 2026: the trade market's label is the chip (it beat the experts' label in the Nov 19 live test, lab16_market.py);
+  // the experts' label is the second opinion beside it; "both agree" = the strongest buy-low / sell-high calls
   const valueCell = (p, extra) => {
     const c = document.createElement('td'); c.className = 'nf-l' + (extra ? ' ' + extra : '');
-    const main = p.value || p.valueT;
+    const main = p.valueT || p.value;
     if (!main) { c.textContent = '—'; c.classList.add('nf-muted'); return c; }
     const s = document.createElement('span'); s.className = 'nf-val ' + VAL_CLS[main]; s.textContent = main;
     const tip = [];
@@ -3062,8 +3063,8 @@ dash.calc('league_players', {
     s.title = tip.join('\n');
     c.appendChild(s);
     const note = document.createElement('span'); note.className = 'nf-val-note';
-    if (p.value && p.valueT) note.textContent = p.value === p.valueT ? 'both agree' : 'trades: ' + p.valueT.toLowerCase();
-    else if (!p.value && p.valueT) note.textContent = 'trades only';
+    if (p.value && p.valueT) note.textContent = p.value === p.valueT ? (main === 'At value' ? 'both agree' : '★ both agree') : 'experts: ' + p.value.toLowerCase();
+    else if (p.value && !p.valueT) note.textContent = 'experts only';
     if (note.textContent) { c.appendChild(document.createTextNode(' ')); c.appendChild(note); }
     return c;
   };
@@ -3492,7 +3493,7 @@ dash.calc('league_players', {
       const netE = tot(res.getP, 'gap') - tot(res.giveP, 'gap');
       const hasT = res.getP.concat(res.giveP).some((p) => p.gapT != null);
       const netT = tot(res.getP, 'gapT') - tot(res.giveP, 'gapT');
-      const cnt = (ps) => ['Undervalued', 'At value', 'Overvalued'].map((v) => [v, ps.filter((p) => p.value === v).length]).filter(([, n]) => n)
+      const cnt = (ps) => ['Undervalued', 'At value', 'Overvalued'].map((v) => [v, ps.filter((p) => (p.valueT || p.value) === v).length]).filter(([, n]) => n)
         .map(([v, n]) => n + ' ' + v.toLowerCase()).join(', ') || 'no rated players';
       const noT = res.getP.concat(res.giveP).filter((p) => p.gap != null && p.gapT == null).map((p) => p.name);
       const e = verdict(netE, 'expert prices'), t = hasT ? verdict(netT, 'trade-market prices') : '';
