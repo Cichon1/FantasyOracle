@@ -89,6 +89,9 @@ def main():
              str(season), "--week", str(w_proj), "--info", os.path.join("dash_out", "injuries_live.json")], log)
         run([sys.executable, os.path.join(ROOT, "automation", "inactives_nfl.py"), "--season", str(season),
              "--week", str(w_proj), "--out", "ref"], log)
+        # this week's Sleeper and ESPN projections for the official blend (optional: never fails the update)
+        subprocess.run([sys.executable, os.path.join(ROOT, "automation", "other_live.py"), "--season", str(season),
+                        "--week", str(w_proj)])
         run([sys.executable, "cloud_run.py", "project", "--store", store, "--season", str(season), "--week", str(w_proj)]
             + (["--late"] if started else []), log)
         run([sys.executable, "cloud_run.py", "ros", "--store", os.path.join("dash_out", "projections_v5.csv"),

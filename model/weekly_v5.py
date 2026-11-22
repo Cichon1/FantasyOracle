@@ -89,6 +89,95 @@ def blend_with_experts(up):
     return up
 
 
+LIVE_OTHER = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "automation", "history", "other_proj", "live")
+SITE_MIN_COVER = 0.6   # share of the week's upcoming QB/RB/WR/TE rows (model >= 3 pts) a site must project
+
+
+def _nk(x):
+    import re
+    import unicodedata
+    x = unicodedata.normalize("NFKD", str(x)).encode("ascii", "ignore").decode().lower()
+    x = re.sub(r"[.'\-]", "", x)
+    x = re.sub(r"\b(jr|sr|ii|iii|iv|v)\b", "", x)
+    return re.sub(r"\s+", " ", x).strip()
+
+
+def attach_sites(up, season, week, ids_path=None):
+    """Adds `sleeper` / `espn` columns (their live PPR projection for this week; NaN when unmatched) from
+    automation/other_proj_live files. Matching: the site's id through DynastyProcess's id table, then name + position
+    for anyone left (unique names only). Returns (up, coverage per site)."""
+    ids_path = ids_path or os.path.join(os.environ.get("FP_DATA", "fpdata"), "db_playerids.csv")
+    cover = {}
+    for src, col in [("sleeper", "sleeper_id"), ("espn", "espn_id")]:
+        up[src] = np.nan
+        f = os.path.join(LIVE_OTHER, f"{src}_{season}_wk{week}.csv")
+        if not os.path.exists(f):
+            cover[src] = 0.0
+            continue
+        sl = pd.read_csv(f, dtype={"source_id": str})
+        sl["source_id"] = sl["source_id"].str.replace(r"\.0$", "", regex=True)
+        try:
+            ids = pd.read_csv(ids_path, usecols=[col, "gsis_id"], low_memory=False).dropna()
+            ids[col] = ids[col].astype(str).str.replace(r"\.0$", "", regex=True)
+            ids = ids.drop_duplicates(col).set_index(col)["gsis_id"]
+            sl["player_id"] = sl["source_id"].map(ids)
+        except Exception:
+            sl["player_id"] = np.nan
+        by_id = sl.dropna(subset=["player_id"]).drop_duplicates("player_id").set_index("player_id")["proj_ppr"]
+        up[src] = up["player_id"].map(by_id)
+        # name + position fallback for players the id table misses (rookies, recent signings)
+        sl["nk"] = sl["player"].map(_nk) + "|" + sl["pos"].astype(str)
+        uniq = sl[~sl["nk"].duplicated(keep=False)].set_index("nk")["proj_ppr"]
+        upk = up["player_display_name"].map(_nk) + "|" + up["position"].astype(str)
+        dup = upk.duplicated(keep=False)
+        miss = up[src].isna() & ~dup
+        up.loc[miss, src] = upk[miss].map(uniq)
+        rel = (up["status"] == "Upcoming") & (up["pred_ppr_model"] >= 3)
+        cover[src] = float(up.loc[rel, src].notna().mean()) if rel.any() else 0.0
+    return up, cover
+
+
+def blend_sites(up):
+    """Official weekly = model + Sleeper + ESPN: within each position-week, the three sources' ranks averaged and their
+    average point curve handed out in that order. A player a site doesn't list takes the model's number for it."""
+    up = up.copy()
+    up["pred_ppr_official"] = up["pred_ppr_model"]
+    up["blend_rank"] = np.nan
+    members = ["pred_ppr_model", "sleeper", "espn"]
+    vals = up[members].copy()
+    for c in ["sleeper", "espn"]:
+        vals[c] = vals[c].fillna(vals["pred_ppr_model"])
+    grp = [c for c in ["season", "week", "position"] if c in up.columns]
+    for _, g in up.groupby(grp):
+        v = vals.loc[g.index]
+        rk = sum(v[m].rank(ascending=False, method="first") for m in members) / len(members)
+        rk = rk + v["pred_ppr_model"].rank(ascending=False, method="first") * 1e-6
+        pool = np.mean([np.sort(v[m].values)[::-1] for m in members], axis=0)
+        order = rk.rank(method="first").astype(int).values - 1
+        up.loc[g.index, "pred_ppr_official"] = pool[order]
+        up.loc[g.index, "blend_rank"] = order + 1
+    return up
+
+
+def official_blend(rows, cfg, season, week):
+    """cfg["weekly_blend"] == "sites": model + Sleeper + ESPN when both sites cover this week; otherwise (or when set to
+    "experts") the FantasyPros rank blend. Keeps the FantasyPros blend as pred_ppr_fp_blend for comparison."""
+    fp = blend_with_experts(rows)
+    fp["pred_ppr_fp_blend"] = fp["pred_ppr_official"]
+    fp["blend_source"] = "model+FantasyPros"
+    if cfg.get("weekly_blend") != "sites":
+        return fp, {"blend": "model+FantasyPros", "reason": "config"}
+    try:
+        up, cover = attach_sites(fp, season, week)
+    except Exception as e:      # noqa: BLE001
+        return fp, {"blend": "model+FantasyPros", "reason": f"site files: {e}"[:200]}
+    if min(cover.values()) < SITE_MIN_COVER:
+        return fp, {"blend": "model+FantasyPros", "reason": "site coverage", "coverage": cover}
+    out = blend_sites(up)
+    out["blend_source"] = "model+Sleeper+ESPN"
+    return out, {"blend": "model+Sleeper+ESPN", "coverage": {k: round(v, 3) for k, v in cover.items()}}
+
+
 def features_for(cfg, hist, key):
     extra = list(cfg.get("extra", [])) + cfg.get("extra_by_pos", {}).get(key, [])
     return L.feature_list(hist, cfg.get("drop_groups", []), extra, cfg.get("drop_cols", []))
@@ -133,7 +222,13 @@ def project(hist, rows, cfg, season, week):
         qm = cfg["qb_market"]
         rows["pred_ppr_model_raw"] = rows["pred_ppr_model"]
         rows["pred_ppr_model"] = f6.qb_market_adjust(rows, qm["w_model"], qm["cold_offsets"])
-    rows = blend_with_experts(rows)
+    rows, binfo = official_blend(rows, cfg, season, week)
+    print("weekly blend:", json.dumps(binfo), flush=True)
+    try:
+        os.makedirs("out_v5", exist_ok=True)
+        json.dump(binfo, open(os.path.join("out_v5", f"blend_info_{season}_wk{week}.json"), "w"), indent=1)
+    except Exception:
+        pass
     rows["pred_ppr_q10"] = np.minimum(rows["pred_ppr_q10"].clip(lower=0), rows["pred_ppr_official"])
     rows["pred_ppr_q90"] = np.maximum(rows["pred_ppr_q90"], rows["pred_ppr_official"])
     # range calibration (walk-forward 2023-2026: the raw 10th/90th percentile models left ~12% of games outside each
@@ -151,7 +246,7 @@ KEEP = ["player_id", "player_display_name", "position", "team", "opponent_team",
         "practice_dnp", "practice_limited", "ij_questionable", "ij_doubtful", "rc_tprr", "rc_yprr", "rc_adot",
         "rc_route_participation", "rc_first_read_share", "xfp_ewm", "xfp_fpoe_ewm", "xfp_td_luck_ewm",
         "dc_depth_rank", "dc_depth_change", "qb_changed", "ecr_week_ecr", "ecr_week_pos_rank", "ecr_ros_pos_rank",
-        "wx_temp", "wx_wind", "wx_rain", "wx_dome", "coach", "blend_rank", "carries_ewm", "ru_ypc", "ru_explosive_rate",
+        "wx_temp", "wx_wind", "wx_rain", "wx_dome", "coach", "blend_rank", "blend_source", "sleeper", "espn", "carries_ewm", "ru_ypc", "ru_explosive_rate",
         "ru_gump_rate", "ru_stuff_rate", "ru_epa_per_carry", "rz_goal_line_carry_share", "def_two_high_rate",
         "def_explosive_run_rate", "mkt_pts", "mkt_share_ewm", "mkt_qb_start_share", "qb_prior_starts", "qb_is_projected_starter"]
 

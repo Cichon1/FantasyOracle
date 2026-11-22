@@ -77,6 +77,7 @@ def to_dash(p):
         "implied_pts": p["implied_pts"].round(1), "exp_plays": p["pace_exp_plays"].round(1), "xfp": p["xfp_ewm"].round(1),
         "expert_rank": p["ecr_week_pos_rank"].round(0),
         "proj_ppr": p["pred_ppr_official"].round(1), "proj_model": p["pred_ppr_model"].round(1),
+        "proj_fp_blend": (p["pred_ppr_fp_blend"] if "pred_ppr_fp_blend" in p else p["pred_ppr_official"]).round(1),
         "ppr_low": p["pred_ppr_q10"].round(1), "ppr_high": p["pred_ppr_q90"].round(1),
         "pass_yds": p["pred_passing_yards"].where(p["position"] == "QB").round(0),
         "rush_yds": p["pred_rushing_yards"].where(p["position"].isin(["QB", "RB"])).round(0),
@@ -302,6 +303,9 @@ def main():
                         "--config", "v5_config.json", "--out", "out_v5", "--frame", FRAME]
                        + (["--upcoming-only"] if a.late else []), check=True, env=env)
         p = pd.read_csv(f"out_v5/predictions_{a.season}_wk{W}.csv")
+        bi = f"out_v5/blend_info_{a.season}_wk{W}.json"
+        if os.path.exists(bi):
+            info["weekly_blend"] = json.load(open(bi))
         started = started_games(a.season, W)
         if a.late:   # games outside this run (already played) keep their stored rows
             keep = (set(store.loc[store["week"] == W, "game_id"]) - set(p["game_id"])) | started
