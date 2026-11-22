@@ -547,7 +547,8 @@ html, body { overflow-x: clip; }
         <p class="nf-note">Every team's kicker and defense projected from the Vegas lines: a defense scores when the
         opponent is expected to score little and its team is favored; a kicker when his team is expected to score a lot
         (plus dome and recent form). <b>Available</b> means nobody in this league rosters that team's kicker / defense.
-        Yahoo default scoring. Weeks without betting lines yet use season averages, so treat them as a rough look ahead.
+        Points use this league's own kicker / defense rules where we've read them (BDSM: 0.1 per field-goal yard and
+        return yards), otherwise Yahoo's defaults. Weeks without betting lines yet use season averages, so treat them as a rough look ahead.
         Defense projections ranked weekly defenses as well as Sleeper's and ESPN's in our back-tests; kickers are close to
         a coin flip for everyone, so don't overthink them.</p>
         <div class="nf-controls" id="team-kdef-week" role="group" aria-label="Week"></div>
@@ -1689,7 +1690,9 @@ window.foAvail = (() => {
       });
     }
     wkBox.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', +b.dataset.w === kst.week));
-    const rows = KD.data.filter((r) => +r.week === kst.week);
+    const lid = roster.length ? String(roster[0].league_id) : '';
+    const sc = KD.data.some((r) => String(r.scoring) === lid) ? lid : 'default';
+    const rows = KD.data.filter((r) => +r.week === kst.week && (r.scoring == null || r.scoring === '' || String(r.scoring) === sc));
     const noLines = rows.every((r) => r.implied === '' || r.implied == null);
     const parts = [];
     [['DEF', db, 'opp_implied'], ['K', kb, 'implied']].forEach(([unit, tb, ptsCol]) => {
@@ -1723,7 +1726,7 @@ window.foAvail = (() => {
         else parts.push('Keep your ' + word + ' (best available ' + best.team + ' ' + sg(g) + ')');
       }
     });
-    meta.textContent = 'Week ' + kst.week + (noLines ? ' · no betting lines yet' : '') + (parts.length ? ' · ' + parts.join(' · ') : '');
+    meta.textContent = 'Week ' + kst.week + (sc === 'default' ? ' · Yahoo default scoring' : " · this league's K / DEF scoring") + (noLines ? ' · no betting lines yet' : '') + (parts.length ? ' · ' + parts.join(' · ') : '');
   }
 
   function draw() {

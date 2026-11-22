@@ -28,25 +28,30 @@ def main():
     ap.add_argument("--week", type=int, required=True)
     ap.add_argument("--out", default=os.path.join(ROOT, "docs", "data"))
     a = ap.parse_args()
-    u = K.build(a.season, a.data)
-    u = u[(u["season"] == a.season) & u["week"].between(a.week, a.week + 2)].copy()
     rows = []
-    for unit, col in [("DEF", "def"), ("K", "k")]:
-        x = u[["season", "week", "team", "opp", "home", "spread", "implied", "opp_implied", "dome", f"{col}_proj",
-               f"{col}_avg"]].rename(columns={f"{col}_proj": "proj", f"{col}_avg": "recent_avg"})
-        x["unit"] = unit
-        x["rank"] = x.groupby("week")["proj"].rank(ascending=False, method="first").astype(int)
-        rows.append(x)
+    # "default" = Yahoo default scoring; a league id = that league's own K / DEF scoring (BDSM League: 0.1 per FG
+    # yard, short misses negative, return yards 25 per point; read from league_scoring_v5.csv on Nov 22)
+    for scoring, lab in [("yahoo", "default"), ("bdsm", "126912")]:
+        u = K.build(a.season, a.data, scoring)
+        u = u[(u["season"] == a.season) & u["week"].between(a.week, a.week + 2)].copy()
+        for unit, col in [("DEF", "def"), ("K", "k")]:
+            x = u[["season", "week", "team", "opp", "home", "spread", "implied", "opp_implied", "dome", f"{col}_proj",
+                   f"{col}_avg"]].rename(columns={f"{col}_proj": "proj", f"{col}_avg": "recent_avg"})
+            x["unit"] = unit
+            x["scoring"] = lab
+            x["rank"] = x.groupby("week")["proj"].rank(ascending=False, method="first").astype(int)
+            rows.append(x)
     out = pd.concat(rows, ignore_index=True)
     for c in ["spread", "implied", "opp_implied", "proj", "recent_avg"]:
         out[c] = out[c].round(2)
-    out.sort_values(["week", "unit", "rank"]).to_csv(os.path.join(a.out, "kdef_v5.csv"), index=False)
+    out.sort_values(["scoring", "week", "unit", "rank"]).to_csv(os.path.join(a.out, "kdef_v5.csv"), index=False)
     cat_p = os.path.join(a.out, "datasets.json")
     if os.path.exists(cat_p):
         cat = json.load(open(cat_p))
         cat["datasets"]["kdef"] = {
             "file": "kdef_v5.csv", "title": f"Kicker and defense projections, Weeks {a.week}-{a.week + 2}",
-            "description": "Team kicker and team defense projected Yahoo-default fantasy points by week, from Vegas "
+            "description": "Team kicker and team defense projected fantasy points by week (scoring: Yahoo default, or a "
+                           "league id for that league's own K / DEF rules), from Vegas "
                            "lines (implied points, spread), dome, home and recent scoring; weeks without lines yet "
                            "fall back to season averages.",
             "updated": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")}

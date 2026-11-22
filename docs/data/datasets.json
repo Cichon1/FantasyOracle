@@ -220,8 +220,8 @@
   "kdef": {
    "file": "kdef_v5.csv",
    "title": "Kicker and defense projections, Weeks 11-13",
-   "description": "Team kicker and team defense projected Yahoo-default fantasy points by week, from Vegas lines (implied points, spread), dome, home and recent scoring; weeks without lines yet fall back to season averages.",
-   "updated": "2026-11-22T21:04:22+00:00"
+   "description": "Team kicker and team defense projected fantasy points by week (scoring: Yahoo default, or a league id for that league's own K / DEF rules), from Vegas lines (implied points, spread), dome, home and recent scoring; weeks without lines yet fall back to season averages.",
+   "updated": "2026-11-22T21:06:55+00:00"
   }
  },
  "note": "Week 11 projections"
