@@ -1,29 +1,29 @@
 {
- "updated": "2026-11-23T22:23:05+00:00",
+ "updated": "2026-11-23T23:09:38+00:00",
  "season": 2026,
  "projection_week": 11,
  "results_week": 11,
  "games_started": true,
- "reason": "player_stats,play_by_play,schedule_and_lines,injury_reports,depth_charts,rosters,snap_counts,expected_points,injury_news",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 47,
+   "seconds": 37,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 4,
+   "seconds": 5,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 2,
+   "seconds": 3,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 0,
+   "seconds": 1,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 162,
+   "seconds": 225,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 32,
+   "seconds": 63,
    "ok": true
   }
  ],
@@ -89,79 +89,88 @@
   "mode": "ros",
   "season": 2026,
   "week": 11,
+  "bye_teams": [
+   "ATL",
+   "CLE",
+   "GB",
+   "LA",
+   "NE",
+   "SEA"
+  ],
   "last_week": 17,
   "players": 464,
   "out_this_week": 96,
   "on_bye": 74,
   "this_week_source": "official",
+  "bye_refreshed": 72,
   "training_snapshots": 47931,
   "rounds": {
    "QB": 50,
-   "RB": 113,
-   "WR/TE": 50
+   "RB": 165,
+   "WR/TE": 78
   },
   "experts_ros_date": "2026-11-20 00:00:00",
-  "seconds": 31,
+  "seconds": 61,
   "model_cache": {
-   "hit": 0,
-   "miss": 18,
+   "hit": 18,
+   "miss": 9,
    "on": true
   },
   "top": {
    "QB": [
     [
      "Joe Burrow",
-     142.5
+     141.8
     ],
     [
      "Josh Allen",
-     121.0
+     121.1
     ],
     [
      "Trevor Lawrence",
-     109.4
+     109.5
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     124.4
-    ],
-    [
-     "Bijan Robinson",
-     114.0
+     123.9
     ],
     [
      "Christian McCaffrey",
-     108.2
+     106.7
+    ],
+    [
+     "James Cook",
+     105.4
     ]
    ],
    "TE": [
     [
      "George Kittle",
-     69.1
+     71.3
     ],
     [
      "Isaiah Likely",
-     68.5
+     69.3
     ],
     [
      "Trey McBride",
-     63.4
+     67.4
     ]
    ],
    "WR": [
     [
      "Ja'Marr Chase",
-     147.1
-    ],
-    [
-     "Amon-Ra St. Brown",
-     109.2
+     148.0
     ],
     [
      "Jaxon Smith-Njigba",
-     107.6
+     119.9
+    ],
+    [
+     "Amon-Ra St. Brown",
+     110.2
     ]
    ]
   }
@@ -182,6 +191,7 @@
    "Sean Rhyan (GB)",
    "Luke Musgrave (GB)",
    "Kevin Zeitler (GB)",
+   "Coleman Shelton (LA)",
    "Terrance Ferguson (LA)",
    "Davante Adams (LA)",
    "Puka Nacua (LA)",
@@ -191,10 +201,9 @@
    "Drake Maye (NE)",
    "Romeo Doubs (NE)",
    "Brenden Schooler (NE)",
-   "Walter Rouse (NE)",
-   "Ben Brown (NE)"
+   "Walter Rouse (NE)"
   ],
-  "hash": "bcabeb0c354d",
+  "hash": "426490219974",
   "manual_out": [
    "Drake Maye",
    "Josh Jacobs"
