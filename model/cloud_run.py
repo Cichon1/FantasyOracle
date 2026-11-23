@@ -254,25 +254,33 @@ def ros_run(a):
     stats, games, _ = m.load("data")
     ctx = R.Context("data", os.environ.get("FP_DATA", "fpdata"), stats, games)
     store = pd.read_csv(a.store) if a.store and os.path.exists(a.store) else None
-    # Nov 23, 2026: teams on bye in week W are projected from their week W+1 rows (ros.refresh_bye_rows)
+    # Nov 23, 2026: players whose week-W game is final, or whose team is on bye, are projected from their team's
+    # next game's row (ros.refresh_next_rows): frames for week W+1, and W+2 for teams on bye in W+1
     sc = games[(games["season"] == a.season) & (games["game_type"] == "REG")]
-    playing = set(sc.loc[sc["week"] == W, "home_team"]) | set(sc.loc[sc["week"] == W, "away_team"])
-    byes = (set(sc["home_team"]) | set(sc["away_team"])) - playing
-    next_df = None
-    nxt = sc[(sc["week"] == W + 1) & sc["home_score"].isna()]
-    if byes & (set(nxt["home_team"]) | set(nxt["away_team"])) and W + 1 <= R.last_week(a.season):
-        next_df = m.build_frame("data", a.season, W + 1)
-        next_df = next_df.join(f6.build_market(next_df, "data"))
-        next_df["qb_prior_starts"] = f6.qb_prior_starts(next_df, "data")
-        extra = [c for c in df.columns if c not in next_df.columns]
-        if extra:   # the project run's frame carries the v5 inputs too: build them the same way
+    teams = set(sc["home_team"]) | set(sc["away_team"])
+    def plays(w):
+        g = sc[sc["week"] == w]
+        return set(g["home_team"]) | set(g["away_team"])
+    wkg = sc[sc["week"] == W]
+    need = (teams - plays(W)) | set(wkg.loc[wkg["home_score"].notna(), "home_team"]) \
+        | set(wkg.loc[wkg["home_score"].notna(), "away_team"])
+    next_frames, lw = [], R.last_week(a.season)
+    for wn in (W + 1, W + 2):
+        if not need or wn > lw:
+            break
+        fr = m.build_frame("data", a.season, wn)
+        fr = fr.join(f6.build_market(fr, "data"))
+        fr["qb_prior_starts"] = f6.qb_prior_starts(fr, "data")
+        if [c for c in df.columns if c not in fr.columns]:   # the project run's frame carries the v5 inputs too
             import features_v5 as f5
-            v5, _ = f5.build_v5(next_df, "data", stats, m.load("data")[2])
-            next_df = next_df.join(v5[[c for c in v5.columns if c not in next_df.columns]])
+            v5, _ = f5.build_v5(fr, "data", stats, m.load("data")[2])
+            fr = fr.join(v5[[c for c in v5.columns if c not in fr.columns]])
         for c in ["phantom", "snap_only", "upcoming"]:
-            next_df[c] = next_df[c].eq(True)
-        info["bye_teams"] = sorted(byes)
-    snap, rinfo = R.project_live(df, ctx, a.season, W, cfg, store, next_df=next_df)
+            fr[c] = fr[c].eq(True)
+        next_frames.append((wn, fr))
+        need -= plays(wn)
+    info["next_frames"] = [w for w, _ in next_frames]
+    snap, rinfo = R.project_live(df, ctx, a.season, W, cfg, store, next_frames=next_frames)
     ros, tv = R.dash_rows(snap, ctx, a.season, W, cfg["ros"])
     ros.to_csv(os.path.join(OUT, "ros_v5.csv"), index=False)
     tv.to_csv(os.path.join(OUT, "trade_values_v5.csv"), index=False)

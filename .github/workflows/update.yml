@@ -121,3 +121,17 @@ jobs:
       - name: Publish website
         id: deploy
         uses: actions/deploy-pages@v4
+
+  # Nov 23, 2026: every player projected to play must have ROS inputs through his latest played game
+  # (automation/freshness_check.py). Runs after the site is published, so a failure never holds an update back:
+  # it marks the run red and GitHub emails the repo owner.
+  freshness:
+    needs: update
+    if: needs.update.outputs.changed == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - name: ROS input freshness
+        run: python3 automation/freshness_check.py docs/data

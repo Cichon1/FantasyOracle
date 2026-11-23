@@ -16,14 +16,18 @@ import pandas as pd
 PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "manual_out.csv")
 
 
-def load(season, week=None, path=PATH):
-    """{player_id: out_through_week} for this season (and, with week, only rows not yet past)."""
+def load(season, week=None, path=PATH, asof=None):
+    """{player_id: out_through_week} for this season (and, with week, only rows not yet past). asof (a date): only
+    estimates added by then - a re-created past week (ros_history backfill) must not use a later estimate (Nov 23,
+    2026: Week 1's re-created ROS had Drake Maye's Week 11 injury taking out 12 of his 15 games)."""
     if not os.path.exists(path):
         return {}
     d = pd.read_csv(path, dtype={"player_id": str})
     d = d[d["season"] == season]
     if week is not None:
         d = d[d["out_through_week"] >= week]
+    if asof is not None and "added" in d:
+        d = d[pd.to_datetime(d["added"]) <= pd.Timestamp(asof)]
     return dict(zip(d["player_id"], d["out_through_week"].astype(int)))
 
 

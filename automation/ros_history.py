@@ -30,12 +30,13 @@ COLS = ["week", "source", "snapshot_at", "key", "player", "player_id", "pos", "t
         "ros_ppr", "ros_low", "ros_high", "ros_model", "model_rank", "expert_rank", "games_left", "ros_ppg",
         "season_ppg", "season_games", "bye_week", "ros_start_pct", "ros_confidence"]
 DESC = ("Rest-of-season rankings as they stood each week of the season: rank within the position, ROS PPR points "
-        "and range, model and expert ranks. Weeks from 9 on are the live ranking (the last run of that week); "
-        "earlier weeks were re-created after the fact by the same ROS model as of that week (models trained on "
-        "earlier seasons, that date's expert ROS ranking and that week's pre-kickoff projection).")
+        "and range, model and expert ranks. Weeks from 11 on are the live ranking (the last run of that week); "
+        "Weeks 1-10 were re-created on Nov 23, 2026 by the same ROS model as of the end of that week (models trained "
+        "on earlier seasons, that date's expert ROS ranking, each player's inputs through that week's games), after "
+        "a fix: earlier snapshots left out each player's latest game, and a bye team's whole bye week.")
 
 
-def merge(site, rows, week, source):
+def merge(site, rows, week, source, replace_live=False):
     path = os.path.join(site, FILE)
     rows = rows.copy()
     rows["week"], rows["source"] = int(week), source
@@ -47,7 +48,7 @@ def merge(site, rows, week, source):
     if os.path.exists(path):
         old = pd.read_csv(path)
         # a live snapshot replaces whatever the week had; a re-created one never overwrites a live one
-        if source != "live" and ((old["week"] == week) & (old["source"] == "live")).any():
+        if source != "live" and not replace_live and ((old["week"] == week) & (old["source"] == "live")).any():
             return False
         rows = pd.concat([old[old["week"] != week], rows], ignore_index=True)
     rows.sort_values(["week", "pos", "ros_rank"]).to_csv(path, index=False)
@@ -68,7 +69,7 @@ def append(site):
     print(f"ros history: week {week} live snapshot, {len(ros)} players")
 
 
-def backfill(first, last, season):
+def backfill(first, last, season, replace_live=False):
     store = os.path.join(SITE, "projections_v5.csv")
     keep = os.path.join(MODEL, "dash_out", "ros_v5.keep.csv")
     cur = os.path.join(MODEL, "dash_out", "ros_v5.csv")
@@ -91,7 +92,7 @@ def backfill(first, last, season):
             ros["ros_start_pct"], ros["ros_confidence"] = (rs * 100).round(), C.label(rs)
         except Exception as e:   # optional
             print("start % skipped:", e)
-        ok = merge(SITE, ros, w, "re-created")
+        ok = merge(SITE, ros, w, "re-created", replace_live)
         print(f"week {w}: {len(ros)} players {'saved' if ok else 'kept the live snapshot'}", flush=True)
     if os.path.exists(keep):
         shutil.move(keep, cur)
@@ -102,11 +103,13 @@ def main():
     ap.add_argument("mode", choices=["append", "backfill"])
     ap.add_argument("args", nargs="*")
     ap.add_argument("--season", type=int, default=2026)
+    ap.add_argument("--replace-live", action="store_true", help="backfill: also replace weeks saved live (Nov 23, 2026: "
+                    "live weeks made before ros.refresh_next_rows left out each player's latest game)")
     a = ap.parse_args()
     if a.mode == "append":
         append(a.args[0] if a.args else SITE)
     else:
-        backfill(int(a.args[0]), int(a.args[1]), a.season)
+        backfill(int(a.args[0]), int(a.args[1]), a.season, a.replace_live)
 
 
 if __name__ == "__main__":

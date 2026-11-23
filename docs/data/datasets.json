@@ -214,8 +214,8 @@
   "ros_history": {
    "file": "ros_history_v5.csv",
    "title": "ROS rankings by week",
-   "description": "Rest-of-season rankings as they stood each week of the season: rank within the position, ROS PPR points and range, model and expert ranks. Weeks from 9 on are the live ranking (the last run of that week); earlier weeks were re-created after the fact by the same ROS model as of that week (models trained on earlier seasons, that date's expert ROS ranking and that week's pre-kickoff projection).",
-   "updated": "2026-11-23T23:09:40+00:00"
+   "description": "Rest-of-season rankings as they stood each week of the season: rank within the position, ROS PPR points and range, model and expert ranks. Weeks from 11 on are the live ranking (the last run of that week); Weeks 1-10 were re-created on Nov 23, 2026 by the same ROS model as of the end of that week (models trained on earlier seasons, that date's expert ROS ranking, each player's inputs through that week's games), after a fix: earlier snapshots left out each player's latest game, and a bye team's whole bye week.",
+   "updated": "2026-11-23T23:51:00+00:00"
   },
   "kdef": {
    "file": "kdef_v5.csv",
