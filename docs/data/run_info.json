@@ -1,29 +1,29 @@
 {
- "updated": "2026-11-23T02:30:57+00:00",
+ "updated": "2026-11-23T11:12:45+00:00",
  "season": 2026,
  "projection_week": 11,
  "results_week": 11,
  "games_started": true,
- "reason": "player_stats,play_by_play,schedule_and_lines,fp_rankings,injury_news,inactives",
+ "reason": "player_stats,play_by_play,schedule_and_lines,injury_reports,depth_charts,rosters,ftn_charting,expected_points,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 43,
+   "seconds": 37,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 4,
+   "seconds": 6,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 2,
+   "seconds": 3,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 0,
+   "seconds": 1,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 167,
+   "seconds": 229,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 33,
+   "seconds": 52,
    "ok": true
   }
  ],
@@ -52,7 +52,7 @@
   "season": 2026,
   "week": 11,
   "inactives": {
-   "nflverse_roster": 5,
+   "nflverse_roster": 49,
    "file": "ref/inactives_2026_wk11.csv",
    "matched": 40,
    "unmatched": [
@@ -61,28 +61,28 @@
     "Kurtis Rourke (MIN)",
     "Demarcus Robinson (MIN)"
    ],
-   "total": 45
+   "total": 49
   },
   "weekly_blend": {
    "blend": "model+Sleeper+ESPN",
    "coverage": {
-    "sleeper": 0.941,
+    "sleeper": 1.0,
     "espn": 1.0
    }
   },
   "inactive_rows": 0,
   "players": 327,
-  "upcoming": 78,
+  "upcoming": 27,
   "season_scoreboard": {
-   "model": 0.412,
-   "experts": 0.4195,
-   "official": 0.423
+   "model": 0.4048,
+   "experts": 0.4151,
+   "official": 0.4157
   },
   "latest_week_scoreboard": {
    "week": 11,
-   "model": 0.5745,
-   "experts": 0.5513,
-   "official": 0.5937
+   "model": 0.4952,
+   "experts": 0.5028,
+   "official": 0.5127
   }
  },
  "ros_info": {
@@ -90,18 +90,18 @@
   "season": 2026,
   "week": 11,
   "last_week": 17,
-  "players": 463,
-  "out_this_week": 108,
+  "players": 464,
+  "out_this_week": 114,
   "on_bye": 74,
   "this_week_source": "official",
   "training_snapshots": 47931,
   "rounds": {
    "QB": 50,
-   "RB": 88,
-   "WR/TE": 66
+   "RB": 165,
+   "WR/TE": 78
   },
   "experts_ros_date": "2026-11-20 00:00:00",
-  "seconds": 32,
+  "seconds": 51,
   "model_cache": {
    "hit": 0,
    "miss": 18,
@@ -111,57 +111,57 @@
    "QB": [
     [
      "Joe Burrow",
-     141.1
+     141.8
     ],
     [
      "Josh Allen",
-     122.5
+     120.4
     ],
     [
-     "Brock Purdy",
-     112.4
+     "Trevor Lawrence",
+     109.5
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     129.2
-    ],
-    [
-     "Christian McCaffrey",
-     124.7
+     124.0
     ],
     [
      "Bijan Robinson",
-     114.6
+     114.7
+    ],
+    [
+     "Christian McCaffrey",
+     106.7
     ]
    ],
    "TE": [
     [
      "George Kittle",
-     82.9
+     71.3
     ],
     [
      "Isaiah Likely",
-     64.7
+     69.3
     ],
     [
      "Trey McBride",
-     64.6
+     65.3
     ]
    ],
    "WR": [
     [
      "Ja'Marr Chase",
-     147.5
+     146.9
     ],
     [
      "Amon-Ra St. Brown",
-     114.8
+     110.2
     ],
     [
      "Jaxon Smith-Njigba",
-     108.4
+     108.9
     ]
    ]
   }
@@ -171,7 +171,7 @@
   "nfl_rows": 313,
   "nfl_matched": 313,
   "nfl_unmatched": [],
-  "espn_out": 191,
+  "espn_out": 189,
   "espn_unmatched": [
    "Divine Deablo (ATL)",
    "Zachariah Branch (ATL)",
@@ -194,12 +194,12 @@
    "Ben Brown (NE)",
    "Carlton Davis III (NE)"
   ],
-  "hash": "be25a72790a0",
+  "hash": "b2a7b148f9c0",
   "manual_out": [
    "Drake Maye",
    "Josh Jacobs"
   ],
-  "rows_added": 103,
+  "rows_added": 102,
   "values_updated": 0
  }
 }
