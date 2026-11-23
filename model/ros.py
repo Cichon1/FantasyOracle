@@ -679,6 +679,18 @@ def depth_inputs(s, ctx, season, week, cfg):
         a_w = float(cfg.get("a_weekly", 0.8))
         c0_pos = {p: v[0] for p, v in pc["curve"].items()} if pc is not None else {}
         has_wk = (s["wk"].notna() if "wk" in s else pd.Series(False, index=s.index)) & s["ros_out_now"].eq(0)
+        # Nov 23, 2026: an out player who isn't on IR gets his own return timing (avail_out.py: report status, practice,
+        # games missed in a row, body part); his expected games still come from his ROS total
+        ret = {}
+        ao = cfg.get("avail_out")
+        if ao is not None:
+            sel = outp & s["ros_res"].ne(1) & n_after.gt(0)
+            if sel.any():
+                try:
+                    import avail_out as AO
+                    ret = AO.curves(ctx.data_dir, season, week, s.loc[sel, ["player_id", "position"]], n_after[sel], ao)
+                except Exception as e:     # missing data: the position's out curve
+                    print("avail_out: unavailable:", e, flush=True)
         rate, curves, h_out, now_c = [], [], [], []
         for i in s.index:
             pos, n = s.at[i, "position"], int(n_after.at[i])
@@ -686,7 +698,10 @@ def depth_inputs(s, ctx, season, week, cfg):
             if outp.at[i]:
                 t0 = float(s.at[i, "_manual_tot0"]) if "_manual_tot0" in s and pd.notna(s.at[i, "_manual_tot0"]) else tot
                 h = max(t0 / max(a.at[i] * G.at[i], 1e-9), float(healthy.at[i]))   # manual: his level before the cut
-                c = _fill_curve(_curve(cv["out"].get(pos, cv["out"]["WR"]), n), tot / h if h > 0 else 0.0)
+                shape = ret.get(i)
+                if shape is None or len(shape) != n:
+                    shape = _curve(cv["out"].get(pos, cv["out"]["WR"]), n)
+                c = _fill_curve(np.asarray(shape, dtype=float), tot / h if h > 0 else 0.0)
                 c0 = 0.0
             else:
                 cpop = _curve(cv["active"].get(pos, cv["active"]["WR"]), n)

@@ -357,6 +357,7 @@ html, body { overflow-x: clip; }
 .fo-ta-info .fo-need { color: var(--color-bad); font-weight: 600; }
 .fo-score { display: inline-block; padding: 1px 8px; border-radius: 999px; font-weight: 650; font-variant-numeric: tabular-nums; border: 1px solid currentColor; font-size: 0.8rem; }
 .fo-score.good { color: var(--color-ok); } .fo-score.bad { color: var(--color-bad); } .fo-score.even { color: var(--color-fg-muted); }
+.fo-hold { margin: 6px 0 10px; padding: 10px 12px; border-left: 3px solid var(--color-bad); background: color-mix(in srgb, var(--color-bad) 8%, transparent); border-radius: 6px; max-width: 46rem; }
 .fo-accept { margin-top: 14px; padding: 12px 14px; border: 1px solid var(--color-border-line); border-radius: 10px; display: grid; gap: 8px; max-width: 40rem; }
 .fo-accept-top { display: flex; justify-content: space-between; align-items: baseline; }
 .fo-accept-lab { font-weight: 600; }
@@ -860,6 +861,16 @@ html, body { overflow-x: clip; }
           <p class="nf-note" id="ta-price-note" style="margin:var(--cds-gap-sm) 0 0">Trade = what the market pays; Actual = what our projections say he's worth.</p>
         </div>
       </div>
+    </div>
+
+    <div class="nf-card" id="ta-team-card" hidden>
+      <h2>Value to your team</h2>
+      <p class="nf-note" id="ta-team-sum"></p>
+      <div id="ta-hold" hidden></div>
+      <div class="nf-tablebox" style="min-height:0"><table class="nf-table" id="ta-team-table"><thead><tr>
+        <th class="nf-l">Player</th><th class="nf-l nf-hide-sm">Goes to</th><th>Trade</th><th>Actual</th><th>To you</th><th class="nf-hide-sm">To them</th>
+      </tr></thead><tbody></tbody></table></div>
+      <p class="nf-note" style="margin:var(--cds-gap-sm) 0 0">Same value per game as Actual, but each week left counts by how much one point that week moves that team’s own season in the 4,000-season simulation: its title odds (and, in BDSM League, its odds of staying out of last place). The total is kept on the Actual scale, so only which weeks matter changes. A contender’s playoff weeks count most, so a star who’s out now but back for the playoffs keeps his value; a team fighting to stay out of last place needs points in the next few weeks. Out players’ week-by-week chances come from a return-timing model (injury report, practice, games missed in a row, body part; 2018–2025). <b>Hold</b> flags a player you’d give who is out now but not on IR, projected back before the playoffs and better per game than anyone you get, when the trade loses value for your team. Backtest 2020–2025: the market prices short-term injuries about right on average; injured stars 5+ points per game better when healthy than the healthy player ranked like them came out ahead in the playoff weeks (+5.9 PPR) while losing the weeks they missed.</p>
     </div>
 
     <div class="nf-card" id="ta-value-card">
@@ -2846,6 +2857,13 @@ window.taEngine = (() => {
         p.actual = num(v.actual_value);
         p.trade = num(v.trade_value);
         p.tsrc = v.trade_source || '';
+        // Nov 23, 2026 (value to your team): value per game he plays, his chance to play each week left, his points when
+        // he plays, and whether he's on IR
+        p.pg = num(v.price_pg);
+        p.ch = window.foAvail.chances(x, num(ros[0]?.from_week, 1), num(ros[0]?.through_week, 17));
+        p.healthy = window.foAvail.whenPlaying(x, lg);
+        p.rosStatus = x.status || '';
+        p.ir = x.status === 'IR / reserve';
       }
       return p;
     });
@@ -2984,10 +3002,16 @@ window.taDraft = (() => {
     const poW = [D.lastReg + 1, D.lastReg + 2, D.lastReg + 3];
     const alive = new Map(); weeks.filter((w) => w >= from).concat(poW).forEach((w) => alive.set(w, new Float64Array(n)));
     const off = new Float64Array(n);
-    const score = (i, m, side) => {
+    // Nov 23, 2026 - leverage: how much one more point in a week moves each team's title odds (and its odds of not
+    // finishing last), from each simulated week's score luck: E[outcome x luck] / spread^2 (Stein's identity)
+    const lwk = weeks.filter((w) => w >= from).concat(poW);
+    const eps = new Map(lwk.map((w) => [w, new Float64Array(n)]));
+    const accT = new Map(lwk.map((w) => [w, new Float64Array(n)])), accL = new Map(lwk.map((w) => [w, new Float64Array(n)])), accE = new Map(lwk.map((w) => [w, new Float64Array(n)]));
+    const luck = (i, w) => { const e = sd[i] * gauss(rng); const a = eps.get(w); if (a) a[i] = e; return e; };
+    const score = (i, m, side, wk) => {
       // a week already under way: what's scored plus what's projected to come (small spread); otherwise our strength
       if (m && m.status === 'in progress') { const a = side ? m.pb : m.pa, j = side ? m.jb : m.ja; return j + (j - a > 0.5 ? 10 * gauss(rng) : 0); }
-      return mu[i] + off[i] + sd[i] * gauss(rng);
+      return mu[i] + off[i] + luck(i, wk);
     };
     for (let s = 0; s < SIMS; s++) {
       const W = Float64Array.from(w0), pf = Float64Array.from(pf0);
@@ -3001,7 +3025,7 @@ window.taDraft = (() => {
         for (const m of byWeek.get(wk)) {
           const i = idx.get(m.a), j = idx.get(m.b);
           if (i == null || j == null) continue;
-          const x = score(i, m, 0), y = score(j, m, 1);
+          const x = score(i, m, 0, wk), y = score(j, m, 1, wk);
           pf[i] += x; pf[j] += y;
           if (x > y) W[i] += 1; else if (y > x) W[j] += 1; else { W[i] += 0.5; W[j] += 0.5; }
         }
@@ -3010,14 +3034,16 @@ window.taDraft = (() => {
       const order = [...Array(n).keys()].sort((a, b) => W[b] - W[a] || pf[b] - pf[a]);
       const seed = order.slice(0, PO);
       seed.forEach((t, k) => { seedP[t][k + 1] += 1; playoff[t] += 1; });
-      const g = (i) => mu[i] + off[i] + sd[i] * gauss(rng);
-      const game = (i, j) => (g(i) >= g(j) ? [i, j] : [j, i]);
+      const g = (i, w) => mu[i] + off[i] + luck(i, w);
+      const game = (i, j, w) => (g(i, w) >= g(j, w) ? [i, j] : [j, i]);
+      let champ = -1;
       if (PO === 6) {
         // week 15: 3 v 6, 4 v 5 (1 and 2 have byes); week 16: 1 v lowest seed left, 2 v the other; week 17: final, 3rd place
-        const [w36, l36] = game(seed[2], seed[5]), [w45, l45] = game(seed[3], seed[4]);
+        const [w36, l36] = game(seed[2], seed[5], poW[0]), [w45, l45] = game(seed[3], seed[4], poW[0]);
         const lo = seed.indexOf(w36) > seed.indexOf(w45) ? w36 : w45, hi = lo === w36 ? w45 : w36;
-        const [f1, s1] = game(seed[0], lo), [f2, s2] = game(seed[1], hi);
-        const [champ, runner] = game(f1, f2), [third, fourth] = game(s1, s2), [fifth, sixth] = game(l36, l45);
+        const [f1, s1] = game(seed[0], lo, poW[1]), [f2, s2] = game(seed[1], hi, poW[1]);
+        const fin = game(f1, f2, poW[2]), [third, fourth] = game(s1, s2, poW[2]), [fifth, sixth] = game(l36, l45, poW[2]);
+        champ = fin[0]; const runner = fin[1];
         [champ, runner, third, fourth, fifth, sixth].forEach((t, k) => { finish[t][k + 1] += 1; });
         title[champ] += 1; bye[seed[0]] += 1; bye[seed[1]] += 1;
         [seed[2], seed[3], seed[4], seed[5]].forEach((t) => { alive.get(poW[0])[t] += 1; });
@@ -3031,23 +3057,32 @@ window.taDraft = (() => {
           const byes = r === 0 ? still.slice(0, nb) : [], play = r === 0 ? still.slice(nb) : still.slice();
           if (r < poW.length) play.forEach((t) => { alive.get(poW[r])[t] += 1; });
           const win = [], lose = [];
-          for (let k = 0; k < play.length / 2; k++) { const [w, l] = game(play[k], play[play.length - 1 - k]); win.push(w); lose.push(l); }
+          for (let k = 0; k < play.length / 2; k++) { const [w, l] = game(play[k], play[play.length - 1 - k], poW[r]); win.push(w); lose.push(l); }
           outByRound.push(lose.sort(bySeed));
           still = byes.concat(win).sort(bySeed);
         }
-        title[still[0]] += 1;
+        title[still[0]] += 1; champ = still[0];
         seed.slice(0, nb).forEach((t) => { bye[t] += 1; });
         [still[0]].concat(...outByRound.slice().reverse()).forEach((t, k) => { finish[t][k + 1] += 1; });
       }
       order.slice(PO).forEach((t, k) => { finish[t][PO + 1 + k] += 1; });
+      const lastT = order[n - 1];
+      eps.forEach((a, w) => {
+        const aT = accT.get(w), aL = accL.get(w), aE = accE.get(w);
+        for (let i = 0; i < n; i++) { const e = a[i]; if (!e) continue; aE[i] += e; if (i === champ) aT[i] += e; if (i !== lastT) aL[i] += e; a[i] = 0; }
+      });
     }
     const res = new Map();
     const q = (h, p) => { const ks = [...h.keys()].sort((a, b) => a - b); let c = 0; for (const k of ks) { c += h.get(k); if (c >= p * SIMS) return k; } return ks[ks.length - 1]; };
     D.teams.forEach((t, i) => {
       const weights = {}; alive.forEach((a, w) => { weights[w] = a[i] / SIMS; });
+      // leverage per point in each week: title odds, and odds of not finishing last
+      const lev = {}, levLast = {}, pT = title[i] / SIMS, pN = 1 - finish[i][n] / SIMS, v = sd[i] * sd[i];
+      lwk.forEach((w) => { const mE = accE.get(w)[i] / SIMS;
+        lev[w] = (accT.get(w)[i] / SIMS - pT * mE) / v; levLast[w] = (accL.get(w)[i] / SIMS - pN * mE) / v; });
       res.set(t, { finish: Array.from(finish[i], (c) => c / SIMS), seed: Array.from(seedP[i], (c) => c / SIMS), playoff: playoff[i] / SIMS,
         bye: bye[i] / SIMS, title: title[i] / SIMS, weights, wins: winSum[i] / SIMS, winsLo: q(winHist[i], 0.1), winsHi: q(winHist[i], 0.9),
-        games: g0[i] + left[i], last: finish[i][n] / SIMS });   // last = worst regular-season record (Nov 18, 2026)
+        games: g0[i] + left[i], last: finish[i][n] / SIMS, lev, levLast });   // last = worst regular-season record (Nov 18, 2026)
     });
     return res;
   }
@@ -3097,7 +3132,7 @@ dash.calc('trade_weeks', {
 });
 dash.calc('trade_levels', {
   inputs: ['league_rosters', 'ros', 'leagues'], title: 'Waiver and last-starter levels',
-  description: 'For each league and position, in that league\'s scoring, points per game when the player plays: waiver level = the average of the 3 best healthy players on no team in the league; last-starter level = the best player left once every team\'s starting lineup (QB, RB, WR, TE, then FLEX) is filled from the whole player pool. Players are picked by their expected points (missed games as zero), so a hurt player isn\'t counted as a pickup or a starter.',
+  description: 'For each league and position, in that league\'s scoring, points per game when the player plays: waiver level = the average of the 3 best healthy players on no team in the league; last-starter level = the best healthy player left once every team\'s starting lineup (QB, RB, WR, TE, then FLEX) is filled from the whole player pool. Players are picked by their expected points (missed games as zero), so a hurt player isn\'t counted as a pickup or a starter.',
   fn: (league_rosters, ros, leagues) => {
     const num = (v, d = 0) => (v === '' || v == null || isNaN(+v) ? d : +v), POS = ['QB', 'RB', 'WR', 'TE'];
     const A = window.foAvail;
@@ -3116,7 +3151,8 @@ dash.calc('trade_levels', {
       slots.forEach((elig) => { for (let i = 0; i < T; i++) { const c = pool.find((p) => elig.includes(p.pos) && !used.has(p.key)); if (c) used.add(c.key); } });
       POS.forEach((pos) => {
         const fa = pool.filter((p) => p.pos === pos && !rostered.has(p.key) && p.ok).slice(0, 3);
-        const left = pool.find((p) => p.pos === pos && !used.has(p.key)) || { pw: 0, name: '' };
+        // Nov 23, 2026: the last starter must be playable (BDSM's RB yardstick had landed on an IR player's healthy rate)
+        const left = pool.find((p) => p.pos === pos && !used.has(p.key) && p.ok) || { pw: 0, name: '' };
         out.push({ league_id: lg.league_id, pos, waiver_pw: r2(fa.reduce((t, p) => t + p.pw, 0) / Math.max(1, fa.length)),
           waiver_players: fa.map((p) => p.name).join(', '), starter_pw: r2(left.pw), starter_player: left.name });
       });
@@ -3595,6 +3631,78 @@ dash.calc('league_players', {
     drawMoving('ta-draft-get', getK, st.theirs);
   }
 
+  // Value to your team (Nov 23, 2026): the same per-game value as Actual, but each week left weighted by how much a point
+  // that week moves THIS team's season, from the season simulation - title odds, plus not finishing last in BDSM League
+  // (last place has a punishment). The weights are scaled to the league's weeks that count, so the total stays on the
+  // Actual scale and only which weeks matter changes: a contender's playoff weeks count most, a team fighting to stay
+  // out of last place counts the next few weeks. Without a simulation (standings not pulled) it is the Actual value.
+  const LAST_STAKES = { '126912': 1 };
+  function teamWeeks(ctx, ss, tid) {
+    const wk = ctx.weeks, base = Object.fromEntries(wk.map((x) => [x.week, x.weight]));
+    const sb = ss && ss.simB.get(tid);
+    if (!sb || !sb.lev) return { w: base, team: false };
+    const kL = LAST_STAKES[ctx.lid] || 0;
+    const raw = Object.fromEntries(wk.map((x) => [x.week, Math.max(0, num(sb.lev[x.week])) + kL * Math.max(0, num(sb.levLast[x.week]))]));
+    const tot = Object.values(raw).reduce((t, v) => t + v, 0);
+    if (!(tot > 1e-6)) return { w: base, team: false };
+    const w = Object.fromEntries(Object.entries(raw).map(([k, v]) => [k, (v / tot) * ctx.Wsum]));
+    const po = wk.filter((x) => x.phase === 'playoffs').reduce((t, x) => t + w[x.week], 0) / ctx.Wsum;
+    return { w, team: true, poShare: po };
+  }
+  // out now: hurt or inactive this week (a bye isn't out), not on IR
+  const isOut = (p) => !!(p.rosKey && !p.ir && p.ch && !window.foAvail.playable({ status: p.rosStatus }));
+  const toTeam = (p, W) => (p.ch ? Object.entries(W.w).reduce((t, [wk, wt]) => t + wt * num(p.ch[wk]) * num(p.pg), 0) : num(p.actual));
+  // Hold check: a player you'd give who is out now (not on IR) and projected back before the fantasy playoffs, when the
+  // trade costs you value by your own season's weeks. Backtest (hold_lab.py, 2020-2025): the market (FantasyPros ROS
+  // rank) prices short-term injuries about right on average, but injured stars 5+ PPR/g better when healthy than the
+  // healthy player ranked like them came out ahead in the playoff weeks (+5.9 +/- 4.5 PPR) while losing the weeks missed.
+  function holdCheck(ctx, res, Wm) {
+    const poWeeks = ctx.weeks.filter((x) => x.phase === 'playoffs').map((x) => x.week);
+    const firstPo = poWeeks.length ? poWeeks[0] : ctx.through + 1;
+    const getV = res.getP.reduce((t, p) => t + toTeam(p, Wm), 0), giveV = res.giveP.reduce((t, p) => t + toTeam(p, Wm), 0);
+    const bestIn = Math.max(0, ...res.getP.filter((p) => p.rosKey).map((p) => p.healthy));
+    return res.giveP.filter((p) => isOut(p)).map((p) => {
+      const back = ctx.weeks.map((x) => x.week).find((w) => w > ctx.from && num(p.ch[w]) >= 0.5);
+      return { p, back };
+    }).filter((x) => x.back != null && x.back <= firstPo && x.p.healthy > bestIn && getV < giveV)
+      .map((x) => ({ ...x, vYou: toTeam(x.p, Wm), getV, giveV, bestIn }));
+  }
+  function drawTeamValue(ctx, res, ss, name) {
+    const card = document.getElementById('ta-team-card');
+    const Wm = teamWeeks(ctx, ss, st.mine), Wt = teamWeeks(ctx, ss, st.theirs);
+    const body = document.querySelector('#ta-team-table tbody'); body.replaceChildren();
+    const share = (W) => (W.team ? pc0(W.poShare) + ' of the weight on the playoff weeks' : 'league-average weeks');
+    document.getElementById('ta-team-sum').textContent = (ss ? 'Your weeks: ' + share(Wm) + '; ' + name(st.theirs) + '’s: ' + share(Wt) + '.'
+      : 'Pull this league’s standings to weight the weeks by each team’s own season (until then this equals Actual).')
+      + (LAST_STAKES[ctx.lid] ? ' In this league staying out of last place counts as much as the title.' : '');
+    const holds = res.active ? holdCheck(ctx, res, Wm) : [];
+    const hbox = document.getElementById('ta-hold'); hbox.replaceChildren(); hbox.hidden = !holds.length;
+    holds.forEach((h) => {
+      const d = document.createElement('p'); d.className = 'nf-note fo-hold';
+      d.textContent = 'Hold ' + h.p.name + ': out now (not on IR), projected back by Week ' + h.back + ' (' + pc0(num(h.p.ch[h.back])) + ' chance to play that week), '
+        + f1(h.p.healthy) + ' pts/wk when he plays vs ' + f1(h.bestIn) + ' for the best player you’d get. To your team he’s worth ' + f0(h.vYou)
+        + (res.giveP.length > 1 ? ' (all you give: ' + f0(h.giveV) + ')' : '') + ' vs ' + f0(h.getV) + ' for what you get; the market price is ' + f0(h.p.trade) + '.';
+      hbox.appendChild(d);
+    });
+    card.hidden = !res.active;
+    if (!res.active) return { Wm, Wt, holds };
+    const row = (p, to) => {
+      const tr = document.createElement('tr');
+      tr.append(td(p.name + (p.ir ? ' (IR)' : isOut(p) ? ' (out now)' : ''), 'nf-l'), td(name(to), 'nf-l nf-muted nf-hide-sm'),
+        td(p.rosKey ? f0(p.trade) : '—', 'nf-muted'), td(p.rosKey ? f0(p.actual) : '—'), td(p.rosKey ? f0(toTeam(p, Wm)) : '—', 'nf-strong'),
+        td(p.rosKey ? f0(toTeam(p, Wt)) : '—', 'nf-hide-sm'));
+      body.appendChild(tr);
+    };
+    res.getP.forEach((p) => row(p, st.mine)); res.giveP.forEach((p) => row(p, st.theirs));
+    const net = (W, inP, outP) => inP.reduce((t, p) => t + toTeam(p, W), 0) - outP.reduce((t, p) => t + toTeam(p, W), 0);
+    const nY = net(Wm, res.getP, res.giveP), nT = net(Wt, res.giveP, res.getP);
+    const tr = document.createElement('tr'); tr.className = 'nf-total-row';
+    const c0 = td('Net (players only)', 'nf-l'); c0.colSpan = 4;
+    tr.append(c0, td(sg0(nY), tone(nY, 0.5) + ' nf-strong'), td(sg0(nT) + ' them', tone(nT, 0.5) + ' nf-hide-sm'));
+    body.appendChild(tr);
+    return { Wm, Wt, holds, nY, nT };
+  }
+
   // verdict: headline, "Does it help you?", "Is it a fair price?"
   function drawVerdict(ctx, res, ds, name, ss) {
     const active = res.active || (ds && (ds.giveK.length || ds.getK.length));
@@ -3777,6 +3885,12 @@ dash.calc('league_players', {
 
     st.fit = drawFit(ctx, res);
     drawVerdict(ctx, res, ds, name, ss);
+    const tv = drawTeamValue(ctx, res, ss, name);
+    if (res.active && tv) {
+      const sub = document.getElementById('ta-headline-sub');
+      if (tv.holds.length) sub.textContent = '⚠ Hold check: ' + tv.holds.map((h) => h.p.name + ' is projected back by Week ' + h.back).join('; ') + ' — see Value to your team. ' + sub.textContent;
+      if (tv.nY != null) sub.textContent += ' To your team (your own weeks): ' + sg0(tv.nY) + '.';
+    }
 
     // value check: every player in the trade, priced against the market
     const vbody = document.querySelector('#ta-value-table tbody'); vbody.replaceChildren();
