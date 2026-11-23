@@ -1,0 +1,392 @@
+{
+ "islands": {
+  "island_1": 894,
+  "island_10": 615,
+  "island_11": 567,
+  "island_12": 531,
+  "island_13": 655,
+  "island_14": 870,
+  "island_15": 885,
+  "island_16": 569,
+  "island_2": 748,
+  "island_3": 546,
+  "island_4": 764,
+  "island_5": 871,
+  "island_6": 553,
+  "island_7": 546,
+  "island_8": 699,
+  "island_9": 562
+ },
+ "candidates": 51,
+ "final_leagues": 400,
+ "baselines": {
+  "typical (FantasyPros)": {
+   "2025_fit": 0.0,
+   "2025_fit_se": 0.0,
+   "2025_wins": 0.0,
+   "2025_playoffs": 0.0,
+   "2025_title": 0.0,
+   "2025_last": 0.0,
+   "2026_wins": 0.0,
+   "2026_wins_se": 0.0,
+   "2026_ppw": 0.0
+  },
+  "official (model+FP)": {
+   "2025_fit": 0.0641,
+   "2025_fit_se": 0.0337,
+   "2025_wins": 0.18,
+   "2025_playoffs": 0.0488,
+   "2025_title": 0.0012,
+   "2025_last": -0.01,
+   "2026_wins": 0.17,
+   "2026_wins_se": 0.0631,
+   "2026_ppw": 1.3725
+  },
+  "model+Sleeper+ESPN": {
+   "2025_fit": 0.1416,
+   "2025_fit_se": 0.032,
+   "2025_wins": 0.6,
+   "2025_playoffs": 0.1038,
+   "2025_title": -0.0025,
+   "2025_last": -0.0362,
+   "2026_wins": 0.2925,
+   "2026_wins_se": 0.0656,
+   "2026_ppw": 1.6324
+  }
+ },
+ "top_by_2025": [
+  {
+   "strategy": "island 5 evolved #2",
+   "2025_fit": 0.4338,
+   "2025_fit_se": 0.0386,
+   "2025_wins": 1.2775,
+   "2025_playoffs": 0.21,
+   "2025_title": 0.0662,
+   "2025_last": -0.0675,
+   "2026_wins": 0.6625,
+   "2026_wins_se": 0.0957,
+   "2026_ppw": 4.525,
+   "2025_trades": 1.77,
+   "2025_moves": 17.7488
+  },
+  {
+   "strategy": "island 14 evolved #1",
+   "2025_fit": 0.4129,
+   "2025_fit_se": 0.0389,
+   "2025_wins": 1.4412,
+   "2025_playoffs": 0.23,
+   "2025_title": 0.04,
+   "2025_last": -0.0712,
+   "2026_wins": 0.5725,
+   "2026_wins_se": 0.0997,
+   "2026_ppw": 3.4464,
+   "2025_trades": 1.7712,
+   "2025_moves": 27.5525
+  },
+  {
+   "strategy": "island 15 evolved #2",
+   "2025_fit": 0.3886,
+   "2025_fit_se": 0.0394,
+   "2025_wins": 1.345,
+   "2025_playoffs": 0.2175,
+   "2025_title": 0.0375,
+   "2025_last": -0.0588,
+   "2026_wins": 0.4262,
+   "2026_wins_se": 0.0936,
+   "2026_ppw": 2.2504,
+   "2025_trades": 1.4775,
+   "2025_moves": 25.6475
+  },
+  {
+   "strategy": "island 13 evolved #1",
+   "2025_fit": 0.3858,
+   "2025_fit_se": 0.0391,
+   "2025_wins": 1.2188,
+   "2025_playoffs": 0.1962,
+   "2025_title": 0.0512,
+   "2025_last": -0.06,
+   "2026_wins": 0.4425,
+   "2026_wins_se": 0.0971,
+   "2026_ppw": 3.128,
+   "2025_trades": 1.525,
+   "2025_moves": 18.51
+  },
+  {
+   "strategy": "island 1 evolved #1",
+   "2025_fit": 0.3775,
+   "2025_fit_se": 0.0389,
+   "2025_wins": 1.2075,
+   "2025_playoffs": 0.2188,
+   "2025_title": 0.0362,
+   "2025_last": -0.065,
+   "2026_wins": 0.3012,
+   "2026_wins_se": 0.1035,
+   "2026_ppw": 2.4874,
+   "2025_trades": 1.72,
+   "2025_moves": 20.71
+  },
+  {
+   "strategy": "island 7 evolved #3",
+   "2025_fit": 0.3705,
+   "2025_fit_se": 0.0388,
+   "2025_wins": 1.285,
+   "2025_playoffs": 0.2188,
+   "2025_title": 0.03,
+   "2025_last": -0.055,
+   "2026_wins": 0.4638,
+   "2026_wins_se": 0.107,
+   "2026_ppw": 2.928,
+   "2025_trades": 2.2725,
+   "2025_moves": 20.3638
+  },
+  {
+   "strategy": "island 2 evolved #3",
+   "2025_fit": 0.3661,
+   "2025_fit_se": 0.0412,
+   "2025_wins": 1.1006,
+   "2025_playoffs": 0.195,
+   "2025_title": 0.0462,
+   "2025_last": -0.0625,
+   "2026_wins": 0.595,
+   "2026_wins_se": 0.095,
+   "2026_ppw": 3.5481,
+   "2025_trades": 1.2525,
+   "2025_moves": 22.0712
+  },
+  {
+   "strategy": "island 8 evolved #1",
+   "2025_fit": 0.3601,
+   "2025_fit_se": 0.0404,
+   "2025_wins": 1.2794,
+   "2025_playoffs": 0.2088,
+   "2025_title": 0.03,
+   "2025_last": -0.0675,
+   "2026_wins": 0.53,
+   "2026_wins_se": 0.1036,
+   "2026_ppw": 2.7907,
+   "2025_trades": 1.3512,
+   "2025_moves": 28.5575
+  },
+  {
+   "strategy": "island 13 evolved #2",
+   "2025_fit": 0.352,
+   "2025_fit_se": 0.0391,
+   "2025_wins": 1.1656,
+   "2025_playoffs": 0.2013,
+   "2025_title": 0.0338,
+   "2025_last": -0.0638,
+   "2026_wins": 0.3475,
+   "2026_wins_se": 0.0957,
+   "2026_ppw": 2.4805,
+   "2025_trades": 2.3988,
+   "2025_moves": 26.3075
+  },
+  {
+   "strategy": "island 2 evolved #1",
+   "2025_fit": 0.3288,
+   "2025_fit_se": 0.0364,
+   "2025_wins": 1.2088,
+   "2025_playoffs": 0.215,
+   "2025_title": 0.0138,
+   "2025_last": -0.0688,
+   "2026_wins": 0.2912,
+   "2026_wins_se": 0.0993,
+   "2026_ppw": 2.5357,
+   "2025_trades": 1.1538,
+   "2025_moves": 28.5625
+  }
+ ],
+ "held_up_both": 45,
+ "median_genes_of_held_up": {
+  "draft_model_w": 0.0,
+  "bias_QB": 0.117,
+  "bias_RB": -0.246,
+  "bias_WR": -0.4,
+  "bias_TE": 0.151,
+  "qb_min_round": 1.0,
+  "te_min_round": 3.0,
+  "k_min_round": 10.0,
+  "def_min_round": 11.0,
+  "lw_model": 0.21,
+  "lw_fp": 0.225,
+  "lw_sleeper": 0.503,
+  "lw_espn": 0.878,
+  "rw_model": 0.0,
+  "rw_fp": 0.905,
+  "rw_sleeper": 0.009,
+  "rw_espn": 0.211,
+  "kd_lab": 0.726,
+  "kd_sleeper": 0.325,
+  "kd_espn": 0.151,
+  "waiver_margin": 9.222,
+  "max_moves": 3.0,
+  "stream_k": 0.89,
+  "stream_def": 1.0,
+  "stream_margin": 0.0,
+  "trade_p": 1.0,
+  "trade_min_gain": 1.225,
+  "accept_thr": 2.457,
+  "pkg_p": 0.465,
+  "faab_aggr": 0.371,
+  "faab_reserve": 0.0
+ },
+ "median_genes_all_evolved": {
+  "draft_model_w": 0.0,
+  "bias_QB": 0.122,
+  "bias_RB": -0.246,
+  "bias_WR": -0.4,
+  "bias_TE": 0.152,
+  "qb_min_round": 1.0,
+  "te_min_round": 3.0,
+  "k_min_round": 10.0,
+  "def_min_round": 11.5,
+  "lw_model": 0.197,
+  "lw_fp": 0.183,
+  "lw_sleeper": 0.488,
+  "lw_espn": 0.878,
+  "rw_model": 0.0,
+  "rw_fp": 0.906,
+  "rw_sleeper": 0.003,
+  "rw_espn": 0.213,
+  "kd_lab": 0.74,
+  "kd_sleeper": 0.326,
+  "kd_espn": 0.138,
+  "waiver_margin": 9.004,
+  "max_moves": 3.0,
+  "stream_k": 0.89,
+  "stream_def": 1.0,
+  "stream_margin": 0.0,
+  "trade_p": 1.0,
+  "trade_min_gain": 1.222,
+  "accept_thr": 2.441,
+  "pkg_p": 0.514,
+  "faab_aggr": 0.376,
+  "faab_reserve": 0.0
+ },
+ "gene_effects": {
+  "draft_model_w": {
+   "corr_with_2025_fit": -0.189,
+   "corr_with_2026_wins": -0.254
+  },
+  "bias_QB": {
+   "corr_with_2025_fit": -0.005,
+   "corr_with_2026_wins": 0.146
+  },
+  "bias_RB": {
+   "corr_with_2025_fit": 0.472,
+   "corr_with_2026_wins": 0.431
+  },
+  "bias_WR": {
+   "corr_with_2025_fit": 0.006,
+   "corr_with_2026_wins": -0.242
+  },
+  "bias_TE": {
+   "corr_with_2025_fit": -0.063,
+   "corr_with_2026_wins": -0.203
+  },
+  "qb_min_round": {
+   "corr_with_2025_fit": -0.042,
+   "corr_with_2026_wins": -0.22
+  },
+  "te_min_round": {
+   "corr_with_2025_fit": -0.321,
+   "corr_with_2026_wins": -0.537
+  },
+  "k_min_round": {
+   "corr_with_2025_fit": -0.041,
+   "corr_with_2026_wins": 0.002
+  },
+  "def_min_round": {
+   "corr_with_2025_fit": -0.05,
+   "corr_with_2026_wins": 0.134
+  },
+  "lw_model": {
+   "corr_with_2025_fit": 0.348,
+   "corr_with_2026_wins": 0.309
+  },
+  "lw_fp": {
+   "corr_with_2025_fit": 0.207,
+   "corr_with_2026_wins": 0.145
+  },
+  "lw_sleeper": {
+   "corr_with_2025_fit": 0.053,
+   "corr_with_2026_wins": 0.031
+  },
+  "lw_espn": {
+   "corr_with_2025_fit": -0.117,
+   "corr_with_2026_wins": -0.069
+  },
+  "rw_model": {
+   "corr_with_2025_fit": 0.272,
+   "corr_with_2026_wins": 0.232
+  },
+  "rw_fp": {
+   "corr_with_2025_fit": -0.211,
+   "corr_with_2026_wins": -0.173
+  },
+  "rw_sleeper": {
+   "corr_with_2025_fit": 0.426,
+   "corr_with_2026_wins": 0.301
+  },
+  "rw_espn": {
+   "corr_with_2025_fit": 0.012,
+   "corr_with_2026_wins": 0.029
+  },
+  "kd_lab": {
+   "corr_with_2025_fit": -0.069,
+   "corr_with_2026_wins": 0.087
+  },
+  "kd_sleeper": {
+   "corr_with_2025_fit": 0.092,
+   "corr_with_2026_wins": 0.031
+  },
+  "kd_espn": {
+   "corr_with_2025_fit": 0.143,
+   "corr_with_2026_wins": 0.289
+  },
+  "waiver_margin": {
+   "corr_with_2025_fit": -0.193,
+   "corr_with_2026_wins": -0.042
+  },
+  "max_moves": {
+   "corr_with_2025_fit": 0.041,
+   "corr_with_2026_wins": -0.189
+  },
+  "stream_k": {
+   "corr_with_2025_fit": -0.132,
+   "corr_with_2026_wins": -0.151
+  },
+  "stream_def": {
+   "corr_with_2025_fit": 0.23,
+   "corr_with_2026_wins": 0.291
+  },
+  "stream_margin": {
+   "corr_with_2025_fit": -0.06,
+   "corr_with_2026_wins": -0.024
+  },
+  "trade_p": {
+   "corr_with_2025_fit": 0.233,
+   "corr_with_2026_wins": 0.137
+  },
+  "trade_min_gain": {
+   "corr_with_2025_fit": -0.202,
+   "corr_with_2026_wins": -0.11
+  },
+  "accept_thr": {
+   "corr_with_2025_fit": 0.143,
+   "corr_with_2026_wins": 0.209
+  },
+  "pkg_p": {
+   "corr_with_2025_fit": 0.052,
+   "corr_with_2026_wins": -0.005
+  },
+  "faab_aggr": {
+   "corr_with_2025_fit": -0.197,
+   "corr_with_2026_wins": -0.204
+  },
+  "faab_reserve": {
+   "corr_with_2025_fit": 0.221,
+   "corr_with_2026_wins": 0.203
+  }
+ }
+}
