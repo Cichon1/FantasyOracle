@@ -25,6 +25,16 @@ Overfitting guard: evolve only on 2023-2024; every VALIDATE_EVERY generations th
 fixed baselines) are scored on 2025 in fresh leagues against typical managers; the final report adds 2026 (Weeks 1-10:
 wins and points only), which nothing was tuned on.
 
+v3 (Nov 23, EVO_V3=1; includes v2): fixes from the Nov 23 audit.
+  - Typical managers set lineups from FantasyPros + Sleeper + ESPN (EVO_TYPICAL_LINEUPS=fresh). The sites' archived
+    numbers are their final game-day ones while FantasyPros' are Friday's; typical managers on Friday ranks made every
+    strategy look better than it is.
+  - Every typical seat is a different person each league (persona): how often they answer offers, how much they
+    overvalue their own players, how fair a deal must look by market value, how picky they are, how active on waivers,
+    FAAB and streaming. Strategies can't tune themselves to one bot.
+  - The rules in effect are printed, saved with every validation, and checked against automation/evo_request.txt at
+    start (a mismatch stops the run - run 3's islands silently ran without EVO_V2).
+
   python lab18_evo.py FRAME.parquet OUT_DIR  (EVO_GENERATIONS, EVO_POP, EVO_LEAGUES, EVO_SEED, EVO_MINUTES)
 """
 import json
@@ -49,7 +59,11 @@ SRC = ["model", "fp", "sleeper", "espn"]
 N_TYPICAL = int(os.environ.get("EVO_TYPICAL", "4"))
 # v2 (Nov 22): 2-for-1 / 1-for-2 trades, FAAB waivers, and "human" typical managers who ignore some offers, overvalue
 # their own players and won't take a deal that looks bad by market value
-V2 = os.environ.get("EVO_V2", "0") == "1"
+V3 = os.environ.get("EVO_V3", "0") == "1"
+V2 = V3 or os.environ.get("EVO_V2", "0") == "1"
+TYPICAL_LINEUPS = os.environ.get("EVO_TYPICAL_LINEUPS", "fresh" if V3 else "fp")     # "fresh" = FP + Sleeper + ESPN
+PERSONAS = os.environ.get("EVO_PERSONAS", "1" if V3 else "0") == "1"
+KDEF_SCORING = os.environ.get("KDEF_SCORING", "yahoo")      # only recorded here: lab17_kdef.py builds the K/DEF data
 WAIVER = os.environ.get("EVO_WAIVER", "faab" if V2 else "rolling")      # "faab" or "rolling" (reverse standings)
 FAAB_BUDGET = 100.0
 HUMAN_RESPONSE = float(os.environ.get("EVO_HUMAN_RESPONSE", "0.5"))     # chance a typical manager answers an offer
@@ -80,12 +94,28 @@ TYPICAL = {"draft_model_w": 0.0, "bias_QB": 0, "bias_RB": 0, "bias_WR": 0, "bias
            "kd_espn": 0, "waiver_margin": 10, "max_moves": 1, "stream_k": 0.2, "stream_def": 0.3, "stream_margin": 2,
            "trade_p": 0.1, "trade_min_gain": 1.0, "accept_thr": 0.5, "pkg_p": 0.3, "faab_aggr": 0.5,
            "faab_reserve": 15}
-BASELINES = {   # fixed reference strategies, scored alongside the evolved ones
-    "typical (FantasyPros)": TYPICAL,
-    "official (model+FP)": {**TYPICAL, "lw_model": 1, "lw_fp": 1, "rw_model": 1, "rw_fp": 1},
-    "model+Sleeper+ESPN": {**TYPICAL, "lw_model": 1, "lw_fp": 0, "lw_sleeper": 1, "lw_espn": 1, "rw_model": 1,
+if TYPICAL_LINEUPS == "fresh":      # updated in place: seats are recognised as typical by identity (`is TYPICAL`)
+    TYPICAL.update({"lw_fp": 1, "lw_sleeper": 1, "lw_espn": 1})
+_LW0 = {"lw_model": 0, "lw_fp": 0, "lw_sleeper": 0, "lw_espn": 0}
+BASELINES = {   # fixed reference strategies, scored alongside the evolved ones (lineup weights set explicitly)
+    "typical": TYPICAL,
+    "official (model+FP)": {**TYPICAL, **_LW0, "lw_model": 1, "lw_fp": 1, "rw_model": 1, "rw_fp": 1},
+    "model+Sleeper+ESPN": {**TYPICAL, **_LW0, "lw_model": 1, "lw_sleeper": 1, "lw_espn": 1, "rw_model": 1,
                            "rw_fp": 0, "rw_sleeper": 1, "rw_espn": 1, "kd_sleeper": 1, "kd_espn": 1},
 }
+if V3:
+    BASELINES["official now (model+FP+Sleeper+ESPN)"] = {**TYPICAL, **_LW0, "lw_model": 1, "lw_fp": 1, "lw_sleeper": 1,
+                                                          "lw_espn": 1, "rw_model": 1, "rw_fp": 1}
+
+
+def persona(rng):
+    """v3: one typical manager's habits for one league (drawn for every seat, used only for typical seats, so the paired
+    control and test leagues draw the same people). Returns (gene overrides, (answer rate, endowment, market need))."""
+    g = {"trade_p": rng.uniform(0.0, 0.2), "accept_thr": rng.uniform(0.3, 1.5), "max_moves": int(rng.choice([0, 1, 1, 2])),
+         "waiver_margin": rng.uniform(5, 15), "faab_aggr": rng.uniform(0.3, 1.0), "faab_reserve": rng.uniform(0, 30),
+         "stream_def": rng.uniform(0.0, 0.6), "stream_k": rng.uniform(0.0, 0.4)}
+    h = (rng.uniform(0.25, 0.75), rng.uniform(0.0, 0.25), rng.uniform(0.8, 1.05))
+    return g, h
 
 
 # --------------------------------------------------------------------------------------------- season data
@@ -95,6 +125,12 @@ class SeasonData:
     def __init__(self, S, d, cv, games, ids, pre, kdef, other_kdef):
         board, _ = G.draft_board(S, games, ids)
         last_wk = int(d[d["season"] == S]["week"].max())
+        # only fully played weeks (Nov 23 self-check: a run during Week 11 simulated a half-played Week 11 for 2026)
+        gs = pd.read_parquet("data/games.parquet", columns=["season", "week", "game_type", "home_score"])
+        gs = gs[(gs["season"] == S) & (gs["game_type"] == "REG") & (gs["week"] <= last_wk)]
+        done = gs.groupby("week")["home_score"].apply(lambda x: bool(x.notna().all()))
+        while last_wk > 1 and not done.get(last_wk, False):
+            last_wk -= 1
         se = G.Season(d, S, board, games, LAST)
         self.S, self.W = S, last_wk
         curve = cv[S - 1]
@@ -345,6 +381,15 @@ def market(sd, w):
 def run_league(sd, strategies, rng, last_week=None):
     """One league-season. strategies: list of 12 gene dicts. Returns per-team wins, playoffs, title, points, trades."""
     last_week = last_week or sd.W
+    strategies = list(strategies)
+    human = [None] * TEAMS          # (answer rate, endowment, market need) for human-like typical seats
+    if V2:
+        draws = [persona(rng) for _ in range(TEAMS)] if PERSONAS else [({}, (HUMAN_RESPONSE, HUMAN_ENDOW, HUMAN_LOOKS))] * TEAMS
+        for t in range(TEAMS):
+            if strategies[t] is TYPICAL:
+                g, human[t] = draws[t]
+                if g:
+                    strategies[t] = {**TYPICAL, **g}
     brains = [Brain(s, sd) for s in strategies]
     pos = sd.pos
     N = len(pos)
@@ -530,7 +575,7 @@ def run_league(sd, strategies, rng, last_week=None):
                         m7, t6 = mine[:7], theirs[:6]
                         cands += [([m7[i], m7[k]], [r_]) for i in range(len(m7)) for k in range(i + 1, len(m7)) for r_ in theirs]
                         cands += [([g_], [t6[i], t6[k]]) for g_ in mine for i in range(len(t6)) for k in range(i + 1, len(t6))]
-                    typical_u = strategies[u] is TYPICAL
+                    hu = human[u]
                     best = None
                     for give, get in cands:
                         nt = settle(rosters[t], give, get, bt.ros[:, w], pos, rostered)
@@ -544,13 +589,13 @@ def run_league(sd, strategies, rng, last_week=None):
                             continue
                         gu = best_lineup(nu[0], pos, ru)[0] - base_u
                         need = strategies[u]["accept_thr"]
-                        if V2 and typical_u:
-                            need += HUMAN_ENDOW * sum(ru[j] for j in get)
-                            if mk[give].sum() < HUMAN_LOOKS * mk[get].sum():
+                        if hu is not None:
+                            need += hu[1] * sum(ru[j] for j in get)
+                            if mk[give].sum() < hu[2] * mk[get].sum():
                                 continue
                         if gu >= need:
                             best = (gt, give, get, nt, nu)
-                    if best and V2 and typical_u and rng.random() >= HUMAN_RESPONSE:
+                    if best and hu is not None and rng.random() >= hu[0]:
                         best = None                               # they never answered
                     if best:
                         _, give, get, nt, nu = best
@@ -623,6 +668,7 @@ def main():
     sds = {S: SeasonData(S, d, cv, games, ids, pre, kdef, other) for S in [2023, 2024, 2025, 2026]}
     print("data ready", round((time.time() - t0) / 60, 1), "min", flush=True)
     print("rules", json.dumps(rules()), flush=True)
+    check_request()
     pop = [random_strategy(rng) for _ in range(pop_n - len(BASELINES))] + [dict(v) for v in BASELINES.values()]
     hist = [new_hist_rec() for _ in pop]
     log = []
@@ -684,8 +730,30 @@ def main():
 
 def rules():
     """The rule switches in effect (recorded with every validation, so islands and the final can be checked to match)."""
-    return {"v2": V2, "waiver": WAIVER, "typical_seats": N_TYPICAL, "human_response": HUMAN_RESPONSE if V2 else None,
-            "human_endow": HUMAN_ENDOW if V2 else None, "human_looks": HUMAN_LOOKS if V2 else None}
+    return {"v3": V3, "v2": V2, "waiver": WAIVER, "typical_seats": N_TYPICAL, "typical_lineups": TYPICAL_LINEUPS,
+            "personas": PERSONAS and V2, "kdef_scoring": KDEF_SCORING,
+            "human_response": HUMAN_RESPONSE if V2 and not PERSONAS else None,
+            "human_endow": HUMAN_ENDOW if V2 and not PERSONAS else None,
+            "human_looks": HUMAN_LOOKS if V2 and not PERSONAS else None}
+
+
+RULE_KEYS = ["EVO_V2", "EVO_V3", "EVO_WAIVER", "EVO_TYPICAL", "EVO_TYPICAL_LINEUPS", "EVO_PERSONAS", "EVO_HUMAN_RESPONSE",
+             "EVO_HUMAN_ENDOW", "EVO_HUMAN_LOOKS", "KDEF_SCORING"]
+
+
+def check_request(path=None):
+    """Stop if a rule setting in automation/evo_request.txt didn't reach this process's environment."""
+    path = path or os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "automation", "evo_request.txt")
+    if not os.path.exists(path):
+        return
+    want = {}
+    for line in open(path):
+        if "=" in line and not line.lstrip().startswith("#"):
+            k, v = line.strip().split("=", 1)
+            want[k.strip()] = v.strip()
+    bad = {k: (v, os.environ.get(k)) for k, v in want.items() if k in RULE_KEYS and os.environ.get(k) != v}
+    if bad:
+        raise SystemExit(f"evo_request.txt settings missing from the environment (requested, got): {bad}")
 
 
 def new_hist_rec():

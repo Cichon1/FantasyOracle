@@ -116,7 +116,7 @@ def build(last_season=2026, data=None, scoring="yahoo"):
 
 
 def main():
-    u = build()
+    u = build(scoring=os.environ.get("KDEF_SCORING", "yahoo"))      # tournament v3: KDEF_SCORING=bdsm
     u.to_parquet(os.path.join("lab", "kdef_weekly.parquet"))
     v = u[(u["season"] >= 2023) & u["played"]]
     from scipy.stats import spearmanr

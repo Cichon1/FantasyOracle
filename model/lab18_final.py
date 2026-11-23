@@ -22,6 +22,18 @@ import lab5 as L
 import lab11_sim as S11
 
 N_FINAL = int(os.environ.get("FINAL_LEAGUES", "400"))
+N_ABLATE = int(os.environ.get("FINAL_ABLATE_LEAGUES", "300"))
+# v3: where the consensus strategy's edge comes from - each group of genes set back to the typical manager's
+ABLATE = {
+    "draft": ["draft_model_w", "bias_QB", "bias_RB", "bias_WR", "bias_TE", "qb_min_round", "te_min_round", "k_min_round",
+              "def_min_round"],
+    "lineup sources": ["lw_model", "lw_fp", "lw_sleeper", "lw_espn"],
+    "rest-of-season values": ["rw_model", "rw_fp", "rw_sleeper", "rw_espn"],
+    "K/DEF projections": ["kd_lab", "kd_sleeper", "kd_espn"],
+    "K/DEF streaming": ["stream_k", "stream_def", "stream_margin"],
+    "waivers and FAAB": ["waiver_margin", "max_moves", "faab_aggr", "faab_reserve"],
+    "trading (all)": ["trade_p", "trade_min_gain", "accept_thr", "pkg_p"],
+}
 TOP_PER_ISLAND = int(os.environ.get("FINAL_TOP", "3"))
 
 
@@ -52,6 +64,7 @@ def score(sd, strat, full, n, seed):
 def main():
     t0 = time.time()
     print("rules", json.dumps(E.rules()), flush=True)
+    E.check_request()
     res_dir = sys.argv[2]
     os.makedirs(res_dir, exist_ok=True)
     islands = sys.argv[3:]
@@ -70,6 +83,8 @@ def main():
             if genes in E.BASELINES.values() or genes == E.TYPICAL:
                 continue
             cands[f"island {k + 1} {name}"] = genes
+    if mismatched:      # don't spend hours scoring strategies evolved under other rules
+        raise SystemExit(f"islands evolved under other rules than the final's {E.rules()}: {mismatched}")
     for name, genes in E.BASELINES.items():
         cands[name] = genes
     frame = pd.read_parquet(sys.argv[1], columns=["season", "week", "season_type", "position", "expected",
@@ -101,8 +116,34 @@ def main():
             gene_effect[k] = {"corr_with_2025_fit": round(float(ev[f"g_{k}"].corr(ev["2025_fit"], method="spearman")), 3),
                               "corr_with_2026_wins": round(float(ev[f"g_{k}"].corr(ev["2026_wins"], method="spearman")), 3)}
     both = ev[(ev["2025_fit"] > 2 * ev["2025_fit_se"]) & (ev["2026_wins"] > 0)].sort_values("2025_fit", ascending=False)
+    # where the edge comes from: the consensus (median genes of every island's top strategies - not filtered on 2025 /
+    # 2026, so it isn't picked on the seasons it's scored on) with one group of genes set back to the typical
+    # manager's; the same leagues for every variant (2025 full season, 2026 Weeks 1-10)
+    base = ev
+    cons = {k: (int(round(float(base[f"g_{k}"].median()))) if E.GENES[k][2] == "i" else float(base[f"g_{k}"].median()))
+            for k in E.GENES}
+    variants = {"consensus": cons, "consensus, no trading": {**cons, "trade_p": 0.0}}
+    for grp, keys in ABLATE.items():
+        variants[f"consensus, {grp} -> typical"] = {**cons, **{k: E.TYPICAL[k] for k in keys}}
+    ablation = {}
+    for name, genes in variants.items():
+        a25 = score(sds[2025], genes, True, N_ABLATE, 300)
+        a26 = score(sds[2026], genes, False, N_ABLATE // 2, 1300)
+        ablation[name] = {"2025_wins": round(a25["wins"][0], 3), "2025_wins_se": round(a25["wins"][1], 3),
+                          "2025_playoffs": round(a25["playoffs"][0], 3), "2025_title": round(a25["title"][0], 3),
+                          "2025_last": round(a25["last"][0], 3), "2025_trades": round(a25["trades"][0], 2),
+                          "2026_wins_wk1_10": round(a26["wins"][0], 3), "2026_wins_se": round(a26["wins"][1], 3)}
+        print("ablation", name, ablation[name], round((time.time() - t0) / 60, 1), "min", flush=True)
+    top10 = ev.sort_values("2025_fit", ascending=False).head(10)
     summary = {"islands": gens, "rules": E.rules(), "islands_with_other_rules": mismatched,
+               "note": "2026 = Weeks 1-10 only (wins out of 10); 2025 = full season (wins out of 14). Strategies picked by "
+                       "2025 are in-sample on 2025: judge them by 2026. Gene correlations across candidates from few "
+                       "islands are weak evidence; the ablation is the direct test.",
                "candidates": len(cands), "final_leagues": N_FINAL,
+               "evolved_median": ev[["2025_wins", "2025_playoffs", "2025_title", "2025_last", "2025_trades", "2025_moves",
+                                     "2026_wins", "2026_trades"]].median().round(4).to_dict(),
+               "top10_by_2025_mean_2026_wins": round(float(top10["2026_wins"].mean()), 4),
+               "consensus_genes": cons, "ablation": ablation,
                "baselines": df[df["strategy"].isin(E.BASELINES)].set_index("strategy")[
                    ["2025_fit", "2025_fit_se", "2025_wins", "2025_playoffs", "2025_title", "2025_last", "2026_wins",
                     "2026_wins_se", "2026_ppw"]].round(4).to_dict("index"),

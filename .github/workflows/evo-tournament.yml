@@ -27,6 +27,8 @@ jobs:
         run: |
           n=$(grep -E '^ISLANDS=' automation/evo_request.txt | cut -d= -f2 || true); n=${n:-16}
           echo "islands=$(python -c "print(list(range(1, $n + 1)))")" >> "$GITHUB_OUTPUT"
+      - name: Load settings
+        run: grep -E '^[A-Z][A-Z0-9_]*=' automation/evo_request.txt | grep -v '^ISLANDS=' >> "$GITHUB_ENV" || true
       - name: Build inputs
         working-directory: model
         run: |
@@ -112,7 +114,8 @@ jobs:
           pip install -q pandas pyarrow scipy lightgbm
           mkdir -p lab data fpdata
           cp ../evo_inputs/lab/* lab/ && cp ../evo_inputs/data/* data/ && cp ../evo_inputs/fpdata/* fpdata/
-          grep -E '^(FINAL_[A-Z0-9_]+|EVO_V2|EVO_WAIVER|EVO_HUMAN_[A-Z0-9_]+|EVO_TYPICAL)=' ../automation/evo_request.txt >> "$GITHUB_ENV" || true
+          # the same settings as the islands (lab18_final stops if the islands' recorded rules differ from its own)
+          grep -E '^[A-Z][A-Z0-9_]*=' ../automation/evo_request.txt | grep -v '^ISLANDS=' >> "$GITHUB_ENV" || true
       - name: Score
         working-directory: model
         run: |
