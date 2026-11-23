@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-22T21:59:27+00:00",
+ "updated": "2026-11-23T02:30:57+00:00",
  "season": 2026,
  "projection_week": 11,
  "results_week": 11,
  "games_started": true,
- "reason": "schedule_and_lines,injury_news",
+ "reason": "player_stats,play_by_play,schedule_and_lines,fp_rankings,injury_news,inactives",
  "steps": [
   {
    "step": "bash",
-   "seconds": 40,
+   "seconds": 43,
    "ok": true
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/weather.py --data",
-   "seconds": 1,
+   "seconds": 0,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 32,
+   "seconds": 167,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 15,
+   "seconds": 33,
    "ok": true
   }
  ],
@@ -54,33 +54,35 @@
   "inactives": {
    "nflverse_roster": 5,
    "file": "ref/inactives_2026_wk11.csv",
-   "matched": 37,
+   "matched": 40,
    "unmatched": [
     "Kedon Solvis (BAL)",
-    "Garrett Nusssmeier (KC)"
+    "Garrett Nusssmeier (KC)",
+    "Kurtis Rourke (MIN)",
+    "Demarcus Robinson (MIN)"
    ],
-   "total": 42
+   "total": 45
   },
   "weekly_blend": {
    "blend": "model+Sleeper+ESPN",
    "coverage": {
-    "sleeper": 0.973,
-    "espn": 0.995
+    "sleeper": 0.941,
+    "espn": 1.0
    }
   },
   "inactive_rows": 0,
   "players": 327,
-  "upcoming": 298,
+  "upcoming": 78,
   "season_scoreboard": {
-   "model": 0.4013,
-   "experts": 0.4097,
-   "official": 0.4113
+   "model": 0.412,
+   "experts": 0.4195,
+   "official": 0.423
   },
   "latest_week_scoreboard": {
    "week": 11,
-   "model": 0.6253,
-   "experts": 0.544,
-   "official": 0.6253
+   "model": 0.5745,
+   "experts": 0.5513,
+   "official": 0.5937
   }
  },
  "ros_info": {
@@ -89,77 +91,77 @@
   "week": 11,
   "last_week": 17,
   "players": 463,
-  "out_this_week": 73,
+  "out_this_week": 108,
   "on_bye": 74,
   "this_week_source": "official",
   "training_snapshots": 47931,
   "rounds": {
    "QB": 50,
-   "RB": 90,
-   "WR/TE": 60
+   "RB": 88,
+   "WR/TE": 66
   },
   "experts_ros_date": "2026-11-20 00:00:00",
-  "seconds": 14,
+  "seconds": 32,
   "model_cache": {
-   "hit": 18,
-   "miss": 0,
+   "hit": 0,
+   "miss": 18,
    "on": true
   },
   "top": {
    "QB": [
     [
      "Joe Burrow",
-     136.9
+     141.1
     ],
     [
      "Josh Allen",
-     121.7
+     122.5
     ],
     [
-     "Trevor Lawrence",
-     120.6
+     "Brock Purdy",
+     112.4
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     128.4
+     129.2
     ],
     [
      "Christian McCaffrey",
-     114.5
+     124.7
     ],
     [
      "Bijan Robinson",
-     112.0
+     114.6
     ]
    ],
    "TE": [
     [
      "George Kittle",
-     82.8
+     82.9
     ],
     [
      "Isaiah Likely",
-     81.5
+     64.7
     ],
     [
      "Trey McBride",
-     63.1
+     64.6
     ]
    ],
    "WR": [
     [
      "Ja'Marr Chase",
-     146.7
+     147.5
     ],
     [
      "Amon-Ra St. Brown",
-     112.7
+     114.8
     ],
     [
      "Jaxon Smith-Njigba",
-     105.4
+     108.4
     ]
    ]
   }
@@ -169,15 +171,15 @@
   "nfl_rows": 313,
   "nfl_matched": 313,
   "nfl_unmatched": [],
-  "espn_out": 185,
+  "espn_out": 191,
   "espn_unmatched": [
    "Divine Deablo (ATL)",
    "Zachariah Branch (ATL)",
    "Ronnie Hickman (CLE)",
+   "Micah Parsons (GB)",
    "Josh Jacobs (GB)",
    "Sean Rhyan (GB)",
    "Zaire Franklin (GB)",
-   "Micah Parsons (GB)",
    "Luke Musgrave (GB)",
    "Kevin Zeitler (GB)",
    "Davante Adams (LA)",
@@ -186,18 +188,18 @@
    "Justin Dedich (LA)",
    "Kobie Turner (LA)",
    "Terrance Ferguson (LA)",
-   "Joe Cardona (LA)",
    "Drake Maye (NE)",
    "Brenden Schooler (NE)",
    "Walter Rouse (NE)",
-   "Ben Brown (NE)"
+   "Ben Brown (NE)",
+   "Carlton Davis III (NE)"
   ],
-  "hash": "7f14495e25ad",
+  "hash": "be25a72790a0",
   "manual_out": [
    "Drake Maye",
    "Josh Jacobs"
   ],
-  "rows_added": 101,
+  "rows_added": 103,
   "values_updated": 0
  }
 }
