@@ -424,12 +424,16 @@ def weekly_proxy(df, rows, season, week, cfg_all):
     """Model-only weekly projection for the snapshot week when no weekly run has projected it yet (the Tuesday
     refresh): the extra-trees member of the weekly model without the weekly expert-ranking inputs, trained on every
     game before the week, plus the v5.1 QB market step - the setting the ROS test used for its no-ranking runs."""
+    return proxy_rows(df, df.loc[rows["ros_row_index"]].copy(), season, week, cfg_all)
+
+
+def proxy_rows(df, src, season, week, cfg_all):
+    """weekly_proxy for given frame rows of week `week` (df: the frame those rows come from)."""
     import features_v6 as f6
     import weekly_v5 as W5
     hist = L.hist_rows(df)
     trn = hist[(hist["season"] < season) | ((hist["season"] == season) & (hist["week"] < week))]
     X = [c for c in L.feature_list(hist) if not c.startswith("ecr_week_")]
-    src = df.loc[rows["ros_row_index"]].copy()
     src = m.apply_forecast(src, season, week)
     pred = pd.Series(np.nan, index=src.index)
     for pos in L.POS_MODELS:
@@ -446,14 +450,53 @@ def weekly_proxy(df, rows, season, week, cfg_all):
     return src["pred_ppr_model"].values
 
 
-def project_live(df, ctx, season, week, cfg_all, store=None, log=print):
+def refresh_bye_rows(snap, next_df, season, week, X, cfg_all, log=print, skip=()):
+    """Nov 23, 2026: players whose team is on bye in week W were projected from their row for the team's previous
+    game - inputs that stop one game short (that game's own result left out) - and, with no week-W game, without the
+    weekly part that carries 80% of every other player's later games (a_weekly). Corum/Williams, 2026 week 11:
+    Corum's 20.9 and Williams' 5.2 in week 10 were both left out and Corum's ROS fell from 9.4 to 7.5 a game after
+    his best game. Bye-week players' model ROS fell 1.35 a game on average at their bye (others -0.11).
+    Now, given the frame for week W+1 (next_df), a bye player takes the inputs of his row for the team's next game
+    (all games through week W-1 counted) and that game's model-only weekly projection (proxy_rows) as his weekly
+    part. Test (lab11 walk-forward rows 2023-25, 1,039 bye-week player snapshots): the next-game projection vs the
+    last-game one as the per-game ROS estimate, MAE 2.741 -> 2.538 (gain 0.20, 95% CI 0.11-0.30), Spearman up at
+    every position (QB .632 -> .707, RB .815 -> .841, WR .782 -> .811, TE .796 -> .829). ROS walk-forward (ros_lab
+    rows, 2023-25 test seasons, rate models as production, 1,059 bye-week rows): bye-row ROS MAE 20.30 -> 18.98;
+    mean weekly rank correlation with actual ROS PPR over the pool, snapshots with byes, model-only +0.0134 +/- 0.0035
+    (67 of 100 up, every season and position up), official 50/50 +0.0051 +/- 0.0022; new rate inputs vs keeping the
+    old ones +0.0009 +/- 0.0004. skip: players with a manual return estimate (manual_out.py) - their missed games are
+    taken out separately, and the next-game projection would price the injury in a second time."""
+    snap["wk_next"] = np.nan
+    bye = snap["ros_bye_now"].eq(1) & ~snap["player_id"].isin(set(skip))
+    if next_df is None or not bye.any():
+        return snap
+    nx = next_df[next_df["upcoming"].eq(True) & (next_df["season"] == season) & (next_df["week"] == week + 1)]
+    nx = nx.sort_values("phantom").drop_duplicates("player_id")
+    nx = nx[nx["player_id"].isin(set(snap.loc[bye, "player_id"]))]
+    if not len(nx):
+        return snap
+    idx = snap.index[bye & snap["player_id"].isin(set(nx["player_id"]))]
+    src = nx.set_index("player_id").loc[snap.loc[idx, "player_id"].values]
+    cols = [c for c in X if c in src.columns and not c.startswith("ros_") and c not in ("team", "position")]
+    for c in cols:
+        snap.loc[idx, c] = src[c].values
+    wk = proxy_rows(next_df, nx.copy(), season, week + 1, cfg_all)
+    snap.loc[idx, "wk_next"] = snap.loc[idx, "player_id"].map(pd.Series(wk, index=nx["player_id"].values)).values
+    log(f"bye week: {len(idx)} players projected from their week {week + 1} rows")
+    return snap
+
+
+def project_live(df, ctx, season, week, cfg_all, store=None, log=print, next_df=None):
     """ROS projections for the snapshot week. store: the dashboard's weekly projections (week rows used when they
-    exist for this week); otherwise a model-only weekly projection is made here."""
+    exist for this week); otherwise a model-only weekly projection is made here. next_df: the frame for week W+1,
+    for teams on bye in week W (refresh_bye_rows)."""
     cfg = cfg_all["ros"]
     hist_rows = build_history(df, ctx, list(range(2018, season)))
     log(f"ROS training snapshots: {len(hist_rows)}")
     models, X = train_rate_models(hist_rows, season, cfg)
     snap = snapshot(df, ctx, season, week, live=True)
+    import manual_out as MO
+    snap = refresh_bye_rows(snap, next_df, season, week, X, cfg_all, log, skip=set(MO.load(season, week + 1)))
     for pos in POS_MODELS:
         sp = snap["position"].isin(pos)
         if sp.any():
@@ -494,7 +537,9 @@ def project_live(df, ctx, season, week, cfg_all, store=None, log=print):
         c0 = snap["position"].map({p: v[0] for p, v in cfg["avail_player"]["curve"].items()})
         sm = snap["_pcurve"].map(lambda c: float(np.mean(c)) if c is not None and len(c) else np.nan)
         rel = (sm / c0).fillna(1.0)
-    fut = np.where(has, a * snap["wk"].fillna(0) * rel + (1 - a) * snap["rate"], snap["rate"])
+    nxt = ~has & snap["wk_next"].notna()    # on bye this week: his next game's projection (refresh_bye_rows)
+    fut = np.where(has, a * snap["wk"].fillna(0) * rel + (1 - a) * snap["rate"],
+                   np.where(nxt, a * snap["wk_next"].fillna(0) * rel + (1 - a) * snap["rate"], snap["rate"]))
     cur = np.where(has, snap["wk"].fillna(0), snap["rate"]) * o
     snap["this_week"] = np.where(o > 0, cur, np.nan)
     snap["ros_model"] = cur + fut * snap["ros_games_after"]
@@ -536,7 +581,7 @@ def project_live(df, ctx, season, week, cfg_all, store=None, log=print):
             f"misses {miss} of {n} games after week {week}: ROS {old:.1f} -> {new:.1f}")
     info = {"season": season, "week": week, "last_week": last_week(season), "players": int(len(snap)),
             "out_this_week": int(snap["ros_out_now"].sum()), "on_bye": int(snap["ros_bye_now"].sum()),
-            "this_week_source": wk_src, "training_snapshots": int(len(hist_rows)),
+            "this_week_source": wk_src, "bye_refreshed": int(snap["wk_next"].notna().sum()), "training_snapshots": int(len(hist_rows)),
             "rounds": {"/".join(p): v["rounds"] for p, v in models.items()},
             "experts_ros_date": str(ecr_snapshot(ctx.ros_ecr, week_cutoff(ctx.games, season, week))["ros_ecr_date"].max())}
     return snap, info

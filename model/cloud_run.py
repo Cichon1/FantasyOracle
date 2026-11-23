@@ -254,7 +254,25 @@ def ros_run(a):
     stats, games, _ = m.load("data")
     ctx = R.Context("data", os.environ.get("FP_DATA", "fpdata"), stats, games)
     store = pd.read_csv(a.store) if a.store and os.path.exists(a.store) else None
-    snap, rinfo = R.project_live(df, ctx, a.season, W, cfg, store)
+    # Nov 23, 2026: teams on bye in week W are projected from their week W+1 rows (ros.refresh_bye_rows)
+    sc = games[(games["season"] == a.season) & (games["game_type"] == "REG")]
+    playing = set(sc.loc[sc["week"] == W, "home_team"]) | set(sc.loc[sc["week"] == W, "away_team"])
+    byes = (set(sc["home_team"]) | set(sc["away_team"])) - playing
+    next_df = None
+    nxt = sc[(sc["week"] == W + 1) & sc["home_score"].isna()]
+    if byes & (set(nxt["home_team"]) | set(nxt["away_team"])) and W + 1 <= R.last_week(a.season):
+        next_df = m.build_frame("data", a.season, W + 1)
+        next_df = next_df.join(f6.build_market(next_df, "data"))
+        next_df["qb_prior_starts"] = f6.qb_prior_starts(next_df, "data")
+        extra = [c for c in df.columns if c not in next_df.columns]
+        if extra:   # the project run's frame carries the v5 inputs too: build them the same way
+            import features_v5 as f5
+            v5, _ = f5.build_v5(next_df, "data", stats, m.load("data")[2])
+            next_df = next_df.join(v5[[c for c in v5.columns if c not in next_df.columns]])
+        for c in ["phantom", "snap_only", "upcoming"]:
+            next_df[c] = next_df[c].eq(True)
+        info["bye_teams"] = sorted(byes)
+    snap, rinfo = R.project_live(df, ctx, a.season, W, cfg, store, next_df=next_df)
     ros, tv = R.dash_rows(snap, ctx, a.season, W, cfg["ros"])
     ros.to_csv(os.path.join(OUT, "ros_v5.csv"), index=False)
     tv.to_csv(os.path.join(OUT, "trade_values_v5.csv"), index=False)
