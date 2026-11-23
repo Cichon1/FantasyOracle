@@ -71,7 +71,8 @@ jobs:
           pip install -q pandas pyarrow scipy lightgbm
           mkdir -p lab data fpdata
           cp ../evo_inputs/lab/* lab/ && cp ../evo_inputs/data/* data/ && cp ../evo_inputs/fpdata/* fpdata/
-          grep -E '^[A-Z_]+=' ../automation/evo_request.txt | grep -v '^ISLANDS=' >> "$GITHUB_ENV" || true
+          # [A-Z0-9_]: names with digits (EVO_V2) must pass too - run 3's islands evolved without EVO_V2=1
+          grep -E '^[A-Z][A-Z0-9_]*=' ../automation/evo_request.txt | grep -v '^ISLANDS=' >> "$GITHUB_ENV" || true
       - name: Run
         working-directory: model
         run: |
@@ -111,7 +112,7 @@ jobs:
           pip install -q pandas pyarrow scipy lightgbm
           mkdir -p lab data fpdata
           cp ../evo_inputs/lab/* lab/ && cp ../evo_inputs/data/* data/ && cp ../evo_inputs/fpdata/* fpdata/
-          grep -E '^(FINAL_[A-Z_]+|EVO_V2|EVO_WAIVER|EVO_HUMAN_[A-Z]+|EVO_TYPICAL)=' ../automation/evo_request.txt >> "$GITHUB_ENV" || true
+          grep -E '^(FINAL_[A-Z0-9_]+|EVO_V2|EVO_WAIVER|EVO_HUMAN_[A-Z0-9_]+|EVO_TYPICAL)=' ../automation/evo_request.txt >> "$GITHUB_ENV" || true
       - name: Score
         working-directory: model
         run: |

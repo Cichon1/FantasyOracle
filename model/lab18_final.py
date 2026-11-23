@@ -51,16 +51,20 @@ def score(sd, strat, full, n, seed):
 
 def main():
     t0 = time.time()
+    print("rules", json.dumps(E.rules()), flush=True)
     res_dir = sys.argv[2]
     os.makedirs(res_dir, exist_ok=True)
     islands = sys.argv[3:]
     cands = {}
     gens = {}
+    mismatched = []
     for k, isl in enumerate(sorted(islands)):
         p = os.path.join(isl, "evo_validation.json")
         if not os.path.exists(p):
             continue
         v = json.load(open(p))[-1]
+        if v.get("rules") != E.rules():       # the islands must have evolved under the rules the final scores with
+            mismatched.append(os.path.basename(isl.rstrip("/")))
         gens[os.path.basename(isl.rstrip("/"))] = v["gen"]
         for name, genes in list(v["top_genes"].items())[:TOP_PER_ISLAND]:
             if genes in E.BASELINES.values() or genes == E.TYPICAL:
@@ -97,7 +101,8 @@ def main():
             gene_effect[k] = {"corr_with_2025_fit": round(float(ev[f"g_{k}"].corr(ev["2025_fit"], method="spearman")), 3),
                               "corr_with_2026_wins": round(float(ev[f"g_{k}"].corr(ev["2026_wins"], method="spearman")), 3)}
     both = ev[(ev["2025_fit"] > 2 * ev["2025_fit_se"]) & (ev["2026_wins"] > 0)].sort_values("2025_fit", ascending=False)
-    summary = {"islands": gens, "candidates": len(cands), "final_leagues": N_FINAL,
+    summary = {"islands": gens, "rules": E.rules(), "islands_with_other_rules": mismatched,
+               "candidates": len(cands), "final_leagues": N_FINAL,
                "baselines": df[df["strategy"].isin(E.BASELINES)].set_index("strategy")[
                    ["2025_fit", "2025_fit_se", "2025_wins", "2025_playoffs", "2025_title", "2025_last", "2026_wins",
                     "2026_wins_se", "2026_ppw"]].round(4).to_dict("index"),

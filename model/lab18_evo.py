@@ -622,6 +622,7 @@ def main():
     other = load_other_kdef()
     sds = {S: SeasonData(S, d, cv, games, ids, pre, kdef, other) for S in [2023, 2024, 2025, 2026]}
     print("data ready", round((time.time() - t0) / 60, 1), "min", flush=True)
+    print("rules", json.dumps(rules()), flush=True)
     pop = [random_strategy(rng) for _ in range(pop_n - len(BASELINES))] + [dict(v) for v in BASELINES.values()]
     hist = [new_hist_rec() for _ in pop]
     log = []
@@ -681,6 +682,12 @@ def main():
     print("done", round((time.time() - t0) / 60, 1), "min", flush=True)
 
 
+def rules():
+    """The rule switches in effect (recorded with every validation, so islands and the final can be checked to match)."""
+    return {"v2": V2, "waiver": WAIVER, "typical_seats": N_TYPICAL, "human_response": HUMAN_RESPONSE if V2 else None,
+            "human_endow": HUMAN_ENDOW if V2 else None, "human_looks": HUMAN_LOOKS if V2 else None}
+
+
 def new_hist_rec():
     return {"n": 0, "fit": 0.0, "ss": 0.0, "wins": 0.0, "po": 0.0, "title": 0.0, "trades": 0.0}
 
@@ -738,7 +745,7 @@ def validate(sds, pop, hist, rank, rng, out_dir, gen, n_val=int(os.environ.get("
                         diffs[k].append(r1[k][st] - r0[k][st])
             res[f"{S} {name}"] = {k: [round(float(np.mean(v)), 4), round(float(np.std(v) / np.sqrt(max(1, len(v) / 2))), 4)]
                                   for k, v in diffs.items()}
-    rec = {"gen": gen, "validation": res, "top_genes": {f"evolved #{k + 1}": pop[i] for k, i in enumerate(top)},
+    rec = {"gen": gen, "rules": rules(), "validation": res, "top_genes": {f"evolved #{k + 1}": pop[i] for k, i in enumerate(top)},
            "top_train": {f"evolved #{k + 1}": {kk: round(hist[i][kk] / max(1, hist[i]["n"]), 4) for kk in
                                                ["fit", "wins", "po", "title", "trades"]} | {"n": hist[i]["n"]}
                          for k, i in enumerate(top)}}
