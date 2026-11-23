@@ -1,5 +1,5 @@
 {
- "at": "2026-11-22T16:11:21+00:00",
+ "at": "2026-11-23T22:23:44+00:00",
  "week": 11,
  "candidates": {
   "api|league/{lk}/players;player_keys={keys};out=stats;stats.type=projected_week;stats.week={w}": {
@@ -21,7 +21,7 @@
   "pub|league/{gk}.l.public/players;player_keys={keys};out=stats;stats.type=week;stats.week={w}": {
    "ok": true,
    "players": 25,
-   "nonzero": 1,
+   "nonzero": 16,
    "coverage": [
     "week"
    ],
@@ -29,7 +29,7 @@
    "example": [
     [
      "Josh Allen",
-     0.0
+     14.16
     ],
     [
      "Chase Brown",
@@ -37,7 +37,7 @@
     ],
     [
      "Saquon Barkley",
-     0.0
+     13.5
     ],
     [
      "Tank Dell",
@@ -45,7 +45,7 @@
     ],
     [
      "Jaylen Waddle",
-     0.0
+     7.6
     ]
    ]
   }
