@@ -108,7 +108,7 @@ more["lineup"] = ('<div class="nf-controls hide-here" id="team-leagues" role="gr
                   '<p class="mp-intro">The full start / sit and waiver tables behind the My Team page: the Vegas line, '
                   'notes where your Yahoo lineup differs from the best one, close calls, and each free agent\'s upgrade over your weakest player.</p>'
                   + card(team, "team-lineup-card") + card(team, "team-waiver-card"))
-more["finder"] = card(S["finder"], "team-trades-card") + card(S["finder"], "team-needs-card")
+more["finder"] = card(S["finder"], "team-trades-card") + card(S["finder"], "team-sell-card") + card(S["finder"], "team-needs-card")
 proj_inner = strip_section(proj)
 more["weekly"] = ('<p class="mp-intro">Everything on the old weekly page: the full sortable projection table with search and game '
                   'status filters, this week\'s tiles and receiver usage. Weeks here follow the week buttons below.</p>' + proj_inner)

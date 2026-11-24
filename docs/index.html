@@ -484,6 +484,39 @@ html, body { overflow-x: clip; }
         </table>
       </div>
     </div>
+    <div class="nf-card" id="team-sell-card">
+      <h2>Sell for 2027 picks</h2>
+      <p class="nf-note" id="sell-sum">—</p>
+      <div class="fo-tf-row"><span class="fo-tf-lab">Next season counts</span><span class="nf-controls" id="sell-weight" role="group" aria-label="How much next season counts"></span></div>
+      <div class="nf-tablebox">
+        <table class="nf-table" id="sell-table">
+          <thead><tr><th class="nf-l">Your player</th><th class="nf-l">Likely buyer</th><th>Adds to them</th><th class="nf-l">Pick(s) they'd pay</th><th>Pick value</th><th class="nf-hide-sm">Cost to you</th><th class="nf-l">Chance</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p class="nf-note" id="sell-none" hidden></p>
+      <details class="fo-tf-players" id="sell-picks-det"><summary><span>What each 2027 pick is worth</span><span class="fo-picks-n" id="sell-picks-n"></span></summary>
+        <div class="nf-tablebox">
+          <table class="nf-table" id="sell-picks-table">
+            <thead><tr><th class="nf-l">Round</th><th>Value</th><th>Pts / wk next season</th><th class="nf-l">About the same as</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <p class="nf-note" id="sell-held"></p>
+      </details>
+      <p class="nf-note">For each of your players, the teams most likely to buy him with 2027 picks and the pick they'd pay.
+      <b>Pick(s) they'd pay</b>: the most valuable pick, or two picks, they own that the market's price for him covers (at
+      most 115% of his trade value: what real fantasy trades pay, on the same scale), so it looks fair to a manager going by
+      the market. <b>Pick value</b>: next season's points above the last starter plus points per week above a waiver pickup,
+      times how much next season counts (the chips), the same as in the trade analyzer. <b>Adds to them</b>: their
+      best-lineup gain per week, and what it does to their season in the trade analyzer's season simulation rerun with
+      the trade (both lineups after it, same random draws): title odds up, or, in a league where last place is punished,
+      last-place odds down. <b>Chance</b>: <i>Likely</i> when he'd start for them (+1.0 pts/wk or more) and their title odds
+      rise 2+ points (or last-place odds fall 2+); <i>Possible</i> at +0.5 and 0.8; otherwise <i>Long shot</i>. Up to four
+      buyers per player are simulated (the best fits by lineup gain over the weeks that still count for them); the top
+      three are shown. <b>Cost to you</b>: your lineup loss times your weeks that count, and how much your odds of
+      finishing last rise. Open the Trade analyzer to check one in full.</p>
+    </div>
     <div class="nf-card" id="team-needs-card">
       <h2>Team needs &amp; trade partners</h2>
       <p class="nf-note">Each team's best lineup from rest-of-season points per week in this league's scoring (missed games
@@ -2002,6 +2035,63 @@ window.foAvail = (() => {
       tb.appendChild(tr);
     });
   }
+  // ---------------------------------------------------------------- sell for 2027 picks (Nov 23, 2026)
+  const sellSt = { weight: 0.5 };
+  const SELL_W = [[0.25, '25%'], [0.5, '50%'], [0.75, '75%'], [1, 'Fully']];
+  function drawSell() {
+    const card = document.getElementById('team-sell-card'); if (!card) return;
+    const tb = document.querySelector('#sell-table tbody'), pb = document.querySelector('#sell-picks-table tbody');
+    tb.replaceChildren(); pb.replaceChildren();
+    const wb = document.getElementById('sell-weight');
+    if (!wb.childNodes.length) SELL_W.forEach(([w, lab]) => {
+      const b = document.createElement('button'); b.className = 'nf-chip'; b.textContent = lab; b.dataset.w = w;
+      b.addEventListener('click', () => { sellSt.weight = w; drawSell(); }); wb.append(b, ' ');
+    });
+    wb.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(+b.dataset.w === sellSt.weight)));
+    const none = document.getElementById('sell-none'); none.hidden = true;
+    if (!st.league || !window.taSell) { message(tb, 7, '—'); return; }
+    let o;
+    try { o = window.taSell(st.league, sellSt.weight); } catch (e) { console.error(e); message(tb, 7, 'Couldn’t value picks for this league.'); return; }
+    const sum = document.getElementById('sell-sum');
+    document.getElementById('sell-picks-det').hidden = !o.rounds;
+    if (o.msg) { sum.textContent = o.msg; message(tb, 7, o.msg); return; }
+    const pc = (x) => (x < 0.005 ? '<1%' : x > 0.995 ? '>99%' : d3.format('.0%')(x)), f0 = d3.format('.0f');
+    const mine = o.me;
+    sum.textContent = 'Your season: playoffs ' + pc(mine.playoff) + ', title ' + pc(mine.title) + ', last place ' + pc(mine.last)
+      + '. The rest of this season counts ' + f1(mine.W) + ' of ' + f1(mine.Wsum) + ' weeks for you, so what a player still does for you is small next to a pick. '
+      + (o.rules.name === 'BDSM League' ? 'BDSM League: next year’s order is set by a bet on another event, so every 2027 pick is worth its round’s average and finishing last doesn’t make your picks better; no keepers, so your players are worth nothing to you after this season. ' : '')
+      + 'Picks as of ' + (o.picksAsOf ? d3.timeFormat('%b %-d')(new Date(o.picksAsOf)) : '—') + '.';
+    const pkName = (pk) => 'Rd ' + pk.round + (pk.orig !== pk.owner ? ' (from ' + o.name(pk.orig) + ')' : '');
+    const shown = o.rows.filter((r) => r.buyers.length).slice(0, 12);
+    if (!shown.length) message(tb, 7, 'No team would start any of your players. Check back after the next roster pull.');
+    shown.forEach((r) => {
+      r.buyers.forEach((b, i) => {
+        const tr = document.createElement('tr'); if (i === 0) tr.className = 'fo-sell-first';
+        cell(tr, i === 0 ? r.p.name + ' (' + r.p.pos + ') · ' + f0(r.trade) : '', 'nf-l' + (i ? '' : ' nf-name'));
+        const p0 = (x) => d3.format('.0f')(Math.max(0, Math.min(100, x * 100)));
+        cell(tr, b.team + (b.playoff >= 0.05 ? ' · playoffs ' + pc(b.playoff) : ' · last place ' + pc(b.last)), 'nf-l');
+        const why = [b.dTitle >= 0.005 ? 'title ' + p0(b.title) + '\u2192' + p0(b.title + b.dTitle) + '%' : '', b.lastEsc >= 0.005 ? 'last ' + p0(b.last) + '\u2192' + p0(b.last - b.lastEsc) + '%' : ''].filter(Boolean).join(', ');
+        cell(tr, '+' + f1(b.dT) + '/wk' + (why ? ' · ' + why : ''));
+        cell(tr, b.offer.map(pkName).join(' + '), 'nf-l');
+        cell(tr, f0(b.offerV));
+        cell(tr, (b.cost >= 0.5 ? '\u2212' + f0(b.cost) : '0') + (b.dLast >= 0.005 ? ' · last ' + p0(mine.last) + '\u2192' + p0(mine.last + b.dLast) + '%' : ''), 'nf-hide-sm nf-muted');
+        cell(tr, b.tier, 'nf-l ' + (b.tier === 'Likely' ? 'nf-good' : b.tier === 'Possible' ? '' : 'nf-muted'));
+        tb.appendChild(tr);
+      });
+    });
+    const left = o.rows.filter((r) => !r.buyers.length).map((r) => r.p.name);
+    if (left.length) { none.hidden = false; none.textContent = 'No buyer found (wouldn’t start for anyone, or worth less than any pick they own): ' + left.join(', ') + '.'; }
+    o.rounds.forEach((x) => {
+      const tr = document.createElement('tr');
+      cell(tr, 'Rd ' + x.round, 'nf-l'); cell(tr, f0(x.v)); cell(tr, f1(x.ppw)); cell(tr, x.near, 'nf-l nf-muted');
+      pb.appendChild(tr);
+    });
+    document.getElementById('sell-picks-n').textContent = 'Rd 1 ' + f0(o.rounds[0] ? o.rounds[0].v : 0) + ' · Rd 2 ' + f0(o.rounds[1] ? o.rounds[1].v : 0) + ' · Rd 3 ' + f0(o.rounds[2] ? o.rounds[2].v : 0);
+    const odd = o.held.filter((h) => h.n !== o.rounds.length);
+    document.getElementById('sell-held').textContent = (odd.length ? 'Teams with more or fewer than ' + o.rounds.length + ' picks: '
+      + odd.map((h) => h.team + ' ' + h.n).join(', ') + '. ' : 'Every team still holds its own ' + o.rounds.length + ' picks. ')
+      + 'Values on the trade-value scale (the same as players’ trade values), with next season counted at the setting above.';
+  }
   // ---------------------------------------------------------------- team needs and trade partners
   function drawNeeds() {
     const nb = document.querySelector('#team-needs-table tbody'), pb = document.querySelector('#team-partner-table tbody');
@@ -2181,8 +2271,9 @@ window.foAvail = (() => {
   dash.onData(draw);
   dash.onData(drawTrades);
   dash.onData(drawNeeds);
+  dash.onData(drawSell);
   const _draw = draw;
-  draw = () => { _draw(); drawTrades(); drawNeeds(); };
+  draw = () => { _draw(); drawTrades(); drawNeeds(); drawSell(); };
 })();
 </script>
 
@@ -3702,6 +3793,101 @@ dash.calc('league_players', {
     body.appendChild(tr);
     return { Wm, Wt, holds, nY, nT };
   }
+
+  // Sell for picks (Nov 23, 2026): for each of your players, the teams that would most plausibly buy him with 2027
+  // picks, and which pick(s), on the trade analyzer's scales and season simulation:
+  //  - the offer: the most valuable pick, or two picks, the buyer owns that the market's price for him covers (total
+  //    pick value at most 115% of his trade value - what real fantasy trades pay, on the same scale), so the deal looks
+  //    fair to a manager going by the market; pick value as in the analyzer (next season's points above the last starter
+  //    plus points per week above a waiver pickup, times how much next season counts);
+  //  - why they'd do it: the season simulation rerun with the trade (your lineup and theirs after it, everyone else as
+  //    is, the same random draws): their title odds gain and, in a league where last place has a punishment
+  //    (LAST_STAKES), how much it lowers their odds of finishing last;
+  //  - chance: Likely when he'd start for them (+1.0 pts/wk or more) and their title odds rise 2+ points (or their last-
+  //    place odds fall 2+); Possible at +0.5 and 0.8; otherwise Long shot. Each player's four buyers with the best
+  //    first-pass fit (lineup gain x the weeks that count for them) are simulated; the top three are shown;
+  //  - cost to you: your lineup loss x your weeks that count, and how much your odds of finishing last rise.
+  const sellCache = { sig: null, out: null };
+  window.taSell = (lid, weight) => {
+    lid = String(lid);
+    const R = dash.data('league_rosters'), L = dash.data('leagues'), P = dash.data('ros'), LP = dash.data('league_players');
+    const LV = dash.data('trade_levels'), WK = dash.data('trade_weeks'), S = dash.data('league_standings'), SC = dash.data('league_schedule');
+    const PK = dash.data('league_picks'), PV = dash.data('pick_values');
+    if ([R, L, P, LP, LV, WK].some((d) => d.status !== 'ok')) return { msg: '—' };
+    if (S.status !== 'ok' || SC.status !== 'ok' || !S.data.some((r) => String(r.league_id) === lid)) return { msg: 'Needs this league’s standings and schedule (ask Claude to update your teams).' };
+    if (PK.status !== 'ok' || PV.status !== 'ok' || !PK.data.some((p) => String(p.league_id) === lid)) return { msg: 'This league has no 2027 draft picks to trade.' };
+    const rules = Dr.RULES[lid] || { pickForPick: false, name: '' };
+    if (rules.pickForPick) return { msg: rules.name + ': picks trade pick-for-pick only, so they can’t buy players here.' };
+    const sig = [lid, weight, R.data.length, d3.max(R.data, (x) => x.pulled_at), P.data.length, P.data[0] && P.data[0].from_week, LP.data.length,
+      S.data[0] && S.data[0].pulled_at, SC.data.length, PK.data.length, PK.data[0] && PK.data[0].pulled_at].join('|');
+    if (sellCache.sig === sig) return sellCache.out;
+    const ctx = E.prepare(R.data, P.data, L.data, lid, LP.data, LV.data, WK.data);
+    const me = ctx.teams.find((t) => t.me);
+    if (!me) return { msg: 'Your team isn’t in this league’s rosters.' };
+    const other = ctx.teams.find((t) => t.id !== me.id);
+    const base = E.analyze(ctx, me.id, other.id, new Set(), new Set());
+    const D = Dr.setup(lid, S.data, SC.data, PK.data, PV.data);
+    if (!D || !D.sched.length) return { msg: 'No regular-season games left.' };
+    const m = String(ctx.lg.playoffs).match(/(\d+)\s*teams/i); D.po = m ? +m[1] : 6;
+    const raw = rawSpread(ctx, base.before), sp = finishSpread(raw, spreadK(raw, empiricalSd(lid)));
+    const sdMap = new Map([...sp].map(([t, x]) => [t, x.sd]));
+    const str0 = new Map([...base.before].map(([t, x]) => [t, x.v]));
+    const sim = Dr.simulate(D, str0, ctx.from, sdMap);
+    const kL = LAST_STAKES[lid] || 0;
+    const wPick = (num(ctx.lv.RB?.waiver_pw) + num(ctx.lv.WR?.waiver_pw)) / 2;
+    const price = (pk) => (pk.keeper ? 0 : (() => { const i = Dr.pickInfo(D, sim, pk); return weight * (i.value * ctx.fullSeason / 17 + Math.max(0, i.ppw - wPick) * ctx.fullSeason); })());
+    const picks = D.picks.map((pk) => ({ pk, v: price(pk) }));
+    const weeks = ctx.weeks.map((x) => x.week);
+    const counts = (tid) => { const w = sim.get(tid).weights; return weeks.reduce((t, x) => t + num(w[x]), 0); };
+    const name = (tid) => (ctx.teams.find((t) => t.id === tid) || {}).name || ('team ' + tid);
+    const meS = sim.get(me.id), Wme = counts(me.id);
+    const sellers = ctx.players.filter((p) => p.team_id === me.id && p.kind === 'skill' && p.rosKey && num(p.trade) > 0.5);
+    const rows = [];
+    sellers.forEach((p) => {
+      const cand = [];
+      ctx.teams.filter((t) => t.id !== me.id).forEach((t) => {
+        const r = E.analyze(ctx, me.id, t.id, new Set([p.key]), new Set());
+        const dT = r.after.get(t.id).v - r.before.get(t.id).v, dM = r.after.get(me.id).v - r.before.get(me.id).v;
+        if (dT < 0.3) return;   // wouldn't start for them
+        const own = picks.filter((x) => x.pk.owner === t.id && x.v > 0).sort((a, b) => b.v - a.v);
+        const cap = 1.15 * num(p.trade);
+        let best = null;
+        own.forEach((a, i) => {
+          if (a.v <= cap && (!best || a.v > best.v)) best = { list: [a], v: a.v };
+          own.slice(i + 1).forEach((b) => { const v = a.v + b.v; if (v <= cap && (!best || v > best.v + 1e-9)) best = { list: [a, b], v }; });
+        });
+        if (!best) return;
+        cand.push({ tid: t.id, team: t.name, dT, dM, thisS: dT * counts(t.id), offer: best.list.map((x) => x.pk), offerV: best.v });
+      });
+      cand.sort((a, b) => b.thisS - a.thisS);
+      const buyers = cand.slice(0, 4).map((c) => {
+        const str = new Map(str0); str.set(me.id, str0.get(me.id) + c.dM); str.set(c.tid, str0.get(c.tid) + c.dT);
+        const sa = Dr.simulate(D, str, ctx.from, sdMap), b0 = sim.get(c.tid), b1 = sa.get(c.tid), m1 = sa.get(me.id);
+        const dTitle = b1.title - b0.title, lastEsc = kL ? b0.last - b1.last : 0, motive = Math.max(dTitle, lastEsc);
+        const tier = c.dT >= 1 && motive >= 0.02 ? 'Likely' : c.dT >= 0.5 && motive >= 0.008 ? 'Possible' : 'Long shot';
+        return Object.assign(c, { title: b0.title, playoff: b0.playoff, last: b0.last, dTitle, lastEsc, tier,
+          rank: { Likely: 0, Possible: 1, 'Long shot': 2 }[tier], cost: -c.dM * Wme, dLast: m1.last - meS.last });
+      });
+      buyers.sort((a, b) => a.rank - b.rank || b.offerV - a.offerV);
+      rows.push({ p, trade: num(p.trade), buyers: buyers.slice(0, 3), nBuyers: cand.length });
+    });
+    rows.sort((a, b) => (a.buyers[0] ? a.buyers[0].rank : 9) - (b.buyers[0] ? b.buyers[0].rank : 9) || (b.buyers[0] ? b.buyers[0].offerV : 0) - (a.buyers[0] ? a.buyers[0].offerV : 0));
+    // pick values by round (BDSM: every slot equally likely, so a round's picks are worth the same), and the player
+    // whose trade value is closest, as a yardstick
+    const pool = ctx.players.filter((p) => p.kind === 'skill' && p.rosKey && num(p.trade) > 0);
+    const rounds = [...new Set(picks.map((x) => x.pk.round))].sort((a, b) => a - b).map((rd) => {
+      const ps = picks.filter((x) => x.pk.round === rd), v = ps.reduce((t, x) => t + x.v, 0) / Math.max(1, ps.length);
+      const near = pool.slice().sort((a, b) => Math.abs(num(a.trade) - v) - Math.abs(num(b.trade) - v))[0];
+      const i = Dr.pickInfo(D, sim, ps[0].pk);
+      return { round: rd, v, ppw: i.ppw, near: near ? near.name + ' (' + near.pos + ', ' + f0(num(near.trade)) + ')' : '—' };
+    });
+    const held = ctx.teams.map((t) => ({ team: t.name, me: t.me, n: picks.filter((x) => x.pk.owner === t.id).length,
+      v: picks.filter((x) => x.pk.owner === t.id).reduce((s, x) => s + x.v, 0), playoff: sim.get(t.id).playoff, title: sim.get(t.id).title }));
+    const out = { rows, rounds, held, me: { name: me.name, playoff: meS.playoff, title: meS.title, last: meS.last, W: Wme, Wsum: ctx.Wsum },
+      rules, name, picksAsOf: PK.data.filter((x) => String(x.league_id) === lid)[0]?.pulled_at || '' };
+    sellCache.sig = sig; sellCache.out = out;
+    return out;
+  };
 
   // verdict: headline, "Does it help you?", "Is it a fair price?"
   function drawVerdict(ctx, res, ds, name, ss) {
