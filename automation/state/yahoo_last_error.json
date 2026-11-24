@@ -1,0 +1,16 @@
+{
+ "at": "2026-11-24T18:16:37+00:00",
+ "error": "GET league/470.l.200436/scoreboard;week=4: HTTP 500 b''",
+ "diag": {
+  "token_fields": [
+   "expires_in",
+   "token_type"
+  ],
+  "token_info": {
+   "token_type": "bearer",
+   "expires_in": 3600
+  },
+  "users;use_login=1/games;game_codes=nfl": "ok",
+  "game/nfl": "ok"
+ }
+}
