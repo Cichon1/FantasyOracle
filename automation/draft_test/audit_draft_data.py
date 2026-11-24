@@ -29,9 +29,16 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 NFLV = "https://github.com/nflverse/nflverse-data/releases/download"
 
 
+ALIAS = {"hollywood brown": "marquise brown", "beanie wells": "chris wells", "michael vick": "mike vick",
+         "carnell williams": "cadillac williams", "joshua cribbs": "josh cribbs", "joshua palmer": "josh palmer",
+         "ty montgomery": "ty montgomery", "mike tolbert": "michael tolbert"}
+
+
 def norm(n):
-    n = re.sub(r"[^a-z ]", "", str(n).lower().replace("-", " "))
-    return re.sub(r"\b(jr|sr|ii|iii|iv|v)\b", "", n).replace("  ", " ").strip()
+    n = re.sub(r"[^a-z ]", "", str(n).lower().replace("-", " ").replace("'", ""))
+    n = re.sub(r"\b(jr|sr|ii|iii|iv|v)\b", "", n)
+    n = re.sub(r"\s+", " ", n).strip()
+    return ALIAS.get(n, n)
 
 
 def season_points():
@@ -74,7 +81,11 @@ def main():
     pts = season_points()
     late = {}
     for y in range(2017, 2026):
-        fp = S.fp_adp("ppr", y)
+        try:
+            fp = S.fp_adp("ppr", y)
+        except SystemExit:
+            late[y] = {"status": "needs the FantasyPros key (runs in GitHub Actions)"}
+            continue
         fd, meta = S.ffc("ppr", 12, y)
         if fp is None or fd is None or not ffc.get(f"ppr_12_{y}", {}).get("usable"):
             late[y] = {"status": "missing fp or usable ffc"}
@@ -121,8 +132,11 @@ def main():
                                   "undated": int(g["d"].isna().sum())}
                          for y, g in t.groupby("season") if y in ko and y >= 2010}
     # 6. name matching
-    pl = pd.read_parquet(f"{NFLV}/players/players.parquet", columns=["display_name", "position"])
-    names = set(zip(pl["display_name"].map(norm), pl["position"]))
+    lp = os.path.join(ROOT, "model", "data", "players.parquet")
+    pl = pd.read_parquet(lp if os.path.exists(lp) else f"{NFLV}/players/players.parquet", columns=["display_name", "position"])
+    pl["k"] = pl["display_name"].map(norm)
+    names = set(zip(pl["k"], pl["position"]))
+    any_pos = set(pl["k"])        # position changed since (Patterson WR -> RB, Matthews WR -> TE, Hunter WR / CB)
     mt = {}
     for y in range(2010, 2026):
         fd, _ = S.ffc("ppr", 12, y)
@@ -130,7 +144,7 @@ def main():
             continue
         top = fd.nsmallest(200, "adp")
         top = top[~top["position"].isin(["DEF", "PK", "K"])]
-        miss = [r["name"] for _, r in top.iterrows() if (norm(r["name"]), r["position"]) not in names]
+        miss = [r["name"] for _, r in top.iterrows() if (norm(r["name"]), r["position"]) not in names and norm(r["name"]) not in any_pos]
         mt[y] = {"checked": len(top), "unmatched": len(miss), "rate": round(len(miss) / max(1, len(top)), 3), "names": miss[:15]}
         if len(miss) / max(1, len(top)) > 0.02:
             fail.append(f"name match {y}: {len(miss)} unmatched of {len(top)}")

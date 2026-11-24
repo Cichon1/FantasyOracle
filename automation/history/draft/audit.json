@@ -1,0 +1,358 @@
+{
+ "rules": "PREREG.md section 1",
+ "ffc": {
+  "units": 120,
+  "usable": 114,
+  "dropped": {
+   "ppr_10_2011": {
+    "start": "2011-09-06",
+    "end": "2011-09-09",
+    "kickoff": "2011-09-08",
+    "drafts": 600,
+    "players": 188,
+    "usable": false
+   },
+   "ppr_12_2011": {
+    "start": "2011-09-06",
+    "end": "2011-09-09",
+    "kickoff": "2011-09-08",
+    "drafts": 600,
+    "players": 188,
+    "usable": false
+   },
+   "ppr_14_2011": {
+    "start": "2011-09-06",
+    "end": "2011-09-09",
+    "kickoff": "2011-09-08",
+    "drafts": 600,
+    "players": 188,
+    "usable": false
+   },
+   "standard_10_2011": {
+    "start": "2011-09-07",
+    "end": "2011-09-09",
+    "kickoff": "2011-09-08",
+    "drafts": 1144,
+    "players": 183,
+    "usable": false
+   },
+   "standard_12_2011": {
+    "start": "2011-09-07",
+    "end": "2011-09-09",
+    "kickoff": "2011-09-08",
+    "drafts": 1144,
+    "players": 183,
+    "usable": false
+   },
+   "standard_14_2011": {
+    "start": "2011-09-07",
+    "end": "2011-09-09",
+    "kickoff": "2011-09-08",
+    "drafts": 1144,
+    "players": 183,
+    "usable": false
+   }
+  }
+ },
+ "fp_adp_late_update": {
+  "2017": {
+   "status": "needs the FantasyPros key (runs in GitHub Actions)"
+  },
+  "2018": {
+   "status": "needs the FantasyPros key (runs in GitHub Actions)"
+  },
+  "2019": {
+   "status": "needs the FantasyPros key (runs in GitHub Actions)"
+  },
+  "2020": {
+   "status": "needs the FantasyPros key (runs in GitHub Actions)"
+  },
+  "2021": {
+   "status": "needs the FantasyPros key (runs in GitHub Actions)"
+  },
+  "2022": {
+   "status": "needs the FantasyPros key (runs in GitHub Actions)"
+  },
+  "2023": {
+   "status": "needs the FantasyPros key (runs in GitHub Actions)"
+  },
+  "2024": {
+   "status": "needs the FantasyPros key (runs in GitHub Actions)"
+  },
+  "2025": {
+   "status": "needs the FantasyPros key (runs in GitHub Actions)"
+  }
+ },
+ "fp_ecr_preseason": {
+  "2019": {
+   "last_snapshot": null,
+   "cutoff": "2019-09-02",
+   "days_before_kickoff": null
+  },
+  "2020": {
+   "last_snapshot": "2020-09-03",
+   "cutoff": "2020-09-07",
+   "days_before_kickoff": 7
+  },
+  "2021": {
+   "last_snapshot": "2021-09-03",
+   "cutoff": "2021-09-06",
+   "days_before_kickoff": 6
+  },
+  "2022": {
+   "last_snapshot": "2022-09-02",
+   "cutoff": "2022-09-05",
+   "days_before_kickoff": 6
+  },
+  "2023": {
+   "last_snapshot": "2023-09-01",
+   "cutoff": "2023-09-04",
+   "days_before_kickoff": 6
+  },
+  "2024": {
+   "last_snapshot": "2024-08-30",
+   "cutoff": "2024-09-02",
+   "days_before_kickoff": 6
+  },
+  "2025": {
+   "last_snapshot": "2025-08-29",
+   "cutoff": "2025-09-01",
+   "days_before_kickoff": 6
+  },
+  "2026": {
+   "last_snapshot": "2026-09-04",
+   "cutoff": "2026-09-06",
+   "days_before_kickoff": 5
+  }
+ },
+ "draft_picks": {
+  "allowed": [
+   "season",
+   "round",
+   "pick",
+   "team",
+   "gsis_id",
+   "pfr_player_id",
+   "pfr_player_name",
+   "position",
+   "category",
+   "college",
+   "age"
+  ],
+  "blocked_hindsight_cols": [
+   "cfb_player_id",
+   "hof",
+   "side",
+   "to",
+   "allpro",
+   "probowls",
+   "seasons_started",
+   "w_av",
+   "car_av",
+   "dr_av",
+   "games",
+   "pass_completions",
+   "pass_attempts",
+   "pass_yards",
+   "pass_tds",
+   "pass_ints",
+   "rush_atts",
+   "rush_yards",
+   "rush_tds",
+   "receptions",
+   "rec_yards",
+   "rec_tds",
+   "def_solo_tackles",
+   "def_ints",
+   "def_sacks"
+  ]
+ },
+ "trades": {
+  "2010": {
+   "before_kickoff": 243,
+   "after": 20,
+   "undated": 0
+  },
+  "2011": {
+   "before_kickoff": 117,
+   "after": 8,
+   "undated": 0
+  },
+  "2012": {
+   "before_kickoff": 161,
+   "after": 5,
+   "undated": 0
+  },
+  "2013": {
+   "before_kickoff": 140,
+   "after": 14,
+   "undated": 0
+  },
+  "2014": {
+   "before_kickoff": 111,
+   "after": 2,
+   "undated": 0
+  },
+  "2015": {
+   "before_kickoff": 145,
+   "after": 15,
+   "undated": 0
+  },
+  "2016": {
+   "before_kickoff": 145,
+   "after": 11,
+   "undated": 0
+  },
+  "2017": {
+   "before_kickoff": 213,
+   "after": 19,
+   "undated": 0
+  },
+  "2018": {
+   "before_kickoff": 253,
+   "after": 27,
+   "undated": 0
+  },
+  "2019": {
+   "before_kickoff": 253,
+   "after": 49,
+   "undated": 0
+  },
+  "2020": {
+   "before_kickoff": 177,
+   "after": 34,
+   "undated": 0
+  },
+  "2021": {
+   "before_kickoff": 245,
+   "after": 35,
+   "undated": 0
+  },
+  "2022": {
+   "before_kickoff": 245,
+   "after": 58,
+   "undated": 0
+  },
+  "2023": {
+   "before_kickoff": 229,
+   "after": 42,
+   "undated": 0
+  },
+  "2024": {
+   "before_kickoff": 216,
+   "after": 49,
+   "undated": 0
+  },
+  "2025": {
+   "before_kickoff": 252,
+   "after": 65,
+   "undated": 0
+  },
+  "2026": {
+   "before_kickoff": 63,
+   "after": 0,
+   "undated": 0
+  }
+ },
+ "name_matching": {
+  "2010": {
+   "checked": 182,
+   "unmatched": 0,
+   "rate": 0.0,
+   "names": []
+  },
+  "2011": {
+   "checked": 165,
+   "unmatched": 0,
+   "rate": 0.0,
+   "names": []
+  },
+  "2012": {
+   "checked": 92,
+   "unmatched": 0,
+   "rate": 0.0,
+   "names": []
+  },
+  "2013": {
+   "checked": 162,
+   "unmatched": 0,
+   "rate": 0.0,
+   "names": []
+  },
+  "2014": {
+   "checked": 165,
+   "unmatched": 1,
+   "rate": 0.006,
+   "names": [
+    "Tim Wright"
+   ]
+  },
+  "2015": {
+   "checked": 172,
+   "unmatched": 0,
+   "rate": 0.0,
+   "names": []
+  },
+  "2016": {
+   "checked": 163,
+   "unmatched": 0,
+   "rate": 0.0,
+   "names": []
+  },
+  "2017": {
+   "checked": 163,
+   "unmatched": 0,
+   "rate": 0.0,
+   "names": []
+  },
+  "2018": {
+   "checked": 168,
+   "unmatched": 0,
+   "rate": 0.0,
+   "names": []
+  },
+  "2019": {
+   "checked": 170,
+   "unmatched": 0,
+   "rate": 0.0,
+   "names": []
+  },
+  "2020": {
+   "checked": 174,
+   "unmatched": 0,
+   "rate": 0.0,
+   "names": []
+  },
+  "2021": {
+   "checked": 178,
+   "unmatched": 0,
+   "rate": 0.0,
+   "names": []
+  },
+  "2022": {
+   "checked": 146,
+   "unmatched": 0,
+   "rate": 0.0,
+   "names": []
+  },
+  "2023": {
+   "checked": 176,
+   "unmatched": 0,
+   "rate": 0.0,
+   "names": []
+  },
+  "2024": {
+   "checked": 176,
+   "unmatched": 0,
+   "rate": 0.0,
+   "names": []
+  },
+  "2025": {
+   "checked": 176,
+   "unmatched": 0,
+   "rate": 0.0,
+   "names": []
+  }
+ },
+ "hard_failures": []
+}
