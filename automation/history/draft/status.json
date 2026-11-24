@@ -1657,6 +1657,170 @@
    "status": "ok"
   }
  },
+ "fp_adp": {
+  "half_2017": {
+   "at": "2026-11-24T22:28:32+00:00",
+   "dates_on_page": [],
+   "status": "ok",
+   "table_rows": 1
+  },
+  "half_2018": {
+   "at": "2026-11-24T22:28:38+00:00",
+   "dates_on_page": [],
+   "status": "ok",
+   "table_rows": 3
+  },
+  "half_2019": {
+   "at": "2026-11-24T22:28:46+00:00",
+   "dates_on_page": [],
+   "status": "ok",
+   "table_rows": 4
+  },
+  "half_2020": {
+   "at": "2026-11-24T22:28:52+00:00",
+   "dates_on_page": [],
+   "status": "ok",
+   "table_rows": 4
+  },
+  "half_2021": {
+   "at": "2026-11-24T22:29:00+00:00",
+   "dates_on_page": [],
+   "status": "ok",
+   "table_rows": 4
+  },
+  "half_2022": {
+   "at": "2026-11-24T22:29:07+00:00",
+   "dates_on_page": [],
+   "status": "ok",
+   "table_rows": 3
+  },
+  "half_2023": {
+   "at": "2026-11-24T22:29:14+00:00",
+   "dates_on_page": [],
+   "status": "ok",
+   "table_rows": 4
+  },
+  "half_2024": {
+   "at": "2026-11-24T22:29:20+00:00",
+   "dates_on_page": [],
+   "status": "ok",
+   "table_rows": 4
+  },
+  "half_2025": {
+   "at": "2026-11-24T22:29:28+00:00",
+   "dates_on_page": [],
+   "status": "ok",
+   "table_rows": 4
+  },
+  "ppr_2017": {
+   "at": "2026-11-24T22:28:29+00:00",
+   "dates_on_page": [],
+   "status": "ok",
+   "table_rows": 5
+  },
+  "ppr_2018": {
+   "at": "2026-11-24T22:28:36+00:00",
+   "dates_on_page": [],
+   "status": "ok",
+   "table_rows": 6
+  },
+  "ppr_2019": {
+   "at": "2026-11-24T22:28:43+00:00",
+   "dates_on_page": [],
+   "status": "ok",
+   "table_rows": 7
+  },
+  "ppr_2020": {
+   "at": "2026-11-24T22:28:50+00:00",
+   "dates_on_page": [],
+   "status": "ok",
+   "table_rows": 5
+  },
+  "ppr_2021": {
+   "at": "2026-11-24T22:28:57+00:00",
+   "dates_on_page": [],
+   "status": "ok",
+   "table_rows": 8
+  },
+  "ppr_2022": {
+   "at": "2026-11-24T22:29:04+00:00",
+   "dates_on_page": [],
+   "status": "ok",
+   "table_rows": 5
+  },
+  "ppr_2023": {
+   "at": "2026-11-24T22:29:11+00:00",
+   "dates_on_page": [],
+   "status": "ok",
+   "table_rows": 5
+  },
+  "ppr_2024": {
+   "at": "2026-11-24T22:29:18+00:00",
+   "dates_on_page": [],
+   "status": "ok",
+   "table_rows": 6
+  },
+  "ppr_2025": {
+   "at": "2026-11-24T22:29:25+00:00",
+   "dates_on_page": [],
+   "status": "ok",
+   "table_rows": 7
+  },
+  "std_2017": {
+   "at": "2026-11-24T22:28:34+00:00",
+   "dates_on_page": [],
+   "status": "ok",
+   "table_rows": 5
+  },
+  "std_2018": {
+   "at": "2026-11-24T22:28:41+00:00",
+   "dates_on_page": [],
+   "status": "ok",
+   "table_rows": 6
+  },
+  "std_2019": {
+   "at": "2026-11-24T22:28:48+00:00",
+   "dates_on_page": [],
+   "status": "ok",
+   "table_rows": 5
+  },
+  "std_2020": {
+   "at": "2026-11-24T22:28:55+00:00",
+   "dates_on_page": [],
+   "status": "ok",
+   "table_rows": 4
+  },
+  "std_2021": {
+   "at": "2026-11-24T22:29:02+00:00",
+   "dates_on_page": [],
+   "status": "ok",
+   "table_rows": 5
+  },
+  "std_2022": {
+   "at": "2026-11-24T22:29:09+00:00",
+   "dates_on_page": [],
+   "status": "ok",
+   "table_rows": 3
+  },
+  "std_2023": {
+   "at": "2026-11-24T22:29:16+00:00",
+   "dates_on_page": [],
+   "status": "ok",
+   "table_rows": 3
+  },
+  "std_2024": {
+   "at": "2026-11-24T22:29:23+00:00",
+   "dates_on_page": [],
+   "status": "ok",
+   "table_rows": 3
+  },
+  "std_2025": {
+   "at": "2026-11-24T22:29:30+00:00",
+   "dates_on_page": [],
+   "status": "ok",
+   "table_rows": 3
+  }
+ },
  "nflverse": {
   "advstats_season_pass.parquet": {
    "at": "2026-11-24T22:24:58+00:00",
