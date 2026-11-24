@@ -15,6 +15,7 @@ Scope: BDSM League (126912) and The League (200436). Ezekiel (IDP, 727092) is a 
 | Contracts are a current snapshot (later extensions and restructures) | Only contracts with `year_signed` < season, plus that season's signings marked free agent / rookie. In-season extensions count as unknown. Cap numbers from a later restructure aren't used | Every contract feature tagged with its year_signed; any `year_signed` ≥ season (except allowed types) fails |
 | Trades during the season | Only trades dated before kickoff move a player's preseason team | Trade dates ≤ kickoff |
 | Injuries during the preseason | Allowed: ADP and expert ranks already price them. Not allowed: any injury report from Week 1 on | Injury features only from data dated ≤ kickoff |
+| Spotrac's past-year incentive pages also show how each player finished against his thresholds (e.g. "2024 Off Snaps: 99.3%") | Only the clause (stat, threshold, amount, contract year) is parsed for the board; the progress / result lines are dropped by the parser | Parser output has no result columns; checked |
 | Incentive articles pick players who ended up near a threshold | The draft board may only use incentive clauses known at signing (Spotrac year pages, May free-agent lists). The late-season tracker articles are used only for the separate "incentive chasing" in-season test | Board features list has no tracker-derived column |
 | Model training uses the test season | Walk-forward: the board for season S is trained only on seasons < S; tuning choices (features, settings) are fixed on 2012-2019 and frozen before the 2020-2025 test | Training-season max < S asserted on every fit |
 | Replacement levels / pick values computed from the test season's actual results | Replacement levels and positional baselines for season S come from seasons < S | Asserted |
@@ -88,4 +89,4 @@ Situations reported for each: draft slot, round, roster so far, tiers left by po
 - Licensed data (FantasyPros pages, Spotrac pages) is stored encrypted, like the existing FantasyPros rankings, because the repository is public. FFC data (free with attribution) and nflverse data are stored as is.
 
 ## Changes
-(none yet)
+- Nov 24 (before any results): FantasyPros' archived ADP pages return "report not available" to scripts, so per-platform ADP comes from the platforms themselves (Yahoo's API draft analysis, ESPN's public API) plus FFC; FP ADP dropped. Spotrac result lines excluded (row added above).

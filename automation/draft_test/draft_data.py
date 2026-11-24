@@ -187,6 +187,65 @@ def spotrac():
             time.sleep(7)        # Spotrac rate-limits at ~2 s per page
 
 
+
+# ---------------------------------------------------------------- Yahoo draft analysis (real Yahoo drafts; encrypted)
+def yahoo_adp():
+    """Average pick / round / % drafted from Yahoo's own drafts, per season (Yahoo game key per season). Drafts happen
+    before the season, so this is preseason information by nature. Both leagues draft on Yahoo. Enumerates players by
+    Yahoo's preseason rank (sort=OR) and by actual rank (sort=AR) so busts and breakouts are both covered."""
+    sys.path.insert(0, os.path.join(ROOT, "automation"))
+    import yahoo_sync as Y
+    tok = Y.access_token()
+    root = Y.get(tok, "games;game_codes=nfl;seasons=" + ",".join(str(y) for y in range(2010, 2026)))
+    keys = {int(g.findtext("season")): g.findtext("game_key") for g in root.iter("game") if g.findtext("game_key")}
+    log("yahoo_adp", "game_keys", "ok", {"seasons": sorted(keys)})
+    for y, gk in sorted(keys.items()):
+        path = os.path.join(OUT, "yahoo_adp", f"yahoo_adp_{y}.enc")
+        if os.path.exists(path):
+            continue
+        chunks, n = [], 0
+        for sort in ["OR", "AR"]:
+            for start in range(0, 400, 25):
+                try:
+                    e = Y.get(tok, f"game/{gk}/players;sort={sort};start={start};count=25/draft_analysis")
+                except RuntimeError as ex:
+                    log("yahoo_adp", f"{y}_{sort}_{start}", "error", {"err": str(ex)[:200]})
+                    break
+                import xml.etree.ElementTree as ET
+                pl = list(e.iter("player"))
+                if not pl:
+                    break
+                n += len(pl)
+                chunks.append(ET.tostring(e, encoding="unicode"))
+                time.sleep(0.5)
+        if n:
+            save(path, json.dumps({"season": y, "game_key": gk, "pages": chunks}), enc=True)
+        log("yahoo_adp", str(y), "ok" if n else "empty", {"players_seen": n})
+
+
+# ---------------------------------------------------------------- ESPN public API (encrypted)
+def espn_adp():
+    """ESPN's average draft position and its preseason draft ranks (PPR) per season, from the public fantasy API."""
+    for y in range(2018, 2026):
+        path = os.path.join(OUT, "espn_adp", f"espn_adp_{y}.enc")
+        if os.path.exists(path):
+            continue
+        flt = {"players": {"limit": 500, "sortDraftRanks": {"sortPriority": 100, "sortAsc": True, "value": "PPR"}}}
+        url = f"https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/seasons/{y}/segments/0/leaguedefaults/3?view=kona_player_info"
+        req = urllib.request.Request(url, headers={**UA, "X-Fantasy-Filter": json.dumps(flt), "Accept": "application/json"})
+        try:
+            with urllib.request.urlopen(req, timeout=60) as r:
+                txt = r.read().decode("utf-8", "ignore")
+        except Exception as ex:
+            log("espn_adp", str(y), "error", {"err": str(ex)[:200]})
+            continue
+        j = json.loads(txt)
+        pl = j.get("players", [])
+        with_adp = sum(1 for p in pl if (p.get("player", {}).get("ownership") or {}).get("averageDraftPosition"))
+        save(path, txt, enc=True)
+        log("espn_adp", str(y), "ok", {"players": len(pl), "with_adp": with_adp})
+        time.sleep(2)
+
 def fp_inspect():
     """Structure of the saved FantasyPros ADP pages only (sizes, tags, notices) - never their data (public logs)."""
     d = os.path.join(OUT, "fp_adp")
@@ -225,4 +284,5 @@ def status():
 
 
 if __name__ == "__main__":
-    {"ffc": ffc, "fp_adp": fp_adp, "nflverse": nflverse, "spotrac": spotrac, "status": status, "fp_inspect": fp_inspect, "spotrac_inspect": spotrac_inspect}[sys.argv[1]]()
+    {"ffc": ffc, "fp_adp": fp_adp, "nflverse": nflverse, "spotrac": spotrac, "status": status, "fp_inspect": fp_inspect, "spotrac_inspect": spotrac_inspect,
+     "yahoo_adp": yahoo_adp, "espn_adp": espn_adp}[sys.argv[1]]()
