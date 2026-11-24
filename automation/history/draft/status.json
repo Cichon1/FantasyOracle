@@ -1,0 +1,29 @@
+{
+ "nflverse": {
+  "advstats_season_pass.parquet": {
+   "at": "2026-11-24T22:24:58+00:00",
+   "bytes": 60454,
+   "status": "ok"
+  },
+  "advstats_season_rec.parquet": {
+   "at": "2026-11-24T22:24:59+00:00",
+   "bytes": 144136,
+   "status": "ok"
+  },
+  "advstats_season_rush.parquet": {
+   "at": "2026-11-24T22:24:58+00:00",
+   "bytes": 81700,
+   "status": "ok"
+  },
+  "draft_picks.parquet": {
+   "at": "2026-11-24T22:24:58+00:00",
+   "bytes": 701767,
+   "status": "ok"
+  },
+  "trades.parquet": {
+   "at": "2026-11-24T22:24:58+00:00",
+   "bytes": 107779,
+   "status": "ok"
+  }
+ }
+}
