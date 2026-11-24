@@ -61,7 +61,7 @@ def load(path, enc=False):
     return gzip.decompress(_fernet().decrypt(data)).decode("utf-8") if enc else data.decode("utf-8")
 
 
-def get(url, tries=3, binary=False):
+def get(url, tries=5, binary=False):
     for i in range(tries):
         try:
             req = urllib.request.Request(url, headers=UA)
@@ -71,6 +71,10 @@ def get(url, tries=3, binary=False):
         except urllib.error.HTTPError as e:
             if e.code in (404, 410):
                 return None
+            if e.code == 429 and i < tries - 1:       # rate limited: wait as told (or a minute or more), then retry
+                ra = e.headers.get("Retry-After")
+                time.sleep(int(ra) if ra and ra.isdigit() else 60 * (i + 1))
+                continue
             if i == tries - 1:
                 raise
         except Exception:
@@ -154,6 +158,13 @@ def nflverse():
 
 
 # ---------------------------------------------------------------- Spotrac incentives (encrypted)
+def _body(html):
+    """Page content without scripts / timestamps, to tell whether a year's page differs from another year's."""
+    h = re.sub(r"<script.*?</script>|<style.*?</style>", "", html, flags=re.S)
+    m = re.search(r"NFL Contract Incentives(.*)", h, re.S)
+    return re.sub(r"\s+", " ", m.group(1) if m else h).encode("utf-8")
+
+
 def spotrac():
     """Incentive clauses by year and team. Spotrac added this view in 2024; earlier years are tried and logged."""
     for y in range(2019, 2027):
@@ -172,8 +183,35 @@ def spotrac():
                 continue
             save(path, html, enc=True)
             found += 1
-            log("spotrac", f"{y}_{t}", "ok", {"mentions": n})
-            time.sleep(2)
+            log("spotrac", f"{y}_{t}", "ok", {"mentions": n, "sha": hashlib.sha256(_body(html)).hexdigest()[:12]})
+            time.sleep(7)        # Spotrac rate-limits at ~2 s per page
+
+
+def fp_inspect():
+    """Structure of the saved FantasyPros ADP pages only (sizes, tags, notices) - never their data (public logs)."""
+    d = os.path.join(OUT, "fp_adp")
+    for f in sorted(os.listdir(d)) if os.path.isdir(d) else []:
+        h = load(os.path.join(d, f), enc=True)
+        t = re.search(r"<title>(.*?)</title>", h, re.S)
+        print(f, {"bytes": len(h), "title": (t.group(1).strip()[:70] if t else None), "tr": h.count("<tr"),
+                  "tables": re.findall(r"<table[^>]*id=\"([^\"]+)\"", h)[:5],
+                  "not_available": "not available" in h.lower(), "captcha": any(x in h.lower() for x in ("captcha", "cf-chl", "access denied")),
+                  "js_vars": sorted(set(re.findall(r"\bvar\s+(\w*(?:adp|ADP|ecr|data|Data)\w*)\s*=", h)))[:8],
+                  "api_urls": sorted(set(re.findall(r"https?://[\w./-]*(?:adp|api)[\w./?=&-]*", h)))[:5],
+                  "dates": re.findall(r"(?:ADP|adp)[^<]{0,60}?(\w{3,9} \d{1,2}, \d{4})", h)[:3]})
+
+
+def spotrac_inspect():
+    """Are the year pages different? Hash of each team's page body per year (no content printed)."""
+    base = os.path.join(OUT, "spotrac")
+    years = sorted(os.listdir(base)) if os.path.isdir(base) else []
+    for t in TEAMS[:6]:
+        hs = {}
+        for y in years:
+            f = os.path.join(base, y, f"incentives_{t}.enc")
+            if os.path.exists(f):
+                hs[y] = hashlib.sha256(_body(load(f, enc=True))).hexdigest()[:10]
+        print(t, hs, "all years identical" if len(set(hs.values())) == 1 and len(hs) > 1 else "")
 
 
 def status():
@@ -187,4 +225,4 @@ def status():
 
 
 if __name__ == "__main__":
-    {"ffc": ffc, "fp_adp": fp_adp, "nflverse": nflverse, "spotrac": spotrac, "status": status}[sys.argv[1]]()
+    {"ffc": ffc, "fp_adp": fp_adp, "nflverse": nflverse, "spotrac": spotrac, "status": status, "fp_inspect": fp_inspect, "spotrac_inspect": spotrac_inspect}[sys.argv[1]]()

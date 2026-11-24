@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       sources:
-        description: "Sources to pull (space separated): nflverse ffc fp_adp spotrac"
+        description: "Sources to pull (space separated): nflverse ffc fp_adp spotrac inspect"
         default: "nflverse ffc fp_adp spotrac"
 
 permissions:
@@ -20,7 +20,7 @@ concurrency:
 jobs:
   pull:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 150
     env:
       FANTASYPROS_API_KEY: ${{ secrets.FANTASYPROS_API_KEY }}
     steps:
@@ -77,9 +77,15 @@ jobs:
         run: /tmp/save.sh fp_adp
       - name: Spotrac incentives
         if: contains(github.event.inputs.sources, 'spotrac')
-        timeout-minutes: 40
+        timeout-minutes: 75
         continue-on-error: true
         run: python automation/draft_test/draft_data.py spotrac
+      - name: Inspect FantasyPros pages (structure only)
+        if: contains(github.event.inputs.sources, 'inspect')
+        continue-on-error: true
+        run: |
+          python automation/draft_test/draft_data.py fp_inspect
+          python automation/draft_test/draft_data.py spotrac_inspect
       - name: Final save
         if: always()
         run: |
