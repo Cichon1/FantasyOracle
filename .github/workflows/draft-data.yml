@@ -1,0 +1,87 @@
+# Draft strategy test, Phase 1 (automation/draft_test/PREREG.md): pull historical ADP, expert / contract / incentive
+# data. Each source is its own step and is committed right after it finishes (autosave); a final step commits whatever
+# exists even if a step failed or timed out. draft_data.py skips units already saved, so "Run workflow" again resumes.
+name: Draft test data
+
+on:
+  workflow_dispatch:
+    inputs:
+      sources:
+        description: "Sources to pull (space separated): nflverse ffc fp_adp spotrac"
+        default: "nflverse ffc fp_adp spotrac"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: draft-data
+  cancel-in-progress: false
+
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      FANTASYPROS_API_KEY: ${{ secrets.FANTASYPROS_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q pandas pyarrow cryptography
+      - name: Save helper
+        run: |
+          cat > /tmp/save.sh <<'EOF'
+          set +e
+          exec 9>/tmp/save.lock; flock 9        # one save at a time (background loop vs step saves)
+          git config user.name "fantasy-oracle-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A automation/history/draft
+          git diff --cached --quiet && exit 0
+          git commit -q -m "Draft test data: $1"
+          for i in 1 2 3 4 5; do
+            git pull -q --rebase -X theirs origin "$GITHUB_REF_NAME" && git push -q && exit 0
+            sleep $((i * 10))
+          done
+          echo "autosave push failed"; exit 1
+          EOF
+          chmod +x /tmp/save.sh
+      - name: Background autosave every 5 minutes
+        run: |
+          nohup bash -c 'while sleep 300; do /tmp/save.sh "periodic autosave" >/dev/null 2>&1; done' >/dev/null 2>&1 &
+      - name: nflverse (draft picks, trades, PFR advanced stats)
+        if: contains(github.event.inputs.sources, 'nflverse')
+        timeout-minutes: 10
+        continue-on-error: true
+        run: python automation/draft_test/draft_data.py nflverse
+      - name: Autosave
+        if: always()
+        run: /tmp/save.sh nflverse
+      - name: Fantasy Football Calculator ADP
+        if: contains(github.event.inputs.sources, 'ffc')
+        timeout-minutes: 30
+        continue-on-error: true
+        run: python automation/draft_test/draft_data.py ffc
+      - name: Autosave
+        if: always()
+        run: /tmp/save.sh ffc
+      - name: FantasyPros ADP pages
+        if: contains(github.event.inputs.sources, 'fp_adp')
+        timeout-minutes: 15
+        continue-on-error: true
+        run: python automation/draft_test/draft_data.py fp_adp
+      - name: Autosave
+        if: always()
+        run: /tmp/save.sh fp_adp
+      - name: Spotrac incentives
+        if: contains(github.event.inputs.sources, 'spotrac')
+        timeout-minutes: 40
+        continue-on-error: true
+        run: python automation/draft_test/draft_data.py spotrac
+      - name: Final save
+        if: always()
+        run: |
+          python automation/draft_test/draft_data.py status || true
+          /tmp/save.sh "final"
