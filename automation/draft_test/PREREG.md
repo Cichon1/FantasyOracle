@@ -26,8 +26,9 @@ Scope: BDSM League (126912) and The League (200436). Ezekiel (IDP, 727092) is a 
 ## 2. Selection and survivorship bias
 - **Player pool:** every player with ADP, an expert rank, or a projection in any source that season, not only players who
   played. Players who never played that season score 0 (busts count).
-- **Seasons:** all seasons with the needed data, decided before results: board 2016-2025 where ADP exists (FP ADP 2017+,
-  FFC 2010+); expert comparison 2020-2025; strategy test 2018-2025 plus 2026 Weeks 1-11 shown separately.
+- **Seasons:** all seasons with the needed data, decided before results: ADP-based boards and strategies 2010-2025
+  (FFC 2010+, Yahoo 2010+); our own board from 2013 (it needs prior seasons to train); expert comparison 2020-2025;
+  strategy test 2010-2025 plus 2026 Weeks 1-11 shown separately.
 - **Strategies:** the list is fixed now (section 5). Strategies added later are reported as added later.
 - **Source availability changes by year** (FP's ADP sources differ: 2017 CBS/FFC/NFL/ESPN/Draft Wizard; 2022 ESPN/Yahoo/NFL/RTSports/Sleeper). The board's "consensus ADP" uses whatever existed that year, and each platform is also tested alone only in years it existed.
 
@@ -73,8 +74,22 @@ Situations reported for each: draft slot, round, roster so far, tiers left by po
 - **The unit of independent evidence is the season** (8 full seasons), not the simulated league. Report season-level
   means and standard errors, and say how many seasons a result held in. Simulated leagues inside a season share that
   season's actual outcomes, so they aren't independent.
-- **Many strategies x boards x slots = many comparisons.** Headline claims use a held-out check: rank strategies on
-  2018-2021, confirm on 2022-2025. Anything that only wins in one half is called unproven.
+- **Every season gets scored** (2010-2025 wherever the data exists; 2026 Weeks 1-11 shown separately), so each
+  strategy has a season-by-season record and position value can be tracked over time.
+- **Rolling walk-forward selection (replaces the fixed 2018-21 / 2022-25 split, Jackson Nov 24):** for each test season
+  Y = 2021-2025, strategies are ranked using only seasons before Y, with four look-backs fixed now: all prior seasons,
+  last 5, last 3, and recency-weighted (weight halves every 3 seasons). The top pick of each look-back is then scored in
+  Y. Over the five test seasons this shows (a) whether picking by history beats the controls out of sample and (b)
+  whether recent seasons predict better than the long record, i.e. whether trends matter. The winning look-back is the
+  one used for 2027 advice.
+- **Trend tests:** per position and season, the value of each draft round (points above replacement in each league's
+  scoring) and each strategy's result vs. the ADP control; a linear trend over seasons with season-level SEs. A trend is
+  reported only if it is 2+ SE and holds in both halves of the record.
+- **Older seasons, same rules for every strategy:** before 2020 there are no expert rankings and before 2023 no
+  walk-forward weekly model, so in-season lineups for all seasons use one honest weekly projection built only from
+  data before each week (season-to-date average shrunk toward the preseason ADP expectation). Every seat uses it, so
+  it can't favor a strategy. 16-game seasons (before 2021) are compared per game.
+- Anything that wins only under one look-back or only in one half of the record is called unproven.
 - **Our board's accuracy** is compared with every other board on the same players and seasons, with paired differences and season-level SEs. "Better than any other board" is claimed only if it beats each one by 2+ SE and in most seasons.
 - **No tuning on the test seasons:** board design and strategy parameters are frozen before the 2020-2025 test runs. A rerun after changes is labelled as such.
 
@@ -99,3 +114,5 @@ Situations reported for each: draft slot, round, roster so far, tiers left by po
 - Multi-platform ADP for the test is therefore FFC (dated mock drafts; PPR / half / standard; 10 / 12 / 14 teams) +
   Yahoo (real Yahoo drafts, the leagues' own platform). Candidate third source with dated windows: MyFantasyLeague's
   public ADP export (to be pulled and audited the same way before use).
+- Nov 24 (before any results, Jackson): fixed 2018-21 / 2022-25 split replaced by scoring every season 2010-2025 and a
+  rolling walk-forward on 2021-2025 with four look-backs, plus trend tests (section 6).
