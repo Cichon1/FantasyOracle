@@ -595,8 +595,11 @@ html, body { overflow-x: clip; }
         (plus dome and recent form). <b>Available</b> means nobody in this league rosters that team's kicker / defense.
         Points use this league's own kicker / defense rules where we've read them (BDSM: 0.1 per field-goal yard and
         return yards), otherwise Yahoo's defaults. Weeks without betting lines yet use season averages, so treat them as a rough look ahead.
-        Defense projections ranked weekly defenses as well as Sleeper's and ESPN's in our back-tests; kickers are close to
-        a coin flip for everyone, so don't overthink them.</p>
+        <b>How accurate</b> (every week 2023 to 2026 Week 11, rank correlation with actual points, 0 = random, 1 = perfect):
+        defense ours 0.32, FantasyPros experts 0.30, Sleeper 0.30, ESPN 0.30 (better than the experts in 39 of 57 weeks;
+        this season 0.35 vs 0.26); a top-5 defense by our ranks scored about 2.5 points a week more than an average one.
+        Kickers are close to random for everyone (ours 0.14, experts 0.14, ESPN 0.14, Sleeper 0.10; worth about a point a
+        week at best), so use them as a tiebreaker.</p>
         <div class="nf-controls" id="team-kdef-week" role="group" aria-label="Week"></div>
         <p class="nf-team-meta" id="team-kdef-meta"></p>
         <div class="nf-draft-sides">

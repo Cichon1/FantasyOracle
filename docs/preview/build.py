@@ -106,8 +106,8 @@ def strip_section(html):
 more = {}
 more["lineup"] = ('<div class="nf-controls hide-here" id="team-leagues" role="group" aria-label="League"></div>'
                   '<p class="mp-intro">The full start / sit and waiver tables behind the My Team page: the Vegas line, '
-                  'notes where your Yahoo lineup differs from the best one, close calls, and each free agent\'s upgrade over your weakest player.</p>'
-                  + card(team, "team-lineup-card") + card(team, "team-waiver-card"))
+                  'notes where your Yahoo lineup differs from the best one, close calls, each free agent\'s upgrade over your weakest player, and kicker / defense streamers.</p>'
+                  + card(team, "team-lineup-card") + card(team, "team-waiver-card") + card(team, "team-kdef-card"))
 more["finder"] = card(S["finder"], "team-trades-card") + card(S["finder"], "team-sell-card") + card(S["finder"], "team-needs-card")
 proj_inner = strip_section(proj)
 more["weekly"] = ('<p class="mp-intro">Everything on the old weekly page: the full sortable projection table with search and game '
