@@ -55,76 +55,231 @@
   }
  },
  "fp_adp_late_update": {
-  "2017": {
-   "status": "needs the FantasyPros key (runs in GitHub Actions)"
+  "status": "dropped - FantasyPros archived ADP pages not available to scripts"
+ },
+ "platform_adp": {
+  "espn_2018": {
+   "players_with_adp": 500,
+   "top200_with_adp": 493,
+   "n": 106,
+   "platform_corr": 0.504,
+   "ffc_corr": 0.518,
+   "platform_minus_ffc": -0.014,
+   "agreement_with_ffc": 0.873,
+   "flag_late_update": false
   },
-  "2018": {
-   "status": "needs the FantasyPros key (runs in GitHub Actions)"
+  "espn_2019": {
+   "status": "no ADP values"
   },
-  "2019": {
-   "status": "needs the FantasyPros key (runs in GitHub Actions)"
+  "espn_2020": {
+   "players_with_adp": 490,
+   "top200_with_adp": 490,
+   "n": 81,
+   "platform_corr": 0.727,
+   "ffc_corr": 0.485,
+   "platform_minus_ffc": 0.242,
+   "agreement_with_ffc": 0.714,
+   "flag_late_update": true
   },
-  "2020": {
-   "status": "needs the FantasyPros key (runs in GitHub Actions)"
+  "espn_2021": {
+   "players_with_adp": 499,
+   "top200_with_adp": 499,
+   "n": 88,
+   "platform_corr": 0.583,
+   "ffc_corr": 0.467,
+   "platform_minus_ffc": 0.116,
+   "agreement_with_ffc": 0.798,
+   "flag_late_update": true
   },
-  "2021": {
-   "status": "needs the FantasyPros key (runs in GitHub Actions)"
+  "espn_2022": {
+   "players_with_adp": 500,
+   "top200_with_adp": 500,
+   "n": 70,
+   "platform_corr": 0.665,
+   "ffc_corr": 0.554,
+   "platform_minus_ffc": 0.111,
+   "agreement_with_ffc": 0.861,
+   "flag_late_update": true
   },
-  "2022": {
-   "status": "needs the FantasyPros key (runs in GitHub Actions)"
+  "espn_2023": {
+   "players_with_adp": 499,
+   "top200_with_adp": 499,
+   "n": 177,
+   "platform_corr": 0.723,
+   "ffc_corr": 0.553,
+   "platform_minus_ffc": 0.17,
+   "agreement_with_ffc": 0.699,
+   "flag_late_update": true
   },
-  "2023": {
-   "status": "needs the FantasyPros key (runs in GitHub Actions)"
+  "espn_2024": {
+   "players_with_adp": 500,
+   "top200_with_adp": 500,
+   "n": 185,
+   "platform_corr": 0.637,
+   "ffc_corr": 0.514,
+   "platform_minus_ffc": 0.124,
+   "agreement_with_ffc": 0.798,
+   "flag_late_update": true
   },
-  "2024": {
-   "status": "needs the FantasyPros key (runs in GitHub Actions)"
+  "espn_2025": {
+   "players_with_adp": 500,
+   "top200_with_adp": 500,
+   "n": 200,
+   "platform_corr": NaN,
+   "ffc_corr": 0.527,
+   "platform_minus_ffc": NaN,
+   "agreement_with_ffc": NaN,
+   "flag_late_update": false
   },
-  "2025": {
-   "status": "needs the FantasyPros key (runs in GitHub Actions)"
+  "yahoo_2010": {
+   "players_with_adp": 181,
+   "top200_with_adp": 181,
+   "n": 144,
+   "platform_corr": 0.311,
+   "ffc_corr": 0.415,
+   "platform_minus_ffc": -0.104,
+   "agreement_with_ffc": 0.897,
+   "flag_late_update": false
+  },
+  "yahoo_2011": {
+   "players_with_adp": 213,
+   "top200_with_adp": 213
+  },
+  "yahoo_2012": {
+   "players_with_adp": 225,
+   "top200_with_adp": 225,
+   "n": 90,
+   "platform_corr": 0.443,
+   "ffc_corr": 0.35,
+   "platform_minus_ffc": 0.093,
+   "agreement_with_ffc": 0.914,
+   "flag_late_update": true
+  },
+  "yahoo_2013": {
+   "players_with_adp": 220,
+   "top200_with_adp": 220,
+   "n": 165,
+   "platform_corr": 0.4,
+   "ffc_corr": 0.434,
+   "platform_minus_ffc": -0.034,
+   "agreement_with_ffc": 0.858,
+   "flag_late_update": false
+  },
+  "yahoo_2014": {
+   "players_with_adp": 208,
+   "top200_with_adp": 208,
+   "n": 165,
+   "platform_corr": 0.378,
+   "ffc_corr": 0.421,
+   "platform_minus_ffc": -0.043,
+   "agreement_with_ffc": 0.901,
+   "flag_late_update": false
+  },
+  "yahoo_2015": {
+   "players_with_adp": 221,
+   "top200_with_adp": 221,
+   "n": 173,
+   "platform_corr": 0.347,
+   "ffc_corr": 0.362,
+   "platform_minus_ffc": -0.015,
+   "agreement_with_ffc": 0.863,
+   "flag_late_update": false
+  },
+  "yahoo_2016": {
+   "players_with_adp": 235,
+   "top200_with_adp": 235,
+   "n": 171,
+   "platform_corr": 0.355,
+   "ffc_corr": 0.324,
+   "platform_minus_ffc": 0.031,
+   "agreement_with_ffc": 0.902,
+   "flag_late_update": false
+  },
+  "yahoo_2017": {
+   "players_with_adp": 227,
+   "top200_with_adp": 227,
+   "n": 164,
+   "platform_corr": 0.361,
+   "ffc_corr": 0.398,
+   "platform_minus_ffc": -0.037,
+   "agreement_with_ffc": 0.88,
+   "flag_late_update": false
+  },
+  "yahoo_2018": {
+   "players_with_adp": 234,
+   "top200_with_adp": 234,
+   "n": 181,
+   "platform_corr": 0.415,
+   "ffc_corr": 0.445,
+   "platform_minus_ffc": -0.031,
+   "agreement_with_ffc": 0.89,
+   "flag_late_update": false
+  },
+  "yahoo_2019": {
+   "players_with_adp": 236,
+   "top200_with_adp": 236,
+   "n": 181,
+   "platform_corr": 0.494,
+   "ffc_corr": 0.521,
+   "platform_minus_ffc": -0.028,
+   "agreement_with_ffc": 0.91,
+   "flag_late_update": false
+  },
+  "yahoo_2020": {
+   "players_with_adp": 234,
+   "top200_with_adp": 234,
+   "n": 187,
+   "platform_corr": 0.447,
+   "ffc_corr": 0.456,
+   "platform_minus_ffc": -0.009,
+   "agreement_with_ffc": 0.91,
+   "flag_late_update": false
+  },
+  "yahoo_2021": {
+   "players_with_adp": 237,
+   "top200_with_adp": 237,
+   "n": 184,
+   "platform_corr": 0.506,
+   "ffc_corr": 0.518,
+   "platform_minus_ffc": -0.011,
+   "agreement_with_ffc": 0.91,
+   "flag_late_update": false
+  },
+  "yahoo_2022": {
+   "players_with_adp": 239,
+   "top200_with_adp": 239,
+   "n": 152,
+   "platform_corr": 0.498,
+   "ffc_corr": 0.499,
+   "platform_minus_ffc": -0.0,
+   "agreement_with_ffc": 0.943,
+   "flag_late_update": false
+  },
+  "yahoo_2023": {
+   "players_with_adp": 237,
+   "top200_with_adp": 237,
+   "n": 176,
+   "platform_corr": 0.517,
+   "ffc_corr": 0.55,
+   "platform_minus_ffc": -0.033,
+   "agreement_with_ffc": 0.912,
+   "flag_late_update": false
+  },
+  "yahoo_2024": {
+   "players_with_adp": 229,
+   "top200_with_adp": 229,
+   "n": 180,
+   "platform_corr": 0.476,
+   "ffc_corr": 0.505,
+   "platform_minus_ffc": -0.029,
+   "agreement_with_ffc": 0.905,
+   "flag_late_update": false
+  },
+  "yahoo_2025": {
+   "status": "no ADP values"
   }
  },
- "fp_ecr_preseason": {
-  "2019": {
-   "last_snapshot": null,
-   "cutoff": "2019-09-02",
-   "days_before_kickoff": null
-  },
-  "2020": {
-   "last_snapshot": "2020-09-03",
-   "cutoff": "2020-09-07",
-   "days_before_kickoff": 7
-  },
-  "2021": {
-   "last_snapshot": "2021-09-03",
-   "cutoff": "2021-09-06",
-   "days_before_kickoff": 6
-  },
-  "2022": {
-   "last_snapshot": "2022-09-02",
-   "cutoff": "2022-09-05",
-   "days_before_kickoff": 6
-  },
-  "2023": {
-   "last_snapshot": "2023-09-01",
-   "cutoff": "2023-09-04",
-   "days_before_kickoff": 6
-  },
-  "2024": {
-   "last_snapshot": "2024-08-30",
-   "cutoff": "2024-09-02",
-   "days_before_kickoff": 6
-  },
-  "2025": {
-   "last_snapshot": "2025-08-29",
-   "cutoff": "2025-09-01",
-   "days_before_kickoff": 6
-  },
-  "2026": {
-   "last_snapshot": "2026-09-04",
-   "cutoff": "2026-09-06",
-   "days_before_kickoff": 5
-  }
- },
+ "fp_ecr_preseason": "fpdata not available in this run (checked locally)",
  "draft_picks": {
   "allowed": [
    "season",
@@ -354,5 +509,12 @@
    "names": []
   }
  },
- "hard_failures": []
+ "hard_failures": [
+  "espn 2020: archived ADP predicts the season +0.242 better than FFC's dated preseason ADP",
+  "espn 2021: archived ADP predicts the season +0.116 better than FFC's dated preseason ADP",
+  "espn 2022: archived ADP predicts the season +0.111 better than FFC's dated preseason ADP",
+  "espn 2023: archived ADP predicts the season +0.170 better than FFC's dated preseason ADP",
+  "espn 2024: archived ADP predicts the season +0.124 better than FFC's dated preseason ADP",
+  "yahoo 2012: archived ADP predicts the season +0.093 better than FFC's dated preseason ADP"
+ ]
 }
