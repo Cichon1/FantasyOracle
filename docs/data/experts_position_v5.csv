@@ -1,13 +1,13 @@
 pos,source,spearman,pairwise,topk,key
-QB,FantasyPros experts,0.3521,0.6226,0.6389,QB · FantasyPros experts
-QB,Model v5,0.3724,0.6302,0.6403,QB · Model v5
-QB,Official (model + experts),0.3695,0.6276,0.6389,QB · Official (model + experts)
-RB,FantasyPros experts,0.5468,0.6944,0.7142,RB · FantasyPros experts
-RB,Model v5,0.5644,0.7007,0.7076,RB · Model v5
-RB,Official (model + experts),0.564,0.7003,0.7134,RB · Official (model + experts)
+QB,FantasyPros experts,0.3533,0.623,0.6403,QB · FantasyPros experts
+QB,Model v5,0.3736,0.6305,0.6403,QB · Model v5
+QB,Official (model + experts),0.3706,0.6279,0.6403,QB · Official (model + experts)
+RB,FantasyPros experts,0.5452,0.6936,0.7142,RB · FantasyPros experts
+RB,Model v5,0.5633,0.7002,0.7061,RB · Model v5
+RB,Official (model + experts),0.5628,0.6997,0.7127,RB · Official (model + experts)
 TE,FantasyPros experts,0.3421,0.6216,0.5921,TE · FantasyPros experts
-TE,Model v5,0.3479,0.6252,0.6067,TE · Model v5
-TE,Official (model + experts),0.3519,0.6241,0.6053,TE · Official (model + experts)
-WR,FantasyPros experts,0.4412,0.6548,0.5987,WR · FantasyPros experts
-WR,Model v5,0.4483,0.6568,0.598,WR · Model v5
-WR,Official (model + experts),0.4548,0.6586,0.6009,WR · Official (model + experts)
+TE,Model v5,0.3458,0.6245,0.6038,TE · Model v5
+TE,Official (model + experts),0.3511,0.6239,0.6038,TE · Official (model + experts)
+WR,FantasyPros experts,0.4416,0.6549,0.5994,WR · FantasyPros experts
+WR,Model v5,0.4482,0.6567,0.5987,WR · Model v5
+WR,Official (model + experts),0.4543,0.6585,0.6016,WR · Official (model + experts)
