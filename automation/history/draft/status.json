@@ -1,4 +1,1662 @@
 {
+ "ffc": {
+  "half-ppr_10_2010": {
+   "at": "2026-11-24T22:25:06+00:00",
+   "status": "missing"
+  },
+  "half-ppr_10_2011": {
+   "at": "2026-11-24T22:25:17+00:00",
+   "status": "missing"
+  },
+  "half-ppr_10_2012": {
+   "at": "2026-11-24T22:25:27+00:00",
+   "status": "missing"
+  },
+  "half-ppr_10_2013": {
+   "at": "2026-11-24T22:25:38+00:00",
+   "status": "missing"
+  },
+  "half-ppr_10_2014": {
+   "at": "2026-11-24T22:25:48+00:00",
+   "status": "missing"
+  },
+  "half-ppr_10_2015": {
+   "at": "2026-11-24T22:25:59+00:00",
+   "status": "missing"
+  },
+  "half-ppr_10_2016": {
+   "at": "2026-11-24T22:26:09+00:00",
+   "status": "missing"
+  },
+  "half-ppr_10_2017": {
+   "at": "2026-11-24T22:26:19+00:00",
+   "status": "missing"
+  },
+  "half-ppr_10_2018": {
+   "at": "2026-11-24T22:26:30+00:00",
+   "meta": {
+    "end_date": "2018-09-04",
+    "rounds": 15,
+    "start_date": "2018-08-28",
+    "teams": 12,
+    "total_drafts": 2414,
+    "type": "Half-PPR"
+   },
+   "players": 222,
+   "status": "ok"
+  },
+  "half-ppr_10_2019": {
+   "at": "2026-11-24T22:26:45+00:00",
+   "meta": {
+    "end_date": "2019-09-04",
+    "rounds": 15,
+    "start_date": "2019-09-02",
+    "teams": 12,
+    "total_drafts": 984,
+    "type": "Half-PPR"
+   },
+   "players": 196,
+   "status": "ok"
+  },
+  "half-ppr_10_2020": {
+   "at": "2026-11-24T22:27:00+00:00",
+   "meta": {
+    "end_date": "2020-09-01",
+    "rounds": 15,
+    "start_date": "2020-08-30",
+    "teams": 12,
+    "total_drafts": 1059,
+    "type": "Half-PPR"
+   },
+   "players": 208,
+   "status": "ok"
+  },
+  "half-ppr_10_2021": {
+   "at": "2026-11-24T22:27:16+00:00",
+   "meta": {
+    "end_date": "2021-09-01",
+    "rounds": 15,
+    "start_date": "2021-08-29",
+    "teams": 12,
+    "total_drafts": 3949,
+    "type": "Half-PPR"
+   },
+   "players": 222,
+   "status": "ok"
+  },
+  "half-ppr_10_2022": {
+   "at": "2026-11-24T22:27:31+00:00",
+   "meta": {
+    "end_date": "2022-09-04",
+    "rounds": 15,
+    "start_date": "2022-09-03",
+    "teams": 12,
+    "total_drafts": 1107,
+    "type": "Half-PPR"
+   },
+   "players": 124,
+   "status": "ok"
+  },
+  "half-ppr_10_2023": {
+   "at": "2026-11-24T22:27:46+00:00",
+   "meta": {
+    "end_date": "2023-09-01",
+    "rounds": 15,
+    "start_date": "2023-08-28",
+    "teams": 12,
+    "total_drafts": 4576,
+    "type": "Half-PPR"
+   },
+   "players": 199,
+   "status": "ok"
+  },
+  "half-ppr_10_2024": {
+   "at": "2026-11-24T22:28:02+00:00",
+   "meta": {
+    "end_date": "2024-09-01",
+    "rounds": 15,
+    "start_date": "2024-08-31",
+    "teams": 12,
+    "total_drafts": 906,
+    "type": "Half-PPR"
+   },
+   "players": 178,
+   "status": "ok"
+  },
+  "half-ppr_10_2025": {
+   "at": "2026-11-24T22:28:17+00:00",
+   "meta": {
+    "end_date": "2025-09-01",
+    "rounds": 15,
+    "start_date": "2025-08-31",
+    "teams": 12,
+    "total_drafts": 718,
+    "type": "Half-PPR"
+   },
+   "players": 156,
+   "status": "ok"
+  },
+  "half-ppr_12_2010": {
+   "at": "2026-11-24T22:25:06+00:00",
+   "status": "missing"
+  },
+  "half-ppr_12_2011": {
+   "at": "2026-11-24T22:25:17+00:00",
+   "status": "missing"
+  },
+  "half-ppr_12_2012": {
+   "at": "2026-11-24T22:25:27+00:00",
+   "status": "missing"
+  },
+  "half-ppr_12_2013": {
+   "at": "2026-11-24T22:25:38+00:00",
+   "status": "missing"
+  },
+  "half-ppr_12_2014": {
+   "at": "2026-11-24T22:25:48+00:00",
+   "status": "missing"
+  },
+  "half-ppr_12_2015": {
+   "at": "2026-11-24T22:25:59+00:00",
+   "status": "missing"
+  },
+  "half-ppr_12_2016": {
+   "at": "2026-11-24T22:26:09+00:00",
+   "status": "missing"
+  },
+  "half-ppr_12_2017": {
+   "at": "2026-11-24T22:26:20+00:00",
+   "status": "missing"
+  },
+  "half-ppr_12_2018": {
+   "at": "2026-11-24T22:26:32+00:00",
+   "meta": {
+    "end_date": "2018-09-04",
+    "rounds": 15,
+    "start_date": "2018-08-28",
+    "teams": 12,
+    "total_drafts": 2414,
+    "type": "Half-PPR"
+   },
+   "players": 222,
+   "status": "ok"
+  },
+  "half-ppr_12_2019": {
+   "at": "2026-11-24T22:26:47+00:00",
+   "meta": {
+    "end_date": "2019-09-04",
+    "rounds": 15,
+    "start_date": "2019-09-02",
+    "teams": 12,
+    "total_drafts": 984,
+    "type": "Half-PPR"
+   },
+   "players": 196,
+   "status": "ok"
+  },
+  "half-ppr_12_2020": {
+   "at": "2026-11-24T22:27:02+00:00",
+   "meta": {
+    "end_date": "2020-09-01",
+    "rounds": 15,
+    "start_date": "2020-08-30",
+    "teams": 12,
+    "total_drafts": 1059,
+    "type": "Half-PPR"
+   },
+   "players": 208,
+   "status": "ok"
+  },
+  "half-ppr_12_2021": {
+   "at": "2026-11-24T22:27:17+00:00",
+   "meta": {
+    "end_date": "2021-09-01",
+    "rounds": 15,
+    "start_date": "2021-08-29",
+    "teams": 12,
+    "total_drafts": 3949,
+    "type": "Half-PPR"
+   },
+   "players": 222,
+   "status": "ok"
+  },
+  "half-ppr_12_2022": {
+   "at": "2026-11-24T22:27:32+00:00",
+   "meta": {
+    "end_date": "2022-09-04",
+    "rounds": 15,
+    "start_date": "2022-09-03",
+    "teams": 12,
+    "total_drafts": 1107,
+    "type": "Half-PPR"
+   },
+   "players": 124,
+   "status": "ok"
+  },
+  "half-ppr_12_2023": {
+   "at": "2026-11-24T22:27:48+00:00",
+   "meta": {
+    "end_date": "2023-09-01",
+    "rounds": 15,
+    "start_date": "2023-08-28",
+    "teams": 12,
+    "total_drafts": 4576,
+    "type": "Half-PPR"
+   },
+   "players": 199,
+   "status": "ok"
+  },
+  "half-ppr_12_2024": {
+   "at": "2026-11-24T22:28:03+00:00",
+   "meta": {
+    "end_date": "2024-09-01",
+    "rounds": 15,
+    "start_date": "2024-08-31",
+    "teams": 12,
+    "total_drafts": 906,
+    "type": "Half-PPR"
+   },
+   "players": 178,
+   "status": "ok"
+  },
+  "half-ppr_12_2025": {
+   "at": "2026-11-24T22:28:18+00:00",
+   "meta": {
+    "end_date": "2025-09-01",
+    "rounds": 15,
+    "start_date": "2025-08-31",
+    "teams": 12,
+    "total_drafts": 718,
+    "type": "Half-PPR"
+   },
+   "players": 156,
+   "status": "ok"
+  },
+  "half-ppr_14_2010": {
+   "at": "2026-11-24T22:25:06+00:00",
+   "status": "missing"
+  },
+  "half-ppr_14_2011": {
+   "at": "2026-11-24T22:25:17+00:00",
+   "status": "missing"
+  },
+  "half-ppr_14_2012": {
+   "at": "2026-11-24T22:25:27+00:00",
+   "status": "missing"
+  },
+  "half-ppr_14_2013": {
+   "at": "2026-11-24T22:25:38+00:00",
+   "status": "missing"
+  },
+  "half-ppr_14_2014": {
+   "at": "2026-11-24T22:25:48+00:00",
+   "status": "missing"
+  },
+  "half-ppr_14_2015": {
+   "at": "2026-11-24T22:25:59+00:00",
+   "status": "missing"
+  },
+  "half-ppr_14_2016": {
+   "at": "2026-11-24T22:26:09+00:00",
+   "status": "missing"
+  },
+  "half-ppr_14_2017": {
+   "at": "2026-11-24T22:26:20+00:00",
+   "status": "missing"
+  },
+  "half-ppr_14_2018": {
+   "at": "2026-11-24T22:26:33+00:00",
+   "meta": {
+    "end_date": "2018-09-04",
+    "rounds": 15,
+    "start_date": "2018-08-28",
+    "teams": 12,
+    "total_drafts": 2414,
+    "type": "Half-PPR"
+   },
+   "players": 222,
+   "status": "ok"
+  },
+  "half-ppr_14_2019": {
+   "at": "2026-11-24T22:26:49+00:00",
+   "meta": {
+    "end_date": "2019-09-04",
+    "rounds": 15,
+    "start_date": "2019-09-02",
+    "teams": 12,
+    "total_drafts": 984,
+    "type": "Half-PPR"
+   },
+   "players": 196,
+   "status": "ok"
+  },
+  "half-ppr_14_2020": {
+   "at": "2026-11-24T22:27:04+00:00",
+   "meta": {
+    "end_date": "2020-09-01",
+    "rounds": 15,
+    "start_date": "2020-08-30",
+    "teams": 12,
+    "total_drafts": 1059,
+    "type": "Half-PPR"
+   },
+   "players": 208,
+   "status": "ok"
+  },
+  "half-ppr_14_2021": {
+   "at": "2026-11-24T22:27:19+00:00",
+   "meta": {
+    "end_date": "2021-09-01",
+    "rounds": 15,
+    "start_date": "2021-08-29",
+    "teams": 12,
+    "total_drafts": 3949,
+    "type": "Half-PPR"
+   },
+   "players": 222,
+   "status": "ok"
+  },
+  "half-ppr_14_2022": {
+   "at": "2026-11-24T22:27:34+00:00",
+   "meta": {
+    "end_date": "2022-09-04",
+    "rounds": 15,
+    "start_date": "2022-09-03",
+    "teams": 12,
+    "total_drafts": 1107,
+    "type": "Half-PPR"
+   },
+   "players": 124,
+   "status": "ok"
+  },
+  "half-ppr_14_2023": {
+   "at": "2026-11-24T22:27:50+00:00",
+   "meta": {
+    "end_date": "2023-09-01",
+    "rounds": 15,
+    "start_date": "2023-08-28",
+    "teams": 12,
+    "total_drafts": 4576,
+    "type": "Half-PPR"
+   },
+   "players": 199,
+   "status": "ok"
+  },
+  "half-ppr_14_2024": {
+   "at": "2026-11-24T22:28:05+00:00",
+   "meta": {
+    "end_date": "2024-09-01",
+    "rounds": 15,
+    "start_date": "2024-08-31",
+    "teams": 12,
+    "total_drafts": 906,
+    "type": "Half-PPR"
+   },
+   "players": 178,
+   "status": "ok"
+  },
+  "half-ppr_14_2025": {
+   "at": "2026-11-24T22:28:20+00:00",
+   "meta": {
+    "end_date": "2025-09-01",
+    "rounds": 15,
+    "start_date": "2025-08-31",
+    "teams": 12,
+    "total_drafts": 718,
+    "type": "Half-PPR"
+   },
+   "players": 156,
+   "status": "ok"
+  },
+  "ppr_10_2010": {
+   "at": "2026-11-24T22:25:01+00:00",
+   "meta": {
+    "end_date": "2010-09-08",
+    "rounds": 15,
+    "start_date": "2010-09-03",
+    "teams": 12,
+    "total_drafts": 898,
+    "type": "PPR"
+   },
+   "players": 214,
+   "status": "ok"
+  },
+  "ppr_10_2011": {
+   "at": "2026-11-24T22:25:11+00:00",
+   "meta": {
+    "end_date": "2011-09-09",
+    "rounds": 15,
+    "start_date": "2011-09-06",
+    "teams": 12,
+    "total_drafts": 600,
+    "type": "PPR"
+   },
+   "players": 188,
+   "status": "ok"
+  },
+  "ppr_10_2012": {
+   "at": "2026-11-24T22:25:22+00:00",
+   "meta": {
+    "end_date": "2012-09-05",
+    "rounds": 15,
+    "start_date": "2012-09-04",
+    "teams": 12,
+    "total_drafts": 303,
+    "type": "PPR"
+   },
+   "players": 93,
+   "status": "ok"
+  },
+  "ppr_10_2013": {
+   "at": "2026-11-24T22:25:33+00:00",
+   "meta": {
+    "end_date": "2013-09-04",
+    "rounds": 15,
+    "start_date": "2013-09-02",
+    "teams": 12,
+    "total_drafts": 764,
+    "type": "PPR"
+   },
+   "players": 191,
+   "status": "ok"
+  },
+  "ppr_10_2014": {
+   "at": "2026-11-24T22:25:43+00:00",
+   "meta": {
+    "end_date": "2014-09-01",
+    "rounds": 15,
+    "start_date": "2014-08-31",
+    "teams": 12,
+    "total_drafts": 635,
+    "type": "PPR"
+   },
+   "players": 194,
+   "status": "ok"
+  },
+  "ppr_10_2015": {
+   "at": "2026-11-24T22:25:54+00:00",
+   "meta": {
+    "end_date": "2015-09-09",
+    "rounds": 15,
+    "start_date": "2015-09-06",
+    "teams": 12,
+    "total_drafts": 844,
+    "type": "PPR"
+   },
+   "players": 201,
+   "status": "ok"
+  },
+  "ppr_10_2016": {
+   "at": "2026-11-24T22:26:04+00:00",
+   "meta": {
+    "end_date": "2016-09-02",
+    "rounds": 15,
+    "start_date": "2016-09-01",
+    "teams": 12,
+    "total_drafts": 956,
+    "type": "PPR"
+   },
+   "players": 188,
+   "status": "ok"
+  },
+  "ppr_10_2017": {
+   "at": "2026-11-24T22:26:15+00:00",
+   "meta": {
+    "end_date": "2017-09-04",
+    "rounds": 15,
+    "start_date": "2017-09-03",
+    "teams": 12,
+    "total_drafts": 685,
+    "type": "PPR"
+   },
+   "players": 184,
+   "status": "ok"
+  },
+  "ppr_10_2018": {
+   "at": "2026-11-24T22:26:25+00:00",
+   "meta": {
+    "end_date": "2018-09-04",
+    "rounds": 15,
+    "start_date": "2018-09-01",
+    "teams": 12,
+    "total_drafts": 2494,
+    "type": "PPR"
+   },
+   "players": 197,
+   "status": "ok"
+  },
+  "ppr_10_2019": {
+   "at": "2026-11-24T22:26:40+00:00",
+   "meta": {
+    "end_date": "2019-09-04",
+    "rounds": 15,
+    "start_date": "2019-09-02",
+    "teams": 12,
+    "total_drafts": 2167,
+    "type": "PPR"
+   },
+   "players": 200,
+   "status": "ok"
+  },
+  "ppr_10_2020": {
+   "at": "2026-11-24T22:26:55+00:00",
+   "meta": {
+    "end_date": "2020-09-01",
+    "rounds": 15,
+    "start_date": "2020-08-30",
+    "teams": 12,
+    "total_drafts": 2403,
+    "type": "PPR"
+   },
+   "players": 203,
+   "status": "ok"
+  },
+  "ppr_10_2021": {
+   "at": "2026-11-24T22:27:11+00:00",
+   "meta": {
+    "end_date": "2021-09-01",
+    "rounds": 15,
+    "start_date": "2021-08-31",
+    "teams": 12,
+    "total_drafts": 1709,
+    "type": "PPR"
+   },
+   "players": 211,
+   "status": "ok"
+  },
+  "ppr_10_2022": {
+   "at": "2026-11-24T22:27:26+00:00",
+   "meta": {
+    "end_date": "2022-09-04",
+    "rounds": 15,
+    "start_date": "2022-09-03",
+    "teams": 12,
+    "total_drafts": 1633,
+    "type": "PPR"
+   },
+   "players": 157,
+   "status": "ok"
+  },
+  "ppr_10_2023": {
+   "at": "2026-11-24T22:27:41+00:00",
+   "meta": {
+    "end_date": "2023-09-01",
+    "rounds": 15,
+    "start_date": "2023-08-30",
+    "teams": 12,
+    "total_drafts": 3146,
+    "type": "PPR"
+   },
+   "players": 202,
+   "status": "ok"
+  },
+  "ppr_10_2024": {
+   "at": "2026-11-24T22:27:56+00:00",
+   "meta": {
+    "end_date": "2024-09-01",
+    "rounds": 15,
+    "start_date": "2024-08-31",
+    "teams": 12,
+    "total_drafts": 1371,
+    "type": "PPR"
+   },
+   "players": 205,
+   "status": "ok"
+  },
+  "ppr_10_2025": {
+   "at": "2026-11-24T22:28:12+00:00",
+   "meta": {
+    "end_date": "2025-09-01",
+    "rounds": 15,
+    "start_date": "2025-08-25",
+    "teams": 12,
+    "total_drafts": 8470,
+    "type": "PPR"
+   },
+   "players": 249,
+   "status": "ok"
+  },
+  "ppr_12_2010": {
+   "at": "2026-11-24T22:25:02+00:00",
+   "meta": {
+    "end_date": "2010-09-08",
+    "rounds": 15,
+    "start_date": "2010-09-03",
+    "teams": 12,
+    "total_drafts": 898,
+    "type": "PPR"
+   },
+   "players": 214,
+   "status": "ok"
+  },
+  "ppr_12_2011": {
+   "at": "2026-11-24T22:25:13+00:00",
+   "meta": {
+    "end_date": "2011-09-09",
+    "rounds": 15,
+    "start_date": "2011-09-06",
+    "teams": 12,
+    "total_drafts": 600,
+    "type": "PPR"
+   },
+   "players": 188,
+   "status": "ok"
+  },
+  "ppr_12_2012": {
+   "at": "2026-11-24T22:25:24+00:00",
+   "meta": {
+    "end_date": "2012-09-05",
+    "rounds": 15,
+    "start_date": "2012-09-04",
+    "teams": 12,
+    "total_drafts": 303,
+    "type": "PPR"
+   },
+   "players": 93,
+   "status": "ok"
+  },
+  "ppr_12_2013": {
+   "at": "2026-11-24T22:25:34+00:00",
+   "meta": {
+    "end_date": "2013-09-04",
+    "rounds": 15,
+    "start_date": "2013-09-02",
+    "teams": 12,
+    "total_drafts": 764,
+    "type": "PPR"
+   },
+   "players": 191,
+   "status": "ok"
+  },
+  "ppr_12_2014": {
+   "at": "2026-11-24T22:25:45+00:00",
+   "meta": {
+    "end_date": "2014-09-01",
+    "rounds": 15,
+    "start_date": "2014-08-31",
+    "teams": 12,
+    "total_drafts": 635,
+    "type": "PPR"
+   },
+   "players": 194,
+   "status": "ok"
+  },
+  "ppr_12_2015": {
+   "at": "2026-11-24T22:25:55+00:00",
+   "meta": {
+    "end_date": "2015-09-09",
+    "rounds": 15,
+    "start_date": "2015-09-06",
+    "teams": 12,
+    "total_drafts": 844,
+    "type": "PPR"
+   },
+   "players": 201,
+   "status": "ok"
+  },
+  "ppr_12_2016": {
+   "at": "2026-11-24T22:26:06+00:00",
+   "meta": {
+    "end_date": "2016-09-02",
+    "rounds": 15,
+    "start_date": "2016-09-01",
+    "teams": 12,
+    "total_drafts": 956,
+    "type": "PPR"
+   },
+   "players": 188,
+   "status": "ok"
+  },
+  "ppr_12_2017": {
+   "at": "2026-11-24T22:26:16+00:00",
+   "meta": {
+    "end_date": "2017-09-04",
+    "rounds": 15,
+    "start_date": "2017-09-03",
+    "teams": 12,
+    "total_drafts": 685,
+    "type": "PPR"
+   },
+   "players": 184,
+   "status": "ok"
+  },
+  "ppr_12_2018": {
+   "at": "2026-11-24T22:26:27+00:00",
+   "meta": {
+    "end_date": "2018-09-04",
+    "rounds": 15,
+    "start_date": "2018-09-01",
+    "teams": 12,
+    "total_drafts": 2494,
+    "type": "PPR"
+   },
+   "players": 197,
+   "status": "ok"
+  },
+  "ppr_12_2019": {
+   "at": "2026-11-24T22:26:42+00:00",
+   "meta": {
+    "end_date": "2019-09-04",
+    "rounds": 15,
+    "start_date": "2019-09-02",
+    "teams": 12,
+    "total_drafts": 2167,
+    "type": "PPR"
+   },
+   "players": 200,
+   "status": "ok"
+  },
+  "ppr_12_2020": {
+   "at": "2026-11-24T22:26:57+00:00",
+   "meta": {
+    "end_date": "2020-09-01",
+    "rounds": 15,
+    "start_date": "2020-08-30",
+    "teams": 12,
+    "total_drafts": 2403,
+    "type": "PPR"
+   },
+   "players": 203,
+   "status": "ok"
+  },
+  "ppr_12_2021": {
+   "at": "2026-11-24T22:27:12+00:00",
+   "meta": {
+    "end_date": "2021-09-01",
+    "rounds": 15,
+    "start_date": "2021-08-31",
+    "teams": 12,
+    "total_drafts": 1709,
+    "type": "PPR"
+   },
+   "players": 211,
+   "status": "ok"
+  },
+  "ppr_12_2022": {
+   "at": "2026-11-24T22:27:27+00:00",
+   "meta": {
+    "end_date": "2022-09-04",
+    "rounds": 15,
+    "start_date": "2022-09-03",
+    "teams": 12,
+    "total_drafts": 1633,
+    "type": "PPR"
+   },
+   "players": 157,
+   "status": "ok"
+  },
+  "ppr_12_2023": {
+   "at": "2026-11-24T22:27:43+00:00",
+   "meta": {
+    "end_date": "2023-09-01",
+    "rounds": 15,
+    "start_date": "2023-08-30",
+    "teams": 12,
+    "total_drafts": 3146,
+    "type": "PPR"
+   },
+   "players": 202,
+   "status": "ok"
+  },
+  "ppr_12_2024": {
+   "at": "2026-11-24T22:27:58+00:00",
+   "meta": {
+    "end_date": "2024-09-01",
+    "rounds": 15,
+    "start_date": "2024-08-31",
+    "teams": 12,
+    "total_drafts": 1371,
+    "type": "PPR"
+   },
+   "players": 205,
+   "status": "ok"
+  },
+  "ppr_12_2025": {
+   "at": "2026-11-24T22:28:14+00:00",
+   "meta": {
+    "end_date": "2025-09-01",
+    "rounds": 15,
+    "start_date": "2025-08-25",
+    "teams": 12,
+    "total_drafts": 8470,
+    "type": "PPR"
+   },
+   "players": 249,
+   "status": "ok"
+  },
+  "ppr_14_2010": {
+   "at": "2026-11-24T22:25:04+00:00",
+   "meta": {
+    "end_date": "2010-09-08",
+    "rounds": 15,
+    "start_date": "2010-09-03",
+    "teams": 12,
+    "total_drafts": 898,
+    "type": "PPR"
+   },
+   "players": 214,
+   "status": "ok"
+  },
+  "ppr_14_2011": {
+   "at": "2026-11-24T22:25:15+00:00",
+   "meta": {
+    "end_date": "2011-09-09",
+    "rounds": 15,
+    "start_date": "2011-09-06",
+    "teams": 12,
+    "total_drafts": 600,
+    "type": "PPR"
+   },
+   "players": 188,
+   "status": "ok"
+  },
+  "ppr_14_2012": {
+   "at": "2026-11-24T22:25:25+00:00",
+   "meta": {
+    "end_date": "2012-09-05",
+    "rounds": 15,
+    "start_date": "2012-09-04",
+    "teams": 12,
+    "total_drafts": 303,
+    "type": "PPR"
+   },
+   "players": 93,
+   "status": "ok"
+  },
+  "ppr_14_2013": {
+   "at": "2026-11-24T22:25:36+00:00",
+   "meta": {
+    "end_date": "2013-09-04",
+    "rounds": 15,
+    "start_date": "2013-09-02",
+    "teams": 12,
+    "total_drafts": 764,
+    "type": "PPR"
+   },
+   "players": 191,
+   "status": "ok"
+  },
+  "ppr_14_2014": {
+   "at": "2026-11-24T22:25:47+00:00",
+   "meta": {
+    "end_date": "2014-09-01",
+    "rounds": 15,
+    "start_date": "2014-08-31",
+    "teams": 12,
+    "total_drafts": 635,
+    "type": "PPR"
+   },
+   "players": 194,
+   "status": "ok"
+  },
+  "ppr_14_2015": {
+   "at": "2026-11-24T22:25:57+00:00",
+   "meta": {
+    "end_date": "2015-09-09",
+    "rounds": 15,
+    "start_date": "2015-09-06",
+    "teams": 12,
+    "total_drafts": 844,
+    "type": "PPR"
+   },
+   "players": 201,
+   "status": "ok"
+  },
+  "ppr_14_2016": {
+   "at": "2026-11-24T22:26:07+00:00",
+   "meta": {
+    "end_date": "2016-09-02",
+    "rounds": 15,
+    "start_date": "2016-09-01",
+    "teams": 12,
+    "total_drafts": 956,
+    "type": "PPR"
+   },
+   "players": 188,
+   "status": "ok"
+  },
+  "ppr_14_2017": {
+   "at": "2026-11-24T22:26:18+00:00",
+   "meta": {
+    "end_date": "2017-09-04",
+    "rounds": 15,
+    "start_date": "2017-09-03",
+    "teams": 12,
+    "total_drafts": 685,
+    "type": "PPR"
+   },
+   "players": 184,
+   "status": "ok"
+  },
+  "ppr_14_2018": {
+   "at": "2026-11-24T22:26:28+00:00",
+   "meta": {
+    "end_date": "2018-09-04",
+    "rounds": 15,
+    "start_date": "2018-09-01",
+    "teams": 12,
+    "total_drafts": 2494,
+    "type": "PPR"
+   },
+   "players": 197,
+   "status": "ok"
+  },
+  "ppr_14_2019": {
+   "at": "2026-11-24T22:26:44+00:00",
+   "meta": {
+    "end_date": "2019-09-04",
+    "rounds": 15,
+    "start_date": "2019-09-02",
+    "teams": 12,
+    "total_drafts": 2167,
+    "type": "PPR"
+   },
+   "players": 200,
+   "status": "ok"
+  },
+  "ppr_14_2020": {
+   "at": "2026-11-24T22:26:59+00:00",
+   "meta": {
+    "end_date": "2020-09-01",
+    "rounds": 15,
+    "start_date": "2020-08-30",
+    "teams": 12,
+    "total_drafts": 2403,
+    "type": "PPR"
+   },
+   "players": 203,
+   "status": "ok"
+  },
+  "ppr_14_2021": {
+   "at": "2026-11-24T22:27:14+00:00",
+   "meta": {
+    "end_date": "2021-09-01",
+    "rounds": 15,
+    "start_date": "2021-08-31",
+    "teams": 12,
+    "total_drafts": 1709,
+    "type": "PPR"
+   },
+   "players": 211,
+   "status": "ok"
+  },
+  "ppr_14_2022": {
+   "at": "2026-11-24T22:27:29+00:00",
+   "meta": {
+    "end_date": "2022-09-04",
+    "rounds": 15,
+    "start_date": "2022-09-03",
+    "teams": 12,
+    "total_drafts": 1633,
+    "type": "PPR"
+   },
+   "players": 157,
+   "status": "ok"
+  },
+  "ppr_14_2023": {
+   "at": "2026-11-24T22:27:45+00:00",
+   "meta": {
+    "end_date": "2023-09-01",
+    "rounds": 15,
+    "start_date": "2023-08-30",
+    "teams": 12,
+    "total_drafts": 3146,
+    "type": "PPR"
+   },
+   "players": 202,
+   "status": "ok"
+  },
+  "ppr_14_2024": {
+   "at": "2026-11-24T22:28:00+00:00",
+   "meta": {
+    "end_date": "2024-09-01",
+    "rounds": 15,
+    "start_date": "2024-08-31",
+    "teams": 12,
+    "total_drafts": 1371,
+    "type": "PPR"
+   },
+   "players": 205,
+   "status": "ok"
+  },
+  "ppr_14_2025": {
+   "at": "2026-11-24T22:28:15+00:00",
+   "meta": {
+    "end_date": "2025-09-01",
+    "rounds": 15,
+    "start_date": "2025-08-25",
+    "teams": 12,
+    "total_drafts": 8470,
+    "type": "PPR"
+   },
+   "players": 249,
+   "status": "ok"
+  },
+  "standard_10_2010": {
+   "at": "2026-11-24T22:25:06+00:00",
+   "meta": {
+    "end_date": "2010-09-08",
+    "rounds": 15,
+    "start_date": "2010-09-06",
+    "teams": 12,
+    "total_drafts": 1535,
+    "type": "Non-PPR"
+   },
+   "players": 210,
+   "status": "ok"
+  },
+  "standard_10_2011": {
+   "at": "2026-11-24T22:25:17+00:00",
+   "meta": {
+    "end_date": "2011-09-09",
+    "rounds": 15,
+    "start_date": "2011-09-07",
+    "teams": 12,
+    "total_drafts": 1144,
+    "type": "Non-PPR"
+   },
+   "players": 183,
+   "status": "ok"
+  },
+  "standard_10_2012": {
+   "at": "2026-11-24T22:25:28+00:00",
+   "meta": {
+    "end_date": "2012-09-05",
+    "rounds": 15,
+    "start_date": "2012-09-04",
+    "teams": 12,
+    "total_drafts": 507,
+    "type": "Non-PPR"
+   },
+   "players": 145,
+   "status": "ok"
+  },
+  "standard_10_2013": {
+   "at": "2026-11-24T22:25:38+00:00",
+   "meta": {
+    "end_date": "2013-09-04",
+    "rounds": 15,
+    "start_date": "2013-09-02",
+    "teams": 12,
+    "total_drafts": 992,
+    "type": "Non-PPR"
+   },
+   "players": 194,
+   "status": "ok"
+  },
+  "standard_10_2014": {
+   "at": "2026-11-24T22:25:49+00:00",
+   "meta": {
+    "end_date": "2014-09-01",
+    "rounds": 15,
+    "start_date": "2014-08-31",
+    "teams": 12,
+    "total_drafts": 752,
+    "type": "Non-PPR"
+   },
+   "players": 163,
+   "status": "ok"
+  },
+  "standard_10_2015": {
+   "at": "2026-11-24T22:25:59+00:00",
+   "meta": {
+    "end_date": "2015-09-09",
+    "rounds": 15,
+    "start_date": "2015-09-06",
+    "teams": 12,
+    "total_drafts": 822,
+    "type": "Non-PPR"
+   },
+   "players": 194,
+   "status": "ok"
+  },
+  "standard_10_2016": {
+   "at": "2026-11-24T22:26:09+00:00",
+   "meta": {
+    "end_date": "2016-09-02",
+    "rounds": 15,
+    "start_date": "2016-09-01",
+    "teams": 12,
+    "total_drafts": 701,
+    "type": "Non-PPR"
+   },
+   "players": 168,
+   "status": "ok"
+  },
+  "standard_10_2017": {
+   "at": "2026-11-24T22:26:20+00:00",
+   "meta": {
+    "end_date": "2017-09-04",
+    "rounds": 15,
+    "start_date": "2017-09-01",
+    "teams": 12,
+    "total_drafts": 1384,
+    "type": "Non-PPR"
+   },
+   "players": 211,
+   "status": "ok"
+  },
+  "standard_10_2018": {
+   "at": "2026-11-24T22:26:35+00:00",
+   "meta": {
+    "end_date": "2018-09-04",
+    "rounds": 15,
+    "start_date": "2018-08-28",
+    "teams": 12,
+    "total_drafts": 1698,
+    "type": "Non-PPR"
+   },
+   "players": 217,
+   "status": "ok"
+  },
+  "standard_10_2019": {
+   "at": "2026-11-24T22:26:50+00:00",
+   "meta": {
+    "end_date": "2019-09-04",
+    "rounds": 15,
+    "start_date": "2019-09-02",
+    "teams": 12,
+    "total_drafts": 696,
+    "type": "Non-PPR"
+   },
+   "players": 193,
+   "status": "ok"
+  },
+  "standard_10_2020": {
+   "at": "2026-11-24T22:27:05+00:00",
+   "meta": {
+    "end_date": "2020-09-01",
+    "rounds": 15,
+    "start_date": "2020-08-25",
+    "teams": 12,
+    "total_drafts": 2667,
+    "type": "Non-PPR"
+   },
+   "players": 226,
+   "status": "ok"
+  },
+  "standard_10_2021": {
+   "at": "2026-11-24T22:27:21+00:00",
+   "meta": {
+    "end_date": "2021-09-01",
+    "rounds": 15,
+    "start_date": "2021-08-28",
+    "teams": 12,
+    "total_drafts": 2656,
+    "type": "Non-PPR"
+   },
+   "players": 224,
+   "status": "ok"
+  },
+  "standard_10_2022": {
+   "at": "2026-11-24T22:27:36+00:00",
+   "meta": {
+    "end_date": "2022-09-04",
+    "rounds": 15,
+    "start_date": "2022-08-31",
+    "teams": 12,
+    "total_drafts": 2112,
+    "type": "Non-PPR"
+   },
+   "players": 195,
+   "status": "ok"
+  },
+  "standard_10_2023": {
+   "at": "2026-11-24T22:27:51+00:00",
+   "meta": {
+    "end_date": "2023-09-01",
+    "rounds": 15,
+    "start_date": "2023-08-30",
+    "teams": 12,
+    "total_drafts": 1104,
+    "type": "Non-PPR"
+   },
+   "players": 192,
+   "status": "ok"
+  },
+  "standard_10_2024": {
+   "at": "2026-11-24T22:28:07+00:00",
+   "meta": {
+    "end_date": "2024-09-01",
+    "rounds": 15,
+    "start_date": "2024-08-30",
+    "teams": 12,
+    "total_drafts": 742,
+    "type": "Non-PPR"
+   },
+   "players": 180,
+   "status": "ok"
+  },
+  "standard_10_2025": {
+   "at": "2026-11-24T22:28:22+00:00",
+   "meta": {
+    "end_date": "2025-09-01",
+    "rounds": 15,
+    "start_date": "2025-08-25",
+    "teams": 12,
+    "total_drafts": 2017,
+    "type": "Non-PPR"
+   },
+   "players": 221,
+   "status": "ok"
+  },
+  "standard_12_2010": {
+   "at": "2026-11-24T22:25:08+00:00",
+   "meta": {
+    "end_date": "2010-09-08",
+    "rounds": 15,
+    "start_date": "2010-09-06",
+    "teams": 12,
+    "total_drafts": 1535,
+    "type": "Non-PPR"
+   },
+   "players": 210,
+   "status": "ok"
+  },
+  "standard_12_2011": {
+   "at": "2026-11-24T22:25:19+00:00",
+   "meta": {
+    "end_date": "2011-09-09",
+    "rounds": 15,
+    "start_date": "2011-09-07",
+    "teams": 12,
+    "total_drafts": 1144,
+    "type": "Non-PPR"
+   },
+   "players": 183,
+   "status": "ok"
+  },
+  "standard_12_2012": {
+   "at": "2026-11-24T22:25:29+00:00",
+   "meta": {
+    "end_date": "2012-09-05",
+    "rounds": 15,
+    "start_date": "2012-09-04",
+    "teams": 12,
+    "total_drafts": 507,
+    "type": "Non-PPR"
+   },
+   "players": 145,
+   "status": "ok"
+  },
+  "standard_12_2013": {
+   "at": "2026-11-24T22:25:40+00:00",
+   "meta": {
+    "end_date": "2013-09-04",
+    "rounds": 15,
+    "start_date": "2013-09-02",
+    "teams": 12,
+    "total_drafts": 992,
+    "type": "Non-PPR"
+   },
+   "players": 194,
+   "status": "ok"
+  },
+  "standard_12_2014": {
+   "at": "2026-11-24T22:25:50+00:00",
+   "meta": {
+    "end_date": "2014-09-01",
+    "rounds": 15,
+    "start_date": "2014-08-31",
+    "teams": 12,
+    "total_drafts": 752,
+    "type": "Non-PPR"
+   },
+   "players": 163,
+   "status": "ok"
+  },
+  "standard_12_2015": {
+   "at": "2026-11-24T22:26:01+00:00",
+   "meta": {
+    "end_date": "2015-09-09",
+    "rounds": 15,
+    "start_date": "2015-09-06",
+    "teams": 12,
+    "total_drafts": 822,
+    "type": "Non-PPR"
+   },
+   "players": 194,
+   "status": "ok"
+  },
+  "standard_12_2016": {
+   "at": "2026-11-24T22:26:11+00:00",
+   "meta": {
+    "end_date": "2016-09-02",
+    "rounds": 15,
+    "start_date": "2016-09-01",
+    "teams": 12,
+    "total_drafts": 701,
+    "type": "Non-PPR"
+   },
+   "players": 168,
+   "status": "ok"
+  },
+  "standard_12_2017": {
+   "at": "2026-11-24T22:26:22+00:00",
+   "meta": {
+    "end_date": "2017-09-04",
+    "rounds": 15,
+    "start_date": "2017-09-01",
+    "teams": 12,
+    "total_drafts": 1384,
+    "type": "Non-PPR"
+   },
+   "players": 211,
+   "status": "ok"
+  },
+  "standard_12_2018": {
+   "at": "2026-11-24T22:26:37+00:00",
+   "meta": {
+    "end_date": "2018-09-04",
+    "rounds": 15,
+    "start_date": "2018-08-28",
+    "teams": 12,
+    "total_drafts": 1698,
+    "type": "Non-PPR"
+   },
+   "players": 217,
+   "status": "ok"
+  },
+  "standard_12_2019": {
+   "at": "2026-11-24T22:26:52+00:00",
+   "meta": {
+    "end_date": "2019-09-04",
+    "rounds": 15,
+    "start_date": "2019-09-02",
+    "teams": 12,
+    "total_drafts": 696,
+    "type": "Non-PPR"
+   },
+   "players": 193,
+   "status": "ok"
+  },
+  "standard_12_2020": {
+   "at": "2026-11-24T22:27:07+00:00",
+   "meta": {
+    "end_date": "2020-09-01",
+    "rounds": 15,
+    "start_date": "2020-08-25",
+    "teams": 12,
+    "total_drafts": 2667,
+    "type": "Non-PPR"
+   },
+   "players": 226,
+   "status": "ok"
+  },
+  "standard_12_2021": {
+   "at": "2026-11-24T22:27:22+00:00",
+   "meta": {
+    "end_date": "2021-09-01",
+    "rounds": 15,
+    "start_date": "2021-08-28",
+    "teams": 12,
+    "total_drafts": 2656,
+    "type": "Non-PPR"
+   },
+   "players": 224,
+   "status": "ok"
+  },
+  "standard_12_2022": {
+   "at": "2026-11-24T22:27:38+00:00",
+   "meta": {
+    "end_date": "2022-09-04",
+    "rounds": 15,
+    "start_date": "2022-08-31",
+    "teams": 12,
+    "total_drafts": 2112,
+    "type": "Non-PPR"
+   },
+   "players": 195,
+   "status": "ok"
+  },
+  "standard_12_2023": {
+   "at": "2026-11-24T22:27:53+00:00",
+   "meta": {
+    "end_date": "2023-09-01",
+    "rounds": 15,
+    "start_date": "2023-08-30",
+    "teams": 12,
+    "total_drafts": 1104,
+    "type": "Non-PPR"
+   },
+   "players": 192,
+   "status": "ok"
+  },
+  "standard_12_2024": {
+   "at": "2026-11-24T22:28:08+00:00",
+   "meta": {
+    "end_date": "2024-09-01",
+    "rounds": 15,
+    "start_date": "2024-08-30",
+    "teams": 12,
+    "total_drafts": 742,
+    "type": "Non-PPR"
+   },
+   "players": 180,
+   "status": "ok"
+  },
+  "standard_12_2025": {
+   "at": "2026-11-24T22:28:24+00:00",
+   "meta": {
+    "end_date": "2025-09-01",
+    "rounds": 15,
+    "start_date": "2025-08-25",
+    "teams": 12,
+    "total_drafts": 2017,
+    "type": "Non-PPR"
+   },
+   "players": 221,
+   "status": "ok"
+  },
+  "standard_14_2010": {
+   "at": "2026-11-24T22:25:10+00:00",
+   "meta": {
+    "end_date": "2010-09-08",
+    "rounds": 15,
+    "start_date": "2010-09-06",
+    "teams": 12,
+    "total_drafts": 1535,
+    "type": "Non-PPR"
+   },
+   "players": 210,
+   "status": "ok"
+  },
+  "standard_14_2011": {
+   "at": "2026-11-24T22:25:20+00:00",
+   "meta": {
+    "end_date": "2011-09-09",
+    "rounds": 15,
+    "start_date": "2011-09-07",
+    "teams": 12,
+    "total_drafts": 1144,
+    "type": "Non-PPR"
+   },
+   "players": 183,
+   "status": "ok"
+  },
+  "standard_14_2012": {
+   "at": "2026-11-24T22:25:31+00:00",
+   "meta": {
+    "end_date": "2012-09-05",
+    "rounds": 15,
+    "start_date": "2012-09-04",
+    "teams": 12,
+    "total_drafts": 507,
+    "type": "Non-PPR"
+   },
+   "players": 145,
+   "status": "ok"
+  },
+  "standard_14_2013": {
+   "at": "2026-11-24T22:25:42+00:00",
+   "meta": {
+    "end_date": "2013-09-04",
+    "rounds": 15,
+    "start_date": "2013-09-02",
+    "teams": 12,
+    "total_drafts": 992,
+    "type": "Non-PPR"
+   },
+   "players": 194,
+   "status": "ok"
+  },
+  "standard_14_2014": {
+   "at": "2026-11-24T22:25:52+00:00",
+   "meta": {
+    "end_date": "2014-09-01",
+    "rounds": 15,
+    "start_date": "2014-08-31",
+    "teams": 12,
+    "total_drafts": 752,
+    "type": "Non-PPR"
+   },
+   "players": 163,
+   "status": "ok"
+  },
+  "standard_14_2015": {
+   "at": "2026-11-24T22:26:02+00:00",
+   "meta": {
+    "end_date": "2015-09-09",
+    "rounds": 15,
+    "start_date": "2015-09-06",
+    "teams": 12,
+    "total_drafts": 822,
+    "type": "Non-PPR"
+   },
+   "players": 194,
+   "status": "ok"
+  },
+  "standard_14_2016": {
+   "at": "2026-11-24T22:26:13+00:00",
+   "meta": {
+    "end_date": "2016-09-02",
+    "rounds": 15,
+    "start_date": "2016-09-01",
+    "teams": 12,
+    "total_drafts": 701,
+    "type": "Non-PPR"
+   },
+   "players": 168,
+   "status": "ok"
+  },
+  "standard_14_2017": {
+   "at": "2026-11-24T22:26:23+00:00",
+   "meta": {
+    "end_date": "2017-09-04",
+    "rounds": 15,
+    "start_date": "2017-09-01",
+    "teams": 12,
+    "total_drafts": 1384,
+    "type": "Non-PPR"
+   },
+   "players": 211,
+   "status": "ok"
+  },
+  "standard_14_2018": {
+   "at": "2026-11-24T22:26:38+00:00",
+   "meta": {
+    "end_date": "2018-09-04",
+    "rounds": 15,
+    "start_date": "2018-08-28",
+    "teams": 12,
+    "total_drafts": 1698,
+    "type": "Non-PPR"
+   },
+   "players": 217,
+   "status": "ok"
+  },
+  "standard_14_2019": {
+   "at": "2026-11-24T22:26:54+00:00",
+   "meta": {
+    "end_date": "2019-09-04",
+    "rounds": 15,
+    "start_date": "2019-09-02",
+    "teams": 12,
+    "total_drafts": 696,
+    "type": "Non-PPR"
+   },
+   "players": 193,
+   "status": "ok"
+  },
+  "standard_14_2020": {
+   "at": "2026-11-24T22:27:09+00:00",
+   "meta": {
+    "end_date": "2020-09-01",
+    "rounds": 15,
+    "start_date": "2020-08-25",
+    "teams": 12,
+    "total_drafts": 2667,
+    "type": "Non-PPR"
+   },
+   "players": 226,
+   "status": "ok"
+  },
+  "standard_14_2021": {
+   "at": "2026-11-24T22:27:24+00:00",
+   "meta": {
+    "end_date": "2021-09-01",
+    "rounds": 15,
+    "start_date": "2021-08-28",
+    "teams": 12,
+    "total_drafts": 2656,
+    "type": "Non-PPR"
+   },
+   "players": 224,
+   "status": "ok"
+  },
+  "standard_14_2022": {
+   "at": "2026-11-24T22:27:39+00:00",
+   "meta": {
+    "end_date": "2022-09-04",
+    "rounds": 15,
+    "start_date": "2022-08-31",
+    "teams": 12,
+    "total_drafts": 2112,
+    "type": "Non-PPR"
+   },
+   "players": 195,
+   "status": "ok"
+  },
+  "standard_14_2023": {
+   "at": "2026-11-24T22:27:55+00:00",
+   "meta": {
+    "end_date": "2023-09-01",
+    "rounds": 15,
+    "start_date": "2023-08-30",
+    "teams": 12,
+    "total_drafts": 1104,
+    "type": "Non-PPR"
+   },
+   "players": 192,
+   "status": "ok"
+  },
+  "standard_14_2024": {
+   "at": "2026-11-24T22:28:10+00:00",
+   "meta": {
+    "end_date": "2024-09-01",
+    "rounds": 15,
+    "start_date": "2024-08-30",
+    "teams": 12,
+    "total_drafts": 742,
+    "type": "Non-PPR"
+   },
+   "players": 180,
+   "status": "ok"
+  },
+  "standard_14_2025": {
+   "at": "2026-11-24T22:28:25+00:00",
+   "meta": {
+    "end_date": "2025-09-01",
+    "rounds": 15,
+    "start_date": "2025-08-25",
+    "teams": 12,
+    "total_drafts": 2017,
+    "type": "Non-PPR"
+   },
+   "players": 221,
+   "status": "ok"
+  }
+ },
  "nflverse": {
   "advstats_season_pass.parquet": {
    "at": "2026-11-24T22:24:58+00:00",
