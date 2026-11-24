@@ -77,30 +77,9 @@ def main():
                                          "players": len(d), "usable": ok}
     rep["ffc"] = {"units": len(ffc), "usable": sum(v["usable"] for v in ffc.values()),
                   "dropped": {k: v for k, v in ffc.items() if not v["usable"]}}
-    # 2. FP ADP late-update test
+    # 2. FantasyPros ADP pages: dropped (archived pages return "report not available" to scripts; PREREG change log)
     pts = season_points()
-    late = {}
-    for y in range(2017, 2026):
-        try:
-            fp = S.fp_adp("ppr", y)
-        except SystemExit:
-            late[y] = {"status": "needs the FantasyPros key (runs in GitHub Actions)"}
-            continue
-        fd, meta = S.ffc("ppr", 12, y)
-        if fp is None or fd is None or not ffc.get(f"ppr_12_{y}", {}).get("usable"):
-            late[y] = {"status": "missing fp or usable ffc"}
-            continue
-        avg = next((c for c in fp.columns if c.upper() in ("AVG", "AVERAGE")), None)
-        fp["key"], fd["key"] = fp["player"].map(norm), fd["name"].map(norm)
-        m = fp[["key", "pos", avg]].merge(fd[["key", "position", "adp"]], on="key").merge(
-            pts[pts["season"] == y][["key", "fantasy_points_ppr"]], on="key", how="left")
-        m["fantasy_points_ppr"] = m["fantasy_points_ppr"].fillna(0)
-        m = m.nsmallest(200, "adp")
-        c_fp = m[avg].rank().corr(m["fantasy_points_ppr"].rank(ascending=False), method="pearson")
-        c_ffc = m["adp"].rank().corr(m["fantasy_points_ppr"].rank(ascending=False), method="pearson")
-        late[y] = {"n": len(m), "fp_corr": round(float(c_fp), 3), "ffc_corr": round(float(c_ffc), 3),
-                   "fp_minus_ffc": round(float(c_fp - c_ffc), 3), "flag": bool(c_fp - c_ffc > 0.05),
-                   "platform_cols": [c for c in fp.columns if c not in ("player", "team", "pos", "key") and fp[c].dtype != object]}
+    late = {"status": "dropped - FantasyPros archived ADP pages not available to scripts"}
     rep["fp_adp_late_update"] = late
     # 2b. the same late-update test for the platforms' own ADP (ESPN, Yahoo): coverage and correlation vs FFC
     plat = {}
