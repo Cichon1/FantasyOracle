@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       sources:
-        description: "Sources to pull (space separated): nflverse ffc fp_adp spotrac inspect espn yahoo"
+        description: "Sources to pull (space separated): nflverse ffc fp_adp spotrac inspect espn yahoo audit"
         default: "nflverse ffc fp_adp spotrac"
 
 permissions:
@@ -88,6 +88,10 @@ jobs:
       - name: Autosave
         if: always()
         run: /tmp/save.sh espn
+      - name: Hindsight audit (counts, dates and correlations only)
+        if: contains(github.event.inputs.sources, 'audit')
+        continue-on-error: true
+        run: python automation/draft_test/audit_draft_data.py
       - name: Inspect FantasyPros pages (structure only)
         if: contains(github.event.inputs.sources, 'inspect')
         continue-on-error: true

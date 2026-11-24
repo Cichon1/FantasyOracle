@@ -102,6 +102,36 @@ def main():
                    "fp_minus_ffc": round(float(c_fp - c_ffc), 3), "flag": bool(c_fp - c_ffc > 0.05),
                    "platform_cols": [c for c in fp.columns if c not in ("player", "team", "pos", "key") and fp[c].dtype != object]}
     rep["fp_adp_late_update"] = late
+    # 2b. the same late-update test for the platforms' own ADP (ESPN, Yahoo): coverage and correlation vs FFC
+    plat = {}
+    for name, fn, years in [("espn", S.espn, range(2018, 2026)), ("yahoo", S.yahoo, range(2010, 2026))]:
+        for y in years:
+            try:
+                d = fn(y)
+            except SystemExit:
+                plat[f"{name}_{y}"] = {"status": "needs the FantasyPros key (runs in GitHub Actions)"}
+                continue
+            fd, _ = S.ffc("ppr", 12, y)
+            if d is None or not len(d):
+                plat[f"{name}_{y}"] = {"status": "no ADP values"}
+                continue
+            rec = {"players_with_adp": int(len(d)), "top200_with_adp": int((d["adp"] <= 200).sum())}
+            if fd is not None and ffc.get(f"ppr_12_{y}", {}).get("usable"):
+                d["key"], fd["key"] = d["player"].map(norm), fd["name"].map(norm)
+                m = d[["key", "adp"]].rename(columns={"adp": "padp"}).merge(fd[["key", "adp"]], on="key").merge(
+                    pts[pts["season"] == y][["key", "fantasy_points_ppr"]], on="key", how="left")
+                m["fantasy_points_ppr"] = m["fantasy_points_ppr"].fillna(0)
+                m = m.nsmallest(200, "adp")
+                cp = m["padp"].rank().corr(m["fantasy_points_ppr"].rank(ascending=False))
+                cf = m["adp"].rank().corr(m["fantasy_points_ppr"].rank(ascending=False))
+                agree = m["padp"].rank().corr(m["adp"].rank())
+                rec.update({"n": int(len(m)), "platform_corr": round(float(cp), 3), "ffc_corr": round(float(cf), 3),
+                            "platform_minus_ffc": round(float(cp - cf), 3), "agreement_with_ffc": round(float(agree), 3),
+                            "flag_late_update": bool(cp - cf > 0.05)})
+                if cp - cf > 0.05:
+                    fail.append(f"{name} {y}: archived ADP predicts the season {cp - cf:+.3f} better than FFC's dated preseason ADP")
+            plat[f"{name}_{y}"] = rec
+    rep["platform_adp"] = plat
     # 3. FP preseason expert rankings
     ecr_p = os.path.join(ROOT, "model", "fpdata", "db_fpecr.parquet")
     if os.path.exists(ecr_p):
@@ -153,7 +183,8 @@ def main():
     save(os.path.join(OUT, "audit.json"), json.dumps(rep, indent=1, default=str))
     print(json.dumps({k: (v if k in ("hard_failures",) else "ok") for k, v in rep.items()}, indent=1))
     print("FFC usable", rep["ffc"]["usable"], "of", rep["ffc"]["units"])
-    print("late-update flags:", {y: v.get("fp_minus_ffc") for y, v in late.items()})
+    print("platform late-update test:", {k: (v.get("players_with_adp"), v.get("platform_minus_ffc"), v.get("agreement_with_ffc"))
+                                         for k, v in rep.get("platform_adp", {}).items()})
     return 1 if fail else 0
 
 

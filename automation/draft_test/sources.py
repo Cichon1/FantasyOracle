@@ -94,3 +94,54 @@ def fp_adp(fmt, year):
         if c not in (pcol, poscol, "player", "team", "pos"):
             d[c] = pd.to_numeric(d[c].str.replace(",", ""), errors="coerce")
     return d
+
+
+ESPN_POS = {1: "QB", 2: "RB", 3: "WR", 4: "TE", 5: "K", 16: "DEF"}
+ESPN_TEAM = {1: "ATL", 2: "BUF", 3: "CHI", 4: "CIN", 5: "CLE", 6: "DAL", 7: "DEN", 8: "DET", 9: "GB", 10: "TEN", 11: "IND",
+             12: "KC", 13: "LV", 14: "LA", 15: "MIA", 16: "MIN", 17: "NE", 18: "NO", 19: "NYG", 20: "NYJ", 21: "PHI",
+             22: "ARI", 23: "PIT", 24: "LAC", 25: "SF", 26: "SEA", 27: "TB", 28: "WAS", 29: "CAR", 30: "JAX", 33: "BAL",
+             34: "HOU"}
+
+
+def espn(year):
+    """ESPN average draft position (ownership.averageDraftPosition) per player; preseason draft rank where present."""
+    p = os.path.join(OUT, "espn_adp", f"espn_adp_{year}.enc")
+    if not os.path.exists(p):
+        return None
+    j = json.loads(load(p, enc=True))
+    rows = []
+    for x in j.get("players", []):
+        pl = x.get("player", {})
+        own = pl.get("ownership") or {}
+        rk = (pl.get("draftRanksByRankType") or {}).get("PPR", {})
+        rows.append({"player": pl.get("fullName"), "pos": ESPN_POS.get(pl.get("defaultPositionId")),
+                     "team": ESPN_TEAM.get(pl.get("proTeamId")), "adp": own.get("averageDraftPosition"),
+                     "espn_rank": rk.get("rank")})
+    d = pd.DataFrame(rows)
+    d["adp"] = pd.to_numeric(d["adp"], errors="coerce")
+    return d[d["adp"].notna() & (d["adp"] > 0)]
+
+
+def yahoo(year):
+    """Yahoo draft analysis: average pick / round / percent drafted from real Yahoo drafts that season."""
+    import xml.etree.ElementTree as ET
+    p = os.path.join(OUT, "yahoo_adp", f"yahoo_adp_{year}.enc")
+    if not os.path.exists(p):
+        return None
+    j = json.loads(load(p, enc=True))
+    rows = {}
+    for ch in j["pages"]:
+        for pl in ET.fromstring(ch).iter("player"):
+            key = pl.findtext("player_key")
+            da = pl.find("draft_analysis")
+            rows[key] = {"player": pl.findtext("name/full"), "pos": pl.findtext("display_position"),
+                         "team": (pl.findtext("editorial_team_abbr") or "").upper(),
+                         "adp": da.findtext("average_pick") if da is not None else None,
+                         "avg_round": da.findtext("average_round") if da is not None else None,
+                         "pct_drafted": da.findtext("percent_drafted") if da is not None else None}
+    d = pd.DataFrame(rows.values())
+    for c in ["adp", "avg_round", "pct_drafted"]:
+        d[c] = pd.to_numeric(d[c], errors="coerce")
+    d["team"] = d["team"].replace({**FP_TEAM, "JAC": "JAX", "LAR": "LA", "WSH": "WAS"})
+    d["pos"] = d["pos"].str.split(",").str[0].replace({"DST": "DEF"})
+    return d[d["adp"].notna() & (d["adp"] > 0)]
