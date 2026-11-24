@@ -90,3 +90,12 @@ Situations reported for each: draft slot, round, roster so far, tiers left by po
 
 ## Changes
 - Nov 24 (before any results): FantasyPros' archived ADP pages return "report not available" to scripts, so per-platform ADP comes from the platforms themselves (Yahoo's API draft analysis, ESPN's public API) plus FFC; FP ADP dropped. Spotrac result lines excluded (row added above).
+- Nov 24 (before any results): the hindsight audit's late-update test flagged ESPN's archived ADP. In 2020-2024 it
+  ranks each season's actual points 0.11-0.24 better than FFC's dated preseason mock-draft ADP on the same players, and
+  agrees with FFC only 0.70-0.86 (Yahoo: 0.86-0.94). ESPN's archive kept updating after the drafts, so **ESPN ADP is
+  dropped for every year**. Yahoo's draft analysis passes (within +/-0.04 of FFC in 13 of 14 checked years) and is
+  kept, except **Yahoo 2012** (+0.093, over the 0.05 flag line), dropped by the rule. Yahoo 2025 has no ADP values in the
+  API response: to be checked before the board uses 2025.
+- Multi-platform ADP for the test is therefore FFC (dated mock drafts; PPR / half / standard; 10 / 12 / 14 teams) +
+  Yahoo (real Yahoo drafts, the leagues' own platform). Candidate third source with dated windows: MyFantasyLeague's
+  public ADP export (to be pulled and audited the same way before use).
