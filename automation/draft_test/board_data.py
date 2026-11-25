@@ -17,6 +17,12 @@ Output (model/lab/draft/):
   weekly_points.parquet          player-week points for both leagues (seasons 2010-2025)
   adp_accuracy.json              each ADP source's rank correlation with actual points, by season and position
 
+Contracts (nflverse / OverTheCap historical contracts, free): only what was signed before that season's draft
+(PREREG row "Contracts are a current snapshot"): year_signed < season, or year_signed == season for offseason-only
+types (Drafted, UDFA, UFA, RFA, ERFA, Franchise, Transition). Extensions, street / practice-squad signings in the
+season year count as unknown. Outcome fields (status, amount_earned, percent_earned, effective_apy) and season cap
+numbers (restructured later) are never read.
+
   python automation/draft_test/board_data.py
 """
 import json
@@ -68,6 +74,42 @@ def players_table():
     return pl.dropna(subset=["gsis_id"])
 
 
+OFFSEASON_TYPES = {"Drafted", "UDFA", "UFA", "RFA", "ERFA", "Franchise", "Transition"}
+CONTRACT_COLS = ["team", "contract_type", "year_signed", "yrs", "total", "apy", "guarantees"]   # allow-list
+
+
+def contracts_long():
+    p = os.path.join(DATA, "contracts.parquet")
+    d = pd.read_parquet(p if os.path.exists(p) else f"{NFLV}/contracts/historical_contracts.parquet")
+    rows = [dict({k: x.get(k) for k in CONTRACT_COLS}, gsis_id=g)
+            for g, h in zip(d["gsis_id"], d["contract_history"]) if g and h is not None for x in h]
+    ch = pd.DataFrame(rows).drop_duplicates()
+    ch = ch[ch["contract_type"].isin(OFFSEASON_TYPES | {"Extension", "SFA", "Other"})]
+    ch["year_signed"] = ch["year_signed"].astype(float)
+    draft = d.dropna(subset=["gsis_id"]).drop_duplicates("gsis_id").set_index("gsis_id")[["draft_year", "draft_round", "draft_overall"]]
+    return ch, draft
+
+
+def contract_features(ids, pos, y, ch, draft):
+    """the contract each player was on going into season y, from deals known before the draft."""
+    ok = ch[(ch["year_signed"] < y) | ((ch["year_signed"] == y) & ch["contract_type"].isin(OFFSEASON_TYPES))]
+    ok = ok[ok["gsis_id"].isin(set(ids))].sort_values(["year_signed", "apy"])
+    cur = ok.groupby("gsis_id").tail(1).set_index("gsis_id")
+    f = pd.DataFrame(index=pd.Index(ids, name="gsis_id"))
+    f["c_type"] = cur["contract_type"]
+    f["c_apy"] = cur["apy"]
+    f["c_gtd_share"] = (cur["guarantees"] / cur["total"].where(cur["total"] > 0))
+    f["c_years_left"] = cur["year_signed"] + cur["yrs"] - 1 - y        # 0 -> playing out the last year
+    f["c_contract_year"] = (f["c_years_left"] <= 0).astype(float).where(f["c_type"].notna())
+    f["c_new_deal"] = (cur["year_signed"] == y).astype(float).reindex(f.index)
+    f["c_rookie_deal"] = (cur["contract_type"].isin(["Drafted", "UDFA"])).astype(float).reindex(f.index)
+    f = f.join(draft, how="left")
+    f["years_pro"] = y - f["draft_year"]
+    f["pos"] = list(pos)
+    f["c_apy_pos_rank"] = f.groupby("pos")["c_apy"].rank(ascending=False)   # among this pool, by position
+    return f.drop(columns=["pos"]).reset_index()
+
+
 def match(pool, pl, wk):
     """name + position first; then name with any position if unique; then name among that season's players."""
     pool = pool.copy()
@@ -84,6 +126,7 @@ def match(pool, pl, wk):
 def main():
     os.makedirs(OUT, exist_ok=True)
     pl = players_table()
+    ch, draft = contracts_long()
     weeks, acc = [], {}
     for y in SEASONS:
         wk = weekly(y)
@@ -102,9 +145,12 @@ def main():
             sk[c] = sk[c].fillna(0)        # never played: 0 (busts count)
         sk["season"] = y
         sk["matched"] = sk["gsis_id"].notna()
+        cf = contract_features(sk.loc[sk["matched"], "gsis_id"].tolist(), sk.loc[sk["matched"], "pos"], y, ch, draft)
+        sk = sk.merge(cf.drop_duplicates("gsis_id"), on="gsis_id", how="left")
         sk.to_parquet(os.path.join(OUT, f"pool_{y}.parquet"), index=False)
         # yardstick: FFC ADP vs actual points, within position and overall (top 150 by ADP)
-        r = {"pool": int(len(sk)), "matched": int(sk["matched"].sum()), "ffc_window_end": meta.get("end_date")}
+        r = {"pool": int(len(sk)), "matched": int(sk["matched"].sum()), "ffc_window_end": meta.get("end_date"),
+             "with_contract": int(sk["c_type"].notna().sum())}
         top = sk.nsmallest(150, "adp_ffc")
         for lg in ["bdsm", "league"]:
             r[f"overall_{lg}"] = round(float(top["adp_ffc"].rank().corr(top[f"pts_{lg}"].rank(ascending=False))), 3)

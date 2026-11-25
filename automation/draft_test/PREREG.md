@@ -128,4 +128,11 @@ Situations reported for each: draft slot, round, roster so far, tiers left by po
   Yahoo: 2010 and 2013-2025 (2012 flagged; 2011 can't be checked against FFC, so dropped like MFL 2011). All pass at
   -0.10 to +0.04 vs FFC, agreement 0.86-0.94.
   MFL: 2013-2019 and 2022.
-  ESPN, FantasyPros ADP pages: none.
+  ESPN, FantasyPros ADP pages: none.- Nov 24 (before any results): Spotrac's past-year incentive pages are behind its login: the 256 saved pages are the
+  same page shell (no incentive rows, "sign in" prompt in place of the table). Incentive clauses are therefore not
+  available from a free source and are dropped from the board (free-only rule). The saved shells are removed.
+  Contracts come from nflverse's OverTheCap historical contracts (free): per player-season, the deal he was on going
+  into the season under the rule in the hindsight table (year_signed < season, or offseason-only types signed that
+  year), with an allow-list of columns: type, apy, guarantee share, years left (0 = contract year), new deal this
+  offseason, rookie deal, draft round / pick, years pro. Outcome columns (status, amount / percent earned, effective
+  APY) and season cap numbers are never read.

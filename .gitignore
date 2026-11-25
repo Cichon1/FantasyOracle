@@ -11,3 +11,4 @@ __pycache__/
 *.pyc
 model/lab_ros/
 model/lab/*.parquet
+model/lab/draft/
