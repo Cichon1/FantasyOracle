@@ -136,11 +136,14 @@ def yahoo(year):
             da = pl.find("draft_analysis")
             rows[key] = {"player": pl.findtext("name/full"), "pos": pl.findtext("display_position"),
                          "team": (pl.findtext("editorial_team_abbr") or "").upper(),
-                         "adp": da.findtext("average_pick") if da is not None else None,
-                         "avg_round": da.findtext("average_round") if da is not None else None,
-                         "pct_drafted": da.findtext("percent_drafted") if da is not None else None}
+                         # preseason_average_pick: drafts before the season only (the clean field); average_pick
+                         # (all drafts) kept for reference - it is empty for 2025 in the API
+                         "adp": da.findtext("preseason_average_pick") if da is not None else None,
+                         "adp_all": da.findtext("average_pick") if da is not None else None,
+                         "avg_round": da.findtext("preseason_average_round") if da is not None else None,
+                         "pct_drafted": da.findtext("preseason_percent_drafted") if da is not None else None}
     d = pd.DataFrame(rows.values())
-    for c in ["adp", "avg_round", "pct_drafted"]:
+    for c in ["adp", "adp_all", "avg_round", "pct_drafted"]:
         d[c] = pd.to_numeric(d[c], errors="coerce")
     d["team"] = d["team"].replace({**FP_TEAM, "JAC": "JAX", "LAR": "LA", "WSH": "WAS"})
     d["pos"] = d["pos"].str.split(",").str[0].replace({"DST": "DEF"})

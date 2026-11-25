@@ -116,3 +116,9 @@ Situations reported for each: draft slot, round, roster so far, tiers left by po
   public ADP export (to be pulled and audited the same way before use).
 - Nov 24 (before any results, Jackson): fixed 2018-21 / 2022-25 split replaced by scoring every season 2010-2025 and a
   rolling walk-forward on 2021-2025 with four look-backs, plus trend tests (section 6).
+- Nov 24 (before any results): Yahoo's API has both `average_pick` (all drafts) and `preseason_average_pick`; the
+  board uses the preseason field (clean by definition; also the only one filled for 2025). Yahoo is re-audited with it.
+- Nov 24 (before any results): MyFantasyLeague ADP (real redraft drafts, PERIOD=ALL) is over the 0.05 late-update line
+  in 2012, 2020, 2021, 2023, 2024 and 2025 (+0.054 to +0.084) while agreeing with FFC 0.92-0.98. It may be genuinely
+  sharper drafters, but the test can't separate that from late drafts, so by the rule those years are dropped; 2011
+  can't be checked (FFC 2011 dropped) and is also dropped. MFL is used for 2013-2019 and 2022 only, as a secondary source.
