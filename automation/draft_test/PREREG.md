@@ -136,3 +136,12 @@ Situations reported for each: draft slot, round, roster so far, tiers left by po
   year), with an allow-list of columns: type, apy, guarantee share, years left (0 = contract year), new deal this
   offseason, rookie deal, draft round / pick, years pro. Outcome columns (status, amount / percent earned, effective
   APY) and season cap numbers are never read.
+- Nov 24 (tuning seasons 2013-2019 only; no 2020-2025 board results seen): board frozen as gradient boosting on FFC ADP
+  + prior-season history + player (age, years pro, NFL draft slot, team change), 8 bootstrap bags, target = season
+  points in each league's scoring (`board_model.CONFIG`). Tuning log: model/lab/draft/tune_log_round1-3.json.
+  On 2013-2019 it ranked players better than FFC ADP by +0.048 (SE 0.025) within position, in 6 of 7 seasons.
+  Not kept because they did not add accuracy in tuning: contract features (+0.030 vs +0.048 without), the other FFC
+  boards (half / standard / 10 / 14 teams), a residual-to-ADP target, ridge regression. The board's "consensus ADP"
+  features use FFC boards only so it is identical in every run; Yahoo, MFL and FP ECR are comparison boards (and the
+  value-pick finder's markets). FP ECR comes from DynastyProcess's public archive ("redraft overall", last snapshot
+  3+ days before kickoff); no preseason snapshot exists for 2020, so the ECR comparison is 2021-2025.
