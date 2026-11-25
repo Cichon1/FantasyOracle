@@ -295,19 +295,26 @@ def yahoo_inspect():
 
 
 def spotrac_structure():
-    """Layout of a saved Spotrac incentive page with all content masked (letters -> x, digits -> 9) - public logs."""
-    from collections import Counter
-    for y, t in [("2024", "kc"), ("2021", "buf")]:
+    """Layout of saved Spotrac incentive pages for the parser: tables, their column headers (site layout, not data),
+    row counts, and two body rows with all content masked (letters -> x, digits -> 9). Public logs: no data printed."""
+    mask = lambda t: re.sub(r"[A-Za-z]", "x", re.sub(r"\d", "9", re.sub(r"\s+", " ", t).strip()))[:30]
+    for y, t in [("2024", "kc"), ("2021", "buf"), ("2016", "ne")]:
         h = load(os.path.join(OUT, "spotrac", y, f"incentives_{t}.enc"), enc=True)
-        h = re.sub(r"<script.*?</script>|<style.*?</style>|<svg.*?</svg>", "", h, flags=re.S)
-        i = h.find("Incentive")
-        body = h[max(0, i - 6000): i + 9000]
-        cls = Counter(re.findall(r'class="([^"]+)"', body))
-        print(y, t, "classes:", cls.most_common(25))
-        masked = re.sub(r">([^<]+)<", lambda m: ">" + re.sub(r"[A-Za-z]", "x", re.sub(r"\d", "9", m.group(1).strip()))[:40] + "<", body)
-        masked = re.sub(r'href="[^"]*"', 'href="#"', masked)
-        masked = re.sub(r"\s+", " ", masked)
-        print(masked[:5000])
+        h = re.sub(r"<script.*?</script>|<style.*?</style>|<svg.*?</svg>|<!--.*?-->", "", h, flags=re.S)
+        tables = re.findall(r"(<table.*?</table>)", h, flags=re.S)
+        print(f"== {y} {t}: bytes={len(h)} tables={len(tables)} h2/h3={[mask(x)[:20] for x in re.findall(r'<h[23][^>]*>(.*?)</h[23]>', h, re.S)][:6]}")
+        for k, tb in enumerate(tables[:6]):
+            tag = re.match(r"<table([^>]*)>", tb).group(1)
+            heads = [re.sub(r"<[^>]+>", "", x).strip()[:24] for x in re.findall(r"<th[^>]*>(.*?)</th>", tb, re.S)]
+            rows = re.findall(r"<tr[^>]*>(.*?)</tr>", re.sub(r"<thead.*?</thead>", "", tb, flags=re.S), re.S)
+            print(f" table {k}: attrs={re.sub(r'[\"]', '', tag)[:120]!r} headers={heads[:14]} body_rows={len(rows)}")
+            for r in rows[:2]:
+                cells = re.findall(r"<td([^>]*)>(.*?)</td>", r, re.S)
+                print("   row:", [(re.sub(r'"[^"]*"', '""', a.strip())[:40], mask(re.sub(r"<[^>]+>", " ", c)),
+                                   sorted(set(re.findall(r"<(\w+)", c)))) for a, c in cells][:12])
+        # incentive data outside tables? (cards / lists)
+        for kw in ["data-incentive", "incentive-", "accordion", "card-body", "list-group"]:
+            print(f"  {kw}: {h.count(kw)}")
 
 def fp_inspect():
     """Structure of the saved FantasyPros ADP pages only (sizes, tags, notices) - never their data (public logs)."""
