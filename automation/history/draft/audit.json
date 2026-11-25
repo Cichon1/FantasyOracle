@@ -132,151 +132,80 @@
    "flag_late_update": false
   },
   "yahoo_2010": {
-   "players_with_adp": 181,
-   "top200_with_adp": 181,
-   "n": 144,
-   "platform_corr": 0.311,
-   "ffc_corr": 0.415,
-   "platform_minus_ffc": -0.104,
-   "agreement_with_ffc": 0.897,
-   "flag_late_update": false
+   "status": "no ADP values"
   },
   "yahoo_2011": {
-   "players_with_adp": 213,
-   "top200_with_adp": 213
+   "status": "no ADP values"
   },
   "yahoo_2012": {
-   "players_with_adp": 225,
-   "top200_with_adp": 225,
-   "n": 90,
-   "platform_corr": 0.443,
-   "ffc_corr": 0.35,
-   "platform_minus_ffc": 0.093,
-   "agreement_with_ffc": 0.914,
-   "flag_late_update": true
+   "status": "no ADP values"
   },
   "yahoo_2013": {
-   "players_with_adp": 220,
-   "top200_with_adp": 220,
-   "n": 165,
-   "platform_corr": 0.4,
-   "ffc_corr": 0.434,
-   "platform_minus_ffc": -0.034,
-   "agreement_with_ffc": 0.858,
-   "flag_late_update": false
+   "status": "no ADP values"
   },
   "yahoo_2014": {
-   "players_with_adp": 208,
-   "top200_with_adp": 208,
-   "n": 165,
-   "platform_corr": 0.378,
-   "ffc_corr": 0.421,
-   "platform_minus_ffc": -0.043,
-   "agreement_with_ffc": 0.901,
-   "flag_late_update": false
+   "status": "no ADP values"
   },
   "yahoo_2015": {
-   "players_with_adp": 221,
-   "top200_with_adp": 221,
-   "n": 173,
-   "platform_corr": 0.347,
-   "ffc_corr": 0.362,
-   "platform_minus_ffc": -0.015,
-   "agreement_with_ffc": 0.863,
-   "flag_late_update": false
+   "status": "no ADP values"
   },
   "yahoo_2016": {
-   "players_with_adp": 235,
-   "top200_with_adp": 235,
-   "n": 171,
-   "platform_corr": 0.355,
-   "ffc_corr": 0.324,
-   "platform_minus_ffc": 0.031,
-   "agreement_with_ffc": 0.902,
-   "flag_late_update": false
+   "status": "no ADP values"
   },
   "yahoo_2017": {
-   "players_with_adp": 227,
-   "top200_with_adp": 227,
-   "n": 164,
-   "platform_corr": 0.361,
-   "ffc_corr": 0.398,
-   "platform_minus_ffc": -0.037,
-   "agreement_with_ffc": 0.88,
-   "flag_late_update": false
+   "status": "no ADP values"
   },
   "yahoo_2018": {
-   "players_with_adp": 234,
-   "top200_with_adp": 234,
-   "n": 181,
-   "platform_corr": 0.415,
-   "ffc_corr": 0.445,
-   "platform_minus_ffc": -0.031,
-   "agreement_with_ffc": 0.89,
-   "flag_late_update": false
+   "status": "no ADP values"
   },
   "yahoo_2019": {
-   "players_with_adp": 236,
-   "top200_with_adp": 236,
-   "n": 181,
-   "platform_corr": 0.494,
-   "ffc_corr": 0.521,
-   "platform_minus_ffc": -0.028,
-   "agreement_with_ffc": 0.91,
-   "flag_late_update": false
+   "status": "no ADP values"
   },
   "yahoo_2020": {
-   "players_with_adp": 234,
-   "top200_with_adp": 234,
-   "n": 187,
-   "platform_corr": 0.447,
-   "ffc_corr": 0.456,
-   "platform_minus_ffc": -0.009,
-   "agreement_with_ffc": 0.91,
-   "flag_late_update": false
+   "status": "no ADP values"
   },
   "yahoo_2021": {
-   "players_with_adp": 237,
-   "top200_with_adp": 237,
-   "n": 184,
-   "platform_corr": 0.506,
-   "ffc_corr": 0.518,
-   "platform_minus_ffc": -0.011,
-   "agreement_with_ffc": 0.91,
-   "flag_late_update": false
+   "status": "no ADP values"
   },
   "yahoo_2022": {
-   "players_with_adp": 239,
-   "top200_with_adp": 239,
+   "players_with_adp": 237,
+   "top200_with_adp": 237,
    "n": 152,
-   "platform_corr": 0.498,
+   "platform_corr": 0.495,
    "ffc_corr": 0.499,
-   "platform_minus_ffc": -0.0,
+   "platform_minus_ffc": -0.004,
    "agreement_with_ffc": 0.943,
    "flag_late_update": false
   },
   "yahoo_2023": {
-   "players_with_adp": 237,
-   "top200_with_adp": 237,
-   "n": 176,
-   "platform_corr": 0.517,
-   "ffc_corr": 0.55,
-   "platform_minus_ffc": -0.033,
-   "agreement_with_ffc": 0.912,
+   "players_with_adp": 231,
+   "top200_with_adp": 231,
+   "n": 174,
+   "platform_corr": 0.502,
+   "ffc_corr": 0.563,
+   "platform_minus_ffc": -0.061,
+   "agreement_with_ffc": 0.928,
    "flag_late_update": false
   },
   "yahoo_2024": {
-   "players_with_adp": 229,
-   "top200_with_adp": 229,
-   "n": 180,
-   "platform_corr": 0.476,
-   "ffc_corr": 0.505,
-   "platform_minus_ffc": -0.029,
-   "agreement_with_ffc": 0.905,
+   "players_with_adp": 223,
+   "top200_with_adp": 223,
+   "n": 181,
+   "platform_corr": 0.48,
+   "ffc_corr": 0.523,
+   "platform_minus_ffc": -0.042,
+   "agreement_with_ffc": 0.917,
    "flag_late_update": false
   },
   "yahoo_2025": {
-   "status": "no ADP values"
+   "players_with_adp": 221,
+   "top200_with_adp": 221,
+   "n": 194,
+   "platform_corr": 0.588,
+   "ffc_corr": 0.546,
+   "platform_minus_ffc": 0.041,
+   "agreement_with_ffc": 0.925,
+   "flag_late_update": false
   },
   "mfl_2010": {
    "status": "no ADP values"
@@ -662,7 +591,6 @@
   "espn 2022: archived ADP predicts the season +0.111 better than FFC's dated preseason ADP",
   "espn 2023: archived ADP predicts the season +0.170 better than FFC's dated preseason ADP",
   "espn 2024: archived ADP predicts the season +0.124 better than FFC's dated preseason ADP",
-  "yahoo 2012: archived ADP predicts the season +0.093 better than FFC's dated preseason ADP",
   "mfl 2012: archived ADP predicts the season +0.079 better than FFC's dated preseason ADP",
   "mfl 2013: archived ADP predicts the season +0.050 better than FFC's dated preseason ADP",
   "mfl 2020: archived ADP predicts the season +0.084 better than FFC's dated preseason ADP",
