@@ -8,7 +8,7 @@ on:
     inputs:
       sources:
         description: "Sources to pull (space separated): nflverse ffc fp_adp spotrac inspect espn yahoo audit mfl yinspect sstruct"
-        default: "nflverse ffc fp_adp spotrac"
+        default: "nflverse ffc"
 
 permissions:
   contents: write
