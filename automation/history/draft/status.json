@@ -1871,6 +1871,228 @@
    "table_rows": 3
   }
  },
+ "mfl_adp": {
+  "ppr_2010": {
+   "at": "2026-11-25T00:03:26+00:00",
+   "head": "{\"version\":\"1.0\",\"adp\":{\"timestamp\":\"\",\"totalPicks\":\"0\",\"totalDrafts\":\"0\"},\"encoding\":\"utf-8\"}",
+   "status": "missing"
+  },
+  "ppr_2011": {
+   "at": "2026-11-25T00:03:29+00:00",
+   "drafts": "2247",
+   "players": 348,
+   "status": "ok",
+   "timestamp": "1795564861"
+  },
+  "ppr_2012": {
+   "at": "2026-11-25T00:03:36+00:00",
+   "drafts": "3022",
+   "players": 314,
+   "status": "ok",
+   "timestamp": "1795564913"
+  },
+  "ppr_2013": {
+   "at": "2026-11-25T00:03:43+00:00",
+   "drafts": "3765",
+   "players": 305,
+   "status": "ok",
+   "timestamp": "1795565023"
+  },
+  "ppr_2014": {
+   "at": "2026-11-25T00:03:51+00:00",
+   "drafts": "4843",
+   "players": 334,
+   "status": "ok",
+   "timestamp": "1795564123"
+  },
+  "ppr_2015": {
+   "at": "2026-11-25T00:03:58+00:00",
+   "drafts": "4545",
+   "players": 337,
+   "status": "ok",
+   "timestamp": "1795565038"
+  },
+  "ppr_2016": {
+   "at": "2026-11-25T00:04:05+00:00",
+   "drafts": "6532",
+   "players": 321,
+   "status": "ok",
+   "timestamp": "1795565045"
+  },
+  "ppr_2017": {
+   "at": "2026-11-25T00:04:12+00:00",
+   "drafts": "9305",
+   "players": 329,
+   "status": "ok",
+   "timestamp": "1795557317"
+  },
+  "ppr_2018": {
+   "at": "2026-11-25T00:04:20+00:00",
+   "drafts": "3310",
+   "players": 392,
+   "status": "ok",
+   "timestamp": "1795565059"
+  },
+  "ppr_2019": {
+   "at": "2026-11-25T00:04:27+00:00",
+   "drafts": "3467",
+   "players": 367,
+   "status": "ok",
+   "timestamp": "1795565067"
+  },
+  "ppr_2020": {
+   "at": "2026-11-25T00:04:35+00:00",
+   "drafts": "4004",
+   "players": 460,
+   "status": "ok",
+   "timestamp": "1795558093"
+  },
+  "ppr_2021": {
+   "at": "2026-11-25T00:04:42+00:00",
+   "drafts": "3813",
+   "players": 387,
+   "status": "ok",
+   "timestamp": "1795565082"
+  },
+  "ppr_2022": {
+   "at": "2026-11-25T00:04:50+00:00",
+   "drafts": "3215",
+   "players": 360,
+   "status": "ok",
+   "timestamp": "1795565090"
+  },
+  "ppr_2023": {
+   "at": "2026-11-25T00:04:58+00:00",
+   "drafts": "4997",
+   "players": 450,
+   "status": "ok",
+   "timestamp": "1795565097"
+  },
+  "ppr_2024": {
+   "at": "2026-11-25T00:05:05+00:00",
+   "drafts": "4454",
+   "players": 432,
+   "status": "ok",
+   "timestamp": "1795563403"
+  },
+  "ppr_2025": {
+   "at": "2026-11-25T00:05:13+00:00",
+   "drafts": "844",
+   "players": 457,
+   "status": "ok",
+   "timestamp": "1795565112"
+  },
+  "std_2010": {
+   "at": "2026-11-25T00:03:26+00:00",
+   "head": "{\"adp\":{\"timestamp\":\"\",\"totalDrafts\":\"0\",\"totalPicks\":\"0\"},\"version\":\"1.0\",\"encoding\":\"utf-8\"}",
+   "status": "missing"
+  },
+  "std_2011": {
+   "at": "2026-11-25T00:03:31+00:00",
+   "drafts": "872",
+   "players": 316,
+   "status": "ok",
+   "timestamp": "1795563910"
+  },
+  "std_2012": {
+   "at": "2026-11-25T00:03:38+00:00",
+   "drafts": "937",
+   "players": 337,
+   "status": "ok",
+   "timestamp": "1795565018"
+  },
+  "std_2013": {
+   "at": "2026-11-25T00:03:45+00:00",
+   "drafts": "853",
+   "players": 319,
+   "status": "ok",
+   "timestamp": "1795558099"
+  },
+  "std_2014": {
+   "at": "2026-11-25T00:03:53+00:00",
+   "drafts": "810",
+   "players": 351,
+   "status": "ok",
+   "timestamp": "1795561315"
+  },
+  "std_2015": {
+   "at": "2026-11-25T00:04:00+00:00",
+   "drafts": "153",
+   "players": 427,
+   "status": "ok",
+   "timestamp": "1795558808"
+  },
+  "std_2016": {
+   "at": "2026-11-25T00:04:07+00:00",
+   "drafts": "589",
+   "players": 315,
+   "status": "ok",
+   "timestamp": "1795565047"
+  },
+  "std_2017": {
+   "at": "2026-11-25T00:04:15+00:00",
+   "drafts": "878",
+   "players": 360,
+   "status": "ok",
+   "timestamp": "1795565054"
+  },
+  "std_2018": {
+   "at": "2026-11-25T00:04:22+00:00",
+   "drafts": "578",
+   "players": 314,
+   "status": "ok",
+   "timestamp": "1795565062"
+  },
+  "std_2019": {
+   "at": "2026-11-25T00:04:30+00:00",
+   "drafts": "475",
+   "players": 326,
+   "status": "ok",
+   "timestamp": "1795565070"
+  },
+  "std_2020": {
+   "at": "2026-11-25T00:04:37+00:00",
+   "drafts": "470",
+   "players": 368,
+   "status": "ok",
+   "timestamp": "1795565077"
+  },
+  "std_2021": {
+   "at": "2026-11-25T00:04:45+00:00",
+   "drafts": "558",
+   "players": 364,
+   "status": "ok",
+   "timestamp": "1795565085"
+  },
+  "std_2022": {
+   "at": "2026-11-25T00:04:53+00:00",
+   "drafts": "485",
+   "players": 351,
+   "status": "ok",
+   "timestamp": "1795565092"
+  },
+  "std_2023": {
+   "at": "2026-11-25T00:05:00+00:00",
+   "drafts": "792",
+   "players": 386,
+   "status": "ok",
+   "timestamp": "1795564556"
+  },
+  "std_2024": {
+   "at": "2026-11-25T00:05:08+00:00",
+   "drafts": "729",
+   "players": 378,
+   "status": "ok",
+   "timestamp": "1795565107"
+  },
+  "std_2025": {
+   "at": "2026-11-25T00:05:15+00:00",
+   "drafts": "203",
+   "players": 339,
+   "status": "ok",
+   "timestamp": "1795561738"
+  }
+ },
  "nflverse": {
   "advstats_season_pass.parquet": {
    "at": "2026-11-24T22:24:58+00:00",
