@@ -5,6 +5,7 @@ import os
 import re
 from html.parser import HTMLParser
 
+import numpy as np
 import pandas as pd
 
 from draft_data import OUT, load
@@ -145,6 +146,9 @@ def yahoo(year):
     d = pd.DataFrame(rows.values())
     for c in ["adp", "adp_all", "avg_round", "pct_drafted"]:
         d[c] = pd.to_numeric(d[c], errors="coerce")
+    # the preseason field exists from 2022; before that, all-drafts ADP (which passed the late-update audit)
+    d["adp_field"] = np.where(d["adp"].notna(), "preseason", "all_drafts")
+    d["adp"] = d["adp"].fillna(d["adp_all"])
     d["team"] = d["team"].replace({**FP_TEAM, "JAC": "JAX", "LAR": "LA", "WSH": "WAS"})
     d["pos"] = d["pos"].str.split(",").str[0].replace({"DST": "DEF"})
     return d[d["adp"].notna() & (d["adp"] > 0)]
