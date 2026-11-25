@@ -277,6 +277,153 @@
   },
   "yahoo_2025": {
    "status": "no ADP values"
+  },
+  "mfl_2010": {
+   "status": "no ADP values"
+  },
+  "mfl_2011": {
+   "players_with_adp": 348,
+   "top200_with_adp": 284
+  },
+  "mfl_2012": {
+   "players_with_adp": 314,
+   "top200_with_adp": 257,
+   "n": 94,
+   "platform_corr": 0.467,
+   "ffc_corr": 0.388,
+   "platform_minus_ffc": 0.079,
+   "agreement_with_ffc": 0.94,
+   "flag_late_update": true
+  },
+  "mfl_2013": {
+   "players_with_adp": 305,
+   "top200_with_adp": 241,
+   "n": 176,
+   "platform_corr": 0.543,
+   "ffc_corr": 0.493,
+   "platform_minus_ffc": 0.05,
+   "agreement_with_ffc": 0.961,
+   "flag_late_update": true
+  },
+  "mfl_2014": {
+   "players_with_adp": 334,
+   "top200_with_adp": 224,
+   "n": 179,
+   "platform_corr": 0.535,
+   "ffc_corr": 0.529,
+   "platform_minus_ffc": 0.006,
+   "agreement_with_ffc": 0.976,
+   "flag_late_update": false
+  },
+  "mfl_2015": {
+   "players_with_adp": 337,
+   "top200_with_adp": 231,
+   "n": 187,
+   "platform_corr": 0.403,
+   "ffc_corr": 0.434,
+   "platform_minus_ffc": -0.031,
+   "agreement_with_ffc": 0.935,
+   "flag_late_update": false
+  },
+  "mfl_2016": {
+   "players_with_adp": 321,
+   "top200_with_adp": 236,
+   "n": 176,
+   "platform_corr": 0.306,
+   "ffc_corr": 0.338,
+   "platform_minus_ffc": -0.032,
+   "agreement_with_ffc": 0.959,
+   "flag_late_update": false
+  },
+  "mfl_2017": {
+   "players_with_adp": 329,
+   "top200_with_adp": 232,
+   "n": 172,
+   "platform_corr": 0.416,
+   "ffc_corr": 0.412,
+   "platform_minus_ffc": 0.004,
+   "agreement_with_ffc": 0.944,
+   "flag_late_update": false
+  },
+  "mfl_2018": {
+   "players_with_adp": 392,
+   "top200_with_adp": 255,
+   "n": 181,
+   "platform_corr": 0.483,
+   "ffc_corr": 0.448,
+   "platform_minus_ffc": 0.035,
+   "agreement_with_ffc": 0.962,
+   "flag_late_update": false
+  },
+  "mfl_2019": {
+   "players_with_adp": 367,
+   "top200_with_adp": 251,
+   "n": 181,
+   "platform_corr": 0.572,
+   "ffc_corr": 0.544,
+   "platform_minus_ffc": 0.028,
+   "agreement_with_ffc": 0.961,
+   "flag_late_update": false
+  },
+  "mfl_2020": {
+   "players_with_adp": 460,
+   "top200_with_adp": 281,
+   "n": 189,
+   "platform_corr": 0.555,
+   "ffc_corr": 0.471,
+   "platform_minus_ffc": 0.084,
+   "agreement_with_ffc": 0.936,
+   "flag_late_update": true
+  },
+  "mfl_2021": {
+   "players_with_adp": 387,
+   "top200_with_adp": 290,
+   "n": 197,
+   "platform_corr": 0.59,
+   "ffc_corr": 0.516,
+   "platform_minus_ffc": 0.074,
+   "agreement_with_ffc": 0.945,
+   "flag_late_update": true
+  },
+  "mfl_2022": {
+   "players_with_adp": 360,
+   "top200_with_adp": 294,
+   "n": 152,
+   "platform_corr": 0.545,
+   "ffc_corr": 0.499,
+   "platform_minus_ffc": 0.047,
+   "agreement_with_ffc": 0.964,
+   "flag_late_update": false
+  },
+  "mfl_2023": {
+   "players_with_adp": 450,
+   "top200_with_adp": 403,
+   "n": 186,
+   "platform_corr": 0.606,
+   "ffc_corr": 0.552,
+   "platform_minus_ffc": 0.054,
+   "agreement_with_ffc": 0.959,
+   "flag_late_update": true
+  },
+  "mfl_2024": {
+   "players_with_adp": 432,
+   "top200_with_adp": 399,
+   "n": 191,
+   "platform_corr": 0.566,
+   "ffc_corr": 0.506,
+   "platform_minus_ffc": 0.061,
+   "agreement_with_ffc": 0.954,
+   "flag_late_update": true
+  },
+  "mfl_2025": {
+   "players_with_adp": 457,
+   "top200_with_adp": 315,
+   "n": 200,
+   "platform_corr": 0.589,
+   "ffc_corr": 0.513,
+   "platform_minus_ffc": 0.076,
+   "agreement_with_ffc": 0.921,
+   "flag_late_update": true
   }
  },
  "fp_ecr_preseason": "fpdata not available in this run (checked locally)",
@@ -515,6 +662,13 @@
   "espn 2022: archived ADP predicts the season +0.111 better than FFC's dated preseason ADP",
   "espn 2023: archived ADP predicts the season +0.170 better than FFC's dated preseason ADP",
   "espn 2024: archived ADP predicts the season +0.124 better than FFC's dated preseason ADP",
-  "yahoo 2012: archived ADP predicts the season +0.093 better than FFC's dated preseason ADP"
+  "yahoo 2012: archived ADP predicts the season +0.093 better than FFC's dated preseason ADP",
+  "mfl 2012: archived ADP predicts the season +0.079 better than FFC's dated preseason ADP",
+  "mfl 2013: archived ADP predicts the season +0.050 better than FFC's dated preseason ADP",
+  "mfl 2020: archived ADP predicts the season +0.084 better than FFC's dated preseason ADP",
+  "mfl 2021: archived ADP predicts the season +0.074 better than FFC's dated preseason ADP",
+  "mfl 2023: archived ADP predicts the season +0.054 better than FFC's dated preseason ADP",
+  "mfl 2024: archived ADP predicts the season +0.061 better than FFC's dated preseason ADP",
+  "mfl 2025: archived ADP predicts the season +0.076 better than FFC's dated preseason ADP"
  ]
 }
