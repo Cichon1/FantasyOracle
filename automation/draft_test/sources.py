@@ -145,3 +145,25 @@ def yahoo(year):
     d["team"] = d["team"].replace({**FP_TEAM, "JAC": "JAX", "LAR": "LA", "WSH": "WAS"})
     d["pos"] = d["pos"].str.split(",").str[0].replace({"DST": "DEF"})
     return d[d["adp"].notna() & (d["adp"] > 0)]
+
+
+def mfl(year, fmt="ppr"):
+    """MFL ADP (averagePick) named through that season's MFL player list."""
+    p = os.path.join(OUT, "mfl_adp", f"mfl_adp_{fmt}_{year}.enc")
+    pp = os.path.join(OUT, "mfl_adp", f"mfl_players_{year}.enc")
+    if not os.path.exists(p) or not os.path.exists(pp):
+        return None
+    adp = json.loads(load(p, enc=True)).get("adp", {}).get("player", [])
+    pl = {x["id"]: x for x in json.loads(load(pp, enc=True)).get("players", {}).get("player", [])}
+    rows = []
+    for a in adp:
+        x = pl.get(a.get("id"), {})
+        nm = x.get("name", "")
+        if "," in nm:                     # MFL names are "Last, First"
+            last, first = nm.split(",", 1)
+            nm = first.strip() + " " + last.strip()
+        rows.append({"player": nm, "pos": {"Def": "DEF", "PK": "K"}.get(x.get("position"), x.get("position")),
+                     "team": FP_TEAM.get(x.get("team"), x.get("team")), "adp": a.get("averagePick"), "mfl_id": a.get("id")})
+    d = pd.DataFrame(rows)
+    d["adp"] = pd.to_numeric(d["adp"], errors="coerce")
+    return d[d["adp"].notna() & (d["adp"] > 0)]

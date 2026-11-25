@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       sources:
-        description: "Sources to pull (space separated): nflverse ffc fp_adp spotrac inspect espn yahoo audit"
+        description: "Sources to pull (space separated): nflverse ffc fp_adp spotrac inspect espn yahoo audit mfl yinspect"
         default: "nflverse ffc fp_adp spotrac"
 
 permissions:
@@ -88,6 +88,18 @@ jobs:
       - name: Autosave
         if: always()
         run: /tmp/save.sh espn
+      - name: MyFantasyLeague ADP
+        if: contains(github.event.inputs.sources, 'mfl')
+        timeout-minutes: 20
+        continue-on-error: true
+        run: python automation/draft_test/draft_data.py mfl_adp
+      - name: Autosave
+        if: always()
+        run: /tmp/save.sh mfl
+      - name: Yahoo ADP check (counts only)
+        if: contains(github.event.inputs.sources, 'yinspect')
+        continue-on-error: true
+        run: python automation/draft_test/draft_data.py yahoo_inspect
       - name: Hindsight audit (counts, dates and correlations only)
         if: contains(github.event.inputs.sources, 'audit')
         continue-on-error: true

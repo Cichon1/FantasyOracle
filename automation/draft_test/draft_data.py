@@ -246,6 +246,53 @@ def espn_adp():
         log("espn_adp", str(y), "ok", {"players": len(pl), "with_adp": with_adp})
         time.sleep(2)
 
+
+# ---------------------------------------------------------------- MyFantasyLeague public ADP export (encrypted)
+def mfl_adp():
+    """MFL ADP from real (not mock) redraft drafts, 12 teams, PPR and non-PPR, plus that season's player list (to name
+    the MFL ids). The response's timestamp and draft count are logged for the hindsight audit."""
+    for y in range(2010, 2026):
+        pp = os.path.join(OUT, "mfl_adp", f"mfl_players_{y}.enc")
+        if not os.path.exists(pp):
+            txt = get(f"https://api.myfantasyleague.com/{y}/export?TYPE=players&DETAILS=0&JSON=1")
+            if txt and '"player"' in txt:
+                save(pp, txt, enc=True)
+            time.sleep(2)
+        for ppr in [1, 0]:
+            path = os.path.join(OUT, "mfl_adp", f"mfl_adp_{'ppr' if ppr else 'std'}_{y}.enc")
+            if os.path.exists(path):
+                continue
+            txt = get(f"https://api.myfantasyleague.com/{y}/export?TYPE=adp&PERIOD=ALL&FCOUNT=12&IS_PPR={ppr}"
+                      f"&IS_KEEPER=N&IS_MOCK=0&CUTOFF=5&DETAILS=&JSON=1")
+            if not txt or '"player"' not in txt:
+                log("mfl_adp", f"{'ppr' if ppr else 'std'}_{y}", "missing", {"head": (txt or "")[:120]})
+                continue
+            j = json.loads(txt).get("adp", {})
+            save(path, txt, enc=True)
+            log("mfl_adp", f"{'ppr' if ppr else 'std'}_{y}", "ok",
+                {"players": len(j.get("player", [])), "drafts": j.get("totalDrafts"), "timestamp": j.get("timestamp")})
+            time.sleep(2)
+
+
+def yahoo_inspect():
+    """Per season: how many players carry a numeric average_pick, and what the empty ones hold (no data printed)."""
+    import xml.etree.ElementTree as ET
+    from collections import Counter
+    d = os.path.join(OUT, "yahoo_adp")
+    for f in sorted(os.listdir(d)) if os.path.isdir(d) else []:
+        j = json.loads(load(os.path.join(d, f), enc=True))
+        c, tags = Counter(), Counter()
+        for ch in j["pages"]:
+            for pl in ET.fromstring(ch).iter("player"):
+                da = pl.find("draft_analysis")
+                if da is None:
+                    c["no draft_analysis"] += 1
+                    continue
+                tags.update(x.tag for x in da)
+                v = (da.findtext("average_pick") or "").strip()
+                c["numeric" if re.fullmatch(r"[\d.]+", v) else ("dash" if v == "-" else ("empty" if not v else "other"))] += 1
+        print(f, j.get("game_key"), dict(c), dict(tags))
+
 def fp_inspect():
     """Structure of the saved FantasyPros ADP pages only (sizes, tags, notices) - never their data (public logs)."""
     d = os.path.join(OUT, "fp_adp")
@@ -285,4 +332,4 @@ def status():
 
 if __name__ == "__main__":
     {"ffc": ffc, "fp_adp": fp_adp, "nflverse": nflverse, "spotrac": spotrac, "status": status, "fp_inspect": fp_inspect, "spotrac_inspect": spotrac_inspect,
-     "yahoo_adp": yahoo_adp, "espn_adp": espn_adp}[sys.argv[1]]()
+     "yahoo_adp": yahoo_adp, "espn_adp": espn_adp, "mfl_adp": mfl_adp, "yahoo_inspect": yahoo_inspect}[sys.argv[1]]()

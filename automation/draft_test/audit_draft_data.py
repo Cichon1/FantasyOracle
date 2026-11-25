@@ -83,7 +83,8 @@ def main():
     rep["fp_adp_late_update"] = late
     # 2b. the same late-update test for the platforms' own ADP (ESPN, Yahoo): coverage and correlation vs FFC
     plat = {}
-    for name, fn, years in [("espn", S.espn, range(2018, 2026)), ("yahoo", S.yahoo, range(2010, 2026))]:
+    for name, fn, years in [("espn", S.espn, range(2018, 2026)), ("yahoo", S.yahoo, range(2010, 2026)),
+                            ("mfl", S.mfl, range(2010, 2026))]:
         for y in years:
             try:
                 d = fn(y)
