@@ -1,0 +1,210 @@
+
+== bdsm: all seasons league                seat  title  playoffs  d_title  d_playoffs   d_pf  se_title  se_pf  seasons  beat_ctl_title_in
+  bdsm       late_te | ecr  0.114     0.726    0.039      -0.004  0.685     0.027  1.489        5                  4
+  bdsm     robust_rb | ecr  0.095     0.736    0.020       0.006  0.237     0.023  0.720        5                  4
+  bdsm      late_te | ours  0.098     0.658    0.016      -0.046 -1.449     0.013  0.600       13                  8
+  bdsm               c_ecr  0.086     0.615    0.011      -0.116 -2.086     0.006  1.413        5                  4
+  bdsm         tiers | ecr  0.084     0.730    0.009      -0.000  0.073     0.027  0.812        5                  2
+  bdsm      late_qb | ours  0.091     0.610    0.009      -0.094 -2.071     0.009  0.728       13                  7
+  bdsm     robust_rb | adp  0.089     0.704    0.007      -0.000 -0.353     0.010  0.485       13                  6
+  bdsm    robust_rb | ours  0.087     0.607    0.006      -0.097 -2.401     0.009  0.713       13                  6
+  bdsm     elite_te | ours  0.087     0.593    0.005      -0.111 -2.687     0.008  0.861       13                  6
+  bdsm       late_qb | adp  0.087     0.673    0.005      -0.031 -0.814     0.011  0.627       13                  8
+  bdsm          bpa | ours  0.086     0.594    0.004      -0.110 -2.642     0.008  0.871       13                  6
+  bdsm     handcuff | ours  0.085     0.605    0.004      -0.099 -2.512     0.008  0.890       13                  5
+  bdsm  upside_late | ours  0.083     0.597    0.002      -0.107 -2.593     0.010  0.940       13                  6
+  bdsm      hero_rb | ours  0.082     0.594    0.000      -0.110 -2.855     0.010  1.220       13                  4
+  bdsm               c_adp  0.082     0.704    0.000       0.000  0.000     0.000  0.000       13                  0
+  bdsm       late_qb | ecr  0.075     0.700    0.000      -0.030 -0.964     0.011  0.934        5                  3
+  bdsm             c_noisy  0.081     0.581   -0.000      -0.123 -2.924     0.006  0.419       13                  6
+  bdsm       late_te | adp  0.081     0.686   -0.000      -0.018 -0.434     0.009  0.622       13                  7
+  bdsm   upside_late | ecr  0.071     0.667   -0.004      -0.064 -1.785     0.011  0.815        5                  2
+  bdsm      early_qb | ecr  0.071     0.694   -0.004      -0.036 -0.581     0.015  0.616        5                  2
+  bdsm  value_vs_adp | ecr  0.071     0.699   -0.004      -0.031 -0.534     0.022  0.802        5                  2
+  bdsm         tiers | adp  0.077     0.706   -0.005       0.002 -0.079     0.008  0.438       13                  5
+  bdsm value_vs_adp | ours  0.077     0.603   -0.005      -0.101 -2.319     0.009  0.705       13                  6
+  bdsm      handcuff | adp  0.075     0.671   -0.006      -0.033 -0.947     0.009  0.483       13                  4
+  bdsm      wr_heavy | adp  0.073     0.666   -0.008      -0.038 -0.839     0.008  0.610       13                  6
+  bdsm   upside_late | adp  0.073     0.694   -0.009      -0.010 -0.911     0.008  0.600       13                  5
+  bdsm      handcuff | ecr  0.066     0.674   -0.009      -0.056 -1.279     0.014  0.827        5                  2
+  bdsm      early_qb | adp  0.072     0.689   -0.010      -0.015 -0.906     0.007  0.382       13                  5
+  bdsm     early_qb | ours  0.072     0.587   -0.010      -0.117 -3.003     0.009  0.777       13                  4
+  bdsm        tiers | ours  0.072     0.631   -0.010      -0.073 -1.619     0.009  0.681       13                  4
+  bdsm       zero_rb | adp  0.071     0.667   -0.010      -0.037 -1.235     0.006  0.781       13                  3
+  bdsm      wr_heavy | ecr  0.065     0.631   -0.010      -0.099 -1.925     0.012  1.375        5                  2
+  bdsm           bpa | adp  0.070     0.685   -0.012      -0.018 -0.818     0.009  0.506       13                  5
+  bdsm      zero_rb | ours  0.070     0.549   -0.012      -0.155 -3.312     0.011  1.345       13                  5
+  bdsm      elite_te | adp  0.069     0.685   -0.013      -0.019 -0.797     0.008  0.493       13                  4
+  bdsm       hero_rb | ecr  0.061     0.673   -0.014      -0.057 -1.159     0.020  1.023        5                  2
+  bdsm       hero_rb | adp  0.068     0.683   -0.014      -0.021 -0.642     0.005  0.596       13                  3
+  bdsm     wr_heavy | ours  0.068     0.555   -0.014      -0.149 -3.086     0.013  1.358       13                  5
+  bdsm           bpa | ecr  0.056     0.673   -0.019      -0.057 -1.035     0.016  0.923        5                  1
+  bdsm       zero_rb | ecr  0.055     0.581   -0.020      -0.149 -2.683     0.020  1.562        5                  2
+  bdsm      elite_te | ecr  0.054     0.677   -0.021      -0.053 -1.109     0.015  0.934        5                  1
+
+== bdsm: 2020-2025 league                seat  title  playoffs  d_title  d_playoffs   d_pf  se_title  se_pf  seasons  beat_ctl_title_in
+  bdsm       late_te | ecr  0.114     0.726    0.039      -0.004  0.685     0.027  1.489        5                  4
+  bdsm     robust_rb | ecr  0.095     0.736    0.020       0.006  0.237     0.023  0.720        5                  4
+  bdsm       late_qb | adp  0.093     0.676    0.019      -0.049 -0.652     0.018  0.861        6                  4
+  bdsm    robust_rb | ours  0.089     0.540    0.016      -0.185 -4.045     0.012  1.109        6                  4
+  bdsm      late_te | ours  0.089     0.619    0.015      -0.106 -2.196     0.022  0.926        6                  3
+  bdsm     robust_rb | adp  0.089     0.714    0.015      -0.011 -0.486     0.020  0.374        6                  4
+  bdsm       late_te | adp  0.087     0.696    0.013      -0.029 -0.277     0.015  0.783        6                  4
+  bdsm         tiers | adp  0.087     0.739    0.013       0.014  0.585     0.008  0.527        6                  3
+  bdsm               c_ecr  0.086     0.615    0.011      -0.116 -2.086     0.006  1.413        5                  4
+  bdsm      late_qb | ours  0.085     0.531    0.011      -0.194 -3.662     0.012  1.057        6                  4
+  bdsm  upside_late | ours  0.083     0.493    0.010      -0.232 -5.004     0.010  1.318        6                  4
+  bdsm         tiers | ecr  0.084     0.730    0.009      -0.000  0.073     0.027  0.812        5                  2
+  bdsm value_vs_adp | ours  0.082     0.537    0.009      -0.188 -3.657     0.013  1.171        6                  4
+  bdsm          bpa | ours  0.079     0.516    0.005      -0.208 -4.238     0.009  1.491        6                  3
+  bdsm     elite_te | ours  0.079     0.516    0.005      -0.208 -4.238     0.009  1.491        6                  3
+
+== league: all seasons league                seat  title  playoffs  d_title  d_playoffs   d_pf  se_title  se_pf  seasons  beat_ctl_title_in
+league      elite_te | adp  0.106     0.512    0.008      -0.013 -0.370     0.012  0.719       13                  7
+league       zero_rb | adp  0.106     0.514    0.007      -0.010 -0.431     0.014  0.747       13                  6
+league           bpa | adp  0.105     0.506    0.006      -0.019 -0.530     0.012  0.708       13                  6
+league       hero_rb | adp  0.105     0.516    0.006      -0.008 -0.398     0.014  0.749       13                  5
+league      elite_te | ecr  0.096     0.529    0.004      -0.005 -0.306     0.015  0.861        5                  2
+league       late_qb | adp  0.102     0.504    0.003      -0.021 -0.575     0.013  0.681       13                  6
+league      wr_heavy | adp  0.101     0.501    0.002      -0.024 -0.629     0.012  0.692       13                  6
+league               c_adp  0.099     0.525    0.000       0.000  0.000     0.000  0.000       13                  0
+league       late_te | ecr  0.085     0.475   -0.006      -0.059 -0.819     0.016  1.070        5                  2
+league   upside_late | ecr  0.085     0.451   -0.006      -0.083 -1.541     0.011  0.903        5                  1
+league      handcuff | adp  0.092     0.488   -0.007      -0.037 -0.811     0.011  0.717       13                  6
+league               c_ecr  0.084     0.503   -0.007      -0.031  0.144     0.015  1.188        5                  1
+league     robust_rb | adp  0.091     0.532   -0.008       0.007 -0.091     0.013  0.603       13                  5
+league     robust_rb | ecr  0.083     0.496   -0.008      -0.039 -0.228     0.019  1.793        5                  1
+league value_vs_adp | ours  0.089     0.482   -0.010      -0.043 -0.778     0.010  0.811       13                  5
+league      early_qb | adp  0.088     0.503   -0.010      -0.022 -0.506     0.011  0.683       13                  4
+league      handcuff | ecr  0.080     0.436   -0.011      -0.098 -2.056     0.013  1.168        5                  2
+league      late_te | ours  0.087     0.476   -0.012      -0.048 -1.251     0.012  0.886       13                  6
+league       late_te | adp  0.086     0.491   -0.012      -0.034 -0.693     0.011  0.695       13                  4
+league         tiers | adp  0.086     0.482   -0.012      -0.043 -1.021     0.011  0.390       13                  5
+league       late_qb | ecr  0.078     0.457   -0.014      -0.077 -1.295     0.010  1.124        5                  1
+league           bpa | ecr  0.077     0.453   -0.015      -0.081 -1.192     0.011  1.069        5                  1
+league       hero_rb | ecr  0.077     0.453   -0.015      -0.081 -1.192     0.011  1.069        5                  1
+league       zero_rb | ecr  0.077     0.453   -0.015      -0.081 -1.192     0.011  1.069        5                  1
+league      late_qb | ours  0.083     0.470   -0.015      -0.055 -1.191     0.006  0.857       13                  4
+league      wr_heavy | ecr  0.076     0.452   -0.016      -0.082 -1.211     0.011  1.059        5                  1
+league      early_qb | ecr  0.074     0.490   -0.018      -0.045 -0.619     0.016  1.777        5                  1
+league  value_vs_adp | ecr  0.074     0.459   -0.018      -0.075 -1.184     0.015  1.032        5                  1
+league          bpa | ours  0.079     0.449   -0.020      -0.076 -1.396     0.006  0.829       13                  2
+league      hero_rb | ours  0.078     0.442   -0.021      -0.083 -1.561     0.006  0.793       13                  2
+league   upside_late | adp  0.078     0.485   -0.021      -0.040 -1.024     0.011  0.599       13                  4
+league     wr_heavy | ours  0.077     0.440   -0.022      -0.085 -1.509     0.007  0.807       13                  2
+league     handcuff | ours  0.077     0.454   -0.022      -0.071 -1.343     0.008  0.795       13                  3
+league      zero_rb | ours  0.076     0.428   -0.023      -0.097 -1.731     0.008  0.784       13                  3
+league         tiers | ecr  0.068     0.561   -0.024       0.027  0.343     0.016  1.016        5                  1
+league     elite_te | ours  0.075     0.447   -0.024      -0.078 -1.351     0.006  0.831       13                  3
+league             c_noisy  0.072     0.401   -0.027      -0.124 -2.732     0.010  0.450       13                  4
+league    robust_rb | ours  0.067     0.482   -0.032      -0.042 -0.894     0.009  0.695       13                  2
+league  upside_late | ours  0.063     0.442   -0.036      -0.083 -1.821     0.013  0.882       13                  1
+league     early_qb | ours  0.062     0.442   -0.036      -0.083 -1.575     0.009  0.832       13                  2
+league        tiers | ours  0.059     0.435   -0.040      -0.090 -1.737     0.007  0.631       13                  0
+
+== league: 2020-2025 league                seat  title  playoffs  d_title  d_playoffs   d_pf  se_title  se_pf  seasons  beat_ctl_title_in
+league     robust_rb | adp  0.102     0.546    0.012       0.028 -0.002     0.020  1.032        6                  3
+league      elite_te | adp  0.097     0.484    0.008      -0.034 -1.102     0.015  1.233        6                  3
+league       zero_rb | adp  0.096     0.483    0.007      -0.036 -1.161     0.016  1.326        6                  2
+league           bpa | adp  0.095     0.484    0.006      -0.035 -1.176     0.016  1.315        6                  2
+league       hero_rb | adp  0.095     0.483    0.006      -0.036 -1.169     0.016  1.320        6                  2
+league      wr_heavy | adp  0.095     0.481    0.005      -0.037 -1.183     0.016  1.319        6                  2
+league      elite_te | ecr  0.096     0.529    0.004      -0.005 -0.306     0.015  0.861        5                  2
+league       late_qb | adp  0.090     0.477    0.001      -0.042 -1.210     0.018  1.269        6                  2
+league               c_adp  0.089     0.518    0.000       0.000  0.000     0.000  0.000        6                  0
+league         tiers | adp  0.089     0.502   -0.001      -0.016 -0.620     0.012  0.574        6                  3
+league      handcuff | adp  0.086     0.450   -0.003      -0.069 -1.419     0.014  1.297        6                  3
+league      late_qb | ours  0.085     0.398   -0.004      -0.120 -2.305     0.008  0.938        6                  3
+league       late_te | ecr  0.085     0.475   -0.006      -0.059 -0.819     0.016  1.070        5                  2
+league   upside_late | ecr  0.085     0.451   -0.006      -0.083 -1.541     0.011  0.903        5                  1
+league value_vs_adp | ours  0.082     0.438   -0.007      -0.080 -1.562     0.012  1.015        6                  2
+
+== walk-forward
+ league  test_season              lookback              picked  history_score  test_d_title  test_d_playoffs  test_d_pf
+  bdsm         2021             all prior      late_te | ours          0.010         0.000           -0.120     -1.097
+  bdsm         2021                last 5      late_te | ours          0.018         0.000           -0.120     -1.097
+  bdsm         2021                last 3       late_qb | adp          0.035        -0.031           -0.198     -1.365
+  bdsm         2021 recency (half-life 3)      late_qb | ours          0.017         0.010           -0.094     -0.536
+  bdsm         2022             all prior      hero_rb | ours          0.012        -0.031           -0.500    -11.322
+  bdsm         2022                last 5      hero_rb | ours          0.029        -0.031           -0.500    -11.322
+  bdsm         2022                last 3      hero_rb | ours          0.049        -0.031           -0.500    -11.322
+  bdsm         2022 recency (half-life 3)      hero_rb | ours          0.024        -0.031           -0.500    -11.322
+  bdsm         2023             all prior     elite_te | ours          0.009         0.000           -0.135     -2.120
+  bdsm         2023                last 5          bpa | ours          0.020         0.000           -0.135     -2.120
+  bdsm         2023                last 3          bpa | ours          0.017         0.000           -0.135     -2.120
+  bdsm         2023 recency (half-life 3)     elite_te | ours          0.015         0.000           -0.135     -2.120
+  bdsm         2024             all prior      late_te | ours          0.013         0.104           -0.083     -1.581
+  bdsm         2024                last 5  upside_late | ours          0.028         0.010           -0.297     -6.064
+  bdsm         2024                last 3    robust_rb | ours          0.024         0.047           -0.234     -5.130
+  bdsm         2024 recency (half-life 3)      late_te | ours          0.018         0.104           -0.083     -1.581
+  bdsm         2025             all prior      late_te | ours          0.020        -0.031           -0.062     -1.864
+  bdsm         2025                last 5      late_te | ours          0.024        -0.031           -0.062     -1.864
+  bdsm         2025                last 3      late_te | ours          0.054        -0.031           -0.062     -1.864
+  bdsm         2025 recency (half-life 3)      late_te | ours          0.037        -0.031           -0.062     -1.864
+league         2021             all prior       zero_rb | adp          0.006        -0.036           -0.120     -2.389
+league         2021                last 5 value_vs_adp | ours         -0.001        -0.005           -0.125     -1.942
+league         2021                last 3      late_te | ours          0.030        -0.021           -0.094     -2.071
+league         2021 recency (half-life 3)      elite_te | adp          0.005        -0.036           -0.125     -2.594
+league         2022             all prior       zero_rb | adp          0.002         0.057            0.042     -0.391
+league         2022                last 5 value_vs_adp | ours          0.010         0.036           -0.099     -3.447
+league         2022                last 3     robust_rb | adp          0.021         0.021            0.052      0.616
+league         2022 recency (half-life 3) value_vs_adp | ours         -0.002         0.036           -0.099     -3.447
+league         2023             all prior       zero_rb | adp          0.007         0.052           -0.016      0.006
+league         2023                last 5      late_te | ours          0.019        -0.036           -0.120     -1.813
+league         2023                last 3     robust_rb | adp          0.028        -0.005           -0.047     -0.497
+league         2023 recency (half-life 3)      elite_te | adp          0.010         0.047            0.005      0.285
+league         2024             all prior       zero_rb | adp          0.011        -0.026           -0.286     -5.770
+league         2024                last 5      elite_te | adp          0.017        -0.021           -0.250     -4.723
+league         2024                last 3       late_qb | adp          0.026        -0.031           -0.271     -5.543
+league         2024 recency (half-life 3)       zero_rb | adp          0.018        -0.026           -0.286     -5.770
+league         2025             all prior       zero_rb | adp          0.008        -0.005           -0.062     -2.408
+league         2025                last 5     robust_rb | adp          0.021        -0.031           -0.125     -2.604
+league         2025                last 3           bpa | adp          0.028        -0.005           -0.062     -2.415
+league         2025 recency (half-life 3)      elite_te | adp          0.009         0.005           -0.094     -2.859
+
+== walk-forward by look-back
+                               test_d_title  test_d_playoffs  test_d_pf
+league lookback                                                       
+bdsm   all prior                     0.008           -0.180     -3.597
+       last 3                       -0.009           -0.226     -4.360
+       last 5                       -0.010           -0.223     -4.493
+       recency (half-life 3)         0.010           -0.175     -3.485
+league all prior                     0.008           -0.089     -2.190
+       last 3                       -0.008           -0.084     -1.982
+       last 5                       -0.011           -0.144     -2.906
+       recency (half-life 3)         0.005           -0.120     -2.877
+
+== position value trends
+ league pos       band  par_2013_19  par_2020_25  slope_per_season    se  trend
+  bdsm  QB rounds 1-2        -37.7         71.2              7.73 10.87  False
+  bdsm  QB rounds 3-5         40.5         15.7             -1.71  5.18  False
+  bdsm  QB rounds 6-9         -9.8        -12.7             -2.67  3.34  False
+  bdsm  QB rounds 10+        -36.1        -60.8             -1.49  2.31  False
+  bdsm  RB rounds 1-2         69.4         84.0              3.69  2.28  False
+  bdsm  RB rounds 3-5         11.6         23.4              2.27  1.65  False
+  bdsm  RB rounds 6-9        -11.0        -18.9             -1.38  1.48  False
+  bdsm  RB rounds 10+        -46.5        -54.1             -1.06  1.32  False
+  bdsm  TE rounds 1-2        114.0        139.9              0.10  7.81  False
+  bdsm  TE rounds 3-5         77.7         51.4             -1.09  2.00  False
+  bdsm  TE rounds 6-9         31.5         21.3             -0.99  1.57  False
+  bdsm  TE rounds 10+         27.0          9.6             -1.41  2.26  False
+  bdsm  WR rounds 1-2         57.0         66.1             -1.30  2.58  False
+  bdsm  WR rounds 3-5         26.0          6.4             -3.43  1.52   True
+  bdsm  WR rounds 6-9        -22.1        -24.1             -1.28  1.41  False
+  bdsm  WR rounds 10+        -52.3        -64.7             -1.24  1.06  False
+league  QB rounds 1-2        -32.2         79.2              7.85 11.49  False
+league  QB rounds 3-5         43.2         19.9             -1.72  4.83  False
+league  QB rounds 6-9         -9.6        -12.3             -2.40  3.29  False
+league  QB rounds 10+        -37.5        -61.1             -1.11  2.44  False
+league  RB rounds 1-2         73.5         89.0              3.81  2.45  False
+league  RB rounds 3-5         13.6         24.0              2.05  1.74  False
+league  RB rounds 6-9        -10.6        -19.0             -1.55  1.50  False
+league  RB rounds 10+        -46.3        -54.5             -1.19  1.32  False
+league  TE rounds 1-2        115.4        143.4              0.22  7.80  False
+league  TE rounds 3-5         78.7         52.4             -1.18  1.96  False
+league  TE rounds 6-9         31.5         21.4             -0.99  1.57  False
+league  TE rounds 10+         27.5          9.9             -1.39  2.29  False
+league  WR rounds 1-2        101.1        114.5             -1.03  2.96  False
+league  WR rounds 3-5         67.2         50.7             -3.02  1.68  False
+league  WR rounds 6-9         18.6         19.8             -1.01  1.25  False
+league  WR rounds 10+        -12.4        -21.2             -0.87  1.14  False
