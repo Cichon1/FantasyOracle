@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       sources:
-        description: "Sources to pull (space separated): nflverse ffc fp_adp spotrac inspect espn yahoo audit mfl yinspect"
+        description: "Sources to pull (space separated): nflverse ffc fp_adp spotrac inspect espn yahoo audit mfl yinspect sstruct"
         default: "nflverse ffc fp_adp spotrac"
 
 permissions:
@@ -96,6 +96,10 @@ jobs:
       - name: Autosave
         if: always()
         run: /tmp/save.sh mfl
+      - name: Spotrac page layout (content masked)
+        if: contains(github.event.inputs.sources, 'sstruct')
+        continue-on-error: true
+        run: python automation/draft_test/draft_data.py spotrac_structure
       - name: Yahoo ADP check (counts only)
         if: contains(github.event.inputs.sources, 'yinspect')
         continue-on-error: true

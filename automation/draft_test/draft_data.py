@@ -293,6 +293,22 @@ def yahoo_inspect():
                 c["numeric" if re.fullmatch(r"[\d.]+", v) else ("dash" if v == "-" else ("empty" if not v else "other"))] += 1
         print(f, j.get("game_key"), dict(c), dict(tags))
 
+
+def spotrac_structure():
+    """Layout of a saved Spotrac incentive page with all content masked (letters -> x, digits -> 9) - public logs."""
+    from collections import Counter
+    for y, t in [("2024", "kc"), ("2021", "buf")]:
+        h = load(os.path.join(OUT, "spotrac", y, f"incentives_{t}.enc"), enc=True)
+        h = re.sub(r"<script.*?</script>|<style.*?</style>|<svg.*?</svg>", "", h, flags=re.S)
+        i = h.find("Incentive")
+        body = h[max(0, i - 6000): i + 9000]
+        cls = Counter(re.findall(r'class="([^"]+)"', body))
+        print(y, t, "classes:", cls.most_common(25))
+        masked = re.sub(r">([^<]+)<", lambda m: ">" + re.sub(r"[A-Za-z]", "x", re.sub(r"\d", "9", m.group(1).strip()))[:40] + "<", body)
+        masked = re.sub(r'href="[^"]*"', 'href="#"', masked)
+        masked = re.sub(r"\s+", " ", masked)
+        print(masked[:5000])
+
 def fp_inspect():
     """Structure of the saved FantasyPros ADP pages only (sizes, tags, notices) - never their data (public logs)."""
     d = os.path.join(OUT, "fp_adp")
@@ -332,4 +348,4 @@ def status():
 
 if __name__ == "__main__":
     {"ffc": ffc, "fp_adp": fp_adp, "nflverse": nflverse, "spotrac": spotrac, "status": status, "fp_inspect": fp_inspect, "spotrac_inspect": spotrac_inspect,
-     "yahoo_adp": yahoo_adp, "espn_adp": espn_adp, "mfl_adp": mfl_adp, "yahoo_inspect": yahoo_inspect}[sys.argv[1]]()
+     "yahoo_adp": yahoo_adp, "espn_adp": espn_adp, "mfl_adp": mfl_adp, "yahoo_inspect": yahoo_inspect, "spotrac_structure": spotrac_structure}[sys.argv[1]]()
