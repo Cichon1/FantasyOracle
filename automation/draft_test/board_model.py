@@ -338,5 +338,19 @@ def test():
         json.dump(out, open(os.path.join(OUT, "board_test.json"), "w"), indent=1)
 
 
+
+def preds():
+    """frozen board's walk-forward predictions for every season 2013-2025 (for the strategy tournament)."""
+    d = load_all()
+    out = []
+    for y in [s for s in SEASONS if s >= 2013]:
+        train, test = d[d["season"] < y], d[d["season"] == y].copy()
+        for lg in ["bdsm", "league"]:
+            test[f"pred_{lg}"] = fit_predict(train, test, feature_list(d, CONFIG["features"]), f"pts_{lg}", CONFIG)
+        out.append(test[["season", "gsis_id", "pred_bdsm", "pred_league", "fp_ecr"]])
+        print(y, "done", flush=True)
+    pd.concat(out).to_parquet(os.path.join(OUT, "board_preds.parquet"), index=False)
+
+
 if __name__ == "__main__":
-    {"tune": tune, "test": test}[sys.argv[1]]()
+    {"tune": tune, "test": test, "preds": preds}[sys.argv[1]]()

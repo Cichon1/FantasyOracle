@@ -150,3 +150,18 @@ Situations reported for each: draft slot, round, roster so far, tiers left by po
   overall comparison separates player prediction from positional valuation. Result recorded as-is: the frozen board
   FAILED its bar (ranked players within position worse than FFC ADP, -0.014 SE 0.015, and FP ECR, -0.037 SE 0.021,
   better in 1 season of 6 / 5). Any later board version is labelled post-results and judged only on 2026.
+- Nov 24 (before any tournament results): strategy tournament engine fixed (`tournament.py` docstring). Decisions:
+  * Seasons 2013-2025 (2010 has no earlier season for the ADP->points curves; FFC 2012 has only 92 players).
+  * Boards per strategy: ADP (FFC ADP turned into points by position, seasons < Y), ours (frozen board v1), FP ECR
+    (2021-2025; ECR rank read on the same ADP->points curves). Yahoo / MFL ADP boards and Yahoo-ADP opponents are a
+    second run in GitHub (encrypted data); this first run uses FFC ADP for opponents.
+  * K and DEF left out: every seat takes them in the final rounds, so they don't separate strategies. 13 skill rounds
+    for both leagues; The League adds one keeper per team.
+  * Opponents: FFC ADP + N(0, player's FFC SD). Calibration (2019, 40 drafts): simulated draft-spot SD within 10% of
+    the real ADP SD in rounds 1-9, 11% low in round 10, 15-40% low in rounds 11-13 (the pool thins out). Accepted:
+    late rounds matter least for value, and it's the same for every seat.
+  * Waivers, lineups, schedule as in the docstring; identical for all 12 managers.
+  * Outcomes per test seat: championship (primary), playoffs, wins, points for vs league mean (secondary, least noisy).
+  * 12 slots x 16 simulated leagues per (season, league, seat config), common random numbers.
+  * Our board's 2013-2019 predictions come from the period its settings were tuned on, so "ours" in those seasons is
+    optimistic; its fair seasons are 2020-2025.
