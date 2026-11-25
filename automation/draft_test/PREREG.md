@@ -123,3 +123,9 @@ Situations reported for each: draft slot, round, roster so far, tiers left by po
   in 2012, 2020, 2021, 2023, 2024 and 2025 (+0.054 to +0.084) while agreeing with FFC 0.92-0.98. It may be genuinely
   sharper drafters, but the test can't separate that from late drafts, so by the rule those years are dropped; 2011
   can't be checked (FFC 2011 dropped) and is also dropped. MFL is used for 2013-2019 and 2022 only, as a secondary source.
+- Nov 24 (before any results): final ADP sources after the audit.
+  FFC: 2010 and 2012-2025 (2011 dropped).
+  Yahoo: 2010 and 2013-2025 (2012 flagged; 2011 can't be checked against FFC, so dropped like MFL 2011). All pass at
+  -0.10 to +0.04 vs FFC, agreement 0.86-0.94.
+  MFL: 2013-2019 and 2022.
+  ESPN, FantasyPros ADP pages: none.
