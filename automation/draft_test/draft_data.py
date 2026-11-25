@@ -312,9 +312,18 @@ def spotrac_structure():
                 cells = re.findall(r"<td([^>]*)>(.*?)</td>", r, re.S)
                 print("   row:", [(re.sub(r'"[^"]*"', '""', a.strip())[:40], mask(re.sub(r"<[^>]+>", " ", c)),
                                    sorted(set(re.findall(r"<(\w+)", c)))) for a, c in cells][:12])
-        # incentive data outside tables? (cards / lists)
-        for kw in ["data-incentive", "incentive-", "accordion", "card-body", "list-group"]:
-            print(f"  {kw}: {h.count(kw)}")
+        # incentive data outside tables? (cards / lists / scripts / ajax)
+        for kw in ["data-incentive", "incentive-", "accordion"]:
+            print(f"  {kw}: {h.count(kw)} e.g. {[re.sub(r'>[^<]*<', '><', x) for x in re.findall(r'<[^>]*' + kw + r'[^>]*>', h)[:3]]}")
+        raw = load(os.path.join(OUT, "spotrac", y, f"incentives_{t}.enc"), enc=True)
+        scripts = re.findall(r"<script([^>]*)>(.*?)</script>", raw, re.S)
+        print("  scripts:", len(scripts), "inline sizes:", sorted([len(b) for a, b in scripts if b.strip()], reverse=True)[:6])
+        print("  ajax/api urls:", sorted(set(re.findall(r"""['"](/[\w/.-]*(?:api|ajax|incentive|json)[\w/.?=&-]*)['"]""", raw)))[:12])
+        big = max((b for a, b in scripts), key=len, default="")
+        print("  biggest inline script keys:", sorted(set(re.findall(r'"(\w{3,30})"\s*:', big)))[:40])
+        print("  forms:", [re.sub(r'value="[^"]*"', '', f)[:150] for f in re.findall(r"<form[^>]*>", raw)][:4])
+        txt = re.sub(r"<[^>]+>", " ", h)
+        print("  text words:", len(txt.split()), "has 'No incentives'?", "no incentive" in txt.lower(), "sign in" in txt.lower(), "premium" in txt.lower(), "subscribe" in txt.lower())
 
 def fp_inspect():
     """Structure of the saved FantasyPros ADP pages only (sizes, tags, notices) - never their data (public logs)."""
