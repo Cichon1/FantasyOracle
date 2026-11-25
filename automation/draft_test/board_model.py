@@ -256,6 +256,17 @@ def run(seasons, cfg, lg="bdsm", verbose=True, data=None):
         test["pred"] = fit_predict(train, test, feats, target, cfg)
         repl = replacement(train, lg)
         r = {"ours": score(test, "pred", lg, False, repl), "ffc": score(test, "adp_ffc", lg, True, repl)}
+        # added after the first test results (Nov 24): the same points-above-replacement treatment for ADP, so the
+        # overall comparison separates "who scores more" from "how positions are valued". ADP -> expected points by
+        # position (isotonic fit on seasons < y), then minus the same replacement levels.
+        from sklearn.isotonic import IsotonicRegression
+        test["pred_adpvbd"] = np.nan
+        for p in TOPN:
+            tr = train[train["pos"] == p]
+            iso = IsotonicRegression(increasing=False, out_of_bounds="clip").fit(tr["adp_ffc"], tr[target])
+            m = test["pos"] == p
+            test.loc[m, "pred_adpvbd"] = iso.predict(test.loc[m, "adp_ffc"]) - 1e-6 * test.loc[m, "adp_ffc"]
+        r["ffc_as_points"] = score(test, "pred_adpvbd", lg, False, repl)
         for c in ["adp_yahoo", "adp_mfl", "fp_ecr"]:
             if c in test and test[c].notna().sum() > 100:
                 t2 = test.assign(**{c: test[c].fillna(test[c].max() + 1)})     # unranked = after everyone ranked

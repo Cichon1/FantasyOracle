@@ -145,3 +145,8 @@ Situations reported for each: draft slot, round, roster so far, tiers left by po
   features use FFC boards only so it is identical in every run; Yahoo, MFL and FP ECR are comparison boards (and the
   value-pick finder's markets). FP ECR comes from DynastyProcess's public archive ("redraft overall", last snapshot
   3+ days before kickoff); no preseason snapshot exists for 2020, so the ECR comparison is 2021-2025.
+- Nov 24 (after the first 2020-2025 board results): added a scoring row, not a board change: FFC ADP turned into
+  expected points by position (isotonic on seasons < Y) and given the same points-above-replacement treatment, so the
+  overall comparison separates player prediction from positional valuation. Result recorded as-is: the frozen board
+  FAILED its bar (ranked players within position worse than FFC ADP, -0.014 SE 0.015, and FP ECR, -0.037 SE 0.021,
+  better in 1 season of 6 / 5). Any later board version is labelled post-results and judged only on 2026.
