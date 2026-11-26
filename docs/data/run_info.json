@@ -1,24 +1,24 @@
 {
- "updated": "2026-11-25T22:02:48+00:00",
+ "updated": "2026-11-26T04:11:19+00:00",
  "season": 2026,
  "projection_week": 12,
  "results_week": 11,
- "games_started": false,
- "reason": "player_stats,play_by_play,schedule_and_lines,injury_reports,depth_charts,rosters,injury_news",
+ "games_started": true,
+ "reason": "schedule_and_lines,ftn_charting,fp_rankings,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 41,
+   "seconds": 38,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 4,
+   "seconds": 5,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 2,
+   "seconds": 3,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 269,
+   "seconds": 360,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 31,
+   "seconds": 46,
    "ok": true
   }
  ],
@@ -58,13 +58,13 @@
   "weekly_blend": {
    "blend": "model+Sleeper+ESPN",
    "coverage": {
-    "sleeper": 0.957,
+    "sleeper": 0.972,
     "espn": 0.996
    }
   },
   "inactive_rows": 0,
-  "players": 407,
-  "upcoming": 407,
+  "players": 403,
+  "upcoming": 403,
   "season_scoreboard": {
    "model": 0.4019,
    "experts": 0.415,
@@ -83,28 +83,28 @@
   "week": 12,
   "next_frames": [],
   "last_week": 17,
-  "players": 453,
-  "out_this_week": 46,
+  "players": 455,
+  "out_this_week": 53,
   "on_bye": 0,
   "this_week_source": "official",
   "next_game_rows": 0,
   "freshness": {
-   "checked": 407,
+   "checked": 402,
    "stale": 0,
    "stale_players": [],
    "manual_out_skipped": 2,
    "not_expected_next_game": [],
-   "out_last_row": 27,
+   "out_last_row": 31,
    "rule": "every player projected to play has inputs through his latest played game (out players and manual return estimates excepted: the return-timing model prices their missed games)"
   },
-  "training_snapshots": 47931,
+  "training_snapshots": 47940,
   "rounds": {
    "QB": 50,
-   "RB": 74,
-   "WR/TE": 50
+   "RB": 128,
+   "WR/TE": 75
   },
-  "experts_ros_date": "2026-11-23 00:00:00",
-  "seconds": 30,
+  "experts_ros_date": "2026-11-25 00:00:00",
+  "seconds": 45,
   "model_cache": {
    "hit": 0,
    "miss": 18,
@@ -114,74 +114,74 @@
    "QB": [
     [
      "Joe Burrow",
-     120.1
+     120.8
     ],
     [
      "Josh Allen",
-     116.9
+     117.7
     ],
     [
      "Trevor Lawrence",
-     114.9
+     113.1
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     136.8
+     136.2
     ],
     [
      "Christian McCaffrey",
-     105.9
+     106.9
     ],
     [
      "Bijan Robinson",
-     103.2
+     105.6
     ]
    ],
    "TE": [
     [
      "George Kittle",
-     72.8
+     73.1
     ],
     [
      "Trey McBride",
-     69.5
+     70.2
     ],
     [
      "Brock Bowers",
-     67.4
+     68.0
     ]
    ],
    "WR": [
     [
      "Jaxon Smith-Njigba",
-     126.9
+     127.3
     ],
     [
      "Ja'Marr Chase",
-     114.7
+     115.4
     ],
     [
      "Amon-Ra St. Brown",
-     111.6
+     112.8
     ]
    ]
   }
  },
  "injuries_live": {
   "nfl_week": 12,
-  "nfl_rows": 104,
-  "nfl_matched": 104,
+  "nfl_rows": 256,
+  "nfl_matched": 256,
   "nfl_unmatched": [],
-  "espn_out": 32,
+  "espn_out": 57,
   "espn_unmatched": [],
-  "hash": "701c0dbd042a",
+  "hash": "4377e30e6112",
   "manual_out": [
    "Drake Maye",
    "Josh Jacobs"
   ],
-  "rows_added": 14,
-  "values_updated": 1
+  "rows_added": 176,
+  "values_updated": 34
  }
 }
