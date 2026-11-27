@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-26T23:01:27+00:00",
+ "updated": "2026-11-27T04:55:54+00:00",
  "season": 2026,
  "projection_week": 12,
  "results_week": 12,
  "games_started": true,
- "reason": "player_stats,play_by_play,schedule_and_lines,injury_reports,depth_charts,rosters,injury_news",
+ "reason": "schedule_and_lines,injury_news",
  "steps": [
   {
    "step": "bash",
@@ -13,7 +13,7 @@
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 4,
+   "seconds": 5,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 300,
+   "seconds": 32,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 73,
+   "seconds": 37,
    "ok": true
   }
  ],
@@ -63,8 +63,8 @@
    }
   },
   "inactive_rows": 0,
-  "players": 402,
-  "upcoming": 352,
+  "players": 401,
+  "upcoming": 351,
   "season_scoreboard": {
    "model": 0.4122,
    "experts": 0.4246,
@@ -86,16 +86,18 @@
   ],
   "last_week": 17,
   "players": 454,
-  "out_this_week": 54,
+  "out_this_week": 55,
   "on_bye": 0,
   "this_week_source": "official",
-  "next_game_rows": 49,
+  "next_game_rows": 100,
   "freshness": {
-   "checked": 400,
+   "checked": 399,
    "stale": 0,
    "stale_players": [],
    "manual_out_skipped": 2,
-   "not_expected_next_game": [],
+   "not_expected_next_game": [
+    "Eli Stowers"
+   ],
    "out_last_row": 31,
    "rule": "every player projected to play has inputs through his latest played game (out players and manual return estimates excepted: the return-timing model prices their missed games)"
   },
@@ -106,10 +108,10 @@
    "WR/TE": 56
   },
   "experts_ros_date": "2026-11-25 00:00:00",
-  "seconds": 72,
+  "seconds": 36,
   "model_cache": {
-   "hit": 0,
-   "miss": 27,
+   "hit": 27,
+   "miss": 0,
    "on": true
   },
   "top": {
@@ -119,32 +121,32 @@
      119.9
     ],
     [
-     "Josh Allen",
-     117.6
+     "Trevor Lawrence",
+     118.5
     ],
     [
-     "Trevor Lawrence",
-     112.9
+     "Josh Allen",
+     111.3
     ]
    ],
    "RB": [
     [
-     "Bijan Robinson",
-     106.1
-    ],
-    [
      "Jahmyr Gibbs",
-     102.4
+     112.9
     ],
     [
-     "Bucky Irving",
-     96.4
+     "Christian McCaffrey",
+     106.5
+    ],
+    [
+     "Bijan Robinson",
+     103.9
     ]
    ],
    "TE": [
     [
      "George Kittle",
-     70.1
+     76.2
     ],
     [
      "Trey McBride",
@@ -152,7 +154,7 @@
     ],
     [
      "Brock Bowers",
-     63.7
+     65.7
     ]
    ],
    "WR": [
@@ -162,28 +164,28 @@
     ],
     [
      "Jaxon Smith-Njigba",
-     103.6
+     104.1
     ],
     [
-     "CeeDee Lamb",
-     98.3
+     "Justin Jefferson",
+     98.8
     ]
    ]
   }
  },
  "injuries_live": {
   "nfl_week": 12,
-  "nfl_rows": 304,
-  "nfl_matched": 304,
+  "nfl_rows": 343,
+  "nfl_matched": 343,
   "nfl_unmatched": [],
-  "espn_out": 72,
+  "espn_out": 83,
   "espn_unmatched": [],
-  "hash": "5e55a717bd43",
+  "hash": "d1dff00fb183",
   "manual_out": [
    "Drake Maye",
    "Josh Jacobs"
   ],
-  "rows_added": 32,
-  "values_updated": 4
+  "rows_added": 77,
+  "values_updated": 57
  }
 }

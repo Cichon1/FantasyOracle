@@ -1,27 +1,27 @@
 {
- "at": "2026-11-26T04:11:47+00:00",
+ "at": "2026-11-27T04:56:27+00:00",
  "week": 12,
  "candidates": {
   "api|league/{lk}/players;player_keys={keys};out=stats;stats.type=projected_week;stats.week={w}": {
    "ok": false,
-   "error": "HTTP 400 b'<?xml version=\"1.0\" encoding=\"UTF-8\"?>\\n<error xml:lang=\"en-us\" yahoo:uri=\"http://fantasysports.yahooapis.com/fantasy/v2/league/470.l.126912/players;player_keys=470.p.30977,470.p.40196,470.p.41807,470.p.33394,470.p.33989,470.p.41795,470.p.30972,470.p.40048,470.p.34062,470.p.27535,470.p.40097,470.p.42'"
+   "error": "HTTP 400 b'<?xml version=\"1.0\" encoding=\"UTF-8\"?>\\n<error xml:lang=\"en-us\" yahoo:uri=\"http://fantasysports.yahooapis.com/fantasy/v2/league/470.l.126912/players;player_keys=470.p.30977,470.p.40196,470.p.41807,470.p.33394,470.p.33989,470.p.41795,470.p.30972,470.p.40048,470.p.34062,470.p.40097,470.p.42652,470.p.30'"
   },
   "pub|league/{gk}.l.public/players;player_keys={keys};out=stats;stats.type=projected_week;stats.week={w}": {
    "ok": false,
-   "error": "HTTP 400 b'<?xml version=\"1.0\" encoding=\"UTF-8\"?>\\n<error xml:lang=\"en-us\" yahoo:uri=\"http://pub-api-ro.fantasysports.yahoo.com/fantasy/v2/league/470.l.public/players;player_keys=470.p.30977,470.p.40196,470.p.41807,470.p.33394,470.p.33989,470.p.41795,470.p.30972,470.p.40048,470.p.34062,470.p.27535,470.p.40097,4'"
+   "error": "HTTP 400 b'<?xml version=\"1.0\" encoding=\"UTF-8\"?>\\n<error xml:lang=\"en-us\" yahoo:uri=\"http://pub-api-ro.fantasysports.yahoo.com/fantasy/v2/league/470.l.public/players;player_keys=470.p.30977,470.p.40196,470.p.41807,470.p.33394,470.p.33989,470.p.41795,470.p.30972,470.p.40048,470.p.34062,470.p.40097,470.p.42652,4'"
   },
   "pub|league/{gk}.l.public/players;player_keys={keys}/stats;type=projected_week;week={w}": {
    "ok": false,
-   "error": "HTTP 400 b'<?xml version=\"1.0\" encoding=\"UTF-8\"?>\\n<error xml:lang=\"en-us\" yahoo:uri=\"http://pub-api-ro.fantasysports.yahoo.com/fantasy/v2/league/470.l.public/players;player_keys=470.p.30977,470.p.40196,470.p.41807,470.p.33394,470.p.33989,470.p.41795,470.p.30972,470.p.40048,470.p.34062,470.p.27535,470.p.40097,4'"
+   "error": "HTTP 400 b'<?xml version=\"1.0\" encoding=\"UTF-8\"?>\\n<error xml:lang=\"en-us\" yahoo:uri=\"http://pub-api-ro.fantasysports.yahoo.com/fantasy/v2/league/470.l.public/players;player_keys=470.p.30977,470.p.40196,470.p.41807,470.p.33394,470.p.33989,470.p.41795,470.p.30972,470.p.40048,470.p.34062,470.p.40097,470.p.42652,4'"
   },
   "api|league/{lk}/players;player_keys={keys}/stats;type=projected_week;week={w}": {
    "ok": false,
-   "error": "HTTP 400 b'<?xml version=\"1.0\" encoding=\"UTF-8\"?>\\n<error xml:lang=\"en-us\" yahoo:uri=\"http://fantasysports.yahooapis.com/fantasy/v2/league/470.l.126912/players;player_keys=470.p.30977,470.p.40196,470.p.41807,470.p.33394,470.p.33989,470.p.41795,470.p.30972,470.p.40048,470.p.34062,470.p.27535,470.p.40097,470.p.42'"
+   "error": "HTTP 400 b'<?xml version=\"1.0\" encoding=\"UTF-8\"?>\\n<error xml:lang=\"en-us\" yahoo:uri=\"http://fantasysports.yahooapis.com/fantasy/v2/league/470.l.126912/players;player_keys=470.p.30977,470.p.40196,470.p.41807,470.p.33394,470.p.33989,470.p.41795,470.p.30972,470.p.40048,470.p.34062,470.p.40097,470.p.42652,470.p.30'"
   },
   "pub|league/{gk}.l.public/players;player_keys={keys};out=stats;stats.type=week;stats.week={w}": {
    "ok": true,
    "players": 25,
-   "nonzero": 3,
+   "nonzero": 10,
    "coverage": [
     "week"
    ],
@@ -29,7 +29,7 @@
    "example": [
     [
      "Josh Allen",
-     0.0
+     5.54
     ],
     [
      "Chase Brown",
