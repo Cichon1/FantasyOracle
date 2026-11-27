@@ -1,24 +1,24 @@
 {
- "updated": "2026-11-27T14:55:57+00:00",
+ "updated": "2026-11-27T23:25:32+00:00",
  "season": 2026,
  "projection_week": 12,
  "results_week": 12,
  "games_started": true,
- "reason": "player_stats,play_by_play,schedule_and_lines,injury_reports,depth_charts,rosters,snap_counts,expert_rankings,injury_news",
+ "reason": "player_stats,play_by_play,schedule_and_lines,injury_reports,depth_charts,rosters,expected_points,injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 39,
+   "seconds": 43,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 3,
+   "seconds": 5,
    "ok": true
   },
   {
    "step": "cloud_run.py results",
-   "seconds": 1,
+   "seconds": 2,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 137,
+   "seconds": 208,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 55,
+   "seconds": 60,
    "ok": true
   }
  ],
@@ -58,7 +58,7 @@
   "weekly_blend": {
    "blend": "model+Sleeper+ESPN",
    "coverage": {
-    "sleeper": 0.973,
+    "sleeper": 0.93,
     "espn": 0.995
    }
   },
@@ -86,17 +86,21 @@
   ],
   "last_week": 17,
   "players": 453,
-  "out_this_week": 54,
+  "out_this_week": 57,
   "on_bye": 0,
   "this_week_source": "official",
-  "next_game_rows": 101,
+  "next_game_rows": 120,
   "freshness": {
-   "checked": 399,
+   "checked": 396,
    "stale": 0,
    "stale_players": [],
    "manual_out_skipped": 2,
-   "not_expected_next_game": [],
-   "out_last_row": 30,
+   "not_expected_next_game": [
+    "Travis Homer",
+    "Mason Rudolph",
+    "Robert Tonyan"
+   ],
+   "out_last_row": 29,
    "rule": "every player projected to play has inputs through his latest played game (out players and manual return estimates excepted: the return-timing model prices their missed games)"
   },
   "training_snapshots": 47941,
@@ -106,45 +110,45 @@
    "WR/TE": 75
   },
   "experts_ros_date": "2026-11-27 00:00:00",
-  "seconds": 54,
+  "seconds": 59,
   "model_cache": {
-   "hit": 0,
-   "miss": 27,
+   "hit": 18,
+   "miss": 9,
    "on": true
   },
   "top": {
    "QB": [
     [
      "Joe Burrow",
-     121.0
+     119.7
     ],
     [
      "Trevor Lawrence",
-     116.7
+     113.9
     ],
     [
      "Josh Allen",
-     108.9
+     111.3
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     110.5
+     109.4
     ],
     [
      "Bijan Robinson",
-     106.1
+     105.6
     ],
     [
      "Christian McCaffrey",
-     103.0
+     103.5
     ]
    ],
    "TE": [
     [
      "George Kittle",
-     72.9
+     71.5
     ],
     [
      "Trey McBride",
@@ -152,13 +156,13 @@
     ],
     [
      "Brock Bowers",
-     65.1
+     63.8
     ]
    ],
    "WR": [
     [
      "Ja'Marr Chase",
-     127.8
+     128.2
     ],
     [
      "Jaxon Smith-Njigba",
@@ -176,14 +180,14 @@
   "nfl_rows": 343,
   "nfl_matched": 343,
   "nfl_unmatched": [],
-  "espn_out": 82,
+  "espn_out": 141,
   "espn_unmatched": [],
-  "hash": "90618a9c5d25",
+  "hash": "5f17669a5665",
   "manual_out": [
    "Drake Maye",
    "Josh Jacobs"
   ],
-  "rows_added": 36,
+  "rows_added": 47,
   "values_updated": 2
  }
 }
