@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-28T01:27:54+00:00",
+ "updated": "2026-11-28T01:37:25+00:00",
  "season": 2026,
  "projection_week": 12,
  "results_week": 12,
  "games_started": true,
- "reason": "schedule_and_lines,fp_rankings,injury_news",
+ "reason": "injury_news",
  "steps": [
   {
    "step": "bash",
-   "seconds": 36,
+   "seconds": 40,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 74,
+   "seconds": 30,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 33,
+   "seconds": 35,
    "ok": true
   }
  ],
@@ -89,12 +89,12 @@
   "out_this_week": 69,
   "on_bye": 0,
   "this_week_source": "official",
-  "next_game_rows": 119,
+  "next_game_rows": 118,
   "freshness": {
-   "checked": 383,
+   "checked": 382,
    "stale": 0,
    "stale_players": [],
-   "manual_out_skipped": 3,
+   "manual_out_skipped": 8,
    "not_expected_next_game": [
     "Travis Homer",
     "Mason Rudolph",
@@ -110,7 +110,7 @@
    "WR/TE": 75
   },
   "experts_ros_date": "2026-11-27 00:00:00",
-  "seconds": 32,
+  "seconds": 34,
   "model_cache": {
    "hit": 27,
    "miss": 0,
@@ -185,9 +185,13 @@
   "hash": "8a4d2571aa6d",
   "manual_out": [
    "Drake Maye",
-   "Josh Jacobs"
+   "Josh Jacobs",
+   "Alec Pierce",
+   "Malik Willis",
+   "De'Zhaun Stribling",
+   "George Holani"
   ],
-  "rows_added": 56,
+  "rows_added": 58,
   "values_updated": 153
  }
 }
