@@ -1,19 +1,19 @@
 {
- "updated": "2026-11-28T04:58:27+00:00",
+ "updated": "2026-11-28T14:06:21+00:00",
  "season": 2026,
  "projection_week": 12,
  "results_week": 12,
  "games_started": true,
- "reason": "player_stats,play_by_play,schedule_and_lines,injury_news",
+ "reason": "player_stats,play_by_play,schedule_and_lines,injury_reports,depth_charts,rosters,snap_counts",
  "steps": [
   {
    "step": "bash",
-   "seconds": 38,
+   "seconds": 37,
    "ok": true
   },
   {
    "step": "/home/runner/work/FantasyOracle/FantasyOracle/automation/fp_inject.py fpdata",
-   "seconds": 4,
+   "seconds": 6,
    "ok": true
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "step": "cloud_run.py project",
-   "seconds": 134,
+   "seconds": 229,
    "ok": true
   },
   {
    "step": "cloud_run.py ros",
-   "seconds": 53,
+   "seconds": 89,
    "ok": true
   }
  ],
@@ -52,29 +52,29 @@
   "season": 2026,
   "week": 12,
   "inactives": {
-   "nflverse_roster": 11,
-   "total": 11
+   "nflverse_roster": 17,
+   "total": 17
   },
   "weekly_blend": {
    "blend": "model+Sleeper+ESPN",
    "coverage": {
-    "sleeper": 0.989,
-    "espn": 0.995
+    "sleeper": 0.988,
+    "espn": 0.994
    }
   },
   "inactive_rows": 0,
   "players": 388,
-  "upcoming": 286,
+  "upcoming": 264,
   "season_scoreboard": {
-   "model": 0.4167,
-   "experts": 0.4289,
-   "official": 0.4272
+   "model": 0.425,
+   "experts": 0.4327,
+   "official": 0.4347
   },
   "latest_week_scoreboard": {
    "week": 12,
-   "model": 0.6327,
-   "experts": 0.6313,
-   "official": 0.6225
+   "model": 0.6788,
+   "experts": 0.6275,
+   "official": 0.6638
   }
  },
  "ros_info": {
@@ -86,31 +86,27 @@
   ],
   "last_week": 17,
   "players": 453,
-  "out_this_week": 69,
+  "out_this_week": 67,
   "on_bye": 0,
   "this_week_source": "official",
-  "next_game_rows": 118,
+  "next_game_rows": 120,
   "freshness": {
-   "checked": 382,
+   "checked": 384,
    "stale": 0,
    "stale_players": [],
    "manual_out_skipped": 8,
-   "not_expected_next_game": [
-    "Travis Homer",
-    "Mason Rudolph",
-    "Robert Tonyan"
-   ],
+   "not_expected_next_game": [],
    "out_last_row": 40,
    "rule": "every player projected to play has inputs through his latest played game (out players and manual return estimates excepted: the return-timing model prices their missed games)"
   },
-  "training_snapshots": 47941,
+  "training_snapshots": 47940,
   "rounds": {
    "QB": 50,
-   "RB": 81,
-   "WR/TE": 50
+   "RB": 85,
+   "WR/TE": 63
   },
   "experts_ros_date": "2026-11-27 00:00:00",
-  "seconds": 52,
+  "seconds": 88,
   "model_cache": {
    "hit": 0,
    "miss": 27,
@@ -120,57 +116,57 @@
    "QB": [
     [
      "Joe Burrow",
-     119.8
+     118.9
     ],
     [
      "Trevor Lawrence",
-     113.5
+     113.6
     ],
     [
      "Josh Allen",
-     111.1
+     111.9
     ]
    ],
    "RB": [
     [
      "Jahmyr Gibbs",
-     110.3
+     109.9
     ],
     [
      "Christian McCaffrey",
-     105.8
+     106.4
     ],
     [
      "Bijan Robinson",
-     103.4
+     103.7
     ]
    ],
    "TE": [
     [
      "George Kittle",
-     74.4
+     74.8
     ],
     [
      "Trey McBride",
-     70.4
+     70.8
     ],
     [
      "Isaiah Likely",
-     69.4
+     70.2
     ]
    ],
    "WR": [
     [
      "Ja'Marr Chase",
-     126.9
+     127.3
     ],
     [
      "Jaxon Smith-Njigba",
-     111.9
+     111.4
     ],
     [
      "Justin Jefferson",
-     97.5
+     97.9
     ]
    ]
   }
@@ -191,7 +187,7 @@
    "De'Zhaun Stribling",
    "George Holani"
   ],
-  "rows_added": 58,
-  "values_updated": 153
+  "rows_added": 49,
+  "values_updated": 1
  }
 }
