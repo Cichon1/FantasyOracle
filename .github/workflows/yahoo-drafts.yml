@@ -3,7 +3,7 @@ name: Yahoo league drafts
 
 on:
   push:
-    paths: ["automation/yahoo_drafts.py", "automation/yahoo_drafts_request.txt"]
+    paths: ["automation/yahoo_drafts.py", "automation/yahoo_drafts_request.txt", ".github/workflows/yahoo-drafts.yml"]
   workflow_dispatch:
 
 permissions:
@@ -25,6 +25,11 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install -q pandas cryptography
+      - name: FFC 2026 ADP (12-team PPR), for comparing leaguemates' picks with the market
+        continue-on-error: true
+        run: |
+          f=automation/history/draft/ffc/ffc_ppr_12_2026.json
+          [ -f "$f" ] || curl -sf -A "FantasyOracle" "https://fantasyfootballcalculator.com/api/v1/adp/ppr?teams=12&year=2026" -o "$f" || rm -f "$f"
       - name: Pull draft results
         env:
           YAHOO_CLIENT_ID: ${{ secrets.YAHOO_CLIENT_ID }}
@@ -35,6 +40,6 @@ jobs:
         run: |
           git config user.name "fantasy-oracle-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add automation/history/draft/league_drafts
+          git add automation/history/draft/league_drafts automation/history/draft/ffc
           git commit -m "Yahoo league drafts" || exit 0
           for i in 1 2 3; do git pull -q --rebase -X theirs origin "$GITHUB_REF_NAME" && git push -q && exit 0; sleep 10; done
