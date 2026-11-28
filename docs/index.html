@@ -753,6 +753,26 @@ html, body { overflow-x: clip; }
       </div>
     </div>
 
+    <div class="nf-card" id="po-card">
+      <h2 id="po-title">Playoff schedules · Weeks 15–17</h2>
+      <p class="nf-note">All three leagues play their fantasy playoffs in Weeks 15, 16 and 17. Each week shows the opponent, green for a soft matchup and red for a tough one: how many fantasy points that opponent has allowed to the position this season, compared with average (shrunk toward average early on; hover for the number). <b>Schedule</b> is the average over the three games (1.00 = average). <b>Playoff pts</b> are his PPR points per game when he plays, times his chance to play each of those games, times the share of the matchup that actually carries into points (tested on past seasons: about half for QB / RB / WR / TE, most of it for team defenses, little for kickers). <b>From schedule</b> is how many of those points come from the schedule, compared with three average opponents. K and DEF use the selected league’s scoring and each unit’s recent average. Schedules move playoff points only a few percent, so use this to break ties, not as a reason to trade.</p>
+      <div class="nf-controls">
+        <div id="po-pos-chips" role="group" aria-label="Position"></div>
+        <div id="po-show-chips" role="group" aria-label="Players"></div>
+        <input class="nf-search" id="po-search" type="search" placeholder="Search player or team">
+      </div>
+      <div class="nf-controls" id="po-sort-chips" role="group" aria-label="Rank by"><span class="nf-label">Rank by</span> </div>
+      <p class="nf-team-meta" id="po-meta"></p>
+      <div class="nf-tablebox">
+        <table class="nf-table" id="po-table">
+          <thead><tr><th>Rank</th><th class="nf-l">Player</th><th class="nf-l">Pos</th><th class="nf-l">Wk 15</th><th class="nf-l">Wk 16</th><th class="nf-l">Wk 17</th>
+            <th>Schedule</th><th>Playoff pts</th><th>From schedule</th><th class="nf-l nf-hide-sm">In your league</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p><button class="nf-chip" id="po-more" hidden>Show more</button></p>
+    </div>
+
     <div class="nf-controls" id="ros-phase-chips" role="group" aria-label="Test seasons"><span class="nf-label">Backtest</span></div>
     <div class="nf-grid">
       <div class="nf-card" id="ros-week-card">
@@ -2946,6 +2966,113 @@ window.foAvail = (() => {
 </script>
 
 <script>
+// Playoff schedules, Weeks 15-17 (Nov 28, 2026): playoff_sched_v5.csv (automation/playoff_sched.py) + ros_v5.csv
+(() => {
+  const f1 = d3.format('.1f'), f2 = d3.format('.2f'), sg = d3.format('+.1f');
+  const WEEKS = [15, 16, 17], PAGE = 60;
+  const st = { pos: 'All', show: 'All', sort: 'Easiest schedule', q: '', n: PAGE };
+  const chips = (box, items, key) => items.forEach((p) => {
+    const b = document.createElement('button'); b.className = 'nf-chip'; b.textContent = p; b.setAttribute('aria-pressed', p === st[key]);
+    b.addEventListener('click', () => { st[key] = p; st.n = PAGE; box.querySelectorAll('button').forEach((c) => c.setAttribute('aria-pressed', c.textContent === p)); draw(); });
+    box.append(b, ' ');
+  });
+  chips(document.getElementById('po-pos-chips'), ['All', 'QB', 'RB', 'WR', 'TE', 'K', 'DEF'], 'pos');
+  chips(document.getElementById('po-show-chips'), ['All', 'My players', 'Available'], 'show');
+  chips(document.getElementById('po-sort-chips'), ['Easiest schedule', 'Playoff pts', 'From schedule'], 'sort');
+  document.getElementById('po-search').addEventListener('input', (e) => { st.q = e.target.value.toLowerCase(); st.n = PAGE; draw(); });
+  document.getElementById('po-more').addEventListener('click', () => { st.n += PAGE; draw(); });
+
+  function rows() {
+    const PS = dash.data('playoff_sched'), R = dash.data('ros'), RO = dash.data('league_rosters');
+    if (PS.status !== 'ok' || R.status !== 'ok') return { status: PS.status === 'ok' ? R.status : PS.status, list: [] };
+    const lg = nfMine.cur(), lid = lg ? String(lg.league_id) : '';
+    const sc = PS.data.some((r) => String(r.scoring) === lid) ? lid : 'default';
+    const sched = new Map();   // team|pos -> [{week, opp, home, ratio, adj, recent_avg}]
+    PS.data.forEach((r) => {
+      if (r.scoring !== '' && r.scoring != null && String(r.scoring) !== sc) return;
+      const k = r.team + '|' + r.pos; if (!sched.has(k)) sched.set(k, []); sched.get(k).push(r);
+    });
+    sched.forEach((v) => v.sort((a, b) => +a.week - +b.week));
+    const ro = RO.status === 'ok' && lg ? RO.data.filter((p) => String(p.league_id) === lid) : [];
+    const byKey = new Map(ro.filter((p) => p.ros_key).map((p) => [p.ros_key, p]));
+    const byUnit = new Map(ro.filter((p) => p.kind === 'K' || p.kind === 'DEF').map((p) => [p.kind + '|' + p.nfl, p]));
+    const owner = (p) => (!lg ? null : !p ? { mine: false, fa: true, label: 'Available' }
+      : String(p.team_id) === String(lg.my_team) ? { mine: true, fa: false, label: 'Yours' } : { mine: false, fa: false, label: p.team });
+    const list = [];
+    const finish = (o, games, perGame) => {   // perGame[i] = expected points vs an average opponent in games[i]
+      let pts = 0, base = 0, rs = [];
+      games.forEach((g, i) => { if (g.opp === 'BYE') return; const a = nfNum(g.adj); pts += perGame[i] * a; base += perGame[i]; rs.push(nfNum(g.ratio)); });
+      o.weeks = WEEKS.map((w) => games.find((g) => +g.week === w));
+      o.ratio = rs.length ? d3.mean(rs) : NaN;
+      o.ease = games.length ? d3.mean(games, (g) => (g.opp === 'BYE' ? 0 : nfNum(g.adj))) : NaN;
+      o.pts = pts; o.gain = pts - base;
+      list.push(o);
+    };
+    R.data.forEach((r) => {
+      const games = sched.get(r.team + '|' + r.pos); if (!games) return;
+      const ppw = nfNum(r.pts_when_playing), ppg = nfNum(r.ros_ppg);
+      const curve = String(r.play_curve || '').split(';').filter((x) => x !== '').map(Number);
+      const played = games.filter((g) => g.opp !== 'BYE');
+      let k = curve.length - played.length;   // the playoff games are his team's last games of the fantasy season
+      const per = games.map((g) => {
+        if (g.opp === 'BYE') return 0;
+        if (!isNaN(ppw) && curve.length >= played.length && k >= 0) return ppw * curve[k++];
+        return isNaN(ppg) ? 0 : ppg;     // out now / no curve: his ROS points per game (chance to play included)
+      });
+      finish({ key: r.key, name: r.key, pos: r.pos, team: r.team, own: owner(byKey.get(r.key)), relevant: (isNaN(ppw) ? ppg : ppw) >= 5 }, games, per);
+    });
+    ['K', 'DEF'].forEach((u) => {
+      const teams = [...new Set(PS.data.filter((r) => r.pos === u).map((r) => r.team))];
+      teams.forEach((t) => {
+        const games = sched.get(t + '|' + u); if (!games) return;
+        const avg = nfNum(games[0].recent_avg);
+        const h = byUnit.get(u + '|' + t);
+        finish({ key: u + t, name: t + (u === 'K' ? ' kicker' : ' D/ST'), pos: u, team: t, own: owner(h), relevant: true }, games, games.map(() => (isNaN(avg) ? 0 : avg)));
+      });
+    });
+    return { status: 'ok', list, lg, sc, thru: PS.data.length ? PS.data[0].thru_week : '' };
+  }
+
+  function draw() {
+    const tb = document.querySelector('#po-table tbody'), meta = document.getElementById('po-meta'), more = document.getElementById('po-more');
+    tb.replaceChildren(); more.hidden = true;
+    const msg = (t) => { const tr = document.createElement('tr'), td = document.createElement('td'); td.colSpan = 10; td.className = 'nf-muted'; td.textContent = t; tr.appendChild(td); tb.appendChild(tr); };
+    const res = rows();
+    if (res.status !== 'ok') { meta.textContent = ''; msg(res.status === 'loading' ? 'Loading…' : 'Playoff schedules not available yet'); return; }
+    const lgName = res.lg ? res.lg.league : '';
+    meta.textContent = 'Matchups from games through Week ' + res.thru + (lgName ? ' · ' + lgName + (res.sc === 'default' ? ' · K / DEF on Yahoo default scoring' : ' · its own K / DEF scoring') : ' · pick a league in the top bar to see who owns whom');
+    const key = st.sort === 'Playoff pts' ? 'pts' : st.sort === 'From schedule' ? 'gain' : 'ease';
+    let list = res.list.filter((o) => (st.pos === 'All' ? o.pos !== 'K' && o.pos !== 'DEF' && o.relevant : o.pos === st.pos)
+      && (st.show === 'All' || (o.own && (st.show === 'My players' ? o.own.mine : o.own.fa)))
+      && (!st.q || (o.name + ' ' + o.team).toLowerCase().includes(st.q)));
+    if (st.show !== 'All' && !res.lg) { msg('Pick a league in the top bar to filter by your players or free agents.'); return; }
+    list.sort((a, b) => (nfNum(b[key]) || -99) - (nfNum(a[key]) || -99) || b.pts - a.pts);
+    if (!list.length) { msg('No players match these filters.'); return; }
+    list.slice(0, st.n).forEach((o, i) => {
+      const tr = document.createElement('tr'); tr.className = !o.own ? '' : o.own.mine ? 'nf-mine' : o.own.fa ? 'nf-fa' : '';
+      const c = (t, cls) => { const td = document.createElement('td'); td.textContent = t; if (cls) td.className = cls; tr.appendChild(td); return td; };
+      c(String(i + 1)); c(o.name, 'nf-l nf-name'); c(o.pos, 'nf-l');
+      o.weeks.forEach((g) => {
+        if (!g) { c('—', 'nf-l nf-muted'); return; }
+        if (g.opp === 'BYE') { c('BYE', 'nf-l nf-bad'); return; }
+        const r = nfNum(g.ratio);
+        const td = c((+g.home === 1 ? 'vs ' : '@ ') + g.opp, 'nf-l' + (r >= 1.08 ? ' nf-good' : r <= 0.92 ? ' nf-bad' : ''));
+        td.title = 'Allows ' + f2(r) + '× the average to ' + (o.pos === 'K' ? 'kickers' : o.pos === 'DEF' ? 'defenses' : o.pos + 's');
+      });
+      const s = c(isNaN(o.ratio) ? '—' : f2(o.ratio)); if (o.ratio >= 1.05) s.classList.add('nf-good'); else if (o.ratio <= 0.95) s.classList.add('nf-bad');
+      c(f1(o.pts));
+      const gt = c(sg(o.gain)); if (o.gain >= 0.5) gt.classList.add('nf-good'); else if (o.gain <= -0.5) gt.classList.add('nf-bad');
+      c(!o.own ? '—' : o.own.label, 'nf-l nf-hide-sm' + (o.own && !o.own.mine && !o.own.fa ? ' nf-muted' : ''));
+      tb.appendChild(tr);
+    });
+    more.hidden = list.length <= st.n;
+  }
+  nfMine.onChange(draw);
+  dash.onData(draw);
+})();
+</script>
+
+<script>
 // Trade analyzer engine (no DOM): each player's rest-of-season points per week in the league's scoring, and each
 // team's best lineup in the league's lineup slots before and after a trade.
 window.taEngine = (() => {
@@ -4838,6 +4965,7 @@ fetch('data/datasets.json', {cache: 'no-store'}).then((r) => r.json()).then((c) 
     'team-partner-table': { name: 'Team', keep: ['Team', 'Fit with you'] },
     'team-needs-table': { name: 'Team', keep: ['Team', 'Needs'] },
     'mr-table': { name: 'Player', keep: ['My rank', 'Player'] },
+    'po-table': { name: 'Player', keep: ['Rank', 'Player', 'Wk 15', 'Wk 16', 'Wk 17', 'Playoff pts'], first: ['In your league', 'From schedule', 'Pos', 'Schedule'] },
   };
   const norm = (t) => t.replace(/[↑↓▲▼⇅↕]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
   const state = new WeakMap(); let uid = 0;

@@ -222,6 +222,12 @@
    "title": "Kicker and defense projections, Weeks 12-14",
    "description": "Team kicker and team defense projected fantasy points by week (scoring: Yahoo default, or a league id for that league's own K / DEF rules), from Vegas lines (implied points, spread), dome, home and recent scoring; weeks without lines yet fall back to season averages.",
    "updated": "2026-11-27T23:25:39+00:00"
+  },
+  "playoff_sched": {
+   "file": "playoff_sched_v5.csv",
+   "title": "Playoff schedules, Weeks 15-17 (through Week 12)",
+   "description": "Per NFL team, fantasy position and playoff week (15-17): opponent, matchup ratio (opponent's points allowed to the position vs average, shrunk with 8 games of prior; > 1 softer) and adj (share of the matchup that carries into points: skill 0.55, DEF 0.85, K 0.4, fit on 2019-22, checked 2023-25). K / DEF by scoring (Yahoo default or a league id) with the unit's recent average.",
+   "updated": "2026-11-28T00:21:38+00:00"
   }
  },
  "note": "Week 12 projections"

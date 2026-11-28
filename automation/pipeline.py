@@ -122,6 +122,9 @@ def main():
         # kicker / defense weekly projections for the streaming card (optional: never fails the update)
         subprocess.run([sys.executable, os.path.join(ROOT, "automation", "kdef_week.py"), "--data",
                         os.path.join(MODEL, "data"), "--season", str(season), "--week", str(w_proj), "--out", SITE])
+        # fantasy playoff schedules, Weeks 15-17, for the Rest of season tab (optional: never fails the update)
+        subprocess.run([sys.executable, os.path.join(ROOT, "automation", "playoff_sched.py"), "--data",
+                        os.path.join(MODEL, "data"), "--season", str(season), "--out", SITE])
     info = {"updated": now, "season": season, "projection_week": w_proj, "results_week": w_res,
             "games_started": started, "reason": a.reason, "steps": log}
     for f in ["run_info.json", "ros_info.json", "injuries_live.json"]:
