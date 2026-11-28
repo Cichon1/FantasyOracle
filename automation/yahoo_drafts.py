@@ -56,8 +56,10 @@ def one_season(tok, lk, name, summ):
         tm, err = safe(tok, f"league/{lk}/teams")
     if tm is not None:
         for x in tm.findall(".//team"):
-            g = Y.t(x, ".//managers/manager/guid") or Y.t(x, ".//managers/manager/manager_id")
-            teams[Y.t(x, "team_key")] = {"manager_id": mid(g) if g else "", "team_name": Y.t(x, "name"),
+            g = Y.t(x, ".//managers/manager/guid")
+            if not g or g.strip("-") == "":          # Yahoo hides other managers' guids: use the nickname
+                g = "nick:" + Y.t(x, ".//managers/manager/nickname")
+            teams[Y.t(x, "team_key")] = {"manager_id": mid(g), "team_name": Y.t(x, "name"),
                                          "final_rank": Y.t(x, ".//team_standings/rank")}
     else:
         summ["errors"].append({"league": lk, "step": "teams", "error": err})
