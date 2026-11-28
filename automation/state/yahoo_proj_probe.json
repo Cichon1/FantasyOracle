@@ -1,5 +1,5 @@
 {
- "at": "2026-11-27T04:56:27+00:00",
+ "at": "2026-11-28T04:58:55+00:00",
  "week": 12,
  "candidates": {
   "api|league/{lk}/players;player_keys={keys};out=stats;stats.type=projected_week;stats.week={w}": {
@@ -21,7 +21,7 @@
   "pub|league/{gk}.l.public/players;player_keys={keys};out=stats;stats.type=week;stats.week={w}": {
    "ok": true,
    "players": 25,
-   "nonzero": 10,
+   "nonzero": 12,
    "coverage": [
     "week"
    ],
@@ -41,7 +41,7 @@
     ],
     [
      "Jaylen Waddle",
-     0.0
+     7.8
     ],
     [
      "Christian Watson",
