@@ -1,4 +1,4 @@
-"""(v2: every non-active entry, compact) One-off look at free injury-news feeds (Nov 28, 2026), for an automatic return-estimate step.
+"""(v3: also the raw feed without Active entries -> ref/espn_injuries_feed.json) One-off look at free injury-news feeds (Nov 28, 2026), for an automatic return-estimate step.
 
 Saves the shape of each feed and a few full entries (incl. Colston Loveland's) to automation/ref/news_probe.json.
 The cloud sessions can't reach these hosts; GitHub's runners can.
@@ -49,6 +49,9 @@ try:
                         "detail": (i.get("details") or {}).get("detail"), "short": i.get("shortComment"),
                         "long": i.get("longComment")} for i in entries if i.get("status") != "Active"]
     rep.pop("espn_samples", None)
+    raw = {"injuries": [dict(t, injuries=[i for i in t.get("injuries", []) if i.get("status") != "Active"])
+                        for t in d.get("injuries", [])]}
+    json.dump(raw, open(os.path.join(os.path.dirname(OUT), "espn_injuries_feed.json"), "w"))
     lov = rep["espn_loveland"]
     aid = None
     if lov:
