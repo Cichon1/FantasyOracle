@@ -165,3 +165,20 @@ Situations reported for each: draft slot, round, roster so far, tiers left by po
   * 12 slots x 16 simulated leagues per (season, league, seat config), common random numbers.
   * Our board's 2013-2019 predictions come from the period its settings were tuned on, so "ours" in those seasons is
     optimistic; its fair seasons are 2020-2025.
+- Nov 27 (AFTER run 1's results; everything below is post-results and labelled so). Audit + v2 tests, code in
+  `automation/draft_test/v2/`, results in `v2/results/`, write-up in the project doc draft-tournament-audit-2026-11-27.
+  * Bug found in run 1's waiver rule: add/drop judged on this week's projection with bye / inactive = 0, so teams
+    dropped stars on bye weeks (89% of drops were inactive players; ~42 top-60-ADP drops per league-season). v2 judges
+    add/drop on rest-of-season per-game value; a player is droppable after 3 straight missed games. With the fix a
+    deliberately noisy drafter's penalty grows from -3.2% to -4.9% of points (the test was about a third less sensitive).
+  * Run 1's ADP->points board (isotonic) is step-shaped: whole tiers share one value (e.g. 2025 Bijan / Saquon / Gibbs
+    / CMC all 222.1). v2 uses a smooth, monotone kernel curve on log ADP (seasons < Y), plus a 50/50 log-rank blend of
+    FFC ADP and FP ECR where ECR exists (2021+). Run 1's TE values above replacement put a TE in round 1 in 79% of
+    best-available / Elite-TE drafts.
+  * New drafter: rolling-horizon planner (Monte Carlo availability at each of my remaining picks + dynamic program
+    over positions; ADP decides timing, the board decides the player).
+  * Leaguemate opponent model from BDSM's 2024-26 and The League's 2025-26 Yahoo drafts (`automation/yahoo_drafts.py`;
+    keepers removed; position bias on market rank shrunk with n/(n+20); noise = league spread / FFC spread by tier,
+    about 2.2x / 2.0x / 1.6x). Habits learned from recent drafts are applied to 2013-2025 player outcomes (a "these
+    managers in those seasons" scenario, not a walk-forward). Part of the extra spread is Yahoo's rankings vs FFC's.
+  * Same 13 seasons, 12 slots x 3 sims, common random numbers; a replication with different seeds was run once.
