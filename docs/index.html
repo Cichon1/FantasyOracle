@@ -798,18 +798,18 @@ html, body { overflow-x: clip; }
   <section class="nf-panel" id="playoffs" role="tabpanel" hidden>
     <div class="nf-card" id="po-card">
       <h2 id="po-title">Playoff schedules · Weeks 15–17</h2>
-      <p class="nf-note">All three leagues play their fantasy playoffs in Weeks 15, 16 and 17. Each week shows the opponent, green for a soft matchup and red for a tough one: how many fantasy points that opponent has allowed to the position this season, compared with average (shrunk toward average early on; hover for the number). <b>Schedule</b> is the average over the three games (1.00 = average). <b>Playoff pts</b> are his PPR points per game when he plays, times his chance to play each of those games, times the share of the matchup that actually carries into points (tested on past seasons: about half for QB / RB / WR / TE, most of it for team defenses, little for kickers). <b>From schedule</b> is how many of those points come from the schedule, compared with three average opponents. K and DEF use the selected league’s scoring and each unit’s recent average. Schedules move playoff points only a few percent, so use this to break ties, not as a reason to trade.</p>
+      <p class="nf-note">All three leagues play their fantasy playoffs in Weeks 15, 16 and 17. Each week shows the opponent, green for a soft matchup and red for a tough one: how many fantasy points that opponent has allowed to the position this season, compared with average (shrunk toward average early on; hover for the number). <b>Schedule</b> is the average over the three games (1.00 = average). <b>Playoff pts</b> are his PPR points per game when he plays, times his chance to play each of those games, times the share of the matchup that actually carries into points (tested on past seasons: about half for QB / RB / WR / TE, most of it for team defenses, little for kickers). <b>From schedule</b> is how many of those points come from the schedule, compared with three average opponents. <b>Pos rank</b> is his rank at the position by playoff points. Click any column heading to sort by it (click again to flip the order); a week column sorts by how easy that week’s matchup is. K and DEF use the selected league’s scoring and each unit’s recent average. Schedules move playoff points only a few percent, so use this to break ties, not as a reason to trade.</p>
       <div class="nf-controls">
         <div id="po-pos-chips" role="group" aria-label="Position"></div>
         <div id="po-show-chips" role="group" aria-label="Players"></div>
         <input class="nf-search" id="po-search" type="search" placeholder="Search player or team">
       </div>
-      <div class="nf-controls" id="po-sort-chips" role="group" aria-label="Rank by"><span class="nf-label">Rank by</span> </div>
       <p class="nf-team-meta" id="po-meta"></p>
       <div class="nf-tablebox">
         <table class="nf-table" id="po-table">
-          <thead><tr><th>Rank</th><th class="nf-l">Player</th><th class="nf-l">Pos</th><th class="nf-l">Wk 15</th><th class="nf-l">Wk 16</th><th class="nf-l">Wk 17</th>
-            <th>Schedule</th><th>Playoff pts</th><th>From schedule</th><th class="nf-l nf-hide-sm">In your league</th></tr></thead>
+          <thead><tr><th>Rank</th><th class="nf-l"><button data-col="name">Player</button></th><th class="nf-l"><button data-col="pos">Pos</button></th><th><button data-col="posrank">Pos rank</button></th>
+            <th class="nf-l"><button data-col="w15">Wk 15</button></th><th class="nf-l"><button data-col="w16">Wk 16</button></th><th class="nf-l"><button data-col="w17">Wk 17</button></th>
+            <th><button data-col="ratio">Schedule</button></th><th aria-sort="descending"><button data-col="pts">Playoff pts</button></th><th><button data-col="gain">From schedule</button></th><th class="nf-l nf-hide-sm"><button data-col="league">In your league</button></th></tr></thead>
           <tbody></tbody>
         </table>
       </div>
@@ -2974,7 +2974,7 @@ window.foAvail = (() => {
 (() => {
   const f1 = d3.format('.1f'), f2 = d3.format('.2f'), sg = d3.format('+.1f');
   const WEEKS = [15, 16, 17], PAGE = 60;
-  const st = { pos: 'All', show: 'All', sort: 'Easiest schedule', q: '', n: PAGE };
+  const st = { pos: 'All', show: 'All', sort: 'pts', dir: -1, q: '', n: PAGE };
   const chips = (box, items, key) => items.forEach((p) => {
     const b = document.createElement('button'); b.className = 'nf-chip'; b.textContent = p; b.setAttribute('aria-pressed', p === st[key]);
     b.addEventListener('click', () => { st[key] = p; st.n = PAGE; box.querySelectorAll('button').forEach((c) => c.setAttribute('aria-pressed', c.textContent === p)); draw(); });
@@ -2982,7 +2982,12 @@ window.foAvail = (() => {
   });
   chips(document.getElementById('po-pos-chips'), ['All', 'QB', 'RB', 'WR', 'TE', 'K', 'DEF'], 'pos');
   chips(document.getElementById('po-show-chips'), ['All', 'My players', 'Available'], 'show');
-  chips(document.getElementById('po-sort-chips'), ['Easiest schedule', 'Playoff pts', 'From schedule'], 'sort');
+  const TEXT = ['name', 'pos', 'league'];
+  document.querySelectorAll('#po-table th button').forEach((b) => b.addEventListener('click', () => {
+    const k = b.dataset.col;
+    if (st.sort === k) st.dir = -st.dir; else { st.sort = k; st.dir = TEXT.includes(k) || k === 'posrank' ? 1 : -1; }
+    st.n = PAGE; draw();
+  }));
   document.getElementById('po-search').addEventListener('input', (e) => { st.q = e.target.value.toLowerCase(); st.n = PAGE; draw(); });
   document.getElementById('po-more').addEventListener('click', () => { st.n += PAGE; draw(); });
 
@@ -3040,22 +3045,36 @@ window.foAvail = (() => {
   function draw() {
     const tb = document.querySelector('#po-table tbody'), meta = document.getElementById('po-meta'), more = document.getElementById('po-more');
     tb.replaceChildren(); more.hidden = true;
-    const msg = (t) => { const tr = document.createElement('tr'), td = document.createElement('td'); td.colSpan = 10; td.className = 'nf-muted'; td.textContent = t; tr.appendChild(td); tb.appendChild(tr); };
+    const msg = (t) => { const tr = document.createElement('tr'), td = document.createElement('td'); td.colSpan = 11; td.className = 'nf-muted'; td.textContent = t; tr.appendChild(td); tb.appendChild(tr); };
     const res = rows();
     if (res.status !== 'ok') { meta.textContent = ''; msg(res.status === 'loading' ? 'Loading…' : 'Playoff schedules not available yet'); return; }
     const lgName = res.lg ? res.lg.league : '';
     meta.textContent = 'Matchups from games through Week ' + res.thru + (lgName ? ' · ' + lgName + (res.sc === 'default' ? ' · K / DEF on Yahoo default scoring' : ' · its own K / DEF scoring') : ' · pick a league in the top bar to see who owns whom');
-    const key = st.sort === 'Playoff pts' ? 'pts' : st.sort === 'From schedule' ? 'gain' : 'ease';
     let list = res.list.filter((o) => (st.pos === 'All' ? o.pos !== 'K' && o.pos !== 'DEF' && o.relevant : o.pos === st.pos)
       && (st.show === 'All' || (o.own && (st.show === 'My players' ? o.own.mine : o.own.fa)))
       && (!st.q || (o.name + ' ' + o.team).toLowerCase().includes(st.q)));
     if (st.show !== 'All' && !res.lg) { msg('Pick a league in the top bar to filter by your players or free agents.'); return; }
-    list.sort((a, b) => (nfNum(b[key]) || -99) - (nfNum(a[key]) || -99) || b.pts - a.pts);
+    // position rank by playoff points among everyone at the position (before the show / search filters)
+    const byPos = {};
+    res.list.filter((o) => o.pos === 'K' || o.pos === 'DEF' || o.relevant).sort((a, b) => b.pts - a.pts)
+      .forEach((o) => { byPos[o.pos] = (byPos[o.pos] || 0) + 1; o.posrank = byPos[o.pos]; });
+    const lgOrder = (o) => (!o.own ? 'zz' : o.own.mine ? '0' : o.own.fa ? '1' : '2' + o.own.label.toLowerCase());
+    const val = (o) => {
+      const k = st.sort;
+      if (k === 'name') return o.name.toLowerCase();
+      if (k === 'pos') return o.pos;
+      if (k === 'league') return lgOrder(o);
+      if (k[0] === 'w') { const g = o.weeks[+k.slice(1) - 15]; return !g || g.opp === 'BYE' ? -9 : nfNum(g.adj); }
+      const v = nfNum(o[k]); return isNaN(v) ? -9 : v;
+    };
+    list.sort((a, b) => { const x = val(a), y = val(b); const c = x < y ? -1 : x > y ? 1 : 0; return st.dir * c || b.pts - a.pts; });
+    document.querySelectorAll('#po-table th').forEach((th) => { const b = th.querySelector('button');
+      if (b && b.dataset.col === st.sort) th.setAttribute('aria-sort', st.dir === 1 ? 'ascending' : 'descending'); else th.removeAttribute('aria-sort'); });
     if (!list.length) { msg('No players match these filters.'); return; }
     list.slice(0, st.n).forEach((o, i) => {
       const tr = document.createElement('tr'); tr.className = !o.own ? '' : o.own.mine ? 'nf-mine' : o.own.fa ? 'nf-fa' : '';
       const c = (t, cls) => { const td = document.createElement('td'); td.textContent = t; if (cls) td.className = cls; tr.appendChild(td); return td; };
-      c(String(i + 1)); c(o.name, 'nf-l nf-name'); c(o.pos, 'nf-l');
+      c(String(i + 1)); c(o.name, 'nf-l nf-name'); c(o.pos, 'nf-l'); c(o.posrank ? o.pos + o.posrank : '—', 'nf-muted');
       o.weeks.forEach((g) => {
         if (!g) { c('—', 'nf-l nf-muted'); return; }
         if (g.opp === 'BYE') { c('BYE', 'nf-l nf-bad'); return; }
@@ -4969,7 +4988,7 @@ fetch('data/datasets.json', {cache: 'no-store'}).then((r) => r.json()).then((c) 
     'team-partner-table': { name: 'Team', keep: ['Team', 'Fit with you'] },
     'team-needs-table': { name: 'Team', keep: ['Team', 'Needs'] },
     'mr-table': { name: 'Player', keep: ['My rank', 'Player'] },
-    'po-table': { name: 'Player', keep: ['Rank', 'Player', 'Wk 15', 'Wk 16', 'Wk 17', 'Playoff pts'], first: ['In your league', 'From schedule', 'Pos', 'Schedule'] },
+    'po-table': { name: 'Player', keep: ['Rank', 'Player', 'Wk 15', 'Wk 16', 'Wk 17', 'Playoff pts'], first: ['In your league', 'From schedule', 'Pos', 'Schedule', 'Pos rank'] },
   };
   const norm = (t) => t.replace(/[↑↓▲▼⇅↕]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
   const state = new WeakMap(); let uid = 0;
