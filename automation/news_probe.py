@@ -1,4 +1,4 @@
-"""One-off look at free injury-news feeds (Nov 28, 2026), for an automatic return-estimate step.
+"""(v2: every non-active entry, compact) One-off look at free injury-news feeds (Nov 28, 2026), for an automatic return-estimate step.
 
 Saves the shape of each feed and a few full entries (incl. Colston Loveland's) to automation/ref/news_probe.json.
 The cloud sessions can't reach these hosts; GitHub's runners can.
@@ -44,6 +44,11 @@ try:
         s = i.get("status")
         if len(rep["espn_samples"].get(s, [])) < 3:
             rep["espn_samples"].setdefault(s, []).append(i)
+    rep["espn_all"] = [{"name": (i.get("athlete") or {}).get("displayName"), "status": i.get("status"), "date": i.get("date"),
+                        "return": (i.get("details") or {}).get("returnDate"), "type": (i.get("details") or {}).get("type"),
+                        "detail": (i.get("details") or {}).get("detail"), "short": i.get("shortComment"),
+                        "long": i.get("longComment")} for i in entries if i.get("status") != "Active"]
+    rep.pop("espn_samples", None)
     lov = rep["espn_loveland"]
     aid = None
     if lov:
