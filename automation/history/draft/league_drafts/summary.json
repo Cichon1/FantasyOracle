@@ -1,0 +1,101 @@
+{
+ "seasons": [
+  {
+   "league_key": "470.l.126912",
+   "season": "2026",
+   "name": "BDSM LEAGUE",
+   "num_teams": "12",
+   "draft_status": "postdraft",
+   "renew": "461_293382",
+   "draft_type": "live",
+   "is_auction_draft": "0",
+   "uses_keeper": "",
+   "num_keepers": "",
+   "draft_pick_time": "90",
+   "scoring_type": "head",
+   "picks": 180,
+   "players_named": 180,
+   "keepers_marked": 0,
+   "league": "bdsm"
+  },
+  {
+   "league_key": "461.l.293382",
+   "season": "2025",
+   "name": "Adam\u2019s League",
+   "num_teams": "12",
+   "draft_status": "postdraft",
+   "renew": "449_1162944",
+   "draft_type": "live",
+   "is_auction_draft": "0",
+   "uses_keeper": "",
+   "num_keepers": "",
+   "draft_pick_time": "90",
+   "scoring_type": "head",
+   "picks": 180,
+   "players_named": 180,
+   "keepers_marked": 0,
+   "league": "bdsm"
+  },
+  {
+   "league_key": "449.l.1162944",
+   "season": "2024",
+   "name": "The Backup League",
+   "num_teams": "12",
+   "draft_status": "postdraft",
+   "renew": "",
+   "draft_type": "live",
+   "is_auction_draft": "0",
+   "uses_keeper": "",
+   "num_keepers": "",
+   "draft_pick_time": "90",
+   "scoring_type": "head",
+   "picks": 180,
+   "players_named": 180,
+   "keepers_marked": 0,
+   "league": "bdsm"
+  },
+  {
+   "league_key": "470.l.200436",
+   "season": "2026",
+   "name": "The League",
+   "num_teams": "12",
+   "draft_status": "postdraft",
+   "renew": "461_507294",
+   "draft_type": "live",
+   "is_auction_draft": "0",
+   "uses_keeper": "",
+   "num_keepers": "",
+   "draft_pick_time": "90",
+   "scoring_type": "head",
+   "picks": 192,
+   "players_named": 192,
+   "keepers_marked": 12,
+   "league": "league"
+  },
+  {
+   "league_key": "461.l.507294",
+   "season": "2025",
+   "name": "The League",
+   "num_teams": "12",
+   "draft_status": "postdraft",
+   "renew": "449_597970",
+   "draft_type": "live",
+   "is_auction_draft": "0",
+   "uses_keeper": "",
+   "num_keepers": "",
+   "draft_pick_time": "90",
+   "scoring_type": "head",
+   "picks": 192,
+   "players_named": 192,
+   "keepers_marked": 12,
+   "league": "league"
+  }
+ ],
+ "errors": [
+  {
+   "league": "449.l.597970",
+   "step": "metadata",
+   "error": "GET league/449.l.597970/metadata: HTTP 403 b'<?xml version=\"1.0\" encoding=\"UTF-8\"?>\\n<error xml:lang=\"en-us\" yahoo:uri=\"http://fantasysports.yahooapis.com/fantasy/v2/league/449.l.597970/metadata\" xmlns:yahoo=\"http://www.yahooapis.com/v1/base.rng\" xmlns=\"http://www.yahooapis.com/v1/base.rng\">\\n <desc"
+  }
+ ]
+}
