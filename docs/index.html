@@ -754,6 +754,17 @@ html, body { overflow-x: clip; }
       </div>
     </div>
 
+    <div class="nf-card" id="inj-card">
+      <h2>Injury news: multi-week absences</h2>
+      <p class="nf-note">Read from ESPN’s injury feed with every update. When the news gives a timeline (ESPN’s expected return date, “out at least four games”, “4-to-6 weeks”, season-ending), the projections treat him as out through that week: Out in the weekly rankings, those games taken out of his rest-of-season points and his playoff points, and in the trade tools. “Week-to-week” with no number is listed to watch but changes nothing. A return estimate you add by hand always wins over the news. Your players are shaded; free agents green.</p>
+      <div class="nf-tablebox">
+        <table class="nf-table" id="inj-table">
+          <thead><tr><th class="nf-l">Player</th><th class="nf-l">Pos</th><th class="nf-l">Status</th><th class="nf-l">Out through</th><th class="nf-l nf-hide-sm">Based on</th><th class="nf-l">Latest news</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
     <div class="nf-controls" id="ros-phase-chips" role="group" aria-label="Test seasons"><span class="nf-label">Backtest</span></div>
     <div class="nf-grid">
       <div class="nf-card" id="ros-week-card">
@@ -2966,6 +2977,36 @@ window.foAvail = (() => {
   });
   document.querySelector('[data-tab="ros"]').addEventListener('click', () => setTimeout(weekChart, 0));
   window.addEventListener('resize', () => weekChart());
+})();
+</script>
+
+<script>
+// Injury news: multi-week absences (Nov 28, 2026): injury_news_v5.csv (automation/injury_news.py)
+(() => {
+  function draw() {
+    const D = dash.data('injury_news'), tb = document.querySelector('#inj-table tbody');
+    if (!tb) return;
+    tb.replaceChildren();
+    const msg = (t) => { const tr = document.createElement('tr'), td = document.createElement('td'); td.colSpan = 6; td.className = 'nf-muted'; td.textContent = t; tr.appendChild(td); tb.appendChild(tr); };
+    if (D.status !== 'ok') { msg(D.status === 'loading' ? 'Loading…' : 'No injury news yet (it appears after the next update).'); return; }
+    if (!D.data.length) { msg('No multi-week absences in the news right now.'); return; }
+    const rows = D.data.slice().sort((a, b) => (nfNum(a.out_through_week) || 99) - (nfNum(b.out_through_week) || 99) || a.player.localeCompare(b.player));
+    rows.forEach((r) => {
+      const tr = document.createElement('tr'); tr.className = nfMine.rowClass(r.player + ' (' + r.team + ')');
+      const c = (t, cls) => { const td = document.createElement('td'); td.textContent = t; if (cls) td.className = cls; tr.appendChild(td); return td; };
+      c(r.player + ' (' + r.team + ')', 'nf-l nf-name'); c(r.position, 'nf-l'); c(r.status, 'nf-l');
+      const w = nfNum(r.out_through_week), mw = nfNum(r.manual_through_week);
+      const wk = (x) => (x >= 17 ? 'Rest of season' : 'Week ' + x);
+      const o = c(!isNaN(mw) ? wk(mw) + ' (your estimate)' : isNaN(w) ? 'Watch: no timeline' : wk(w), 'nf-l ' + (isNaN(w) && isNaN(mw) ? 'nf-warn' : 'nf-bad'));
+      if (!isNaN(mw) && !isNaN(w) && mw !== w) o.title = 'The news points to ' + wk(w) + '; your own estimate is used.';
+      c(isNaN(w) ? (r.evidence || '') : (r.how || '') + (r.evidence ? ' (“' + r.evidence.split('; ')[0] + '”)' : ''), 'nf-l nf-hide-sm nf-muted');
+      const n = c(r.news || '', 'nf-l'); n.style.whiteSpace = 'normal'; n.style.minWidth = '260px';
+      if (r.news_date) n.title = 'ESPN, ' + r.news_date;
+      tb.appendChild(tr);
+    });
+  }
+  nfMine.onChange(draw);
+  dash.onData(draw);
 })();
 </script>
 

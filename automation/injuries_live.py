@@ -194,6 +194,13 @@ def raw_stamp(week):
         key += sorted((r["team"], r["name"], r["status"]) for r in espn_news(since))
     except Exception:
         pass
+    try:   # multi-week news for QB/RB/WR/TE (injury_news.py): return dates and what the news text says
+        import injury_news as NEWS
+        key += sorted((e["team"] or "", e["name"], e["status"] or "", (e["return"] or "")[:10],
+                       str(NEWS.parse_text(e["short"] + " " + e["long"], e["last"])[:4]))
+                      for e in NEWS.entries(NEWS.fetch()) if e["pos"] in NEWS.POS and e["status"] not in (None, "Active"))
+    except Exception:
+        pass
     return hashlib.sha1(json.dumps(key).encode()).hexdigest()[:12] if key else None
 
 
@@ -209,7 +216,9 @@ def main():
     # manual return estimates (model/manual_out.csv): Out for every week through out_through_week
     import manual_out as MO
     man = [{"player_id": r["player_id"], "team": r["team"], "position": r["position"], "name": r["player"],
-            "status": "Out", "practice": None, "injury": "Manual: out through Week " + str(int(r["out_through_week"]))}
+            "status": "Out", "practice": None,
+            "injury": ("News: out through Week " if r.get("kind") == "news" else "Manual: out through Week ")
+                      + str(int(r["out_through_week"]))}
            for r in MO.rows(a.season, a.week)]
     if man:
         ids = {r["player_id"] for r in man}

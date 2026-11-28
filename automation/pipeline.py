@@ -85,6 +85,13 @@ def main():
     if w_proj is not None:
         run([sys.executable, os.path.join(ROOT, "automation", "weather.py"), "--data", "data", "--season", str(season),
              "--week", str(w_proj), "--out", "ref"], log)
+        # multi-week injury news -> automatic return estimates (model/auto_out.csv, read with manual_out.csv by
+        # injuries_live and the ROS step; optional: never fails the update - without it, last run's file is ignored)
+        if os.path.exists(os.path.join(MODEL, "auto_out.csv")):
+            os.remove(os.path.join(MODEL, "auto_out.csv"))
+        subprocess.run([sys.executable, os.path.join(ROOT, "automation", "injury_news.py"), "--data", os.path.join(MODEL, "data"),
+                        "--season", str(season), "--week", str(w_proj), "--auto", os.path.join(MODEL, "auto_out.csv"),
+                        "--site", SITE])
         run([sys.executable, os.path.join(ROOT, "automation", "injuries_live.py"), "--data", "data", "--season",
              str(season), "--week", str(w_proj), "--info", os.path.join("dash_out", "injuries_live.json")], log)
         run([sys.executable, os.path.join(ROOT, "automation", "inactives_nfl.py"), "--season", str(season),

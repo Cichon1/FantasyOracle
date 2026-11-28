@@ -12,3 +12,4 @@ __pycache__/
 model/lab_ros/
 model/lab/*.parquet
 model/lab/draft/
+model/auto_out.csv

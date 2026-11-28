@@ -228,6 +228,12 @@
    "title": "Playoff schedules, Weeks 15-17 (through Week 12)",
    "description": "Per NFL team, fantasy position and playoff week (15-17): opponent, matchup ratio (opponent's points allowed to the position vs average, shrunk with 8 games of prior; > 1 softer) and adj (share of the matchup that carries into points: skill 0.55, DEF 0.85, K 0.4, fit on 2019-22, checked 2023-25). K / DEF by scoring (Yahoo default or a league id) with the unit's recent average.",
    "updated": "2026-11-28T01:28:01+00:00"
+  },
+  "injury_news": {
+   "file": "injury_news_v5.csv",
+   "title": "Injury news: multi-week absences (Week 12)",
+   "description": "QB/RB/WR/TE whose ESPN injury entry points to missing games after this week: ESPN's return date and the news text (season-ending, 'at least N games', 'N-to-M weeks'). applied = used as an automatic return estimate (a manual estimate for the same player wins); vague news ('week-to-week') is listed without a change.",
+   "updated": "2026-11-28T01:34:32+00:00"
   }
  },
  "note": "Week 12 projections"
