@@ -410,6 +410,7 @@ html, body { overflow-x: clip; }
     <button class="nf-tab" role="tab" data-tab="team" aria-selected="false">My team</button>
     <button class="nf-tab" role="tab" data-tab="projections" aria-selected="false">Weekly rankings</button>
     <button class="nf-tab" role="tab" data-tab="ros" aria-selected="false">Rest of season</button>
+    <button class="nf-tab" role="tab" data-tab="playoffs" aria-selected="false">Playoffs</button>
     <button class="nf-tab" role="tab" data-tab="trade" aria-selected="false">Trade analyzer</button>
     <button class="nf-tab" role="tab" data-tab="finder" aria-selected="false">Find trades</button>
     <button class="nf-tab" role="tab" data-tab="myranks" aria-selected="false">My rankings</button>
@@ -753,26 +754,6 @@ html, body { overflow-x: clip; }
       </div>
     </div>
 
-    <div class="nf-card" id="po-card">
-      <h2 id="po-title">Playoff schedules · Weeks 15–17</h2>
-      <p class="nf-note">All three leagues play their fantasy playoffs in Weeks 15, 16 and 17. Each week shows the opponent, green for a soft matchup and red for a tough one: how many fantasy points that opponent has allowed to the position this season, compared with average (shrunk toward average early on; hover for the number). <b>Schedule</b> is the average over the three games (1.00 = average). <b>Playoff pts</b> are his PPR points per game when he plays, times his chance to play each of those games, times the share of the matchup that actually carries into points (tested on past seasons: about half for QB / RB / WR / TE, most of it for team defenses, little for kickers). <b>From schedule</b> is how many of those points come from the schedule, compared with three average opponents. K and DEF use the selected league’s scoring and each unit’s recent average. Schedules move playoff points only a few percent, so use this to break ties, not as a reason to trade.</p>
-      <div class="nf-controls">
-        <div id="po-pos-chips" role="group" aria-label="Position"></div>
-        <div id="po-show-chips" role="group" aria-label="Players"></div>
-        <input class="nf-search" id="po-search" type="search" placeholder="Search player or team">
-      </div>
-      <div class="nf-controls" id="po-sort-chips" role="group" aria-label="Rank by"><span class="nf-label">Rank by</span> </div>
-      <p class="nf-team-meta" id="po-meta"></p>
-      <div class="nf-tablebox">
-        <table class="nf-table" id="po-table">
-          <thead><tr><th>Rank</th><th class="nf-l">Player</th><th class="nf-l">Pos</th><th class="nf-l">Wk 15</th><th class="nf-l">Wk 16</th><th class="nf-l">Wk 17</th>
-            <th>Schedule</th><th>Playoff pts</th><th>From schedule</th><th class="nf-l nf-hide-sm">In your league</th></tr></thead>
-          <tbody></tbody>
-        </table>
-      </div>
-      <p><button class="nf-chip" id="po-more" hidden>Show more</button></p>
-    </div>
-
     <div class="nf-controls" id="ros-phase-chips" role="group" aria-label="Test seasons"><span class="nf-label">Backtest</span></div>
     <div class="nf-grid">
       <div class="nf-card" id="ros-week-card">
@@ -810,6 +791,29 @@ html, body { overflow-x: clip; }
         <li><b>Honest test</b> — 2020–2025, each season projected at every week by models trained only on earlier seasons, with out-of-sample weekly projections; scored against the FantasyPros ROS snapshot taken the Friday of that week (after Thursday's game, so if anything the experts knew slightly more). The mix share and the 50/50 blend were picked on 2020–22; 2023–25 was scored once at the end. Early in the season (Weeks 4–5) the experts were slightly ahead in the test seasons; from Week 6 on the official ranking led in most weeks.</li>
       </ul>
       <p class="nf-muted">Refreshed with every scheduled run: Thursday and Sunday after the weekly projections, after each Sunday inactives post, and Tuesday after final results (rest of season then starts at the next week).</p>
+    </div>
+  </section>
+
+  <!-- ============================== PLAYOFFS (Nov 28): fantasy playoff schedules, Weeks 15-17 -->
+  <section class="nf-panel" id="playoffs" role="tabpanel" hidden>
+    <div class="nf-card" id="po-card">
+      <h2 id="po-title">Playoff schedules · Weeks 15–17</h2>
+      <p class="nf-note">All three leagues play their fantasy playoffs in Weeks 15, 16 and 17. Each week shows the opponent, green for a soft matchup and red for a tough one: how many fantasy points that opponent has allowed to the position this season, compared with average (shrunk toward average early on; hover for the number). <b>Schedule</b> is the average over the three games (1.00 = average). <b>Playoff pts</b> are his PPR points per game when he plays, times his chance to play each of those games, times the share of the matchup that actually carries into points (tested on past seasons: about half for QB / RB / WR / TE, most of it for team defenses, little for kickers). <b>From schedule</b> is how many of those points come from the schedule, compared with three average opponents. K and DEF use the selected league’s scoring and each unit’s recent average. Schedules move playoff points only a few percent, so use this to break ties, not as a reason to trade.</p>
+      <div class="nf-controls">
+        <div id="po-pos-chips" role="group" aria-label="Position"></div>
+        <div id="po-show-chips" role="group" aria-label="Players"></div>
+        <input class="nf-search" id="po-search" type="search" placeholder="Search player or team">
+      </div>
+      <div class="nf-controls" id="po-sort-chips" role="group" aria-label="Rank by"><span class="nf-label">Rank by</span> </div>
+      <p class="nf-team-meta" id="po-meta"></p>
+      <div class="nf-tablebox">
+        <table class="nf-table" id="po-table">
+          <thead><tr><th>Rank</th><th class="nf-l">Player</th><th class="nf-l">Pos</th><th class="nf-l">Wk 15</th><th class="nf-l">Wk 16</th><th class="nf-l">Wk 17</th>
+            <th>Schedule</th><th>Playoff pts</th><th>From schedule</th><th class="nf-l nf-hide-sm">In your league</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p><button class="nf-chip" id="po-more" hidden>Show more</button></p>
     </div>
   </section>
 
@@ -4670,7 +4674,7 @@ dash.calc('league_players', {
   const GROUPS = [
     { label: 'Home', pages: [['home', 'Home']] },
     { label: 'My Team', pages: [['team', 'Start / sit & waivers']] },
-    { label: 'Rankings', pages: [['projections', 'This week'], ['ros', 'Rest of season'], ['myranks', 'My rankings']] },
+    { label: 'Rankings', pages: [['projections', 'This week'], ['ros', 'Rest of season'], ['playoffs', 'Playoffs (Wk 15–17)'], ['myranks', 'My rankings']] },
     { label: 'Trades', pages: [['trade', 'Trade analyzer'], ['finder', 'Find trades & partners']] },
     { label: 'Research', pages: [['matchups', 'Defenses, coaches & usage'], ['style', 'Run game & style'], ['weather', 'Weather']] },
     { label: 'Model', pages: [['experts', 'Model vs experts'], ['model', 'Accuracy & method']] },
